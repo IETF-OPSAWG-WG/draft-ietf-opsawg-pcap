@@ -66,6 +66,7 @@
 
    <note title='Updates'>
 		<list style="symbols">
+			<t>[23 May 2006] Gianluca Varenni: Added the block type code for IRIG Timestamp Block</t>
 			<t>[23 Apr 2006] Gianluca Varenni: Cleaned up Appendix C a bit: we should use the LINKTYPE_xxx values from libpcap, not the DLT_xxx ones. Fixed the introduction to the appendix and added some comments.</t>
 			<t>[21 Mar 2006] Gianluca Varenni: Added a preliminary version of Appendix C, detailing the Standardized Link Types.</t>
 			<t>[21 Mar 2006] Gianluca Varenni: Added a preliminary version of Appendix B, detailing the Standardized Block Type codes.</t>
@@ -957,6 +958,9 @@ Two or more files can be concatenated obtaining another valid file.</t>
 
   <c>0x00000006</c>
   <c><xref target="sectionepb">Enhanced Packet Block</xref></c>
+
+  <c>0x00000007</c>
+  <c>IRIG Timestamp Block (requested by Gianluca Varenni &lt;gianluca.varenni@cacetech.com&gt;, CACE Technologies LLC)</c>
 
   <c>0x0A0A0D0A</c>
   <c>Reserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode.</c>
