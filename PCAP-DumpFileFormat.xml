@@ -7,17 +7,18 @@
    <front>
        <title>PCAP Next Generation Dump File Format</title>
        <author initials="L." surname="Degioanni" fullname="Loris Degioanni">
-         <organization>Politecnico di Torino</organization>
+         <organization>CACE Technologies</organization>
          <address>
             <postal>
-               <street>Corso Duca degli Abruzzi, 24</street>
-               <city>Torino</city>
-               <code>10129</code>
-               <country>Italy</country>
+               <street>1949 Fifth Street #103</street>
+               <city>Davis</city> 
+               <region>CA</region>
+               <code>95616</code>
+               <country>United States</country>
             </postal>
-            <phone>+39 011 564 7008</phone>
-            <email>loris.degioanni@polito.it</email>
-            <uri>http://netgroup.polito.it/loris/</uri>
+            <phone>+1 530 758 2790 </phone>
+            <email>loris.degioanni@cacetech.com</email>
+            <uri>http://www.winpcap.org/loris/</uri>
          </address>
       </author>
        <author initials="F." surname="Risso" fullname="Fulvio Risso">
@@ -31,22 +32,23 @@
             </postal>
             <phone>+39 011 564 7008</phone>
             <email>fulvio.risso@polito.it</email>
-            <uri>http://netgroup.polito.it/fulvio.risso/</uri>
+            <uri>http://staff.polito.it/fulvio.risso/</uri>
          </address>
       </author>
 
        <author initials="G." surname="Varenni" fullname="Gianluca Varenni">
-         <organization>Politecnico di Torino</organization>
+         <organization>CACE Technologies</organization>
          <address>
             <postal>
-               <street>Corso Duca degli Abruzzi, 24</street>
-               <city>Torino</city>
-               <code>10129</code>
-               <country>Italy</country>
+               <street>1949 Fifth Street #103</street>
+               <city>Davis</city> 
+               <region>CA</region>
+               <code>95616</code>
+               <country>United States</country>
             </postal>
-            <phone>+39 011 564 7017</phone>
-            <email>gianluca.varenni@polito.it</email>
-            <uri>http://netgroup.polito.it/gianluca/</uri>
+            <phone>+1 530 758 2790 </phone>
+            <email>gianluca.varenni@cacetech.com</email>
+            <uri>http://www.winpcap.org/gianluca/</uri>
          </address>
       </author>
    <!-- Other authors go here -->
@@ -61,6 +63,11 @@
          <abstract>
 <t>This document describes a format to dump captured packets on a file. This format is extensible and it is currently proposed for implementation in the libpcap/WinPcap packet capture library.</t>
          </abstract>
+
+   <note title='Updates'>
+        <t>[12 Mar 2006] Gianluca Varenni: Added option if_tsoffset in the Interface Description Block.</t>
+    </note>
+
 <!--
       <note ...>
 -->
@@ -346,6 +353,11 @@
   <c>13</c>
   <c>1</c>
   <c>An integer value that specified the length of the Frame Check Sequence (in bits) for this interface. For link layers whose FCS length can change during time, the Packet Block Flags Word can be used (see Appendix 1).</c>
+
+  <c>if_tsoffset</c>
+  <c>14</c>
+  <c>8</c>
+  <c>A 64 bits integer value that specifies an offset (in seconds) that must be added to the timestamp of each packet to obtain the absolute timestamp of a packet. If the option is missing, the timestamps stored in the packet must be considered absolute timestamps. The time zone of the offset can be specified with the option if_tzone</c>
 
 </texttable>
 
