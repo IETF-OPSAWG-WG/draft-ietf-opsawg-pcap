@@ -66,6 +66,7 @@
 
    <note title='Updates'>
 		<list style="symbols">
+			<t>[23 Apr 2006] Gianluca Varenni: Cleaned up Appendix C a bit: we should use the LINKTYPE_xxx values from libpcap, not the DLT_xxx ones. Fixed the introduction to the appendix and added some comments.</t>
 			<t>[21 Mar 2006] Gianluca Varenni: Added a preliminary version of Appendix C, detailing the Standardized Link Types.</t>
 			<t>[21 Mar 2006] Gianluca Varenni: Added a preliminary version of Appendix B, detailing the Standardized Block Type codes.</t>
 			<t>[21 Mar 2006] Gianluca Varenni: Added the Enhanced Packet Block in section 2.2. Fixed a typo in the list: it's Interface Statistics Block, and not Capture Statistics Block.</t>
@@ -971,58 +972,268 @@ Two or more files can be concatenated obtaining another valid file.</t>
 
 <appendix anchor="appendixLinkTypes" title="Standardized Link Type Codes">
 
-<t>Every Block is uniquely identified by a 32 bit integer value, stored in the Block Header.</t>
-<t>As pointed out in <xref target="sectionblock"></xref>, Block Types codes whose Most Significant Bit (bit 31) is set to 1 are reserved for local use by the application.</t>
-<t>All the remaining Block Type codes (0x00000000 to 0x8FFFFFFF) are standardized by this document. A request should be sent to the authors of this document to add a new Standard Block Type code to the specification.</t>
-<t>Here is a list of the Standardized Block Type Codes.</t>
+<t>NOTE: we should decide if we want to have this list here or in a separate document. It may make sense to have this list in a separate document and describe the format of a frame for each different linktype, or specify that the frame format is proprietary of a company and not public. There are a large number of encapsulations that are really vague and unspecified at all (even the name does not make any sense). 
+Moreover, we should decide if we want to have *all* the linktypes (LINKTYPE_XXX) defined by libpcap, or just a subset of them, thus trying to remove the big mess and confusion of similar headers.</t>
+<t></t>
+<t>Here is a list of the Standardized Link Type Codes.</t>
 <texttable>
   <ttcol>Link Type Name</ttcol>
   <ttcol>Link Type Code</ttcol>
   <ttcol>Description</ttcol>
 
-  <c>DLT_NULL</c>
+  <c>LINKTYPE_NULL</c>
   <c>0</c>
-  <c>no link-layer encapsulation</c>
+  <c>No link layer information. A packet saved with this link layer contains a raw L3 packet preceded by a 32-bit host-byte-order AF_ value indicating the specific L3 type.</c>
 
-  <c>DLT_EN10MB</c>
+  <c>LINKTYPE_ETHERNET</c>
   <c>1</c>
-  <c>Ethernet (10Mb)</c>
+  <c>D/I/X and 802.3 Ethernet</c>
 
-  <c>DLT_EN3MB</c>
+  <c>LINKTYPE_EXP_ETHERNET</c>
   <c>2</c>
   <c>Experimental Ethernet (3Mb)</c>
 
-  <c>DLT_AX25</c>
+  <c>LINKTYPE_AX25</c>
   <c>3</c>
   <c>Amateur Radio AX.25</c>
 
-  <c>DLT_PRONET</c>
+  <c>LINKTYPE_PRONET</c>
   <c>4</c>
   <c>Proteon ProNET Token Ring</c>
 
-  <c>DLT_CHAOS</c>
+  <c>LINKTYPE_CHAOS</c>
   <c>5</c>
   <c>Chaos</c>
 
-  <c>DLT_IEEE802</c>
+  <c>LINKTYPE_TOKEN_RING</c>
   <c>6</c>
   <c>IEEE 802 Networks</c>
 
-  <c>DLT_ARCNET</c>
+  <c>LINKTYPE_ARCNET</c>
   <c>7</c>
   <c>ARCNET, with BSD-style header</c>
 
-  <c>DLT_SLIP</c>
+  <c>LINKTYPE_SLIP</c>
   <c>8</c>
   <c>Serial Line IP</c>
 
-  <c>DLT_PPP</c>
+  <c>LINKTYPE_PPP</c>
   <c>9</c>
   <c>Point-to-point Protocol</c>
 
-  <c>DLT_FDDI</c>
+  <c>LINKTYPE_FDDI</c>
   <c>10</c>
   <c>FDDI</c>
+
+  <c>LINKTYPE_PPP_HDLC</c>
+  <c>50</c>
+  <c>PPP in HDLC-like framing</c>
+
+  <c>LINKTYPE_PPP_ETHER</c>
+  <c>51</c>
+  <c>NetBSD PPP-over-Ethernet</c>
+
+  <c>LINKTYPE_SYMANTEC_FIREWALL</c>
+  <c>99</c>
+  <c>Symantec Enterprise Firewall</c>
+
+  <c>LINKTYPE_ATM_RFC1483</c>
+  <c>100</c>
+  <c>LLC/SNAP-encapsulated ATM</c>
+
+  <c>LINKTYPE_RAW</c>
+  <c>101</c>
+  <c>Raw IP</c>
+
+  <c>LINKTYPE_SLIP_BSDOS</c>
+  <c>102</c>
+  <c>BSD/OS SLIP BPF header</c>
+
+  <c>LINKTYPE_PPP_BSDOS</c>
+  <c>103</c>
+  <c>BSD/OS PPP BPF header</c>
+
+  <c>LINKTYPE_C_HDLC</c>
+  <c>104</c>
+  <c>Cisco HDLC</c>
+
+  <c>LINKTYPE_IEEE802_11</c>
+  <c>105</c>
+  <c>IEEE 802.11 (wireless)</c>
+  
+  <c>LINKTYPE_ATM_CLIP</c>
+  <c>106</c>
+  <c>Linux Classical IP over ATM</c>
+
+  <c>LINKTYPE_FRELAY</c>
+  <c>107</c>
+  <c>Frame Relay</c>
+
+  <c>LINKTYPE_LOOP</c>
+  <c>108</c>
+  <c>OpenBSD loopback</c>
+  
+  <c>LINKTYPE_ENC</c>
+  <c>109</c>
+  <c>OpenBSD IPSEC enc</c>
+	
+  <c>LINKTYPE_LANE8023</c>
+  <c>110</c>
+  <c>ATM LANE + 802.3 (Reserved for future use)</c>
+
+  <c>LINKTYPE_HIPPI</c>
+  <c>111</c>
+  <c>NetBSD HIPPI (Reserved for future use)</c>
+
+  <c>LINKTYPE_HDLC</c>
+  <c>112</c>
+  <c>NetBSD HDLC framing (Reserved for future use)</c>
+
+  <c>LINKTYPE_LINUX_SLL</c>
+  <c>113</c>
+  <c>Linux cooked socket capture</c>
+
+  <c>LINKTYPE_LTALK</c>
+  <c>114</c>
+  <c>Apple LocalTalk hardware</c>
+
+  <c>LINKTYPE_ECONET</c>
+  <c>115</c>
+  <c>Acorn Econet</c>
+
+  <c>LINKTYPE_IPFILTER</c>
+  <c>116</c>
+  <c>Reserved for use with OpenBSD ipfilter</c>
+
+  <c>LINKTYPE_PFLOG</c>
+  <c>117</c>
+  <c>OpenBSD DLT_PFLOG</c>
+
+  <c>LINKTYPE_CISCO_IOS</c>
+  <c>118</c>
+  <c>For Cisco-internal use</c>
+
+  <c>LINKTYPE_PRISM_HEADER</c>
+  <c>119</c>
+  <c>802.11+Prism II monitor mode</c>
+
+  <c>LINKTYPE_AIRONET_HEADER</c>
+  <c>120</c>
+  <c>FreeBSD Aironet driver stuff</c>
+
+  <c>LINKTYPE_HHDLC</c>
+  <c>121</c>
+  <c>Reserved for Siemens HiPath HDLC</c>
+
+  <c>LINKTYPE_IP_OVER_FC</c>
+  <c>122</c>
+  <c>RFC 2625 IP-over-Fibre Channel</c>
+
+  <c>LINKTYPE_SUNATM</c>
+  <c>123</c>
+  <c>Solaris+SunATM</c>
+
+  <c>LINKTYPE_RIO</c>
+  <c>124</c>
+  <c>RapidIO - Reserved as per request from Kent Dahlgren &lt;kent@praesum.com&gt; for private use.</c>
+
+  <c>LINKTYPE_PCI_EXP</c>
+  <c>125</c>
+  <c>PCI Express - Reserved as per request from Kent Dahlgren &lt;kent@praesum.com&gt; for private use.</c>
+
+  <c>LINKTYPE_AURORA</c>
+  <c>126</c>
+  <c>Xilinx Aurora link layer - Reserved as per request from Kent Dahlgren &lt;kent@praesum.com&gt; for private use.</c>
+
+  <c>LINKTYPE_IEEE802_11_RADIO</c>
+  <c>127</c>
+  <c>802.11 plus BSD radio header</c>
+
+/*
+ * Reserved for the TZSP encapsulation, as per request from
+ * Chris Waters &lt;chris.waters@networkchemistry.com&gt;
+ * TZSP is a generic encapsulation for any other link type,
+ * which includes a means to include meta-information
+ * with the packet, e.g. signal strength and channel
+ * for 802.11 packets.
+ */
+#define LINKTYPE_TZSP		128		/* Tazmen Sniffer Protocol */
+
+  <c>LINKTYPE_TZSP</c>
+  <c>128</c>
+  <c>Tazmen Sniffer Protocol - Reserved for the TZSP encapsulation, as per request from Chris Waters &lt;chris.waters@networkchemistry.com&gt; TZSP is a generic encapsulation for any other link type, which includes a means to include meta-information with the packet, e.g. signal strength and channel for 802.11 packets.</c>
+
+  <c>LINKTYPE_ARCNET_LINUX</c>
+  <c>129</c>
+  <c>Linux-style headers</c>
+
+  <c>LINKTYPE_JUNIPER_MLPPP</c>
+  <c>130</c>
+  <c>Juniper-private data link type, as per request from Hannes Gredler &lt;hannes@juniper.net&gt;.  The corresponding DLT_s are used for passing on chassis-internal metainformation such as QOS profiles, etc..</c>
+
+  <c>LINKTYPE_JUNIPER_MLFR</c>
+  <c>131</c>
+  <c>Juniper-private data link type, as per request from Hannes Gredler &lt;hannes@juniper.net&gt;.  The corresponding DLT_s are used for passing on chassis-internal metainformation such as QOS profiles, etc..</c>
+
+  <c>LINKTYPE_JUNIPER_ES</c>
+  <c>132</c>
+  <c>Juniper-private data link type, as per request from Hannes Gredler &lt;hannes@juniper.net&gt;.  The corresponding DLT_s are used for passing on chassis-internal metainformation such as QOS profiles, etc..</c>
+
+  <c>LINKTYPE_JUNIPER_GGSN</c>
+  <c>133</c>
+  <c>Juniper-private data link type, as per request from Hannes Gredler &lt;hannes@juniper.net&gt;.  The corresponding DLT_s are used for passing on chassis-internal metainformation such as QOS profiles, etc..</c>
+
+  <c>LINKTYPE_JUNIPER_MFR</c>
+  <c>134</c>
+  <c>Juniper-private data link type, as per request from Hannes Gredler &lt;hannes@juniper.net&gt;.  The corresponding DLT_s are used for passing on chassis-internal metainformation such as QOS profiles, etc..</c>
+
+  <c>LINKTYPE_JUNIPER_ATM2</c>
+  <c>135</c>
+  <c>Juniper-private data link type, as per request from Hannes Gredler &lt;hannes@juniper.net&gt;.  The corresponding DLT_s are used for passing on chassis-internal metainformation such as QOS profiles, etc..</c>
+
+  <c>LINKTYPE_JUNIPER_SERVICES</c>
+  <c>136</c>
+  <c>Juniper-private data link type, as per request from Hannes Gredler &lt;hannes@juniper.net&gt;.  The corresponding DLT_s are used for passing on chassis-internal metainformation such as QOS profiles, etc..</c>
+
+  <c>LINKTYPE_JUNIPER_ATM1</c>
+  <c>137</c>
+  <c>Juniper-private data link type, as per request from Hannes Gredler &lt;hannes@juniper.net&gt;.  The corresponding DLT_s are used for passing on chassis-internal metainformation such as QOS profiles, etc..</c>
+
+  <c>LINKTYPE_APPLE_IP_OVER_IEEE1394</c>
+  <c>138</c>
+  <c>Apple IP-over-IEEE 1394 cooked header</c>
+
+  <c>LINKTYPE_MTP2_WITH_PHDR</c>
+  <c>139</c>
+  <c>???</c>
+
+  <c>LINKTYPE_MTP2</c>
+  <c>140</c>
+  <c>???</c>
+
+  <c>LINKTYPE_MTP3</c>
+  <c>141</c>
+  <c>???</c>
+
+  <c>LINKTYPE_SCCP</c>
+  <c>142</c>
+  <c>???</c>
+
+  <c>LINKTYPE_DOCSIS</c>
+  <c>143</c>
+  <c>DOCSIS MAC frames</c>
+
+  <c>LINKTYPE_LINUX_IRDA</c>
+  <c>144</c>
+  <c>Linux-IrDA</c>
+
+  <c>LINKTYPE_IBM_SP</c>
+  <c>145</c>
+  <c>Reserved for IBM SP switch and IBM Next Federation switch.</c>
+
+  <c>LINKTYPE_IBM_SN</c>
+  <c>146</c>
+  <c>Reserved for IBM SP switch and IBM Next Federation switch.</c>
 
 </texttable>
 
