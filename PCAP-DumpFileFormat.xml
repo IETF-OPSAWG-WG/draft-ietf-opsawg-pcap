@@ -66,6 +66,8 @@
 
    <note title='Updates'>
 		<list style="symbols">
+			<t>[27 Jul 2009] Guy Harris: added some missing reserved block types in Appendix B.</t>
+			<t>[27 Jul 2009] Guy Harris: fixed a typo in Appendix B. The range of standardized blocks are in the range 0x00000000-0x7FFFFFFF.</t>
 			<t>[ 8 Feb 2008] Gianluca Varenni: better documentation for the format of the timestamps. Renamed the if_tsaccur option into if_tsresol.</t>
 			<t>[22 Oct 2007] Gianluca Varenni: added a note related to 64-bit alignment. Specified that the option length field is the length without padding. typos here and there. Added some option examples.</t>
 			<t>[17 Oct 2007] Ulf Lamping: Major review: "Interface ID" in "ISB" now 32 bits. isb_starttime/isb_endtime depends on if_tsaccur. Lot's of other editing ...</t>
@@ -1145,7 +1147,7 @@ Two or more files can be concatenated obtaining another valid file.</t>
 
 <t>Every Block is uniquely identified by a 32 bit integer value, stored in the Block Header.</t>
 <t>As pointed out in <xref target="sectionblock"></xref>, Block Types codes whose Most Significant Bit (bit 31) is set to 1 are reserved for local use by the application.</t>
-<t>All the remaining Block Type codes (0x00000000 to 0x8FFFFFFF) are standardized by this document. A request should be sent to the authors of this document to add a new Standard Block Type code to the specification.</t>
+<t>All the remaining Block Type codes (0x00000000 to 0x7FFFFFFF) are standardized by this document. A request should be sent to the authors of this document to add a new Standard Block Type code to the specification.</t>
 <t>Here is a list of the Standardized Block Type Codes.</t>
 <texttable>
   <ttcol>Block Type Code</ttcol>
@@ -1178,17 +1180,21 @@ Two or more files can be concatenated obtaining another valid file.</t>
   <c>0x00000008</c>
   <c>Arinc 429 in AFDX Encapsulation Information Block (requested by Gianluca Varenni &lt;gianluca.varenni@cacetech.com&gt;, CACE Technologies LLC)</c>
 
-  <c>0x0A0A0D0A</c>
-  <c>Reserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode.</c>
+  <c>0x0A0D0D0A</c>
+  <c><xref target="sectionshb">Section Header Block</xref></c>
 
   <c>0x0A0D0A00-0x0A0D0AFF</c>
   <c>Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.</c>
   
-  <c>0x0A0D0D0A</c>
-  <c><xref target="sectionshb">Section Header Block</xref></c>
+  <c>0x000A0D0A-0xFF0A0D0A</c>
+  <c>Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.</c>
+  
+  <c>0x000A0D0D-0xFF0A0D0D</c>
+  <c>Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.</c>
 
   <c>0x0D0D0A00-0x0D0D0AFF</c>
   <c>Reserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode.</c>
+
 </texttable>
 
 </appendix>
