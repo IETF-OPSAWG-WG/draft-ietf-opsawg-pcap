@@ -66,6 +66,7 @@
 
    <note title='Updates'>
 		<list style="symbols">
+			<t>[ 8 Feb 2008] Gianluca Varenni: better documentation for the format of the timestamps. Renamed the if_tsaccur option into if_tsresol.</t>
 			<t>[22 Oct 2007] Gianluca Varenni: added a note related to 64-bit alignment. Specified that the option length field is the length without padding. typos here and there. Added some option examples.</t>
 			<t>[17 Oct 2007] Ulf Lamping: Major review: "Interface ID" in "ISB" now 32 bits. isb_starttime/isb_endtime depends on if_tsaccur. Lot's of other editing ...</t>
 			<t>[ 8 Oct 2007] Ulf Lamping: Fixed several typos. Grouped the block types into mandatory, optional, experimental, obsolete.</t>
@@ -493,10 +494,10 @@ Section Header
   <c>Interface speed (in bps).</c>
   <c>100000000 for 100Mbps</c>
 
-  <c>if_tsaccur</c>
+  <c>if_tsresol</c>
   <c>9</c>
   <c>1</c>
-  <c>Precision of timestamps (fraction of seconds). If the Most Significant Bit is equal to zero, the remaining bits indicates the accuracy of the low part of the timestamp as as a negative power of 10 (e.g. 6 means microsecond accuracy). If the Most Significant Bit is equal to one, the remaining bits indicates the accuracy as as negative power of 2 (e.g. 10 means 1/1024 of second). If this option is not present, a precision of 10^-6 is assumed (as in the "classic" libpcap format).</c>
+  <c>Resolution of timestamps. If the Most Significant Bit is equal to zero, the remaining bits indicates the resolution of the timestamp as as a negative power of 10 (e.g. 6 means microsecond resolution, timestamps are the number of microseconds since 1/1/1970). If the Most Significant Bit is equal to one, the remaining bits indicates the resolution as as negative power of 2 (e.g. 10 means 1/1024 of second). If this option is not present, a resolution of 10^-6 is assumed (i.e. timestamps have the same resolution of the standard 'libpcap' timestamps).</c>
   <c>6</c>
 
   <c>if_tzone</c>
@@ -582,8 +583,8 @@ Section Header
 <t>Block Type: The block type of the Enhanced Packet Block is 6.</t>
 <t>Block Total Length: total size of this block, as described in <xref target="sectionblock"/>.</t>
 <t>Interface ID: it specifies the interface this packet comes from; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by the same number (see <xref target="sectionidb"/>) of this field.</t>
-<t>Timestamp (High): the most significant part of the timestamp. in standard Unix format, i.e. from 1/1/1970.</t>
-<t>Timestamp (Low): the least significant part of the timestamp. The way to interpret this field is specified by the 'if_tsaccur' option (see <xref target="formatidb"/>) of the Interface Description block referenced by this packet. If the Interface Description Block does not contain a 'if_tsaccur' option, then this field is expressed in microseconds. Please note that differently from the libpcap file format, timestamps are not saved as two 32-bit values accounting for the seconds and microseconds since 1/1/1970. They are saved as a 64-bit integer representing milliseconds/nanoseconds/other since 1/1/1970, and such 64-bit integer is saved as two 32-bit quantities (low and high part).</t>
+<t>Timestamp (High) and Timestamp (Low): high and low 32-bits of a 64-bit quantity representing the timestamp. The timestamp is a single 64-bit unsigned integer representing the number of units since 1/1/1970. 
+The way to interpret this field is specified by the 'if_tsresol' option (see <xref target="formatidb"/>) of the Interface Description block referenced by this packet. Please note that differently from the libpcap file format, timestamps are not saved as two 32-bit values accounting for the seconds and microseconds since 1/1/1970. They are saved as a single 64-bit quantity saved as two 32-bit words.</t>
 <t>Captured Len: number of bytes captured from the packet (i.e. the length of the Packet Data field). It will be the minimum value among the actual Packet Length and the snapshot length (defined in <xref target="formatidb"/>). The value of this field does not include the padding bytes added at the end of the Packet Data field to align the Packet Data Field to a 32-bit boundary </t>
 <t>Packet Len: actual length of the packet when it was transmitted on the network. It can be different from Captured Len if the user wants only a snapshot of the packet.</t>
 <t>Packet Data: the data coming from the network, including link-layer headers. The actual length of this field is Captured Len. The format of the link-layer headers depends on the LinkType field specified in the Interface Description Block (see <xref target="sectionidb"/>) and it is specified in <xref target="appendixLinkHeaders"/>.</t>
@@ -710,8 +711,7 @@ Section Header
 <t>Block Total Length: total size of this block, as described in <xref target="sectionblock"/>.</t>
 <t>Interface ID: it specifies the interface this packet comes from; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by the same number (see <xref target="sectionidb"/>) of this field.</t>
 <t>Drops Count: a local drop counter. It specifies the number of packets lost (by the interface and the operating system) between this packet and the preceding one. The value xFFFF (in hexadecimal) is reserved for those systems in which this information is not available.</t>
-<t>Timestamp (High): the most significant part of the timestamp. in standard Unix format, i.e. from 1/1/1970.</t>
-<t>Timestamp (Low): the less significant part of the timestamp. The way to interpret this field is specified by the 'if_tsaccur' option (see <xref target="formatidb"/>) of the Interface Description block referenced by this packet. If the Interface Description block does not contain a 'if_tsaccur' option, then this field is expressed in microseconds.</t>
+<t>Timestamp (High) and Timestamp (Low): timestamp of the packet. The format of the timestamp is the same already defined in the Enhanced Packet Block (<xref target="sectionepb"/>).</t>
 <t>Captured Len: number of bytes captured from the packet (i.e. the length of the Packet Data field). It will be the minimum value among the actual Packet Length and the snapshot length (SnapLen defined in <xref target="formatidb"/>). The value of this field does not include the padding bytes added at the end of the Packet Data field to align the Packet Data Field to a 32-bit boundary </t>
 <t>Packet Len: actual length of the packet when it was transmitted on the network. Can be different from Captured Len if the user wants only a snapshot of the packet.</t>
 <t>Packet Data: the data coming from the network, including link-layer headers. The format of the link-layer headers depends on the LinkType field specified in the Interface Description Block (see <xref target="sectionidb"/>) and it is specified in <xref target="appendixLinkHeaders"/>. The actual length of this field is Captured Len.</t>
@@ -882,7 +882,7 @@ Section Header
 <t>Block Type: The block type of the Interface Statistics Block is 5.</t>
 <t>Block Total Length: total size of this block, as described in <xref target="sectionblock"/>.</t>
 <t>Interface ID: it specifies the interface these statistics refers to; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by same number (see <xref target="sectionidb"/>) of this field. Please note: in former versions of this document, this field was 16 bits only. As this differs from its usage in other places of this doc and as this block was not used "in the wild" before (as to the knowledge of the authors), it seems reasonable to change it to 32 bits!</t>
-<t>Timestamp: time this statistics refers to. The format of the timestamp is the same already defined in the Packet Block (<xref target="sectionpb"/>).</t>
+<t>Timestamp: time this statistics refers to. The format of the timestamp is the same already defined in the Enhanced Packet Block (<xref target="sectionepb"/>).</t>
 <t>Options: optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt"/>) can be present.</t>
 </list>
 
@@ -898,13 +898,13 @@ Section Header
   <c>isb_starttime</c>
   <c>2</c>
   <c>8</c>
-  <c>Time in which the capture started; time will be stored in two blocks of four bytes each, containing the timestamp in seconds and fractions of a second. The way to interpret the fractional part is specified by the 'if_tsaccur' option (see <xref target="formatidb"/>) of the Interface Description block referenced by this packet. If the Interface Description block does not contain a 'if_tsaccur' option, then this field is expressed in microseconds.</c>
+  <c>Time in which the capture started; time will be stored in two blocks of four bytes each. The format of the timestamp is the same already defined in the Enhanced Packet Block (<xref target="sectionepb"/>).</c>
   <c>TODO: give a good example</c>
 
   <c>isb_endtime</c>
   <c>3</c>
   <c>8</c>
-  <c>Time in which the capture ended; same format as in isb_starttime.</c>
+  <c>Time in which the capture ended; ; time will be stored in two blocks of four bytes each. The format of the timestamp is the same already defined in the Enhanced Packet Block (<xref target="sectionepb"/>).</c>
   <c>TODO: give a good example</c>
 
   <c>isb_ifrecv</c>
