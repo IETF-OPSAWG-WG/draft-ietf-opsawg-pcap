@@ -62,6 +62,7 @@
     </abstract>
     <note title="Updates">
       <list style="symbols">
+        <t>[20 May 2014] Guy Harris: note that IDBs can appear after packet blocks for other interfaces.</t>
         <t>[20 May 2014] Guy Harris: used http://www.tcpdump.org/linktypes.html for the link-layer header types.</t>
         <t>[26 Jul 2012] Jasper Bongertz: worked on some TODO items and fixed typos.</t>
         <t>[27 Jul 2009] Guy Harris: added some missing reserved block types in Appendix B.</t>
@@ -210,11 +211,11 @@ Section Header
 </artwork>
         </figure>
         <t>
-          <xref target="fssample-full" pageno="false" format="default" /> shows a complex example file. In addition to the minimum file above, it contains packets captured from three interfaces, and also includes some Name Resolution Blocks (NRB) and an Interface Statistics Block (ISB).</t>
+          <xref target="fssample-full" pageno="false" format="default" /> shows a complex example file. In addition to the minimum file above, it contains packets captured from three interfaces, capturing on the third of which begins after packets have arrived on other interfaces, and also includes some Name Resolution Blocks (NRB) and an Interface Statistics Block (ISB).</t>
         <figure anchor="fssample-full" title="File structure example: more complex pcapng file.">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-| SHB | IDB | IDB | IDB | EPB | EPB | NRB |    ...    | EPB | ISB | NRB | EPB | EPB |
+| SHB | IDB | IDB | EPB | EPB | NRB |    ...    | IDB | EPB | ISB | NRB | EPB | EPB |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
         </figure>
@@ -331,7 +332,7 @@ Section Header
   2<c>shb_hardware</c><c>2</c><c>variable</c><c>An UTF-8 string containing the description of the hardware used to create this section.</c><c>"x86 Personal Computer" / "Sun Sparc Workstation" / ...</c><c>shb_os</c><c>3</c><c>variable</c><c>An UTF-8 string containing the name of the operating system used to create this section.</c><c>"Windows XP SP2" / "openSUSE 10.2" / ...</c><c>shb_userappl</c><c>4</c><c>variable</c><c>An UTF-8 string containing the name of the application used to create this section.</c><c>"dumpcap V0.99.7" / ...</c></texttable>
       </section>
       <section anchor="sectionidb" title="Interface Description Block (mandatory)" toc="default">
-        <t>The Interface Description Block is mandatory. This block is needed to specify the characteristics of the network interface on which the capture has been made. In order to properly associate the captured data to the corresponding interface, the Interface Description Block must be defined before any other block that uses it; therefore, this block is usually placed immediately after the Section Header Block.</t>
+        <t>The Interface Description Block is mandatory. This block is needed to specify the characteristics of the network interface on which the capture has been made. In order to properly associate the captured data to the corresponding interface, the Interface Description Block must be defined before any other block that uses it; therefore, this block is usually placed immediately after the Section Header Block.  However, if capturing on an interface starts in the middle of a capture, an Interface Description Block can appear after other blocks, including blocks for packets on interfaces for which Interface Description Blocks have already appeared.</t>
         <t>An Interface Description Block is valid only inside the section which it belongs to. The structure of a Interface Description Block is shown in <xref target="formatidb" pageno="false" format="default" />.</t>
         <figure anchor="formatidb" title="Interface Description Block format.">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
