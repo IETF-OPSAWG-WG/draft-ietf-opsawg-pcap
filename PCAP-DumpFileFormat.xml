@@ -92,7 +92,7 @@
       <t>The problem of exchanging packet traces becomes more and more critical every day; unfortunately, no standard solutions exist for this task right now. One of the most accepted packet interchange formats is the one defined by libpcap, which is rather old and does not fit for some of the nowadays applications particularly from the extensibility point of view.</t>
       <t>This document proposes a new format for dumping packet traces. The following goals are being pursued:</t>
       <list style="symbols">
-        <t>Extensibility: aside of some common functionalities, third parties should be able to enrich the information embedded in the file with proprietary extensions, which will be ignored by tools that are not able to understand them.</t>
+        <t>Extensibility: it should be possible to add new standard capabilities to the file format over time, and third parties should be able to enrich the information embedded in the file with proprietary extensions, with tools unaware of newer extensions being able to ignore them.</t>
         <t>Portability: a capture trace must contain all the information needed to read data independently from network, hardware and operating system of the machine that made the capture.</t>
         <t>Merge/Append data: it should be possible to add data at the end of a given file, and the resulting file must still be readable.</t>
       </list>
@@ -118,7 +118,7 @@
         </figure>
         <t>The fields have the following meaning:</t>
         <list style="symbols">
-          <t>Block Type (32 bits): unique value that identifies the block. Values whose Most Significant Bit (MSB) is equal to 1 are reserved for local use. They allow to save private data to the file and to extend the file format. The list of currently defined types can be found in <xref target="appendixBlockCodes" pageno="false" format="default" /></t>
+          <t>Block Type (32 bits): unique value that identifies the block. Values whose Most Significant Bit (MSB) is equal to 1 are reserved for local use. They can be used to make extensions to the file format to save private data to the file. The list of currently defined types can be found in <xref target="appendixBlockCodes" pageno="false" format="default" /></t>
           <t>Block Total Length: total size of this block, in bytes. For instance, the length of a block that does not have body is 12 bytes.</t>
           <t>Block Body: content of the block.</t>
           <t>Block Total Length: total size of this block, in bytes. This field is duplicated for permitting backward file navigation.</t>
@@ -219,7 +219,7 @@ Section Header
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
         </figure>
-        <t>The last example should make it obvious, that the block structure makes the file format very flexible compared to the classical libpcap format.</t>
+        <t>The last example should make it obvious that the block structure makes the file format very flexible compared to the classical libpcap format.</t>
       </section>
       <section anchor="sectionopt" title="Options" toc="default">
         <t>All the block bodies have the possibility to embed optional fields. Optional fields can be used to insert some information that may be useful when reading data, but that is not really needed for packet processing. Therefore, each tool can either read the content of the optional fields (if any), or skip some of them or even all at once.</t>
@@ -434,7 +434,7 @@ Section Header
           <c>if_tsoffset</c>
           <c>14</c>
           <c>8</c>
-          <c>A 64 bits integer value that specifies an offset (in seconds) that must be added to the timestamp of each packet to obtain the absolute timestamp of a packet. If the option is missing, the timestamps stored in the packet must be considered absolute timestamps. The time zone of the offset can be specified with the option if_tzone. TODO: won't a if_tsoffset_low for fractional second offsets be useful for highly syncronized capture systems?</c>
+          <c>A 64-bit integer value that specifies an offset (in seconds) that must be added to the timestamp of each packet to obtain the absolute timestamp of a packet. If the option is missing, the timestamps stored in the packet must be considered absolute timestamps. The time zone of the offset can be specified with the option if_tzone. TODO: won't a if_tsoffset_low for fractional second offsets be useful for highly syncronized capture systems?</c>
           <c>1234</c>
         </texttable>
       </section>
@@ -442,7 +442,7 @@ Section Header
         <t>An Enhanced Packet Block is the standard container for storing the packets coming from the network. The Enhanced Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up dump generation. The format of an Enhanced Packet Block is shown in <xref target="formatepb" pageno="false" format="default" />.</t>
         <t>The Enhanced Packet Block is an improvement over the original <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>:</t>
         <list style="symbols">
-          <t>it stores the Interface Identifier as a 32bit integer value. This is a requirement when a capture stores packets coming from a large number of interfaces</t>
+          <t>it stores the Interface Identifier as a 32-bit integer value. This is a requirement when a capture stores packets coming from a large number of interfaces</t>
           <t>differently from the <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>, the number of packets dropped by the capture system between this packet and the previous one is not stored in the header, but rather in an option of the block itself.</t>
         </list>
         <figure anchor="formatepb" title="Enhanced Packet Block format.">
@@ -509,7 +509,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
           <c>epb_dropcount</c>
           <c>4</c>
           <c>8</c>
-          <c>A 64bit integer value specifying the number of packets lost (by the interface and the operating system) between this packet and the preceding one.</c>
+          <c>A 64-bit integer value specifying the number of packets lost (by the interface and the operating system) between this packet and the preceding one.</c>
           <c>0</c>
         </texttable>
       </section>
@@ -935,7 +935,7 @@ Two or more files can be concatenated obtaining another valid file.</t>
       </texttable>
     </appendix>
     <appendix anchor="appendixBlockCodes" title="Standardized Block Type Codes">
-      <t>Every Block is uniquely identified by a 32 bit integer value, stored in the Block Header.</t>
+      <t>Every Block is uniquely identified by a 32-bit integer value, stored in the Block Header.</t>
       <t>As pointed out in <xref target="sectionblock" pageno="false" format="default"></xref>, Block Types codes whose Most Significant Bit (bit 31) is set to 1 are reserved for local use by the application.</t>
       <t>All the remaining Block Type codes (0x00000000 to 0x7FFFFFFF) are standardized by this document. A request should be sent to the authors of this document to add a new Standard Block Type code to the specification.</t>
       <t>Here is a list of the Standardized Block Type Codes.</t>
