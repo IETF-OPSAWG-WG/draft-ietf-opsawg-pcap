@@ -903,8 +903,8 @@ A Fixed Length Block stores records with constant size. It contains a set of Blo
     </section>
     <section title="Recommended File Name Extension: .pcapng" toc="default">
       <t>The recommended file name extension for the "PCAP Next Generation Dump File Format" specified in this document is ".pcapng".</t>
-      <t>At least in the "Windows world", files are distinguished by an extension to their filename. Such an extension is technically not actually required, as applications should be able to automatically detect the pcapng file format through the "magic bytes" at the beginning of the file. However, using name extensions makes it easier to work with files (e.g. visually distinguish file formats) so it is recommended - though not required - to use .pcapng as the name extension for files following this specification.</t>
-      <t>Please note: To avoid confusion (like the current usage of .cap for a pletora of different capture file formats) other file name extensions than .pcapng should be avoided!</t>
+      <t>On Windows and OS X, files are distinguished by an extension to their filename. Such an extension is technically not actually required, as applications should be able to automatically detect the pcapng file format through the "magic bytes" at the beginning of the file, as some other UN*X desktop environments do. However, using name extensions makes it easier to work with files (e.g. visually distinguish file formats) so it is recommended - though not required - to use .pcapng as the name extension for files following this specification.</t>
+      <t>Please note: To avoid confusion (like the current usage of .cap for a plethora of different capture file formats) other file name extensions than .pcapng should be avoided!</t>
     </section>
     <section title="How to add Vendor / Domain specific extensions" toc="default">
       <t>TODO - explain the preferred way to add new block types and new options for existing blocks in more detail.</t>
