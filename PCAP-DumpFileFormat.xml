@@ -134,14 +134,14 @@
       </section>
       <section title="Block Types" toc="default">
         <t>The currently standardized Block Type codes are specified in <xref target="appendixBlockCodes" pageno="false" format="default" />, they have been grouped in the following four categories:</t>
-        <t>MANDATORY blocks must appear at least once in each file:</t>
+        <t>MANDATORY blocks MUST appear at least once in each file:</t>
         <list style="symbols">
           <t>
             <xref target="sectionshb" pageno="false" format="default">Section Header Block</xref>: it defines the most important characteristics of the capture file.</t>
           <t>
             <xref target="sectionidb" pageno="false" format="default">Interface Description Block</xref>: it defines the most important characteristics of the interface(s) used for capturing traffic.</t>
         </list>
-        <t>OPTIONAL blocks can appear in a file:</t>
+        <t>OPTIONAL blocks MAY appear in a file:</t>
         <list style="symbols">
           <t>
             <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>: it contains a single captured packet, or a portion of it. It represents an evolution of the original <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>.</t>
@@ -152,7 +152,7 @@
           <t>
             <xref target="sectionisb" pageno="false" format="default">Interface Statistics Block</xref>: it defines how to store some statistical data (e.g. packet dropped, etc) which can be useful to undestand the conditions in which the capture has been made.</t>
         </list>
-        <t>OBSOLETE blocks should not appear in newly written files (but left here for reference):</t>
+        <t>OBSOLETE blocks SHOULD NOT appear in newly written files (but left here for reference):</t>
         <list style="symbols">
           <t>
             <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>: it contains a single captured packet, or a portion of it. It should be considered OBSOLETE, and superseded by the <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>.</t>
@@ -185,8 +185,8 @@ Section Header
         <t>For example: each captured packet refers to a specific capture interface, the interface itself refers to a specific section.</t>
       </section>
       <section title="Physical File Layout" toc="default">
-        <t>The file must begin with a Section Header Block. However, more than one Section Header Block can be present on the dump, each one covering the data following it till the next one (or the end of file). A Section includes the data delimited by two Section Header Blocks (or by a Section Header Block and the end of the file), including the first Section Header Block.</t>
-        <t>In case an application cannot read a Section because of different version number, it must skip everything until the next Section Header Block. Note that, in order to properly skip the blocks until the next section, all blocks must have the fields Type and Length at the beginning. This is a mandatory requirement that must be maintained in future versions of the block format.</t>
+        <t>The file MUST begin with a Section Header Block. However, more than one Section Header Block can be present on the dump, each one covering the data following it till the next one (or the end of file). A Section includes the data delimited by two Section Header Blocks (or by a Section Header Block and the end of the file), including the first Section Header Block.</t>
+        <t>In case an application cannot read a Section because of different version number, it MUST skip everything until the next Section Header Block. Note that, in order to properly skip the blocks until the next section, all blocks MUST have the fields Type and Length at the beginning. This is a mandatory requirement that MUST be maintained in future versions of the block format.</t>
         <t>
           <xref target="fssample-SHB" pageno="false" format="default" /> shows a typical file configuration, with a single Section Header that covers the whole file.</t>
         <figure anchor="fssample-SHB" title="File structure example: Typical configuration with a single Section Header Block.">
@@ -232,7 +232,7 @@ Section Header
         <t>Skipping all the optional fields at once is straightforward because most of the blocks are made of a first part with fixed format, and a second optional part. Therefore, the Block Length field (present in the General Block Structure, see <xref target="sectionblock" pageno="false" format="default" />) can be used to skip everything till the next block.</t>
         <t>Options are a list of Type - Length - Value fields, each one containing a single value:</t>
         <list style="symbols">
-          <t>Option Type (2 bytes): it contains the code that specifies the type of the current TLV record. Option types whose Most Significant Bit is equal to one are reserved for local use; therefore, there is no guarantee that the code used is unique among all capture files (generated by other applications). In case of vendor-specific extensions that have to be identified uniquely, vendors must request an Option Code whose MSB is equal to zero.</t>
+          <t>Option Type (2 bytes): it contains the code that specifies the type of the current TLV record. Option types whose Most Significant Bit is equal to one are reserved for local use; therefore, there is no guarantee that the code used is unique among all capture files (generated by other applications). In case of vendor-specific extensions that have to be identified uniquely, vendors MUST request an Option Code whose MSB is equal to zero.</t>
           <t>Option Length (2 bytes): it contains the actual length of the following 'Option Value' field without the padding bytes.</t>
           <t>Option Value (variable length): it contains the value of the given option, aligned to a 32-bit boundary. The actual length of this field (i.e. without the padding bytes) is specified by the Option Length field.</t>
         </list>
@@ -282,8 +282,8 @@ Section Header
         <t>Please note: The endianess is indicated by the <xref target="sectionshb" pageno="false" format="default">Section Header Block</xref>. As this block can appear several times in a pcapng file, a single file can contain both endianess variants!</t>
         <t>Alignment</t>
         <t>All fields of this specification uses proper alignment for 16- and 32-bit values. This makes it easier and faster to read/write file contents if using techniques like memory mapped files.</t>
-        <t>The alignment bytes (marked in this document e.g. with "aligned to 32 bits") must be filled with zero bytes.</t>
-        <t>Please note: 64-bit values are not aligned to 64-bit boundaries. This is because the file is naturally aligned to 32-bit boundaries only. Special care should be taken when reading and writing such values. TODO: the spec is not too consistent wrt how 64-bit values are saved. in the Packet blocks we clearly specify where the low and high 32-bits of a 64-bit timestamp should be saved. In the SHB we do use the endianess of the machine when we save the section length.</t>
+        <t>The alignment bytes (marked in this document e.g. with "aligned to 32 bits") MUST be filled with zero bytes.</t>
+        <t>Please note: 64-bit values are not aligned to 64-bit boundaries. This is because the file is naturally aligned to 32-bit boundaries only. Special care MUST be taken when reading and writing such values. TODO: the spec is not too consistent wrt how 64-bit values are saved. in the Packet blocks we clearly specify where the low and high 32-bits of a 64-bit timestamp should be saved. In the SHB we do use the endianess of the machine when we save the section length.</t>
       </section>
     </section>
     <section title="Block Definition" toc="default">
@@ -338,7 +338,7 @@ Section Header
   2<c>shb_hardware</c><c>2</c><c>variable</c><c>An UTF-8 string containing the description of the hardware used to create this section.</c><c>"x86 Personal Computer" / "Sun Sparc Workstation" / ...</c><c>shb_os</c><c>3</c><c>variable</c><c>An UTF-8 string containing the name of the operating system used to create this section.</c><c>"Windows XP SP2" / "openSUSE 10.2" / ...</c><c>shb_userappl</c><c>4</c><c>variable</c><c>An UTF-8 string containing the name of the application used to create this section.</c><c>"dumpcap V0.99.7" / ...</c></texttable>
       </section>
       <section anchor="sectionidb" title="Interface Description Block (mandatory)" toc="default">
-        <t>The Interface Description Block is mandatory. This block is needed to specify the characteristics of the network interface on which the capture has been made. In order to properly associate the captured data to the corresponding interface, the Interface Description Block must be defined before any other block that uses it; therefore, this block is usually placed immediately after the Section Header Block.  However, if capturing on an interface starts in the middle of a capture, an Interface Description Block can appear after other blocks, including blocks for packets on interfaces for which Interface Description Blocks have already appeared.</t>
+        <t>The Interface Description Block is mandatory. This block is needed to specify the characteristics of the network interface on which the capture has been made. In order to properly associate the captured data to the corresponding interface, the Interface Description Block MUST be defined before any other block that uses it; therefore, this block is usually placed immediately after the Section Header Block.  However, if capturing on an interface starts in the middle of a capture, an Interface Description Block can appear after other blocks, including blocks for packets on interfaces for which Interface Description Blocks have already appeared.</t>
         <t>An Interface Description Block is valid only inside the section which it belongs to. The structure of a Interface Description Block is shown in <xref target="formatidb" pageno="false" format="default" />.</t>
         <figure anchor="formatidb" title="Interface Description Block format.">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
@@ -440,7 +440,7 @@ Section Header
           <c>if_tsoffset</c>
           <c>14</c>
           <c>8</c>
-          <c>A 64-bit integer value that specifies an offset (in seconds) that must be added to the timestamp of each packet to obtain the absolute timestamp of a packet. If the option is missing, the timestamps stored in the packet must be considered absolute timestamps. The time zone of the offset can be specified with the option if_tzone. TODO: won't a if_tsoffset_low for fractional second offsets be useful for highly syncronized capture systems?</c>
+          <c>A 64-bit integer value that specifies an offset (in seconds) that must be added to the timestamp of each packet to obtain the absolute timestamp of a packet. If the option is missing, the timestamps stored in the packet MUST be considered absolute timestamps. The time zone of the offset can be specified with the option if_tzone. TODO: won't a if_tsoffset_low for fractional second offsets be useful for highly syncronized capture systems?</c>
           <c>1234</c>
         </texttable>
       </section>
@@ -487,7 +487,7 @@ Section Header
         <list style="symbols">
           <t>Block Type: The block type of the Enhanced Packet Block is 6.</t>
           <t>Block Total Length: total size of this block, as described in <xref target="sectionblock" pageno="false" format="default" />.</t>
-          <t>Interface ID: it specifies the interface this packet comes from; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by the same number (see <xref target="sectionidb" pageno="false" format="default" />) of this field. The interface ID must be valid, which means that an matching interface description block must exist.</t>
+          <t>Interface ID: it specifies the interface this packet comes from; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by the same number (see <xref target="sectionidb" pageno="false" format="default" />) of this field. The interface ID MUST be valid, which means that an matching interface description block MUST exist.</t>
           <t>Timestamp (High) and Timestamp (Low): high and low 32-bits of a 64-bit quantity representing the timestamp. The timestamp is a single 64-bit unsigned integer representing the number of units since 1/1/1970 00:00:00 UTC. 
 The way to interpret this field is specified by the 'if_tsresol' option (see <xref target="formatidb" pageno="false" format="default" />) of the Interface Description block referenced by this packet. Please note that differently from the libpcap file format, timestamps are not saved as two 32-bit values accounting for the seconds and microseconds since 1/1/1970. They are saved as a single 64-bit quantity saved as two 32-bit words.</t>
           <t>Captured Len: number of bytes captured from the packet (i.e. the length of the Packet Data field). It will be the minimum value among the actual Packet Length and the snapshot length (defined in <xref target="formatidb" pageno="false" format="default" />). The value of this field does not include the padding bytes added at the end of the Packet Data field to align the Packet Data Field to a 32-bit boundary.</t>
@@ -522,7 +522,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       <section anchor="sectionpbs" title="Simple Packet Block (optional)" toc="default">
         <t>The Simple Packet Block is a lightweight container for storing the packets coming from the network. Its presence is optional.</t>
         <t>A Simple Packet Block is similar to a Packet Block (see <xref target="sectionpb" pageno="false" format="default" />), but it is smaller, simpler to process and contains only a minimal set of information. This block is preferred to the standard Packet Block when performance or space occupation are critical factors, such as in sustained traffic dump applications. A capture file can contain both Packet Blocks and Simple Packet Blocks: for example, a capture tool could switch from Packet Blocks to Simple Packet Blocks when the hardware resources become critical.</t>
-        <t>The Simple Packet Block does not contain the Interface ID field. Therefore, it must be assumed that all the Simple Packet Blocks have been captured on the interface previously specified in the first Interface Description Block.</t>
+        <t>The Simple Packet Block does not contain the Interface ID field. Therefore, it MUST be assumed that all the Simple Packet Blocks have been captured on the interface previously specified in the first Interface Description Block.</t>
         <t>
           <xref target="formatpbs" pageno="false" format="default" /> shows the format of the Simple Packet Block.</t>
         <figure anchor="formatpbs" title="Simple Packet Block format.">
@@ -595,7 +595,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
         <list style="symbols">
           <t>Block Type: The block type of the Packet Block is 2.</t>
           <t>Block Total Length: total size of this block, as described in <xref target="sectionblock" pageno="false" format="default" />.</t>
-          <t>Interface ID: it specifies the interface this packet comes from; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by the same number (see <xref target="sectionidb" pageno="false" format="default" />) of this field. The interface ID must be valid, which means that an matching interface description block must exist.</t>
+          <t>Interface ID: it specifies the interface this packet comes from; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by the same number (see <xref target="sectionidb" pageno="false" format="default" />) of this field. The interface ID MUST be valid, which means that an matching interface description block MUST exist.</t>
           <t>Drops Count: a local drop counter. It specifies the number of packets lost (by the interface and the operating system) between this packet and the preceding one. The value xFFFF (in hexadecimal) is reserved for those systems in which this information is not available.</t>
           <t>Timestamp (High) and Timestamp (Low): timestamp of the packet. The format of the timestamp is the same already defined in the Enhanced Packet Block (<xref target="sectionepb" pageno="false" format="default" />).</t>
           <t>Captured Len: number of bytes captured from the packet (i.e. the length of the Packet Data field). It will be the minimum value among the actual Packet Length and the snapshot length (SnapLen defined in <xref target="formatidb" pageno="false" format="default" />). The value of this field does not include the padding bytes added at the end of the Packet Data field to align the Packet Data Field to a 32-bit boundary.</t>
@@ -893,7 +893,7 @@ A Fixed Length Block stores records with constant size. It contains a set of Blo
           <t>number of indexed packets (N)</t>
           <t>table with position and length of any indexed packet (N entries)</t>
         </list>
-        <t>A directory block must be followed by at least N packets, otherwise it must be considered invalid. It can be used to efficiently load portions of the file to memory and to support operations on memory mapped files. This block can be added by tools like network analyzers as a consequence of file processing.</t>
+        <t>A directory block MUST be followed by at least N packets, otherwise it MUST be considered invalid. It can be used to efficiently load portions of the file to memory and to support operations on memory mapped files. This block can be added by tools like network analyzers as a consequence of file processing.</t>
       </section>
       <section title="Traffic Statistics and Monitoring Blocks (experimental)" toc="default">
         <t>One or more blocks could be defined to contain network statistics or traffic monitoring information. They could be use to store data collected from RMON or Netflow probes, or from other network monitoring tools.</t>
@@ -935,7 +935,7 @@ Two or more files can be concatenated obtaining another valid file.</t>
         <c>5-8</c>
         <c>FCS length, in bytes (0000 if this information is not available). This value overrides the if_fcslen option of the Interface Description Block, and is used with those link layers (e.g. PPP) where the length of the FCS can change during time.</c>
         <c>9-15</c>
-        <c>Reserved (must be set to zero).</c>
+        <c>Reserved (MUST be set to zero).</c>
         <c>16-31</c>
         <c>link-layer-dependent errors (Bit 31 = symbol error, Bit 30 = preamble error, Bit 29 = Start Frame Delimiter error, Bit 28 = unaligned frame error, Bit 27 = wrong Inter Frame Gap error, Bit 26 = packet too short error, Bit 25 = packet too long error, Bit 24 = CRC error, other?? are 16 bit enough?).</c>
       </texttable>
