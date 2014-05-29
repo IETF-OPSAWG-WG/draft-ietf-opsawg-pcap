@@ -98,6 +98,9 @@
         <t>Portability: a capture trace must contain all the information needed to read data independently from network, hardware and operating system of the machine that made the capture.</t>
         <t>Merge/Append data: it should be possible to add data at the end of a given file, and the resulting file must still be readable.</t>
       </list>
+      <section anchor="sectionblock" title="Notation Conventions" toc="default">
+        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <eref target="http://tools.ietf.org/html/rfc2119">RFC 2119</eref>.</t>
+      </section>
     </section>
     <section title="General File Structure" toc="default">
       <section anchor="sectionblock" title="General Block Structure" toc="default">
