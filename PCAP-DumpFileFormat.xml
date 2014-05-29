@@ -62,6 +62,7 @@
     </abstract>
     <note title="Updates">
       <list style="symbols">
+        <t>[29 May 2014] Guy Harris: rename the "Record Length" field in an NRB record to Record Value Length, as it's the length of the value, not the length of the entire record.</t>
         <t>[29 May 2014] Anders Broman: changed wording as suggested by Richard Sharpe.</t>
         <t>[20 May 2014] Guy Harris: note that IDBs can appear after packet blocks for other interfaces.</t>
         <t>[20 May 2014] Guy Harris: used http://www.tcpdump.org/linktypes.html for the link-layer header types.</t>
@@ -630,7 +631,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
    +---------------------------------------------------------------+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 8 |      Record Type              |         Record Length         | 
+ 8 |      Record Type              |      Record Value Length      | 
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 12 /                       Record Value                            /
    /          /* variable length, aligned to 32 bits */            /
@@ -639,7 +640,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
    .                  . . . other records . . .                    .
    .                                                               .
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |  Record Type == end_of_recs   |  Record Length == 00          |
+   |  Record Type == end_of_recs   |  Record Value Length == 00    |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    /                                                               / 
    /                      Options (variable)                       / 
@@ -677,7 +678,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
           <c>Specifies an IPv6 address (contained in the first 16 bytes), followed by one or more zero-terminated strings containing the DNS entries for that address.</c>
           <c>20 01 0d b8 00 00 00 00 00 00 00 00 12 34 56 78 "somehost"</c>
         </texttable>
-        <t>Each Record Value is aligned to a 32-bit boundary. The corresponding Record Length reflects the actual length of the Record Value.</t>
+        <t>Each Record Value is aligned to a 32-bit boundary. The corresponding Record Value Length reflects the actual length of the Record Value; it does not include the length of the Record Type or the Record Value Length</t>
         <t>After the list of Name Resolution Records, optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
         <t>In addiction to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
         <texttable title="">
