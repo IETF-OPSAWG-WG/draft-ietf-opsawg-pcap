@@ -236,6 +236,7 @@ Section Header
           <t>Option Length (2 bytes): it contains the actual length of the following 'Option Value' field without the padding bytes.</t>
           <t>Option Value (variable length): it contains the value of the given option, aligned to a 32-bit boundary. The actual length of this field (i.e. without the padding bytes) is specified by the Option Length field.</t>
         </list>
+        <t>If an option's value is a string, the value is not necessarily zero-terminated.  Software that reads these files MUST not assume that strings are zero-terminated, and MUST treat a zero byte as a string terminator.</t>
         <t>Options may be repeated several times (e.g. an interface that has several IP addresses associated to it) TODO: mention for each option, if it can/shouldn't appear more than one time. The option list is terminated by a Option which uses the special 'End of Option' code (opt_endofopt).</t>
         <t>The format of the optional fields is shown in <xref target="formatopt" pageno="false" format="default" />.</t>
         <figure anchor="formatopt" title="Options format.">
