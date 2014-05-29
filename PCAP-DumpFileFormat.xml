@@ -678,7 +678,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
           <c>Specifies an IPv6 address (contained in the first 16 bytes), followed by one or more zero-terminated strings containing the DNS entries for that address.</c>
           <c>20 01 0d b8 00 00 00 00 00 00 00 00 12 34 56 78 "somehost"</c>
         </texttable>
-        <t>Each Record Value is aligned to a 32-bit boundary. The corresponding Record Value Length reflects the actual length of the Record Value; it does not include the length of the Record Type or the Record Value Length</t>
+        <t>Each Record Value is aligned to a 32-bit boundary. The corresponding Record Value Length reflects the actual length of the Record Value; it does not include the lengths of the Record Type or the Record Value Length.</t>
         <t>After the list of Name Resolution Records, optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
         <t>In addiction to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
         <texttable title="">
