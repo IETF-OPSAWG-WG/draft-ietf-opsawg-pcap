@@ -62,6 +62,7 @@
     </abstract>
     <note title="Updates">
       <list style="symbols">
+        <t>[29 May 2014] Anders Broman: changed wording as suggested by Richard Sharpe.</t>
         <t>[20 May 2014] Guy Harris: note that IDBs can appear after packet blocks for other interfaces.</t>
         <t>[20 May 2014] Guy Harris: used http://www.tcpdump.org/linktypes.html for the link-layer header types.</t>
         <t>[26 Jul 2012] Jasper Bongertz: worked on some TODO items and fixed typos.</t>
@@ -89,7 +90,7 @@
   </front>
   <middle>
     <section title="Objectives" toc="default">
-      <t>The problem of exchanging packet traces becomes more and more critical every day; unfortunately, no standard solutions exist for this task right now. One of the most accepted packet interchange formats is the one defined by libpcap, which is rather old and does not fit for some of the nowadays applications particularly from the extensibility point of view.</t>
+      <t>The problem of exchanging packet traces becomes more and more critical every day; unfortunately, no standard solutions exist for this task right now. One of the most accepted packet interchange formats is the one defined by libpcap, which is rather old and is lacking in functionality for more modern applications particularly from the extensibility point of view.</t>
       <t>This document proposes a new format for dumping packet traces. The following goals are being pursued:</t>
       <list style="symbols">
         <t>Extensibility: it should be possible to add new standard capabilities to the file format over time, and third parties should be able to enrich the information embedded in the file with proprietary extensions, with tools unaware of newer extensions being able to ignore them.</t>
