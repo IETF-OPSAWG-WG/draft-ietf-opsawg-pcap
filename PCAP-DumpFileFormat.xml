@@ -62,6 +62,7 @@
     </abstract>
     <note title="Updates">
       <list style="symbols">
+        <t>[29 May 2014] Guy Harris: added RFC 2119 boilerplate.</t>
         <t>[29 May 2014] Guy Harris: rename the "Record Length" field in an NRB record to Record Value Length, as it's the length of the value, not the length of the entire record.</t>
         <t>[29 May 2014] Anders Broman: changed wording as suggested by Richard Sharpe.</t>
         <t>[20 May 2014] Guy Harris: note that IDBs can appear after packet blocks for other interfaces.</t>
