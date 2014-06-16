@@ -58,7 +58,7 @@
     <keyword>Internet-Draft</keyword>
     <keyword>Libpcap, dump file format</keyword>
     <abstract>
-      <t>This document describes a format to dump captured packets on a file. This format is extensible and it is currently proposed for implementation in the libpcap/WinPcap packet capture library.</t>
+      <t>This document describes a format to dump captured packets to a file. This format is extensible; Wireshark can currently read and write it, and libpcap can currently read some pcap-ng files.</t>
     </abstract>
     <note title="Updates">
       <list style="symbols">
