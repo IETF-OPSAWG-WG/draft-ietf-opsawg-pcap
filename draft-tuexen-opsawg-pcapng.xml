@@ -53,6 +53,21 @@
  </address>
 </author>
 
+<author initials='G.' surname='Combs' fullname='Gerald Combs'>
+ <organization abbrev='Wireshark'>
+               Wireshark Foundation</organization>
+ <address>
+   <postal>
+     <street>339 Madson Pl</street>
+     <city>Davis</city>
+     <region>CA</region>
+     <code>95618</code>
+     <country>US</country>
+   </postal>
+   <email>gerald@wireshark.org</email>
+ </address>
+</author>
+
 <author initials='G.' surname='Harris' fullname='Guy Harris'>
 <address>
   <email>guy@alum.mit.edu</email>
