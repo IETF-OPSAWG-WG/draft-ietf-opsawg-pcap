@@ -7,7 +7,7 @@
 <?rfc strict='yes' ?>
 <rfc category='info'
      ipr='trust200902'
-     docName="draft-tuexen-opsawg-pcapng-00.txt">
+     docName="draft-tuexen-opsawg-pcapng-01a.txt">
 <front>
 <title abbrev="PCAPNG">PCAP Next Generation (PCAPNG) Dump File Format</title>
 
