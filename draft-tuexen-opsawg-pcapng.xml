@@ -977,9 +977,12 @@ or more files can be concatenated obtaining another valid file.</t>
 <t>TBD.</t>
 </section>
 
-<section title="Acknowledgments">
+<section title='Contributors'>
 <t>Loris Degioanni and Gianluca Varenni were coauthoring this document before
 it was submitted to the IETF.</t>
+</section>
+
+<section title="Acknowledgments">
 <t>The authors wish to thank
 Anders Broman,
 Ulf Lamping,
