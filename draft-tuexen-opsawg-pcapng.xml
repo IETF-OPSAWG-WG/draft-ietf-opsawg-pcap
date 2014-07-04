@@ -1,5 +1,6 @@
-﻿<?rfc symrefs='yes'?>
-<!DOCTYPE rfc SYSTEM 'rfc2629.dtd'>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd"[]>
+<?rfc symrefs='yes' ?>
 <?rfc toc='yes' ?>
 <?rfc compact='yes' ?>
 <?rfc subcompact='no' ?>
@@ -7,7 +8,7 @@
 <?rfc strict='yes' ?>
 <rfc category='info'
      ipr='trust200902'
-     docName="draft-tuexen-opsawg-pcapng-01a.txt">
+     docName="draft-tuexen-opsawg-pcapng-01a">
 <front>
 <title abbrev="PCAPNG">PCAP Next Generation (PCAPNG) Dump File Format</title>
 
