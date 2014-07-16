@@ -1,0 +1,5 @@
+gerald = Gerald Combs <gerald@wireshark.org>
+guy = Guy Harris <guy@alum.mit.edu>
+gvarenni = Gianluca Varenni <gianlucav@winpcap.org>
+jbongertz = Jasper Bongertz <jasper@packet-foo.com>
+tuexen = Michael Tuexen <tuexen@fh-muenster.de>
