@@ -175,14 +175,14 @@ interpreted as described in <xref target='RFC2119'/>.</t>
       </section>
       <section title="Block Types" toc="default">
         <t>The currently standardized Block Type codes are specified in <xref target="appendixBlockCodes" pageno="false" format="default" />; they have been grouped in the following four categories:</t>
-        <t>MANDATORY blocks MUST appear at least once in each file:
+        <t>The following MANDATORY blocks MUST appear at least once in each file:
         <list style="symbols">
           <t>
             <xref target="sectionshb" pageno="false" format="default">Section Header Block</xref>: it defines the most important characteristics of the capture file.</t>
           <t>
             <xref target="sectionidb" pageno="false" format="default">Interface Description Block</xref>: it defines the most important characteristics of the interface(s) used for capturing traffic.</t>
         </list></t>
-        <t>OPTIONAL blocks MAY appear in a file:
+        <t>The following OPTIONAL blocks MAY appear in a file:
         <list style="symbols">
           <t>
             <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>: it contains a single captured packet, or a portion of it. It represents an evolution of the original <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>.</t>
@@ -193,12 +193,12 @@ interpreted as described in <xref target='RFC2119'/>.</t>
           <t>
             <xref target="sectionisb" pageno="false" format="default">Interface Statistics Block</xref>: it defines how to store some statistical data (e.g. packet dropped, etc) which can be useful to understand the conditions in which the capture has been made.</t>
         </list></t>
-        <t>OBSOLETE blocks SHOULD NOT appear in newly written files (but left here for reference):
+        <t>The following OBSOLETE block SHOULD NOT appear in newly written files (but is left here for reference):
         <list style="symbols">
           <t>
             <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>: it contains a single captured packet, or a portion of it. It should be considered OBSOLETE, and superseded by the <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>.</t>
         </list></t>
-        <t>EXPERIMENTAL blocks are considered interesting but the authors believe that they deserve more in-depth discussion before being defined:
+        <t>The following EXPERIMENTAL blocks are considered interesting but the authors believe that they deserve more in-depth discussion before being defined:
         <list style="symbols">
           <t>Alternative Packet Blocks</t>
           <t>Compression Block</t>
@@ -211,7 +211,7 @@ interpreted as described in <xref target='RFC2119'/>.</t>
       </section>
       <section title="Logical Block Hierarchy" toc="default">
         <t>The blocks build a logical hierarchy as they refer to each other. <xref target="block-hierarchy" pageno="false" format="default" /> shows the logical hierarchy of the currently defined blocks in the form of a "tree view":</t>
-        <figure anchor="block-hierarchy" title="Logical block Hierarchy of a pcapng file.">
+        <figure anchor="block-hierarchy" title="Logical Block Hierarchy of a pcapng File">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
 Section Header
 |
@@ -229,8 +229,8 @@ Section Header
         <t>The file MUST begin with a Section Header Block. However, more than one Section Header Block can be present in the capture file, each one covering the data following it until the next one (or the end of file). A Section includes the data delimited by two Section Header Blocks (or by a Section Header Block and the end of the file), including the first Section Header Block.</t>
         <t>In case an application cannot read a Section because of different version number, it MUST skip everything until the next Section Header Block. Note that, in order to properly skip the blocks until the next section, all blocks MUST have the fields Type and Length at the beginning. This is a mandatory requirement that MUST be maintained in future versions of the block format.</t>
         <t>
-          <xref target="fssample-SHB" pageno="false" format="default" /> shows a typical file configuration, with a single Section Header that covers the whole file.</t>
-        <figure anchor="fssample-SHB" title="File structure example: Typical configuration with a single Section Header Block.">
+          <xref target="fssample-SHB" pageno="false" format="default" /> shows a typical file layout, with a single Section Header that covers the whole file.</t>
+        <figure anchor="fssample-SHB" title="File structure example: Typical layout with a single Section Header Block">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 | SHB v1.0  |                      Data                         |
@@ -239,7 +239,7 @@ Section Header
         </figure>
         <t>
           <xref target="fssample-SHB3" pageno="false" format="default" /> shows a file that contains three headers, and is normally the result of file concatenation. An application that understands only version 1.0 of the file format skips the intermediate section and restart processing the packets after the third Section Header.</t>
-        <figure anchor="fssample-SHB3" title="File structure example: three Section Header Blocks in a single file.">
+        <figure anchor="fssample-SHB3" title="File structure example: three Section Header Blocks in a single file">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
 |--   1st Section   --|--   2nd Section   --|--  3rd Section  --|
 |                                                               |
@@ -250,7 +250,7 @@ Section Header
         </figure>
         <t>
           <xref target="fssample-minimum" pageno="false" format="default" /> shows a file comparable to a "classic libpcap" file - the minimum for a useful capture file. It contains a single Section Header Block (SHB), a single Interface Description Block (IDB) and a few Enhanced Packet Blocks (EPB).</t>
-        <figure anchor="fssample-minimum" title="File structure example: a pcapng file similar to a classical libpcap file.">
+        <figure anchor="fssample-minimum" title="File structure example: a pcapng file similar to a classical libpcap file">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 | SHB | IDB | EPB | EPB |    ...    | EPB |
@@ -259,11 +259,11 @@ Section Header
         </figure>
         <t>
           <xref target="fssample-full" pageno="false" format="default" /> shows a complex example file. In addition to the minimum file above, it contains packets captured from three interfaces, capturing on the third of which begins after packets have arrived on other interfaces, and also includes some Name Resolution Blocks (NRB) and an Interface Statistics Block (ISB).</t>
-        <figure anchor="fssample-full" title="File structure example: more complex pcapng file.">
+        <figure anchor="fssample-full" title="File structure example: complex pcapng file">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-| SHB | IDB | IDB | EPB | NRB |...| IDB | EPB | ISB | NRB | EPB | EPB |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SHB | IDB | IDB | EPB | NRB |...| IDB | EPB | ISB | NRB | EPB |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
         </figure>
         <t>The last example should make it obvious that the block structure makes the file format very flexible compared to the classical libpcap format.</t>
@@ -280,7 +280,7 @@ Section Header
         <t>If an option's value is a string, the value is not necessarily zero-terminated.  Software that reads these files MUST NOT assume that strings are zero-terminated, and MUST treat a zero byte as a string terminator.</t>
         <t>Options may be repeated several times (e.g. an interface that has several IP addresses associated to it) TODO: mention for each option, if it can/shouldn't appear more than one time. The option list is terminated by a Option which uses the special 'End of Option' code (opt_endofopt).</t>
         <t>The format of the optional fields is shown in <xref target="formatopt" pageno="false" format="default" />.</t>
-        <figure anchor="formatopt" title="Options format.">
+        <figure anchor="formatopt" title="Options Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
  0                   1                   2                   3   
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -299,7 +299,7 @@ Section Header
  </artwork>
         </figure>
         <t>The following codes can always be present in any optional field:</t>
-        <texttable title="">
+        <texttable anchor="optionsall" title="Common Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -327,14 +327,14 @@ Section Header
         <t>Alignment</t>
         <t>All fields of this specification uses proper alignment for 16- and 32-bit values. This makes it easier and faster to read/write file contents if using techniques like memory mapped files.</t>
         <t>The alignment bytes (marked in this document e.g. with "padded to 32 bits") MUST be filled with zero bytes.</t>
-        <t>Please note: 64-bit values are not aligned to 64-bit boundaries. This is because the file is naturally aligned to 32-bit boundaries only. Special care MUST be taken when reading and writing such values. TODO: the spec is not too consistent wrt how 64-bit values are saved. in the Packet blocks we clearly specify where the low and high 32-bits of a 64-bit timestamp should be saved. In the SHB we do use the endianess of the machine when we save the section length.</t>
+        <t>Please note: 64-bit values are not aligned to 64-bit boundaries. This is because the file is naturally aligned to 32-bit boundaries only. Special care MUST be taken when reading and writing such values. TODO: the spec is not too consistent wrt how 64-bit values are saved. In the Packet blocks we clearly specify where the low and high 32-bits of a 64-bit timestamp should be saved. In the SHB we do use the endianess of the machine when we save the section length.</t>
       </section>
     </section>
     <section title="Block Definition" toc="default">
       <t>This section details the format of the body of the blocks currently defined.</t>
       <section anchor="sectionshb" title="Section Header Block (mandatory)" toc="default">
         <t>The Section Header Block is mandatory. It identifies the beginning of a section of the capture capture file. The Section Header Block does not contain data but it rather identifies a list of blocks (interfaces, packets) that are logically correlated. Its format is shown in <xref target="formatSHB" pageno="false" format="default" />.</t>
-        <figure anchor="formatSHB" title="Section Header Block format.">
+        <figure anchor="formatSHB" title="Section Header Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
    0                   1                   2                   3   
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -372,7 +372,7 @@ Section Header
         </list></t>
         <t>Adding new block types or options would not necessarily require that either Major or Minor numbers be changed, as code that does not know about the block type or option could just skip it; only if skipping a block or option does not work should the minor version number be changed.</t>
         <t>Aside from the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
-        <texttable title="">
+        <texttable anchor="optionsshb" title="Section Header Block Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -406,7 +406,7 @@ Section Header
       <section anchor="sectionidb" title="Interface Description Block (mandatory)" toc="default">
         <t>The Interface Description Block is mandatory. This block is needed to specify the characteristics of the network interface on which the capture has been made. In order to properly associate the captured data to the corresponding interface, the Interface Description Block MUST be defined before any other block that uses it; therefore, this block is usually placed immediately after the Section Header Block.  However, if capturing on an interface starts in the middle of a capture, an Interface Description Block can appear after other blocks, including blocks for packets on interfaces for which Interface Description Blocks have already appeared.</t>
         <t>An Interface Description Block is valid only inside the section which it belongs to. The structure of a Interface Description Block is shown in <xref target="formatidb" pageno="false" format="default" />.</t>
-        <figure anchor="formatidb" title="Interface Description Block format.">
+        <figure anchor="formatidb" title="Interface Description Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
     0                   1                   2                   3   
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -437,7 +437,7 @@ Section Header
         </list></t>
         <t>Interface ID: Tools that write / read the capture file associate a progressive 32-bit number (starting from '0') to each Interface Definition Block. This number is unique within each Section and uniquely identifies the interface (inside the current section); therefore, two Sections can have interfaces identified by the same identifiers. This unique identifier is referenced by other blocks (e.g. Packet Block) to point out the interface the block refers to (e.g. the interface that was used to capture the packet).</t>
         <t>In addition to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
-        <texttable title="">
+        <texttable anchor="optionsifb" title="Interface Description Block Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -547,7 +547,7 @@ Section Header
           <t>it stores the Interface Identifier as a 32-bit integer value. This is a requirement when a capture stores packets coming from a large number of interfaces</t>
           <t>differently from the <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>, the number of packets dropped by the capture system between this packet and the previous one is not stored in the header, but rather in an option of the block itself.</t>
         </list></t>
-        <figure anchor="formatepb" title="Enhanced Packet Block format.">
+        <figure anchor="formatepb" title="Enhanced Packet Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
    0                   1                   2                   3   
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -591,8 +591,8 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
           <t>Packet Data: the data coming from the network, including link-layer headers. The actual length of this field is Captured Len. The format of the link-layer headers depends on the LinkType field specified in the Interface Description Block (see <xref target="sectionidb" pageno="false" format="default" />) and it is specified in the entry for that format in the <eref target="http://www.tcpdump.org/linktypes.html">the tcpdump.org link-layer header types registry</eref>.</t>
           <t>Options: optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
         </list></t>
-        <t>In addition to the options defined in <xref target="sectionopt" pageno="false" format="default" /> and in the <xref target="optionspb" pageno="false" format="default">Packet Block</xref>, the following options are valid within this block:</t>
-        <texttable title="">
+        <t>In addition to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
+        <texttable anchor="optionsepb" title="Enhanced Packet Block Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -624,11 +624,11 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       </section>
       <section anchor="sectionpbs" title="Simple Packet Block (optional)" toc="default">
         <t>The Simple Packet Block is a lightweight container for storing the packets coming from the network. Its presence is optional.</t>
-        <t>A Simple Packet Block is similar to a Packet Block (see <xref target="sectionpb" pageno="false" format="default" />), but it is smaller, simpler to process and contains only a minimal set of information. This block is preferred to the standard Packet Block when performance or space occupation are critical factors, such as in sustained traffic capture applications. A capture file can contain both Packet Blocks and Simple Packet Blocks: for example, a capture tool could switch from Packet Blocks to Simple Packet Blocks when the hardware resources become critical.</t>
+        <t>A Simple Packet Block is similar to a Packet Block (see <xref target="sectionpb" pageno="false" format="default" />), but it is smaller, simpler to process and contains only a minimal set of information. This block is preferred to the standard Enhanced Packet Block when performance or space occupation are critical factors, such as in sustained traffic capture applications. A capture file can contain both Packet Blocks and Simple Packet Blocks: for example, a capture tool could switch from Packet Blocks to Simple Packet Blocks when the hardware resources become critical.</t>
         <t>The Simple Packet Block does not contain the Interface ID field. Therefore, it MUST be assumed that all the Simple Packet Blocks have been captured on the interface previously specified in the first Interface Description Block.</t>
         <t>
           <xref target="formatpbs" pageno="false" format="default" /> shows the format of the Simple Packet Block.</t>
-        <figure anchor="formatpbs" title="Simple Packet Block format.">
+        <figure anchor="formatpbs" title="Simple Packet Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
     0                   1                   2                   3   
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -662,7 +662,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       <section anchor="sectionpb" title="Packet Block (obsolete!)" toc="default">
         <t>The Packet Block is marked obsolete, better use the Enhanced Packet Block instead!</t>
         <t>A Packet Block is the standard container for storing the packets coming from the network. The Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up capture file generation. The format of a packet block is shown in <xref target="formatpb" pageno="false" format="default" />.</t>
-        <figure anchor="formatpb" title="Packet Block format.">
+        <figure anchor="formatpb" title="Packet Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
     0                   1                   2                   3   
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -707,7 +707,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
           <t>Options: optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
         </list></t>
         <t>In addition to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
-        <texttable anchor="optionspb" title="">
+        <texttable anchor="optionspb" title="Packet Block Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -734,7 +734,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
         <t>The Name Resolution Block is used to support the correlation of numeric addresses (present in the captured packets) and their corresponding canonical names and it is optional. Having the literal names saved in the file, this prevents the need of a name resolution in a delayed time, when the association between names and addresses can be different from the one in use at capture time. Moreover, the Name Resolution Block avoids the need of issuing a lot of DNS requests every time the trace capture is opened, and allows to have name resolution also when reading the capture with a machine not connected to the network.</t>
         <t>A Name Resolution Block is normally placed at the beginning of the file, but no assumptions can be taken about its position. Name Resolution Blocks can be added in a second time by tools that process the file, like network analyzers.</t>
         <t>The format of the Name Resolution Block is shown in <xref target="formatnrb" pageno="false" format="default" />.</t>
-        <figure anchor="formatnrb" title="Name Resolution Block format.">
+        <figure anchor="formatnrb" title="Name Resolution Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
     0                   1                   2                   3   
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -768,7 +768,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
           <t>Block Total Length: total size of this block, as described in <xref target="sectionblock" pageno="false" format="default" />.</t>
         </list></t>
         <t>This is followed by a zero-terminated list of records (in the TLV format), each of which contains an association between a network address and a name. There are three possible types of records:</t>
-        <texttable anchor="nrrecords" title="">
+        <texttable anchor="nrrecords" title="Name Resolution Block Records">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -787,12 +787,12 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
         </texttable>
         <t>
           <list hangIndent="8" style="hanging">
-            <t hangText="nres_endofrecord:"><vspace blankLines="0" />The nres_endofrecord option delimits the end of name resolution records. This record is needed to determine when the list of name resolution records has ended and some options (if any) begin.</t>
+            <t hangText="nres_endofrecord:"><vspace blankLines="0" />The nres_endofrecord record delimits the end of name resolution records. This record is needed to determine when the list of name resolution records has ended and some options (if any) begin.</t>
 
-            <t hangText="nres_ip4record:"><vspace blankLines="0" />The nres_ip4record option specifies an IPv4 address (contained in the first 4 bytes), followed by one or more zero-terminated strings containing the DNS entries for that address.</t>
+            <t hangText="nres_ip4record:"><vspace blankLines="0" />The nres_ip4record record specifies an IPv4 address (contained in the first 4 bytes), followed by one or more zero-terminated strings containing the DNS entries for that address.</t>
             <t>Example: '127 0 0 1'"localhost".</t>
 
-            <t hangText="nres_ip6record:"><vspace blankLines="0" />The nres_ip4record option specifies an IPv6 address (contained in the first 16 bytes), followed by one or more zero-terminated strings containing the DNS entries for that address.</t>
+            <t hangText="nres_ip6record:"><vspace blankLines="0" />The nres_ip4record record specifies an IPv6 address (contained in the first 16 bytes), followed by one or more zero-terminated strings containing the DNS entries for that address.</t>
             <t>Example: '20 01 0d b8 00 00 00 00 00 00 00 00 12 34 56 78'"somehost".</t>
           </list>
         </t>
@@ -800,7 +800,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
         <t>Each Record Value is aligned to and padded to a 32-bit boundary. The corresponding Record Value Length reflects the actual length of the Record Value; it does not include the lengths of the Record Type, the Record Value Length, or any after the Record Value.</t>
         <t>After the list of Name Resolution Records, optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
         <t>In addition to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
-        <texttable title="">
+        <texttable  anchor="optionsnsb" title="Name Resolution Block Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -833,7 +833,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       <section anchor="sectionisb" title="Interface Statistics Block (optional)" toc="default">
         <t>The Interface Statistics Block contains the capture statistics for a given interface and it is optional. The statistics are referred to the interface defined in the current Section identified by the Interface ID field. An Interface Statistics Block is normally placed at the end of the file, but no assumptions can be taken about its position - it can even appear multiple times for the same interface.</t>
         <t>The format of the Interface Statistics Block is shown in <xref target="formatisb" pageno="false" format="default" />.</t>
-        <figure anchor="formatisb" title="Interface Statistics Block format.">
+        <figure anchor="formatisb" title="Interface Statistics Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
     0                   1                   2                   3   
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -865,7 +865,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
           <t>Options: optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
         </list></t>
         <t>All the statistic fields are defined as options in order to deal with systems that do not have a complete set of statistics. Therefore, In addiction to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
-        <texttable title="">
+        <texttable anchor="optionsisb" title="Interface Statistics Block Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -932,7 +932,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       </section>
       <section title="Compression Block (experimental)" toc="default">
         <t>The Compression Block is optional. A file can contain an arbitrary number of these blocks. A Compression Block, as the name says, is used to store compressed data. Its format is shown in <xref target="formatcb" pageno="false" format="default" />.</t>
-        <figure anchor="formatcb" title="Compression Block format.">
+        <figure anchor="formatcb" title="Compression Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
  0                   1                   2                   3   
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -964,7 +964,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       </section>
       <section title="Encryption Block (experimental)" toc="default">
         <t>The Encryption Block is optional. A file can contain an arbitrary number of these blocks. An Encryption Block is used to store encrypted data. Its format is shown in <xref target="formateb" pageno="false" format="default" />.</t>
-        <figure anchor="formateb" title="Encryption Block format.">
+        <figure anchor="formateb" title="Encryption Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
  0                   1                   2                   3   
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -996,7 +996,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       <section title="Fixed Length Block (experimental)" toc="default">
         <t>The Fixed Length Block is optional. A file can contain an arbitrary number of these blocks. A Fixed Length Block can be used to optimize the access to the file. Its format is shown in <xref target="formatflm" pageno="false" format="default" />.
 A Fixed Length Block stores records with constant size. It contains a set of Blocks (normally Packet Blocks or Simple Packet Blocks), of which it specifies the size. Knowing this size a priori helps to scan the file and to load some portions of it without truncating a block, and is particularly useful with cell-based networks like ATM.</t>
-        <figure anchor="formatflm" title="Fixed Length Block format.">
+        <figure anchor="formatflm" title="Fixed Length Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
  0                   1                   2                   3   
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -1123,7 +1123,7 @@ and many others for their invaluable comments.</t>
 <t>As pointed out in <xref target="sectionblock" pageno="false" format="default"></xref>, Block Types codes whose Most Significant Bit (bit 31) is set to 1 are reserved for local use by the application.</t>
 <t>All the remaining Block Type codes (0x00000000 to 0x7FFFFFFF) are standardized by this document. A request should be sent to the authors of this document to add a new Standard Block Type code to the specification.</t>
 <t>Here is a list of the Standardized Block Type Codes.</t>
-<texttable title="">
+<texttable anchor="blockcodes" title="Standardized Block Type Codes">
 <ttcol align="left">Block Type Code</ttcol>
 <ttcol align="left">Description</ttcol>
 <c>0x00000000</c>
