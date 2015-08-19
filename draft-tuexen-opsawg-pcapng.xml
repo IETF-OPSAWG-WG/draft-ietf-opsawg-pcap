@@ -10,7 +10,7 @@
      ipr='trust200902'
      docName="draft-tuexen-opsawg-pcapng-01a">
 <front>
-<title abbrev="PCAPNG">PCAP Next Generation (PCAPNG) Dump File Format</title>
+<title abbrev="PCAPNG">PCAP Next Generation (PCAPNG) Capture File Format</title>
 
 <author initials='M.' surname='Tuexen' fullname='Michael Tuexen' role='editor'>
   <organization abbrev='Muenster Univ. of Appl. Sciences'>
@@ -78,7 +78,7 @@
 <date />
 
 <abstract>
-<t>This document describes a format to dump captured packets to a file.
+<t>This document describes a format to record captured packets to a file.
 This format is extensible; Wireshark can currently read and write it,
 and libpcap can currently read some pcap-ng files.</t>
 </abstract>
@@ -120,7 +120,7 @@ this task right now. One of the most accepted packet interchange
 formats is the one defined by libpcap, which is rather old and is
 lacking in functionality for more modern applications particularly
 from the extensibility point of view.</t>
-<t>This document proposes a new format for dumping packet traces. The
+<t>This document proposes a new format for recording packet traces. The
 following goals are being pursued:
 <list style='hanging'>
 <t hangText='Extensibility:'>
@@ -170,7 +170,7 @@ interpreted as described in <xref target='RFC2119'/>.</t>
           <t>Block Body: content of the block.</t>
           <t>Block Total Length: total size of this block, in bytes. This field is duplicated to permit backward file navigation.</t>
         </list></t>
-        <t>This structure, shared among all blocks, makes it easy to process a file and to skip unneeded or unknown blocks. Some blocks can contain other blocks inside (nested blocks). Some of the blocks are mandatory, i.e. a dump file is not valid if they are not present, other are optional.</t>
+        <t>This structure, shared among all blocks, makes it easy to process a file and to skip unneeded or unknown blocks. Some blocks can contain other blocks inside (nested blocks). Some of the blocks are mandatory, i.e. a capture file is not valid if they are not present, other are optional.</t>
         <t>The General Block Structure allows defining other blocks if needed. A parser that does not understand them can simply ignore their content.</t>
       </section>
       <section title="Block Types" toc="default">
@@ -189,7 +189,7 @@ interpreted as described in <xref target='RFC2119'/>.</t>
           <t>
             <xref target="sectionpbs" pageno="false" format="default">Simple Packet Block</xref>: it contains a single captured packet, or a portion of it, with only a minimal set of information about it.</t>
           <t>
-            <xref target="sectionnrb" pageno="false" format="default">Name Resolution Block</xref>: it defines the mapping from numeric addresses present in the packet dump and the canonical name counterpart.</t>
+            <xref target="sectionnrb" pageno="false" format="default">Name Resolution Block</xref>: it defines the mapping from numeric addresses present in the packet capture and the canonical name counterpart.</t>
           <t>
             <xref target="sectionisb" pageno="false" format="default">Interface Statistics Block</xref>: it defines how to store some statistical data (e.g. packet dropped, etc) which can be useful to understand the conditions in which the capture has been made.</t>
         </list></t>
@@ -226,7 +226,7 @@ Section Header
         <t>For example: each captured packet refers to a specific capture interface, the interface itself refers to a specific section.</t>
       </section>
       <section title="Physical File Layout" toc="default">
-        <t>The file MUST begin with a Section Header Block. However, more than one Section Header Block can be present on the dump, each one covering the data following it till the next one (or the end of file). A Section includes the data delimited by two Section Header Blocks (or by a Section Header Block and the end of the file), including the first Section Header Block.</t>
+        <t>The file MUST begin with a Section Header Block. However, more than one Section Header Block can be present in the capture file, each one covering the data following it until the next one (or the end of file). A Section includes the data delimited by two Section Header Blocks (or by a Section Header Block and the end of the file), including the first Section Header Block.</t>
         <t>In case an application cannot read a Section because of different version number, it MUST skip everything until the next Section Header Block. Note that, in order to properly skip the blocks until the next section, all blocks MUST have the fields Type and Length at the beginning. This is a mandatory requirement that MUST be maintained in future versions of the block format.</t>
         <t>
           <xref target="fssample-SHB" pageno="false" format="default" /> shows a typical file configuration, with a single Section Header that covers the whole file.</t>
@@ -319,8 +319,8 @@ Section Header
       </section>
       <section title="Data format" toc="default">
         <t>Endianess</t>
-        <t>Data contained in each section will always be saved according to the characteristics (little endian / big endian) of the dumping machine. This refers to all the fields that are saved as numbers and that span over two or more bytes.</t>
-        <t>The approach of having each section saved in the native format of the generating host is more efficient because it avoids translation of data when reading / writing on the host itself, which is the most common case when generating/processing capture dumps.</t>
+        <t>Data contained in each section will always be saved according to the characteristics (little endian / big endian) of the capturing machine. This refers to all the fields that are saved as numbers and that span over two or more bytes.</t>
+        <t>The approach of having each section saved in the native format of the generating host is more efficient because it avoids translation of data when reading / writing on the host itself, which is the most common case when generating/processing capture captures.</t>
         <t>Please note: The endianess is indicated by the <xref target="sectionshb" pageno="false" format="default">Section Header Block</xref>. As this block can appear several times in a pcapng file, a single file can contain both endianess variants!</t>
         <t>Alignment</t>
         <t>All fields of this specification uses proper alignment for 16- and 32-bit values. This makes it easier and faster to read/write file contents if using techniques like memory mapped files.</t>
@@ -331,7 +331,7 @@ Section Header
     <section title="Block Definition" toc="default">
       <t>This section details the format of the body of the blocks currently defined.</t>
       <section anchor="sectionshb" title="Section Header Block (mandatory)" toc="default">
-        <t>The Section Header Block is mandatory. It identifies the beginning of a section of the capture dump file. The Section Header Block does not contain data but it rather identifies a list of blocks (interfaces, packets) that are logically correlated. Its format is shown in <xref target="formatSHB" pageno="false" format="default" />.</t>
+        <t>The Section Header Block is mandatory. It identifies the beginning of a section of the capture capture file. The Section Header Block does not contain data but it rather identifies a list of blocks (interfaces, packets) that are logically correlated. Its format is shown in <xref target="formatSHB" pageno="false" format="default" />.</t>
         <figure anchor="formatSHB" title="Section Header Block format.">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
    0                   1                   2                   3   
@@ -408,7 +408,7 @@ Section Header
           <t>Block Type: The block type of the Interface Description Block is 1.</t>
           <t>Block Total Length: total size of this block, as described in <xref target="sectionblock" pageno="false" format="default" />.</t>
           <t>LinkType: a value that defines the link layer type of this interface. The list of Standardized Link Layer Type codes is available in <eref target="http://www.tcpdump.org/linktypes.html">the tcpdump.org link-layer header types registry</eref>.</t>
-          <t>SnapLen: maximum number of bytes dumped from each packet. The portion of each packet that exceeds this value will not be stored in the file. A value of zero indicates no limit.</t>
+          <t>SnapLen: maximum number of bytes captured from each packet. The portion of each packet that exceeds this value will not be stored in the file. A value of zero indicates no limit.</t>
           <t>Options: optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
         </list></t>
         <t>Interface ID: Tools that write / read the capture file associate a progressive 32-bit number (starting from '0') to each Interface Definition Block. This number is unique within each Section and uniquely identifies the interface (inside the current section); therefore, two Sections can have interfaces identified by the same identifiers. This unique identifier is referenced by other blocks (e.g. Packet Block) to point out the interface the block refers to (e.g. the interface that was used to capture the packet).</t>
@@ -487,7 +487,7 @@ Section Header
         </texttable>
       </section>
       <section anchor="sectionepb" title="Enhanced Packet Block (optional)" toc="default">
-        <t>An Enhanced Packet Block is the standard container for storing the packets coming from the network. The Enhanced Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up dump generation. The format of an Enhanced Packet Block is shown in <xref target="formatepb" pageno="false" format="default" />.</t>
+        <t>An Enhanced Packet Block is the standard container for storing the packets coming from the network. The Enhanced Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up capture file generation. The format of an Enhanced Packet Block is shown in <xref target="formatepb" pageno="false" format="default" />.</t>
         <t>The Enhanced Packet Block is an improvement over the original <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>:
         <list style="symbols">
           <t>it stores the Interface Identifier as a 32-bit integer value. This is a requirement when a capture stores packets coming from a large number of interfaces</t>
@@ -563,7 +563,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       </section>
       <section anchor="sectionpbs" title="Simple Packet Block (optional)" toc="default">
         <t>The Simple Packet Block is a lightweight container for storing the packets coming from the network. Its presence is optional.</t>
-        <t>A Simple Packet Block is similar to a Packet Block (see <xref target="sectionpb" pageno="false" format="default" />), but it is smaller, simpler to process and contains only a minimal set of information. This block is preferred to the standard Packet Block when performance or space occupation are critical factors, such as in sustained traffic dump applications. A capture file can contain both Packet Blocks and Simple Packet Blocks: for example, a capture tool could switch from Packet Blocks to Simple Packet Blocks when the hardware resources become critical.</t>
+        <t>A Simple Packet Block is similar to a Packet Block (see <xref target="sectionpb" pageno="false" format="default" />), but it is smaller, simpler to process and contains only a minimal set of information. This block is preferred to the standard Packet Block when performance or space occupation are critical factors, such as in sustained traffic capture applications. A capture file can contain both Packet Blocks and Simple Packet Blocks: for example, a capture tool could switch from Packet Blocks to Simple Packet Blocks when the hardware resources become critical.</t>
         <t>The Simple Packet Block does not contain the Interface ID field. Therefore, it MUST be assumed that all the Simple Packet Blocks have been captured on the interface previously specified in the first Interface Description Block.</t>
         <t>
           <xref target="formatpbs" pageno="false" format="default" /> shows the format of the Simple Packet Block.</t>
@@ -600,7 +600,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       </section>
       <section anchor="sectionpb" title="Packet Block (obsolete!)" toc="default">
         <t>The Packet Block is marked obsolete, better use the Enhanced Packet Block instead!</t>
-        <t>A Packet Block is the standard container for storing the packets coming from the network. The Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up dump generation. The format of a packet block is shown in <xref target="formatpb" pageno="false" format="default" />.</t>
+        <t>A Packet Block is the standard container for storing the packets coming from the network. The Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up capture file generation. The format of a packet block is shown in <xref target="formatpb" pageno="false" format="default" />.</t>
         <figure anchor="formatpb" title="Packet Block format.">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
     0                   1                   2                   3   
@@ -951,7 +951,7 @@ A Fixed Length Block stores records with constant size. It contains a set of Blo
       </section>
     </section>
     <section title="Recommended File Name Extension: .pcapng" toc="default">
-      <t>The recommended file name extension for the "PCAP Next Generation Dump File Format" specified in this document is ".pcapng".</t>
+      <t>The recommended file name extension for the "PCAP Next Generation Capture File Format" specified in this document is ".pcapng".</t>
       <t>On Windows and OS X, files are distinguished by an extension to their filename. Such an extension is technically not actually required, as applications should be able to automatically detect the pcapng file format through the "magic bytes" at the beginning of the file, as some other UN*X desktop environments do. However, using name extensions makes it easier to work with files (e.g. visually distinguish file formats) so it is recommended - though not required - to use .pcapng as the name extension for files following this specification.</t>
       <t>Please note: To avoid confusion (like the current usage of .cap for a plethora of different capture file formats) other file name extensions than .pcapng should be avoided!</t>
     </section>
@@ -962,7 +962,7 @@ A Fixed Length Block stores records with constant size. It contains a set of Blo
 <section title="Conclusions" toc="default">
 <t>The file format proposed in this document should be very versatile
 and satisfy a wide range of applications. In the simplest case, it can
-contain a raw dump of the network data, made of a series of Simple
+contain a raw capture of the network data, made of a series of Simple
 Packet Blocks. In the most complex case, it can be used as a repository
 for heterogeneous information. In every case, the file remains easy to
 parse and an application can always skip the data it is not interested
