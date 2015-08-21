@@ -176,28 +176,38 @@ interpreted as described in <xref target='RFC2119'/>.</t>
       <section title="Block Types" toc="default">
         <t>The currently standardized Block Type codes are specified in <xref target="appendixBlockCodes" pageno="false" format="default" />; they have been grouped in the following four categories:</t>
         <t>The following MANDATORY blocks MUST appear at least once in each file:
-        <list style="symbols">
-          <t>
-            <xref target="sectionshb" pageno="false" format="default">Section Header Block</xref>: it defines the most important characteristics of the capture file.</t>
-          <t>
-            <xref target="sectionidb" pageno="false" format="default">Interface Description Block</xref>: it defines the most important characteristics of the interface(s) used for capturing traffic.</t>
-        </list></t>
+          <list style="symbols">
+            <t>
+              <xref target="sectionshb" pageno="false" format="default">Section Header Block</xref>: it defines the most important characteristics of the capture file.
+            </t>
+          </list>
+        </t>
         <t>The following OPTIONAL blocks MAY appear in a file:
-        <list style="symbols">
-          <t>
-            <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>: it contains a single captured packet, or a portion of it. It represents an evolution of the original <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>.</t>
-          <t>
-            <xref target="sectionpbs" pageno="false" format="default">Simple Packet Block</xref>: it contains a single captured packet, or a portion of it, with only a minimal set of information about it.</t>
-          <t>
-            <xref target="sectionnrb" pageno="false" format="default">Name Resolution Block</xref>: it defines the mapping from numeric addresses present in the packet capture and the canonical name counterpart.</t>
-          <t>
-            <xref target="sectionisb" pageno="false" format="default">Interface Statistics Block</xref>: it defines how to store some statistical data (e.g. packet dropped, etc) which can be useful to understand the conditions in which the capture has been made.</t>
-        </list></t>
+          <list style="symbols">
+            <t>
+              <xref target="sectionidb" pageno="false" format="default">Interface Description Block</xref>: it defines the most important characteristics of the interface(s) used for capturing traffic. This block is required in certain cases, as describned later.
+            </t>
+            <t>
+              <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>: it contains a single captured packet, or a portion of it. It represents an evolution of the original <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>. If this appears in a file, an Interface Description Block is also required, before this block.
+            </t>
+            <t>
+              <xref target="sectionpbs" pageno="false" format="default">Simple Packet Block</xref>: it contains a single captured packet, or a portion of it, with only a minimal set of information about it. If this appears in a file, an Interface Description Block is also required, before this block.
+            </t>
+            <t>
+              <xref target="sectionnrb" pageno="false" format="default">Name Resolution Block</xref>: it defines the mapping from numeric addresses present in the packet capture and the canonical name counterpart.
+            </t>
+            <t>
+              <xref target="sectionisb" pageno="false" format="default">Interface Statistics Block</xref>: it defines how to store some statistical data (e.g. packet dropped, etc) which can be useful to understand the conditions in which the capture has been made. If this appears in a file, an Interface Description Block is also required, before this block.
+            </t>
+          </list>
+        </t>
         <t>The following OBSOLETE block SHOULD NOT appear in newly written files (but is left here for reference):
-        <list style="symbols">
-          <t>
-            <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>: it contains a single captured packet, or a portion of it. It should be considered OBSOLETE, and superseded by the <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>.</t>
-        </list></t>
+          <list style="symbols">
+            <t>
+              <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>: it contains a single captured packet, or a portion of it. It should be considered OBSOLETE, and superseded by the <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>.
+            </t>
+          </list>
+        </t>
         <t>The following EXPERIMENTAL blocks are considered interesting but the authors believe that they deserve more in-depth discussion before being defined:
         <list style="symbols">
           <t>Alternative Packet Blocks</t>
@@ -403,8 +413,8 @@ Section Header
         </t>
         <t>[Open issue: does a program which re-writes a capture file change the original hardware/os/application info?]</t>
       </section>
-      <section anchor="sectionidb" title="Interface Description Block (mandatory)" toc="default">
-        <t>The Interface Description Block is mandatory. This block is needed to specify the characteristics of the network interface on which the capture has been made. In order to properly associate the captured data to the corresponding interface, the Interface Description Block MUST be defined before any other block that uses it; therefore, this block is usually placed immediately after the Section Header Block.  However, if capturing on an interface starts in the middle of a capture, an Interface Description Block can appear after other blocks, including blocks for packets on interfaces for which Interface Description Blocks have already appeared.</t>
+      <section anchor="sectionidb" title="Interface Description Block (optional)" toc="default">
+        <t>The Interface Description Block (IDB) is not mandatory, except in certain (common) cases: if the file contains an Enhanced Packet Block, Simple Packet Block, or Interface Statistics Block, then there MUST be an IDB in the file before those other blocks. This block is needed to specify the characteristics of the network interface on which the capture has been made. In order to properly associate the captured data to the corresponding interface, the Interface Description Block MUST be defined before any other block that uses it; therefore, this block is usually placed immediately after the Section Header Block.  However, if capturing on an interface starts in the middle of a capture, an Interface Description Block can appear after other blocks, including blocks for packets on interfaces for which other Interface Description Blocks have already appeared.</t>
         <t>An Interface Description Block is valid only inside the section which it belongs to. The structure of a Interface Description Block is shown in <xref target="formatidb" pageno="false" format="default" />.</t>
         <figure anchor="formatidb" title="Interface Description Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
@@ -541,7 +551,7 @@ Section Header
       </section>
 
       <section anchor="sectionepb" title="Enhanced Packet Block (optional)" toc="default">
-        <t>An Enhanced Packet Block is the standard container for storing the packets coming from the network. The Enhanced Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up capture file generation. The format of an Enhanced Packet Block is shown in <xref target="formatepb" pageno="false" format="default" />.</t>
+        <t>An Enhanced Packet Block is the standard container for storing the packets coming from the network. The Enhanced Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up capture file generation; or a file may have no packets in it. The format of an Enhanced Packet Block is shown in <xref target="formatepb" pageno="false" format="default" />.</t>
         <t>The Enhanced Packet Block is an improvement over the original <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>:
         <list style="symbols">
           <t>it stores the Interface Identifier as a 32-bit integer value. This is a requirement when a capture stores packets coming from a large number of interfaces</t>
@@ -624,7 +634,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       </section>
       <section anchor="sectionpbs" title="Simple Packet Block (optional)" toc="default">
         <t>The Simple Packet Block is a lightweight container for storing the packets coming from the network. Its presence is optional.</t>
-        <t>A Simple Packet Block is similar to a Packet Block (see <xref target="sectionpb" pageno="false" format="default" />), but it is smaller, simpler to process and contains only a minimal set of information. This block is preferred to the standard Enhanced Packet Block when performance or space occupation are critical factors, such as in sustained traffic capture applications. A capture file can contain both Packet Blocks and Simple Packet Blocks: for example, a capture tool could switch from Packet Blocks to Simple Packet Blocks when the hardware resources become critical.</t>
+        <t>A Simple Packet Block is similar to a Packet Block (see <xref target="sectionpb" pageno="false" format="default" />), but it is smaller, simpler to process and contains only a minimal set of information. This block is preferred to the standard Enhanced Packet Block when performance or space occupation are critical factors, such as in sustained traffic capture applications. A capture file can contain both Enhanced Packet Blocks and Simple Packet Blocks: for example, a capture tool could switch from Enhanced Packet Blocks to Simple Packet Blocks when the hardware resources become critical.</t>
         <t>The Simple Packet Block does not contain the Interface ID field. Therefore, it MUST be assumed that all the Simple Packet Blocks have been captured on the interface previously specified in the first Interface Description Block.</t>
         <t>
           <xref target="formatpbs" pageno="false" format="default" /> shows the format of the Simple Packet Block.</t>
