@@ -1191,6 +1191,14 @@ and many others for their invaluable comments.</t>
 <c>IRIG Timestamp Block (requested by Gianluca Varenni &lt;gianluca.varenni@cacetech.com&gt;, CACE Technologies LLC)</c>
 <c>0x00000008</c>
 <c>Arinc 429 in AFDX Encapsulation Information Block (requested by Gianluca Varenni &lt;gianluca.varenni@cacetech.com&gt;, CACE Technologies LLC)</c>
+<c>0x00000BAD</c>
+<c>
+  <xref target="sectioncustomblock" pageno="false" format="default">Custom Block that rewriters can copy into new files</xref>
+</c>
+<c>0x40000BAD</c>
+<c>
+  <xref target="sectioncustomblock" pageno="false" format="default">Custom Block that rewriters should not copy into new files</xref>
+</c>
 <c>0x0A0D0D0A</c>
 <c>
   <xref target="sectionshb" pageno="false" format="default">Section Header Block</xref>
