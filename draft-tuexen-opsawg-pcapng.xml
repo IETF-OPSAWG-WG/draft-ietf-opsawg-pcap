@@ -486,7 +486,6 @@ Section Header
           <t>SnapLen: maximum number of bytes captured from each packet. The portion of each packet that exceeds this value will not be stored in the file. A value of zero indicates no limit.</t>
           <t>Options: optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
         </list></t>
-        <t>Interface ID: Tools that write / read the capture file associate a progressive 32-bit number (starting from '0') to each Interface Definition Block. This number is unique within each Section and uniquely identifies the interface (inside the current section); therefore, two Sections can have interfaces identified by the same identifiers. This unique identifier is referenced by other blocks (e.g. Enhanced Packet Block) to point out the interface the block refers to (e.g. the interface that was used to capture the packet).</t>
         <t>In addition to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
         <texttable anchor="optionsifb" title="Interface Description Block Options">
           <ttcol align="left">Name</ttcol>
