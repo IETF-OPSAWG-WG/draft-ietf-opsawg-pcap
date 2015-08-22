@@ -583,7 +583,7 @@ Section Header
             <t>Option Length: as described in <xref target="sectionblock"
             pageno="false" format="default" />, this contains the length of
             the option's value, which includes the 4-byte Private Enterprise
-            Number and vairblae-length Custom Data fields, without the padding
+            Number and variable-length Custom Data fields, without the padding
             bytes.</t>
 
             <t>Private Enterprise Number: An IANA-assigned Private Enterprise
