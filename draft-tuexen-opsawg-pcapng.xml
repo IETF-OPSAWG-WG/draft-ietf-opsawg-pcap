@@ -188,7 +188,7 @@ interpreted as described in <xref target='RFC2119'/>.</t>
               <xref target="sectionidb" pageno="false" format="default">Interface Description Block</xref>: it defines the most important characteristics of the interface(s) used for capturing traffic. This block is required in certain cases, as describned later.
             </t>
             <t>
-              <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>: it contains a single captured packet, or a portion of it. It represents an evolution of the original <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>. If this appears in a file, an Interface Description Block is also required, before this block.
+              <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>: it contains a single captured packet, or a portion of it. It represents an evolution of the original, now obsolete, <xref target="appendixpb" pageno="false" format="default">Packet Block</xref>. If this appears in a file, an Interface Description Block is also required, before this block.
             </t>
             <t>
               <xref target="sectionpbs" pageno="false" format="default">Simple Packet Block</xref>: it contains a single captured packet, or a portion of it, with only a minimal set of information about it. If this appears in a file, an Interface Description Block is also required, before this block.
@@ -201,13 +201,11 @@ interpreted as described in <xref target='RFC2119'/>.</t>
             </t>
           </list>
         </t>
-        <t>The following OBSOLETE block SHOULD NOT appear in newly written files (but is left here for reference):
-          <list style="symbols">
-            <t>
-              <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>: it contains a single captured packet, or a portion of it. It should be considered OBSOLETE, and superseded by the <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>.
-            </t>
-          </list>
-        </t>
+        <t>The following OBSOLETE block SHOULD NOT appear in newly written files (but is documented in the Appendix for reference):
+        <list style="symbols">
+          <t>
+            <xref target="appendixpb" pageno="false" format="default">Packet Block</xref>: it contains a single captured packet, or a portion of it. It is OBSOLETE, and superseded by the <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>.</t>
+        </list></t>
         <t>The following EXPERIMENTAL blocks are considered interesting but the authors believe that they deserve more in-depth discussion before being defined:
         <list style="symbols">
           <t>Alternative Packet Blocks</t>
@@ -447,6 +445,7 @@ Section Header
           <t>SnapLen: maximum number of bytes captured from each packet. The portion of each packet that exceeds this value will not be stored in the file. A value of zero indicates no limit.</t>
           <t>Options: optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
         </list></t>
+        <t>Interface ID: Tools that write / read the capture file associate a progressive 32-bit number (starting from '0') to each Interface Definition Block. This number is unique within each Section and uniquely identifies the interface (inside the current section); therefore, two Sections can have interfaces identified by the same identifiers. This unique identifier is referenced by other blocks (e.g. Enhanced Packet Block) to point out the interface the block refers to (e.g. the interface that was used to capture the packet).</t>
         <t>In addition to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
         <texttable anchor="optionsifb" title="Interface Description Block Options">
           <ttcol align="left">Name</ttcol>
@@ -553,10 +552,10 @@ Section Header
 
       <section anchor="sectionepb" title="Enhanced Packet Block" toc="default">
         <t>An Enhanced Packet Block is the standard container for storing the packets coming from the network. The Enhanced Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up capture file generation; or a file may have no packets in it. The format of an Enhanced Packet Block is shown in <xref target="formatepb" pageno="false" format="default" />.</t>
-        <t>The Enhanced Packet Block is an improvement over the original <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>:
+        <t>The Enhanced Packet Block is an improvement over the original, now obsolete, <xref target="appendixpb" pageno="false" format="default">Packet Block</xref>:
         <list style="symbols">
           <t>it stores the Interface Identifier as a 32-bit integer value. This is a requirement when a capture stores packets coming from a large number of interfaces</t>
-          <t>differently from the <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>, the number of packets dropped by the capture system between this packet and the previous one is not stored in the header, but rather in an option of the block itself.</t>
+          <t>differently from the <xref target="appendixpb" pageno="false" format="default">Packet Block</xref>, the number of packets dropped by the capture system between this packet and the previous one is not stored in the header, but rather in an option of the block itself.</t>
         </list></t>
         <figure anchor="formatepb" title="Enhanced Packet Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
@@ -635,7 +634,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       </section>
       <section anchor="sectionpbs" title="Simple Packet Block" toc="default">
         <t>The Simple Packet Block is a lightweight container for storing the packets coming from the network. Its presence is optional.</t>
-        <t>A Simple Packet Block is similar to a Packet Block (see <xref target="sectionpb" pageno="false" format="default" />), but it is smaller, simpler to process and contains only a minimal set of information. This block is preferred to the standard Enhanced Packet Block when performance or space occupation are critical factors, such as in sustained traffic capture applications. A capture file can contain both Enhanced Packet Blocks and Simple Packet Blocks: for example, a capture tool could switch from Enhanced Packet Blocks to Simple Packet Blocks when the hardware resources become critical.</t>
+        <t>A Simple Packet Block is similar to an Enhanced Packet Block (see <xref target="appendixpb" pageno="false" format="default" />), but it is smaller, simpler to process and contains only a minimal set of information. This block is preferred to the standard Enhanced Packet Block when performance or space occupation are critical factors, such as in sustained traffic capture applications. A capture file can contain both Enhanced Packet Blocks and Simple Packet Blocks: for example, a capture tool could switch from Enhanced Packet Blocks to Simple Packet Blocks when the hardware resources become critical.</t>
         <t>The Simple Packet Block does not contain the Interface ID field. Therefore, it MUST be assumed that all the Simple Packet Blocks have been captured on the interface previously specified in the first Interface Description Block.</t>
         <t>
           <xref target="formatpbs" pageno="false" format="default" /> shows the format of the Simple Packet Block.</t>
@@ -669,77 +668,6 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
         <t>The Simple Packet Block does not contain the timestamp because this is often one of the most costly operations on PCs. Additionally, there are applications that do not require it; e.g. an Intrusion Detection System is interested in packets, not in their timestamp.</t>
         <t>A Simple Packet Block cannot be present in a Section that has more than one interface because of the impossibility to refer to the correct one (it does not contain any Interface ID field).</t>
         <t>The Simple Packet Block is very efficient in term of disk space: a snapshot whose length is 100 bytes requires only 16 bytes of overhead, which corresponds to an efficiency of more than 86%.</t>
-      </section>
-      <section anchor="sectionpb" title="Packet Block (obsolete!)" toc="default">
-        <t>The Packet Block is marked obsolete, better use the Enhanced Packet Block instead!</t>
-        <t>A Packet Block is the standard container for storing the packets coming from the network. The Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up capture file generation. The format of a packet block is shown in <xref target="formatpb" pageno="false" format="default" />.</t>
-        <figure anchor="formatpb" title="Packet Block Format">
-          <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
-    0                   1                   2                   3   
-    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
-   +---------------------------------------------------------------+
- 0 |                    Block Type = 0x00000002                    |
-   +---------------------------------------------------------------+
- 4 |                      Block Total Length                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 8 |         Interface ID          |          Drops Count          |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-12 |                        Timestamp (High)                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-16 |                        Timestamp (Low)                        |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-20 |                         Captured Len                          |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-24 |                          Packet Len                           |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-28 /                                                               /
-   /                          Packet Data                          /
-   /              variable length, padded to 32 bits               /
-   /                                                               /
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   /                                                               / 
-   /                      Options (variable)                       / 
-   /                                                               / 
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |                      Block Total Length                       |
-   +---------------------------------------------------------------+
-</artwork>
-        </figure>
-        <t>The Packet Block has the following fields:
-        <list style="symbols">
-          <t>Block Type: The block type of the Packet Block is 2.</t>
-          <t>Block Total Length: total size of this block, as described in <xref target="sectionblock" pageno="false" format="default" />.</t>
-          <t>Interface ID: it specifies the interface this packet comes from; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by the same number (see <xref target="sectionidb" pageno="false" format="default" />) of this field. The interface ID MUST be valid, which means that an matching interface description block MUST exist.</t>
-          <t>Drops Count: a local drop counter. It specifies the number of packets lost (by the interface and the operating system) between this packet and the preceding one. The value xFFFF (in hexadecimal) is reserved for those systems in which this information is not available.</t>
-          <t>Timestamp (High) and Timestamp (Low): timestamp of the packet. The format of the timestamp is the same already defined in the Enhanced Packet Block (<xref target="sectionepb" pageno="false" format="default" />).</t>
-          <t>Captured Len: number of bytes captured from the packet (i.e. the length of the Packet Data field). It will be the minimum value among the actual Packet Length and the snapshot length (SnapLen defined in <xref target="formatidb" pageno="false" format="default" />). The value of this field does not include the padding bytes added at the end of the Packet Data field to align the Packet Data Field to a 32-bit boundary.</t>
-          <t>Packet Len: actual length of the packet when it was transmitted on the network. Can be different from Captured Len if the user wants only a snapshot of the packet.</t>
-          <t>Packet Data: the data coming from the network, including link-layer headers. The actual length of this field is Captured Len. The format of the link-layer headers depends on the LinkType field specified in the Interface Description Block (see <xref target="sectionidb" pageno="false" format="default" />) and it is specified in the entry for that format in the <eref target="http://www.tcpdump.org/linktypes.html">the tcpdump.org link-layer header types registry</eref>.</t>
-          <t>Options: optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
-        </list></t>
-        <t>In addition to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options are valid within this block:</t>
-        <texttable anchor="optionspb" title="Packet Block Options">
-          <ttcol align="left">Name</ttcol>
-          <ttcol align="left">Code</ttcol>
-          <ttcol align="left">Length</ttcol>
-
-          <c>pack_flags</c>
-          <c>2</c>
-          <c>4</c>
-
-          <c>pack_hash</c>
-          <c>3</c>
-          <c>variable</c>
-        </texttable>
-        <t>
-          <list hangIndent="8" style="hanging">
-            <t hangText="pack_flags:"><vspace blankLines="0" />The pack_flags option is the same as the epb_flags of the enhanced packet block.</t>
-            <t>Example: '0'.</t>
-
-            <t hangText="pack_hash:"><vspace blankLines="0" />The pack_hash option is the same as the epb_hash of the enhanced packet block.</t>
-            <t>Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D 50 8E'.</t>
-          </list>
-        </t>
       </section>
       <section anchor="sectionnrb" title="Name Resolution Block" toc="default">
         <t>The Name Resolution Block is used to support the correlation of numeric addresses (present in the captured packets) and their corresponding canonical names and it is optional. Having the literal names saved in the file, this prevents the need of a name resolution in a delayed time, when the association between names and addresses can be different from the one in use at capture time. Moreover, the Name Resolution Block avoids the need of issuing a lot of DNS requests every time the trace capture is opened, and allows to have name resolution also when reading the capture with a machine not connected to the network.</t>
@@ -1006,7 +934,7 @@ The way to interpret this field is specified by the 'if_tsresol' option (see <xr
       </section>
       <section title="Fixed Length Block (experimental)" toc="default">
         <t>The Fixed Length Block is optional. A file can contain an arbitrary number of these blocks. A Fixed Length Block can be used to optimize the access to the file. Its format is shown in <xref target="formatflm" pageno="false" format="default" />.
-A Fixed Length Block stores records with constant size. It contains a set of Blocks (normally Packet Blocks or Simple Packet Blocks), of which it specifies the size. Knowing this size a priori helps to scan the file and to load some portions of it without truncating a block, and is particularly useful with cell-based networks like ATM.</t>
+A Fixed Length Block stores records with constant size. It contains a set of Blocks (normally Enhanced Packet Blocks or Simple Packet Blocks), of which it specifies the size. Knowing this size a priori helps to scan the file and to load some portions of it without truncating a block, and is particularly useful with cell-based networks like ATM.</t>
         <figure anchor="formatflm" title="Fixed Length Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
  0                   1                   2                   3   
@@ -1145,7 +1073,7 @@ and many others for their invaluable comments.</t>
 </c>
 <c>0x00000002</c>
 <c>
-  <xref target="sectionpb" pageno="false" format="default">Packet Block</xref>
+  <xref target="appendixpb" pageno="false" format="default">Packet Block</xref>
 </c>
 <c>0x00000003</c>
 <c>
@@ -1181,5 +1109,79 @@ and many others for their invaluable comments.</t>
 <c>Reserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode.</c>
 </texttable>
 </section>
+
+<section anchor="appendixpb" title="Packet Block (obsolete!)" toc="default">
+  <t>The Packet Block is obsolete, and MUST NOT be used in new files. Use the Enhanced Packet Block or Simple Packet Block instead. This section is for historical reference only.</t>
+  <t>A Packet Block was a container for storing packets coming from the network.</t>
+  <figure anchor="formatpb" title="Packet Block Format">
+    <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+    0                   1                   2                   3   
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+   +---------------------------------------------------------------+
+ 0 |                    Block Type = 0x00000002                    |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |         Interface ID          |          Drops Count          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |                        Timestamp (High)                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 |                        Timestamp (Low)                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+20 |                         Captured Len                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+24 |                          Packet Len                           |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+28 /                                                               /
+   /                          Packet Data                          /
+   /              variable length, padded to 32 bits               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                                                               / 
+   /                      Options (variable)                       / 
+   /                                                               / 
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+</artwork>
+  </figure>
+  <t>The Packet Block has the following fields:
+  <list style="symbols">
+    <t>Block Type: The block type of the Packet Block is 2.</t>
+    <t>Block Total Length: total size of this block, as described in <xref target="sectionblock" pageno="false" format="default" />.</t>
+    <t>Interface ID: it specifies the interface this packet comes from; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by the same number (see <xref target="sectionidb" pageno="false" format="default" />) of this field. The interface ID MUST be valid, which means that an matching interface description block MUST exist.</t>
+    <t>Drops Count: a local drop counter. It specifies the number of packets lost (by the interface and the operating system) between this packet and the preceding one. The value xFFFF (in hexadecimal) is reserved for those systems in which this information is not available.</t>
+    <t>Timestamp (High) and Timestamp (Low): timestamp of the packet. The format of the timestamp is the same already defined in the Enhanced Packet Block (<xref target="sectionepb" pageno="false" format="default" />).</t>
+    <t>Captured Len: number of bytes captured from the packet (i.e. the length of the Packet Data field). It will be the minimum value among the actual Packet Length and the snapshot length (SnapLen defined in <xref target="formatidb" pageno="false" format="default" />). The value of this field does not include the padding bytes added at the end of the Packet Data field to align the Packet Data Field to a 32-bit boundary.</t>
+    <t>Packet Len: actual length of the packet when it was transmitted on the network. Can be different from Captured Len if the user wants only a snapshot of the packet.</t>
+    <t>Packet Data: the data coming from the network, including link-layer headers. The actual length of this field is Captured Len. The format of the link-layer headers depends on the LinkType field specified in the Interface Description Block (see <xref target="sectionidb" pageno="false" format="default" />) and it is specified in the entry for that format in the <eref target="http://www.tcpdump.org/linktypes.html">the tcpdump.org link-layer header types registry</eref>.</t>
+    <t>Options: optionally, a list of options (formatted according to the rules defined in <xref target="sectionopt" pageno="false" format="default" />) can be present.</t>
+  </list></t>
+  <t>In addition to the options defined in <xref target="sectionopt" pageno="false" format="default" />, the following options were valid within this block:</t>
+  <texttable anchor="optionspb" title="Packet Block Options">
+    <ttcol align="left">Name</ttcol>
+    <ttcol align="left">Code</ttcol>
+    <ttcol align="left">Length</ttcol>
+
+    <c>pack_flags</c>
+    <c>2</c>
+    <c>4</c>
+
+    <c>pack_hash</c>
+    <c>3</c>
+    <c>variable</c>
+  </texttable>
+  <t>
+    <list hangIndent="8" style="hanging">
+      <t hangText="pack_flags:"><vspace blankLines="0" />The pack_flags option is the same as the epb_flags of the enhanced packet block.</t>
+      <t>Example: '0'.</t>
+
+      <t hangText="pack_hash:"><vspace blankLines="0" />The pack_hash option is the same as the epb_hash of the enhanced packet block.</t>
+      <t>Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D 50 8E'.</t>
+    </list>
+  </t>
+</section>
+
+
 </back>
 </rfc>
