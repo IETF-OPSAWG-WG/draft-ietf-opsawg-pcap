@@ -95,7 +95,7 @@
 
   <middle>
 
-    <section title="Introduction" toc="default">
+    <section title="Introduction">
 
       <t>The problem of exchanging packet traces becomes more and more
       critical every day; unfortunately, no standard solutions exist for
@@ -134,18 +134,19 @@
 
       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
       "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-      document are to be interpreted as described in <xref target='RFC2119'/>.</t>
+      document are to be interpreted as described in <xref
+      target='RFC2119'/>.</t>
 
     </section>
 
 
-    <section title="General File Structure" toc="default">
+    <section title="General File Structure">
 
-      <section anchor="sectionblock" title="General Block Structure" toc="default">
+      <section anchor="section_block" title="General Block Structure">
 
         <t>A capture file is organized in blocks, that are appended one to
         another to form the file. All the blocks share a common format, which
-        is shown in <xref target="formatblock" pageno="false" format="default"/>.</t>
+        is shown in <xref target="formatblock"/>.</t>
 
         <figure anchor="formatblock" title="Basic block structure." align="center">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
@@ -172,7 +173,7 @@
             for local use. They can be used to make extensions to the file
             format to save private data to the file. The list of currently
             defined types can be found in
-            <xref target="appendixBlockCodes" pageno="false" format="default" />.</t>
+            <xref target="appendix_block_codes"/>.</t>
 
             <t>Block Total Length: total size of this block, in bytes. For
             instance, the length of a block that does not have a body is 12
@@ -198,18 +199,18 @@
 
       </section>
 
-      <section title="Block Types" toc="default">
+      <section title="Block Types">
 
         <t>The currently standardized Block Type codes are specified in <xref
-        target="appendixBlockCodes" pageno="false" format="default" />; they
-        have been grouped in the following four categories:</t>
+        target="appendix_block_codes"/>; they have been grouped in the
+        following four categories:</t>
 
         <t>The following MANDATORY block MUST appear at least once in each file:
           <list style="symbols">
 
-            <t><xref target="sectionshb" pageno="false"
-            format="default">Section Header Block</xref>: it defines the most
-            important characteristics of the capture file.</t>
+            <t><xref target="section_shb">Section Header
+            Block</xref>: it defines the most important characteristics of the
+            capture file.</t>
 
           </list>
         </t>
@@ -217,41 +218,36 @@
         <t>The following OPTIONAL blocks MAY appear in a file:
           <list style="symbols">
 
-            <t><xref target="sectionidb" pageno="false"
-            format="default">Interface Description Block</xref>: it defines
-            the most important characteristics of the interface(s) used for
-            capturing traffic. This block is required in certain cases, as
-            describned later.</t>
+            <t><xref target="section_idb">Interface Description Block</xref>:
+            it defines the most important characteristics of the interface(s)
+            used for capturing traffic. This block is required in certain
+            cases, as described later.</t>
 
-            <t><xref target="sectionepb" pageno="false"
-            format="default">Enhanced Packet Block</xref>: it contains a
-            single captured packet, or a portion of it. It represents an
-            evolution of the original, now obsolete, <xref target="appendixpb"
-            pageno="false" format="default">Packet Block</xref>. If this
-            appears in a file, an Interface Description Block is also
-            required, before this block.</t>
+            <t><xref target="section_epb">Enhanced Packet Block</xref>: it
+            contains a single captured packet, or a portion of it. It
+            represents an evolution of the original, now obsolete, <xref
+            target="appendix_pb" >Packet Block</xref>. If this appears in a
+            file, an Interface Description Block is also required, before this
+            block.</t>
 
-            <t><xref target="sectionpbs" pageno="false"
-            format="default">Simple Packet Block</xref>: it contains a single
-            captured packet, or a portion of it, with only a minimal set of
-            information about it. If this appears in a file, an Interface
+            <t><xref target="section_spb">Simple Packet Block</xref>: it
+            contains a single captured packet, or a portion of it, with only a
+            minimal set of information about it. If this appears in a file, an
+            Interface Description Block is also required, before this
+            block.</t>
+
+            <t><xref target="section_nrb" >Name Resolution Block</xref>: it
+            defines the mapping from numeric addresses present in the packet
+            capture and the canonical name counterpart.</t>
+
+            <t><xref target="section_isb">Interface Statistics Block</xref>: it
+            defines how to store some statistical data (e.g. packet dropped,
+            etc) which can be useful to understand the conditions in which the
+            capture has been made. If this appears in a file, an Interface
             Description Block is also required, before this block.</t>
 
-            <t><xref target="sectionnrb" pageno="false" format="default">Name
-            Resolution Block</xref>: it defines the mapping from numeric
-            addresses present in the packet capture and the canonical name
-            counterpart.</t>
-
-            <t><xref target="sectionisb" pageno="false"
-            format="default">Interface Statistics Block</xref>: it defines how
-            to store some statistical data (e.g. packet dropped, etc) which
-            can be useful to understand the conditions in which the capture
-            has been made. If this appears in a file, an Interface Description
-            Block is also required, before this block.</t>
-
-            <t><xref target="sectioncustomblock" pageno="false"
-            format="default">Custom Block</xref>: it contains vendor-specific
-            data in a portable fashion.</t>
+            <t><xref target="section_custom_block">Custom Block</xref>: it
+            contains vendor-specific data in a portable fashion.</t>
 
           </list>
         </t>
@@ -260,11 +256,10 @@
         files (but is documented in the Appendix for reference):
           <list style="symbols">
 
-            <t><xref target="appendixpb" pageno="false"
-            format="default">Packet Block</xref>: it contains a single
-            captured packet, or a portion of it. It is OBSOLETE, and
-            superseded by the <xref target="sectionepb" pageno="false"
-            format="default">Enhanced Packet Block</xref>.</t>
+            <t><xref target="appendix_pb">Packet Block</xref>: it contains a
+            single captured packet, or a portion of it. It is OBSOLETE, and
+            superseded by the <xref target="section_epb">Enhanced Packet
+            Block</xref>.</t>
 
           </list>
         </t>
@@ -286,12 +281,11 @@
       </section>
 
 
-      <section title="Logical Block Hierarchy" toc="default">
+      <section title="Logical Block Hierarchy">
 
         <t>The blocks build a logical hierarchy as they refer to each other.
-        <xref target="block-hierarchy" pageno="false" format="default" />
-        shows the logical hierarchy of the currently defined blocks in the
-        form of a "tree view":</t>
+        <xref target="block-hierarchy"/> shows the logical hierarchy of the
+        currently defined blocks in the form of a "tree view":</t>
 
         <figure anchor="block-hierarchy" title="Logical Block Hierarchy of a pcapng File">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
@@ -312,7 +306,7 @@ Section Header
       </section>
 
 
-      <section title="Physical File Layout" toc="default">
+      <section title="Physical File Layout">
 
         <t>The file MUST begin with a Section Header Block. However, more than
         one Section Header Block can be present in the capture file, each one
@@ -328,9 +322,8 @@ Section Header
         beginning. This is a mandatory requirement that MUST be maintained in
         future versions of the block format.</t>
 
-        <t><xref target="fssample-SHB" pageno="false" format="default" />
-        shows a typical file layout, with a single Section Header that covers
-        the whole file.</t>
+        <t><xref target="fssample-SHB"/> shows a typical file layout, with a
+        single Section Header that covers the whole file.</t>
 
         <figure anchor="fssample-SHB" title="File structure example: Typical layout with a single Section Header Block">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
@@ -340,7 +333,7 @@ Section Header
 </artwork>
         </figure>
 
-        <t><xref target="fssample-SHB3" pageno="false" format="default" />
+        <t><xref target="fssample-SHB3"/>
         shows a file that contains three headers, and is normally the result
         of file concatenation. An application that understands only version
         1.0 of the file format skips the intermediate section and restart
@@ -356,7 +349,7 @@ Section Header
 </artwork>
         </figure>
 
-        <t><xref target="fssample-minimum" pageno="false" format="default" />
+        <t><xref target="fssample-minimum"/>
         shows a file comparable to a "classic libpcap" file - the minimum for
         a useful capture file. It contains a single Section Header Block
         (SHB), a single Interface Description Block (IDB) and a few Enhanced
@@ -370,7 +363,7 @@ Section Header
 </artwork>
         </figure>
 
-        <t><xref target="fssample-full" pageno="false" format="default" />
+        <t><xref target="fssample-full"/>
         shows a complex example file. In addition to the minimum file above,
         it contains packets captured from three interfaces, capturing on the
         third of which begins after packets have arrived on other interfaces,
@@ -392,7 +385,7 @@ Section Header
       </section>
 
 
-      <section anchor="sectionopt" title="Options" toc="default">
+      <section anchor="section_opt" title="Options">
 
         <t>All the block bodies have the possibility to embed optional fields.
         Optional fields can be used to insert some information that may be
@@ -404,9 +397,8 @@ Section Header
         <t>Skipping all the optional fields at once is straightforward because
         most of the blocks are made of a first part with fixed format, and a
         second optional part. Therefore, the Block Length field (present in
-        the General Block Structure, see <xref target="sectionblock"
-        pageno="false" format="default" />) can be used to skip everything
-        till the next block.</t>
+        the General Block Structure, see <xref target="section_block"/>) can
+        be used to skip everything till the next block.</t>
 
         <t>Options are a list of Type - Length - Value fields, each one
         containing a single value:
@@ -419,8 +411,7 @@ Section Header
             among all capture files (generated by other applications), and is
             most certainly not portable. For cross-platform gloablly unique
             vendor-specific extensions, the Custom Option MUST be used
-            instead, as defined in <xref target="sectioncustomoption"
-            pageno="false" format="default" />).</t>
+            instead, as defined in <xref target="section_custom_option"/>).</t>
 
             <t>Option Length (2 bytes): it contains the actual length of the
             following 'Option Value' field without the padding bytes.</t>
@@ -434,7 +425,7 @@ Section Header
         </t>
 
         <t>If an option's value is a string, the value is not necessarily
-        zero-terminated.  Software that reads these files MUST NOT assume that
+        zero-terminated. Software that reads these files MUST NOT assume that
         strings are zero-terminated, and MUST treat a zero byte as a string
         terminator.</t>
 
@@ -445,7 +436,7 @@ Section Header
         (opt_endofopt).</t>
 
         <t>The format of the optional fields is shown in <xref
-        target="formatopt" pageno="false" format="default" />.</t>
+        target="formatopt"/>.</t>
 
         <figure anchor="formatopt" title="Options Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
@@ -486,11 +477,11 @@ Section Header
         <t>
           <list hangIndent="8" style="hanging">
 
-            <t hangText="opt_endofopt:"><vspace blankLines="0" />The
+            <t hangText="opt_endofopt:"><vspace blankLines="0"/>The
             opt_endofopt option delimits the end of the optional fields. This
             option MUST NOT be repeated within a given list of options.</t>
 
-            <t hangText="opt_comment:"><vspace blankLines="0" />The
+            <t hangText="opt_comment:"><vspace blankLines="0"/>The
             opt_comment option is a UTF-8 string containing human-readable
             comment text that is associated to the current block. Line
             separators SHOULD be a carriage-return + linefeed ('\r\n') or just
@@ -502,9 +493,8 @@ Section Header
             This is reported in bugzilla entry 1486.\nIt will be fixed in the
             future.".</t>
 
-            <t hangText="opt_custom:"><vspace blankLines="0" />This option is
-            described in detail in <xref target="sectioncustomoption"
-            pageno="false" format="default" />.</t>
+            <t hangText="opt_custom:"><vspace blankLines="0"/>This option is
+            described in detail in <xref target="section_custom_option"/>.</t>
 
           </list>
         </t>
@@ -512,7 +502,7 @@ Section Header
       </section>
 
 
-      <section anchor="sectioncustomoption" title="Custom Options" toc="default">
+      <section anchor="section_custom_option" title="Custom Options">
 
         <t>Customs Options are used for portable, vendor-specific data related
         to the block they're in. A Custom Option can be in any block type, can
@@ -520,8 +510,7 @@ Section Header
         after other option types - except the opt_endofopt which is always the
         last option. Different Custom Options, of different type codes and/or
         different Private Enterprise Numbers, may be used in the same pcapng
-        file. See <xref target="sectionvendor" pageno="false" format="default"
-        /> for additional details.</t>
+        file. See <xref target="section_vendor"/> for additional details.</t>
 
         <figure anchor="formatcustomopt" title="Custom Options Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
@@ -546,52 +535,48 @@ Section Header
 
               <list hangIndent="8" style="hanging">
 
-                <t hangText="2988:"><vspace blankLines="0" />This option code
+                <t hangText="2988:"><vspace blankLines="0"/>This option code
                 identifies a Custom Option containing a UTF-8 string in the
                 Custom Data portion, without NULL termination. This Custom
-                Option can be safely copied to a new file if the pcapng file is
-                manipulated by an application; otherwise 19372 should be used
-                instead. See <xref target="sectionvendor_copy" pageno="false"
-                format="default" /> for details.</t>
+                Option can be safely copied to a new file if the pcapng file
+                is manipulated by an application; otherwise 19372 should be
+                used instead. See <xref target="section_vendor_copy"/> for
+                details.</t>
 
-                <t hangText="2989:"><vspace blankLines="0" />This option code
-                identifies a Custom Option containing binary bytes in the Custom
-                Data portion. This Custom Option can be safely copied to a new
-                file if the pcapng file is manipulated by an application;
-                otherwise 19372 should be used instead. See <xref
-                target="sectionvendor_copy" pageno="false" format="default" />
-                for details.</t>
+                <t hangText="2989:"><vspace blankLines="0"/>This option code
+                identifies a Custom Option containing binary bytes in the
+                Custom Data portion. This Custom Option can be safely copied
+                to a new file if the pcapng file is manipulated by an
+                application; otherwise 19372 should be used instead. See <xref
+                target="section_vendor_copy"/> for details.</t>
 
-                <t hangText="19372:"><vspace blankLines="0" />This option code
+                <t hangText="19372:"><vspace blankLines="0"/>This option code
                 identifies a Custom Option containing a UTF-8 string in the
                 Custom Data portion, without NULL termination. This Custom
-                Option should not be copied to a new file if the pcapng file is
-                manipulated by an application. See <xref
-                target="sectionvendor_copy" pageno="false" format="default" />
-                for details.</t>
+                Option should not be copied to a new file if the pcapng file
+                is manipulated by an application. See <xref
+                target="section_vendor_copy"/> for details.</t>
 
-                <t hangText="19373:"><vspace blankLines="0" />This option code
-                identifies a Custom Option containing binary bytes in the Custom
-                Data portion. This Custom Option should not be copied to a new
-                file if the pcapng file is manipulated by an application. See
-                <xref target="sectionvendor_copy" pageno="false"
-                format="default" /> for details.</t>
+                <t hangText="19373:"><vspace blankLines="0"/>This option code
+                identifies a Custom Option containing binary bytes in the
+                Custom Data portion. This Custom Option should not be copied
+                to a new file if the pcapng file is manipulated by an
+                application. See <xref target="section_vendor_copy"/> for
+                details.</t>
 
               </list>
             </t>
 
-            <t>Option Length: as described in <xref target="sectionblock"
-            pageno="false" format="default" />, this contains the length of
-            the option's value, which includes the 4-byte Private Enterprise
-            Number and variable-length Custom Data fields, without the padding
-            bytes.</t>
+            <t>Option Length: as described in <xref target="section_block"/>,
+            this contains the length of the option's value, which includes the
+            4-byte Private Enterprise Number and variable-length Custom Data
+            fields, without the padding bytes.</t>
 
             <t>Private Enterprise Number: An IANA-assigned Private Enterprise
             Number identifying the organization which defined the Custom
-            Option. See <xref target="sectionvendor_uses" pageno="false"
-            format="default" /> for details. The PEN number MUST be encoded
-            using the same endianess as the Section Header Block it is within
-            the scope of.</t>
+            Option. See <xref target="section_vendor_uses"/> for details. The
+            PEN number MUST be encoded using the same endianess as the Section
+            Header Block it is within the scope of.</t>
 
             <t>Custom Data: the custom data, padded to a 32 bit boundary.</t>
 
@@ -601,9 +586,9 @@ Section Header
       </section>
 
 
-      <section title="Data format" toc="default">
+      <section title="Data format">
 
-        <section title="Endianess" toc="default">
+        <section title="Endianess">
 
           <t>Data contained in each section will always be saved according to
           the characteristics (little endian / big endian) of the capturing
@@ -616,13 +601,13 @@ Section Header
           common case when generating/processing capture captures.</t>
 
           <t>Please note: The endianess is indicated by the <xref
-          target="sectionshb" pageno="false" format="default">Section Header
-          Block</xref>. As this block can appear several times in a pcapng
-          file, a single file can contain both endianess variants!</t>
+          target="section_shb">Section Header Block</xref>. As this block can
+          appear several times in a pcapng file, a single file can contain
+          both endianess variants!</t>
 
         </section>
 
-        <section title="Alignment" toc="default">
+        <section title="Alignment">
 
           <t>All fields of this specification uses proper alignment for 16-
           and 32-bit values. This makes it easier and faster to read/write
@@ -647,21 +632,19 @@ Section Header
     </section>
 
 
-    <section title="Block Definition" toc="default">
+    <section title="Block Definition">
 
-      <t>This section details the format of the body of the blocks currently
-      defined.</t>
+      <t>This section details the format of the blocks currently defined.</t>
 
-      <section anchor="sectionshb" title="Section Header Block" toc="default">
+      <section anchor="section_shb" title="Section Header Block">
 
         <t>The Section Header Block is mandatory. It identifies the beginning
         of a section of the capture capture file. The Section Header Block
         does not contain data but it rather identifies a list of blocks
         (interfaces, packets) that are logically correlated. Its format is
-        shown in <xref target="formatSHB" pageno="false" format="default"
-        />.</t>
+        shown in <xref target="format_shb"/>.</t>
 
-        <figure anchor="formatSHB" title="Section Header Block Format">
+        <figure anchor="format_shb" title="Section Header Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
    0                   1                   2                   3
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -710,8 +693,7 @@ Section Header
             </t>
 
             <t>Block Total Length: total size of this block, as described in
-            <xref target="sectionblock" pageno="false" format="default"
-            />.</t>
+            <xref target="section_block"/>.</t>
 
             <t>Byte-Order Magic: magic number, whose value is the hexadecimal
             number 0x1A2B3C4D. This number can be used to distinguish sections
@@ -744,8 +726,7 @@ Section Header
             64-bit boundary. This could be a problem on 64-bit processors.</t>
 
             <t>Options: optionally, a list of options (formatted according to
-            the rules defined in <xref target="sectionopt" pageno="false"
-            format="default" />) can be present.</t>
+            the rules defined in <xref target="section_opt"/>) can be present.</t>
 
           </list>
         </t>
@@ -756,11 +737,10 @@ Section Header
         skipping a block or option does not work should the minor version
         number be changed.</t>
 
-        <t>Aside from the options defined in <xref target="sectionopt"
-        pageno="false" format="default" />, the following options are valid
-        within this block:</t>
+        <t>Aside from the options defined in <xref target="section_opt"/>, the
+        following options are valid within this block:</t>
 
-        <texttable anchor="optionsshb" title="Section Header Block Options">
+        <texttable anchor="options_shb" title="Section Header Block Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -781,19 +761,19 @@ Section Header
         <t>
           <list hangIndent="8" style="hanging">
 
-            <t hangText="shb_hardware:"><vspace blankLines="0" />The
+            <t hangText="shb_hardware:"><vspace blankLines="0"/>The
             shb_hardware option is a UTF-8 string containing the description
             of the hardware used to create this section.</t>
 
             <t>Examples: "x86 Personal Computer", "Sun Sparc Workstation".</t>
 
-            <t hangText="shb_os:"><vspace blankLines="0" />The shb_os option
+            <t hangText="shb_os:"><vspace blankLines="0"/>The shb_os option
             is a UTF-8 string containing the name of the operating system used
             to create this section.</t>
 
             <t>Examples: "Windows XP SP2", "openSUSE 10.2".</t>
 
-            <t hangText="shb_userappl:"><vspace blankLines="0" />The
+            <t hangText="shb_userappl:"><vspace blankLines="0"/>The
             shb_userappl option is a UTF-8 string containing the name of the
             application used to create this section.</t>
 
@@ -808,7 +788,7 @@ Section Header
       </section>
 
 
-      <section anchor="sectionidb" title="Interface Description Block" toc="default">
+      <section anchor="section_idb" title="Interface Description Block">
 
         <t>An Interface Description Block is the container for information
         describing an interface on which packet data is captured.</t>
@@ -819,7 +799,7 @@ Section Header
         unique within each Section and identifies the interface to which the
         IDB refers; it is only unique inside the current section, so, two
         Sections can have different interfaces identified by the same
-        Interface ID values.  This unique identifier is referenced by other
+        Interface ID values. This unique identifier is referenced by other
         blocks, such as Enhanced Packet Blocks and Interface Statistic Blocks,
         to indicate the interface to which the block refers (such the
         interface that was used to capture the packet that an Enhanced Packet
@@ -827,19 +807,18 @@ Section Header
         Block refer).</t>
 
         <t>There must be an Interface Description Block (IDB) for each
-        interface to which another block refers.  Blocks such as an Enhanced
+        interface to which another block refers. Blocks such as an Enhanced
         Packet Block or an Interface Statistics Block contain an Interface ID
         value referring to a particular interface, and a Simple Packet Block
-        implicitly refers to an interface with an Interface ID of 0.  If the
+        implicitly refers to an interface with an Interface ID of 0. If the
         file does not contain any blocks that use an Interface ID, then the
         file does not need to have any IDBs.</t>
 
         <t>An Interface Description Block is valid only inside the section
         which it belongs to. The structure of a Interface Description Block is
-        shown in <xref target="formatidb" pageno="false" format="default"
-        />.</t>
+        shown in <xref target="format_idb"/>.</t>
 
-        <figure anchor="formatidb" title="Interface Description Block Format">
+        <figure anchor="format_idb" title="Interface Description Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -868,8 +847,7 @@ Section Header
             is 1.</t>
 
             <t>Block Total Length: total size of this block, as described in
-            <xref target="sectionblock" pageno="false" format="default"
-            />.</t>
+            <xref target="section_block"/>.</t>
 
             <t>LinkType: a value that defines the link layer type of this
             interface. The list of Standardized Link Layer Type codes is
@@ -882,15 +860,13 @@ Section Header
             in the file. A value of zero indicates no limit.</t>
 
             <t>Options: optionally, a list of options (formatted according to
-            the rules defined in <xref target="sectionopt" pageno="false"
-            format="default" />) can be present.</t>
+            the rules defined in <xref target="section_opt"/>) can be present.</t>
 
           </list>
         </t>
 
-        <t>In addition to the options defined in <xref target="sectionopt"
-        pageno="false" format="default" />, the following options are valid
-        within this block:</t>
+        <t>In addition to the options defined in <xref target="section_opt"/>,
+        the following options are valid within this block:</t>
 
         <texttable anchor="optionsifb" title="Interface Description Block Options">
           <ttcol align="left">Name</ttcol>
@@ -953,19 +929,19 @@ Section Header
         <t>
           <list hangIndent="8" style="hanging">
 
-            <t hangText="if_name:"><vspace blankLines="0" />The if_name option
+            <t hangText="if_name:"><vspace blankLines="0"/>The if_name option
             is a UTF-8 string containing the name of the device used to
             capture data.</t>
 
             <t>Examples: "eth0", "\Device\NPF_{AD1CE675-96D0-47C5-ADD0-2504B9126B68}".</t>
 
-            <t hangText="if_description:"><vspace blankLines="0" />The
+            <t hangText="if_description:"><vspace blankLines="0"/>The
             if_description option is a UTF-8 string containing the description
             of the device used to capture data.</t>
 
             <t>Examples: "Broadcom NetXtreme", "First Ethernet Interface".</t>
 
-            <t hangText="if_IPv4addr:"><vspace blankLines="0" />The
+            <t hangText="if_IPv4addr:"><vspace blankLines="0"/>The
             if_IPv4addr option is the IPv4 network address and netmask. This
             option can be repeated multiple times within the same Interface
             Description Block when multiple IPv4 addresses are assigned to the
@@ -974,7 +950,7 @@ Section Header
             <t>Examples: '192 168 1 1 255 255 255 0'.</t>
             <t>[Open issue: does this mean it's encoded in network order always?]</t>
 
-            <t hangText="if_IPv6addr:"><vspace blankLines="0" />The
+            <t hangText="if_IPv6addr:"><vspace blankLines="0"/>The
             if_IPv6addr option is the IPv6 network address and prefix length
             (stored in the last byte). This option can be repeated multiple
             times within the same Interface Description Block when multiple
@@ -984,22 +960,24 @@ Section Header
             (in hex) as '20 01 0d b8 85 a3 08 d3 13 19 8a 2e 03 70 73 44
             40'.</t>
 
-            <t hangText="if_MACaddr:"><vspace blankLines="0" />The if_MACaddr
+            <t hangText="if_MACaddr:"><vspace blankLines="0"/>The if_MACaddr
             option is the Interface Hardware MAC address (48 bits).</t>
 
             <t>Example: '00 01 02 03 04 05'.</t>
 
-            <t hangText="if_EUIaddr:"><vspace blankLines="0" />The if_EUIaddr option is the Interface Hardware EUI address (64 bits), if available.</t>
+            <t hangText="if_EUIaddr:"><vspace blankLines="0"/>The if_EUIaddr
+            option is the Interface Hardware EUI address (64 bits), if
+            available.</t>
 
             <t>Example: '02 34 56 FF FE 78 9A BC'.</t>
 
-            <t hangText="if_speed:"><vspace blankLines="0" />The if_speed
+            <t hangText="if_speed:"><vspace blankLines="0"/>The if_speed
             option is a 64-bit number for the Interface speed (in bits per
             second).</t>
 
             <t>Example: the 64-bit decimal number 100000000 for 100Mbps.</t>
 
-            <t hangText="if_tsresol:"><vspace blankLines="0" />The if_tsresol
+            <t hangText="if_tsresol:"><vspace blankLines="0"/>The if_tsresol
             option identifies the resolution of timestamps. If the Most
             Significant Bit is equal to zero, the remaining bits indicates the
             resolution of the timestamp as a negative power of 10 (e.g. 6
@@ -1012,13 +990,13 @@ Section Header
 
             <t>Example: '6'.</t>
 
-            <t hangText="if_tzone:"><vspace blankLines="0" />The if_tzone
+            <t hangText="if_tzone:"><vspace blankLines="0"/>The if_tzone
             option identifies the time zone for GMT support (TODO: specify
             better).</t>
 
             <t>Example: TODO: give a good example.</t>
 
-            <t hangText="if_filter:"><vspace blankLines="0" />The if_filter
+            <t hangText="if_filter:"><vspace blankLines="0"/>The if_filter
             option is identifies the filter (e.g. "capture only TCP traffic")
             used to capture traffic. The first byte of the Option Data keeps a
             code of the filter used (e.g. if this is a libpcap string, or BPF
@@ -1029,26 +1007,25 @@ Section Header
 
             <t>Example: '00'"tcp port 23 and host 192.0.2.5".</t>
 
-            <t hangText="if_os:"><vspace blankLines="0" />The if_os option is
+            <t hangText="if_os:"><vspace blankLines="0"/>The if_os option is
             a UTF-8 string containing the name of the operating system of the
             machine in which this interface is installed. This can be
             different from the same information that can be contained by the
-            Section Header Block (<xref target="sectionshb" pageno="false"
-            format="default" />) because the capture can have been done on a
-            remote machine.</t>
+            Section Header Block (<xref target="section_shb"/>) because the
+            capture can have been done on a remote machine.</t>
 
             <t>Examples: "Windows XP SP2", "openSUSE 10.2".</t>
 
-            <t hangText="if_fcslen:"><vspace blankLines="0" />The if_fcslen
+            <t hangText="if_fcslen:"><vspace blankLines="0"/>The if_fcslen
             option is an 8-bit unsigned integer value that specifies the
             length of the Frame Check Sequence (in bits) for this interface.
             For link layers whose FCS length can change during time, the
             Packet Block Flags Word can be used (see <xref
-            target="appendixPBFM" pageno="false" format="default" />).</t>
+            target="appendixPBFM"/>).</t>
 
             <t>Example: '4'.</t>
 
-            <t hangText="if_tsoffset:"><vspace blankLines="0" />The
+            <t hangText="if_tsoffset:"><vspace blankLines="0"/>The
             if_tsoffset option is a 64-bit integer value that specifies an
             offset (in seconds) that must be added to the timestamp of each
             packet to obtain the absolute timestamp of a packet. If the option
@@ -1065,19 +1042,17 @@ Section Header
       </section>
 
 
-      <section anchor="sectionepb" title="Enhanced Packet Block" toc="default">
+      <section anchor="section_epb" title="Enhanced Packet Block">
 
         <t>An Enhanced Packet Block is the standard container for storing the
         packets coming from the network. The Enhanced Packet Block is optional
         because packets can be stored either by means of this block or the
         Simple Packet Block, which can be used to speed up capture file
         generation; or a file may have no packets in it. The format of an
-        Enhanced Packet Block is shown in <xref target="formatepb"
-        pageno="false" format="default" />.</t>
+        Enhanced Packet Block is shown in <xref target="format_epb"/>.</t>
 
         <t>The Enhanced Packet Block is an improvement over the original, now
-        obsolete, <xref target="appendixpb" pageno="false"
-        format="default">Packet Block</xref>:
+        obsolete, <xref target="appendix_pb">Packet Block</xref>:
 
           <list style="symbols">
 
@@ -1085,16 +1060,15 @@ Section Header
             This is a requirement when a capture stores packets coming from a
             large number of interfaces</t>
 
-            <t>differently from the <xref target="appendixpb" pageno="false"
-            format="default">Packet Block</xref>, the number of packets
-            dropped by the capture system between this packet and the previous
-            one is not stored in the header, but rather in an option of the
-            block itself.</t>
+            <t>differently from the <xref target="appendix_pb">Packet
+            Block</xref>, the number of packets dropped by the capture system
+            between this packet and the previous one is not stored in the
+            header, but rather in an option of the block itself.</t>
 
           </list>
         </t>
 
-        <figure anchor="formatepb" title="Enhanced Packet Block Format">
+        <figure anchor="format_epb" title="Enhanced Packet Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
    0                   1                   2                   3
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -1133,36 +1107,33 @@ Section Header
             <t>Block Type: The block type of the Enhanced Packet Block is 6.</t>
 
             <t>Block Total Length: total size of this block, as described in
-            <xref target="sectionblock" pageno="false" format="default"
-            />.</t>
+            <xref target="section_block"/>.</t>
 
             <t>Interface ID: it specifies the interface this packet comes
             from; the correct interface will be the one whose Interface
             Description Block (within the current Section of the file) is
-            identified by the same number (see <xref target="sectionidb"
-            pageno="false" format="default" />) of this field. The interface
-            ID MUST be valid, which means that an matching interface
-            description block MUST exist.</t>
+            identified by the same number (see <xref target="section_idb"/>)
+            of this field. The interface ID MUST be valid, which means that an
+            matching interface description block MUST exist.</t>
 
             <t>Timestamp (High) and Timestamp (Low): high and low 32-bits of a
             64-bit quantity representing the timestamp. The timestamp is a
             single 64-bit unsigned integer representing the number of units
             since 1/1/1970 00:00:00 UTC. The way to interpret this field is
-            specified by the 'if_tsresol' option (see <xref target="formatidb"
-            pageno="false" format="default" />) of the Interface Description
-            block referenced by this packet. Please note that differently from
-            the libpcap file format, timestamps are not saved as two 32-bit
-            values accounting for the seconds and microseconds since 1/1/1970.
-            They are saved as a single 64-bit quantity saved as two 32-bit
+            specified by the 'if_tsresol' option (see <xref
+            target="format_idb"/>) of the Interface Description block
+            referenced by this packet. Please note that differently from the
+            libpcap file format, timestamps are not saved as two 32-bit values
+            accounting for the seconds and microseconds since 1/1/1970. They
+            are saved as a single 64-bit quantity saved as two 32-bit
             words.</t>
 
             <t>Captured Len: number of bytes captured from the packet (i.e.
             the length of the Packet Data field). It will be the minimum value
             among the actual Packet Length and the snapshot length (defined in
-            <xref target="formatidb" pageno="false" format="default" />). The
-            value of this field does not include the padding bytes added at
-            the end of the Packet Data field to align the Packet Data Field to
-            a 32-bit boundary.</t>
+            <xref target="format_idb"/>). The value of this field does not
+            include the padding bytes added at the end of the Packet Data
+            field to align the Packet Data Field to a 32-bit boundary.</t>
 
             <t>Packet Len: actual length of the packet when it was transmitted
             on the network. It can be different from Captured Len if the user
@@ -1172,23 +1143,21 @@ Section Header
             layer headers. The actual length of this field is Captured Len.
             The format of the link-layer headers depends on the LinkType field
             specified in the Interface Description Block (see <xref
-            target="sectionidb" pageno="false" format="default" />) and it is
-            specified in the entry for that format in the <eref
+            target="section_idb"/>) and it is specified in the entry for that
+            format in the <eref
             target="http://www.tcpdump.org/linktypes.html">the tcpdump.org
             link-layer header types registry</eref>.</t>
 
             <t>Options: optionally, a list of options (formatted according to
-            the rules defined in <xref target="sectionopt" pageno="false"
-            format="default" />) can be present.</t>
+            the rules defined in <xref target="section_opt"/>) can be present.</t>
 
           </list>
         </t>
 
-        <t>In addition to the options defined in <xref target="sectionopt"
-        pageno="false" format="default" />, the following options are valid
-        within this block:</t>
+        <t>In addition to the options defined in <xref target="section_opt"/>,
+        the following options are valid within this block:</t>
 
-        <texttable anchor="optionsepb" title="Enhanced Packet Block Options">
+        <texttable anchor="options_epb" title="Enhanced Packet Block Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -1209,14 +1178,14 @@ Section Header
         <t>
           <list hangIndent="8" style="hanging">
 
-            <t hangText="epb_flags:"><vspace blankLines="0" />The epb_flags
+            <t hangText="epb_flags:"><vspace blankLines="0"/>The epb_flags
             option is a flags word containing link-layer information. A
             complete specification of the allowed flags can be found in <xref
-            target="appendixPBFM" pageno="false" format="default" />.</t>
+            target="appendixPBFM"/>.</t>
 
             <t>Example: '0'.</t>
 
-            <t hangText="epb_hash:"><vspace blankLines="0" />The epb_hash
+            <t hangText="epb_hash:"><vspace blankLines="0"/>The epb_hash
             option contains a hash of the packet. The first byte specifies the
             hashing algorithm, while the following bytes contain the actual
             hash, whose size depends on the hashing algorithm, and hence from
@@ -1233,7 +1202,7 @@ Section Header
 
             <t>Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D 50 8E'.</t>
 
-            <t hangText="epb_dropcount:"><vspace blankLines="0" />The
+            <t hangText="epb_dropcount:"><vspace blankLines="0"/>The
             epb_dropcount option is a 64-bit integer value specifying the
             number of packets lost (by the interface and the operating system)
             between this packet and the preceding one.</t>
@@ -1245,30 +1214,30 @@ Section Header
       </section>
 
 
-      <section anchor="sectionpbs" title="Simple Packet Block" toc="default">
+      <section anchor="section_spb" title="Simple Packet Block">
 
         <t>The Simple Packet Block is a lightweight container for storing the
         packets coming from the network. Its presence is optional.</t>
 
         <t>A Simple Packet Block is similar to an Enhanced Packet Block (see
-        <xref target="sectionepb" pageno="false" format="default" />), but it
-        is smaller, simpler to process and contains only a minimal set of
-        information. This block is preferred to the standard Enhanced Packet
-        Block when performance or space occupation are critical factors, such
-        as in sustained traffic capture applications. A capture file can
-        contain both Enhanced Packet Blocks and Simple Packet Blocks: for
-        example, a capture tool could switch from Enhanced Packet Blocks to
-        Simple Packet Blocks when the hardware resources become critical.</t>
+        <xref target="section_epb"/>), but it is smaller, simpler to process
+        and contains only a minimal set of information. This block is
+        preferred to the standard Enhanced Packet Block when performance or
+        space occupation are critical factors, such as in sustained traffic
+        capture applications. A capture file can contain both Enhanced Packet
+        Blocks and Simple Packet Blocks: for example, a capture tool could
+        switch from Enhanced Packet Blocks to Simple Packet Blocks when the
+        hardware resources become critical.</t>
 
         <t>The Simple Packet Block does not contain the Interface ID field.
         Therefore, it MUST be assumed that all the Simple Packet Blocks have
         been captured on the interface previously specified in the first
         Interface Description Block.</t>
 
-        <t><xref target="formatpbs" pageno="false" format="default" /> shows
-        the format of the Simple Packet Block.</t>
+        <t><xref target="format_spb"/> shows the format of the Simple Packet
+        Block.</t>
 
-        <figure anchor="formatpbs" title="Simple Packet Block Format">
+        <figure anchor="format_spb" title="Simple Packet Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -1294,8 +1263,7 @@ Section Header
             <t>Block Type: The block type of the Simple Packet Block is 3.</t>
 
             <t>Block Total Length: total size of this block, as described in
-            <xref target="sectionblock" pageno="false" format="default"
-            />.</t>
+            <xref target="section_block"/>.</t>
 
             <t>Packet Len: actual length of the packet when it was transmitted
             on the network. Can be different from captured len if the packet
@@ -1308,7 +1276,7 @@ Section Header
             Description Block) and the Packet Len (present in this header).
             The format of the link-layer headers depends on the LinkType field
             specified in the Interface Description Block (see <xref
-            target="sectionidb" pageno="false" format="default" />) and it is
+            target="section_idb"/>) and it is
             specified in the entry for that format in the <eref
             target="http://www.tcpdump.org/linktypes.html">the tcpdump.org
             link-layer header types registry</eref>.</t>
@@ -1332,7 +1300,7 @@ Section Header
       </section>
 
 
-      <section anchor="sectionnrb" title="Name Resolution Block" toc="default">
+      <section anchor="section_nrb" title="Name Resolution Block">
 
         <t>The Name Resolution Block is used to support the correlation of
         numeric addresses (present in the captured packets) and their
@@ -1351,9 +1319,9 @@ Section Header
         the file, like network analyzers.</t>
 
         <t>The format of the Name Resolution Block is shown in <xref
-        target="formatnrb" pageno="false" format="default" />.</t>
+        target="format_nrb"/>.</t>
 
-        <figure anchor="formatnrb" title="Name Resolution Block Format">
+        <figure anchor="format_nrb" title="Name Resolution Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -1388,8 +1356,7 @@ Section Header
             <t>Block Type: The block type of the Name Resolution Block is 4.</t>
 
             <t>Block Total Length: total size of this block, as described in
-            <xref target="sectionblock" pageno="false" format="default"
-            />.</t>
+            <xref target="section_block"/>.</t>
 
           </list>
         </t>
@@ -1419,19 +1386,19 @@ Section Header
         <t>
           <list hangIndent="8" style="hanging">
 
-            <t hangText="nres_endofrecord:"><vspace blankLines="0" />The
+            <t hangText="nres_endofrecord:"><vspace blankLines="0"/>The
             nres_endofrecord record delimits the end of name resolution
             records. This record is needed to determine when the list of name
             resolution records has ended and some options (if any) begin.</t>
 
-            <t hangText="nres_ip4record:"><vspace blankLines="0" />The
+            <t hangText="nres_ip4record:"><vspace blankLines="0"/>The
             nres_ip4record record specifies an IPv4 address (contained in the
             first 4 bytes), followed by one or more zero-terminated strings
             containing the DNS entries for that address.</t>
 
             <t>Example: '127 0 0 1'"localhost".</t>
 
-            <t hangText="nres_ip6record:"><vspace blankLines="0" />The
+            <t hangText="nres_ip6record:"><vspace blankLines="0"/>The
             nres_ip4record record specifies an IPv6 address (contained in the
             first 16 bytes), followed by one or more zero-terminated strings
             containing the DNS entries for that address.</t>
@@ -1445,18 +1412,16 @@ Section Header
         <t>Each Record Value is aligned to and padded to a 32-bit boundary.
         The corresponding Record Value Length reflects the actual length of
         the Record Value; it does not include the lengths of the Record Type,
-        the Record Value Length, or any after the Record Value.</t>
+        the Record Value Length, or anything after the Record Value.</t>
 
         <t>After the list of Name Resolution Records, optionally, a list of
         options (formatted according to the rules defined in <xref
-        target="sectionopt" pageno="false" format="default" />) can be
-        present.</t>
+        target="section_opt"/>) can be present.</t>
 
-        <t>In addition to the options defined in <xref target="sectionopt"
-        pageno="false" format="default" />, the following options are valid
-        within this block:</t>
+        <t>In addition to the options defined in <xref target="section_opt"/>,
+        the following options are valid within this block:</t>
 
-        <texttable  anchor="optionsnsb" title="Name Resolution Block Options">
+        <texttable  anchor="options_nrb" title="Name Resolution Block Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -1477,19 +1442,19 @@ Section Header
         <t>
           <list hangIndent="8" style="hanging">
 
-            <t hangText="ns_dnsname:"><vspace blankLines="0" />The ns_dnsname
+            <t hangText="ns_dnsname:"><vspace blankLines="0"/>The ns_dnsname
             option is a UTF-8 string containing the name of the machine (DNS
             server) used to perform the name resolution.</t>
 
             <t>Example: "our_nameserver".</t>
 
-            <t hangText="ns_dnsIP4addr:"><vspace blankLines="0" />The
+            <t hangText="ns_dnsIP4addr:"><vspace blankLines="0"/>The
             ns_dnsIP4addr option specifies the IPv4 address of the DNS
             server.</t>
 
             <t>Example: '192 168 0 1'.</t>
 
-            <t hangText="ns_dnsIP6addr:"><vspace blankLines="0" />The
+            <t hangText="ns_dnsIP6addr:"><vspace blankLines="0"/>The
             ns_dnsIP6addr option specifies the IPv6 address of the DNS
             server.</t>
 
@@ -1501,7 +1466,7 @@ Section Header
       </section>
 
 
-      <section anchor="sectionisb" title="Interface Statistics Block" toc="default">
+      <section anchor="section_isb" title="Interface Statistics Block">
 
         <t>The Interface Statistics Block contains the capture statistics for
         a given interface and it is optional. The statistics are referred to
@@ -1512,9 +1477,9 @@ Section Header
         interface.</t>
 
         <t>The format of the Interface Statistics Block is shown in <xref
-        target="formatisb" pageno="false" format="default" />.</t>
+        target="format_isb"/>.</t>
 
-        <figure anchor="formatisb" title="Interface Statistics Block Format">
+        <figure anchor="format_isb" title="Interface Statistics Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -1545,14 +1510,12 @@ Section Header
             5.</t>
 
             <t>Block Total Length: total size of this block, as described in
-            <xref target="sectionblock" pageno="false" format="default"
-            />.</t>
+            <xref target="section_block"/>.</t>
 
             <t>Interface ID: it specifies the interface these statistics
             refers to; the correct interface will be the one whose Interface
             Description Block (within the current Section of the file) is
-            identified by same number (see <xref target="sectionidb"
-            pageno="false" format="default" />) of this field. Please note: in
+            identified by same number (see <xref target="section_idb"/>) of this field. Please note: in
             former versions of this document, this field was 16 bits only. As
             this differs from its usage in other places of this doc and as
             this block was not used "in the wild" before (as to the knowledge
@@ -1560,23 +1523,20 @@ Section Header
 
             <t>Timestamp: time this statistics refers to. The format of the
             timestamp is the same already defined in the Enhanced Packet Block
-            (<xref target="sectionepb" pageno="false" format="default"
-            />).</t>
+            (<xref target="section_epb"/>).</t>
 
             <t>Options: optionally, a list of options (formatted according to
-            the rules defined in <xref target="sectionopt" pageno="false"
-            format="default" />) can be present.</t>
+            the rules defined in <xref target="section_opt"/>) can be present.</t>
 
           </list>
         </t>
 
         <t>All the statistic fields are defined as options in order to deal
         with systems that do not have a complete set of statistics. Therefore,
-        In addiction to the options defined in <xref target="sectionopt"
-        pageno="false" format="default" />, the following options are valid
+        In addiction to the options defined in <xref target="section_opt"/>, the following options are valid
         within this block:</t>
 
-        <texttable anchor="optionsisb" title="Interface Statistics Block Options">
+        <texttable anchor="options_isb" title="Interface Statistics Block Options">
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
@@ -1613,55 +1573,53 @@ Section Header
         <t>
           <list hangIndent="8" style="hanging">
 
-            <t hangText="isb_starttime:"><vspace blankLines="0" />The
+            <t hangText="isb_starttime:"><vspace blankLines="0"/>The
             isb_starttime option specifies the time the capture started; time
             will be stored in two blocks of four bytes each. The format of the
             timestamp is the same already defined in the Enhanced Packet Block
-            (<xref target="sectionepb" pageno="false" format="default"
-            />).</t>
+            (<xref target="section_epb"/>).</t>
 
             <t>Example: '97 c3 04 00 aa 47 ca 64' in Little Endian, decodes to
             06/29/2012 06:16:50 UTC.</t>
 
-            <t hangText="isb_endtime:"><vspace blankLines="0" />The
+            <t hangText="isb_endtime:"><vspace blankLines="0"/>The
             isb_endtime option specifies the time the capture ended; time will
             be stored in two blocks of four bytes each. The format of the
             timestamp is the same already defined in the Enhanced Packet Block
-            (<xref target="sectionepb" pageno="false" format="default"
-            />).</t>
+            (<xref target="section_epb"/>).</t>
 
             <t>Example: '96 c3 04 00 73 89 6a 65', in Little Endian, decodes
             to 06/29/2012 06:17:00 UTC.</t>
 
-            <t hangText="isb_ifrecv:"><vspace blankLines="0" />The isb_ifrecv
+            <t hangText="isb_ifrecv:"><vspace blankLines="0"/>The isb_ifrecv
             option specifies the 64-bit unsigned integer number of packets
             received from the physical interface starting from the beginning
             of the capture.</t>
 
             <t>Example: the decimal number 100.</t>
 
-            <t hangText="isb_ifdrop:"><vspace blankLines="0" />The isb_ifdrop
+            <t hangText="isb_ifdrop:"><vspace blankLines="0"/>The isb_ifdrop
             option specifies the 64-bit unsigned integer number of packets
             dropped by the interface due to lack of resources starting from
             the beginning of the capture.</t>
 
             <t>Example: '0'.</t>
 
-            <t hangText="isb_filteraccept:"><vspace blankLines="0" />The
+            <t hangText="isb_filteraccept:"><vspace blankLines="0"/>The
             isb_filteraccept option specifies the 64-bit unsigned integer
             number of packets accepted by filter starting from the beginning
             of the capture.</t>
 
             <t>Example: the decimal number 100.</t>
 
-            <t hangText="isb_osdrop:"><vspace blankLines="0" />The isb_osdrop
+            <t hangText="isb_osdrop:"><vspace blankLines="0"/>The isb_osdrop
             option specifies the 64-bit unsigned integer number of packets
             dropped by the operating system starting from the beginning of the
             capture.</t>
 
             <t>Example: '0'.</t>
 
-            <t hangText="isb_usrdeliv:"><vspace blankLines="0" />The
+            <t hangText="isb_usrdeliv:"><vspace blankLines="0"/>The
             isb_usrdeliv option specifies the 64-bit unsigned integer number
             of packets delivered to the user starting from the beginning of
             the capture. The value contained in this field can be different
@@ -1683,20 +1641,19 @@ Section Header
       </section>
 
 
-      <section anchor="sectioncustomblock" title="Custom Block" toc="default">
+      <section anchor="section_custom_block" title="Custom Block">
 
         <t>A Custom Block is the container for storing custom data that is not
         part of another block; for storing custom data as part of another
-        block, see <xref target="sectioncustomoption" pageno="false"
-        format="default" />. The Custom Block is optional, can be repeated any
-        number of times, and can appear before or after any other block except
-        the first Section Header Block which must come first in the file.
-        Different Custom Blocks, of different type codes and/or different
-        Private Enterprise Numbers, may be used in the same pcapng file. The
-        format of a Custom Block is shown in <xref target="formatcustomblock"
-        pageno="false" format="default" />.</t>
+        block, see <xref target="section_custom_option"/>. The Custom Block is
+        optional, can be repeated any number of times, and can appear before
+        or after any other block except the first Section Header Block which
+        must come first in the file. Different Custom Blocks, of different
+        type codes and/or different Private Enterprise Numbers, may be used in
+        the same pcapng file. The format of a Custom Block is shown in <xref
+        target="format_custom_block"/>.</t>
 
-        <figure anchor="formatcustomblock" title="Custom Block Format">
+        <figure anchor="format_custom_block" title="Custom Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
    0                   1                   2                   3
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -1724,8 +1681,7 @@ Section Header
         <t>The Custom Block uses the type code 0x00000BAD (2989 in decimal)
         for a custom block that pcapng re-writers can copy into new files, and
         the type code 0x40000BAD (1073744813 in decimal) for one that should
-        not be copied. See <xref target="sectionvendor_copy" pageno="false"
-        format="default" /> for details.</t>
+        not be copied. See <xref target="section_vendor_copy"/> for details.</t>
 
         <t>The Custom Block has the following fields:
           <list style="symbols">
@@ -1734,24 +1690,21 @@ Section Header
             0x40000BAD, as described previously.</t>
 
             <t>Block Total Length: total size of this block, as described in
-            <xref target="sectionblock" pageno="false" format="default"
-            />.</t>
+            <xref target="section_block"/>.</t>
 
             <t>Private Enterprise Number: An IANA-assigned Private Enterprise
             Number identifying the organization which defined the Custom
-            Block. See <xref target="sectionvendor_uses" pageno="false"
-            format="default" /> for details. The PEN number MUST be encoded
-            using the same endianess as the Section Header Block it is within
-            the scope of.</t>
+            Block. See <xref target="section_vendor_uses"/> for details. The
+            PEN number MUST be encoded using the same endianess as the Section
+            Header Block it is within the scope of.</t>
 
             <t>Custom Data: the custom data, padded to a 32 bit boundary.</t>
 
             <t>Options: optionally, a list of options (formatted according to
-            the rules defined in <xref target="sectionopt" pageno="false"
-            format="default" />) can be present. Note that custom options for
-            the Custom Block still use the custom option format, as described
-            in <xref target="sectioncustomoption" pageno="false"
-            format="default" />.</t>
+            the rules defined in <xref target="section_opt"/>) can be present.
+            Note that custom options for the Custom Block still use the custom
+            option format, as described in <xref
+            target="section_custom_option"/>.</t>
 
           </list>
         </t>
@@ -1761,21 +1714,21 @@ Section Header
     </section>
 
 
-    <section title="Experimental Blocks (deserve further investigation)" toc="default">
+    <section title="Experimental Blocks (deserve further investigation)">
 
-      <section title="Alternative Packet Blocks (experimental)" toc="default">
+      <section title="Alternative Packet Blocks (experimental)">
 
         <t>Can some other packet blocks (besides the ones described in the
         previous paragraphs) be useful?</t>
 
       </section>
 
-      <section title="Compression Block (experimental)" toc="default">
+      <section title="Compression Block (experimental)">
 
         <t>The Compression Block is optional. A file can contain an arbitrary
         number of these blocks. A Compression Block, as the name says, is used
         to store compressed data. Its format is shown in <xref
-        target="formatcb" pageno="false" format="default" />.</t>
+        target="formatcb"/>.</t>
 
         <figure anchor="formatcb" title="Compression Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
@@ -1807,8 +1760,7 @@ Section Header
             assigned.</t>
 
             <t>Block Total Length: total size of this block, as described in
-            <xref target="sectionblock" pageno="false" format="default"
-            />.</t>
+            <xref target="section_block"/>.</t>
 
             <t>Compression Type: specifies the compression algorithm. Possible
             values for this field are 0 (uncompressed), 1 (Lempel Ziv), 2
@@ -1824,12 +1776,11 @@ Section Header
       </section>
 
 
-      <section title="Encryption Block (experimental)" toc="default">
+      <section title="Encryption Block (experimental)">
 
         <t>The Encryption Block is optional. A file can contain an arbitrary
         number of these blocks. An Encryption Block is used to store encrypted
-        data. Its format is shown in <xref target="formateb" pageno="false"
-        format="default" />.</t>
+        data. Its format is shown in <xref target="formateb"/>.</t>
 
         <figure anchor="formateb" title="Encryption Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
@@ -1860,8 +1811,7 @@ Section Header
             assigned.</t>
 
             <t>Block Total Length: total size of this block, as described in
-            <xref target="sectionblock" pageno="false" format="default"
-            />.</t>
+            <xref target="section_block"/>.</t>
 
             <t>Encryption Type: specifies the encryption algorithm. Possible
             values for this field are ??? (TODO) NOTE: this block should
@@ -1876,17 +1826,17 @@ Section Header
       </section>
 
 
-      <section title="Fixed Length Block (experimental)" toc="default">
+      <section title="Fixed Length Block (experimental)">
 
         <t>The Fixed Length Block is optional. A file can contain an arbitrary
         number of these blocks. A Fixed Length Block can be used to optimize
         the access to the file. Its format is shown in <xref
-        target="formatflm" pageno="false" format="default" />. A Fixed Length
-        Block stores records with constant size. It contains a set of Blocks
-        (normally Enhanced Packet Blocks or Simple Packet Blocks), of which it
-        specifies the size. Knowing this size a priori helps to scan the file
-        and to load some portions of it without truncating a block, and is
-        particularly useful with cell-based networks like ATM.</t>
+        target="formatflm"/>. A Fixed Length Block stores records with
+        constant size. It contains a set of Blocks (normally Enhanced Packet
+        Blocks or Simple Packet Blocks), of which it specifies the size.
+        Knowing this size a priori helps to scan the file and to load some
+        portions of it without truncating a block, and is particularly useful
+        with cell-based networks like ATM.</t>
 
         <figure anchor="formatflm" title="Fixed Length Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
@@ -1918,8 +1868,7 @@ Section Header
             assigned.</t>
 
             <t>Block Total Length: total size of this block, as described in
-            <xref target="sectionblock" pageno="false" format="default"
-            />.</t>
+            <xref target="section_block"/>.</t>
 
             <t>Cell size: the size of the blocks contained in the data
             field.</t>
@@ -1931,7 +1880,7 @@ Section Header
       </section>
 
 
-      <section title="Directory Block (experimental)" toc="default">
+      <section title="Directory Block (experimental)">
 
         <t>If present, this block contains the following information:
           <list style="symbols">
@@ -1952,7 +1901,7 @@ Section Header
       </section>
 
 
-      <section title="Traffic Statistics and Monitoring Blocks (experimental)" toc="default">
+      <section title="Traffic Statistics and Monitoring Blocks (experimental)">
 
         <t>One or more blocks could be defined to contain network statistics
         or traffic monitoring information. They could be use to store data
@@ -1962,7 +1911,7 @@ Section Header
       </section>
 
 
-      <section title="Event/Security Block (experimental)" toc="default">
+      <section title="Event/Security Block (experimental)">
 
         <t>This block could be used to store events. Events could contain
         generic information (for example network load over 50%, server
@@ -1986,7 +1935,7 @@ Section Header
     </section>
 
 
-    <section anchor="sectionvendor" title="Vendor-Specific Custom Extensions" toc="default">
+    <section anchor="section_vendor" title="Vendor-Specific Custom Extensions">
 
       <t>This section uses the term "vendor" to describe an organization which
       extends the pcapng file with custom, proprietary blocks or options. It
@@ -1995,7 +1944,7 @@ Section Header
       manufacturer, industry association, an individual user, or collective
       group of users.</t>
 
-      <section anchor="sectionvendor_uses" title="Supported Use-Cases" toc="default">
+      <section anchor="section_vendor_uses" title="Supported Use-Cases">
 
         <t>There are two different supported use-cases for vendor-specific
         custom extensions: local and portable. Local use means the custom data
@@ -2020,7 +1969,7 @@ Section Header
 
       </section>
 
-      <section anchor="sectionvendor_copy" title="Controlling Copy Behavior" toc="default">
+      <section anchor="section_vendor_copy" title="Controlling Copy Behavior">
 
         <t>Both Custom Blocks and Custom Options support two different codes
         to distinguish their "copy" behavior: a code for when the block or
@@ -2049,7 +1998,7 @@ Section Header
 
       </section>
 
-      <section anchor="sectionvendor_strings" title="Strings vs. Bytes" toc="default">
+      <section anchor="section_vendor_strings" title="Strings vs. Bytes">
 
         <t>For the Custom Options, there are two Custom Data formats
         supported: a UTF-8 string and a binary data payload. The rationale for
@@ -2062,7 +2011,7 @@ Section Header
 
       </section>
 
-      <section anchor="sectionvendor_endian" title="Endianess Issues" toc="default">
+      <section anchor="section_vendor_endian" title="Endianess Issues">
 
         <t>Implementers writing Custom Blocks or Custom Options should be
         aware that a pcapng file can be re-written by machines using a
@@ -2095,7 +2044,7 @@ Section Header
     </section>
 
 
-    <section title="Recommended File Name Extension: .pcapng" toc="default">
+    <section title="Recommended File Name Extension: .pcapng">
 
       <t>The recommended file name extension for the "PCAP Next Generation
       Capture File Format" specified in this document is ".pcapng".</t>
@@ -2116,7 +2065,7 @@ Section Header
     </section>
 
 
-    <section title="Conclusions" toc="default">
+    <section title="Conclusions">
 
       <t>The file format proposed in this document should be very versatile
       and satisfy a wide range of applications. In the simplest case, it can
@@ -2179,7 +2128,8 @@ Section Header
 
     <section anchor="appendixPBFM" title="Packet Block Flags Word">
 
-      <t>The Packet Block Flags Word is a 32-bit value that contains link-layer information about the packet.</t>
+      <t>The Packet Block Flags Word is a 32-bit value that contains link-
+      layer information about the packet.</t>
 
       <t>The meaning of the bits is the following:</t>
 
@@ -2188,10 +2138,12 @@ Section Header
         <ttcol align="left">Description</ttcol>
 
         <c>0-1</c>
-        <c>Inbound / Outbound packet (00 = information not available, 01 = inbound, 10 = outbound)</c>
+        <c>Inbound / Outbound packet (00 = information not available, 01 =
+        inbound, 10 = outbound)</c>
 
         <c>2-4</c>
-        <c>Reception type (000 = not specified, 001 = unicast, 010 = multicast, 011 = broadcast, 100 = promiscuous).</c>
+        <c>Reception type (000 = not specified, 001 = unicast, 010 =
+        multicast, 011 = broadcast, 100 = promiscuous).</c>
 
         <c>5-8</c>
         <c>FCS length, in bytes (0000 if this information is not available).
@@ -2213,14 +2165,14 @@ Section Header
     </section>
 
 
-    <section anchor="appendixBlockCodes" title="Standardized Block Type Codes">
+    <section anchor="appendix_block_codes" title="Standardized Block Type Codes">
 
       <t>Every Block is uniquely identified by a 32-bit integer value, stored
       in the Block Header.</t>
 
-      <t>As pointed out in <xref target="sectionblock" pageno="false"
-      format="default"></xref>, Block Types codes whose Most Significant Bit
-      (bit 31) is set to 1 are reserved for local use by the application.</t>
+      <t>As pointed out in <xref target="section_block"></xref>, Block Types
+      codes whose Most Significant Bit (bit 31) is set to 1 are reserved for
+      local use by the application.</t>
 
       <t>All the remaining Block Type codes (0x00000000 to 0x7FFFFFFF) are
       standardized by this document. A request should be sent to the authors
@@ -2238,32 +2190,32 @@ Section Header
 
         <c>0x00000001</c>
         <c>
-          <xref target="sectionidb" pageno="false" format="default">Interface Description Block</xref>
+          <xref target="section_idb" >Interface Description Block</xref>
         </c>
 
         <c>0x00000002</c>
         <c>
-          <xref target="appendixpb" pageno="false" format="default">Packet Block</xref>
+          <xref target="appendix_pb" >Packet Block</xref>
         </c>
 
         <c>0x00000003</c>
         <c>
-          <xref target="sectionpbs" pageno="false" format="default">Simple Packet Block</xref>
+          <xref target="section_spb" >Simple Packet Block</xref>
         </c>
 
         <c>0x00000004</c>
         <c>
-          <xref target="sectionnrb" pageno="false" format="default">Name Resolution Block</xref>
+          <xref target="section_nrb" >Name Resolution Block</xref>
         </c>
 
         <c>0x00000005</c>
         <c>
-          <xref target="sectionisb" pageno="false" format="default">Interface Statistics Block</xref>
+          <xref target="section_isb" >Interface Statistics Block</xref>
         </c>
 
         <c>0x00000006</c>
         <c>
-          <xref target="sectionepb" pageno="false" format="default">Enhanced Packet Block</xref>
+          <xref target="section_epb" >Enhanced Packet Block</xref>
         </c>
 
         <c>0x00000007</c>
@@ -2277,21 +2229,19 @@ Section Header
 
         <c>0x00000BAD</c>
         <c>
-          <xref target="sectioncustomblock" pageno="false"
-          format="default">Custom Block that rewriters can copy into new
-          files</xref>
+          <xref target="section_custom_block">Custom Block that rewriters can
+          copy into new files</xref>
         </c>
 
         <c>0x40000BAD</c>
         <c>
-          <xref target="sectioncustomblock" pageno="false"
-          format="default">Custom Block that rewriters should not copy into
-          new files</xref>
+          <xref target="section_custom_block">Custom Block that rewriters should
+          not copy into new files</xref>
         </c>
 
         <c>0x0A0D0D0A</c>
         <c>
-          <xref target="sectionshb" pageno="false" format="default">Section Header Block</xref>
+          <xref target="section_shb" >Section Header Block</xref>
         </c>
 
         <c>0x0A0D0A00-0x0A0D0AFF</c>
@@ -2314,7 +2264,7 @@ Section Header
     </section>
 
 
-    <section anchor="appendixpb" title="Packet Block (obsolete!)" toc="default">
+    <section anchor="appendix_pb" title="Packet Block (obsolete!)">
 
       <t>The Packet Block is obsolete, and MUST NOT be used in new files. Use
       the Enhanced Packet Block or Simple Packet Block instead. This section
@@ -2361,15 +2311,14 @@ Section Header
           <t>Block Type: The block type of the Packet Block is 2.</t>
 
           <t>Block Total Length: total size of this block, as described in
-          <xref target="sectionblock" pageno="false" format="default" />.</t>
+          <xref target="section_block"/>.</t>
 
-          <t>Interface ID: it specifies the interface this packet comes from;
+          <t>Interface ID: specifies the interface this packet comes from;
           the correct interface will be the one whose Interface Description
           Block (within the current Section of the file) is identified by the
-          same number (see <xref target="sectionidb" pageno="false"
-          format="default" />) of this field. The interface ID MUST be valid,
-          which means that an matching interface description block MUST
-          exist.</t>
+          same number (see <xref target="section_idb"/>) of this field. The
+          interface ID MUST be valid, which means that an matching interface
+          description block MUST exist.</t>
 
           <t>Drops Count: a local drop counter. It specifies the number of
           packets lost (by the interface and the operating system) between
@@ -2379,16 +2328,14 @@ Section Header
 
           <t>Timestamp (High) and Timestamp (Low): timestamp of the packet.
           The format of the timestamp is the same already defined in the
-          Enhanced Packet Block (<xref target="sectionepb" pageno="false"
-          format="default" />).</t>
+          Enhanced Packet Block (<xref target="section_epb"/>).</t>
 
           <t>Captured Len: number of bytes captured from the packet (i.e. the
           length of the Packet Data field). It will be the minimum value among
           the actual Packet Length and the snapshot length (SnapLen defined in
-          <xref target="formatidb" pageno="false" format="default" />). The
-          value of this field does not include the padding bytes added at the
-          end of the Packet Data field to align the Packet Data Field to a
-          32-bit boundary.</t>
+          <xref target="format_idb"/>). The value of this field does not
+          include the padding bytes added at the end of the Packet Data field
+          to align the Packet Data Field to a 32-bit boundary.</t>
 
           <t>Packet Len: actual length of the packet when it was transmitted
           on the network. Can be different from Captured Len if the user wants
@@ -2398,21 +2345,18 @@ Section Header
           layer headers. The actual length of this field is Captured Len. The
           format of the link-layer headers depends on the LinkType field
           specified in the Interface Description Block (see <xref
-          target="sectionidb" pageno="false" format="default" />) and it is
-          specified in the entry for that format in the <eref
-          target="http://www.tcpdump.org/linktypes.html">the tcpdump.org link-
-          layer header types registry</eref>.</t>
+          target="section_idb"/>) and it is specified in the entry for that
+          format in the <eref target="http://www.tcpdump.org/linktypes.html">
+          the tcpdump.org link-layer header types registry</eref>.</t>
 
           <t>Options: optionally, a list of options (formatted according to
-          the rules defined in <xref target="sectionopt" pageno="false"
-          format="default" />) can be present.</t>
+          the rules defined in <xref target="section_opt"/>) can be present.</t>
 
         </list>
       </t>
 
-      <t>In addition to the options defined in <xref target="sectionopt"
-      pageno="false" format="default" />, the following options were valid
-      within this block:</t>
+      <t>In addition to the options defined in <xref target="section_opt"/>,
+      the following options were valid within this block:</t>
 
       <texttable anchor="optionspb" title="Packet Block Options">
         <ttcol align="left">Name</ttcol>
@@ -2431,16 +2375,17 @@ Section Header
       <t>
         <list hangIndent="8" style="hanging">
 
-          <t hangText="pack_flags:"><vspace blankLines="0" />The pack_flags
+          <t hangText="pack_flags:"><vspace blankLines="0"/>The pack_flags
           option is the same as the epb_flags of the enhanced packet
           block.</t>
 
           <t>Example: '0'.</t>
 
-          <t hangText="pack_hash:"><vspace blankLines="0" />The pack_hash
+          <t hangText="pack_hash:"><vspace blankLines="0"/>The pack_hash
           option is the same as the epb_hash of the enhanced packet block.</t>
 
-          <t>Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D 50 8E'.</t>
+          <t>Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E
+          C2 9A 3D 50 8E'.</t>
 
         </list>
       </t>
