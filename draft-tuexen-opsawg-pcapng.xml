@@ -946,14 +946,15 @@ Section Header
 
             <t>Examples: "Broadcom NetXtreme", "First Ethernet Interface".</t>
 
-            <t hangText="if_IPv4addr:"><vspace blankLines="0"/>The
-            if_IPv4addr option is the IPv4 network address and netmask. This
-            option can be repeated multiple times within the same Interface
-            Description Block when multiple IPv4 addresses are assigned to the
-            interface.</t>
+            <t hangText="if_IPv4addr:"><vspace blankLines="0"/>The if_IPv4addr
+            option is the IPv4 network address and netmask. This option can be
+            repeated multiple times within the same Interface Description
+            Block when multiple IPv4 addresses are assigned to the interface.
+            Note that the IP address is treated as four bytes, one for each
+            byte of the IP address; it is not a 32-bit word, and thus the
+            endianness of the SHB does not affect this field's value.</t>
 
             <t>Examples: '192 168 1 1 255 255 255 0'.</t>
-            <t>[Open issue: does this mean it's encoded in network order always?]</t>
 
             <t hangText="if_IPv6addr:"><vspace blankLines="0"/>The
             if_IPv6addr option is the IPv6 network address and prefix length
@@ -1463,7 +1464,10 @@ Section Header
             first 4 bytes), followed by one or more zero-terminated UTF-8
             strings containing the DNS entries for that address. The minimum
             valid Record Length for this Record Type is thus 6: 4 for the IP
-            bytes, 1 character, and a zero byte terminator.</t>
+            bytes, 1 character, and a zero byte terminator. Note that the IP
+            address is treated as four bytes, one for each byte of the IP
+            address; it is not a 32-bit word, and thus the endianness of the
+            SHB does not affect this field's value.</t>
 
             <t>Example: '127 0 0 1'"localhost".</t>
 
@@ -1533,8 +1537,10 @@ Section Header
             <t>Example: "our_nameserver".</t>
 
             <t hangText="ns_dnsIP4addr:"><vspace blankLines="0"/>The
-            ns_dnsIP4addr option specifies the IPv4 address of the DNS
-            server.</t>
+            ns_dnsIP4addr option specifies the IPv4 address of the DNS server.
+            Note that the IP address is treated as four bytes, one for each
+            byte of the IP address; it is not a 32-bit word, and thus the
+            endianness of the SHB does not affect this field's value.</t>
 
             <t>Example: '192 168 0 1'.</t>
 
