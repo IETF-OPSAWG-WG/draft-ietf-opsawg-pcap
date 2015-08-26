@@ -1136,9 +1136,10 @@ Section Header
 
             <t>Captured Packet Length: number of bytes captured from the
             packet (i.e. the length of the Packet Data field). It will be the
-            minimum value among the actual Packet Length and the SnapLen
-            (defined in <xref target="format_idb"/>). The value of this field
-            does not include the padding bytes added at the end of the Packet
+            minimum value among the Original Packet Length and the
+            snapshot length for the interface (SnapLen, defined in
+            <xref target="format_idb"/>). The value of this field does
+            not include the padding bytes added at the end of the Packet
             Data field to align the Packet Data field to a 32-bit
             boundary.</t>
 
@@ -1147,14 +1148,15 @@ Section Header
             Packet Length if the packet has been truncated by the capture
             process.</t>
 
-            <t>Packet Data: the data coming from the network, including link-
-            layer headers. The actual length of this field is Captured Packet
-            Length plus the padding to a 32-bit boundary. The format of the
-            link-layer headers depends on the LinkType field specified in the
-            Interface Description Block (see <xref target="section_idb"/>) and
-            it is specified in the entry for that format in the <eref
-            target="http://www.tcpdump.org/linktypes.html">the tcpdump.org
-            link-layer header types registry</eref>.</t>
+            <t>Packet Data: the data coming from the network, including
+            link-layer headers. The actual length of this field is
+            Captured Packet Length plus the padding to a 32-bit
+            boundary. The format of the link-layer headers depends on
+            the LinkType field specified in the Interface Description
+            Block (see <xref target="section_idb"/>) and it is specified
+            in the entry for that format in the <eref
+            target="http://www.tcpdump.org/linktypes.html">the
+            tcpdump.org link-layer header types registry</eref>.</t>
 
             <t>Options: optionally, a list of options (formatted according to
             the rules defined in <xref target="section_opt"/>) can be present.</t>
@@ -1323,17 +1325,18 @@ Section Header
             Length value, and the SnapLen value MUST be used to determine the
             size of the Packet Data field length.</t>
 
-            <t>Packet Data: the data coming from the network, including link-
-            layer headers. The length of this field can be derived from the
-            field Block Total Length, present in the Block Header, and it is
-            the minimum value among the SnapLen (present in the Interface
-            Description Block) and the Original Packet Length (present in this
-            header). The format of the data within this Packet Data field
-            depends on the LinkType field specified in the Interface
-            Description Block (see <xref target="section_idb"/>) and it is
-            specified in the entry for that format in <eref
-            target="http://www.tcpdump.org/linktypes.html">the tcpdump.org
-            link-layer header types registry</eref>.</t>
+            <t>Packet Data: the data coming from the network, including
+            link-layer headers. The length of this field can be derived
+            from the field Block Total Length, present in the Block
+            Header, and it is the minimum value among the SnapLen
+            (present in the Interface Description Block) and the
+            Original Packet Length (present in this header). The format
+            of the data within this Packet Data field depends on the
+            LinkType field specified in the Interface Description Block
+            (see <xref target="section_idb"/>) and it is specified in
+            the entry for that format in <eref
+            target="http://www.tcpdump.org/linktypes.html">the
+            tcpdump.org link-layer header types registry</eref>.</t>
 
           </list>
         </t>
@@ -2394,28 +2397,31 @@ Section Header
           available.</t>
 
           <t>Timestamp (High) and Timestamp (Low): timestamp of the packet.
-          The format of the timestamp is the same already defined in the
-          Enhanced Packet Block (<xref target="section_epb"/>).</t>
+          The format of the timestamp is the same as was already defined
+          for the Enhanced Packet Block (<xref target="section_epb"/>).</t>
 
-          <t>Captured Packet Length: number of bytes captured from the packet
-          (i.e. the length of the Packet Data field). It will be the minimum
-          value among the Original Packet Length and the snapshot length
-          (SnapLen defined in <xref target="format_idb"/>). The value of this
-          field does not include the padding bytes added at the end of the
-          Packet Data field to align the Packet Data Field to a 32-bit
+          <t>Captured Packet Length: number of bytes captured from the
+          packet (i.e. the length of the Packet Data field). It will be the
+          minimum value among the Original Packet Length and the
+          snapshot length for the interface (SnapLen, defined in
+          <xref target="format_idb"/>). The value of this field does
+          not include the padding bytes added at the end of the Packet
+          Data field to align the Packet Data field to a 32-bit
           boundary.</t>
 
           <t>Original Packet Length: actual length of the packet when it was
           transmitted on the network. It can be different from Captured Packet
           Length if the packet has been truncated by the capture process.</t>
 
-          <t>Packet Data: the data coming from the network, including link-
-          layer headers. The actual length of this field is Captured Packet
-          Length. The format of the link-layer headers depends on the LinkType
-          field specified in the Interface Description Block (see <xref
-          target="section_idb"/>) and it is specified in the entry for that
-          format in the <eref target="http://www.tcpdump.org/linktypes.html">
-          the tcpdump.org link-layer header types registry</eref>.</t>
+          <t>Packet Data: the data coming from the network, including
+          link-layer headers. The actual length of this field is
+          Captured Packet Length plus the padding to a 32-bit
+          boundary. The format of the link-layer headers depends on
+          the LinkType field specified in the Interface Description
+          Block (see <xref target="section_idb"/>) and it is specified
+          in the entry for that format in the <eref
+          target="http://www.tcpdump.org/linktypes.html">the
+          tcpdump.org link-layer header types registry</eref>.</t>
 
           <t>Options: optionally, a list of options (formatted according to
           the rules defined in <xref target="section_opt"/>) can be present.</t>
