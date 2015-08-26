@@ -1089,7 +1089,7 @@ Section Header
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 16 |                        Timestamp (Low)                        |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-20 |                        Captured Length                        |
+20 |                    Captured Packet Length                     |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 24 |                    Original Packet Length                     |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -1134,21 +1134,23 @@ Section Header
             are saved as a single 64-bit quantity saved as two 32-bit
             words.</t>
 
-            <t>Captured Length: number of bytes captured from the packet (i.e.
-            the length of the Packet Data field). It will be the minimum value
-            among the actual Packet Length and the snapshot length (defined in
-            <xref target="format_idb"/>). The value of this field does not
-            include the padding bytes added at the end of the Packet Data
-            field to align the Packet Data Field to a 32-bit boundary.</t>
+            <t>Captured Packet Length: number of bytes captured from the
+            packet (i.e. the length of the Packet Data field). It will be the
+            minimum value among the actual Packet Length and the SnapLen
+            (defined in <xref target="format_idb"/>). The value of this field
+            does not include the padding bytes added at the end of the Packet
+            Data field to align the Packet Data field to a 32-bit
+            boundary.</t>
 
             <t>Original Packet Length: actual length of the packet when it was
-            transmitted on the network. It can be different from Captured Length
-            if the user wants only a snapshot of the packet.</t>
+            transmitted on the network. It can be different from Captured
+            Packet Length if the packet has been truncated by the capture
+            process.</t>
 
             <t>Packet Data: the data coming from the network, including link-
-            layer headers. The actual length of this field is Captured Length
-            plus the padding to a 32-bit boundary. The format of the link-
-            layer headers depends on the LinkType field specified in the
+            layer headers. The actual length of this field is Captured Packet
+            Length plus the padding to a 32-bit boundary. The format of the
+            link-layer headers depends on the LinkType field specified in the
             Interface Description Block (see <xref target="section_idb"/>) and
             it is specified in the entry for that format in the <eref
             target="http://www.tcpdump.org/linktypes.html">the tcpdump.org
@@ -1314,18 +1316,22 @@ Section Header
             <xref target="section_block"/>.</t>
 
             <t>Original Packet Length: actual length of the packet when it was
-            transmitted on the network. Can be different from captured len if
-            the packet has been truncated by the capture process.</t>
+            transmitted on the network. It can be different from length of the
+            Packet Data field's length if the packet has been truncated by the
+            capture process, in which case the SnapLen value in <xref
+            target="section_idb"/> will be less than this Original Packet
+            Length value, and the SnapLen value MUST be used to determine the
+            size of the Packet Data field length.</t>
 
             <t>Packet Data: the data coming from the network, including link-
             layer headers. The length of this field can be derived from the
             field Block Total Length, present in the Block Header, and it is
             the minimum value among the SnapLen (present in the Interface
-            Description Block) and the Packet Length (present in this header).
-            The format of the link-layer headers depends on the LinkType field
-            specified in the Interface Description Block (see <xref
-            target="section_idb"/>) and it is
-            specified in the entry for that format in the <eref
+            Description Block) and the Original Packet Length (present in this
+            header). The format of the data within this Packet Data field
+            depends on the LinkType field specified in the Interface
+            Description Block (see <xref target="section_idb"/>) and it is
+            specified in the entry for that format in <eref
             target="http://www.tcpdump.org/linktypes.html">the tcpdump.org
             link-layer header types registry</eref>.</t>
 
@@ -2234,9 +2240,12 @@ Section Header
           &lt;gianluca.varenni@cacetech.com&gt;, CACE Technologies LLC)</c>
 
           <c>0x00000008</c>
-          <c>Arinc 429 in AFDX Encapsulation Information Block (requested by
-          Gianluca Varenni &lt;gianluca.varenni@cacetech.com&gt;, CACE
-          Technologies LLC)</c>
+          <c>
+            <eref target="https://en.wikipedia.org/wiki/ARINC_429">ARINC
+            429</eref> in AFDX Encapsulation Information Block (requested by
+            Gianluca Varenni &lt;gianluca.varenni@cacetech.com&gt;, CACE
+            Technologies LLC)
+          </c>
 
           <c>0x00000BAD</c>
           <c>
@@ -2346,9 +2355,9 @@ Section Header
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 16 |                        Timestamp (Low)                        |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-20 |                        Captured Length                        |
+20 |                    Captured Packet Length                     |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-24 |                         Packet Length                         |
+24 |                    Original Packet Length                     |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 28 /                                                               /
    /                          Packet Data                          /
@@ -2388,21 +2397,22 @@ Section Header
           The format of the timestamp is the same already defined in the
           Enhanced Packet Block (<xref target="section_epb"/>).</t>
 
-          <t>Captured Length: number of bytes captured from the packet (i.e. the
-          length of the Packet Data field). It will be the minimum value among
-          the actual Packet Length and the snapshot length (SnapLen defined in
-          <xref target="format_idb"/>). The value of this field does not
-          include the padding bytes added at the end of the Packet Data field
-          to align the Packet Data Field to a 32-bit boundary.</t>
+          <t>Captured Packet Length: number of bytes captured from the packet
+          (i.e. the length of the Packet Data field). It will be the minimum
+          value among the Original Packet Length and the snapshot length
+          (SnapLen defined in <xref target="format_idb"/>). The value of this
+          field does not include the padding bytes added at the end of the
+          Packet Data field to align the Packet Data Field to a 32-bit
+          boundary.</t>
 
-          <t>Packet Length: actual length of the packet when it was transmitted
-          on the network. Can be different from Captured Length if the user wants
-          only a snapshot of the packet.</t>
+          <t>Original Packet Length: actual length of the packet when it was
+          transmitted on the network. It can be different from Captured Packet
+          Length if the packet has been truncated by the capture process.</t>
 
           <t>Packet Data: the data coming from the network, including link-
-          layer headers. The actual length of this field is Captured Length. The
-          format of the link-layer headers depends on the LinkType field
-          specified in the Interface Description Block (see <xref
+          layer headers. The actual length of this field is Captured Packet
+          Length. The format of the link-layer headers depends on the LinkType
+          field specified in the Interface Description Block (see <xref
           target="section_idb"/>) and it is specified in the entry for that
           format in the <eref target="http://www.tcpdump.org/linktypes.html">
           the tcpdump.org link-layer header types registry</eref>.</t>
