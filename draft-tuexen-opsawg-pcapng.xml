@@ -1185,7 +1185,7 @@ Section Header
           <list hangIndent="8" style="hanging">
 
             <t hangText="epb_flags:"><vspace blankLines="0"/>The epb_flags
-            option is a flags 32-bit word containing link-layer information. A
+            option is a 32-bit flags word containing link-layer information. A
             complete specification of the allowed flags can be found in <xref
             target="section_epb_flags"/>.</t>
 
@@ -1462,7 +1462,7 @@ Section Header
             valid?]</t>
 
             <t hangText="nrb_record_ipv6:"><vspace blankLines="0"/>The
-            nrb_record_ipv4 record specifies an IPv6 address (contained in the
+            nrb_record_ipv6 record specifies an IPv6 address (contained in the
             first 16 bytes), followed by one or more zero-terminated strings
             containing the DNS entries for that address. The minimum valid
             Record Length for this Record Type is thus 18: 16 for the IP
@@ -1487,7 +1487,7 @@ Section Header
         field, the Record Value Length field, any padding for the Record
         Value, or anything after the Record Value. The Record Length does
         include the zero byte terminating the name string. A Record Length of
-        0 is valid, unless inidicated otherwise.</t>
+        0 is valid, unless indicated otherwise.</t>
 
         <t>After the list of Name Resolution Records, optionally, a list of
         options (formatted according to the rules defined in <xref
@@ -2150,6 +2150,17 @@ Section Header
       or more files can be concatenated obtaining another valid file.</t>
 
     </section>
+
+
+    <section title="Implementations">
+
+      <t>Some known implementations that read or write the pcapng file format
+      are listed on the <eref
+      target="https://github.com/pcapng/pcapng/wiki/Implementations">pcapng
+      GitHub wiki</eref>.</t>
+
+    </section>
+
 
     <section title="Security Considerations">
 
