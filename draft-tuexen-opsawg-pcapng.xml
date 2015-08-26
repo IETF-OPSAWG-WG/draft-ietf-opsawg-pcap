@@ -13,7 +13,7 @@
 
   <front>
 
-    <title abbrev="PCAPNG">PCAP Next Generation (PCAPNG) Capture File Format</title>
+    <title abbrev="pcapng">PCAP Next Generation (pcapng) Capture File Format</title>
 
     <author initials='M.' surname='Tuexen' fullname='Michael Tuexen' role='editor'>
       <organization abbrev='Muenster Univ. of Appl. Sciences'>
@@ -574,7 +574,7 @@ Section Header
               <t>Private Enterprise Number: An IANA-assigned Private Enterprise
               Number identifying the organization which defined the Custom
               Option. See <xref target="section_vendor_uses"/> for details. The
-              PEN number MUST be encoded using the same endianess as the Section
+              PEN number MUST be encoded using the same endianness as the Section
               Header Block it is within the scope of.</t>
 
               <t>Custom Data: the custom data, padded to a 32 bit boundary.</t>
@@ -600,10 +600,10 @@ Section Header
           of data when reading / writing on the host itself, which is the most
           common case when generating/processing capture captures.</t>
 
-          <t>Please note: The endianess is indicated by the <xref
-          target="section_shb">Section Header Block</xref>. As this block can
-          appear several times in a pcapng file, a single file can contain
-          both endianess variants!</t>
+          <t>Please note: The endianness is indicated by the <xref
+          target="section_shb">Section Header Block</xref>. Since this block
+          can appear several times in a pcapng file, a single file can contain
+          both endianness variants.</t>
 
         </section>
 
@@ -622,7 +622,7 @@ Section Header
           values. TODO: the spec is not too consistent wrt how 64-bit values
           are saved. In the Packet blocks we clearly specify where the low and
           high 32-bits of a 64-bit timestamp should be saved. In the SHB we do
-          use the endianess of the machine when we save the section
+          use the endianness of the machine when we save the section
           length.</t>
 
         </section>
@@ -685,8 +685,8 @@ Section Header
                 detect a possibly corrupted file.</t>
 
                 <t>This value is palindromic, so that the reader is able to
-                recognize the Section Header Block regardless of the endianess
-                of the section. The endianess is recognized by reading the Byte
+                recognize the Section Header Block regardless of the endianness
+                of the section. The endianness is recognized by reading the Byte
                 Order Magic, that is located 8 bytes after the Block Type.</t>
 
               </list>
@@ -1223,7 +1223,7 @@ Section Header
           contains link-layer information about the packet.</t>
 
           <t>The word is encoded as an unsigned 32-bit integer, using the
-          endianesss of the Section Header Block scope it is in. In the
+          endianness of the Section Header Block scope it is in. In the
           following table, the bits are numbered with 0 being the most-
           significant bit and 31 being the least-significant bit of the 32-bit
           unsigned integer. The meaning of the bits is the following:</t>
@@ -1485,9 +1485,9 @@ Section Header
         The corresponding Record Value Length reflects the actual length of
         the Record Value; it does not include the lengths of the Record Type
         field, the Record Value Length field, any padding for the Record
-        Value, or anything after the Record Value. The Record Length does
-        include the zero byte terminating the name string. A Record Length of
-        0 is valid, unless indicated otherwise.</t>
+        Value, or anything after the Record Value. For Record Types with name
+        strings, the Record Length does include the zero byte terminating that
+        string. A Record Length of 0 is valid, unless indicated otherwise.</t>
 
         <t>After the list of Name Resolution Records, optionally, a list of
         options (formatted according to the rules defined in <xref
@@ -1767,7 +1767,7 @@ Section Header
             <t>Private Enterprise Number: An IANA-assigned Private Enterprise
             Number identifying the organization which defined the Custom
             Block. See <xref target="section_vendor_uses"/> for details. The
-            PEN number MUST be encoded using the same endianess as the Section
+            PEN number MUST be encoded using the same endianness as the Section
             Header Block it is within the scope of.</t>
 
             <t>Custom Data: the custom data, padded to a 32 bit boundary.</t>
@@ -2101,7 +2101,7 @@ Section Header
         the Custom Data payload alone (as little-endian format). If this file
         then gets sent back to the little-endian machine, then when that
         little-endian machine reads the file it will detect the format is big-
-        endian, and swap the endianess while it parses the file - but that
+        endian, and swap the endianness while it parses the file - but that
         will cause the Custom Data payload to be incorrect since it was
         already in little-endian format.</t>
 
@@ -2109,7 +2109,7 @@ Section Header
         consistent manner, such as always in big-endian or always little-
         endian format, regardless of the host platform's endianness; or they
         should encode some flag in the Custom Data payload to indicate which
-        endianess the rest of the payload is written in.</t>
+        endianness the rest of the payload is written in.</t>
 
       </section>
 
@@ -2132,7 +2132,7 @@ Section Header
 
       <t>Please note: To avoid confusion (like the current usage of .cap for a
       plethora of different capture file formats) other file name extensions
-      than .pcapng should be avoided!</t>
+      than .pcapng should be avoided.</t>
 
     </section>
 
@@ -2185,12 +2185,10 @@ Section Header
         local use by the application.</t>
 
         <t>All the remaining Block Type codes (0x00000000 to 0x7FFFFFFF) are
-        standardized by this document. A request should be sent to the authors
-        of this document to add a new Standard Block Type code to the
-        specification.</t>
-
-        <t>[Open issue: sending a request to the authors doesn't make sense;
-        pick something sensible]</t>
+        standardized by this document. Requests for new Block Type codes
+        should be sent to the <eref
+        target="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-
+        ng-format mailing list</eref>.</t>
 
         <t>The following is a list of the Standardized Block Type Codes:</t>
 
@@ -2203,27 +2201,27 @@ Section Header
 
           <c>0x00000001</c>
           <c>
-            <xref target="section_idb" >Interface Description Block</xref>
+            <xref target="section_idb">Interface Description Block</xref>
           </c>
 
           <c>0x00000002</c>
           <c>
-            <xref target="appendix_pb" >Packet Block</xref>
+            <xref target="appendix_pb">Packet Block</xref>
           </c>
 
           <c>0x00000003</c>
           <c>
-            <xref target="section_spb" >Simple Packet Block</xref>
+            <xref target="section_spb">Simple Packet Block</xref>
           </c>
 
           <c>0x00000004</c>
           <c>
-            <xref target="section_nrb" >Name Resolution Block</xref>
+            <xref target="section_nrb">Name Resolution Block</xref>
           </c>
 
           <c>0x00000005</c>
           <c>
-            <xref target="section_isb" >Interface Statistics Block</xref>
+            <xref target="section_isb">Interface Statistics Block</xref>
           </c>
 
           <c>0x00000006</c>
