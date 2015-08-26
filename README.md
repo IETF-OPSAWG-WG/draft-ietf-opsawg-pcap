@@ -5,6 +5,7 @@
 [![pcapng draft as PDF](https://img.shields.io/badge/pcapng--draft-pdf-green.svg)](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/pdf&type=ascii)
 [![pcapng mailing list](https://img.shields.io/badge/pcapng--mailing--list-42-green.svg?style=social)](https://www.winpcap.org/mailman/listinfo/pcap-ng-format)
 [![list archive](https://img.shields.io/badge/list--archive-1k-green.svg?style=social)](http://www.winpcap.org/pipermail/pcap-ng-format/)
+[![build status](https://travis-ci.org/alagoutte/pcapng.svg?branch=master)](http://pcapng.github.io/pcapng/)
 
 ## The pcap Next Generation Capture File Format
 
@@ -20,4 +21,6 @@ Join the [pcapng mailing list](https://www.winpcap.org/mailman/listinfo/pcap-ng-
 
 * View the [pcapng draft as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/pdf&type=ascii).
 
+## Implementations
 
+Some known implementations that read or write the pcapng file format are listed on the [wiki](https://github.com/pcapng/pcapng/wiki/Implementations).
