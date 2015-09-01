@@ -948,19 +948,22 @@ Section Header
 
             <t hangText="if_IPv4addr:"><vspace blankLines="0"/>The if_IPv4addr
             option is an IPv4 network address and corresponding netmask for
-            the interface. This option can be repeated multiple times within
-            the same Interface Description Block when multiple IPv4 addresses
-            are assigned to the interface. Note that the IP address is treated
-            as four bytes, one for each byte of the IP address; it is not a
-            32-bit word, and thus the endianness of the SHB does not affect
+            the interface. The first four bytes are the IP address, and
+            the next four bytes are the netmask. This option can be repeated
+            multiple times within the same Interface Description Block when
+            multiple IPv4 addresses are assigned to the interface. Note that
+            the IP address and netmask are both treated as four bytes, one
+            for each byte of the address or mask; they are not 32-bit
+            numbers, and thus the endianness of the SHB does not affect
             this field's value.</t>
 
             <t>Examples: '192 168 1 1 255 255 255 0'.</t>
 
             <t hangText="if_IPv6addr:"><vspace blankLines="0"/>The
             if_IPv6addr option is an IPv6 network address and corresponding
-            prefix length (stored in the last byte) for the interface. This
-            option can be repeated multiple times within the same Interface
+            prefix length for the interface. The first 16 bytes are the
+            IP address and the next byte is the prefix length. This option
+            can be repeated multiple times within the same Interface
             Description Block when multiple IPv6 addresses are assigned to
             the interface.</t>
 
