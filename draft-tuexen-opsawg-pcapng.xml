@@ -947,27 +947,30 @@ Section Header
             <t>Examples: "Broadcom NetXtreme", "First Ethernet Interface".</t>
 
             <t hangText="if_IPv4addr:"><vspace blankLines="0"/>The if_IPv4addr
-            option is the IPv4 network address and netmask. This option can be
-            repeated multiple times within the same Interface Description
-            Block when multiple IPv4 addresses are assigned to the interface.
-            Note that the IP address is treated as four bytes, one for each
-            byte of the IP address; it is not a 32-bit word, and thus the
-            endianness of the SHB does not affect this field's value.</t>
+            option is an IPv4 network address and corresponding netmask for
+            the interface. This option can be repeated multiple times within
+            the same Interface Description Block when multiple IPv4 addresses
+            are assigned to the interface. Note that the IP address is treated
+            as four bytes, one for each byte of the IP address; it is not a
+            32-bit word, and thus the endianness of the SHB does not affect
+            this field's value.</t>
 
             <t>Examples: '192 168 1 1 255 255 255 0'.</t>
 
             <t hangText="if_IPv6addr:"><vspace blankLines="0"/>The
-            if_IPv6addr option is the IPv6 network address and prefix length
-            (stored in the last byte). This option can be repeated multiple
-            times within the same Interface Description Block when multiple
-            IPv6 addresses are assigned to the interface.</t>
+            if_IPv6addr option is an IPv6 network address and corresponding
+            prefix length (stored in the last byte) for the interface. This
+            option can be repeated multiple times within the same Interface
+            Description Block when multiple IPv6 addresses are assigned to
+            the interface.</t>
 
             <t>Example: 2001:0db8:85a3:08d3:1319:8a2e:0370:7344/64 is written
             (in hex) as '20 01 0d b8 85 a3 08 d3 13 19 8a 2e 03 70 73 44
             40'.</t>
 
             <t hangText="if_MACaddr:"><vspace blankLines="0"/>The if_MACaddr
-            option is the Interface Hardware MAC address (48 bits).</t>
+            option is the Interface Hardware MAC address (48 bits), if
+            available.</t>
 
             <t>Example: '00 01 02 03 04 05'.</t>
 
