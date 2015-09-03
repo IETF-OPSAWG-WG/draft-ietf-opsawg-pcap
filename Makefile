@@ -221,7 +221,7 @@ ifneq (true,$(TRAVIS))
 endif
 ifneq (,$(or $(IS_LOCAL),$(IS_MASTER)))
 	mkdir $(GHPAGES_TMP)
-	cp -f $^ $(GHPAGES_TMP)
+	mv -f $^ $(GHPAGES_TMP)
 	git clean -qfdX
 ifeq (true,$(TRAVIS))
 	git config user.email "ci-bot@example.com"
