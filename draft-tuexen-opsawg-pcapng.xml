@@ -4,12 +4,13 @@
 <?rfc toc='yes' ?>
 <?rfc compact='yes' ?>
 <?rfc subcompact='no' ?>
+<?rfc inline='yes' ?>
 <?rfc sortrefs='no' ?>
 <?rfc strict='yes' ?>
 
 <rfc category='info'
      ipr='trust200902'
-     docName="draft-tuexen-opsawg-pcapng-01a">
+     docName="draft-tuexen-opsawg-pcapng">
 
   <front>
 
@@ -130,12 +131,30 @@
 
     </section>
 
-    <section title='Conventions'>
+    <section title='Terminology'>
 
       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
       "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
       document are to be interpreted as described in <xref
       target='RFC2119'/>.</t>
+
+      <section title="Acronyms">
+
+        <t>The following acronyms are used throughout this document:
+
+          <list style='hanging'>
+            <t hangText='SHB:'>Section Header Block</t>
+            <t hangText='IDB:'>Interface Description Block</t>
+            <t hangText='ISB:'>Interface Statistics Block</t>
+            <t hangText='EPB:'>Enhanced Packet Block</t>
+            <t hangText='SPB:'>Simple Packet Block</t>
+            <t hangText='NRB:'>Name Resolution Block</t>
+            <t hangText='CB:'>Custom Block</t>
+          </list>
+
+        </t>
+
+      </section>
 
     </section>
 
@@ -175,13 +194,15 @@
             defined types can be found in <xref
             target="section_block_code_registry"/>.</t>
 
-            <t>Block Total Length: total size of this block, in bytes. For
+            <t>Block Total Length: total size of this block, in octets. For
             instance, the length of a block that does not have a body is 12
-            bytes. This value MUST be a multiple of 4.</t>
+            octets: 4 octets for the Block Type, 4 octets for the initial
+            Block Total Length and 4 octets for the trailing Block Total
+            Length. This value MUST be a multiple of 4.</t>
 
             <t>Block Body: content of the block.</t>
 
-            <t>Block Total Length: total size of this block, in bytes. This
+            <t>Block Total Length: total size of this block, in octets. This
             field is duplicated to permit backward file navigation.</t>
 
           </list>
@@ -319,8 +340,10 @@ Section Header
         version number, it MUST skip everything until the next Section Header
         Block. Note that, in order to properly skip the blocks until the next
         section, all blocks MUST have the fields Type and Length at the
-        beginning. This is a mandatory requirement that MUST be maintained in
-        future versions of the block format.</t>
+        beginning. In order to preperly skip blocks in the backward direction,
+        all blocks MUST have the Length repeated at the end of the block.
+        These are mandatory requirements that MUST be maintained in future
+        versions of the block format.</t>
 
         <t><xref target="fssample-SHB"/> shows a typical file layout, with a
         single Section Header that covers the whole file.</t>
@@ -404,7 +427,7 @@ Section Header
         containing a single value:
           <list style="symbols">
 
-            <t>Option Type (2 bytes): it contains the code that specifies the
+            <t>Option Type (2 octets): it contains the code that specifies the
             type of the current TLV record. Option types whose Most
             Significant Bit is equal to one are reserved for local use;
             therefore, there is no guarantee that the code used is unique
@@ -413,12 +436,12 @@ Section Header
             vendor-specific extensions, the Custom Option MUST be used
             instead, as defined in <xref target="section_custom_option"/>).</t>
 
-            <t>Option Length (2 bytes): it contains the actual length of the
-            following 'Option Value' field without the padding bytes.</t>
+            <t>Option Length (2 octets): it contains the actual length of the
+            following 'Option Value' field without the padding octets.</t>
 
             <t>Option Value (variable length): it contains the value of the
             given option, padded to a 32-bit boundary. The actual length of
-            this field (i.e. without the padding bytes) is specified by the
+            this field (i.e. without the padding octets) is specified by the
             Option Length field.</t>
 
           </list>
@@ -426,8 +449,8 @@ Section Header
 
         <t>If an option's value is a string, the value is not necessarily
         zero-terminated. Software that reads these files MUST NOT assume that
-        strings are zero-terminated, and MUST treat a zero byte as a string
-        terminator.</t>
+        strings are zero-terminated, and MUST treat a zero-value octet as a
+        string terminator.</t>
 
         <t>Options may be repeated several times (e.g. an interface that has
         several IP addresses associated to it) TODO: mention for each option,
@@ -543,7 +566,7 @@ Section Header
                   details.</t>
 
                   <t hangText="2989:"><vspace blankLines="0"/>This option code
-                  identifies a Custom Option containing binary bytes in the
+                  identifies a Custom Option containing binary octets in the
                   Custom Data portion. This Custom Option can be safely copied
                   to a new file if the pcapng file is manipulated by an
                   application; otherwise 19372 should be used instead. See <xref
@@ -557,7 +580,7 @@ Section Header
                   target="section_vendor_copy"/> for details.</t>
 
                   <t hangText="19373:"><vspace blankLines="0"/>This option code
-                  identifies a Custom Option containing binary bytes in the
+                  identifies a Custom Option containing binary octets in the
                   Custom Data portion. This Custom Option should not be copied
                   to a new file if the pcapng file is manipulated by an
                   application. See <xref target="section_vendor_copy"/> for
@@ -568,8 +591,8 @@ Section Header
 
               <t>Option Length: as described in <xref target="section_block"/>,
               this contains the length of the option's value, which includes the
-              4-byte Private Enterprise Number and variable-length Custom Data
-              fields, without the padding bytes.</t>
+              4-octet Private Enterprise Number and variable-length Custom Data
+              fields, without the padding octets.</t>
 
               <t>Private Enterprise Number: An IANA-assigned Private Enterprise
               Number identifying the organization which defined the Custom
@@ -588,12 +611,12 @@ Section Header
 
       <section title="Data format">
 
-        <section title="Endianess">
+        <section title="Endianness">
 
           <t>Data contained in each section will always be saved according to
           the characteristics (little endian / big endian) of the capturing
           machine. This refers to all the fields that are saved as numbers and
-          that span over two or more bytes.</t>
+          that span over two or more octets.</t>
 
           <t>The approach of having each section saved in the native format of
           the generating host is more efficient because it avoids translation
@@ -613,8 +636,8 @@ Section Header
           and 32-bit values. This makes it easier and faster to read/write
           file contents if using techniques like memory mapped files.</t>
 
-          <t>The alignment bytes (marked in this document e.g. with "padded to
-          32 bits") MUST be filled with zero bytes.</t>
+          <t>The alignment octets (marked in this document e.g. with "padded to
+          32 bits") MUST be filled with zeroes.</t>
 
           <t>Please note: 64-bit values are not aligned to 64-bit boundaries.
           This is because the file is naturally aligned to 32-bit boundaries
@@ -638,9 +661,9 @@ Section Header
 
       <section anchor="section_shb" title="Section Header Block">
 
-        <t>The Section Header Block is mandatory. It identifies the beginning
-        of a section of the capture capture file. The Section Header Block
-        does not contain data but it rather identifies a list of blocks
+        <t>The Section Header Block (SHB) is mandatory. It identifies the
+        beginning of a section of the capture capture file. The Section Header
+        Block does not contain data but it rather identifies a list of blocks
         (interfaces, packets) that are logically correlated. Its format is
         shown in <xref target="format_shb"/>.</t>
 
@@ -687,7 +710,7 @@ Section Header
                 <t>This value is palindromic, so that the reader is able to
                 recognize the Section Header Block regardless of the endianness
                 of the section. The endianness is recognized by reading the Byte
-                Order Magic, that is located 8 bytes after the Block Type.</t>
+                Order Magic, that is located 8 octets after the Block Type.</t>
 
               </list>
             </t>
@@ -713,7 +736,7 @@ Section Header
             read the old format cannot read the new format.</t>
 
             <t>Section Length: a signed 64-bit value specifying the length in
-            bytes of the following section, excluding the Section Header Block
+            octets of the following section, excluding the Section Header Block
             itself. This field can be used to skip the section, for faster
             navigation inside large files. Section Length equal -1
             (0xFFFFFFFFFFFFFFFF) means that the size of the section is not
@@ -860,7 +883,7 @@ Section Header
             <t>Reserved: not used - MUST be filled with 0, and ignored by
             pcapng file readers.</t>
 
-            <t>SnapLen: maximum number of bytes captured from each packet. The
+            <t>SnapLen: maximum number of octets captured from each packet. The
             portion of each packet that exceeds this value will not be stored
             in the file. A value of zero indicates no limit.</t>
 
@@ -948,12 +971,12 @@ Section Header
 
             <t hangText="if_IPv4addr:"><vspace blankLines="0"/>The if_IPv4addr
             option is an IPv4 network address and corresponding netmask for
-            the interface. The first four bytes are the IP address, and
-            the next four bytes are the netmask. This option can be repeated
+            the interface. The first four octets are the IP address, and
+            the next four octets are the netmask. This option can be repeated
             multiple times within the same Interface Description Block when
             multiple IPv4 addresses are assigned to the interface. Note that
-            the IP address and netmask are both treated as four bytes, one
-            for each byte of the address or mask; they are not 32-bit
+            the IP address and netmask are both treated as four octets, one
+            for each octet of the address or mask; they are not 32-bit
             numbers, and thus the endianness of the SHB does not affect
             this field's value.</t>
 
@@ -961,8 +984,8 @@ Section Header
 
             <t hangText="if_IPv6addr:"><vspace blankLines="0"/>The
             if_IPv6addr option is an IPv6 network address and corresponding
-            prefix length for the interface. The first 16 bytes are the
-            IP address and the next byte is the prefix length. This option
+            prefix length for the interface. The first 16 octets are the
+            IP address and the next octet is the prefix length. This option
             can be repeated multiple times within the same Interface
             Description Block when multiple IPv6 addresses are assigned to
             the interface.</t>
@@ -1010,7 +1033,7 @@ Section Header
 
             <t hangText="if_filter:"><vspace blankLines="0"/>The if_filter
             option is identifies the filter (e.g. "capture only TCP traffic")
-            used to capture traffic. The first byte of the Option Data keeps a
+            used to capture traffic. The first octet of the Option Data keeps a
             code of the filter used (e.g. if this is a libpcap string, or BPF
             bytecode, and more). More details about this format will be
             presented in Appendix XXX (TODO). (TODO: better use different
@@ -1057,12 +1080,13 @@ Section Header
 
       <section anchor="section_epb" title="Enhanced Packet Block">
 
-        <t>An Enhanced Packet Block is the standard container for storing the
-        packets coming from the network. The Enhanced Packet Block is optional
-        because packets can be stored either by means of this block or the
-        Simple Packet Block, which can be used to speed up capture file
-        generation; or a file may have no packets in it. The format of an
-        Enhanced Packet Block is shown in <xref target="format_epb"/>.</t>
+        <t>An Enhanced Packet Block (EPB) is the standard container for
+        storing the packets coming from the network. The Enhanced Packet Block
+        is optional because packets can be stored either by means of this
+        block or the Simple Packet Block, which can be used to speed up
+        capture file generation; or a file may have no packets in it. The
+        format of an Enhanced Packet Block is shown in <xref
+        target="format_epb"/>.</t>
 
         <t>The Enhanced Packet Block is an improvement over the original, now
         obsolete, <xref target="appendix_pb">Packet Block</xref>:
@@ -1141,12 +1165,12 @@ Section Header
             are saved as a single 64-bit quantity saved as two 32-bit
             words.</t>
 
-            <t>Captured Packet Length: number of bytes captured from the
+            <t>Captured Packet Length: number of octets captured from the
             packet (i.e. the length of the Packet Data field). It will be the
             minimum value among the Original Packet Length and the
             snapshot length for the interface (SnapLen, defined in
             <xref target="format_idb"/>). The value of this field does
-            not include the padding bytes added at the end of the Packet
+            not include the padding octets added at the end of the Packet
             Data field to align the Packet Data field to a 32-bit
             boundary.</t>
 
@@ -1203,13 +1227,13 @@ Section Header
             <t>Example: '0'.</t>
 
             <t hangText="epb_hash:"><vspace blankLines="0"/>The epb_hash
-            option contains a hash of the packet. The first byte specifies the
-            hashing algorithm, while the following bytes contain the actual
+            option contains a hash of the packet. The first octet specifies the
+            hashing algorithm, while the following octets contain the actual
             hash, whose size depends on the hashing algorithm, and hence from
-            the value in the first byte. The hashing algorithm can be: 2s
-            complement (algorithm byte = 0, size=XXX), XOR (algorithm byte =
-            1, size=XXX), CRC32 (algorithm byte = 2, size = 4), MD-5
-            (algorithm byte = 3, size=XXX), SHA-1 (algorithm byte = 4,
+            the value in the first octet. The hashing algorithm can be: 2s
+            complement (algorithm octet = 0, size=XXX), XOR (algorithm octet =
+            1, size=XXX), CRC32 (algorithm octet = 2, size = 4), MD-5
+            (algorithm octet = 3, size=XXX), SHA-1 (algorithm octet = 4,
             size=XXX). The hash covers only the packet, not the header added
             by the capture driver: this gives the possibility to calculate it
             inside the network card. The hash allows easier comparison/merging
@@ -1252,7 +1276,7 @@ Section Header
             multicast, 011 = broadcast, 100 = promiscuous).</c>
 
             <c>5-8</c>
-            <c>FCS length, in bytes (0000 if this information is not available).
+            <c>FCS length, in octets (0000 if this information is not available).
             This value overrides the if_fcslen option of the Interface Description
             Block, and is used with those link layers (e.g. PPP) where the length
             of the FCS can change during time.</c>
@@ -1275,8 +1299,9 @@ Section Header
 
       <section anchor="section_spb" title="Simple Packet Block">
 
-        <t>The Simple Packet Block is a lightweight container for storing the
-        packets coming from the network. Its presence is optional.</t>
+        <t>The Simple Packet Block (SPB) is a lightweight container for
+        storing the packets coming from the network. Its presence is
+        optional.</t>
 
         <t>A Simple Packet Block is similar to an Enhanced Packet Block (see
         <xref target="section_epb"/>), but it is smaller, simpler to process
@@ -1358,7 +1383,7 @@ Section Header
         correct one (it does not contain any Interface ID field).</t>
 
         <t>The Simple Packet Block is very efficient in term of disk space: a
-        snapshot whose length is 100 bytes requires only 16 bytes of overhead,
+        snapshot whose length is 100 octets requires only 16 octets of overhead,
         which corresponds to an efficiency of more than 86%.</t>
 
       </section>
@@ -1467,30 +1492,30 @@ Section Header
 
             <t hangText="nrb_record_ipv4:"><vspace blankLines="0"/>The
             nrb_record_ipv4 record specifies an IPv4 address (contained in the
-            first 4 bytes), followed by one or more zero-terminated UTF-8
+            first 4 octets), followed by one or more zero-terminated UTF-8
             strings containing the DNS entries for that address. The minimum
             valid Record Length for this Record Type is thus 6: 4 for the IP
-            bytes, 1 character, and a zero byte terminator. Note that the IP
-            address is treated as four bytes, one for each byte of the IP
-            address; it is not a 32-bit word, and thus the endianness of the
-            SHB does not affect this field's value.</t>
+            octets, 1 character, and a zero-value octet terminator. Note that
+            the IP address is treated as four octets, one for each octet of
+            the IP address; it is not a 32-bit word, and thus the endianness
+            of the SHB does not affect this field's value.</t>
 
             <t>Example: '127 0 0 1'"localhost".</t>
 
-            <t>[Open issue: is an empty string (i.e., just a zero byte)
+            <t>[Open issue: is an empty string (i.e., just a zero-value octet)
             valid?]</t>
 
             <t hangText="nrb_record_ipv6:"><vspace blankLines="0"/>The
             nrb_record_ipv6 record specifies an IPv6 address (contained in the
-            first 16 bytes), followed by one or more zero-terminated strings
+            first 16 octets), followed by one or more zero-terminated strings
             containing the DNS entries for that address. The minimum valid
             Record Length for this Record Type is thus 18: 16 for the IP
-            bytes, 1 character, and a zero byte terminator.</t>
+            octets, 1 character, and a zero-value octet terminator.</t>
 
             <t>Example: '20 01 0d b8 00 00 00 00 00 00 00 00 12 34 56
             78'"somehost".</t>
 
-            <t>[Open issue: is an empty string (i.e., just a zero byte)
+            <t>[Open issue: is an empty string (i.e., just a zero-value octet)
             valid?]</t>
 
           </list>
@@ -1505,8 +1530,9 @@ Section Header
         the Record Value; it does not include the lengths of the Record Type
         field, the Record Value Length field, any padding for the Record
         Value, or anything after the Record Value. For Record Types with name
-        strings, the Record Length does include the zero byte terminating that
-        string. A Record Length of 0 is valid, unless indicated otherwise.</t>
+        strings, the Record Length does include the zero-value octet
+        terminating that string. A Record Length of 0 is valid, unless
+        indicated otherwise.</t>
 
         <t>After the list of Name Resolution Records, optionally, a list of
         options (formatted according to the rules defined in <xref
@@ -1544,8 +1570,8 @@ Section Header
 
             <t hangText="ns_dnsIP4addr:"><vspace blankLines="0"/>The
             ns_dnsIP4addr option specifies the IPv4 address of the DNS server.
-            Note that the IP address is treated as four bytes, one for each
-            byte of the IP address; it is not a 32-bit word, and thus the
+            Note that the IP address is treated as four octets, one for each
+            octet of the IP address; it is not a 32-bit word, and thus the
             endianness of the SHB does not affect this field's value.</t>
 
             <t>Example: '192 168 0 1'.</t>
@@ -1564,13 +1590,13 @@ Section Header
 
       <section anchor="section_isb" title="Interface Statistics Block">
 
-        <t>The Interface Statistics Block contains the capture statistics for
-        a given interface and it is optional. The statistics are referred to
-        the interface defined in the current Section identified by the
-        Interface ID field. An Interface Statistics Block is normally placed
-        at the end of the file, but no assumptions can be taken about its
-        position - it can even appear multiple times for the same
-        interface.</t>
+        <t>The Interface Statistics Block (ISB) contains the capture
+        statistics for a given interface and it is optional. The statistics
+        are referred to the interface defined in the current Section
+        identified by the Interface ID field. An Interface Statistics Block is
+        normally placed at the end of the file, but no assumptions can be
+        taken about its position - it can even appear multiple times for the
+        same interface.</t>
 
         <t>The format of the Interface Statistics Block is shown in <xref
         target="format_isb"/>.</t>
@@ -1668,7 +1694,7 @@ Section Header
 
             <t hangText="isb_starttime:"><vspace blankLines="0"/>The
             isb_starttime option specifies the time the capture started; time
-            will be stored in two blocks of four bytes each. The format of the
+            will be stored in two blocks of four octets each. The format of the
             timestamp is the same as the one defined in the Enhanced Packet
             Block (<xref target="section_epb"/>).</t>
 
@@ -1677,7 +1703,7 @@ Section Header
 
             <t hangText="isb_endtime:"><vspace blankLines="0"/>The isb_endtime
             option specifies the time the capture ended; time will be stored
-            in two blocks of four bytes each. The format of the timestamp is
+            in two blocks of four octets each. The format of the timestamp is
             the same as the one defined in the Enhanced Packet Block (<xref
             target="section_epb"/>).</t>
 
@@ -1726,7 +1752,7 @@ Section Header
         </t>
 
         <t>All the fields that refer to packet counters are 64-bit values,
-        represented with the byte order of the current section. Special care
+        represented with the octet order of the current section. Special care
         must be taken in accessing these fields: since all the blocks are
         aligned to a 32-bit boundary, such fields are not guaranteed to be
         aligned on a 64-bit boundary.</t>
@@ -1736,15 +1762,15 @@ Section Header
 
       <section anchor="section_custom_block" title="Custom Block">
 
-        <t>A Custom Block is the container for storing custom data that is not
-        part of another block; for storing custom data as part of another
-        block, see <xref target="section_custom_option"/>. The Custom Block is
-        optional, can be repeated any number of times, and can appear before
-        or after any other block except the first Section Header Block which
-        must come first in the file. Different Custom Blocks, of different
-        type codes and/or different Private Enterprise Numbers, may be used in
-        the same pcapng file. The format of a Custom Block is shown in <xref
-        target="format_custom_block"/>.</t>
+        <t>A Custom Block (CB) is the container for storing custom data that
+        is not part of another block; for storing custom data as part of
+        another block, see <xref target="section_custom_option"/>. The Custom
+        Block is optional, can be repeated any number of times, and can appear
+        before or after any other block except the first Section Header Block
+        which must come first in the file. Different Custom Blocks, of
+        different type codes and/or different Private Enterprise Numbers, may
+        be used in the same pcapng file. The format of a Custom Block is shown
+        in <xref target="format_custom_block"/>.</t>
 
         <figure anchor="format_custom_block" title="Custom Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
@@ -1837,7 +1863,7 @@ Section Header
 |                                                               |
 |                       Compressed Data                         |
 |                                                               |
-|  variable length, byte-aligned and padded to end on a 32-bit  |
+|  variable length, octet-aligned and padded to end on a 32-bit |
 |                         boundary                              |
 |                                                               |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -1889,7 +1915,7 @@ Section Header
 |                                                               |
 |                       Encrypted Data                          |
 |                                                               |
-|                 variable length, byte-aligned                 |
+|                 variable length, octet-aligned                |
 |                                                               |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                      Block Total Length                       |
@@ -1945,7 +1971,7 @@ Section Header
 |                                                               |
 |                        Fixed Size Data                        |
 |                                                               |
-|                 variable length, byte-aligned                 |
+|                 variable length, octet-aligned                |
 |                                                               |
 |                                                               |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -2098,20 +2124,18 @@ Section Header
         this separation is that a pcapng display appplication which does not
         understand the specific PEN's Custom Option can still display the data
         as a string if it's a string type code, rather than as hex-ascii of
-        the bytes.</t>
-
-        <t>[Open issue: should we allocate a string code for Custom Block as well?]</t>
+        the octets.</t>
 
       </section>
 
-      <section anchor="section_vendor_endian" title="Endianess Issues">
+      <section anchor="section_vendor_endian" title="Endianness Issues">
 
         <t>Implementers writing Custom Blocks or Custom Options should be
         aware that a pcapng file can be re-written by machines using a
         different endianness than the original file, which means all known
         fields of the pcapng file will change endianness in the new file.
         Since the Custom Data payload of the Custom Block or Custom Option
-        might be an arbitrary sequence of unknown bytes to such machines, they
+        might be an arbitrary sequence of unknown octets to such machines, they
         cannot convert multi-byte values inside the Custom Data into the
         appropriate endianness.</t>
 
@@ -2412,12 +2436,12 @@ Section Header
           The format of the timestamp is the same as was already defined
           for the Enhanced Packet Block (<xref target="section_epb"/>).</t>
 
-          <t>Captured Packet Length: number of bytes captured from the
+          <t>Captured Packet Length: number of octets captured from the
           packet (i.e. the length of the Packet Data field). It will be the
           minimum value among the Original Packet Length and the
           snapshot length for the interface (SnapLen, defined in
           <xref target="format_idb"/>). The value of this field does
-          not include the padding bytes added at the end of the Packet
+          not include the padding octets added at the end of the Packet
           Data field to align the Packet Data field to a 32-bit
           boundary.</t>
 
