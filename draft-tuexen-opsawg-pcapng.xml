@@ -340,7 +340,7 @@ Section Header
         version number, it MUST skip everything until the next Section Header
         Block. Note that, in order to properly skip the blocks until the next
         section, all blocks MUST have the fields Type and Length at the
-        beginning. In order to preperly skip blocks in the backward direction,
+        beginning. In order to properly skip blocks in the backward direction,
         all blocks MUST have the Length repeated at the end of the block.
         These are mandatory requirements that MUST be maintained in future
         versions of the block format.</t>
@@ -410,7 +410,7 @@ Section Header
 
       <section anchor="section_opt" title="Options">
 
-        <t>All the block bodies have the possibility to embed optional fields.
+        <t>All the block bodies MAY embed optional fields.
         Optional fields can be used to insert some information that may be
         useful when reading data, but that is not really needed for packet
         processing. Therefore, each tool can either read the content of the
@@ -632,7 +632,7 @@ Section Header
 
         <section title="Alignment">
 
-          <t>All fields of this specification uses proper alignment for 16-
+          <t>All fields of this specification use proper alignment for 16-
           and 32-bit values. This makes it easier and faster to read/write
           file contents if using techniques like memory mapped files.</t>
 
@@ -821,7 +821,7 @@ Section Header
         information describing an interface on which packet data is
         captured.</t>
 
-        <t>Tools that write / read the capture file associate a progressive
+        <t>Tools that write / read the capture file associate an incrementing
         32-bit number (starting from '0') to each Interface Definition Block,
         called the Interface ID for the interface in question. This number is
         unique within each Section and identifies the interface to which the
@@ -843,7 +843,7 @@ Section Header
         file does not need to have any IDBs.</t>
 
         <t>An Interface Description Block is valid only inside the section
-        which it belongs to. The structure of a Interface Description Block is
+        to which it belongs. The structure of a Interface Description Block is
         shown in <xref target="format_idb"/>.</t>
 
         <figure anchor="format_idb" title="Interface Description Block Format">
@@ -1035,7 +1035,7 @@ Section Header
             <t>Example: TODO: give a good example.</t>
 
             <t hangText="if_filter:"><vspace blankLines="0"/>The if_filter
-            option is identifies the filter (e.g. "capture only TCP traffic")
+            option identifies the filter (e.g. "capture only TCP traffic")
             used to capture traffic. The first octet of the Option Data keeps a
             code of the filter used (e.g. if this is a libpcap string, or BPF
             bytecode, and more). More details about this format will be
