@@ -2207,11 +2207,28 @@ Section Header
     </section>
 
     <section title="IANA Considerations">
-      <t>TBD.</t>
+      <t>The following IANA Registries exist</t>
 
-      <t>[Open issue: decide whether the block types, option types, NRB Record
-      types, etc. should be IANA registries. And if so, what the IANA policy
-      for each should be (see RFC 5226)]</t>
+      <section anchor="option_type_registry" title="Option Type">
+        The Block Type registry is under First Come-First Served.
+        It starts with the following entries:
+      </section>
+
+      <section anchor="name_resolution_registry" title="Name Resolution Block Records Type">
+        The Name Resolution Block Records is under Specification Required.
+        It starts with the following entries:
+      </section>
+
+      <section anchor="link_type_code_registry" title="LinkType Codes">
+
+        <t>The LinkType field is inherited from the Tcpdump (libpcap) Group, the
+        current maintainers of the libpcap source code.  The Tcpdump Group
+        operated on a Expert Review basis, with specification preferred, but
+        not required.</t>
+
+        <t>The LinkType field should continue to operate on an Expert Review
+        basis, with the Tcpdump Workers Group continuing to act as Expert Review.
+        </t>
 
       <section anchor="section_block_code_registry" title="Standardized Block Type Codes">
 
@@ -2223,10 +2240,8 @@ Section Header
         local use by the application.</t>
 
         <t>All the remaining Block Type codes (0x00000000 to 0x7FFFFFFF) are
-        standardized by this document. Requests for new Block Type codes
-        should be sent to the <eref
-        target="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-
-        ng-format mailing list</eref>.</t>
+        standardized by this document.  The Block Types are to be allocated
+        on a First-Come/First-Served basis.</t>
 
         <t>The following is a list of the Standardized Block Type Codes:</t>
 
@@ -2448,9 +2463,12 @@ Section Header
           boundary. The format of the link-layer headers depends on
           the LinkType field specified in the Interface Description
           Block (see <xref target="section_idb"/>) and it is specified
-          in the entry for that format in the <eref
+          in the entry for that (DLT_*) format in the <eref
           target="http://www.tcpdump.org/linktypes.html">the
-          tcpdump.org link-layer header types registry</eref>.</t>
+          tcpdump.org link-layer header types registry</eref>.
+          </t>
+          <t>XXX The existing, common, Link Types should be described in this
+          document, so that it is stand-alone</t>
 
           <t>Options: optionally, a list of options (formatted according to
           the rules defined in <xref target="section_opt"/>) can be present.</t>
