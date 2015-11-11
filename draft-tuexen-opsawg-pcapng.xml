@@ -1913,12 +1913,18 @@ Section Header
 +---------------------------------------------------------------+
 |                      Block Total Length                       |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|   Encr. Type  |                                               |
-+-+-+-+-+-+-+-+-+                                               |
+|         Security Parameters Index (SPI -- 64 bits)            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Payload Data* (variable)                   |
+~                                                               ~
 |                                                               |
-|                       Encrypted Data                          |
-|                                                               |
-|                 variable length, octet-aligned                |
++               +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|               |     Padding (0-255 bytes)                     |
++-+-+-+-+-+-+-+-+                             +-+-+-+-+-+-+-+-+-+
+|                                             |    Pad Length   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|         Integrity Check Value-ICV   (variable)                |
+~                                                               ~
 |                                                               |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                      Block Total Length                       |
@@ -1940,8 +1946,8 @@ Section Header
             probably contain other fields, depending on the encryption
             algorithm. To be defined precisely.</t>
 
-            <t>Encrypted Data: data of this block. Once decrypted, it
-            originates other blocks.</t>
+            <t>Encrypted Data: data of this block. The contents are expected to
+            be additional blocks recursively included, possibly including a new SHR.</t>
 
           </list>
         </t>
