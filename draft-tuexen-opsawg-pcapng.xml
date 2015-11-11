@@ -480,7 +480,8 @@ Section Header
  </artwork>
         </figure>
 
-        <t>The following codes can always be present in any optional field:</t>
+        <t>The first three codes can always be present in any optional field. Codes 2-14 can only be present in Interface Description Blocks (see <xref target="section_idb"/>). Codes 15-17 are valid only in Section Header Blocks (see <xref target="section_shb">). Codes 18-20 are valid in Name Resolution Blocks (see <xref target="section_nrb" />):
+:</t>
 
         <texttable anchor="optionsall" title="Common Options">
           <ttcol align="left">Name</ttcol>
@@ -495,6 +496,84 @@ Section Header
           <c>opt_custom</c>
           <c>2988/2989/19372/19373</c>
           <c>variable</c>
+
+          <c>if_name</c>
+          <c>2</c>
+          <c>Variable</c>
+
+          <c>if_description</c>
+          <c>3</c>
+          <c>Variable</c>
+
+          <c>if_IPv4addr</c>
+          <c>4</c>
+          <c>8</c>
+
+          <c>if_IPv6addr</c>
+          <c>5</c>
+          <c>17</c>
+
+          <c>if_MACaddr</c>
+          <c>6</c>
+          <c>6</c>
+
+          <c>if_EUIaddr</c>
+          <c>7</c>
+          <c>8</c>
+
+          <c>if_speed</c>
+          <c>8</c>
+          <c>8</c>
+
+          <c>if_tsresol</c>
+          <c>9</c>
+          <c>1</c>
+
+          <c>if_tzone</c>
+          <c>10</c>
+          <c>4</c>
+
+          <c>if_filter</c>
+          <c>11</c>
+          <c>variable</c>
+
+          <c>if_os</c>
+          <c>12</c>
+          <c>variable</c>
+
+          <c>if_fcslen</c>
+          <c>13</c>
+          <c>1</c>
+
+          <c>if_tsoffset</c>
+          <c>14</c>
+          <c>8</c>
+
+          <c>shb_hardware</c>
+          <c>15</c>
+          <c>variable</c>
+
+          <c>shb_os</c>
+          <c>16</c>
+          <c>variable</c>
+
+          <c>shb_userappl</c>
+          <c>17</c>
+          <c>variable</c>
+
+          <c>ns_dnsname</c>
+          <c>18</c>
+          <c>Variable</c>
+
+          <c>ns_dnsIP4addr</c>
+          <c>19</c>
+          <c>4</c>
+
+          <c>ns_dnsIP6addr</c>
+          <c>20</c>
+          <c>16</c>
+        </texttable>
+
         </texttable>
 
         <t>
@@ -764,26 +843,8 @@ Section Header
         skipping a block or option does not work should the minor version
         number be changed.</t>
 
-        <t>Aside from the options defined in <xref target="section_opt"/>, the
+        <t>Options defined in <xref target="section_opt"/> can be used, specifically the
         following options are valid within this block:</t>
-
-        <texttable anchor="options_shb" title="Section Header Block Options">
-          <ttcol align="left">Name</ttcol>
-          <ttcol align="left">Code</ttcol>
-          <ttcol align="left">Length</ttcol>
-
-          <c>shb_hardware</c>
-          <c>2</c>
-          <c>variable</c>
-
-          <c>shb_os</c>
-          <c>3</c>
-          <c>variable</c>
-
-          <c>shb_userappl</c>
-          <c>4</c>
-          <c>variable</c>
-        </texttable>
 
         <t>
           <list hangIndent="8" style="hanging">
@@ -896,66 +957,7 @@ Section Header
           </list>
         </t>
 
-        <t>In addition to the options defined in <xref target="section_opt"/>,
-        the following options are valid within this block:</t>
-
-        <texttable anchor="optionsifb" title="Interface Description Block Options">
-          <ttcol align="left">Name</ttcol>
-          <ttcol align="left">Code</ttcol>
-          <ttcol align="left">Length</ttcol>
-
-          <c>if_name</c>
-          <c>2</c>
-          <c>Variable</c>
-
-          <c>if_description</c>
-          <c>3</c>
-          <c>Variable</c>
-
-          <c>if_IPv4addr</c>
-          <c>4</c>
-          <c>8</c>
-
-          <c>if_IPv6addr</c>
-          <c>5</c>
-          <c>17</c>
-
-          <c>if_MACaddr</c>
-          <c>6</c>
-          <c>6</c>
-
-          <c>if_EUIaddr</c>
-          <c>7</c>
-          <c>8</c>
-
-          <c>if_speed</c>
-          <c>8</c>
-          <c>8</c>
-
-          <c>if_tsresol</c>
-          <c>9</c>
-          <c>1</c>
-
-          <c>if_tzone</c>
-          <c>10</c>
-          <c>4</c>
-
-          <c>if_filter</c>
-          <c>11</c>
-          <c>variable</c>
-
-          <c>if_os</c>
-          <c>12</c>
-          <c>variable</c>
-
-          <c>if_fcslen</c>
-          <c>13</c>
-          <c>1</c>
-
-          <c>if_tsoffset</c>
-          <c>14</c>
-          <c>8</c>
-        </texttable>
+        <t>This options that may be present are enumerated in <xref target="section_opt"/>, but are described here:
 
         <t>
           <list hangIndent="8" style="hanging">
@@ -1541,26 +1543,8 @@ Section Header
         options (formatted according to the rules defined in <xref
         target="section_opt"/>) can be present.</t>
 
-        <t>In addition to the options defined in <xref target="section_opt"/>,
-        the following options are valid within this block:</t>
-
-        <texttable  anchor="options_nrb" title="Name Resolution Block Options">
-          <ttcol align="left">Name</ttcol>
-          <ttcol align="left">Code</ttcol>
-          <ttcol align="left">Length</ttcol>
-
-          <c>ns_dnsname</c>
-          <c>2</c>
-          <c>Variable</c>
-
-          <c>ns_dnsIP4addr</c>
-          <c>3</c>
-          <c>4</c>
-
-          <c>ns_dnsIP6addr</c>
-          <c>4</c>
-          <c>16</c>
-        </texttable>
+        <t>Options defined in <xref target="section_opt"/> can be used, specifically the
+        following options are valid within this block:</t>
 
         <t>
           <list hangIndent="8" style="hanging">
