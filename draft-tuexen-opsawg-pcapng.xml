@@ -1248,7 +1248,9 @@ Section Header
             <t hangText="epb_dropcount:"><vspace blankLines="0"/>The
             epb_dropcount option is a 64-bit integer value specifying the
             number of packets lost (by the interface and the operating system)
-            between this packet and the preceding one.</t>
+            between this packet and the preceding one for the same
+            interface or, for the first packet for an interface, between
+            this packet and the start of the capture process.</t>
 
             <t>Example: '0'.</t>
 
