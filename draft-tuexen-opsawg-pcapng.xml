@@ -2087,9 +2087,8 @@ Section Header
         Enterprise Number (PEN) is encoded into the Custom Block or Custom
         Option, using the PEN number that belongs to the vendor defining the
         extension. Anyone can register a new PEN with IANA, for free, by
-        filling out the online request form at <eref target="http://pen.iana.o
-        rg/pen/PenApplication.page">http://pen.iana.org/pen/PenApplication.pag
-        e</eref>.</t>
+        filling out the online request form at <eref
+        target="http://pen.iana.org/pen/PenApplication.page">http://pen.iana.org/pen/PenApplication.page</eref>.</t>
 
       </section>
 
