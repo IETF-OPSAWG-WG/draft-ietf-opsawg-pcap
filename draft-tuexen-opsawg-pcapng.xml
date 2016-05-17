@@ -2098,7 +2098,7 @@ Section Header
         <t>Both Custom Blocks and Custom Options support two different codes
         to distinguish their "copy" behavior: a code for when the block or
         option can be safely copied into a new pcapng file by a pcapng
-        manipulatign application, and a code for when it should not be copied.
+        manipulating application, and a code for when it should not be copied.
         A common reason for not copying a Custom Block or Custom Option is
         because it depends on other blocks or options in some way that would
         invalidate the custom data if the other blocks/options were removed or
