@@ -452,11 +452,14 @@ Section Header
         strings are zero-terminated, and MUST treat a zero-value octet as a
         string terminator.</t>
 
-        <t>Options may be repeated several times (e.g. an interface that has
-        several IP addresses associated to it) TODO: mention for each option,
-        if it can/shouldn't appear more than one time. The option list is
-        terminated by a Option which uses the special 'End of Option' code
-        (opt_endofopt).</t>
+        <t>Some options may be repeated several times; for example, a
+        block can have multiple comments, and an Interface Description
+        Block can give multiple IPv4 or IPv6 addresses for the
+        interface if it has multiple IPv4 or IPv6 addresses assigned to
+        it.  Other options may appear at most once in a given block.</t>
+
+        <t>The option list is terminated by a Option which uses the
+        special 'End of Option' code (opt_endofopt).</t>
 
         <t>The format of the optional fields is shown in <xref
         target="formatopt"/>.</t>
