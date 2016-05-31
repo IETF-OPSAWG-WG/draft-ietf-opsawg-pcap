@@ -486,15 +486,22 @@ Section Header
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
+
           <c>opt_endofopt</c>
           <c>0</c>
           <c>0</c>
+          <c>no</c>
+
           <c>opt_comment</c>
           <c>1</c>
           <c>variable</c>
+          <c>yes</c>
+
           <c>opt_custom</c>
           <c>2988/2989/19372/19373</c>
           <c>variable</c>
+          <c>yes</c>
         </texttable>
 
         <t>
@@ -771,18 +778,22 @@ Section Header
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
 
           <c>shb_hardware</c>
           <c>2</c>
           <c>variable</c>
+          <c></c>
 
           <c>shb_os</c>
           <c>3</c>
           <c>variable</c>
+          <c></c>
 
           <c>shb_userappl</c>
           <c>4</c>
           <c>variable</c>
+          <c></c>
         </texttable>
 
         <t>
@@ -903,58 +914,72 @@ Section Header
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
 
           <c>if_name</c>
           <c>2</c>
           <c>Variable</c>
+          <c>no</c>
 
           <c>if_description</c>
           <c>3</c>
           <c>Variable</c>
+          <c>no</c>
 
           <c>if_IPv4addr</c>
           <c>4</c>
           <c>8</c>
+          <c>yes</c>
 
           <c>if_IPv6addr</c>
           <c>5</c>
           <c>17</c>
+          <c>yes</c>
 
           <c>if_MACaddr</c>
           <c>6</c>
           <c>6</c>
+          <c>yes</c>
 
           <c>if_EUIaddr</c>
           <c>7</c>
           <c>8</c>
+          <c>yes</c>
 
           <c>if_speed</c>
           <c>8</c>
           <c>8</c>
+          <c>no</c>
 
           <c>if_tsresol</c>
           <c>9</c>
           <c>1</c>
+          <c>no</c>
 
           <c>if_tzone</c>
           <c>10</c>
           <c>4</c>
+          <c>no</c>
 
           <c>if_filter</c>
           <c>11</c>
           <c>variable</c>
+          <c>no</c>
 
           <c>if_os</c>
           <c>12</c>
           <c>variable</c>
+          <c>no</c>
 
           <c>if_fcslen</c>
           <c>13</c>
           <c>1</c>
+          <c>no</c>
 
           <c>if_tsoffset</c>
           <c>14</c>
           <c>8</c>
+          <c>no</c>
         </texttable>
 
         <t>
@@ -1205,18 +1230,22 @@ Section Header
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
 
           <c>epb_flags</c>
           <c>2</c>
           <c>4</c>
+          <c>no</c>
 
           <c>epb_hash</c>
           <c>3</c>
           <c>variable</c>
+          <c>yes</c>
 
           <c>epb_dropcount</c>
           <c>4</c>
           <c>8</c>
+          <c>no</c>
         </texttable>
 
         <t>
@@ -1550,18 +1579,22 @@ Section Header
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
 
           <c>ns_dnsname</c>
           <c>2</c>
           <c>Variable</c>
+          <c>no</c>
 
           <c>ns_dnsIP4addr</c>
           <c>3</c>
           <c>4</c>
+          <c>no</c>
 
           <c>ns_dnsIP6addr</c>
           <c>4</c>
           <c>16</c>
+          <c>no</c>
         </texttable>
 
         <t>
@@ -1664,34 +1697,42 @@ Section Header
           <ttcol align="left">Name</ttcol>
           <ttcol align="left">Code</ttcol>
           <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
 
           <c>isb_starttime</c>
           <c>2</c>
           <c>8</c>
+          <c>no</c>
 
           <c>isb_endtime</c>
           <c>3</c>
           <c>8</c>
+          <c>no</c>
 
           <c>isb_ifrecv</c>
           <c>4</c>
           <c>8</c>
+          <c>no</c>
 
           <c>isb_ifdrop</c>
           <c>5</c>
           <c>8</c>
+          <c>no</c>
 
           <c>isb_filteraccept</c>
           <c>6</c>
           <c>8</c>
+          <c>no</c>
 
           <c>isb_osdrop</c>
           <c>7</c>
           <c>8</c>
+          <c>no</c>
 
           <c>isb_usrdeliv</c>
           <c>8</c>
           <c>8</c>
+          <c>no</c>
         </texttable>
 
         <t>
@@ -2476,14 +2517,17 @@ Section Header
         <ttcol align="left">Name</ttcol>
         <ttcol align="left">Code</ttcol>
         <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
 
         <c>pack_flags</c>
         <c>2</c>
         <c>4</c>
+        <c>no</c>
 
         <c>pack_hash</c>
         <c>3</c>
         <c>variable</c>
+        <c>no</c>
       </texttable>
 
       <t>
