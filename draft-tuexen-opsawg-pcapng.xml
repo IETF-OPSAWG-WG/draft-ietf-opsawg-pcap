@@ -786,17 +786,17 @@ Section Header
           <c>shb_hardware</c>
           <c>2</c>
           <c>variable</c>
-          <c></c>
+          <c>no</c>
 
           <c>shb_os</c>
           <c>3</c>
           <c>variable</c>
-          <c></c>
+          <c>no</c>
 
           <c>shb_userappl</c>
           <c>4</c>
           <c>variable</c>
-          <c></c>
+          <c>no</c>
         </texttable>
 
         <t>
