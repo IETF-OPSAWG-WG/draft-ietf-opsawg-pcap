@@ -942,12 +942,12 @@ Section Header
           <c>if_MACaddr</c>
           <c>6</c>
           <c>6</c>
-          <c>yes</c>
+          <c>no</c>
 
           <c>if_EUIaddr</c>
           <c>7</c>
           <c>8</c>
-          <c>yes</c>
+          <c>no</c>
 
           <c>if_speed</c>
           <c>8</c>
