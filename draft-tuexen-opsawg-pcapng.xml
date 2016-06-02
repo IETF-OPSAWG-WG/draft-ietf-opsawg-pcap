@@ -2530,7 +2530,7 @@ Section Header
         <c>pack_hash</c>
         <c>3</c>
         <c>variable</c>
-        <c>no</c>
+        <c>yes</c>
       </texttable>
 
       <t>
