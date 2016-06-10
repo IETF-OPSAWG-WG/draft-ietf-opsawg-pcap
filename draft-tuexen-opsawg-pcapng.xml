@@ -458,8 +458,14 @@ Section Header
         interface if it has multiple IPv4 or IPv6 addresses assigned to
         it.  Other options may appear at most once in a given block.</t>
 
-        <t>The option list is terminated by a Option which uses the
-        special 'End of Option' code (opt_endofopt).</t>
+        <t>The option list is terminated by a option which uses the
+        special 'End of Option' code (opt_endofopt).  Code that
+        writes pcapng files MUST put an opt_endofopt option at the end
+        of an option list.  Code that reads pcapng files MUST NOT assume
+        an option list will have an opt_endofopt opton at the end; it
+        MUST also check for the end of the block, and SHOULD treat
+        blocks where the option list has no opt_endofopt option as if
+        the option list had an opt_endofopt option at the end.</t>
 
         <t>The format of the optional fields is shown in <xref
         target="formatopt"/>.</t>
