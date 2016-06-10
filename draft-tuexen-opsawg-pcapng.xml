@@ -658,11 +658,13 @@ Section Header
           <t>Please note: 64-bit values are not aligned to 64-bit boundaries.
           This is because the file is naturally aligned to 32-bit boundaries
           only. Special care MUST be taken when reading and writing such
-          values. TODO: the spec is not too consistent wrt how 64-bit values
-          are saved. In the Packet blocks we clearly specify where the low and
-          high 32-bits of a 64-bit timestamp should be saved. In the SHB we do
-          use the endianness of the machine when we save the section
-          length.</t>
+          values. (Note also that some 64-bit values are represented as a
+          64-bit integer in the endianness of the machine that wrote the
+          file, and others are represented as 2 32-bit values, one
+          containing the upper 32 bits of the value and one containing
+          the lower 32 bits of the value, each written as 32-bit
+          integers in the endianness of the machine that wrote the file.
+          Neither of these formats guarantee 64-bit alignment.)</t>
 
         </section>
 
