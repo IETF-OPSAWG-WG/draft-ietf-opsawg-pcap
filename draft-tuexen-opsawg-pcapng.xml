@@ -417,16 +417,15 @@ Section Header
         optional fields (if any), or skip some of them or even all at
         once.</t>
 
-        <t>Skipping all the optional fields at once is straightforward because
-        most of the blocks are made of a first part with fixed format, and a
-        second optional part. Therefore, the Block Length field (present in
-        the General Block Structure, see <xref target="section_block"/>)
-        can be used to determine how many bytes of optional fields, if
-        any, are present in the block.  That value can be used to
-        determine whether the block has optional fields (if it is zero,
-        there are no optional fields), to check, when processing
-        optional fields, whether any optional fields remain, and to skip
-        all the optional fields.</t>
+        <t>As most of the blocks are made of a first part with fixed
+        format, and a second optional part, the Block Length field
+        (present in the General Block Structure, see
+        <xref target="section_block"/>) can be used to determine how
+        many bytes of optional fields, if any, are present in the block.
+        That value can be used to determine whether the block has
+        optional fields (if it is zero, there are no optional fields),
+        to check, when processing optional fields, whether any optional
+        fields remain, and to skip all the optional fields at once.</t>
 
         <t>Options are a list of Type - Length - Value fields, each one
         containing a single value:
