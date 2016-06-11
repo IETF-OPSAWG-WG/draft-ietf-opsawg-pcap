@@ -417,12 +417,17 @@ Section Header
         optional fields (if any), or skip some of them or even all at
         once.</t>
 
-        <t>As most of the blocks are made of a first part with fixed
-        format, and a second optional part, the Block Length field
-        (present in the General Block Structure, see
+        <t>A block that may contain options must be structured so that
+        the number of bytes of data in the Block Body that precede the
+        options can be determined from that data; that allows the
+        beginning of the options to be found.  That is true for all
+        standard blocks that support options; for Custom Blocks that
+        support options, the Custom Data must be structured in such a
+        fashion.  This means that the Block Length field (present in
+        the General Block Structure, see
         <xref target="section_block"/>) can be used to determine how
         many bytes of optional fields, if any, are present in the block.
-        That value can be used to determine whether the block has
+        That number can be used to determine whether the block has
         optional fields (if it is zero, there are no optional fields),
         to check, when processing optional fields, whether any optional
         fields remain, and to skip all the optional fields at once.</t>
