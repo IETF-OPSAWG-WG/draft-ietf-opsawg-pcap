@@ -1201,17 +1201,19 @@ Section Header
             of this field. The interface ID MUST be valid, which means that an
             matching interface description block MUST exist.</t>
 
-            <t>Timestamp (High) and Timestamp (Low): high and low 32-bits of a
-            64-bit quantity representing the timestamp. The timestamp is a
-            single 64-bit unsigned integer representing the number of units
-            since 1/1/1970 00:00:00 UTC. The way to interpret this field is
-            specified by the 'if_tsresol' option (see <xref
-            target="format_idb"/>) of the Interface Description block
-            referenced by this packet. Please note that differently from the
-            libpcap file format, timestamps are not saved as two 32-bit values
-            accounting for the seconds and microseconds since 1/1/1970. They
-            are saved as a single 64-bit quantity saved as two 32-bit
-            words.</t>
+            <t>Timestamp (High) and Timestamp (Low): upper 32 bits and
+            lower 32 bits of a 64-bit timestamp. The timestamp is a
+            single 64-bit unsigned integer that represents the number of
+            units of time that have elapsed since 1/1/1970 00:00:00 UTC.
+            The length of a unit of time is specified by the 'if_tsresol'
+            option (see <xref target="format_idb"/>) of the Interface
+            Description block referenced by this packet. Note that,
+            unlike timestamps in the libpcap file format, timestamps in
+            Enhanced Packet Blocks are not saved as two 32-bit values
+            that represent the seconds and microseconds that have
+            elapsed since 1/1/1970 00:00:00 UTC. Timestamps in Enhanced
+            Packet Blocks are saved as two 32-bit words that represent
+            the upper and lower 32 bits of a single 64-bit quantity.</t>
 
             <t>Captured Packet Length: number of octets captured from the
             packet (i.e. the length of the Packet Data field). It will be the
