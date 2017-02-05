@@ -1065,11 +1065,12 @@ Section Header
             Significant Bit is equal to zero, the remaining bits indicates the
             resolution of the timestamp as a negative power of 10 (e.g. 6
             means microsecond resolution, timestamps are the number of
-            microseconds since 1/1/1970). If the Most Significant Bit is equal
-            to one, the remaining bits indicates the resolution as as negative
-            power of 2 (e.g. 10 means 1/1024 of second). If this option is not
-            present, a resolution of 10^-6 is assumed (i.e. timestamps have
-            the same resolution of the standard 'libpcap' timestamps).</t>
+            microseconds since 1970-01-01 00:00:00 UTC). If the Most
+            Significant Bit is equal to one, the remaining bits indicates
+            the resolution as as negative power of 2 (e.g. 10 means 1/1024
+            of second). If this option is not present, a resolution of
+            10^-6 is assumed (i.e. timestamps have the same resolution of
+            the standard 'libpcap' timestamps).</t>
 
             <t>Example: '6'.</t>
 
@@ -1204,14 +1205,14 @@ Section Header
             <t>Timestamp (High) and Timestamp (Low): upper 32 bits and
             lower 32 bits of a 64-bit timestamp. The timestamp is a
             single 64-bit unsigned integer that represents the number of
-            units of time that have elapsed since 1/1/1970 00:00:00 UTC.
+            units of time that have elapsed since 1970-01-01 00:00:00 UTC.
             The length of a unit of time is specified by the 'if_tsresol'
             option (see <xref target="format_idb"/>) of the Interface
             Description block referenced by this packet. Note that,
             unlike timestamps in the libpcap file format, timestamps in
             Enhanced Packet Blocks are not saved as two 32-bit values
             that represent the seconds and microseconds that have
-            elapsed since 1/1/1970 00:00:00 UTC. Timestamps in Enhanced
+            elapsed since 1970-01-01 00:00:00 UTC. Timestamps in Enhanced
             Packet Blocks are saved as two 32-bit words that represent
             the upper and lower 32 bits of a single 64-bit quantity.</t>
 
