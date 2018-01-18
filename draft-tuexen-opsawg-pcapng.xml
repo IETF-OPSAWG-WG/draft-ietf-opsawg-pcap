@@ -724,14 +724,14 @@ Section Header
           <list style="symbols">
 
             <t>Block Type: The block type of the Section Header Block is the
-            integer corresponding to the 4-char string "\r\n\n\r"
+            integer corresponding to the 4-char string "\n\r\r\n"
             (0x0A0D0D0A). This particular value is used for 2 reasons:
               <list style="numbers">
 
                 <t>This number is used to detect if a file has been transferred
                 via FTP or HTTP from a machine to another with an inappropriate
                 ASCII conversion. In this case, the value of this field will
-                differ from the standard one ("\r\n\n\r") and the reader can
+                differ from the standard one ("\n\r\r\n") and the reader can
                 detect a possibly corrupted file.</t>
 
                 <t>This value is palindromic, so that the reader is able to
