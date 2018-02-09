@@ -2343,8 +2343,12 @@ Section Header
           </c>
 
           <c>0x00000007</c>
-          <c>IRIG Timestamp Block (requested by Gianluca Varenni
-          &lt;gianluca.varenni@cacetech.com&gt;, CACE Technologies LLC)</c>
+          <c>
+            IRIG Timestamp Block (requested by Gianluca Varenni
+            &lt;gianluca.varenni@cacetech.com&gt;, CACE Technologies LLC);
+            code also used for <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Socket
+            Aggregation Event Block</eref>
+          </c>
 
           <c>0x00000008</c>
           <c>
@@ -2352,6 +2356,22 @@ Section Header
             429</eref> in AFDX Encapsulation Information Block (requested by
             Gianluca Varenni &lt;gianluca.varenni@cacetech.com&gt;, CACE
             Technologies LLC)
+          </c>
+
+          <c>0x00000101</c>
+          <c>
+            <eref target="https://github.com/HoneProject">Hone Project</eref>
+            <eref target="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Machine
+            Info Block</eref> (see also <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google
+            version</eref>)
+          </c>
+
+          <c>0x00000102</c>
+          <c>
+            <eref target="https://github.com/HoneProject">Hone Project</eref>
+            <eref target="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Connection
+            Event Block</eref> (see also <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google
+            version</eref>)
           </c>
 
           <c>0x00000201</c>
