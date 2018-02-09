@@ -2354,18 +2354,6 @@ Section Header
             Technologies LLC)
           </c>
 
-          <c>0x00000BAD</c>
-          <c>
-            <xref target="section_custom_block">Custom Block that rewriters can
-            copy into new files</xref>
-          </c>
-
-          <c>0x40000BAD</c>
-          <c>
-            <xref target="section_custom_block">Custom Block that rewriters should
-            not copy into new files</xref>
-          </c>
-
           <c>0x00000201</c>
           <c>
             <eref target="https://github.com/draios/sysdig">Sysdig</eref>
@@ -2442,6 +2430,18 @@ Section Header
           <c>
             <eref target="https://github.com/draios/sysdig">Sysdig</eref>
             Process Info Block, version 7
+          </c>
+
+          <c>0x00000BAD</c>
+          <c>
+            <xref target="section_custom_block">Custom Block that rewriters can
+            copy into new files</xref>
+          </c>
+
+          <c>0x40000BAD</c>
+          <c>
+            <xref target="section_custom_block">Custom Block that rewriters should
+            not copy into new files</xref>
           </c>
 
           <c>0x0A0D0D0A</c>
