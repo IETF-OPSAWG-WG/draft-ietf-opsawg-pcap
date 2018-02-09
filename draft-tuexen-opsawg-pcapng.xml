@@ -2366,6 +2366,84 @@ Section Header
             not copy into new files</xref>
           </c>
 
+          <c>0x00000201</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Machine Info Block
+          </c>
+
+          <c>0x00000202</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Process Info Block, version 1
+          </c>
+
+          <c>0x00000203</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            FD List Block
+          </c>
+
+          <c>0x00000204</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Event Block
+          </c>
+
+          <c>0x00000205</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Interface List Block
+          </c>
+
+          <c>0x00000206</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            User List Block
+          </c>
+
+          <c>0x00000207</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Process Info Block, version 2
+          </c>
+
+          <c>0x00000208</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Event Block with flags
+          </c>
+
+          <c>0x00000209</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Process Info Block, version 3
+          </c>
+
+          <c>0x00000210</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Process Info Block, version 4
+          </c>
+
+          <c>0x00000211</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Process Info Block, version 5
+          </c>
+
+          <c>0x00000212</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Process Info Block, version 6
+          </c>
+
+          <c>0x00000213</c>
+          <c>
+            <eref target="https://github.com/draios/sysdig">Sysdig</eref>
+            Process Info Block, version 7
+          </c>
+
           <c>0x0A0D0D0A</c>
           <c>
             <xref target="section_shb" >Section Header Block</xref>
