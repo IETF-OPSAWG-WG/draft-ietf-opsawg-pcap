@@ -145,11 +145,11 @@
           <list style='hanging'>
             <t hangText='SHB:'>Section Header Block</t>
             <t hangText='IDB:'>Interface Description Block</t>
-	    <t hangText='ISB:'>Interface Statistics Block</t>
+            <t hangText='ISB:'>Interface Statistics Block</t>
             <t hangText='EPB:'>Enhanced Packet Block</t>
             <t hangText='SPB:'>Simple Packet Block</t>
-	    <t hangText='NRB:'>Name Resolution Block</t>
-	    <t hangText='CIB:'>Capture Information Block</t>
+            <t hangText='NRB:'>Name Resolution Block</t>
+            <t hangText='CIB:'>Capture Information Block</t>
             <t hangText='CB:'>Custom Block</t>
           </list>
 
@@ -269,9 +269,9 @@
             Description Block is also required, before this block.</t>
 
             <t><xref target="section_cib">Capture Information Block</xref>: it
-            defines how to store some capture information (such as location, 
-            orientation, velocity and associated errors, as well as rf frequencies 
-            and channels)</t>
+            defines how to store some capture information such as location, 
+            orientation, velocity and associated errors, as well as Radio Frequency 
+            (RF) information.</t>
 
             <t><xref target="section_custom_block">Custom Block</xref>: it
             contains vendor-specific data in a portable fashion.</t>
@@ -1851,7 +1851,7 @@ Section Header
         channel and medium options.
         This block can be associated with a specific interface and applied to all
         packets received on this interface, or to (a) specific packet(s).
-        If applied to an interface, this block effects all capture blocks following
+        If applied to an interface, this block affects all capture blocks following
         until it is superseded by a new CIB applied to the same interface.
         </t>
 
@@ -1967,9 +1967,9 @@ Section Header
             <t>Example: TODO</t>
 
             <t hangText="cib_global_location_error"><vspace blankLines="0"/>The
-            global_location_error option specifies the error in location capture, 
+            global_location_error option specifies the error in location capture; 
             this is stored as three 32-bit floats in the same order and 
-            representation as cib_location</t>
+            representation as cib_location.</t>
 
             <t>Example: TODO</t>
 
@@ -1981,9 +1981,9 @@ Section Header
             <t>Example: TODO</t>
 
             <t hangText="cib_orientation_error"><vspace blankLines="0"/>The
-            orientation_error option specifies the error in orientation capture, 
+            orientation_error option specifies the error in orientation capture; 
             this is stored as three 32-bit floats in the same order and 
-            representation as cib_orientation</t>
+            representation as cib_orientation.</t>
 
             <t>Example: TODO</t>
 
@@ -1995,9 +1995,9 @@ Section Header
             <t>Example: TODO</t>
 
             <t hangText="cib_velocity_error"><vspace blankLines="0"/>The
-            cib_velocity_error option specifies the error in velocity capture, 
+            cib_velocity_error option specifies the error in velocity capture; 
             this is stored as three 32-bit floats in the same order and 
-            representation as cib_velocity</t>
+            representation as cib_velocity.</t>
 
             <t>Example: TODO</t>
 
