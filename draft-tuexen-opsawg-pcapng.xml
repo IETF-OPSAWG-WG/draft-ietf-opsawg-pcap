@@ -1901,8 +1901,20 @@ Section Header
           </list>
         </t>
 
-        <t>All the statistic fields are defined as options in order to deal
-        with systems that do not have a complete set of statistics. Therefore,
+        <t>Location information can be represented with in global (lat/lng/alt in degrees)
+        or local (X/Y/Z in metres) form, only one of these forms may be used in a given PCAP file.
+        Combining files with different forms should result in the removal of all position information.
+        </t>
+
+        <t>
+        Velocity and Orientation are to be interpreted from the zero frame for either form.
+        For the global form, X corresponds to latitude, Y to longitude, and Z to altitude.
+        Yaw is about the X/Y or Lat/Lng plane with zero facing along Y or North, 
+        pitch is applied with this yaw offset, and roll is applied to the combination of both.
+        </t>
+
+        <t>All the information fields are defined as options in order to deal
+        with systems that do not have a complete set of information. Therefore,
         In addition to the options defined in <xref target="section_opt"/>,
         the following options are valid within this block:</t>
 
@@ -1917,33 +1929,43 @@ Section Header
           <c>4</c>
           <c>no</c>
 
-          <c>global_location</c>
+          <c>local_location</c>
           <c>2</c>
           <c>12</c>
           <c>no</c>
 
-          <c>global_location_error</c>
+          <c>local_location_error</c>
           <c>3</c>
           <c>12</c>
           <c>no</c>
 
-          <c>orientation</c>
+          <c>global_location</c>
           <c>4</c>
           <c>12</c>
           <c>no</c>
 
-          <c>orientation_error</c>
+          <c>global_location_error</c>
           <c>5</c>
           <c>12</c>
           <c>no</c>
 
-          <c>velocity</c>
+          <c>orientation</c>
           <c>6</c>
           <c>12</c>
           <c>no</c>
 
-          <c>velocity_error</c>
+          <c>orientation_error</c>
           <c>7</c>
+          <c>12</c>
+          <c>no</c>
+
+          <c>velocity</c>
+          <c>8</c>
+          <c>12</c>
+          <c>no</c>
+
+          <c>velocity_error</c>
+          <c>9</c>
           <c>12</c>
           <c>no</c>
         </texttable>
@@ -1952,45 +1974,62 @@ Section Header
           <list hangIndent="8" style="hanging">
 
             <t hangText="cib_interface_id:"><vspace blankLines="0"/>The
-	          interface_id option specifies the interface these statistics refers
-            to; the correct interface will be the one whose Interface
+	          cib_interface_id option specifies the interface these statistics
+            refers to; the correct interface will be the one whose Interface
             Description Block (within the current Section of the file) is
             identified by same number (see <xref target="section_idb"/>) of
             this field.</t>
 
+            <t hangText="cib_local_location"><vspace blankLines="0"/>The 
+            cib_local_location option specifies the local location of the packet 
+            capture or interface in an abitrary plane; location is stored as three 
+            32-bit floats representing X, Y (in plane), and Z (altitude) offsets in \
+            metres.</t>
+
+            <t>Example: TODO</t>
+
+            <t hangText="cib_local_location_error"><vspace blankLines="0"/>The
+            cib_local_location_error option specifies the error in local location 
+            capture;  this is stored as three 32-bit floats in the same order and 
+            representation as cib_local_location.</t>
+
+            <t>Example: TODO</t>
+
 	          <t hangText="cib_global_location"><vspace blankLines="0"/>The 
-            cib_global_location option specifies the location of the packet 
-            capture or interface; location is stored as three 32-bit floats 
+            cib_global_location option specifies the global location of the 
+            packet capture or interface; location is stored as three 32-bit floats 
             representing latitude and longitude in degrees, and altitude in 
             metres.</t>
 
             <t>Example: TODO</t>
 
             <t hangText="cib_global_location_error"><vspace blankLines="0"/>The
-            global_location_error option specifies the error in location capture; 
-            this is stored as three 32-bit floats in the same order and 
-            representation as cib_location.</t>
+            cib_global_location_error option specifies the error in global location 
+            capture; this is stored as three 32-bit floats in the same order and 
+            representation as cib_global_location.</t>
 
             <t>Example: TODO</t>
 
             <t hangText="cib_orientation"><vspace blankLines="0"/>The 
-            cib_orientation option specifies the location of the packet 
-            capture or interface; location is stored as three 32-bit floats 
-            representing yaw, pitch, and roll in radians.</t>
+            cib_orientation option specifies the orientation of the packet 
+            capturing antenna; orientation is stored as three 32-bit floats 
+            representing yaw, pitch, and roll in radians.
+            This is relative to the zero frame for global or local location.</t>
 
             <t>Example: TODO</t>
 
             <t hangText="cib_orientation_error"><vspace blankLines="0"/>The
-            orientation_error option specifies the error in orientation capture; 
+            cib_orientation_error option specifies the error in orientation capture; 
             this is stored as three 32-bit floats in the same order and 
             representation as cib_orientation.</t>
 
             <t>Example: TODO</t>
 
             <t hangText="cib_velocity"><vspace blankLines="0"/>The 
-            cib_velocity option specifies the location of the packet 
-            capture or interface; location is stored as three 32-bit floats 
-            representing yaw, pitch, and roll in radians.</t>
+            cib_velocity option specifies the velocity of the packet capture interface; 
+            velocity is stored as three 32-bit floats representing the motion in the 
+            X (lat), Y (lng), and Z (altitude) directions in metres per second.
+            This is relative to the zero frame for global or local location.</t>
 
             <t>Example: TODO</t>
 
