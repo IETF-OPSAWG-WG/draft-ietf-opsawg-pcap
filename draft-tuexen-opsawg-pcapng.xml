@@ -1000,6 +1000,11 @@ Section Header
           <c>14</c>
           <c>8</c>
           <c>no</c>
+
+          <c>if_hardware</c>
+          <c>15</c>
+          <c>Variable</c>
+          <c>no</c>
         </texttable>
 
         <t>
@@ -1015,7 +1020,8 @@ Section Header
             if_description option is a UTF-8 string containing the description
             of the device used to capture data.</t>
 
-            <t>Examples: "Broadcom NetXtreme", "First Ethernet Interface".</t>
+            <t>Examples: "Wi-Fi", "Local Area Connection", "Wireless
+            Network Connection", "First Ethernet Interface".</t>
 
             <t hangText="if_IPv4addr:"><vspace blankLines="0"/>The if_IPv4addr
             option is an IPv4 network address and corresponding netmask for
@@ -1121,6 +1127,14 @@ Section Header
             systems?</t>
 
             <t>Example: '1234'.</t>
+
+            <t hangText="if_hardware:"><vspace blankLines="0"/>The
+            if_hardware option is a UTF-8 string containing the description
+            of the interface hardware.</t>
+
+            <t>Examples: "Broadcom NetXtreme", "Intel(R) PRO/1000 MT
+            Network Connection", "NETGEAR WNA1000Mv2 N150 Wireless USB
+            Micro Adapter".</t>
 
           </list>
         </t>
