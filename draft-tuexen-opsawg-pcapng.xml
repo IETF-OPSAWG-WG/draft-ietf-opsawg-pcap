@@ -1844,6 +1844,13 @@ Section Header
         the same interface. 
         </t>
 
+        <t>For example, a capture from a static interface may contain a single CIB at
+        the start of the file to apply to all packets on this interface.
+        A capture from a moving interface with GNSS will add a CIB each time updated
+        positional information is available, and this information will apply to all 
+        packets received on this interface until the next CIB.
+        </t>
+
         <t>The format of the Capture Information Block is shown in <xref
         target="format_cib"/>.</t>
 
