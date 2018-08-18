@@ -269,9 +269,8 @@
             Description Block is also required, before this block.</t>
 
             <t><xref target="section_cib">Capture Information Block</xref>: it
-            defines how to store some capture information such as location, 
-            orientation, velocity and associated errors, as well as Radio Frequency 
-            (RF) information.</t>
+            defines how to store some interface information such as location, 
+            orientation, velocity, and associated errors.</t>
 
             <t><xref target="section_custom_block">Custom Block</xref>: it
             contains vendor-specific data in a portable fashion.</t>
@@ -1276,10 +1275,6 @@ Section Header
           <c>8</c>
           <c>no</c>
 
-          <c>epb_cib</c>
-          <c>4</c>
-          <c>4</c>
-          <c>no</c>
         </texttable>
 
         <t>
@@ -1316,10 +1311,6 @@ Section Header
             this packet and the start of the capture process.</t>
 
             <t>Example: '0'.</t>
-
-            <t hangText="epb_cib:"><vspace blankLines="0"/>The epb_cib
-            option indicates the Capture Information Block ID to be associated
-            with this packet, allowing the addition of capture related metadata.</t>
 
           </list>
         </t>
@@ -1846,24 +1837,11 @@ Section Header
       <section anchor="section_cib" title="Capture Information Block">
 
         <t>The Capture Information Block (CIB) is used to support the addition
-        of metadata associated with capture interfaces or packets, including
-        location, orientation, velocity and related errors, as well as wireless
-        channel and medium options.
-        This block can be associated with a specific interface and applied to all
-        packets received on this interface, or to (a) specific packet(s).
-        If applied to an interface, this block affects all capture blocks following
-        until it is superseded by a new CIB applied to the same interface.
-        </t>
-
-        <t>
-        Tools that write / read the capture file associate an incrementing 32-bit 
-        number (starting from '0') to each Capture Information Block, called 
-        the CIB ID for the CIB in question. This number is unique within each Section 
-        and identifies the CIB that is referred to in an epb_cip option; it is only 
-        unique inside the current section, so, two Sections can have different 
-        CIBs identified by the same CIB ID values. This unique identifier 
-        is referenced by other blocks, such as Enhanced Packet Blocks, to indicate the 
-        CIB to which the block refers.
+        of time-varying metadata associated with capture interfaces, including
+        location, orientation, velocity, and related errors.
+        Each CIB is associated with a specific interface and applied to all packets
+        received on this interface following the CIB until superseded by a new CIB on
+        the same interface. 
         </t>
 
         <t>The format of the Capture Information Block is shown in <xref
@@ -1878,7 +1856,9 @@ Section Header
    +---------------------------------------------------------------+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 8 /                                                               /
+ 8 |                         Interface ID                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 /                                                               /
    /                      Options (variable)                       /
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -1895,6 +1875,13 @@ Section Header
             <t>Block Total Length: total size of this block, as described in
             <xref target="section_block"/>.</t>
 
+            <t>Interface ID: specifies the interface for this CIB to be applied
+            to; the correct interface will be the one whose Interface
+            Description Block (within the current Section of the file) is
+            identified by the same number (see <xref target="section_idb"/>)
+            of this field. The interface ID MUST be valid, which means that an
+            matching interface description block MUST exist.</t>
+
             <t>Options: optionally, a list of options (formatted according to
             the rules defined in <xref target="section_opt"/>) can be present.</t>
 
@@ -1903,7 +1890,8 @@ Section Header
 
         <t>Location information can be represented with in global (lat/lng/alt in degrees)
         or local (X/Y/Z in metres) form, only one of these forms may be used in a given PCAP file.
-        Combining files with different forms should result in the removal of all position information.
+        Combining pcap files with different location formats should result in the 
+        removal of all position information.
         </t>
 
         <t>
@@ -1913,8 +1901,8 @@ Section Header
         pitch is applied with this yaw offset, and roll is applied to the combination of both.
         </t>
 
-        <t>All the information fields are defined as options in order to deal
-        with systems that do not have a complete set of information. Therefore,
+        <t>All the information fields are defined as options in order to support
+        systems that do not have a complete set of information. Therefore,
         In addition to the options defined in <xref target="section_opt"/>,
         the following options are valid within this block:</t>
 
@@ -1924,61 +1912,49 @@ Section Header
           <ttcol align="left">Length</ttcol>
           <ttcol align="left">Multiple allowed?</ttcol>
 
-	        <c>interface_id</c>
-          <c>1</c>
-          <c>4</c>
-          <c>no</c>
-
           <c>local_location</c>
-          <c>2</c>
+          <c>1</c>
           <c>12</c>
           <c>no</c>
 
           <c>local_location_error</c>
-          <c>3</c>
+          <c>2</c>
           <c>12</c>
           <c>no</c>
 
           <c>global_location</c>
-          <c>4</c>
+          <c>3</c>
           <c>12</c>
           <c>no</c>
 
           <c>global_location_error</c>
-          <c>5</c>
+          <c>4</c>
           <c>12</c>
           <c>no</c>
 
           <c>orientation</c>
-          <c>6</c>
+          <c>5</c>
           <c>12</c>
           <c>no</c>
 
           <c>orientation_error</c>
-          <c>7</c>
+          <c>6</c>
           <c>12</c>
           <c>no</c>
 
           <c>velocity</c>
-          <c>8</c>
+          <c>7</c>
           <c>12</c>
           <c>no</c>
 
           <c>velocity_error</c>
-          <c>9</c>
+          <c>8</c>
           <c>12</c>
           <c>no</c>
         </texttable>
 
         <t>
           <list hangIndent="8" style="hanging">
-
-            <t hangText="cib_interface_id:"><vspace blankLines="0"/>The
-	          cib_interface_id option specifies the interface these statistics
-            refers to; the correct interface will be the one whose Interface
-            Description Block (within the current Section of the file) is
-            identified by same number (see <xref target="section_idb"/>) of
-            this field.</t>
 
             <t hangText="cib_local_location"><vspace blankLines="0"/>The 
             cib_local_location option specifies the local location of the packet 
