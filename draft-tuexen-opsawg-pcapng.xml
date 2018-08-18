@@ -1841,7 +1841,7 @@ Section Header
         location, orientation, velocity, and related errors.
         Each CIB is associated with a specific interface and applied to all packets
         received on this interface following the CIB until superseded by a new CIB on
-        the same interface. 
+        the same interface.
         </t>
 
         <t>For example, a capture from a static interface may contain a single CIB at
@@ -1849,6 +1849,11 @@ Section Header
         A capture from a moving interface with GNSS will add a CIB each time updated
         positional information is available, and this information will apply to all 
         packets received on this interface until the next CIB.
+        </t>
+
+        <t>Note that issuing a new CIB will clear all existing CIB options on an interface,
+        for example, the CIBs for a non-moving but rotating interface with a known position
+        must all contain both location and orientation data.
         </t>
 
         <t>The format of the Capture Information Block is shown in <xref
