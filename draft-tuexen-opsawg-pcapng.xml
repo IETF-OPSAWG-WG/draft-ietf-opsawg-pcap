@@ -2372,6 +2372,15 @@ Section Header
             Technologies LLC)
           </c>
 
+          <c>0x00000009</c>
+          <c>
+            <eref target="https://www.freedesktop.org/wiki/Software/systemd/">systemd</eref>
+            <eref target="https://www.freedesktop.org/wiki/Software/systemd/export/">Journal
+            Export Block</eref>. A single systemd Journal Export Format
+            entry, including the __REALTIME_TIMESTAMP= field, padded to
+            32 bits.
+          </c>
+
           <c>0x00000101</c>
           <c>
             <eref target="https://github.com/HoneProject">Hone Project</eref>
