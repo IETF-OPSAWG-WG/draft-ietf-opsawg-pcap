@@ -1850,6 +1850,90 @@ Section Header
       </section>
 
 
+      <section anchor="section_dsb" title="Decryption Secrets Block">
+
+        <t>A Decryption Secrets Block (DSB) stores (session) secrets that
+        enable decryption of packets within the capture file. The format of
+        these secrets is defined by the Secrets Type.</t>
+
+        <t>Multiple DSBs can exist in a pcapng file, but they SHOULD be written
+        before packet blocks that require those secrets. Tools MAY limit
+        decryption to secrets that appear before packet blocks.</t>
+
+        <t>The structure of a
+        Decryption Secrets Block is shown in <xref target="format_dsb"/>.</t>
+
+        <figure anchor="format_dsb" title="Decryption Secrets Block Format">
+          <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                   Block Type = 0x0000000A                     |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                          Secrets Type                         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |                         Secrets Length                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 /                                                               /
+   /                          Secrets Data                         /
+   /              (variable length, padded to 32 bits)             /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                                                               /
+   /                       Options (variable)                      /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                       Block Total Length                      /
+   +---------------------------------------------------------------+
+</artwork>
+        </figure>
+
+        <t>The Decryption Secrets Block has the following fields.
+          <list style="symbols">
+
+            <t>Block Type: The block type of the Decryption Secrets Block is
+            10.</t>
+
+            <t>Block Total Length: total size of this block, as described in
+            <xref target="section_block"/>.</t>
+
+            <t>Secrets Type: a 32-bit unsigned integer identifier that describes
+            the format of the following Secrets field. Requests for new Secrets
+            Type codes should be sent to the <eref
+            target="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-ng-format mailing list</eref>.</t>
+
+            <t>Secrets Length: size of the following Secrets field, without
+            any padding octets.</t>
+
+            <t>Secrets Data: binary data containing secrets, padded to a 32 bit
+            boundary.</t>
+
+            <t>Options: optionally, a list of options (formatted according to
+            the rules defined in <xref target="section_opt"/>) can be present.
+            No DSB-specific options are currently defined.
+            </t>
+
+          </list>
+        </t>
+
+        <t>The following is a list of Secrets Types.
+          <list hangIndent="8" style="hanging">
+
+            <t hangText="0x544c534b:"><vspace blankLines="0"/>TLS Key Log. This
+            format is described at <eref
+            target="https://developer.mozilla.org/NSS_Key_Log_Format">NSS Key
+            Log Format</eref>. Every line MUST be properly terminated with
+            either carriage return and linefeed ('\r\n') or linefeed ('\n').
+            Tools MUST be able to handle both line endings.</t>
+
+          </list>
+        </t>
+
+      </section>
+
+
       <section anchor="section_custom_block" title="Custom Block">
 
         <t>A Custom Block (CB) is the container for storing custom data that
@@ -2385,6 +2469,11 @@ Section Header
             Export Block</eref>. A single systemd Journal Export Format
             entry, including the __REALTIME_TIMESTAMP= field, padded to
             32 bits.
+          </c>
+
+          <c>0x0000000A</c>
+          <c>
+            <xref target="section_dsb">Decryption Secrets Block</xref>
           </c>
 
           <c>0x00000101</c>
