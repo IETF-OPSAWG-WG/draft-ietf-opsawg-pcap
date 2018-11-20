@@ -299,8 +299,11 @@
           </list>
         </t>
 
-      </section>
+        <t>Requests for new standardized Block Type codes should be sent
+        to the <eref
+        target="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-ng-format mailing list</eref>.</t>
 
+      </section>
 
       <section title="Logical Block Hierarchy">
 
@@ -455,6 +458,10 @@ Section Header
 
           </list>
         </t>
+
+        <t>Requests for new standardized option codes for a given block
+        should be sent to the <eref
+        target="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-ng-format mailing list</eref>.</t>
 
         <t>If an option's value is a string, the value is not necessarily
         zero-terminated. Software that reads these files MUST NOT assume that
