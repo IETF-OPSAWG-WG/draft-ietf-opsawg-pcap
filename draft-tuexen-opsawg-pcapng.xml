@@ -2620,11 +2620,6 @@ Section Header
             <xref target="section_dsb">Decryption Secrets Block</xref>
           </c>
 
-          <c>0x0000000A</c>
-          <c>
-            <xref target="section_dsb">Decryption Secrets Block</xref>
-          </c>
-
           <c>0x00000101</c>
           <c>
             <eref target="https://github.com/HoneProject">Hone Project</eref>
