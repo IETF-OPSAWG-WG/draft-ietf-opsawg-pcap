@@ -1864,7 +1864,7 @@ Section Header
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +---------------------------------------------------------------+
- 0 |                   Block Type = 0x00000006                     |
+ 0 |                   Block Type = 0x00000009                     |
    +---------------------------------------------------------------+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -1925,42 +1925,42 @@ Section Header
           <ttcol align="left">Multiple allowed?</ttcol>
 
           <c>local_location</c>
-          <c>1</c>
-          <c>12</c>
-          <c>no</c>
-
-          <c>local_location_error</c>
           <c>2</c>
           <c>12</c>
           <c>no</c>
 
-          <c>global_location</c>
+          <c>local_location_error</c>
           <c>3</c>
           <c>12</c>
           <c>no</c>
 
-          <c>global_location_error</c>
+          <c>global_location</c>
           <c>4</c>
           <c>12</c>
           <c>no</c>
 
-          <c>orientation</c>
+          <c>global_location_error</c>
           <c>5</c>
           <c>12</c>
           <c>no</c>
 
-          <c>orientation_error</c>
+          <c>orientation</c>
           <c>6</c>
           <c>12</c>
           <c>no</c>
 
-          <c>velocity</c>
+          <c>orientation_error</c>
           <c>7</c>
           <c>12</c>
           <c>no</c>
 
-          <c>velocity_error</c>
+          <c>velocity</c>
           <c>8</c>
+          <c>12</c>
+          <c>no</c>
+
+          <c>velocity_error</c>
+          <c>9</c>
           <c>12</c>
           <c>no</c>
         </texttable>
@@ -2560,6 +2560,11 @@ Section Header
             429</eref> in AFDX Encapsulation Information Block (requested by
             Gianluca Varenni &lt;gianluca.varenni@cacetech.com&gt;, CACE
             Technologies LLC)
+          </c>
+
+          <c>0x00000009</c>
+          <c>
+            <xref target="section_cib" >Capture Information Block</xref>
           </c>
 
           <c>0x00000101</c>
