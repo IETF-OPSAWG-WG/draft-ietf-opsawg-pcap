@@ -463,6 +463,22 @@ Section Header
         should be sent to the <eref
         target="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-ng-format mailing list</eref>.</t>
 
+        <t>A given option may have a fixed length, in which case all
+        instances of that option have a length that is equal to the
+        specified fixed length, or a variable length, in which case
+        the option has a minimum length and all instances of that
+        option must have a length equal to or greater than the specified
+        maximum length. The length of fixed-length options, and the
+        minimum length of variable-length options, is specified in the
+        description of the option; if the minimum length of a
+        variable-length option is not specified, a zero-length option is
+        valid. Software that reads these files SHOULD report options
+        that have an invalid length as errors; the software MAY stop
+        processing the file if it sees an option that has invalid
+        length, or MAY ignore the option and continue processing it.
+        Software that writes these files MUST not write files with
+        options that have invalid lengths.</t>
+
         <t>If an option's value is a string, the value is not necessarily
         zero-terminated. Software that reads these files MUST NOT assume that
         strings are zero-terminated, and MUST treat a zero-value octet as a
@@ -525,7 +541,7 @@ Section Header
 
           <c>opt_custom</c>
           <c>2988/2989/19372/19373</c>
-          <c>variable</c>
+          <c>variable, minimum 4</c>
           <c>yes</c>
         </texttable>
 
@@ -948,12 +964,12 @@ Section Header
 
           <c>if_name</c>
           <c>2</c>
-          <c>Variable</c>
+          <c>variable</c>
           <c>no</c>
 
           <c>if_description</c>
           <c>3</c>
-          <c>Variable</c>
+          <c>variable</c>
           <c>no</c>
 
           <c>if_IPv4addr</c>
@@ -993,7 +1009,7 @@ Section Header
 
           <c>if_filter</c>
           <c>11</c>
-          <c>variable</c>
+          <c>variable, minimum 1</c>
           <c>no</c>
 
           <c>if_os</c>
@@ -1013,7 +1029,7 @@ Section Header
 
           <c>if_hardware</c>
           <c>15</c>
-          <c>Variable</c>
+          <c>variable</c>
           <c>no</c>
         </texttable>
 
@@ -1288,7 +1304,7 @@ Section Header
 
           <c>epb_hash</c>
           <c>3</c>
-          <c>variable</c>
+          <c>variable, minimum hash type-dependent</c>
           <c>yes</c>
 
           <c>epb_dropcount</c>
@@ -1558,11 +1574,11 @@ Section Header
 
           <c>nrb_record_ipv4</c>
           <c>0x0001</c>
-          <c>Variable</c>
+          <c>variable</c>
 
           <c>nrb_record_ipv6</c>
           <c>0x0002</c>
-          <c>Variable</c>
+          <c>variable</c>
         </texttable>
 
         <t>
@@ -1632,7 +1648,7 @@ Section Header
 
           <c>ns_dnsname</c>
           <c>2</c>
-          <c>Variable</c>
+          <c>variable</c>
           <c>no</c>
 
           <c>ns_dnsIP4addr</c>
