@@ -541,7 +541,7 @@ Section Header
             comment text that is associated to the current block. Line
             separators SHOULD be a carriage-return + linefeed ('\r\n') or just
             linefeed ('\n'); either form may appear and be considered a line
-            separator. The string is not null-terminated.</t>
+            separator. The string is not zero-terminated.</t>
 
             <t>Examples: "This packet is the beginning of all of our
             problems", "Packets 17-23 showing a bogus TCP retransmission!\r\n
@@ -591,11 +591,12 @@ Section Header
 
                   <t hangText="2988:"><vspace blankLines="0"/>This option code
                   identifies a Custom Option containing a UTF-8 string in the
-                  Custom Data portion, without NULL termination. This Custom
-                  Option can be safely copied to a new file if the pcapng file
-                  is manipulated by an application; otherwise 19372 should be
-                  used instead. See <xref target="section_vendor_copy"/> for
-                  details.</t>
+                  Custom Data portion.  The string is not zero-terminated.
+
+                  This Custom Option can be safely copied to a new file if
+                  the pcapng file is manipulated by an application; otherwise
+                  19372 should be used instead. See <xref
+                  target="section_vendor_copy"/> for details.</t>
 
                   <t hangText="2989:"><vspace blankLines="0"/>This option code
                   identifies a Custom Option containing binary octets in the
@@ -606,9 +607,9 @@ Section Header
 
                   <t hangText="19372:"><vspace blankLines="0"/>This option code
                   identifies a Custom Option containing a UTF-8 string in the
-                  Custom Data portion, without NULL termination. This Custom
-                  Option should not be copied to a new file if the pcapng file
-                  is manipulated by an application. See <xref
+                  Custom Data portion.  The string is not zero-terminated.
+                  This Custom Option should not be copied to a new file if
+                  the pcapng file is manipulated by an application. See <xref
                   target="section_vendor_copy"/> for details.</t>
 
                   <t hangText="19373:"><vspace blankLines="0"/>This option code
@@ -828,19 +829,21 @@ Section Header
 
             <t hangText="shb_hardware:"><vspace blankLines="0"/>The
             shb_hardware option is a UTF-8 string containing the description
-            of the hardware used to create this section.</t>
+            of the hardware used to create this section. The string is
+            not zero-terminated.</t>
 
             <t>Examples: "x86 Personal Computer", "Sun Sparc Workstation".</t>
 
             <t hangText="shb_os:"><vspace blankLines="0"/>The shb_os option
             is a UTF-8 string containing the name of the operating system used
-            to create this section.</t>
+            to create this section. The string is not zero-terminated.</t>
 
             <t>Examples: "Windows XP SP2", "openSUSE 10.2".</t>
 
             <t hangText="shb_userappl:"><vspace blankLines="0"/>The
             shb_userappl option is a UTF-8 string containing the name of the
-            application used to create this section.</t>
+            application used to create this section. The string is not
+            zero-terminated.</t>
 
             <t>Examples: "dumpcap V0.99.7".</t>
 
@@ -1019,13 +1022,14 @@ Section Header
 
             <t hangText="if_name:"><vspace blankLines="0"/>The if_name option
             is a UTF-8 string containing the name of the device used to
-            capture data.</t>
+            capture data. The string is not zero-terminated.</t>
 
             <t>Examples: "eth0", "\Device\NPF_{AD1CE675-96D0-47C5-ADD0-2504B9126B68}".</t>
 
             <t hangText="if_description:"><vspace blankLines="0"/>The
             if_description option is a UTF-8 string containing the description
-            of the device used to capture data.</t>
+            of the device used to capture data. The string is not
+            zero-terminated.</t>
 
             <t>Examples: "Wi-Fi", "Local Area Connection", "Wireless
             Network Connection", "First Ethernet Interface".</t>
@@ -1109,7 +1113,8 @@ Section Header
             machine in which this interface is installed. This can be
             different from the same information that can be contained by the
             Section Header Block (<xref target="section_shb"/>) because the
-            capture can have been done on a remote machine.</t>
+            capture can have been done on a remote machine. The string is
+            not zero-terminated.</t>
 
             <t>Examples: "Windows XP SP2", "openSUSE 10.2".</t>
 
@@ -1137,7 +1142,7 @@ Section Header
 
             <t hangText="if_hardware:"><vspace blankLines="0"/>The
             if_hardware option is a UTF-8 string containing the description
-            of the interface hardware.</t>
+            of the interface hardware. The string is not zero-terminated.</t>
 
             <t>Examples: "Broadcom NetXtreme", "Intel(R) PRO/1000 MT
             Network Connection", "NETGEAR WNA1000Mv2 N150 Wireless USB
@@ -1646,7 +1651,8 @@ Section Header
 
             <t hangText="ns_dnsname:"><vspace blankLines="0"/>The ns_dnsname
             option is a UTF-8 string containing the name of the machine (DNS
-            server) used to perform the name resolution.</t>
+            server) used to perform the name resolution. The string is not
+            zero-terminated.</t>
 
             <t>Example: "our_nameserver".</t>
 
