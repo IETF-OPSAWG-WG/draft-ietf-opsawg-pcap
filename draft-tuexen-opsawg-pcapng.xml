@@ -1250,7 +1250,7 @@ Section Header
             units of time that have elapsed since 1970-01-01 00:00:00 UTC.
             The length of a unit of time is specified by the 'if_tsresol'
             option (see <xref target="format_idb"/>) of the Interface
-            Description block referenced by this packet. Note that,
+            Description Block referenced by this packet. Note that,
             unlike timestamps in the libpcap file format, timestamps in
             Enhanced Packet Blocks are not saved as two 32-bit values
             that represent the seconds and microseconds that have
@@ -1746,7 +1746,10 @@ Section Header
 
             <t>Timestamp: time this statistics refers to. The format of the
             timestamp is the same already defined in the Enhanced Packet Block
-            (<xref target="section_epb"/>).</t>
+            (<xref target="section_epb"/>); the length of a unit of time is
+            specified by the 'if_tsresol' option (see <xref
+            target="format_idb"/>) of the Interface Description Block
+            referenced by this packet.</t>
 
             <t>Options: optionally, a list of options (formatted according to
             the rules defined in <xref target="section_opt"/>) can be present.</t>
@@ -1808,19 +1811,24 @@ Section Header
             isb_starttime option specifies the time the capture started; time
             will be stored in two blocks of four octets each. The format of the
             timestamp is the same as the one defined in the Enhanced Packet
-            Block (<xref target="section_epb"/>).</t>
+            Block (<xref target="section_epb"/>); the length of a unit
+            of time is specified by the 'if_tsresol' option (see <xref
+            target="format_idb"/>) of the Interface Description Block
+            referenced by this packet.</t>
 
-            <t>Example: '97 c3 04 00 aa 47 ca 64' in Little Endian, decodes to
-            06/29/2012 06:16:50 UTC.</t>
+            <t>Example: '96 c3 04 00 73 89 6a 65', in Little Endian, decodes
+            to 2012-06-29 06:17:00.834163 UTC.</t>
 
             <t hangText="isb_endtime:"><vspace blankLines="0"/>The isb_endtime
             option specifies the time the capture ended; time will be stored
             in two blocks of four octets each. The format of the timestamp is
             the same as the one defined in the Enhanced Packet Block (<xref
-            target="section_epb"/>).</t>
+            target="section_epb"/>); the length of a unit of time is specified
+            by the 'if_tsresol' option (see <xref target="format_idb"/>) of
+            the Interface Description Block referenced by this packet.</t>
 
-            <t>Example: '96 c3 04 00 73 89 6a 65', in Little Endian, decodes
-            to 06/29/2012 06:17:00 UTC.</t>
+            <t>Example: '97 c3 04 00 aa 47 ca 64', in Little Endian, decodes
+            to 2012-06-29 07:28:25.298858 UTC.</t>
 
             <t hangText="isb_ifrecv:"><vspace blankLines="0"/>The isb_ifrecv
             option specifies the 64-bit unsigned integer number of packets
