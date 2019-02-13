@@ -2090,7 +2090,7 @@ Section Header
           <list style="symbols">
 
             <t>Block Type: The block type of the Capture Information Block is
-            6.</t>
+            11.</t>
 
             <t>Block Total Length: total size of this block, as described in
             <xref target="section_block"/>.</t>
@@ -2189,14 +2189,16 @@ Section Header
             32-bit floats representing X, Y (in plane), and Z (altitude) offsets in
             metres.</t>
 
-            <t>Example: TODO</t>
+            <t>Example: '41 24 cc cd 41 73 33 33 3f cc cc cd' decodes to 
+            x: 10.3m, y: 15.2m, z: 1.6m</t>
 
             <t hangText="cib_local_location_error"><vspace blankLines="0"/>The
             cib_local_location_error option specifies the error in local location 
             capture;  this is stored as three 32-bit floats in the same order and 
             representation as cib_local_location.</t>
 
-            <t>Example: TODO</t>
+            <t>Example: '3f 80 00 00 3f 99 99 9a 3f cc cc cd' decodes to 
+            x_error: 1.0m, y_error: 1.2m, z_error: 1.6m</t>
 
             <t hangText="cib_global_location"><vspace blankLines="0"/>The 
             cib_global_location option specifies the global location of the 
@@ -2204,14 +2206,16 @@ Section Header
             representing latitude and longitude in degrees, and altitude in 
             metres.</t>
 
-            <t>Example: TODO</t>
+            <t>Example: 'c2 13 64 ce 43 2e c2 90 41 88 00 00' decodes to 
+            lat: -36.8484437° lng: 174.7600023° alt: 17.0m</t>
 
             <t hangText="cib_global_location_error"><vspace blankLines="0"/>The
             cib_global_location_error option specifies the error in global location 
             capture; this is stored as three 32-bit floats in the same order and 
             representation as cib_global_location.</t>
 
-            <t>Example: TODO</t>
+            <t>Example: '3f 80 00 00 3f 99 99 9a 3f cc cc cd' decodes to 
+            lat_error: 0.1° lng_error: 0.2° alt_error: 1.6m</t>
 
             <t hangText="cib_orientation"><vspace blankLines="0"/>The 
             cib_orientation option specifies the orientation of the packet 
@@ -2219,14 +2223,16 @@ Section Header
             representing yaw, pitch, and roll in radians.
             This is relative to the zero frame for global or local location.</t>
 
-            <t>Example: TODO</t>
+            <t>Example: '3f c9 0f db 3e 86 0a 92 00 00 00 00' decodes to 
+            yaw: pi/2, pitch: -pi/12, roll: 0.0</t>
 
             <t hangText="cib_orientation_error"><vspace blankLines="0"/>The
             cib_orientation_error option specifies the error in orientation capture; 
             this is stored as three 32-bit floats in the same order and 
             representation as cib_orientation.</t>
 
-            <t>Example: TODO</t>
+            <t>Example: '3c 23 d7 0a 3c a3 d7 0a 00 00 00 00' decodes to 
+            yaw_error: 0.01, pitch_error: 0.02, roll_error: 0.0</t>
 
             <t hangText="cib_velocity"><vspace blankLines="0"/>The 
             cib_velocity option specifies the velocity of the packet capture interface; 
@@ -2234,14 +2240,16 @@ Section Header
             X (lat), Y (lng), and Z (altitude) directions in metres per second.
             This is relative to the zero frame for global or local location.</t>
 
-            <t>Example: TODO</t>
+            <t>Example: '41 24 cc cd 41 73 33 33 00 00 00 00' decodes to 
+            x: 10.3m/s, y: 15.2m/s, z: 0.0m/s</t>
 
             <t hangText="cib_velocity_error"><vspace blankLines="0"/>The
             cib_velocity_error option specifies the error in velocity capture; 
             this is stored as three 32-bit floats in the same order and 
             representation as cib_velocity.</t>
 
-            <t>Example: TODO</t>
+            <t>Example: '3f 80 00 00 3f 99 99 9a 00 00 00 00' decodes to 
+            x_error: 1.0m/s, y_error: 1.2m/s, z_error: 0.0m/s</t>
 
           </list>
         </t>
