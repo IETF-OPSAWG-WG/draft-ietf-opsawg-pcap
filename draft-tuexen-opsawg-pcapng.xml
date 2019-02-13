@@ -1316,7 +1316,6 @@ Section Header
           <c>4</c>
           <c>8</c>
           <c>no</c>
-
         </texttable>
 
         <t>
@@ -2122,6 +2121,13 @@ Section Header
         pitch is applied with this yaw offset, and roll is applied to the combination of both.
         </t>
 
+        <t>
+        Error options provide an optional mechanism for attaching error information to measurements,
+        and are only valid where the corresponding measurement (location, velocity, or orientation) 
+        option is specified. Should an error option be present without the corresponding measurement, 
+        this option should be ignored.
+        </t>
+
         <t>All the information fields are defined as options in order to support
         systems that do not have a complete set of information. Therefore,
         In addition to the options defined in <xref target="section_opt"/>,
@@ -2180,7 +2186,7 @@ Section Header
             <t hangText="cib_local_location"><vspace blankLines="0"/>The 
             cib_local_location option specifies the local location of the packet 
             capture or interface in an abitrary plane; location is stored as three 
-            32-bit floats representing X, Y (in plane), and Z (altitude) offsets in \
+            32-bit floats representing X, Y (in plane), and Z (altitude) offsets in
             metres.</t>
 
             <t>Example: TODO</t>
@@ -2192,7 +2198,7 @@ Section Header
 
             <t>Example: TODO</t>
 
-	          <t hangText="cib_global_location"><vspace blankLines="0"/>The 
+            <t hangText="cib_global_location"><vspace blankLines="0"/>The 
             cib_global_location option specifies the global location of the 
             packet capture or interface; location is stored as three 32-bit floats 
             representing latitude and longitude in degrees, and altitude in 
@@ -2781,7 +2787,7 @@ Section Header
           </c>
 
 
-          <c>0x0000000B/c>
+          <c>0x0000000B</c>
           <c>
             <xref target="section_cib">Capture Information Block</xref>
           </c>
