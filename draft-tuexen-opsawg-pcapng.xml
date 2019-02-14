@@ -468,7 +468,7 @@ Section Header
         specified fixed length, or a variable length, in which case
         the option has a minimum length and all instances of that
         option must have a length equal to or greater than the specified
-        maximum length. The length of fixed-length options, and the
+        minimum length. The length of fixed-length options, and the
         minimum length of variable-length options, is specified in the
         description of the option; if the minimum length of a
         variable-length option is not specified, a zero-length option is
