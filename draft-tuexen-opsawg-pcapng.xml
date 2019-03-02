@@ -1358,9 +1358,10 @@ Section Header
 
           <t>The word is encoded as an unsigned 32-bit integer, using the
           endianness of the Section Header Block scope it is in. In the
-          following table, the bits are numbered with 0 being the most-
-          significant bit and 31 being the least-significant bit of the 32-bit
-          unsigned integer. The meaning of the bits is the following:</t>
+          following table, the bits are numbered with 0 being the
+          least-significant bit and 31 being the most-significant bit of
+          the 32-bit unsigned integer. The meaning of the bits is the
+          following:</t>
 
           <texttable title="">
             <ttcol align="left">Bit Number</ttcol>
@@ -1391,6 +1392,17 @@ Section Header
             error, other?? are 16 bit enough?).</c>
 
           </texttable>
+
+          <t>NOTE: in earlier versions of this specification, the bits
+          were specified as being numbered with 0 being the
+          most-significant bit and 31 being the least-significant bit
+          of the 32-bit unsigned integer, rather than with 0 being the
+          least-significant bit and 31 being the most-significant bit.
+          Several implementations number the bits with 0 being the
+          least-significant bit, and no known implementations number
+          them with 0 being the most-significant bit, so the
+          specification was changed to reflect that reality.</t>
+
         </section>
 
       </section>
