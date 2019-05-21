@@ -2044,6 +2044,25 @@ Section Header
             either carriage return and linefeed ('\r\n') or linefeed ('\n').
             Tools MUST be able to handle both line endings.</t>
 
+            <t hangText="0x57474b4c:"><vspace blankLines="0"/>WireGuard Key Log.
+            Every line consists of the key type, equals sign ('='), and the
+            base64-encoded 32-byte key with optional spaces before and in between.
+            The key type is one of LOCAL_STATIC_PRIVATE_KEY,
+            REMOTE_STATIC_PUBLIC_KEY, LOCAL_EPHEMERAL_PRIVATE_KEY,
+            or PRESHARED_KEY. This matches the output of <eref
+                target="https://git.zx2c4.com/WireGuard/tree/contrib/examples/extract-handshakes/README">extract-handshakes.sh</eref>
+            which is part of the <eref
+                target="https://www.wireguard.com/">WireGuard</eref> project.
+            A PRESHARED_KEY line is linked to a session matched by a previous
+            LOCAL_EPHEMERAL_PRIVATE_KEY line.
+            Every line MUST be properly terminated with
+            either carriage return and linefeed ('\r\n') or linefeed ('\n').
+            Tools MUST be able to handle both line endings.
+            <vspace blankLines="1"/>
+            Warning: LOCAL_STATIC_PRIVATE_KEY and potentially PRESHARED_KEY
+            are long-term secrets, users SHOULD only store non-production keys,
+            or ensure proper protection of the pcapng file.</t>
+
           </list>
         </t>
 
