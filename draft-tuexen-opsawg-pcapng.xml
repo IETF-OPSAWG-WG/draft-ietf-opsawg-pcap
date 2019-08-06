@@ -198,7 +198,7 @@
             instance, the length of a block that does not have a body is 12
             octets: 4 octets for the Block Type, 4 octets for the initial
             Block Total Length and 4 octets for the trailing Block Total
-            Length. This value MUST be a multiple of 4.</t>
+            Length. This unsigned value MUST be a multiple of 4.</t>
 
             <t>Block Body: content of the block.</t>
 
@@ -449,7 +449,8 @@ Section Header
             instead, as defined in <xref target="section_custom_option"/>).</t>
 
             <t>Option Length (2 octets): it contains the actual length of the
-            following 'Option Value' field without the padding octets.</t>
+            following 'Option Value' field without the padding octets. It is
+            therefore unsigned.</t>
 
             <t>Option Value (variable length): it contains the value of the
             given option, padded to a 32-bit boundary. The actual length of
@@ -879,11 +880,11 @@ Section Header
         captured.</t>
 
         <t>Tools that write / read the capture file associate an incrementing
-        32-bit number (starting from '0') to each Interface Definition Block,
-        called the Interface ID for the interface in question. This number is
-        unique within each Section and identifies the interface to which the
-        IDB refers; it is only unique inside the current section, so, two
-        Sections can have different interfaces identified by the same
+        unsigned 32-bit number (starting from '0') to each Interface Definition
+        Block, called the Interface ID for the interface in question. This
+        number is unique within each Section and identifies the interface to
+        which the IDB refers; it is only unique inside the current section, so,
+        two Sections can have different interfaces identified by the same
         Interface ID values. This unique identifier is referenced by other
         blocks, such as Enhanced Packet Blocks and Interface Statistic Blocks,
         to indicate the interface to which the block refers (such the
@@ -944,8 +945,8 @@ Section Header
             pcapng file readers.</t>
 
             <t>SnapLen: maximum number of octets captured from each packet. The
-            portion of each packet that exceeds this value will not be stored
-            in the file. A value of zero indicates no limit.</t>
+            portion of each packet that exceeds this unsigned value will not be
+            stored in the file. A value of zero indicates no limit.</t>
 
             <t>Options: optionally, a list of options (formatted according to
             the rules defined in <xref target="section_opt"/>) can be present.</t>
@@ -1088,8 +1089,8 @@ Section Header
             <t>Example: '02 34 56 FF FE 78 9A BC'.</t>
 
             <t hangText="if_speed:"><vspace blankLines="0"/>The if_speed
-            option is a 64-bit number for the Interface speed (in bits per
-            second).</t>
+            option is a unsigend 64-bit number for the Interface speed (in bits
+            per second).</t>
 
             <t>Example: the 64-bit decimal number 100000000 for 100Mbps.</t>
 
@@ -1145,8 +1146,8 @@ Section Header
             <t>Example: '4'.</t>
 
             <t hangText="if_tsoffset:"><vspace blankLines="0"/>The
-            if_tsoffset option is a 64-bit integer value that specifies an
-            offset (in seconds) that must be added to the timestamp of each
+            if_tsoffset option is a 64-bit sigend integer value that specifies
+            an offset (in seconds) that must be added to the timestamp of each
             packet to obtain the absolute timestamp of a packet. If the option
             is missing, the timestamps stored in the packet MUST be considered
             absolute timestamps. The time zone of the offset can be specified
@@ -1256,11 +1257,11 @@ Section Header
             that represent the seconds and microseconds that have
             elapsed since 1970-01-01 00:00:00 UTC. Timestamps in Enhanced
             Packet Blocks are saved as two 32-bit words that represent
-            the upper and lower 32 bits of a single 64-bit quantity.</t>
+            the upper and lower 32 bits of a single 64-bit signed quantity.</t>
 
-            <t>Captured Packet Length: number of octets captured from the
-            packet (i.e. the length of the Packet Data field). It will be the
-            minimum value among the Original Packet Length and the
+            <t>Captured Packet Length: unsigned number of octets captured from
+            the packet (i.e. the length of the Packet Data field). It will be
+            the minimum value among the Original Packet Length and the
             snapshot length for the interface (SnapLen, defined in
             <xref target="format_idb"/>). The value of this field does
             not include the padding octets added at the end of the Packet
@@ -1270,7 +1271,7 @@ Section Header
             <t>Original Packet Length: actual length of the packet when it was
             transmitted on the network. It can be different from Captured
             Packet Length if the packet has been truncated by the capture
-            process.</t>
+            process. It is an 32-bit signed integer.</t>
 
             <t>Packet Data: the data coming from the network, including
             link-layer headers. The actual length of this field is
@@ -1340,9 +1341,9 @@ Section Header
             <t>Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D 50 8E'.</t>
 
             <t hangText="epb_dropcount:"><vspace blankLines="0"/>The
-            epb_dropcount option is a 64-bit integer value specifying the
-            number of packets lost (by the interface and the operating system)
-            between this packet and the preceding one for the same
+            epb_dropcount option is a 64-bit unsigned integer value specifying
+            the number of packets lost (by the interface and the operating
+            system) between this packet and the preceding one for the same
             interface or, for the first packet for an interface, between
             this packet and the start of the capture process.</t>
 
