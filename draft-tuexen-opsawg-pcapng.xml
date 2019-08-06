@@ -2491,9 +2491,9 @@ Section Header
       it is recommended - though not required - to use .pcapng as the name
       extension for files following this specification.</t>
 
-      <t>Please note: To avoid confusion (like the current usage of .cap for a
-      plethora of different capture file formats) other file name extensions
-      than .pcapng should be avoided.</t>
+      <t>Please note: To avoid confusion (such as the current usage of
+      .cap for a plethora of different capture file formats) other file
+      name extensions than .pcapng should be avoided.</t>
 
     </section>
 
