@@ -2467,10 +2467,10 @@ Section Header
         already in little-endian format.</t>
 
         <t>Therefore, the vendor should either encode all of their fields in a
-        consistent manner, such as always in big-endian or always little-
-        endian format, regardless of the host platform's endianness; or they
-        should encode some flag in the Custom Data payload to indicate which
-        endianness the rest of the payload is written in.</t>
+        consistent manner, such as always in big-endian or always
+        little-endian format, regardless of the host platform's
+        endianness, or should encode some flag in the Custom Data payload
+        to indicate in which endianness the rest of the payload is written.</t>
 
       </section>
 
