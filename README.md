@@ -9,7 +9,7 @@
 
 ## The pcap Next Generation Capture File Format
 
-This is the Github repository for the pcapng file format draft specification. The specification is currently a work-in-progress.
+This is the GitHub repository for the pcapng file format draft specification. The specification is currently a work-in-progress.
 
 Join the [pcapng mailing list](https://www.winpcap.org/mailman/listinfo/pcap-ng-format) to discuss, or view the [list archive](http://www.winpcap.org/pipermail/pcap-ng-format/) to view the previous discussions.
 
