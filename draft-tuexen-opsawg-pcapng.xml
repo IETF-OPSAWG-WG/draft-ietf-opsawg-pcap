@@ -1348,14 +1348,15 @@ Section Header
             hashing algorithm, while the following octets contain the actual
             hash, whose size depends on the hashing algorithm, and hence from
             the value in the first octet. The hashing algorithm can be: 2s
-            complement (algorithm octet = 0, size=XXX), XOR (algorithm octet =
+            complement (algorithm octet = 0, size = XXX), XOR (algorithm octet =
             1, size=XXX), CRC32 (algorithm octet = 2, size = 4), MD-5
-            (algorithm octet = 3, size=XXX), SHA-1 (algorithm octet = 4,
-            size=XXX). The hash covers only the packet, not the header added
-            by the capture driver: this gives the possibility to calculate it
-            inside the network card. The hash allows easier comparison/merging
-            of different capture files, and reliable data transfer between the
-            data acquisition system and the capture library.</t>
+            (algorithm octet = 3, size = 16), SHA-1 (algorithm octet = 4,
+            size = 20), Toeplitz (algorithm octet = 5, size = 4). The hash covers
+            only the packet, not the header added by the capture driver: this
+            gives the possibility to calculate it inside the network card. The
+            hash allows easier comparison/merging of different capture files,
+            and reliable data transfer between the data acquisition system and
+            the capture library.</t>
 
             <t>Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D 50 8E'.</t>
 
