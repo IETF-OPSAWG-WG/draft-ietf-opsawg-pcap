@@ -1351,7 +1351,7 @@ Section Header
             complement (algorithm octet = 0, size = XXX), XOR (algorithm octet =
             1, size=XXX), CRC32 (algorithm octet = 2, size = 4), MD-5
             (algorithm octet = 3, size = 16), SHA-1 (algorithm octet = 4,
-            size = 20), Toeplitz (algorith octet = 5, size = 4). The hash covers
+            size = 20), Toeplitz (algorithm octet = 5, size = 4). The hash covers
             only the packet, not the header added by the capture driver: this
             gives the possibility to calculate it inside the network card. The
             hash allows easier comparison/merging of different capture files,
