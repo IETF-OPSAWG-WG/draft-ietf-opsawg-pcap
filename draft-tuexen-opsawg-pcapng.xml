@@ -149,6 +149,7 @@
             <t hangText='EPB:'>Enhanced Packet Block</t>
             <t hangText='SPB:'>Simple Packet Block</t>
             <t hangText='NRB:'>Name Resolution Block</t>
+            <t hangText='CIB:'>Capture Information Block</t>
             <t hangText='CB:'>Custom Block</t>
           </list>
 
@@ -267,6 +268,10 @@
             etc) which can be useful to understand the conditions in which the
             capture has been made. If this appears in a file, an Interface
             Description Block is also required, before this block.</t>
+
+            <t><xref target="section_cib">Capture Information Block</xref>: it
+            defines how to store some interface information such as location, 
+            orientation, velocity, and associated errors.</t>
 
             <t><xref target="section_custom_block">Custom Block</xref>: it
             contains vendor-specific data in a portable fashion.</t>
@@ -2093,6 +2098,219 @@ Section Header
 
       </section>
 
+      <section anchor="section_cib" title="Capture Information Block">
+
+        <t>The Capture Information Block (CIB) is used to support the addition
+        of time-varying metadata associated with capture interfaces, including
+        location, orientation, velocity, and related errors.
+        Each CIB is associated with a specific interface and applied to all packets
+        received on this interface following the CIB until superseded by a new CIB on
+        the same interface.
+        </t>
+
+        <t>For example, a capture from a static interface may contain a single CIB at
+        the start of the file to apply to all packets on this interface.
+        A capture from a moving interface with GNSS will add a CIB each time updated
+        positional information is available, and this information will apply to all 
+        packets received on this interface until the next CIB.
+        </t>
+
+        <t>Note that issuing a new CIB will clear all existing CIB options on an interface,
+        for example, the CIBs for a non-moving but rotating interface with a known position
+        must all contain both location and orientation data.
+        </t>
+
+        <t>The format of the Capture Information Block is shown in <xref
+        target="format_cib"/>.</t>
+
+        <figure anchor="format_cib" title="Capture Information Block Format">
+          <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                   Block Type = 0x0000000B                     |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                         Interface ID                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+ </artwork>
+        </figure>
+        <t>The fields have the following meaning:
+          <list style="symbols">
+
+            <t>Block Type: The block type of the Capture Information Block is
+            11.</t>
+
+            <t>Block Total Length: total size of this block, as described in
+            <xref target="section_block"/>.</t>
+
+            <t>Interface ID: specifies the interface for this CIB to be applied
+            to; the correct interface will be the one whose Interface
+            Description Block (within the current Section of the file) is
+            identified by the same number (see <xref target="section_idb"/>)
+            of this field. The interface ID MUST be valid, which means that an
+            matching interface description block MUST exist.</t>
+
+            <t>Options: optionally, a list of options (formatted according to
+            the rules defined in <xref target="section_opt"/>) can be present.</t>
+
+          </list>
+        </t>
+
+        <t>Location information can be represented with in global (lat/lng/alt in degrees)
+        or local (X/Y/Z in metres) form, only one of these forms may be used in a given PCAP file.
+        Combining pcap files with different location formats should result in the 
+        removal of all position information.
+        </t>
+
+        <t>
+        Velocity and Orientation are to be interpreted from the zero frame for either form.
+        For the global form, X corresponds to latitude, Y to longitude, and Z to altitude.
+        Yaw is about the X/Y or Lat/Lng plane with zero facing along Y or North, 
+        pitch is applied with this yaw offset, and roll is applied to the combination of both.
+        </t>
+
+        <t>
+        Error options provide an optional mechanism for attaching error information to measurements,
+        and are only valid where the corresponding measurement (location, velocity, or orientation) 
+        option is specified. Should an error option be present without the corresponding measurement, 
+        this option should be ignored.
+        </t>
+
+        <t>All the information fields are defined as options in order to support
+        systems that do not have a complete set of information. Therefore,
+        In addition to the options defined in <xref target="section_opt"/>,
+        the following options are valid within this block:</t>
+
+        <texttable anchor="options_cib" title="Capture Information Block Options">
+          <ttcol align="left">Name</ttcol>
+          <ttcol align="left">Code</ttcol>
+          <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
+
+          <c>local_location</c>
+          <c>2</c>
+          <c>12</c>
+          <c>no</c>
+
+          <c>local_location_error</c>
+          <c>3</c>
+          <c>12</c>
+          <c>no</c>
+
+          <c>global_location</c>
+          <c>4</c>
+          <c>12</c>
+          <c>no</c>
+
+          <c>global_location_error</c>
+          <c>5</c>
+          <c>12</c>
+          <c>no</c>
+
+          <c>orientation</c>
+          <c>6</c>
+          <c>12</c>
+          <c>no</c>
+
+          <c>orientation_error</c>
+          <c>7</c>
+          <c>12</c>
+          <c>no</c>
+
+          <c>velocity</c>
+          <c>8</c>
+          <c>12</c>
+          <c>no</c>
+
+          <c>velocity_error</c>
+          <c>9</c>
+          <c>12</c>
+          <c>no</c>
+        </texttable>
+
+        <t>
+          <list hangIndent="8" style="hanging">
+
+            <t hangText="cib_local_location"><vspace blankLines="0"/>The 
+            cib_local_location option specifies the local location of the packet 
+            capture or interface in an abitrary plane; location is stored as three 
+            32-bit floats representing X, Y (in plane), and Z (altitude) offsets in
+            metres.</t>
+
+            <t>Example: '41 24 cc cd 41 73 33 33 3f cc cc cd' decodes to 
+            x: 10.3m, y: 15.2m, z: 1.6m</t>
+
+            <t hangText="cib_local_location_error"><vspace blankLines="0"/>The
+            cib_local_location_error option specifies the error in local location 
+            capture;  this is stored as three 32-bit floats in the same order and 
+            representation as cib_local_location.</t>
+
+            <t>Example: '3f 80 00 00 3f 99 99 9a 3f cc cc cd' decodes to 
+            x_error: 1.0m, y_error: 1.2m, z_error: 1.6m</t>
+
+            <t hangText="cib_global_location"><vspace blankLines="0"/>The 
+            cib_global_location option specifies the global location of the 
+            packet capture or interface; location is stored as three 32-bit floats 
+            representing latitude and longitude in degrees, and altitude in 
+            metres.</t>
+
+            <t>Example: 'c2 13 64 ce 43 2e c2 90 41 88 00 00' decodes to 
+            lat: -36.8484437° lng: 174.7600023° alt: 17.0m</t>
+
+            <t hangText="cib_global_location_error"><vspace blankLines="0"/>The
+            cib_global_location_error option specifies the error in global location 
+            capture; this is stored as three 32-bit floats in the same order and 
+            representation as cib_global_location.</t>
+
+            <t>Example: '3f 80 00 00 3f 99 99 9a 3f cc cc cd' decodes to 
+            lat_error: 0.1° lng_error: 0.2° alt_error: 1.6m</t>
+
+            <t hangText="cib_orientation"><vspace blankLines="0"/>The 
+            cib_orientation option specifies the orientation of the packet 
+            capturing antenna; orientation is stored as three 32-bit floats 
+            representing yaw, pitch, and roll in radians.
+            This is relative to the zero frame for global or local location.</t>
+
+            <t>Example: '3f c9 0f db 3e 86 0a 92 00 00 00 00' decodes to 
+            yaw: pi/2, pitch: -pi/12, roll: 0.0</t>
+
+            <t hangText="cib_orientation_error"><vspace blankLines="0"/>The
+            cib_orientation_error option specifies the error in orientation capture; 
+            this is stored as three 32-bit floats in the same order and 
+            representation as cib_orientation.</t>
+
+            <t>Example: '3c 23 d7 0a 3c a3 d7 0a 00 00 00 00' decodes to 
+            yaw_error: 0.01, pitch_error: 0.02, roll_error: 0.0</t>
+
+            <t hangText="cib_velocity"><vspace blankLines="0"/>The 
+            cib_velocity option specifies the velocity of the packet capture interface; 
+            velocity is stored as three 32-bit floats representing the motion in the 
+            X (lat), Y (lng), and Z (altitude) directions in metres per second.
+            This is relative to the zero frame for global or local location.</t>
+
+            <t>Example: '41 24 cc cd 41 73 33 33 00 00 00 00' decodes to 
+            x: 10.3m/s, y: 15.2m/s, z: 0.0m/s</t>
+
+            <t hangText="cib_velocity_error"><vspace blankLines="0"/>The
+            cib_velocity_error option specifies the error in velocity capture; 
+            this is stored as three 32-bit floats in the same order and 
+            representation as cib_velocity.</t>
+
+            <t>Example: '3f 80 00 00 3f 99 99 9a 00 00 00 00' decodes to 
+            x_error: 1.0m/s, y_error: 1.2m/s, z_error: 0.0m/s</t>
+
+          </list>
+        </t>
+
+     </section>
 
       <section anchor="section_custom_block" title="Custom Block">
 
@@ -2633,6 +2851,12 @@ Section Header
           <c>0x0000000A</c>
           <c>
             <xref target="section_dsb">Decryption Secrets Block</xref>
+          </c>
+
+
+          <c>0x0000000B</c>
+          <c>
+            <xref target="section_cib">Capture Information Block</xref>
           </c>
 
           <c>0x00000101</c>
