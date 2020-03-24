@@ -10,7 +10,7 @@
 
 <rfc category='info'
      ipr='trust200902'
-     docName="draft-tuexen-opsawg-pcapng">
+     docName="draft-tuexen-opsawg-pcapng-latest">
 
   <front>
 
@@ -441,7 +441,7 @@ Section Header
           <list style="symbols">
 
             <t>Option Type (16 bits): an unsigned value that contains
-            the code that specifies the type of the current TLV record. 
+            the code that specifies the type of the current TLV record.
             Option types whose Most Significant Bit is equal to one are
             reserved for local use; therefore, there is no guarantee
             that the code used is unique among all capture files
@@ -807,7 +807,7 @@ Section Header
             the Section Length is -1 (0xFFFFFFFFFFFFFFFF), this means
             that the size of the section is not specified, and the only
             way to skip the section is to parse the blocks that it
-            contains. Please note that if this field is valid (i.e. 
+            contains. Please note that if this field is valid (i.e.
             not negative), its value is always a multiple of 4, as all
             the blocks are aligned to and padded to 32-bit (4 octet)
             boundaries. Also, special care should be taken in accessing
@@ -897,7 +897,7 @@ Section Header
         question. This number is unique within each Section and
         identifies the interface to which the IDB refers; it is only
         unique inside the current section, so, two Sections can have
-        different interfaces identified by the same Interface ID values. 
+        different interfaces identified by the same Interface ID values.
         This unique identifier is referenced by other blocks, such as
         Enhanced Packet Blocks and Interface Statistic Blocks, to
         indicate the interface to which the block refers (such the
@@ -2040,7 +2040,7 @@ Section Header
             <xref target="section_block"/>.</t>
 
             <t>Secrets Type (32 bits): an unsigned integer identifier
-            that describes the format of the following Secrets field. 
+            that describes the format of the following Secrets field.
             Requests for new Secrets Type codes should be sent to the
             <eref target="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-ng-format mailing list</eref>.</t>
 
@@ -2271,7 +2271,7 @@ Section Header
             <t>Encryption Type (8 bits): an unsigned value that
             specifies the encryption algorithm.  Possible values for
             this field are ??? (TODO) NOTE: this block should probably
-            contain other fields, depending on the encryption algorithm. 
+            contain other fields, depending on the encryption algorithm.
             To be defined precisely.</t>
 
             <t>Encrypted Data: data of this block. Once decrypted, it
