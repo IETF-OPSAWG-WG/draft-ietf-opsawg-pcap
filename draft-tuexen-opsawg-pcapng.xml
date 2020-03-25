@@ -2088,6 +2088,19 @@ Section Header
             are long-term secrets, users SHOULD only store non-production keys,
             or ensure proper protection of the pcapng file.</t>
 
+            <t hangText="0x5a4e574b:"><vspace blankLines="0"/>ZigBee NWK Key.
+            Network Key as described in the <eref target="https://zigbeealliance.org/">
+            ZigBee Specification</eref> R21 section 4.2.2. The NWK Key is a 16 octet
+            AES-128 key used to secure NWK Level frames within a single PAN.
+            </t>
+
+            <t hangText="0x5a415053:"><vspace blankLines="0"/>ZigBee APS Key.
+            Application Support Link Key as described in the 
+            <eref target="https://zigbeealliance.org/"> ZigBee Specification</eref>
+            R21 sections 2.2.5.1 and 4.4. Each 16 octet AES-128 key secures
+            frames exchanged between a pair of network nodes.
+            </t>
+
           </list>
         </t>
 
