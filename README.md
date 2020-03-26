@@ -7,7 +7,7 @@
 [![list archive](https://img.shields.io/badge/list--archive-1k-green.svg?style=social)](http://www.winpcap.org/pipermail/pcap-ng-format/)
 [![build status](https://travis-ci.org/alagoutte/pcapng.svg?branch=master)](http://pcapng.github.io/pcapng/)
 
-## The pcap Next Generation Capture File Format
+## The pcap Next Generation (pcapng) Capture File Format
 
 This is the GitHub repository for the pcapng file format draft specification. The specification is currently a work-in-progress.
 
@@ -24,3 +24,16 @@ Join the [pcapng mailing list](https://www.winpcap.org/mailman/listinfo/pcap-ng-
 ## Implementations
 
 Some known implementations that read or write the pcapng file format are listed on the [wiki](https://github.com/pcapng/pcapng/wiki/Implementations).
+
+## The pcap Capture File Format
+
+This repository also includes a draft specification for the historic
+pcap file format.
+
+## The Latest Draft
+
+* View the [pcap draft as HTML](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=html/ascii&type=ascii).
+
+* View the [pcap draft as Text](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=txt/ascii&type=ascii).
+
+* View the [pcap draft as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=txt/pdf&type=ascii).
