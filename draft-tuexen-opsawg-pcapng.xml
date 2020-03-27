@@ -490,7 +490,7 @@ Section Header
         that have an invalid length as errors; the software MAY stop
         processing the file if it sees an option that has invalid
         length, or MAY ignore the option and continue processing it.
-        Software that writes these files MUST not write files with
+        Software that writes these files MUST NOT write files with
         options that have invalid lengths.</t>
 
         <t>If an option's value is a string, the value is not necessarily
