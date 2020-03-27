@@ -6,8 +6,8 @@ This is the working area for the individual Internet-Draft, "PCAP Next Generatio
 * [Individual Draft](https://tools.ietf.org/html/draft-tuexen-opsawg-pcapng)
 * [Compare Editor's Copy to Individual Draft](https://mcr.github.io/pcapng/#go.draft-tuexen-opsawg-pcapng.diff)
 * [Current committed version as HTML](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii&type=ascii)
-* [Current committed version as Text](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/ascii&type=ascii).
-* [Current committed version as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/pdf&type=ascii).
+* [Current committed version as Text](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/ascii&type=ascii)
+* [Current committed version as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/pdf&type=ascii)
 
 ## Building the Draft
 
