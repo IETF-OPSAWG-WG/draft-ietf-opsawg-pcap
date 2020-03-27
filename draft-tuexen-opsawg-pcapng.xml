@@ -961,9 +961,8 @@ Section Header
 
             <t>LinkType (16 bits): an unsigned value that defines the
             link layer type of this interface.  The list of Standardized
-            Link Layer Type codes is available in <eref
-            target="http://www.tcpdump.org/linktypes.html">the tcpdump.org
-            link-layer header types registry</eref>.</t>
+            Link Layer Type codes is available in <xref
+            target="LINKTYPES"/>.</t>
 
             <t>Reserved (16 bits): not used - MUST be filled with 0 by
             pcap file writers, and MUST be ignored by pcapng file
@@ -1309,9 +1308,8 @@ Section Header
             boundary. The format of the link-layer headers depends on
             the LinkType field specified in the Interface Description
             Block (see <xref target="section_idb"/>) and it is specified
-            in the entry for that format in the <eref
-            target="http://www.tcpdump.org/linktypes.html">the
-            tcpdump.org link-layer header types registry</eref>.</t>
+            in the entry for that format in <xref
+            target="LINKTYPES"/>.</t>
 
             <t>Options: optionally, a list of options (formatted according to
             the rules defined in <xref target="section_opt"/>) can be present.</t>
@@ -1512,9 +1510,7 @@ Section Header
             of the data within this Packet Data field depends on the
             LinkType field specified in the Interface Description Block
             (see <xref target="section_idb"/>) and it is specified in
-            the entry for that format in <eref
-            target="http://www.tcpdump.org/linktypes.html">the
-            tcpdump.org link-layer header types registry</eref>.</t>
+            the entry for that format in <xref target="LINKTYPES"/>.</t>
 
           </list>
         </t>
@@ -2819,10 +2815,19 @@ Section Header
       <?rfc include='reference.RFC.2119'?>
     </references>
 
-    <!--
     <references title='Informational References'>
+
+      <reference anchor="LINKTYPES" target="http://www.tcpdump.org/linktypes.html">
+        <front>
+          <title>the tcpdump.org link-layer header types registry</title>
+          <author initials="" surname="" fullname="">
+            <organization>The Tcpdump Group</organization>
+          </author>
+          <date/>
+        </front>
+      </reference>
+
     </references>
-    -->
 
     <section anchor="appendix_pb" title="Packet Block (obsolete!)">
 
@@ -2909,9 +2914,7 @@ Section Header
           boundary. The format of the link-layer headers depends on
           the LinkType field specified in the Interface Description
           Block (see <xref target="section_idb"/>) and it is specified
-          in the entry for that format in the <eref
-          target="http://www.tcpdump.org/linktypes.html">the
-          tcpdump.org link-layer header types registry</eref>.</t>
+          in the entry for that format in <xref target="LINKTYPES"/>.</t>
 
           <t>Options: optionally, a list of options (formatted according to
           the rules defined in <xref target="section_opt"/>) can be present.</t>
