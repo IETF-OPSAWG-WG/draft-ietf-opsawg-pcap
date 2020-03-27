@@ -149,9 +149,8 @@
             the lower 16 bits, the link layer type of packets in the
             file, and optionally indicates the length of the Frame Check
             Sequence (FCS) of packets in the upper 16 bits.  The list of
-            Standardized Link Layer Type codes is available in <eref
-            target="http://www.tcpdump.org/linktypes.html">the
-            tcpdump.org link-layer header types registry</eref>.  If bit
+            Standardized Link Layer Type codes is available in <xref
+            target="LINKTYPES"/>.  If bit
             5 is set, bits 0 through 3 contain the length of the FCS
             field at the end of all packets; if bit 5 is not set, the
             length of the FCS field at the end of all packets is
@@ -228,9 +227,8 @@
             Captured Packet Length.  The format of the link-layer
             headers depends on the LinkType field specified in the file
             header (see <xref target="file_header"/>) and it is
-            specified in the entry for that format in the <eref
-            target="http://www.tcpdump.org/linktypes.html">the
-            tcpdump.org link-layer header types registry</eref>.</t>
+            specified in the entry for that format in <xref
+            target="LINKTYPES"/>.</t>
 
           </list>
         </t>
@@ -303,10 +301,17 @@
       <?rfc include='reference.RFC.2119'?>
     </references>
 
-    <!--
     <references title='Informational References'>
+      <reference anchor="LINKTYPES" target="http://www.tcpdump.org/linktypes.html">
+        <front>
+          <title>the tcpdump.org link-layer header types registry</title>
+          <author initials="" surname="" fullname="">
+            <organization>The Tcpdump Group</organization>
+          </author>
+          <date/>
+        </front>
+      </reference>
     </references>
-    -->
 
   </back>
 </rfc>
