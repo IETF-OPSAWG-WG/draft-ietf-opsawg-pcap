@@ -2090,15 +2090,21 @@ Section Header
 
             <t hangText="0x5a4e574b:"><vspace blankLines="0"/>ZigBee NWK Key.
             Network Key as described in the <eref target="https://zigbeealliance.org/">
-            ZigBee Specification</eref> R21 section 4.2.2. The NWK Key is a 16 octet
-            AES-128 key used to secure NWK Level frames within a single PAN.
+            ZigBee Specification</eref> 05-3473-21 (R21) section 4.2.2. The NWK Key
+            is a 16 octet binary AES-128 key used to secure NWK Level frames
+            within a single PAN. If and when the NWK Key changes a new DSB will
+            contain the new NWK Key.
             </t>
 
             <t hangText="0x5a415053:"><vspace blankLines="0"/>ZigBee APS Key.
             Application Support Link Key as described in the 
             <eref target="https://zigbeealliance.org/"> ZigBee Specification</eref>
-            R21 sections 2.2.5.1 and 4.4. Each 16 octet AES-128 key secures
-            frames exchanged between a pair of network nodes.
+            05-3473-21 (R21) section 4.4. Each 16 octet binary AES-128 key secures
+            frames exchanged between a pair of network nodes. There is a APS
+            Key DSB for each node pair for which the Link Key is known. As new links
+            are formed, new DSBs contain the new Keys. If the APS Key changes
+            for an existing link, it is contained in a new DSB with the new
+            APS Key.
             </t>
 
           </list>
