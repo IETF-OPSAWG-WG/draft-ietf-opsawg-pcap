@@ -21,7 +21,7 @@ Join the [pcapng mailing list](https://www.winpcap.org/mailman/listinfo/pcap-ng-
 
 * View the [pcapng draft as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/pdf&type=ascii).
 
-## Implementations
+### Implementations
 
 Some known implementations that read or write the pcapng file format are listed on the [wiki](https://github.com/pcapng/pcapng/wiki/Implementations).
 
