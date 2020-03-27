@@ -138,7 +138,7 @@
             value should change if the format changes in such a way that
             code that reads the new format could read the old format
             without checking the version number but code that reads the
-            old format could not read all files in the new format..</t>
+            old format could not read all files in the new format.</t>
 
             <t>Reserved (32 bits): not used - SHOULD be filled with 0 by
             pcap file writers, and MUST be ignored by pcap file
@@ -208,7 +208,7 @@
             nanoseconds value represents the number of microseconds or
             nanoseconds that have elapsed since that seconds. Whether
             the value represents microseconds or nanoseconds is
-            specified by the magic number in the File Header..</t>
+            specified by the magic number in the File Header.</t>
 
             <t>Captured Packet Length (32 bits): an unsigned value that
             indicates the number of octets captured from the packet
