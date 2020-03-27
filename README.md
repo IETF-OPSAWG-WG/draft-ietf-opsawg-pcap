@@ -13,7 +13,7 @@ This is the GitHub repository for the pcapng file format draft specification. Th
 
 Join the [pcapng mailing list](https://www.winpcap.org/mailman/listinfo/pcap-ng-format) to discuss, or view the [list archive](http://www.winpcap.org/pipermail/pcap-ng-format/) to view the previous discussions.
 
-## The Latest Draft
+### The Latest Draft
 
 * View the [pcapng draft as HTML](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii&type=ascii).
 
@@ -30,7 +30,7 @@ Some known implementations that read or write the pcapng file format are listed 
 This repository also includes a draft specification for the historic
 pcap file format.
 
-## The Latest Draft
+### The Latest Draft
 
 * View the [pcap draft as HTML](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=html/ascii&type=ascii).
 
