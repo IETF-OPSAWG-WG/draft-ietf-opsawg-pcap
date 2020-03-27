@@ -161,7 +161,7 @@
             <t>SnapLen (32 bits): an unsigned value indicating the
             maximum number of octets captured from each packet.  The
             portion of each packet that exceeds this value will not be
-            stored in the file.  This value MUST not be zero; if no
+            stored in the file.  This value MUST NOT be zero; if no
             limit was specified, the value should be a number greater
             than or equal to the largest packet length in the file.</t>
 
