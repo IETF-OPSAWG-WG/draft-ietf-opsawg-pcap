@@ -727,7 +727,7 @@ Section Header
       <section anchor="section_shb" title="Section Header Block">
 
         <t>The Section Header Block (SHB) is mandatory. It identifies the
-        beginning of a section of the capture capture file. The Section Header
+        beginning of a section of the capture file. The Section Header
         Block does not contain data but it rather identifies a list of blocks
         (interfaces, packets) that are logically correlated. Its format is
         shown in <xref target="format_shb"/>.</t>
@@ -1126,7 +1126,7 @@ Section Header
             means microsecond resolution, timestamps are the number of
             microseconds since 1970-01-01 00:00:00 UTC). If the Most
             Significant Bit is equal to one, the remaining bits indicates
-            the resolution as as negative power of 2 (e.g. 10 means 1/1024
+            the resolution as negative power of 2 (e.g. 10 means 1/1024
             of second). If this option is not present, a resolution of
             10^-6 is assumed (i.e. timestamps have the same resolution of
             the standard 'libpcap' timestamps).</t>
@@ -1985,7 +1985,7 @@ Section Header
             documentation. The __REALTIME_TIMESTAMP= field MUST be
             present and valid as described above. Entries are not
             guaranteed to be a multiple of four octets and must be
-            zero-padded. This allows the length of the entry to be be
+            zero-padded. This allows the length of the entry to be
             determined by finding the last non-zero octet in the Journal
             Entry data. An entry may contain an entry separator
             (trailing newline) as described in the Journal Export Format
