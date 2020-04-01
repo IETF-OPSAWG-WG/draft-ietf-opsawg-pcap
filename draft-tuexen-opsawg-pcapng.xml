@@ -180,7 +180,7 @@
 
         <figure anchor="formatblock" title="Basic block structure." align="center">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                          Block Type                           |
@@ -518,7 +518,7 @@ Section Header
 
         <figure anchor="formatopt" title="Options Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
- 0                   1                   2                   3
+                     1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |      Option Code              |         Option Length         |
@@ -598,7 +598,7 @@ Section Header
 
           <figure anchor="formatcustomopt" title="Custom Options Format">
             <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
- 0                   1                   2                   3
+                     1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |     Custom Option Code        |         Option Length         |
@@ -734,7 +734,7 @@ Section Header
 
         <figure anchor="format_shb" title="Section Header Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                   Block Type = 0x0A0D0D0A                     |
@@ -930,7 +930,7 @@ Section Header
 
         <figure anchor="format_idb" title="Interface Description Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000001                    |
@@ -1225,7 +1225,7 @@ Section Header
 
         <figure anchor="format_epb" title="Enhanced Packet Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000006                    |
@@ -1465,7 +1465,7 @@ Section Header
 
         <figure anchor="format_spb" title="Simple Packet Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000003                    |
@@ -1562,7 +1562,7 @@ Section Header
 
         <figure anchor="format_nrb" title="Name Resolution Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000004                    |
@@ -1750,7 +1750,7 @@ Section Header
 
         <figure anchor="format_isb" title="Interface Statistics Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                   Block Type = 0x00000005                     |
@@ -1952,7 +1952,7 @@ Section Header
 
         <figure anchor="format_sdj_export" title="systemd Journal Export Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000009                    |
@@ -2012,7 +2012,7 @@ Section Header
 
         <figure anchor="format_dsb" title="Decryption Secrets Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                   Block Type = 0x0000000A                     |
@@ -2115,7 +2115,7 @@ Section Header
 
         <figure anchor="format_custom_block" title="Custom Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |             Block Type = 0x00000BAD or 0x40000BAD             |
@@ -2194,7 +2194,7 @@ Section Header
 
         <figure anchor="formatcb" title="Compression Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                        Block Type = ?                         |
@@ -2247,7 +2247,7 @@ Section Header
 
         <figure anchor="formateb" title="Encryption Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                        Block Type = ?                         |
@@ -2304,7 +2304,7 @@ Section Header
 
         <figure anchor="formatflm" title="Fixed Length Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                        Block Type = ?                         |
@@ -2841,7 +2841,7 @@ Section Header
 
       <figure anchor="formatpb" title="Packet Block Format">
         <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000002                    |
