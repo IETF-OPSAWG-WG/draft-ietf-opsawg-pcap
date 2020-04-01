@@ -90,7 +90,7 @@
 
         <figure anchor="file_header" title="File Header" align="center">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                          Magic Number                         |
@@ -177,7 +177,7 @@
 
         <figure anchor="packet_record" title="Packet Record">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-   0                   1                   2                   3
+                       1                   2                   3
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                      Timestamp (Seconds)                      |
