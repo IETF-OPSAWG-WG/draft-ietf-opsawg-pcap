@@ -33,7 +33,6 @@
 
   </front>
 
-
 <!--===========================================================================
 
     MAIN BODY - still within the <rfc> tag
@@ -255,7 +254,6 @@
 
     </section>
 
-
     <section title="Security Considerations">
 
       <t>TBD.</t>
@@ -271,13 +269,11 @@
 
     </section>
 
-
     <section title='Contributors'>
 
       <t>[Insert pcap developers etc. here].</t>
 
     </section>
-
 
     <section title="Acknowledgments">
 
@@ -288,13 +284,11 @@
 
   </middle>
 
-
 <!--===========================================================================
 
     Back End - still within the <rfc> tag
 
 ============================================================================-->
-
 
   <back>
     <references title='Normative References'>
