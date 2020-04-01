@@ -98,7 +98,6 @@
 
   </front>
 
-
 <!--===========================================================================
 
     MAIN BODY - still within the <rfc> tag
@@ -168,7 +167,6 @@
       </section>
 
     </section>
-
 
     <section title="General File Structure">
 
@@ -341,7 +339,6 @@ Section Header
 
       </section>
 
-
       <section title="Physical File Layout">
 
         <t>The file MUST begin with a Section Header Block. However, more than
@@ -421,7 +418,6 @@ Section Header
         format.</t>
 
       </section>
-
 
       <section anchor="section_opt" title="Options">
 
@@ -584,7 +580,6 @@ Section Header
           </list>
         </t>
 
-
         <section anchor="section_custom_option" title="Custom Options">
 
           <t>Customs Options are used for portable, vendor-specific data
@@ -718,7 +713,6 @@ Section Header
       </section>
 
     </section>
-
 
     <section title="Block Definition">
 
@@ -894,7 +888,6 @@ Section Header
         the original hardware/os/application info?]</t>
 
       </section>
-
 
       <section anchor="section_idb" title="Interface Description Block">
 
@@ -1195,7 +1188,6 @@ Section Header
         </t>
       </section>
 
-
       <section anchor="section_epb" title="Enhanced Packet Block">
 
         <t>An Enhanced Packet Block (EPB) is the standard container for
@@ -1438,7 +1430,6 @@ Section Header
 
       </section>
 
-
       <section anchor="section_spb" title="Simple Packet Block">
 
         <t>The Simple Packet Block (SPB) is a lightweight container for
@@ -1529,7 +1520,6 @@ Section Header
         which corresponds to an efficiency of more than 86%.</t>
 
       </section>
-
 
       <section anchor="section_nrb" title="Name Resolution Block">
 
@@ -1734,7 +1724,6 @@ Section Header
 
       </section>
 
-
       <section anchor="section_isb" title="Interface Statistics Block">
 
         <t>The Interface Statistics Block (ISB) contains the capture
@@ -1922,7 +1911,6 @@ Section Header
 
       </section><!-- section_isb -->
 
-
       <section anchor="section_sdj_export" title="systemd Journal Export Block">
 
         <t>The <eref target="https://www.freedesktop.org/wiki/Software/systemd/">systemd</eref>
@@ -1995,7 +1983,6 @@ Section Header
         </t>
 
       </section><!-- section_sdj_export -->
-
 
       <section anchor="section_dsb" title="Decryption Secrets Block">
 
@@ -2100,7 +2087,6 @@ Section Header
 
       </section>
 
-
       <section anchor="section_custom_block" title="Custom Block">
 
         <t>A Custom Block (CB) is the container for storing custom data that
@@ -2149,7 +2135,6 @@ Section Header
             <t>Block Type: The block type of the Custom Block is 0x00000BAD or
             0x40000BAD, as described previously.</t>
 
-
             <t>Block Total Length: total size of this block, as described in
             <xref target="section_block"/>.</t>
 
@@ -2174,7 +2159,6 @@ Section Header
       </section>
 
     </section>
-
 
     <section title="Experimental Blocks (deserve further investigation)">
 
@@ -2238,7 +2222,6 @@ Section Header
         </t>
       </section>
 
-
       <section title="Encryption Block (experimental)">
 
         <t>The Encryption Block is optional. A file can contain an arbitrary
@@ -2288,7 +2271,6 @@ Section Header
           </list>
         </t>
       </section>
-
 
       <section title="Fixed Length Block (experimental)">
 
@@ -2343,7 +2325,6 @@ Section Header
         </t>
       </section>
 
-
       <section title="Directory Block (experimental)">
 
         <t>If present, this block contains the following information:
@@ -2364,7 +2345,6 @@ Section Header
 
       </section>
 
-
       <section title="Traffic Statistics and Monitoring Blocks (experimental)">
 
         <t>One or more blocks could be defined to contain network statistics
@@ -2373,7 +2353,6 @@ Section Header
         monitoring tools.</t>
 
       </section>
-
 
       <section title="Event/Security Block (experimental)">
 
@@ -2397,7 +2376,6 @@ Section Header
       </section>
 
     </section>
-
 
     <section anchor="section_vendor" title="Vendor-Specific Custom Extensions">
 
@@ -2504,7 +2482,6 @@ Section Header
 
     </section>
 
-
     <section title="Recommended File Name Extension: .pcapng">
 
       <t>The recommended file name extension for the "PCAP Next Generation
@@ -2525,7 +2502,6 @@ Section Header
 
     </section>
 
-
     <section title="Conclusions">
 
       <t>The file format proposed in this document should be very versatile
@@ -2540,7 +2516,6 @@ Section Header
 
     </section>
 
-
     <section title="Implementations">
 
       <t>Some known implementations that read or write the pcapng file format
@@ -2549,7 +2524,6 @@ Section Header
       GitHub wiki</eref>.</t>
 
     </section>
-
 
     <section title="Security Considerations">
 
@@ -2782,14 +2756,12 @@ Section Header
 
     </section>
 
-
     <section title='Contributors'>
 
       <t>Loris Degioanni and Gianluca Varenni were coauthoring this document
       before it was submitted to the IETF.</t>
 
     </section>
-
 
     <section title="Acknowledgments">
 
@@ -2803,13 +2775,11 @@ Section Header
 
   </middle>
 
-
 <!--===========================================================================
 
     Back End - still within the <rfc> tag
 
 ============================================================================-->
-
 
   <back>
     <references title='Normative References'>
@@ -2961,7 +2931,6 @@ Section Header
         </list>
       </t>
     </section>
-
 
   </back>
 </rfc>

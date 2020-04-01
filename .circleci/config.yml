@@ -90,7 +90,6 @@ jobs:
           paths:
             - ~/.cache/xml2rfc
 
-
 workflows:
   version: 2
   build:

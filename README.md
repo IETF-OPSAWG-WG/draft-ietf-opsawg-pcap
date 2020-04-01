@@ -20,7 +20,6 @@ $ make
 This requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/master/doc/SETUP.md).
 
-
 ## Contributing
 
 ### Implementations
