@@ -96,9 +96,9 @@
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |          Major Version        |         Minor Version         |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 8 |                           Reserved                            |
+ 8 |                           Reserved1                           |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-12 |                           Reserved                            |
+12 |                           Reserved2                           |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 16 |                            SnapLen                            |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -139,10 +139,17 @@
             without checking the version number but code that reads the
             old format could not read all files in the new format.</t>
 
-            <t>Reserved (32 bits): not used - SHOULD be filled with 0 by
+            <t>Reserved1 (32 bits): not used - SHOULD be filled with 0 by
             pcap file writers, and MUST be ignored by pcap file
-            readers. Some older file writers have stored values in
-            them.</t>
+            readers. This value was documented by some older implementations
+            as "gmt to local correction". Some older pcap file writers
+            stored non-zero values in this field.</t>
+
+            <t>Reserved2 (32 bits): not used - SHOULD be filled with 0 by
+            pcap file writers, and MUST be ignored by pcap file
+            readers. This value was documented by some older implementations
+            as "accuracy of timestamps". Some older pcap file writers
+            stored non-zero values in this field.</t>
 
             <t>SnapLen (32 bits): an unsigned value indicating the
             maximum number of octets captured from each packet.  The
