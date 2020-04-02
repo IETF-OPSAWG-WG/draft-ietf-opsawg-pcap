@@ -144,6 +144,13 @@
             readers. Some older file writers have stored values in
             them.</t>
 
+            <t>SnapLen (32 bits): an unsigned value indicating the
+            maximum number of octets captured from each packet.  The
+            portion of each packet that exceeds this value will not be
+            stored in the file.  This value MUST NOT be zero; if no
+            limit was specified, the value should be a number greater
+            than or equal to the largest packet length in the file.</t>
+
             <t>LinkType (32 bits): an unsigned value that defines, in
             the lower 16 bits, the link layer type of packets in the
             file, and optionally indicates the length of the Frame Check
@@ -156,13 +163,6 @@
             unknown.  Bit 4, and bits 6 through 15, SHOULD be filled
             with 0 by pcap file writers, and MUST be ignored by pcap
             file readers.</t>
-
-            <t>SnapLen (32 bits): an unsigned value indicating the
-            maximum number of octets captured from each packet.  The
-            portion of each packet that exceeds this value will not be
-            stored in the file.  This value MUST NOT be zero; if no
-            limit was specified, the value should be a number greater
-            than or equal to the largest packet length in the file.</t>
 
           </list>
         </t>
