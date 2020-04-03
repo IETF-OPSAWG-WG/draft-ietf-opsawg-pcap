@@ -1,26 +1,44 @@
-# pcapng
+# PCAP Next Generation (pcapng) Capture File Format
 
-[![pcapng draft as HTML](https://img.shields.io/badge/pcapng--draft-html-green.svg)](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii&type=ascii)
-[![pcapng draft as Text](https://img.shields.io/badge/pcapng--draft-text-green.svg)](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/ascii&type=ascii)
-[![pcapng draft as PDF](https://img.shields.io/badge/pcapng--draft-pdf-green.svg)](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/pdf&type=ascii)
-[![pcapng mailing list](https://img.shields.io/badge/pcapng--mailing--list-42-green.svg?style=social)](https://www.winpcap.org/mailman/listinfo/pcap-ng-format)
-[![list archive](https://img.shields.io/badge/list--archive-1k-green.svg?style=social)](http://www.winpcap.org/pipermail/pcap-ng-format/)
-[![build status](https://travis-ci.org/alagoutte/pcapng.svg?branch=master)](http://pcapng.github.io/pcapng/)
+This is the working area for the individual Internet-Draft, "PCAP Next Generation (pcapng) Capture File Format".
 
-## The pcap Next Generation Capture File Format
+* [Editor's Copy](https://mcr.github.io/pcapng/#go.draft-tuexen-opsawg-pcapng.html)
+* [Individual Draft](https://tools.ietf.org/html/draft-tuexen-opsawg-pcapng)
+* [Compare Editor's Copy to Individual Draft](https://mcr.github.io/pcapng/#go.draft-tuexen-opsawg-pcapng.diff)
+* [Current committed version as HTML](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii&type=ascii)
+* [Current committed version as Text](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/ascii&type=ascii)
+* [Current committed version as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/pdf&type=ascii)
 
-This is the GitHub repository for the pcapng file format draft specification. The specification is currently a work-in-progress.
+## Building the Draft
 
-Join the [pcapng mailing list](https://www.winpcap.org/mailman/listinfo/pcap-ng-format) to discuss, or view the [list archive](http://www.winpcap.org/pipermail/pcap-ng-format/) to view the previous discussions.
+Formatted text and HTML versions of the draft can be built using `make`.
 
-## The Latest Draft
+```sh
+$ make
+```
 
-* View the [pcapng draft as HTML](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii&type=ascii).
+This requires that you have the necessary software installed.  See
+[the instructions](https://github.com/martinthomson/i-d-template/blob/master/doc/SETUP.md).
 
-* View the [pcapng draft as Text](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/ascii&type=ascii).
+## Contributing
 
-* View the [pcapng draft as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/pdf&type=ascii).
-
-## Implementations
+### Implementations
 
 Some known implementations that read or write the pcapng file format are listed on the [wiki](https://github.com/pcapng/pcapng/wiki/Implementations).
+
+## The pcap Capture File Format
+
+This repository also includes a draft specification for the historic
+pcap file format.
+
+### The Latest Draft
+
+* View the [pcap draft as HTML](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=html/ascii&type=ascii).
+
+* View the [pcap draft as Text](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=txt/ascii&type=ascii).
+
+* View the [pcap draft as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=txt/pdf&type=ascii).
+
+See the
+[guidelines for contributions](https://github.com/mcr/pcapng/blob/master/CONTRIBUTING.md).
+

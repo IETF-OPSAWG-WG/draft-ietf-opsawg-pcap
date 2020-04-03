@@ -10,7 +10,7 @@
 
 <rfc category='info'
      ipr='trust200902'
-     docName="draft-tuexen-opsawg-pcapng">
+     docName="draft-tuexen-opsawg-pcapng-02">
 
   <front>
 
@@ -73,7 +73,18 @@
 
     <author initials='G.' surname='Harris' fullname='Guy Harris'>
       <address>
-        <email>guy@alum.mit.edu</email>
+        <email>gharris@sonic.net</email>
+      </address>
+    </author>
+
+    <author fullname="Michael C. Richardson" initials="M."
+            surname="Richardson">
+      <organization abbrev="Sandelman">Sandelman Software Works</organization>
+
+      <address>
+        <email>mcr+ietf@sandelman.ca</email>
+
+        <uri>http://www.sandelman.ca/</uri>
       </address>
     </author>
 
@@ -86,7 +97,6 @@
     </abstract>
 
   </front>
-
 
 <!--===========================================================================
 
@@ -158,7 +168,6 @@
 
     </section>
 
-
     <section title="General File Structure">
 
       <section anchor="section_block" title="General Block Structure">
@@ -169,18 +178,18 @@
 
         <figure anchor="formatblock" title="Basic block structure." align="center">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
- 0                   1                   2                   3
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                          Block Type                           |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                      Block Total Length                       |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-/                          Block Body                           /
-/              variable length, padded to 32 bits               /
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                      Block Total Length                       |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                          Block Type                           |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 /                          Block Body                           /
+   /              variable length, padded to 32 bits               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
         </figure>
 
@@ -330,7 +339,6 @@ Section Header
 
       </section>
 
-
       <section title="Physical File Layout">
 
         <t>The file MUST begin with a Section Header Block. However, more than
@@ -411,7 +419,6 @@ Section Header
 
       </section>
 
-
       <section anchor="section_opt" title="Options">
 
         <t>All the block bodies MAY embed optional fields.
@@ -441,7 +448,7 @@ Section Header
           <list style="symbols">
 
             <t>Option Type (16 bits): an unsigned value that contains
-            the code that specifies the type of the current TLV record. 
+            the code that specifies the type of the current TLV record.
             Option types whose Most Significant Bit is equal to one are
             reserved for local use; therefore, there is no guarantee
             that the code used is unique among all capture files
@@ -479,7 +486,7 @@ Section Header
         that have an invalid length as errors; the software MAY stop
         processing the file if it sees an option that has invalid
         length, or MAY ignore the option and continue processing it.
-        Software that writes these files MUST not write files with
+        Software that writes these files MUST NOT write files with
         options that have invalid lengths.</t>
 
         <t>If an option's value is a string, the value is not necessarily
@@ -507,7 +514,7 @@ Section Header
 
         <figure anchor="formatopt" title="Options Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
- 0                   1                   2                   3
+                     1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |      Option Code              |         Option Length         |
@@ -519,7 +526,7 @@ Section Header
 /                 . . . other options . . .                     /
 /                                                               /
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|   Option Code == opt_endofopt  |  Option Length == 0          |
+|   Option Code == opt_endofopt |   Option Length == 0          |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  </artwork>
         </figure>
@@ -573,7 +580,6 @@ Section Header
           </list>
         </t>
 
-
         <section anchor="section_custom_option" title="Custom Options">
 
           <t>Customs Options are used for portable, vendor-specific data
@@ -587,11 +593,11 @@ Section Header
 
           <figure anchor="formatcustomopt" title="Custom Options Format">
             <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
- 0                   1                   2                   3
+                     1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |     Custom Option Code        |         Option Length         |
-+---------------------------------------------------------------+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                Private Enterprise Number (PEN)                |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 /                        Custom Data                            /
@@ -708,7 +714,6 @@ Section Header
 
     </section>
 
-
     <section title="Block Definition">
 
       <t>This section details the format of the blocks currently defined.</t>
@@ -716,18 +721,18 @@ Section Header
       <section anchor="section_shb" title="Section Header Block">
 
         <t>The Section Header Block (SHB) is mandatory. It identifies the
-        beginning of a section of the capture capture file. The Section Header
+        beginning of a section of the capture file. The Section Header
         Block does not contain data but it rather identifies a list of blocks
         (interfaces, packets) that are logically correlated. Its format is
         shown in <xref target="format_shb"/>.</t>
 
         <figure anchor="format_shb" title="Section Header Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-   0                   1                   2                   3
-   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +---------------------------------------------------------------+
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                   Block Type = 0x0A0D0D0A                     |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |                      Byte-Order Magic                         |
@@ -743,7 +748,7 @@ Section Header
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
         </figure>
 
@@ -780,7 +785,7 @@ Section Header
             files.</t>
 
             <t>Major Version (16 bits): an unsigned value, giving the
-            number of the current mayor version of the format. The
+            number of the current major version of the format. The
             value for the current version of the format is 1. This
             value should change if the format changes in such a way that
             code that reads the new format could not read the old format
@@ -807,7 +812,7 @@ Section Header
             the Section Length is -1 (0xFFFFFFFFFFFFFFFF), this means
             that the size of the section is not specified, and the only
             way to skip the section is to parse the blocks that it
-            contains. Please note that if this field is valid (i.e. 
+            contains. Please note that if this field is valid (i.e.
             not negative), its value is always a multiple of 4, as all
             the blocks are aligned to and padded to 32-bit (4 octet)
             boundaries. Also, special care should be taken in accessing
@@ -884,7 +889,6 @@ Section Header
 
       </section>
 
-
       <section anchor="section_idb" title="Interface Description Block">
 
         <t>An Interface Description Block (IDB) is the container for
@@ -897,7 +901,7 @@ Section Header
         question. This number is unique within each Section and
         identifies the interface to which the IDB refers; it is only
         unique inside the current section, so, two Sections can have
-        different interfaces identified by the same Interface ID values. 
+        different interfaces identified by the same Interface ID values.
         This unique identifier is referenced by other blocks, such as
         Enhanced Packet Blocks and Interface Statistic Blocks, to
         indicate the interface to which the block refers (such the
@@ -919,11 +923,11 @@ Section Header
 
         <figure anchor="format_idb" title="Interface Description Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000001                    |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |           LinkType            |           Reserved            |
@@ -935,7 +939,7 @@ Section Header
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  </artwork>
         </figure>
 
@@ -950,9 +954,8 @@ Section Header
 
             <t>LinkType (16 bits): an unsigned value that defines the
             link layer type of this interface.  The list of Standardized
-            Link Layer Type codes is available in <eref
-            target="http://www.tcpdump.org/linktypes.html">the tcpdump.org
-            link-layer header types registry</eref>.</t>
+            Link Layer Type codes is available in <xref
+            target="LINKTYPES"/>.</t>
 
             <t>Reserved (16 bits): not used - MUST be filled with 0 by
             pcap file writers, and MUST be ignored by pcapng file
@@ -1116,7 +1119,7 @@ Section Header
             means microsecond resolution, timestamps are the number of
             microseconds since 1970-01-01 00:00:00 UTC). If the Most
             Significant Bit is equal to one, the remaining bits indicates
-            the resolution as as negative power of 2 (e.g. 10 means 1/1024
+            the resolution as negative power of 2 (e.g. 10 means 1/1024
             of second). If this option is not present, a resolution of
             10^-6 is assumed (i.e. timestamps have the same resolution of
             the standard 'libpcap' timestamps).</t>
@@ -1185,7 +1188,6 @@ Section Header
         </t>
       </section>
 
-
       <section anchor="section_epb" title="Enhanced Packet Block">
 
         <t>An Enhanced Packet Block (EPB) is the standard container for
@@ -1215,11 +1217,11 @@ Section Header
 
         <figure anchor="format_epb" title="Enhanced Packet Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-   0                   1                   2                   3
-   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +---------------------------------------------------------------+
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000006                    |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |                         Interface ID                          |
@@ -1242,7 +1244,7 @@ Section Header
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
         </figure>
 
@@ -1298,9 +1300,8 @@ Section Header
             boundary. The format of the link-layer headers depends on
             the LinkType field specified in the Interface Description
             Block (see <xref target="section_idb"/>) and it is specified
-            in the entry for that format in the <eref
-            target="http://www.tcpdump.org/linktypes.html">the
-            tcpdump.org link-layer header types registry</eref>.</t>
+            in the entry for that format in <xref
+            target="LINKTYPES"/>.</t>
 
             <t>Options: optionally, a list of options (formatted according to
             the rules defined in <xref target="section_opt"/>) can be present.</t>
@@ -1429,7 +1430,6 @@ Section Header
 
       </section>
 
-
       <section anchor="section_spb" title="Simple Packet Block">
 
         <t>The Simple Packet Block (SPB) is a lightweight container for
@@ -1456,11 +1456,11 @@ Section Header
 
         <figure anchor="format_spb" title="Simple Packet Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000003                    |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |                    Original Packet Length                     |
@@ -1471,7 +1471,7 @@ Section Header
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  </artwork>
         </figure>
 
@@ -1501,9 +1501,7 @@ Section Header
             of the data within this Packet Data field depends on the
             LinkType field specified in the Interface Description Block
             (see <xref target="section_idb"/>) and it is specified in
-            the entry for that format in <eref
-            target="http://www.tcpdump.org/linktypes.html">the
-            tcpdump.org link-layer header types registry</eref>.</t>
+            the entry for that format in <xref target="LINKTYPES"/>.</t>
 
           </list>
         </t>
@@ -1522,7 +1520,6 @@ Section Header
         which corresponds to an efficiency of more than 86%.</t>
 
       </section>
-
 
       <section anchor="section_nrb" title="Name Resolution Block">
 
@@ -1555,11 +1552,11 @@ Section Header
 
         <figure anchor="format_nrb" title="Name Resolution Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000004                    |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |      Record Type              |      Record Value Length      |
@@ -1578,7 +1575,7 @@ Section Header
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  </artwork>
         </figure>
 
@@ -1727,7 +1724,6 @@ Section Header
 
       </section>
 
-
       <section anchor="section_isb" title="Interface Statistics Block">
 
         <t>The Interface Statistics Block (ISB) contains the capture
@@ -1743,11 +1739,11 @@ Section Header
 
         <figure anchor="format_isb" title="Interface Statistics Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                   Block Type = 0x00000005                     |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |                         Interface ID                          |
@@ -1761,7 +1757,7 @@ Section Header
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  </artwork>
         </figure>
 
@@ -1915,7 +1911,6 @@ Section Header
 
       </section><!-- section_isb -->
 
-
       <section anchor="section_sdj_export" title="systemd Journal Export Block">
 
         <t>The <eref target="https://www.freedesktop.org/wiki/Software/systemd/">systemd</eref>
@@ -1945,11 +1940,11 @@ Section Header
 
         <figure anchor="format_sdj_export" title="systemd Journal Export Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000009                    |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 /                                                               /
@@ -1958,7 +1953,7 @@ Section Header
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  </artwork>
         </figure>
 
@@ -1978,7 +1973,7 @@ Section Header
             documentation. The __REALTIME_TIMESTAMP= field MUST be
             present and valid as described above. Entries are not
             guaranteed to be a multiple of four octets and must be
-            zero-padded. This allows the length of the entry to be be
+            zero-padded. This allows the length of the entry to be
             determined by finding the last non-zero octet in the Journal
             Entry data. An entry may contain an entry separator
             (trailing newline) as described in the Journal Export Format
@@ -1988,7 +1983,6 @@ Section Header
         </t>
 
       </section><!-- section_sdj_export -->
-
 
       <section anchor="section_dsb" title="Decryption Secrets Block">
 
@@ -2005,11 +1999,11 @@ Section Header
 
         <figure anchor="format_dsb" title="Decryption Secrets Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-   0                   1                   2                   3
-   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +---------------------------------------------------------------+
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                   Block Type = 0x0000000A                     |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |                          Secrets Type                         |
@@ -2026,7 +2020,7 @@ Section Header
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    /                       Block Total Length                      /
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
         </figure>
 
@@ -2040,7 +2034,7 @@ Section Header
             <xref target="section_block"/>.</t>
 
             <t>Secrets Type (32 bits): an unsigned integer identifier
-            that describes the format of the following Secrets field. 
+            that describes the format of the following Secrets field.
             Requests for new Secrets Type codes should be sent to the
             <eref target="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-ng-format mailing list</eref>.</t>
 
@@ -2175,9 +2169,7 @@ Section Header
    +---------------------------------------------------------------+
 </artwork>
         </figure>
-
-      </section>
-
+        
       <section anchor="section_custom_block" title="Custom Block">
 
         <t>A Custom Block (CB) is the container for storing custom data that
@@ -2192,13 +2184,13 @@ Section Header
 
         <figure anchor="format_custom_block" title="Custom Block Format">
           <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-   0                   1                   2                   3
-   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +---------------------------------------------------------------+
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |             Block Type = 0x00000BAD or 0x40000BAD             |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |                      Block Total Length                       |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |                Private Enterprise Number (PEN)                |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 12 /                                                               /
@@ -2211,7 +2203,7 @@ Section Header
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
         </figure>
 
@@ -2251,7 +2243,6 @@ Section Header
 
     </section>
 
-
     <section title="Experimental Blocks (deserve further investigation)">
 
       <section title="Alternative Packet Blocks (experimental)">
@@ -2270,24 +2261,24 @@ Section Header
 
         <figure anchor="formatcb" title="Compression Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
- 0                   1                   2                   3
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-+---------------------------------------------------------------+
-|                        Block Type = ?                         |
-+---------------------------------------------------------------+
-|                      Block Total Length                       |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|  Compr. Type  |                                               |
-+-+-+-+-+-+-+-+-+                                               |
-|                                                               |
-|                       Compressed Data                         |
-|                                                               |
-|  variable length, octet-aligned and padded to end on a 32-bit |
-|                         boundary                              |
-|                                                               |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                      Block Total Length                       |
-+---------------------------------------------------------------+
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                        Block Type = ?                         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |  Compr. Type  |                                               /
+   +-+-+-+-+-+-+-+-+                                               /
+   /                                                               /
+   /                       Compressed Data                         /
+   /                                                               /
+   /  variable length, octet-aligned and padded to end on a 32-bit /
+   /                         boundary                              /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  </artwork>
         </figure>
 
@@ -2314,7 +2305,6 @@ Section Header
         </t>
       </section>
 
-
       <section title="Encryption Block (experimental)">
 
         <t>The Encryption Block is optional. A file can contain an arbitrary
@@ -2323,23 +2313,23 @@ Section Header
 
         <figure anchor="formateb" title="Encryption Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
- 0                   1                   2                   3
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-+---------------------------------------------------------------+
-|                        Block Type = ?                         |
-+---------------------------------------------------------------+
-|                      Block Total Length                       |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|   Encr. Type  |                                               |
-+-+-+-+-+-+-+-+-+                                               |
-|                                                               |
-|                       Encrypted Data                          |
-|                                                               |
-|                 variable length, octet-aligned                |
-|                                                               |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                      Block Total Length                       |
-+---------------------------------------------------------------+
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                        Block Type = ?                         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |   Encr. Type  |                                               /
+   +-+-+-+-+-+-+-+-+                                               /
+   /                                                               /
+   /                       Encrypted Data                          /
+   /                                                               /
+   /                 variable length, octet-aligned                /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  </artwork>
         </figure>
 
@@ -2355,7 +2345,7 @@ Section Header
             <t>Encryption Type (8 bits): an unsigned value that
             specifies the encryption algorithm.  Possible values for
             this field are ??? (TODO) NOTE: this block should probably
-            contain other fields, depending on the encryption algorithm. 
+            contain other fields, depending on the encryption algorithm.
             To be defined precisely.</t>
 
             <t>Encrypted Data: data of this block. Once decrypted, it
@@ -2364,7 +2354,6 @@ Section Header
           </list>
         </t>
       </section>
-
 
       <section title="Fixed Length Block (experimental)">
 
@@ -2380,24 +2369,24 @@ Section Header
 
         <figure anchor="formatflm" title="Fixed Length Block Format">
           <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
- 0                   1                   2                   3
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-+---------------------------------------------------------------+
-|                        Block Type = ?                         |
-+---------------------------------------------------------------+
-|                      Block Total Length                       |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|          Cell Size            |                               |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+                               |
-|                                                               |
-|                        Fixed Size Data                        |
-|                                                               |
-|                 variable length, octet-aligned                |
-|                                                               |
-|                                                               |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                      Block Total Length                       |
-+---------------------------------------------------------------+
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                        Block Type = ?                         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |          Cell Size            |                               |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+                               /
+   /                                                               /
+   /                        Fixed Size Data                        /
+   /                                                               /
+   /                 variable length, octet-aligned                /
+   /                                                               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  </artwork>
         </figure>
 
@@ -2419,7 +2408,6 @@ Section Header
         </t>
       </section>
 
-
       <section title="Directory Block (experimental)">
 
         <t>If present, this block contains the following information:
@@ -2440,7 +2428,6 @@ Section Header
 
       </section>
 
-
       <section title="Traffic Statistics and Monitoring Blocks (experimental)">
 
         <t>One or more blocks could be defined to contain network statistics
@@ -2449,7 +2436,6 @@ Section Header
         monitoring tools.</t>
 
       </section>
-
 
       <section title="Event/Security Block (experimental)">
 
@@ -2473,7 +2459,6 @@ Section Header
       </section>
 
     </section>
-
 
     <section anchor="section_vendor" title="Vendor-Specific Custom Extensions">
 
@@ -2580,7 +2565,6 @@ Section Header
 
     </section>
 
-
     <section title="Recommended File Name Extension: .pcapng">
 
       <t>The recommended file name extension for the "PCAP Next Generation
@@ -2596,11 +2580,10 @@ Section Header
       extension for files following this specification.</t>
 
       <t>Please note: To avoid confusion (such as the current usage of
-      .cap for a plethora of different capture file formats) other file
-      name extensions than .pcapng should be avoided.</t>
+      .cap for a plethora of different capture file formats) file
+      name extensions other than .pcapng should be avoided.</t>
 
     </section>
-
 
     <section title="Conclusions">
 
@@ -2616,7 +2599,6 @@ Section Header
 
     </section>
 
-
     <section title="Implementations">
 
       <t>Some known implementations that read or write the pcapng file format
@@ -2625,7 +2607,6 @@ Section Header
       GitHub wiki</eref>.</t>
 
     </section>
-
 
     <section title="Security Considerations">
 
@@ -2858,14 +2839,12 @@ Section Header
 
     </section>
 
-
     <section title='Contributors'>
 
       <t>Loris Degioanni and Gianluca Varenni were coauthoring this document
       before it was submitted to the IETF.</t>
 
     </section>
-
 
     <section title="Acknowledgments">
 
@@ -2879,23 +2858,30 @@ Section Header
 
   </middle>
 
-
 <!--===========================================================================
 
     Back End - still within the <rfc> tag
 
 ============================================================================-->
 
-
   <back>
     <references title='Normative References'>
       <?rfc include='reference.RFC.2119'?>
     </references>
 
-    <!--
     <references title='Informational References'>
+
+      <reference anchor="LINKTYPES" target="http://www.tcpdump.org/linktypes.html">
+        <front>
+          <title>the tcpdump.org link-layer header types registry</title>
+          <author initials="" surname="" fullname="">
+            <organization>The Tcpdump Group</organization>
+          </author>
+          <date/>
+        </front>
+      </reference>
+
     </references>
-    -->
 
     <section anchor="appendix_pb" title="Packet Block (obsolete!)">
 
@@ -2908,11 +2894,11 @@ Section Header
 
       <figure anchor="formatpb" title="Packet Block Format">
         <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
-    0                   1                   2                   3
+                        1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                    Block Type = 0x00000002                    |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  4 |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |         Interface ID          |          Drops Count          |
@@ -2935,7 +2921,7 @@ Section Header
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
-   +---------------------------------------------------------------+
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </artwork>
       </figure>
 
@@ -2982,9 +2968,7 @@ Section Header
           boundary. The format of the link-layer headers depends on
           the LinkType field specified in the Interface Description
           Block (see <xref target="section_idb"/>) and it is specified
-          in the entry for that format in the <eref
-          target="http://www.tcpdump.org/linktypes.html">the
-          tcpdump.org link-layer header types registry</eref>.</t>
+          in the entry for that format in <xref target="LINKTYPES"/>.</t>
 
           <t>Options: optionally, a list of options (formatted according to
           the rules defined in <xref target="section_opt"/>) can be present.</t>
@@ -3030,7 +3014,6 @@ Section Header
         </list>
       </t>
     </section>
-
 
   </back>
 </rfc>

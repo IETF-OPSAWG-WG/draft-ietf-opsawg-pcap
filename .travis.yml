@@ -1,18 +1,39 @@
-language: python
+sudo: required
+dist: xenial
 
-before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -y python-lxml python-pip
-install:
- # here we don't use the travis default virtualenv because that
- # causes us to install lxml again below, doubling the build time
- # when it compiles the native modules from source
- - deactivate
- - gem install kramdown-rfc2629
- - sudo pip install xml2rfc
-
-script: make ghpages
+services:
+  - docker
 
 env:
-  global:
-    - secure: H/63OC4PX7+WIn6xlUnBVV5/JExIBUWkHJv3LKSuNcmmHdKbs+hmZLQyuUp6sWKSR4IelKrTs7rw4TO2Mq/aNKW2I4WSrFujCiVAxuE6f9RSii5U3IxbnCn8aFs3o3yd9PWPKmnq1jfi0wB+TD+SskrAM5IjplGcn0FdjK2C5y8=
+  DRAFT_DIR: /home/idci/draft
+
+before_install:
+  - docker --version
+  - docker pull martinthomson/i-d-template
+
+script:
+  - docker run -d -v "$PWD:/tmp/draft" --tmpfs "$DRAFT_DIR:rw,exec" --name idci
+      martinthomson/i-d-template sleep 300
+  - docker exec idci cp -rn /tmp/draft /home/idci
+  - docker exec -w "$DRAFT_DIR" -e CI=true -e TRAVIS
+      -e TRAVIS_REPO_SLUG -e TRAVIS_BRANCH -e TRAVIS_TAG -e TRAVIS_PULL_REQUEST
+      idci make CLONE_ARGS='--reference /home/idci/git-reference'
+  - docker exec idci ls -l /home/idci/draft/lib
+  - if [ "${TRAVIS_TAG#draft-}" == "${TRAVIS_TAG}" ]; then
+      docker exec -w "$DRAFT_DIR" -e CI=true -e GH_TOKEN -e TRAVIS
+        -e TRAVIS_REPO_SLUG -e TRAVIS_BRANCH -e TRAVIS_TAG -e TRAVIS_PULL_REQUEST
+        idci make ghpages;
+    fi
+
+deploy:
+  provider: script
+  script:
+    - docker exec -w "$DRAFT_DIR" -e CI=true -e GH_TOKEN -e TRAVIS
+        -e TRAVIS_REPO_SLUG -e TRAVIS_BRANCH -e TRAVIS_TAG -e TRAVIS_PULL_REQUEST
+        idci make upload
+  skip_cleanup: true
+  on:
+    tags: true
+
+after_script:
+  - docker container rm -f idci
