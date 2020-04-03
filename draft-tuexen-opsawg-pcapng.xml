@@ -2088,30 +2088,95 @@ Section Header
             are long-term secrets, users SHOULD only store non-production keys,
             or ensure proper protection of the pcapng file.</t>
 
-            <t hangText="0x5a4e574b:"><vspace blankLines="0"/>ZigBee NWK Key.
-            Network Key as described in the <eref target="https://zigbeealliance.org/">
-            ZigBee Specification</eref> 05-3473-21 (R21) section 4.2.2. The NWK Key
-            is a 16 octet binary AES-128 key used to secure NWK Level frames
-            within a single PAN. If and when the NWK Key changes a new DSB will
-            contain the new NWK Key.
+            <t hangText="0x5a4e574b:"><vspace blankLines="0"/>ZigBee NWK Key
+            and ZigBee PANID for that network. Network Key as described in
+            the <eref target="https://zigbeealliance.org/">
+            ZigBee Specification</eref> 05-3473-21 (R21) section 4.2.2.
+            The NWK Key is a 16 octet binary AES-128 key used to secure NWK Level frames
+            within a single PAN. The NWK key is immediately followed by the
+            2 octet (16 bit) network PANID in little endian format. If and when
+            the NWK Key changes a new DSB will contain the new NWK Key.
             </t>
 
             <t hangText="0x5a415053:"><vspace blankLines="0"/>ZigBee APS Key.
             Application Support Link Key as described in the 
             <eref target="https://zigbeealliance.org/"> ZigBee Specification</eref>
             05-3473-21 (R21) section 4.4. Each 16 octet binary AES-128 key secures
-            frames exchanged between a pair of network nodes. There is a APS
-            Key DSB for each node pair for which the Link Key is known. As new links
-            are formed, new DSBs contain the new Keys. If the APS Key changes
-            for an existing link, it is contained in a new DSB with the new
-            APS Key.
+            frames exchanged between a pair of network nodes. The APS Key is
+            immediately followed by the 2 octet (16 bit) network PANID in
+            little endian format. The PANID is followed by the 2 octet (16 bit)
+            short addresses, in little endian format, of the nodes to which
+            the APS Key applies. The numerically lower short address shall come
+            first. There is a APS Key DSB for each node pair for which the
+            Link Key is known. As new links are formed, new DSBs contain the
+            new Keys. If the APS Key changes for an existing link, it is
+            contained in a new DSB with the new APS Key.
             </t>
-
           </list>
+
         </t>
 
-      </section>
+        <figure anchor="format_zigbee_nwk" title="ZigBee NWK Key Data Format">
+          <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                   Block Type = 0x0000000A                     |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                  Secrets Type = 0x5a4e574b                    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |                         Secrets Length                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 |                            AES-128                            |
+   |                            NKW Key                            |
+   |                          (16 octets)                          |
+   |                           (128 bits)                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+32 |          PAN ID               |           padding (0)         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+36 /                                                               /
+   /                       Options (variable)                      /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                       Block Total Length                      /
+   +---------------------------------------------------------------+
+</artwork>
+        </figure>
 
+        <figure anchor="format_zigbee_aps" title="ZigBee APS Key Data Format">
+          <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                   Block Type = 0x0000000A                     |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                  Secrets Type = 0x5a415053                    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |                         Secrets Length                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 |                            AES-128                            |
+   |                            APS Key                            |
+   |                          (16 octets)                          |
+   |                           (128 bits)                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+32 |           PAN ID              |     Low Node Short Address    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+36 |    High Node Short Address    |         padding (0)           |     
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+40 /                                                               /
+   /                       Options (variable)                      /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                       Block Total Length                      /
+   +---------------------------------------------------------------+
+</artwork>
+        </figure>
+
+      </section>
 
       <section anchor="section_custom_block" title="Custom Block">
 
