@@ -1919,10 +1919,10 @@ Section Header
         Journal Export Format entry data.</t>
 
         <t>One of the primary components of the systemd System and
-        Service Manager is the “Journal”, a message logging system that
+        Service Manager is the "Journal", a message logging system that
         uses arrays of key-value pairs. Journal entries are stored in a
         databse-like file on disk but can be serialized to easily
-        parseable “Journal Export Format” data or to a JSON object. The
+        parseable "Journal Export Format" data or to a JSON object. The
         block described here is limited to Journal Export Format data
         only.</t>
 
