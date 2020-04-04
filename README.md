@@ -40,5 +40,5 @@ pcap file format.
 * View the [pcap draft as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=txt/pdf&type=ascii).
 
 See the
-[guidelines for contributions](https://github.com/mcr/pcapng/blob/master/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/pcapng/pcapng/blob/master/CONTRIBUTING.md).
 
