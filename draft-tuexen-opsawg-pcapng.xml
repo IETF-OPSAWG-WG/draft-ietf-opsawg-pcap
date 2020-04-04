@@ -1915,7 +1915,7 @@ Section Header
 
         <t>The <eref target="https://www.freedesktop.org/wiki/Software/systemd/">systemd</eref>
         <eref target="https://www.freedesktop.org/wiki/Software/systemd/export/">Journal
-        Export Block</eref> is a lightweight containter for systemd
+        Export Block</eref> is a lightweight container for systemd
         Journal Export Format entry data.</t>
 
         <t>One of the primary components of the systemd System and
