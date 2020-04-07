@@ -1915,14 +1915,14 @@ Section Header
 
         <t>The <eref target="https://www.freedesktop.org/wiki/Software/systemd/">systemd</eref>
         <eref target="https://www.freedesktop.org/wiki/Software/systemd/export/">Journal
-        Export Block</eref> is a lightweight containter for systemd
+        Export Block</eref> is a lightweight container for systemd
         Journal Export Format entry data.</t>
 
         <t>One of the primary components of the systemd System and
-        Service Manager is the “Journal”, a message logging system that
+        Service Manager is the "Journal", a message logging system that
         uses arrays of key-value pairs. Journal entries are stored in a
         databse-like file on disk but can be serialized to easily
-        parseable “Journal Export Format” data or to a JSON object. The
+        parseable "Journal Export Format" data or to a JSON object. The
         block described here is limited to Journal Export Format data
         only.</t>
 
@@ -2107,7 +2107,6 @@ Section Header
             contained in a new DSB with the new APS Key.
             </t>
           </list>
-
         </t>
 
         <figure anchor="format_zigbee_nwk" title="ZigBee NWK Key Data Format">
@@ -2136,7 +2135,7 @@ Section Header
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    /                       Block Total Length                      /
    +---------------------------------------------------------------+
-</artwork>
+          </artwork>
         </figure>
 
         <figure anchor="format_zigbee_aps" title="ZigBee APS Key Data Format">
@@ -2169,7 +2168,8 @@ Section Header
    +---------------------------------------------------------------+
 </artwork>
         </figure>
-        
+      </section>
+
       <section anchor="section_custom_block" title="Custom Block">
 
         <t>A Custom Block (CB) is the container for storing custom data that
