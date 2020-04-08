@@ -1,0 +1,2530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>PCAP Next Generation (pcapng) Capture File Format</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+      /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+      a.info {
+          /* This is the key. */
+          position: relative;
+          z-index: 24;
+          text-decoration: none;
+      }
+      a.info:hover {
+          z-index: 25;
+          color: #FFF; background-color: #900;
+      }
+      a.info span { display: none; }
+      a.info:hover span.info {
+          /* The span will display just on :hover state. */
+          display: block;
+          position: absolute;
+          font-size: smaller;
+          top: 2em; left: -5em; width: 15em;
+          padding: 2px; border: 1px solid #333;
+          color: #900; background-color: #EEE;
+          text-align: left;
+      }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  max-width: 55em;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+<style type="text/css">
+@viewport {
+  zoom: 1.0;
+  width: extend-to-zoom;
+}
+
+@-ms-viewport {
+  width: extend-to-zoom;
+  zoom: 1.0;
+}
+
+body {
+  font: 11pt cambria, helvetica, arial, sans-serif;
+  font-size-adjust: 0.5;
+  line-height: 130%;
+  margin: 1em auto;
+  max-width: 700px;
+}
+
+.title, .filename, h1, h2, h3, h4 {
+  font-family: candara, helvetica, arial, sans-serif;
+  font-size-adjust: 0.5;
+}
+.title { font-size: 150%; }
+h1 { font-size: 130%; }
+h2 { font-size: 120%; }
+h3, h4 { font-size: 110%; }
+
+table {
+  margin-left: 0em;
+}
+table.header {
+  width: 100%;
+}
+
+table.header td {
+  background-color: inherit;
+  color: black;
+}
+
+samp, tt, code, pre {
+  font: 11pt consolas, monospace;
+  font-size-adjust: none;
+}
+
+pre.text, pre.text2 {
+  width: 90%;
+}
+
+dt {
+  float: left; clear: left;
+  margin: 0.5em 0.5em 0 0;
+}
+dt:first-child {
+  margin-top: 0;
+}
+dd {
+  margin: 0.5em 0 0 2em;
+}
+dd p, dd ul {
+  margin-top: 0; margin-bottom: 0;
+}
+dd *+p {
+  margin-top: 0.5em;
+}
+
+ol, ul {
+  padding: 0;
+  margin: 0.5em 0 0.5em 2em;
+}
+ul.toc, ul.toc ul {
+  margin: 0 0 0 1.5em;
+}
+ul.toc a:first-child {
+  display: inline-block;
+  min-width: 1.2em;
+}
+
+</style>
+
+  <link href="#rfc.toc" rel="Contents">
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
+<link href="#rfc.section.2" rel="Chapter" title="2 Terminology">
+<link href="#rfc.section.2.1" rel="Chapter" title="2.1 Acronyms">
+<link href="#rfc.section.3" rel="Chapter" title="3 General File Structure">
+<link href="#rfc.section.3.1" rel="Chapter" title="3.1 General Block Structure">
+<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Block Types">
+<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Logical Block Hierarchy">
+<link href="#rfc.section.3.4" rel="Chapter" title="3.4 Physical File Layout">
+<link href="#rfc.section.3.5" rel="Chapter" title="3.5 Options">
+<link href="#rfc.section.3.5.1" rel="Chapter" title="3.5.1 Custom Options">
+<link href="#rfc.section.3.6" rel="Chapter" title="3.6 Data format">
+<link href="#rfc.section.3.6.1" rel="Chapter" title="3.6.1 Endianness">
+<link href="#rfc.section.3.6.2" rel="Chapter" title="3.6.2 Alignment">
+<link href="#rfc.section.4" rel="Chapter" title="4 Block Definition">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Section Header Block">
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Interface Description Block">
+<link href="#rfc.section.4.3" rel="Chapter" title="4.3 Enhanced Packet Block">
+<link href="#rfc.section.4.3.1" rel="Chapter" title="4.3.1 Enhanced Packet Block Flags Word">
+<link href="#rfc.section.4.4" rel="Chapter" title="4.4 Simple Packet Block">
+<link href="#rfc.section.4.5" rel="Chapter" title="4.5 Name Resolution Block">
+<link href="#rfc.section.4.6" rel="Chapter" title="4.6 Interface Statistics Block">
+<link href="#rfc.section.4.7" rel="Chapter" title="4.7 systemd Journal Export Block">
+<link href="#rfc.section.4.8" rel="Chapter" title="4.8 Decryption Secrets Block">
+<link href="#rfc.section.4.9" rel="Chapter" title="4.9 Custom Block">
+<link href="#rfc.section.5" rel="Chapter" title="5 Experimental Blocks (deserve further investigation)">
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 Alternative Packet Blocks (experimental)">
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 Compression Block (experimental)">
+<link href="#rfc.section.5.3" rel="Chapter" title="5.3 Encryption Block (experimental)">
+<link href="#rfc.section.5.4" rel="Chapter" title="5.4 Fixed Length Block (experimental)">
+<link href="#rfc.section.5.5" rel="Chapter" title="5.5 Directory Block (experimental)">
+<link href="#rfc.section.5.6" rel="Chapter" title="5.6 Traffic Statistics and Monitoring Blocks (experimental)">
+<link href="#rfc.section.5.7" rel="Chapter" title="5.7 Event/Security Block (experimental)">
+<link href="#rfc.section.6" rel="Chapter" title="6 Vendor-Specific Custom Extensions">
+<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Supported Use-Cases">
+<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Controlling Copy Behavior">
+<link href="#rfc.section.6.3" rel="Chapter" title="6.3 Strings vs. Octets">
+<link href="#rfc.section.6.4" rel="Chapter" title="6.4 Endianness Issues">
+<link href="#rfc.section.7" rel="Chapter" title="7 Recommended File Name Extension: .pcapng">
+<link href="#rfc.section.8" rel="Chapter" title="8 Conclusions">
+<link href="#rfc.section.9" rel="Chapter" title="9 Implementations">
+<link href="#rfc.section.10" rel="Chapter" title="10 Security Considerations">
+<link href="#rfc.section.11" rel="Chapter" title="11 IANA Considerations">
+<link href="#rfc.section.11.1" rel="Chapter" title="11.1 Standardized Block Type Codes">
+<link href="#rfc.section.12" rel="Chapter" title="12 Contributors">
+<link href="#rfc.section.13" rel="Chapter" title="13 Acknowledgments">
+<link href="#rfc.references" rel="Chapter" title="14 Normative References">
+<link href="#rfc.appendix.A" rel="Chapter" title="A Packet Block (obsolete!)">
+<link href="#rfc.authors" rel="Chapter">
+
+
+  <meta name="generator" content="xml2rfc version 2.41.0 - https://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="Tuexen, M., Ed., Risso, F., Bongertz, J., Combs, G., and G. Harris" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-tuexen-opsawg-pcapng" />
+  <meta name="dct.issued" scheme="ISO8601" content="2020-25" />
+  <meta name="dct.abstract" content="This document describes a format to record captured packets to a file. This format is extensible; Wireshark can currently read and write it, and libpcap can currently read some pcapng files. " />
+  <meta name="description" content="This document describes a format to record captured packets to a file. This format is extensible; Wireshark can currently read and write it, and libpcap can currently read some pcapng files. " />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+<td class="left">Network Working Group</td>
+<td class="right">M. Tuexen, Ed.</td>
+</tr>
+<tr>
+<td class="left">Internet-Draft</td>
+<td class="right">Muenster Univ. of Appl. Sciences</td>
+</tr>
+<tr>
+<td class="left">Intended status: Informational</td>
+<td class="right">F. Risso</td>
+</tr>
+<tr>
+<td class="left">Expires: September 26, 2020</td>
+<td class="right">Politecnico di Torino</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">J. Bongertz</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">Airbus DS CyberSecurity</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">G. Combs</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">Wireshark</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">G. Harris</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">March 25, 2020</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">PCAP Next Generation (pcapng) Capture File Format<br />
+  <span class="filename">draft-tuexen-opsawg-pcapng</span></p>
+  
+  <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
+<p>This document describes a format to record captured packets to a file. This format is extensible; Wireshark can currently read and write it, and libpcap can currently read some pcapng files.</p>
+<h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on September 26, 2020.</p>
+<h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
+<p>Copyright (c) 2020 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a>
+</li>
+<li>2.   <a href="#rfc.section.2">Terminology</a>
+</li>
+<ul><li>2.1.   <a href="#rfc.section.2.1">Acronyms</a>
+</li>
+</ul><li>3.   <a href="#rfc.section.3">General File Structure</a>
+</li>
+<ul><li>3.1.   <a href="#rfc.section.3.1">General Block Structure</a>
+</li>
+<li>3.2.   <a href="#rfc.section.3.2">Block Types</a>
+</li>
+<li>3.3.   <a href="#rfc.section.3.3">Logical Block Hierarchy</a>
+</li>
+<li>3.4.   <a href="#rfc.section.3.4">Physical File Layout</a>
+</li>
+<li>3.5.   <a href="#rfc.section.3.5">Options</a>
+</li>
+<ul><li>3.5.1.   <a href="#rfc.section.3.5.1">Custom Options</a>
+</li>
+</ul><li>3.6.   <a href="#rfc.section.3.6">Data format</a>
+</li>
+<ul><li>3.6.1.   <a href="#rfc.section.3.6.1">Endianness</a>
+</li>
+<li>3.6.2.   <a href="#rfc.section.3.6.2">Alignment</a>
+</li>
+</ul></ul><li>4.   <a href="#rfc.section.4">Block Definition</a>
+</li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Section Header Block</a>
+</li>
+<li>4.2.   <a href="#rfc.section.4.2">Interface Description Block</a>
+</li>
+<li>4.3.   <a href="#rfc.section.4.3">Enhanced Packet Block</a>
+</li>
+<ul><li>4.3.1.   <a href="#rfc.section.4.3.1">Enhanced Packet Block Flags Word</a>
+</li>
+</ul><li>4.4.   <a href="#rfc.section.4.4">Simple Packet Block</a>
+</li>
+<li>4.5.   <a href="#rfc.section.4.5">Name Resolution Block</a>
+</li>
+<li>4.6.   <a href="#rfc.section.4.6">Interface Statistics Block</a>
+</li>
+<li>4.7.   <a href="#rfc.section.4.7">systemd Journal Export Block</a>
+</li>
+<li>4.8.   <a href="#rfc.section.4.8">Decryption Secrets Block</a>
+</li>
+<li>4.9.   <a href="#rfc.section.4.9">Custom Block</a>
+</li>
+</ul><li>5.   <a href="#rfc.section.5">Experimental Blocks (deserve further investigation)</a>
+</li>
+<ul><li>5.1.   <a href="#rfc.section.5.1">Alternative Packet Blocks (experimental)</a>
+</li>
+<li>5.2.   <a href="#rfc.section.5.2">Compression Block (experimental)</a>
+</li>
+<li>5.3.   <a href="#rfc.section.5.3">Encryption Block (experimental)</a>
+</li>
+<li>5.4.   <a href="#rfc.section.5.4">Fixed Length Block (experimental)</a>
+</li>
+<li>5.5.   <a href="#rfc.section.5.5">Directory Block (experimental)</a>
+</li>
+<li>5.6.   <a href="#rfc.section.5.6">Traffic Statistics and Monitoring Blocks (experimental)</a>
+</li>
+<li>5.7.   <a href="#rfc.section.5.7">Event/Security Block (experimental)</a>
+</li>
+</ul><li>6.   <a href="#rfc.section.6">Vendor-Specific Custom Extensions</a>
+</li>
+<ul><li>6.1.   <a href="#rfc.section.6.1">Supported Use-Cases</a>
+</li>
+<li>6.2.   <a href="#rfc.section.6.2">Controlling Copy Behavior</a>
+</li>
+<li>6.3.   <a href="#rfc.section.6.3">Strings vs. Octets</a>
+</li>
+<li>6.4.   <a href="#rfc.section.6.4">Endianness Issues</a>
+</li>
+</ul><li>7.   <a href="#rfc.section.7">Recommended File Name Extension: .pcapng</a>
+</li>
+<li>8.   <a href="#rfc.section.8">Conclusions</a>
+</li>
+<li>9.   <a href="#rfc.section.9">Implementations</a>
+</li>
+<li>10.   <a href="#rfc.section.10">Security Considerations</a>
+</li>
+<li>11.   <a href="#rfc.section.11">IANA Considerations</a>
+</li>
+<ul><li>11.1.   <a href="#rfc.section.11.1">Standardized Block Type Codes</a>
+</li>
+</ul><li>12.   <a href="#rfc.section.12">Contributors</a>
+</li>
+<li>13.   <a href="#rfc.section.13">Acknowledgments</a>
+</li>
+<li>14.   <a href="#rfc.references">Normative References</a>
+</li>
+<li>Appendix A.   <a href="#rfc.appendix.A">Packet Block (obsolete!)</a>
+</li>
+<li><a href="#rfc.authors">Authors' Addresses</a>
+</li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1">
+<a href="#rfc.section.1">1.</a> Introduction</h1>
+<p id="rfc.section.1.p.1">The problem of exchanging packet traces becomes more and more critical every day; unfortunately, no standard solutions exist for this task right now. One of the most accepted packet interchange formats is the one defined by libpcap, which is rather old and is lacking in functionality for more modern applications particularly from the extensibility point of view.</p>
+<p id="rfc.section.1.p.2">This document proposes a new format for recording packet traces. The following goals are being pursued: </p>
+
+<dl>
+<dt>Extensibility:</dt>
+<dd style="margin-left: 8">It should be possible to add new standard capabilities to the file format over time, and third parties should be able to enrich the information embedded in the file with proprietary extensions, with tools unaware of newer extensions being able to ignore them.</dd>
+<dt>Portability:</dt>
+<dd style="margin-left: 8">A capture trace must contain all the information needed to read data independently from network, hardware and operating system of the machine that made the capture.</dd>
+<dt>Merge/Append data:</dt>
+<dd style="margin-left: 8">It should be possible to add data at the end of a given file, and the resulting file must still be readable.</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.2">
+<a href="#rfc.section.2">2.</a> Terminology</h1>
+<p id="rfc.section.2.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119" class="xref">[RFC2119]</a>.</p>
+<h1 id="rfc.section.2.1">
+<a href="#rfc.section.2.1">2.1.</a> Acronyms</h1>
+<p id="rfc.section.2.1.p.1">The following acronyms are used throughout this document: </p>
+
+<dl>
+<dt>SHB:</dt>
+<dd style="margin-left: 8">Section Header Block</dd>
+<dt>IDB:</dt>
+<dd style="margin-left: 8">Interface Description Block</dd>
+<dt>ISB:</dt>
+<dd style="margin-left: 8">Interface Statistics Block</dd>
+<dt>EPB:</dt>
+<dd style="margin-left: 8">Enhanced Packet Block</dd>
+<dt>SPB:</dt>
+<dd style="margin-left: 8">Simple Packet Block</dd>
+<dt>NRB:</dt>
+<dd style="margin-left: 8">Name Resolution Block</dd>
+<dt>CB:</dt>
+<dd style="margin-left: 8">Custom Block</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.3">
+<a href="#rfc.section.3">3.</a> General File Structure</h1>
+<h1 id="rfc.section.3.1">
+<a href="#rfc.section.3.1">3.1.</a> <a href="#section_block" id="section_block">General Block Structure</a>
+</h1>
+<p id="rfc.section.3.1.p.1">A capture file is organized in blocks, that are appended one to another to form the file. All the blocks share a common format, which is shown in <a href="#formatblock" class="xref">Figure 1</a>.</p>
+<div id="rfc.figure.1"></div>
+<div id="formatblock"></div>
+<pre>
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          Block Type                           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      Block Total Length                       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+/                          Block Body                           /
+/              variable length, padded to 32 bits               /
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      Block Total Length                       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+<p class="figure">Figure 1: Basic block structure.</p>
+<p id="rfc.section.3.1.p.2">The fields have the following meaning: </p>
+
+<ul>
+<li>Block Type (32 bits): a unique unsigned value that identifies the block. Values whose Most Significant Bit (MSB) is equal to 1 are reserved for local use. They can be used to make extensions to the file format to save private data to the file. The list of currently defined types can be found in <a href="#section_block_code_registry" class="xref">Section 11.1</a>.</li>
+<li>Block Total Length (32 bits): an unsigned value giving the total size of this block, in octets. For instance, the length of a block that does not have a body is 12 octets: 4 octets for the Block Type, 4 octets for the initial Block Total Length and 4 octets for the trailing Block Total Length. This value MUST be a multiple of 4.</li>
+<li>Block Body: content of the block.</li>
+<li>Block Total Length: total size of this block, in octets. This field is duplicated to permit backward file navigation.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.3.1.p.3">This structure, shared among all blocks, makes it easy to process a file and to skip unneeded or unknown blocks. Some blocks can contain other blocks inside (nested blocks). Some of the blocks are mandatory, i.e. a capture file is not valid if they are not present, other are optional.</p>
+<p id="rfc.section.3.1.p.4">The General Block Structure allows defining other blocks if needed.  A parser that does not understand them can simply ignore their content.</p>
+<h1 id="rfc.section.3.2">
+<a href="#rfc.section.3.2">3.2.</a> Block Types</h1>
+<p id="rfc.section.3.2.p.1">The currently standardized Block Type codes are specified in <a href="#section_block_code_registry" class="xref">Section 11.1</a>; they have been grouped in the following four categories:</p>
+<p id="rfc.section.3.2.p.2">The following MANDATORY block MUST appear at least once in each file: </p>
+
+<ul><li>
+<a href="#section_shb" class="xref">Section Header Block</a>: it defines the most important characteristics of the capture file.</li></ul>
+
+<p> </p>
+<p id="rfc.section.3.2.p.3">The following OPTIONAL blocks MAY appear in a file: </p>
+
+<ul>
+<li>
+<a href="#section_idb" class="xref">Interface Description Block</a>: it defines the most important characteristics of the interface(s) used for capturing traffic. This block is required in certain cases, as described later.</li>
+<li>
+<a href="#section_epb" class="xref">Enhanced Packet Block</a>: it contains a single captured packet, or a portion of it. It represents an evolution of the original, now obsolete, <a href="#appendix_pb" class="xref">Packet Block</a>. If this appears in a file, an Interface Description Block is also required, before this block.</li>
+<li>
+<a href="#section_spb" class="xref">Simple Packet Block</a>: it contains a single captured packet, or a portion of it, with only a minimal set of information about it. If this appears in a file, an Interface Description Block is also required, before this block.</li>
+<li>
+<a href="#section_nrb" class="xref">Name Resolution Block</a>: it defines the mapping from numeric addresses present in the packet capture and the canonical name counterpart.</li>
+<li>
+<a href="#section_isb" class="xref">Interface Statistics Block</a>: it defines how to store some statistical data (e.g. packet dropped, etc) which can be useful to understand the conditions in which the capture has been made. If this appears in a file, an Interface Description Block is also required, before this block.</li>
+<li>
+<a href="#section_custom_block" class="xref">Custom Block</a>: it contains vendor-specific data in a portable fashion.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.3.2.p.4">The following OBSOLETE block SHOULD NOT appear in newly written files (but is documented in the Appendix for reference): </p>
+
+<ul><li>
+<a href="#appendix_pb" class="xref">Packet Block</a>: it contains a single captured packet, or a portion of it. It is OBSOLETE, and superseded by the <a href="#section_epb" class="xref">Enhanced Packet Block</a>.</li></ul>
+
+<p> </p>
+<p id="rfc.section.3.2.p.5">The following EXPERIMENTAL blocks are considered interesting but the authors believe that they deserve more in-depth discussion before being defined: </p>
+
+<ul>
+<li>Alternative Packet Blocks</li>
+<li>Compression Block</li>
+<li>Encryption Block</li>
+<li>Fixed Length Block</li>
+<li>Directory Block</li>
+<li>Traffic Statistics and Monitoring Blocks</li>
+<li>Event/Security Blocks</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.3.2.p.6">Requests for new standardized Block Type codes should be sent to the <a href="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-ng-format mailing list</a>.</p>
+<h1 id="rfc.section.3.3">
+<a href="#rfc.section.3.3">3.3.</a> Logical Block Hierarchy</h1>
+<p id="rfc.section.3.3.p.1">The blocks build a logical hierarchy as they refer to each other.  <a href="#block-hierarchy" class="xref">Figure 2</a> shows the logical hierarchy of the currently defined blocks in the form of a "tree view":</p>
+<div id="rfc.figure.2"></div>
+<div id="block-hierarchy"></div>
+<pre>
+Section Header
+|
++- Interface Description
+|  +- Simple Packet
+|  +- Enhanced Packet
+|  +- Interface Statistics
+|
++- Name Resolution
+</pre>
+<p class="figure">Figure 2: Logical Block Hierarchy of a pcapng File</p>
+<p id="rfc.section.3.3.p.2">For example: each captured packet refers to a specific capture interface, the interface itself refers to a specific section.</p>
+<h1 id="rfc.section.3.4">
+<a href="#rfc.section.3.4">3.4.</a> Physical File Layout</h1>
+<p id="rfc.section.3.4.p.1">The file MUST begin with a Section Header Block. However, more than one Section Header Block can be present in the capture file, each one covering the data following it until the next one (or the end of file). A Section includes the data delimited by two Section Header Blocks (or by a Section Header Block and the end of the file), including the first Section Header Block.</p>
+<p id="rfc.section.3.4.p.2">In case an application cannot read a Section because of different version number, it MUST skip everything until the next Section Header Block. Note that, in order to properly skip the blocks until the next section, all blocks MUST have the fields Type and Length at the beginning. In order to properly skip blocks in the backward direction, all blocks MUST have the Length repeated at the end of the block.  These are mandatory requirements that MUST be maintained in future versions of the block format.</p>
+<p><a href="#fssample-SHB" class="xref">Figure 3</a> shows a typical file layout, with a single Section Header that covers the whole file.</p>
+<div id="rfc.figure.3"></div>
+<div id="fssample-SHB"></div>
+<pre>
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SHB v1.0  |                      Data                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+<p class="figure">Figure 3: File structure example: Typical layout with a single Section Header Block</p>
+<p><a href="#fssample-SHB3" class="xref">Figure 4</a> shows a file that contains three headers, and is normally the result of file concatenation. An application that understands only version 1.0 of the file format skips the intermediate section and restart processing the packets after the third Section Header.</p>
+<div id="rfc.figure.4"></div>
+<div id="fssample-SHB3"></div>
+<pre>
+|--   1st Section   --|--   2nd Section   --|--  3rd Section  --|
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SHB v1.0  |  Data   | SHB V1.1  |  Data   | SHB V1.0  |  Data |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+<p class="figure">Figure 4: File structure example: three Section Header Blocks in a single file</p>
+<p><a href="#fssample-minimum" class="xref">Figure 5</a> shows a file comparable to a "classic libpcap" file - the minimum for a useful capture file. It contains a single Section Header Block (SHB), a single Interface Description Block (IDB) and a few Enhanced Packet Blocks (EPB).</p>
+<div id="rfc.figure.5"></div>
+<div id="fssample-minimum"></div>
+<pre>
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SHB | IDB | EPB | EPB |    ...    | EPB |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+<p class="figure">Figure 5: File structure example: a pcapng file similar to a classical libpcap file</p>
+<p><a href="#fssample-full" class="xref">Figure 6</a> shows a complex example file. In addition to the minimum file above, it contains packets captured from three interfaces, capturing on the third of which begins after packets have arrived on other interfaces, and also includes some Name Resolution Blocks (NRB) and an Interface Statistics Block (ISB).</p>
+<div id="rfc.figure.6"></div>
+<div id="fssample-full"></div>
+<pre>
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SHB | IDB | IDB | EPB | NRB |...| IDB | EPB | ISB | NRB | EPB |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+<p class="figure">Figure 6: File structure example: complex pcapng file</p>
+<p id="rfc.section.3.4.p.7">The last example should make it obvious that the block structure makes the file format very flexible compared to the classical libpcap format.</p>
+<h1 id="rfc.section.3.5">
+<a href="#rfc.section.3.5">3.5.</a> <a href="#section_opt" id="section_opt">Options</a>
+</h1>
+<p id="rfc.section.3.5.p.1">All the block bodies MAY embed optional fields.  Optional fields can be used to insert some information that may be useful when reading data, but that is not really needed for packet processing. Therefore, each tool can either read the content of the optional fields (if any), or skip some of them or even all at once.</p>
+<p id="rfc.section.3.5.p.2">A block that may contain options must be structured so that the number of octets of data in the Block Body that precede the options can be determined from that data; that allows the beginning of the options to be found.  That is true for all standard blocks that support options; for Custom Blocks that support options, the Custom Data must be structured in such a fashion.  This means that the Block Length field (present in the General Block Structure, see <a href="#section_block" class="xref">Section 3.1</a>) can be used to determine how many octets of optional fields, if any, are present in the block.  That number can be used to determine whether the block has optional fields (if it is zero, there are no optional fields), to check, when processing optional fields, whether any optional fields remain, and to skip all the optional fields at once.</p>
+<p id="rfc.section.3.5.p.3">Options are a list of Type - Length - Value fields, each one containing a single value: </p>
+
+<ul>
+<li>Option Type (16 bits): an unsigned value that contains the code that specifies the type of the current TLV record.  Option types whose Most Significant Bit is equal to one are reserved for local use; therefore, there is no guarantee that the code used is unique among all capture files (generated by other applications), and is most certainly not portable.  For cross-platform globally unique vendor-specific extensions, the Custom Option MUST be used instead, as defined in <a href="#section_custom_option" class="xref">Section 3.5.1</a>).</li>
+<li>Option Length (16 bits): an unsigned value that contains the actual length of the following 'Option Value' field without the padding octets.</li>
+<li>Option Value (variable length): the value of the given option, padded to a 32-bit boundary. The actual length of this field (i.e. without the padding octets) is specified by the Option Length field.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.3.5.p.4">Requests for new standardized option codes for a given block should be sent to the <a href="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-ng-format mailing list</a>.</p>
+<p id="rfc.section.3.5.p.5">A given option may have a fixed length, in which case all instances of that option have a length that is equal to the specified fixed length, or a variable length, in which case the option has a minimum length and all instances of that option must have a length equal to or greater than the specified minimum length. The length of fixed-length options, and the minimum length of variable-length options, is specified in the description of the option; if the minimum length of a variable-length option is not specified, a zero-length option is valid. Software that reads these files SHOULD report options that have an invalid length as errors; the software MAY stop processing the file if it sees an option that has invalid length, or MAY ignore the option and continue processing it.  Software that writes these files MUST not write files with options that have invalid lengths.</p>
+<p id="rfc.section.3.5.p.6">If an option's value is a string, the value is not necessarily zero-terminated. Software that reads these files MUST NOT assume that strings are zero-terminated, and MUST treat a zero-value octet as a string terminator.</p>
+<p id="rfc.section.3.5.p.7">Some options may be repeated several times; for example, a block can have multiple comments, and an Interface Description Block can give multiple IPv4 or IPv6 addresses for the interface if it has multiple IPv4 or IPv6 addresses assigned to it.  Other options may appear at most once in a given block.</p>
+<p id="rfc.section.3.5.p.8">The option list is terminated by a option which uses the special 'End of Option' code (opt_endofopt).  Code that writes pcapng files MUST put an opt_endofopt option at the end of an option list.  Code that reads pcapng files MUST NOT assume an option list will have an opt_endofopt option at the end; it MUST also check for the end of the block, and SHOULD treat blocks where the option list has no opt_endofopt option as if the option list had an opt_endofopt option at the end.</p>
+<p id="rfc.section.3.5.p.9">The format of the optional fields is shown in <a href="#formatopt" class="xref">Figure 7</a>.</p>
+<div id="rfc.figure.7"></div>
+<div id="formatopt"></div>
+<pre>
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|      Option Code              |         Option Length         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+/                       Option Value                            /
+/              variable length, padded to 32 bits               /
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+/                                                               /
+/                 . . . other options . . .                     /
+/                                                               /
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   Option Code == opt_endofopt  |  Option Length == 0          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ </pre>
+<p class="figure">Figure 7: Options Format</p>
+<p id="rfc.section.3.5.p.10">The following codes can always be present in any optional field:</p>
+<div id="rfc.table.1"></div>
+<div id="optionsall"></div>
+<table cellpadding="3" cellspacing="0" class="tt full center">
+<caption>Common Options</caption>
+<thead><tr>
+<th class="left">Name</th>
+<th class="left">Code</th>
+<th class="left">Length</th>
+<th class="left">Multiple allowed?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="left">opt_endofopt</td>
+<td class="left">0</td>
+<td class="left">0</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">opt_comment</td>
+<td class="left">1</td>
+<td class="left">variable</td>
+<td class="left">yes</td>
+</tr>
+<tr>
+<td class="left">opt_custom</td>
+<td class="left">2988/2989/19372/19373</td>
+<td class="left">variable, minimum 4</td>
+<td class="left">yes</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+
+<dl>
+<dt>opt_endofopt:</dt>
+<dd style="margin-left: 8">
+<br>The opt_endofopt option delimits the end of the optional fields. This option MUST NOT be repeated within a given list of options.</dd>
+<dt>opt_comment:</dt>
+<dd style="margin-left: 8">
+<br>The opt_comment option is a UTF-8 string containing human-readable comment text that is associated to the current block. Line separators SHOULD be a carriage-return + linefeed ('\r\n') or just linefeed ('\n'); either form may appear and be considered a line separator. The string is not zero-terminated.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: "This packet is the beginning of all of our problems", "Packets 17-23 showing a bogus TCP retransmission!\r\n This is reported in bugzilla entry 1486.\nIt will be fixed in the future.".</dd>
+<dt>opt_custom:</dt>
+<dd style="margin-left: 8">
+<br>This option is described in detail in <a href="#section_custom_option" class="xref">Section 3.5.1</a>.</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.3.5.1">
+<a href="#rfc.section.3.5.1">3.5.1.</a> <a href="#section_custom_option" id="section_custom_option">Custom Options</a>
+</h1>
+<p id="rfc.section.3.5.1.p.1">Customs Options are used for portable, vendor-specific data related to the block they're in. A Custom Option can be in any block type that can have options, can be repeated any number of times in a block, and may come before or after other option types - except the opt_endofopt which is always the last option. Different Custom Options, of different type codes and/or different Private Enterprise Numbers, may be used in the same pcapng file. See <a href="#section_vendor" class="xref">Section 6</a> for additional details.</p>
+<div id="rfc.figure.8"></div>
+<div id="formatcustomopt"></div>
+<pre>
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Custom Option Code        |         Option Length         |
++---------------------------------------------------------------+
+|                Private Enterprise Number (PEN)                |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+/                        Custom Data                            /
+/              variable length, padded to 32 bits               /
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ </pre>
+<p class="figure">Figure 8: Custom Options Format</p>
+<p id="rfc.section.3.5.1.p.2">The Custom Option has the following fields: </p>
+
+<ul>
+<li>Custom Option Code: The code number for the Custom Option, which can be one of the following decimal numbers: <dl>
+<dt>2988:</dt>
+<dd style="margin-left: 8">
+<br>This option code identifies a Custom Option containing a UTF-8 string in the Custom Data portion.  The string is not zero-terminated.  This Custom Option can be safely copied to a new file if the pcapng file is manipulated by an application; otherwise 19372 should be used instead. See <a href="#section_vendor_copy" class="xref">Section 6.2</a> for details.</dd>
+<dt>2989:</dt>
+<dd style="margin-left: 8">
+<br>This option code identifies a Custom Option containing binary octets in the Custom Data portion. This Custom Option can be safely copied to a new file if the pcapng file is manipulated by an application; otherwise 19372 should be used instead. See <a href="#section_vendor_copy" class="xref">Section 6.2</a> for details.</dd>
+<dt>19372:</dt>
+<dd style="margin-left: 8">
+<br>This option code identifies a Custom Option containing a UTF-8 string in the Custom Data portion.  The string is not zero-terminated.  This Custom Option should not be copied to a new file if the pcapng file is manipulated by an application. See <a href="#section_vendor_copy" class="xref">Section 6.2</a> for details.</dd>
+<dt>19373:</dt>
+<dd style="margin-left: 8">
+<br>This option code identifies a Custom Option containing binary octets in the Custom Data portion. This Custom Option should not be copied to a new file if the pcapng file is manipulated by an application. See <a href="#section_vendor_copy" class="xref">Section 6.2</a> for details.</dd>
+</dl>
+<p> </p>
+</li>
+<li>Option Length: as described in <a href="#section_block" class="xref">Section 3.1</a>, this contains the length of the option's value, which includes the 4-octet Private Enterprise Number and variable-length Custom Data fields, without the padding octets.</li>
+<li>Private Enterprise Number: An IANA-assigned Private Enterprise Number identifying the organization which defined the Custom Option. See <a href="#section_vendor_uses" class="xref">Section 6.1</a> for details. The PEN number MUST be encoded using the same endianness as the Section Header Block it is within the scope of.</li>
+<li>Custom Data: the custom data, padded to a 32 bit boundary.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.3.6">
+<a href="#rfc.section.3.6">3.6.</a> Data format</h1>
+<h1 id="rfc.section.3.6.1">
+<a href="#rfc.section.3.6.1">3.6.1.</a> Endianness</h1>
+<p id="rfc.section.3.6.1.p.1">Data contained in each section will always be saved according to the characteristics (little endian / big endian) of the capturing machine. This refers to all the fields that are saved as numbers and that span over two or more octets.</p>
+<p id="rfc.section.3.6.1.p.2">The approach of having each section saved in the native format of the generating host is more efficient because it avoids translation of data when reading / writing on the host itself, which is the most common case when generating/processing capture captures.</p>
+<p id="rfc.section.3.6.1.p.3">Please note: The endianness is indicated by the <a href="#section_shb" class="xref">Section Header Block</a>. Since this block can appear several times in a pcapng file, a single file can contain both endianness variants.</p>
+<h1 id="rfc.section.3.6.2">
+<a href="#rfc.section.3.6.2">3.6.2.</a> Alignment</h1>
+<p id="rfc.section.3.6.2.p.1">All fields of this specification use proper alignment for 16- and 32-bit values. This makes it easier and faster to read/write file contents if using techniques like memory mapped files.</p>
+<p id="rfc.section.3.6.2.p.2">The alignment octets (marked in this document e.g. with "padded to 32 bits") MUST be filled with zeroes.</p>
+<p id="rfc.section.3.6.2.p.3">Please note: 64-bit values are not aligned to 64-bit boundaries.  This is because the file is naturally aligned to 32-bit boundaries only. Special care MUST be taken when reading and writing such values. (Note also that some 64-bit values are represented as a 64-bit integer in the endianness of the machine that wrote the file, and others are represented as 2 32-bit values, one containing the upper 32 bits of the value and one containing the lower 32 bits of the value, each written as 32-bit integers in the endianness of the machine that wrote the file.  Neither of these formats guarantee 64-bit alignment.)</p>
+<h1 id="rfc.section.4">
+<a href="#rfc.section.4">4.</a> Block Definition</h1>
+<p id="rfc.section.4.p.1">This section details the format of the blocks currently defined.</p>
+<h1 id="rfc.section.4.1">
+<a href="#rfc.section.4.1">4.1.</a> <a href="#section_shb" id="section_shb">Section Header Block</a>
+</h1>
+<p id="rfc.section.4.1.p.1">The Section Header Block (SHB) is mandatory. It identifies the beginning of a section of the capture capture file. The Section Header Block does not contain data but it rather identifies a list of blocks (interfaces, packets) that are logically correlated. Its format is shown in <a href="#format_shb" class="xref">Figure 9</a>.</p>
+<div id="rfc.figure.9"></div>
+<div id="format_shb"></div>
+<pre>
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                   Block Type = 0x0A0D0D0A                     |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                      Byte-Order Magic                         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |          Major Version        |         Minor Version         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 |                                                               |
+   |                          Section Length                       |
+   |                                                               |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+24 /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+</pre>
+<p class="figure">Figure 9: Section Header Block Format</p>
+<p id="rfc.section.4.1.p.2">The meaning of the fields is: </p>
+
+<ul>
+<li>Block Type: The block type of the Section Header Block is the integer corresponding to the 4-char string "\n\r\r\n" (0x0A0D0D0A). This particular value is used for 2 reasons: <ol>
+<li>This number is used to detect if a file has been transferred via FTP or HTTP from a machine to another with an inappropriate ASCII conversion. In this case, the value of this field will differ from the standard one ("\n\r\r\n") and the reader can detect a possibly corrupted file.</li>
+<li>This value is palindromic, so that the reader is able to recognize the Section Header Block regardless of the endianness of the section. The endianness is recognized by reading the Byte Order Magic, that is located 8 octets after the Block Type.</li>
+</ol>
+<p> </p>
+</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Byte-Order Magic (32 bits): an unsigned magic number, whose value is the hexadecimal number 0x1A2B3C4D. This number can be used to distinguish sections that have been saved on little-endian machines from the ones saved on big-endian machines, and to heuristically identify pcapng files.</li>
+<li>Major Version (16 bits): an unsigned value, giving the number of the current mayor version of the format. The value for the current version of the format is 1. This value should change if the format changes in such a way that code that reads the new format could not read the old format (i.e., code to read both formats would have to check the version number and use different code paths for the two formats) and code that reads the old format could not read the new format. Note that adding a new block type or a new option is NOT such a change.</li>
+<li>Minor Version (16 bits): an unsigned value, giving the number of the current minor version of the format. The value is for the current version of the format is 0. This value should change if the format changes in such a way that code that reads the new format could read the old format without checking the version number but code that reads the old format could not read all files in the new format. Note that adding a new block type or a new option is NOT such a change.</li>
+<li>Section Length (64 bits): a signed value specifying the length in octets of the following section, excluding the Section Header Block itself.  This field can be used to skip the section, for faster navigation inside large files. If the Section Length is -1 (0xFFFFFFFFFFFFFFFF), this means that the size of the section is not specified, and the only way to skip the section is to parse the blocks that it contains. Please note that if this field is valid (i.e.  not negative), its value is always a multiple of 4, as all the blocks are aligned to and padded to 32-bit (4 octet) boundaries. Also, special care should be taken in accessing this field: since the alignment of all the blocks in the file is 32-bits, this field is not guaranteed to be aligned to a 64-bit boundary.  This could be a problem on 64-bit processors.</li>
+<li>Options: optionally, a list of options (formatted according to the rules defined in <a href="#section_opt" class="xref">Section 3.5</a>) can be present.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.1.p.3">Adding new block types or options would not necessarily require that either Major or Minor numbers be changed, as code that does not know about the block type or option should just skip it; only if skipping a block or option does not work should the minor version number be changed.</p>
+<p id="rfc.section.4.1.p.4">Aside from the options defined in <a href="#section_opt" class="xref">Section 3.5</a>, the following options are valid within this block:</p>
+<div id="rfc.table.2"></div>
+<div id="options_shb"></div>
+<table cellpadding="3" cellspacing="0" class="tt full center">
+<caption>Section Header Block Options</caption>
+<thead><tr>
+<th class="left">Name</th>
+<th class="left">Code</th>
+<th class="left">Length</th>
+<th class="left">Multiple allowed?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="left">shb_hardware</td>
+<td class="left">2</td>
+<td class="left">variable</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">shb_os</td>
+<td class="left">3</td>
+<td class="left">variable</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">shb_userappl</td>
+<td class="left">4</td>
+<td class="left">variable</td>
+<td class="left">no</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+
+<dl>
+<dt>shb_hardware:</dt>
+<dd style="margin-left: 8">
+<br>The shb_hardware option is a UTF-8 string containing the description of the hardware used to create this section. The string is not zero-terminated.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: "x86 Personal Computer", "Sun Sparc Workstation".</dd>
+<dt>shb_os:</dt>
+<dd style="margin-left: 8">
+<br>The shb_os option is a UTF-8 string containing the name of the operating system used to create this section. The string is not zero-terminated.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: "Windows XP SP2", "openSUSE 10.2".</dd>
+<dt>shb_userappl:</dt>
+<dd style="margin-left: 8">
+<br>The shb_userappl option is a UTF-8 string containing the name of the application used to create this section. The string is not zero-terminated.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: "dumpcap V0.99.7".</dd>
+</dl>
+
+<p> </p>
+<p id="rfc.section.4.1.p.6">[Open issue: does a program which re-writes a capture file change the original hardware/os/application info?]</p>
+<h1 id="rfc.section.4.2">
+<a href="#rfc.section.4.2">4.2.</a> <a href="#section_idb" id="section_idb">Interface Description Block</a>
+</h1>
+<p id="rfc.section.4.2.p.1">An Interface Description Block (IDB) is the container for information describing an interface on which packet data is captured.</p>
+<p id="rfc.section.4.2.p.2">Tools that write / read the capture file associate an incrementing unsigned 32-bit number (starting from '0') to each Interface Definition Block, called the Interface ID for the interface in question. This number is unique within each Section and identifies the interface to which the IDB refers; it is only unique inside the current section, so, two Sections can have different interfaces identified by the same Interface ID values.  This unique identifier is referenced by other blocks, such as Enhanced Packet Blocks and Interface Statistic Blocks, to indicate the interface to which the block refers (such the interface that was used to capture the packet that an Enhanced Packet Block contains or to which the statistics in an Interface Statistic Block refer).</p>
+<p id="rfc.section.4.2.p.3">There must be an Interface Description Block for each interface to which another block refers. Blocks such as an Enhanced Packet Block or an Interface Statistics Block contain an Interface ID value referring to a particular interface, and a Simple Packet Block implicitly refers to an interface with an Interface ID of 0. If the file does not contain any blocks that use an Interface ID, then the file does not need to have any IDBs.</p>
+<p id="rfc.section.4.2.p.4">An Interface Description Block is valid only inside the section to which it belongs. The structure of a Interface Description Block is shown in <a href="#format_idb" class="xref">Figure 10</a>.</p>
+<div id="rfc.figure.10"></div>
+<div id="format_idb"></div>
+<pre>
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                    Block Type = 0x00000001                    |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |           LinkType            |           Reserved            |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |                            SnapLen                            |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+ </pre>
+<p class="figure">Figure 10: Interface Description Block Format</p>
+<p id="rfc.section.4.2.p.5">The meaning of the fields is: </p>
+
+<ul>
+<li>Block Type: The block type of the Interface Description Block is 1.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>LinkType (16 bits): an unsigned value that defines the link layer type of this interface.  The list of Standardized Link Layer Type codes is available in <a href="http://www.tcpdump.org/linktypes.html">the tcpdump.org link-layer header types registry</a>.</li>
+<li>Reserved (16 bits): not used - MUST be filled with 0 by pcap file writers, and MUST be ignored by pcapng file readers.</li>
+<li>SnapLen (32 bits): an unsigned value indicating the maximum number of octets captured from each packet.  The portion of each packet that exceeds this value will not be stored in the file. A value of zero indicates no limit.</li>
+<li>Options: optionally, a list of options (formatted according to the rules defined in <a href="#section_opt" class="xref">Section 3.5</a>) can be present.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.2.p.6">In addition to the options defined in <a href="#section_opt" class="xref">Section 3.5</a>, the following options are valid within this block:</p>
+<div id="rfc.table.3"></div>
+<div id="optionsifb"></div>
+<table cellpadding="3" cellspacing="0" class="tt full center">
+<caption>Interface Description Block Options</caption>
+<thead><tr>
+<th class="left">Name</th>
+<th class="left">Code</th>
+<th class="left">Length</th>
+<th class="left">Multiple allowed?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="left">if_name</td>
+<td class="left">2</td>
+<td class="left">variable</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_description</td>
+<td class="left">3</td>
+<td class="left">variable</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_IPv4addr</td>
+<td class="left">4</td>
+<td class="left">8</td>
+<td class="left">yes</td>
+</tr>
+<tr>
+<td class="left">if_IPv6addr</td>
+<td class="left">5</td>
+<td class="left">17</td>
+<td class="left">yes</td>
+</tr>
+<tr>
+<td class="left">if_MACaddr</td>
+<td class="left">6</td>
+<td class="left">6</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_EUIaddr</td>
+<td class="left">7</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_speed</td>
+<td class="left">8</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_tsresol</td>
+<td class="left">9</td>
+<td class="left">1</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_tzone</td>
+<td class="left">10</td>
+<td class="left">4</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_filter</td>
+<td class="left">11</td>
+<td class="left">variable, minimum 1</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_os</td>
+<td class="left">12</td>
+<td class="left">variable</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_fcslen</td>
+<td class="left">13</td>
+<td class="left">1</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_tsoffset</td>
+<td class="left">14</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">if_hardware</td>
+<td class="left">15</td>
+<td class="left">variable</td>
+<td class="left">no</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+
+<dl>
+<dt>if_name:</dt>
+<dd style="margin-left: 8">
+<br>The if_name option is a UTF-8 string containing the name of the device used to capture data. The string is not zero-terminated.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: "eth0", "\Device\NPF_{AD1CE675-96D0-47C5-ADD0-2504B9126B68}".</dd>
+<dt>if_description:</dt>
+<dd style="margin-left: 8">
+<br>The if_description option is a UTF-8 string containing the description of the device used to capture data. The string is not zero-terminated.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: "Wi-Fi", "Local Area Connection", "Wireless Network Connection", "First Ethernet Interface".</dd>
+<dt>if_IPv4addr:</dt>
+<dd style="margin-left: 8">
+<br>The if_IPv4addr option is an IPv4 network address and corresponding netmask for the interface. The first four octets are the IP address, and the next four octets are the netmask. This option can be repeated multiple times within the same Interface Description Block when multiple IPv4 addresses are assigned to the interface. Note that the IP address and netmask are both treated as four octets, one for each octet of the address or mask; they are not 32-bit numbers, and thus the endianness of the SHB does not affect this field's value.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: '192 168 1 1 255 255 255 0'.</dd>
+<dt>if_IPv6addr:</dt>
+<dd style="margin-left: 8">
+<br>The if_IPv6addr option is an IPv6 network address and corresponding prefix length for the interface. The first 16 octets are the IP address and the next octet is the prefix length. This option can be repeated multiple times within the same Interface Description Block when multiple IPv6 addresses are assigned to the interface.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: 2001:0db8:85a3:08d3:1319:8a2e:0370:7344/64 is written (in hex) as '20 01 0d b8 85 a3 08 d3 13 19 8a 2e 03 70 73 44 40'.</dd>
+<dt>if_MACaddr:</dt>
+<dd style="margin-left: 8">
+<br>The if_MACaddr option is the Interface Hardware MAC address (48 bits), if available.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '00 01 02 03 04 05'.</dd>
+<dt>if_EUIaddr:</dt>
+<dd style="margin-left: 8">
+<br>The if_EUIaddr option is the Interface Hardware EUI address (64 bits), if available.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '02 34 56 FF FE 78 9A BC'.</dd>
+<dt>if_speed:</dt>
+<dd style="margin-left: 8">
+<br>The if_speed option is a 64-bit unsigned value indicating the interface speed, in bits per second.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: the 64-bit decimal number 100000000 for 100Mbps.</dd>
+<dt>if_tsresol:</dt>
+<dd style="margin-left: 8">
+<br>The if_tsresol option identifies the resolution of timestamps. If the Most Significant Bit is equal to zero, the remaining bits indicates the resolution of the timestamp as a negative power of 10 (e.g. 6 means microsecond resolution, timestamps are the number of microseconds since 1970-01-01 00:00:00 UTC). If the Most Significant Bit is equal to one, the remaining bits indicates the resolution as as negative power of 2 (e.g. 10 means 1/1024 of second). If this option is not present, a resolution of 10^-6 is assumed (i.e. timestamps have the same resolution of the standard 'libpcap' timestamps).</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '6'.</dd>
+<dt>if_tzone:</dt>
+<dd style="margin-left: 8">
+<br>The if_tzone option identifies the time zone for GMT support (TODO: specify better).</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: TODO: give a good example.</dd>
+<dt>if_filter:</dt>
+<dd style="margin-left: 8">
+<br>The if_filter option identifies the filter (e.g. "capture only TCP traffic") used to capture traffic. The first octet of the Option Data keeps a code of the filter used (e.g. if this is a libpcap string, or BPF bytecode, and more). More details about this format will be presented in Appendix XXX (TODO). (TODO: better use different options for different fields? e.g. if_filter_pcap, if_filter_bpf, ...)</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '00'"tcp port 23 and host 192.0.2.5".</dd>
+<dt>if_os:</dt>
+<dd style="margin-left: 8">
+<br>The if_os option is a UTF-8 string containing the name of the operating system of the machine in which this interface is installed. This can be different from the same information that can be contained by the Section Header Block (<a href="#section_shb" class="xref">Section 4.1</a>) because the capture can have been done on a remote machine. The string is not zero-terminated.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: "Windows XP SP2", "openSUSE 10.2".</dd>
+<dt>if_fcslen:</dt>
+<dd style="margin-left: 8">
+<br>The if_fcslen option is an 8-bit unsigned integer value that specifies the length of the Frame Check Sequence (in bits) for this interface.  For link layers whose FCS length can change during time, the Enhanced Packet Block epb_flags Option can be used in each Enhanced Packet Block (see <a href="#section_epb_flags" class="xref">Section 4.3.1</a>).</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '4'.</dd>
+<dt>if_tsoffset:</dt>
+<dd style="margin-left: 8">
+<br>The if_tsoffset option is a 64-bit signed integer value that specifies an offset (in seconds) that must be added to the timestamp of each packet to obtain the absolute timestamp of a packet. If the option is missing, the timestamps stored in the packet MUST be considered absolute timestamps.  The time zone of the offset can be specified with the option if_tzone. TODO: won't a if_tsoffset_low for fractional second offsets be useful for highly synchronized capture systems?</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '1234'.</dd>
+<dt>if_hardware:</dt>
+<dd style="margin-left: 8">
+<br>The if_hardware option is a UTF-8 string containing the description of the interface hardware. The string is not zero-terminated.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: "Broadcom NetXtreme", "Intel(R) PRO/1000 MT Network Connection", "NETGEAR WNA1000Mv2 N150 Wireless USB Micro Adapter".</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.4.3">
+<a href="#rfc.section.4.3">4.3.</a> <a href="#section_epb" id="section_epb">Enhanced Packet Block</a>
+</h1>
+<p id="rfc.section.4.3.p.1">An Enhanced Packet Block (EPB) is the standard container for storing the packets coming from the network. The Enhanced Packet Block is optional because packets can be stored either by means of this block or the Simple Packet Block, which can be used to speed up capture file generation; or a file may have no packets in it. The format of an Enhanced Packet Block is shown in <a href="#format_epb" class="xref">Figure 11</a>.</p>
+<p id="rfc.section.4.3.p.2">The Enhanced Packet Block is an improvement over the original, now obsolete, <a href="#appendix_pb" class="xref">Packet Block</a>: </p>
+
+<ul>
+<li>it stores the Interface Identifier as a 32-bit integer value.  This is a requirement when a capture stores packets coming from a large number of interfaces;</li>
+<li>unlike the <a href="#appendix_pb" class="xref">Packet Block</a>, the number of packets dropped by the capture system between this packet and the previous one is not stored in the header, but rather in an option of the block itself.</li>
+</ul>
+
+<p> </p>
+<div id="rfc.figure.11"></div>
+<div id="format_epb"></div>
+<pre>
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                    Block Type = 0x00000006                    |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                         Interface ID                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |                        Timestamp (High)                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 |                        Timestamp (Low)                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+20 |                    Captured Packet Length                     |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+24 |                    Original Packet Length                     |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+28 /                                                               /
+   /                          Packet Data                          /
+   /              variable length, padded to 32 bits               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+</pre>
+<p class="figure">Figure 11: Enhanced Packet Block Format</p>
+<p id="rfc.section.4.3.p.3">The Enhanced Packet Block has the following fields: </p>
+
+<ul>
+<li>Block Type: The block type of the Enhanced Packet Block is 6.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Interface ID (32 bits): an unsigned value that specifies the interface on which this packet was received or transmitted; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by the same number (see <a href="#section_idb" class="xref">Section 4.2</a>) of this field. The interface ID MUST be valid, which means that an matching interface description block MUST exist.</li>
+<li>Timestamp (High) and Timestamp (Low): upper 32 bits and lower 32 bits of a 64-bit timestamp. The timestamp is a single 64-bit unsigned integer that represents the number of units of time that have elapsed since 1970-01-01 00:00:00 UTC.  The length of a unit of time is specified by the 'if_tsresol' option (see <a href="#format_idb" class="xref">Figure 10</a>) of the Interface Description Block referenced by this packet. Note that, unlike timestamps in the libpcap file format, timestamps in Enhanced Packet Blocks are not saved as two 32-bit values that represent the seconds and microseconds that have elapsed since 1970-01-01 00:00:00 UTC. Timestamps in Enhanced Packet Blocks are saved as two 32-bit words that represent the upper and lower 32 bits of a single 64-bit quantity.</li>
+<li>Captured Packet Length (32 bits): an unsigned value that indicates the number of octets captured from the packet (i.e. the length of the Packet Data field). It will be the minimum value among the Original Packet Length and the snapshot length for the interface (SnapLen, defined in <a href="#format_idb" class="xref">Figure 10</a>). The value of this field does not include the padding octets added at the end of the Packet Data field to align the Packet Data field to a 32-bit boundary.</li>
+<li>Original Packet Length (32 bits): an unsigned value that indicates the actual length of the packet when it was transmitted on the network.  It can be different from the Captured Packet Length if the packet has been truncated by the capture process.</li>
+<li>Packet Data: the data coming from the network, including link-layer headers. The actual length of this field is Captured Packet Length plus the padding to a 32-bit boundary. The format of the link-layer headers depends on the LinkType field specified in the Interface Description Block (see <a href="#section_idb" class="xref">Section 4.2</a>) and it is specified in the entry for that format in the <a href="http://www.tcpdump.org/linktypes.html">the tcpdump.org link-layer header types registry</a>.</li>
+<li>Options: optionally, a list of options (formatted according to the rules defined in <a href="#section_opt" class="xref">Section 3.5</a>) can be present.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.3.p.4">In addition to the options defined in <a href="#section_opt" class="xref">Section 3.5</a>, the following options are valid within this block:</p>
+<div id="rfc.table.4"></div>
+<div id="options_epb"></div>
+<table cellpadding="3" cellspacing="0" class="tt full center">
+<caption>Enhanced Packet Block Options</caption>
+<thead><tr>
+<th class="left">Name</th>
+<th class="left">Code</th>
+<th class="left">Length</th>
+<th class="left">Multiple allowed?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="left">epb_flags</td>
+<td class="left">2</td>
+<td class="left">4</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">epb_hash</td>
+<td class="left">3</td>
+<td class="left">variable, minimum hash type-dependent</td>
+<td class="left">yes</td>
+</tr>
+<tr>
+<td class="left">epb_dropcount</td>
+<td class="left">4</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+
+<dl>
+<dt>epb_flags:</dt>
+<dd style="margin-left: 8">
+<br>The epb_flags option is a 32-bit flags word containing link-layer information. A complete specification of the allowed flags can be found in <a href="#section_epb_flags" class="xref">Section 4.3.1</a>.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '0'.</dd>
+<dt>epb_hash:</dt>
+<dd style="margin-left: 8">
+<br>The epb_hash option contains a hash of the packet. The first octet specifies the hashing algorithm, while the following octets contain the actual hash, whose size depends on the hashing algorithm, and hence from the value in the first octet. The hashing algorithm can be: 2s complement (algorithm octet = 0, size = XXX), XOR (algorithm octet = 1, size=XXX), CRC32 (algorithm octet = 2, size = 4), MD-5 (algorithm octet = 3, size = 16), SHA-1 (algorithm octet = 4, size = 20), Toeplitz (algorithm octet = 5, size = 4). The hash covers only the packet, not the header added by the capture driver: this gives the possibility to calculate it inside the network card. The hash allows easier comparison/merging of different capture files, and reliable data transfer between the data acquisition system and the capture library.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D 50 8E'.</dd>
+<dt>epb_dropcount:</dt>
+<dd style="margin-left: 8">
+<br>The epb_dropcount option is a 64-bit unsigned integer value specifying the number of packets lost (by the interface and the operating system) between this packet and the preceding one for the same interface or, for the first packet for an interface, between this packet and the start of the capture process.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '0'.</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.4.3.1">
+<a href="#rfc.section.4.3.1">4.3.1.</a> <a href="#section_epb_flags" id="section_epb_flags">Enhanced Packet Block Flags Word</a>
+</h1>
+<p id="rfc.section.4.3.1.p.1">The Enhanced Packet Block Flags Word is a 32-bit value that contains link-layer information about the packet.</p>
+<p id="rfc.section.4.3.1.p.2">The word is encoded as an unsigned 32-bit integer, using the endianness of the Section Header Block scope it is in. In the following table, the bits are numbered with 0 being the least-significant bit and 31 being the most-significant bit of the 32-bit unsigned integer. The meaning of the bits is the following:</p>
+<table cellpadding="3" cellspacing="0" class="tt full center">
+<thead><tr>
+<th class="left">Bit Number</th>
+<th class="left">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="left">0-1</td>
+<td class="left">Inbound / Outbound packet (00 = information not available, 01 = inbound, 10 = outbound)</td>
+</tr>
+<tr>
+<td class="left">2-4</td>
+<td class="left">Reception type (000 = not specified, 001 = unicast, 010 = multicast, 011 = broadcast, 100 = promiscuous).</td>
+</tr>
+<tr>
+<td class="left">5-8</td>
+<td class="left">FCS length, in octets (0000 if this information is not available).  This value overrides the if_fcslen option of the Interface Description Block, and is used with those link layers (e.g. PPP) where the length of the FCS can change during time.</td>
+</tr>
+<tr>
+<td class="left">9-15</td>
+<td class="left">Reserved (MUST be set to zero).</td>
+</tr>
+<tr>
+<td class="left">16-31</td>
+<td class="left">link-layer-dependent errors (Bit 31 = symbol error, Bit 30 = preamble error, Bit 29 = Start Frame Delimiter error, Bit 28 = unaligned frame error, Bit 27 = wrong Inter Frame Gap error, Bit 26 = packet too short error, Bit 25 = packet too long error, Bit 24 = CRC error, other?? are 16 bit enough?).</td>
+</tr>
+</tbody>
+</table>
+<p id="rfc.section.4.3.1.p.3">NOTE: in earlier versions of this specification, the bits were specified as being numbered with 0 being the most-significant bit and 31 being the least-significant bit of the 32-bit unsigned integer, rather than with 0 being the least-significant bit and 31 being the most-significant bit.  Several implementations number the bits with 0 being the least-significant bit, and no known implementations number them with 0 being the most-significant bit, so the specification was changed to reflect that reality.</p>
+<h1 id="rfc.section.4.4">
+<a href="#rfc.section.4.4">4.4.</a> <a href="#section_spb" id="section_spb">Simple Packet Block</a>
+</h1>
+<p id="rfc.section.4.4.p.1">The Simple Packet Block (SPB) is a lightweight container for storing the packets coming from the network. Its presence is optional.</p>
+<p id="rfc.section.4.4.p.2">A Simple Packet Block is similar to an Enhanced Packet Block (see <a href="#section_epb" class="xref">Section 4.3</a>), but it is smaller, simpler to process and contains only a minimal set of information. This block is preferred to the standard Enhanced Packet Block when performance or space occupation are critical factors, such as in sustained traffic capture applications. A capture file can contain both Enhanced Packet Blocks and Simple Packet Blocks: for example, a capture tool could switch from Enhanced Packet Blocks to Simple Packet Blocks when the hardware resources become critical.</p>
+<p id="rfc.section.4.4.p.3">The Simple Packet Block does not contain the Interface ID field.  Therefore, it MUST be assumed that all the Simple Packet Blocks have been captured on the interface previously specified in the first Interface Description Block.</p>
+<p><a href="#format_spb" class="xref">Figure 12</a> shows the format of the Simple Packet Block.</p>
+<div id="rfc.figure.12"></div>
+<div id="format_spb"></div>
+<pre>
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                    Block Type = 0x00000003                    |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                    Original Packet Length                     |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 /                                                               /
+   /                          Packet Data                          /
+   /              variable length, padded to 32 bits               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+ </pre>
+<p class="figure">Figure 12: Simple Packet Block Format</p>
+<p id="rfc.section.4.4.p.5">The Simple Packet Block has the following fields: </p>
+
+<ul>
+<li>Block Type: The block type of the Simple Packet Block is 3.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Original Packet Length (32 bits): an unsigned value indicating the actual length of the packet when it was transmitted on the network. It can be different from length of the Packet Data field's length if the packet has been truncated by the capture process, in which case the SnapLen value in <a href="#section_idb" class="xref">Section 4.2</a> will be less than this Original Packet Length value, and the SnapLen value MUST be used to determine the size of the Packet Data field length.</li>
+<li>Packet Data: the data coming from the network, including link-layer headers. The length of this field can be derived from the field Block Total Length, present in the Block Header, and it is the minimum value among the SnapLen (present in the Interface Description Block) and the Original Packet Length (present in this header). The format of the data within this Packet Data field depends on the LinkType field specified in the Interface Description Block (see <a href="#section_idb" class="xref">Section 4.2</a>) and it is specified in the entry for that format in <a href="http://www.tcpdump.org/linktypes.html">the tcpdump.org link-layer header types registry</a>.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.4.p.6">The Simple Packet Block does not contain the timestamp because this is often one of the most costly operations on PCs. Additionally, there are applications that do not require it; e.g. an Intrusion Detection System is interested in packets, not in their timestamp.</p>
+<p id="rfc.section.4.4.p.7">A Simple Packet Block cannot be present in a Section that has more than one interface because of the impossibility to refer to the correct one (it does not contain any Interface ID field).</p>
+<p id="rfc.section.4.4.p.8">The Simple Packet Block is very efficient in term of disk space: a snapshot whose length is 100 octets requires only 16 octets of overhead, which corresponds to an efficiency of more than 86%.</p>
+<h1 id="rfc.section.4.5">
+<a href="#rfc.section.4.5">4.5.</a> <a href="#section_nrb" id="section_nrb">Name Resolution Block</a>
+</h1>
+<p id="rfc.section.4.5.p.1">The Name Resolution Block (NRB) is used to support the correlation of numeric addresses (present in the captured packets) and their corresponding canonical names and it is optional. Having the literal names saved in the file prevents the need for performing name resolution at a later time, when the association between names and addresses may be different from the one in use at capture time.  Moreover, the NRB avoids the need for issuing a lot of DNS requests every time the trace capture is opened, and also provides name resolution when reading the capture with a machine not connected to the network.</p>
+<p id="rfc.section.4.5.p.2">A Name Resolution Block is often placed at the beginning of the file, but no assumptions can be taken about its position. Multiple NRBs can exist in a pcapng file, either due to memory constraints or because additional name resolutions were performed by file processing tools, like network analyzers.</p>
+<p id="rfc.section.4.5.p.3">A Name Resolution Block need not contain any Records, except the nrb_record_end Record which MUST be the last Record. The addresses and names in NRB Records MAY be repeated multiple times; i.e., the same IP address may resolve to multiple names, the same name may resolve to the multiple IP addresses, and even the same address-to-name pair may appear multiple times, in the same NRB or across NRBs.</p>
+<p id="rfc.section.4.5.p.4">The format of the Name Resolution Block is shown in <a href="#format_nrb" class="xref">Figure 13</a>.</p>
+<div id="rfc.figure.13"></div>
+<div id="format_nrb"></div>
+<pre>
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                    Block Type = 0x00000004                    |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |      Record Type              |      Record Value Length      |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 /                       Record Value                            /
+   /              variable length, padded to 32 bits               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   .                                                               .
+   .                  . . . other records . . .                    .
+   .                                                               .
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |  Record Type = nrb_record_end |   Record Value Length = 0     |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+ </pre>
+<p class="figure">Figure 13: Name Resolution Block Format</p>
+<p id="rfc.section.4.5.p.5">The Name Resolution Block has the following fields: </p>
+
+<ul>
+<li>Block Type: The block type of the Name Resolution Block is 4.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.5.p.6">This is followed by zero or more Name Resolution Records (in the TLV format), each of which contains an association between a network address and a name. An nrb_record_end MUST be added after the last Record, and MUST exist even if there are no other Records in the NRB.  There are currently three possible types of records:</p>
+<div id="rfc.table.5"></div>
+<div id="nrrecords"></div>
+<table cellpadding="3" cellspacing="0" class="tt full center">
+<caption>Name Resolution Block Records</caption>
+<thead><tr>
+<th class="left">Name</th>
+<th class="left">Code</th>
+<th class="left">Length</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="left">nrb_record_end</td>
+<td class="left">0x0000</td>
+<td class="left">0</td>
+</tr>
+<tr>
+<td class="left">nrb_record_ipv4</td>
+<td class="left">0x0001</td>
+<td class="left">variable</td>
+</tr>
+<tr>
+<td class="left">nrb_record_ipv6</td>
+<td class="left">0x0002</td>
+<td class="left">variable</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+
+<dl>
+<dt>nrb_record_end:</dt>
+<dd style="margin-left: 8">
+<br>The nrb_record_end record delimits the end of name resolution records. This record is needed to determine when the list of name resolution records has ended and some options (if any) begin.</dd>
+<dt>nrb_record_ipv4:</dt>
+<dd style="margin-left: 8">
+<br>The nrb_record_ipv4 record specifies an IPv4 address (contained in the first 4 octets), followed by one or more zero-terminated UTF-8 strings containing the DNS entries for that address. The minimum valid Record Length for this Record Type is thus 6: 4 for the IP octets, 1 character, and a zero-value octet terminator. Note that the IP address is treated as four octets, one for each octet of the IP address; it is not a 32-bit word, and thus the endianness of the SHB does not affect this field's value.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '127 0 0 1'"localhost".</dd>
+<dt></dt>
+<dd style="margin-left: 8">[Open issue: is an empty string (i.e., just a zero-value octet) valid?]</dd>
+<dt>nrb_record_ipv6:</dt>
+<dd style="margin-left: 8">
+<br>The nrb_record_ipv6 record specifies an IPv6 address (contained in the first 16 octets), followed by one or more zero-terminated strings containing the DNS entries for that address. The minimum valid Record Length for this Record Type is thus 18: 16 for the IP octets, 1 character, and a zero-value octet terminator.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '20 01 0d b8 00 00 00 00 00 00 00 00 12 34 56 78'"somehost".</dd>
+<dt></dt>
+<dd style="margin-left: 8">[Open issue: is an empty string (i.e., just a zero-value octet) valid?]</dd>
+</dl>
+
+<p> </p>
+<p id="rfc.section.4.5.p.8">Record Types other than those specified earlier MUST be ignored and skipped past. More Record Types will likely be defined in the future, and MUST NOT break backwards compatibility.</p>
+<p id="rfc.section.4.5.p.9">Each Record Value is aligned to and padded to a 32-bit boundary.  The corresponding Record Value Length reflects the actual length of the Record Value; it does not include the lengths of the Record Type field, the Record Value Length field, any padding for the Record Value, or anything after the Record Value. For Record Types with name strings, the Record Length does include the zero-value octet terminating that string. A Record Length of 0 is valid, unless indicated otherwise.</p>
+<p id="rfc.section.4.5.p.10">After the list of Name Resolution Records, optionally, a list of options (formatted according to the rules defined in <a href="#section_opt" class="xref">Section 3.5</a>) can be present.</p>
+<p id="rfc.section.4.5.p.11">In addition to the options defined in <a href="#section_opt" class="xref">Section 3.5</a>, the following options are valid within this block:</p>
+<div id="rfc.table.6"></div>
+<div id="options_nrb"></div>
+<table cellpadding="3" cellspacing="0" class="tt full center">
+<caption>Name Resolution Block Options</caption>
+<thead><tr>
+<th class="left">Name</th>
+<th class="left">Code</th>
+<th class="left">Length</th>
+<th class="left">Multiple allowed?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="left">ns_dnsname</td>
+<td class="left">2</td>
+<td class="left">variable</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">ns_dnsIP4addr</td>
+<td class="left">3</td>
+<td class="left">4</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">ns_dnsIP6addr</td>
+<td class="left">4</td>
+<td class="left">16</td>
+<td class="left">no</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+
+<dl>
+<dt>ns_dnsname:</dt>
+<dd style="margin-left: 8">
+<br>The ns_dnsname option is a UTF-8 string containing the name of the machine (DNS server) used to perform the name resolution. The string is not zero-terminated.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: "our_nameserver".</dd>
+<dt>ns_dnsIP4addr:</dt>
+<dd style="margin-left: 8">
+<br>The ns_dnsIP4addr option specifies the IPv4 address of the DNS server.  Note that the IP address is treated as four octets, one for each octet of the IP address; it is not a 32-bit word, and thus the endianness of the SHB does not affect this field's value.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '192 168 0 1'.</dd>
+<dt>ns_dnsIP6addr:</dt>
+<dd style="margin-left: 8">
+<br>The ns_dnsIP6addr option specifies the IPv6 address of the DNS server.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '20 01 0d b8 00 00 00 00 00 00 00 00 12 34 56 78'.</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.4.6">
+<a href="#rfc.section.4.6">4.6.</a> <a href="#section_isb" id="section_isb">Interface Statistics Block</a>
+</h1>
+<p id="rfc.section.4.6.p.1">The Interface Statistics Block (ISB) contains the capture statistics for a given interface and it is optional. The statistics are referred to the interface defined in the current Section identified by the Interface ID field. An Interface Statistics Block is normally placed at the end of the file, but no assumptions can be taken about its position - it can even appear multiple times for the same interface.</p>
+<p id="rfc.section.4.6.p.2">The format of the Interface Statistics Block is shown in <a href="#format_isb" class="xref">Figure 14</a>.</p>
+<div id="rfc.figure.14"></div>
+<div id="format_isb"></div>
+<pre>
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                   Block Type = 0x00000005                     |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                         Interface ID                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |                        Timestamp (High)                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 |                        Timestamp (Low)                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+20 /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+ </pre>
+<p class="figure">Figure 14: Interface Statistics Block Format</p>
+<p id="rfc.section.4.6.p.3">The fields have the following meaning: </p>
+
+<ul>
+<li>Block Type: The block type of the Interface Statistics Block is 5.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Interface ID: specifies the interface these statistics refers to; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by same number (see <a href="#section_idb" class="xref">Section 4.2</a>) of this field.</li>
+<li>Timestamp: time this statistics refers to. The format of the timestamp is the same already defined in the Enhanced Packet Block (<a href="#section_epb" class="xref">Section 4.3</a>); the length of a unit of time is specified by the 'if_tsresol' option (see <a href="#format_idb" class="xref">Figure 10</a>) of the Interface Description Block referenced by this packet.</li>
+<li>Options: optionally, a list of options (formatted according to the rules defined in <a href="#section_opt" class="xref">Section 3.5</a>) can be present.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.6.p.4">All the statistic fields are defined as options in order to deal with systems that do not have a complete set of statistics. Therefore, In addition to the options defined in <a href="#section_opt" class="xref">Section 3.5</a>, the following options are valid within this block:</p>
+<div id="rfc.table.7"></div>
+<div id="options_isb"></div>
+<table cellpadding="3" cellspacing="0" class="tt full center">
+<caption>Interface Statistics Block Options</caption>
+<thead><tr>
+<th class="left">Name</th>
+<th class="left">Code</th>
+<th class="left">Length</th>
+<th class="left">Multiple allowed?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="left">isb_starttime</td>
+<td class="left">2</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">isb_endtime</td>
+<td class="left">3</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">isb_ifrecv</td>
+<td class="left">4</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">isb_ifdrop</td>
+<td class="left">5</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">isb_filteraccept</td>
+<td class="left">6</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">isb_osdrop</td>
+<td class="left">7</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">isb_usrdeliv</td>
+<td class="left">8</td>
+<td class="left">8</td>
+<td class="left">no</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+
+<dl>
+<dt>isb_starttime:</dt>
+<dd style="margin-left: 8">
+<br>The isb_starttime option specifies the time the capture started; time will be stored in two blocks of four octets each. The format of the timestamp is the same as the one defined in the Enhanced Packet Block (<a href="#section_epb" class="xref">Section 4.3</a>); the length of a unit of time is specified by the 'if_tsresol' option (see <a href="#format_idb" class="xref">Figure 10</a>) of the Interface Description Block referenced by this packet.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '96 c3 04 00 73 89 6a 65', in Little Endian, decodes to 2012-06-29 06:17:00.834163 UTC.</dd>
+<dt>isb_endtime:</dt>
+<dd style="margin-left: 8">
+<br>The isb_endtime option specifies the time the capture ended; time will be stored in two blocks of four octets each. The format of the timestamp is the same as the one defined in the Enhanced Packet Block (<a href="#section_epb" class="xref">Section 4.3</a>); the length of a unit of time is specified by the 'if_tsresol' option (see <a href="#format_idb" class="xref">Figure 10</a>) of the Interface Description Block referenced by this packet.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '97 c3 04 00 aa 47 ca 64', in Little Endian, decodes to 2012-06-29 07:28:25.298858 UTC.</dd>
+<dt>isb_ifrecv:</dt>
+<dd style="margin-left: 8">
+<br>The isb_ifrecv option specifies the 64-bit unsigned integer number of packets received from the physical interface starting from the beginning of the capture.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: the decimal number 100.</dd>
+<dt>isb_ifdrop:</dt>
+<dd style="margin-left: 8">
+<br>The isb_ifdrop option specifies the 64-bit unsigned integer number of packets dropped by the interface due to lack of resources starting from the beginning of the capture.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '0'.</dd>
+<dt>isb_filteraccept:</dt>
+<dd style="margin-left: 8">
+<br>The isb_filteraccept option specifies the 64-bit unsigned integer number of packets accepted by filter starting from the beginning of the capture.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: the decimal number 100.</dd>
+<dt>isb_osdrop:</dt>
+<dd style="margin-left: 8">
+<br>The isb_osdrop option specifies the 64-bit unsigned integer number of packets dropped by the operating system starting from the beginning of the capture.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '0'.</dd>
+<dt>isb_usrdeliv:</dt>
+<dd style="margin-left: 8">
+<br>The isb_usrdeliv option specifies the 64-bit unsigned integer number of packets delivered to the user starting from the beginning of the capture. The value contained in this field can be different from the value 'isb_filteraccept - isb_osdrop' because some packets could still be in the OS buffers when the capture ended.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '0'.</dd>
+</dl>
+
+<p> </p>
+<p id="rfc.section.4.6.p.6">All the fields that refer to packet counters are 64-bit values, represented with the octet order of the current section. Special care must be taken in accessing these fields: since all the blocks are aligned to a 32-bit boundary, such fields are not guaranteed to be aligned on a 64-bit boundary.</p>
+<h1 id="rfc.section.4.7">
+<a href="#rfc.section.4.7">4.7.</a> <a href="#section_sdj_export" id="section_sdj_export">systemd Journal Export Block</a>
+</h1>
+<p id="rfc.section.4.7.p.1">The <a href="https://www.freedesktop.org/wiki/Software/systemd/">systemd</a> <a href="https://www.freedesktop.org/wiki/Software/systemd/export/">Journal Export Block</a> is a lightweight containter for systemd Journal Export Format entry data.</p>
+<p id="rfc.section.4.7.p.2">One of the primary components of the systemd System and Service Manager is the &#8220;Journal&#8221;, a message logging system that uses arrays of key-value pairs. Journal entries are stored in a databse-like file on disk but can be serialized to easily parseable &#8220;Journal Export Format&#8221; data or to a JSON object. The block described here is limited to Journal Export Format data only.</p>
+<p id="rfc.section.4.7.p.3">A systemd Journal Export Block contains a single systemd Journal Export Format entry. Each entry MUST contain a __REALTIME_TIMESTAMP= field. If a timestamp for the block is required it can be derived from this field. Each entry MUST be zero-padded to 32 bits. Although the primary use of this block is intended for importing data from systemd, it could potentially be used to include arbitrary key-value data in a capture file.</p>
+<p><a href="#format_sdj_export" class="xref">Figure 15</a> shows the format of the Journal Export Block.</p>
+<div id="rfc.figure.15"></div>
+<div id="format_sdj_export"></div>
+<pre>
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                    Block Type = 0x00000009                    |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 /                                                               /
+   /                         Journal Entry                         /
+   /              variable length, padded to 32 bits               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+ </pre>
+<p class="figure">Figure 15: systemd Journal Export Block Format</p>
+<p id="rfc.section.4.7.p.5">The systemd Journal Export Block has the following fields: </p>
+
+<ul>
+<li>Block Type: The block type of the Journal Export Block is 9.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Journal Entry: A journal entry as described in the <a href="https://www.freedesktop.org/wiki/Software/systemd/export/">Journal Export Format</a> documentation. Entries consist of a series of field names followed by text or binary field data.  Common field names can be found in the <a href="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html">systemd.journal-fields</a> documentation. The __REALTIME_TIMESTAMP= field MUST be present and valid as described above. Entries are not guaranteed to be a multiple of four octets and must be zero-padded. This allows the length of the entry to be be determined by finding the last non-zero octet in the Journal Entry data. An entry may contain an entry separator (trailing newline) as described in the Journal Export Format specification</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.4.8">
+<a href="#rfc.section.4.8">4.8.</a> <a href="#section_dsb" id="section_dsb">Decryption Secrets Block</a>
+</h1>
+<p id="rfc.section.4.8.p.1">A Decryption Secrets Block (DSB) stores (session) secrets that enable decryption of packets within the capture file. The format of these secrets is defined by the Secrets Type.</p>
+<p id="rfc.section.4.8.p.2">Multiple DSBs can exist in a pcapng file, but they SHOULD be written before packet blocks that require those secrets. Tools MAY limit decryption to secrets that appear before packet blocks.</p>
+<p id="rfc.section.4.8.p.3">The structure of a Decryption Secrets Block is shown in <a href="#format_dsb" class="xref">Figure 16</a>.</p>
+<div id="rfc.figure.16"></div>
+<div id="format_dsb"></div>
+<pre>
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                   Block Type = 0x0000000A                     |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                          Secrets Type                         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |                         Secrets Length                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 /                                                               /
+   /                          Secrets Data                         /
+   /              (variable length, padded to 32 bits)             /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                                                               /
+   /                       Options (variable)                      /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                       Block Total Length                      /
+   +---------------------------------------------------------------+
+</pre>
+<p class="figure">Figure 16: Decryption Secrets Block Format</p>
+<p id="rfc.section.4.8.p.4">The Decryption Secrets Block has the following fields.  </p>
+
+<ul>
+<li>Block Type: The block type of the Decryption Secrets Block is 10.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Secrets Type (32 bits): an unsigned integer identifier that describes the format of the following Secrets field.  Requests for new Secrets Type codes should be sent to the <a href="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-ng-format mailing list</a>.</li>
+<li>Secrets Length (32 bits): an unsigned integer that indicates the size of the following Secrets field, without any padding octets.</li>
+<li>Secrets Data: binary data containing secrets, padded to a 32 bit boundary.</li>
+<li>Options: optionally, a list of options (formatted according to the rules defined in <a href="#section_opt" class="xref">Section 3.5</a>) can be present.  No DSB-specific options are currently defined.  </li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.8.p.5">The following is a list of Secrets Types.  </p>
+
+<dl>
+<dt>0x544c534b:</dt>
+<dd style="margin-left: 8">
+<br>TLS Key Log. This format is described at <a href="https://developer.mozilla.org/NSS_Key_Log_Format">NSS Key Log Format</a>. Every line MUST be properly terminated with either carriage return and linefeed ('\r\n') or linefeed ('\n').  Tools MUST be able to handle both line endings.</dd>
+<dt>0x57474b4c:</dt>
+<dd style="margin-left: 8">
+<br>WireGuard Key Log.  Every line consists of the key type, equals sign ('='), and the base64-encoded 32-byte key with optional spaces before and in between.  The key type is one of LOCAL_STATIC_PRIVATE_KEY, REMOTE_STATIC_PUBLIC_KEY, LOCAL_EPHEMERAL_PRIVATE_KEY, or PRESHARED_KEY. This matches the output of <a href="https://git.zx2c4.com/WireGuard/tree/contrib/examples/extract-handshakes/README">extract-handshakes.sh</a> which is part of the <a href="https://www.wireguard.com/">WireGuard</a> project.  A PRESHARED_KEY line is linked to a session matched by a previous LOCAL_EPHEMERAL_PRIVATE_KEY line.  Every line MUST be properly terminated with either carriage return and linefeed ('\r\n') or linefeed ('\n').  Tools MUST be able to handle both line endings.  <br><br> Warning: LOCAL_STATIC_PRIVATE_KEY and potentially PRESHARED_KEY are long-term secrets, users SHOULD only store non-production keys, or ensure proper protection of the pcapng file.</dd>
+<dt>0x5a4e574b:</dt>
+<dd style="margin-left: 8">
+<br>ZigBee NWK Key.  Network Key as described in the <a href="https://zigbeealliance.org/">ZigBee Specification</a> R21 section 4.2.2. The NWK Key is a 16 octet AES-128 key used to secure NWK Level frames within a single PAN.  </dd>
+<dt>0x5a415053:</dt>
+<dd style="margin-left: 8">
+<br>ZigBee APS Key.  Application Support Link Key as described in the <a href="https://zigbeealliance.org/">ZigBee Specification</a> R21 sections 2.2.5.1 and 4.4. Each 16 octet AES-128 key secures frames exchanged between a pair of network nodes.  </dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.4.9">
+<a href="#rfc.section.4.9">4.9.</a> <a href="#section_custom_block" id="section_custom_block">Custom Block</a>
+</h1>
+<p id="rfc.section.4.9.p.1">A Custom Block (CB) is the container for storing custom data that is not part of another block; for storing custom data as part of another block, see <a href="#section_custom_option" class="xref">Section 3.5.1</a>. The Custom Block is optional, can be repeated any number of times, and can appear before or after any other block except the first Section Header Block which must come first in the file. Different Custom Blocks, of different type codes and/or different Private Enterprise Numbers, may be used in the same pcapng file. The format of a Custom Block is shown in <a href="#format_custom_block" class="xref">Figure 17</a>.</p>
+<div id="rfc.figure.17"></div>
+<div id="format_custom_block"></div>
+<pre>
+   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |             Block Type = 0x00000BAD or 0x40000BAD             |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+ 8 |                Private Enterprise Number (PEN)                |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 /                                                               /
+   /                          Custom Data                          /
+   /              variable length, padded to 32 bits               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+</pre>
+<p class="figure">Figure 17: Custom Block Format</p>
+<p id="rfc.section.4.9.p.2">The Custom Block uses the type code 0x00000BAD (2989 in decimal) for a custom block that pcapng re-writers can copy into new files, and the type code 0x40000BAD (1073744813 in decimal) for one that should not be copied. See <a href="#section_vendor_copy" class="xref">Section 6.2</a> for details.</p>
+<p id="rfc.section.4.9.p.3">The Custom Block has the following fields: </p>
+
+<ul>
+<li>Block Type: The block type of the Custom Block is 0x00000BAD or 0x40000BAD, as described previously.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Private Enterprise Number (32 bits): An IANA-assigned Private Enterprise Number identifying the organization which defined the Custom Block.  See <a href="#section_vendor_uses" class="xref">Section 6.1</a> for details.  The PEN MUST be encoded using the same endianness as the Section Header Block it is within the scope of.</li>
+<li>Custom Data: the custom data, padded to a 32 bit boundary.</li>
+<li>Options: optionally, a list of options (formatted according to the rules defined in <a href="#section_opt" class="xref">Section 3.5</a>) can be present.  Note that custom options for the Custom Block still use the custom option format and type code, as described in <a href="#section_custom_option" class="xref">Section 3.5.1</a>.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> Experimental Blocks (deserve further investigation)</h1>
+<h1 id="rfc.section.5.1">
+<a href="#rfc.section.5.1">5.1.</a> Alternative Packet Blocks (experimental)</h1>
+<p id="rfc.section.5.1.p.1">Can some other packet blocks (besides the ones described in the previous paragraphs) be useful?</p>
+<h1 id="rfc.section.5.2">
+<a href="#rfc.section.5.2">5.2.</a> Compression Block (experimental)</h1>
+<p id="rfc.section.5.2.p.1">The Compression Block is optional. A file can contain an arbitrary number of these blocks. A Compression Block, as the name says, is used to store compressed data. Its format is shown in <a href="#formatcb" class="xref">Figure 18</a>.</p>
+<div id="rfc.figure.18"></div>
+<div id="formatcb"></div>
+<pre>
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++---------------------------------------------------------------+
+|                        Block Type = ?                         |
++---------------------------------------------------------------+
+|                      Block Total Length                       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Compr. Type  |                                               |
++-+-+-+-+-+-+-+-+                                               |
+|                                                               |
+|                       Compressed Data                         |
+|                                                               |
+|  variable length, octet-aligned and padded to end on a 32-bit |
+|                         boundary                              |
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      Block Total Length                       |
++---------------------------------------------------------------+
+ </pre>
+<p class="figure">Figure 18: Compression Block Format</p>
+<p id="rfc.section.5.2.p.2">The fields have the following meaning: </p>
+
+<ul>
+<li>Block Type: The block type of the Compression Block is not yet assigned.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Compression Type (8 bits): an unsigned value that specifies the compression algorithm.  Possible values for this field are 0 (uncompressed), 1 (Lempel-Ziv), 2 (Gzip), other?? Probably some kind of dumb and fast compression algorithm could be effective with some types of traffic (for example web), but which?</li>
+<li>Compressed Data: data of this block. Once decompressed, it is made of other blocks.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.5.3">
+<a href="#rfc.section.5.3">5.3.</a> Encryption Block (experimental)</h1>
+<p id="rfc.section.5.3.p.1">The Encryption Block is optional. A file can contain an arbitrary number of these blocks. An Encryption Block is used to store encrypted data. Its format is shown in <a href="#formateb" class="xref">Figure 19</a>.</p>
+<div id="rfc.figure.19"></div>
+<div id="formateb"></div>
+<pre>
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++---------------------------------------------------------------+
+|                        Block Type = ?                         |
++---------------------------------------------------------------+
+|                      Block Total Length                       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   Encr. Type  |                                               |
++-+-+-+-+-+-+-+-+                                               |
+|                                                               |
+|                       Encrypted Data                          |
+|                                                               |
+|                 variable length, octet-aligned                |
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      Block Total Length                       |
++---------------------------------------------------------------+
+ </pre>
+<p class="figure">Figure 19: Encryption Block Format</p>
+<p id="rfc.section.5.3.p.2">The fields have the following meaning: </p>
+
+<ul>
+<li>Block Type: The block type of the Encryption Block is not yet assigned.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Encryption Type (8 bits): an unsigned value that specifies the encryption algorithm.  Possible values for this field are ??? (TODO) NOTE: this block should probably contain other fields, depending on the encryption algorithm.  To be defined precisely.</li>
+<li>Encrypted Data: data of this block. Once decrypted, it originates other blocks.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.5.4">
+<a href="#rfc.section.5.4">5.4.</a> Fixed Length Block (experimental)</h1>
+<p id="rfc.section.5.4.p.1">The Fixed Length Block is optional. A file can contain an arbitrary number of these blocks. A Fixed Length Block can be used to optimize the access to the file. Its format is shown in <a href="#formatflm" class="xref">Figure 20</a>. A Fixed Length Block stores records with constant size. It contains a set of Blocks (normally Enhanced Packet Blocks or Simple Packet Blocks), of which it specifies the size.  Knowing this size a priori helps to scan the file and to load some portions of it without truncating a block, and is particularly useful with cell-based networks like ATM.</p>
+<div id="rfc.figure.20"></div>
+<div id="formatflm"></div>
+<pre>
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++---------------------------------------------------------------+
+|                        Block Type = ?                         |
++---------------------------------------------------------------+
+|                      Block Total Length                       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Cell Size            |                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+                               |
+|                                                               |
+|                        Fixed Size Data                        |
+|                                                               |
+|                 variable length, octet-aligned                |
+|                                                               |
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      Block Total Length                       |
++---------------------------------------------------------------+
+ </pre>
+<p class="figure">Figure 20: Fixed Length Block Format</p>
+<p id="rfc.section.5.4.p.2">The fields have the following meaning: </p>
+
+<ul>
+<li>Block Type: The block type of the Fixed Length Block is not yet assigned.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Cell size (16 bits): an unsigned value that indicates the size of the blocks contained in the data field.</li>
+<li>Fixed Size Data: data of this block.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.5.5">
+<a href="#rfc.section.5.5">5.5.</a> Directory Block (experimental)</h1>
+<p id="rfc.section.5.5.p.1">If present, this block contains the following information: </p>
+
+<ul>
+<li>number of indexed packets (N)</li>
+<li>table with position and length of any indexed packet (N entries)</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.5.5.p.2">A directory block MUST be followed by at least N packets, otherwise it MUST be considered invalid. It can be used to efficiently load portions of the file to memory and to support operations on memory mapped files. This block can be added by tools like network analyzers as a consequence of file processing.</p>
+<h1 id="rfc.section.5.6">
+<a href="#rfc.section.5.6">5.6.</a> Traffic Statistics and Monitoring Blocks (experimental)</h1>
+<p id="rfc.section.5.6.p.1">One or more blocks could be defined to contain network statistics or traffic monitoring information. They could be use to store data collected from RMON or Netflow probes, or from other network monitoring tools.</p>
+<h1 id="rfc.section.5.7">
+<a href="#rfc.section.5.7">5.7.</a> Event/Security Block (experimental)</h1>
+<p id="rfc.section.5.7.p.1">This block could be used to store events. Events could contain generic information (for example network load over 50%, server down...) or security alerts. An event could be: </p>
+
+<ul>
+<li>skipped, if the application doesn't know how to do with it</li>
+<li>processed independently by the packets. In other words, the applications skips the packets and processes only the alerts</li>
+<li>processed in relation to packets: for example, a security tool could load only the packets of the file that are near a security alert; a monitoring tool could skip the packets captured while the server was down.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.6">
+<a href="#rfc.section.6">6.</a> <a href="#section_vendor" id="section_vendor">Vendor-Specific Custom Extensions</a>
+</h1>
+<p id="rfc.section.6.p.1">This section uses the term "vendor" to describe an organization which extends the pcapng file with custom, proprietary blocks or options. It should be noted, however, that the "vendor" is just an abstract entity that agrees on a custom extension format: for example it may be a manufacturer, industry association, an individual user, or collective group of users.</p>
+<h1 id="rfc.section.6.1">
+<a href="#rfc.section.6.1">6.1.</a> <a href="#section_vendor_uses" id="section_vendor_uses">Supported Use-Cases</a>
+</h1>
+<p id="rfc.section.6.1.p.1">There are two different supported use-cases for vendor-specific custom extensions: local and portable. Local use means the custom data is only expected to be usable on the same machine, and the same application, which encoded it into the file. This limitation is due to the lack of a common registry for the local use number codes (the block or option type code numbers with the Most Significant Bit set).  Since two different vendors may choose the same number, one vendor's application reading the other vendor's file would result in decoding failure. Therefore, vendors SHOULD instead use the portable method, as described next.</p>
+<p id="rfc.section.6.1.p.2">The portable use-case supports vendor-specific custom extensions in pcapng files which can be shared across systems, organizations, etc.  To avoid number space collisions, an IANA-registered Private Enterprise Number (PEN) is encoded into the Custom Block or Custom Option, using the PEN number that belongs to the vendor defining the extension. Anyone can register a new PEN with IANA, for free, by filling out the online request form at <a href="http://pen.iana.org/pen/PenApplication.page">http://pen.iana.org/pen/PenApplication.page</a>.</p>
+<h1 id="rfc.section.6.2">
+<a href="#rfc.section.6.2">6.2.</a> <a href="#section_vendor_copy" id="section_vendor_copy">Controlling Copy Behavior</a>
+</h1>
+<p id="rfc.section.6.2.p.1">Both Custom Blocks and Custom Options support two different codes to distinguish their "copy" behavior: a code for when the block or option can be safely copied into a new pcapng file by a pcapng manipulating application, and a code for when it should not be copied.  A common reason for not copying a Custom Block or Custom Option is because it depends on other blocks or options in some way that would invalidate the custom data if the other blocks/options were removed or re-ordered. For example, if a Custom Block's data includes an Interface ID number in its Custom Data portion, then it cannot be safely copied by a pcapng application that merges pcapng files, because the merging application might re-order or remove one or more of the Interface Description Blocks, and thereby change the Interface IDs that the Custom Block depends upon. The same issue arises if a Custom Block or Custom Option depends on the presence of, or specific ordering of, other standard-based or custom-defined blocks or options.</p>
+<p id="rfc.section.6.2.p.2">Note that the copy semantics is not related to privacy - there is no guarantee that a pcapng anonymizer will remove a Custom Block or Custom Option, even if the appropriate code is used requesting it not be copied; and the original pcapng file can be shared anyway. If the Custom Data portion of the Custom Block or Custom Option contains sensitive information, then it should be encrypted in some fashion.</p>
+<h1 id="rfc.section.6.3">
+<a href="#rfc.section.6.3">6.3.</a> <a href="#section_vendor_strings" id="section_vendor_strings">Strings vs. Octets</a>
+</h1>
+<p id="rfc.section.6.3.p.1">For the Custom Options, there are two Custom Data formats supported: a UTF-8 string and a binary data payload. The rationale for this separation is that a pcapng display application which does not understand the specific PEN's Custom Option can still display the data as a string if it's a string type code, rather than as hex-ascii of the octets.</p>
+<h1 id="rfc.section.6.4">
+<a href="#rfc.section.6.4">6.4.</a> <a href="#section_vendor_endian" id="section_vendor_endian">Endianness Issues</a>
+</h1>
+<p id="rfc.section.6.4.p.1">Implementers writing Custom Blocks or Custom Options should be aware that a pcapng file can be re-written by machines using a different endianness than the original file, which means all known fields of the pcapng file will change endianness in the new file.  Since the Custom Data payload of the Custom Block or Custom Option might be an arbitrary sequence of unknown octets to such machines, they cannot convert multi-octet values inside the Custom Data into the appropriate endianness.</p>
+<p id="rfc.section.6.4.p.2">For example, a little-endian machine can create a new pcapng file and add some binary data Custom Options to some Block(s) in the file.  This file can then be sent to a big-endian host, which will convert it to big-endian format if it re-writes the file. It will, however, leave the Custom Data payload alone (as little-endian format). If this file then gets sent back to the little-endian machine, then when that little-endian machine reads the file it will detect the format is big- endian, and swap the endianness while it parses the file - but that will cause the Custom Data payload to be incorrect since it was already in little-endian format.</p>
+<p id="rfc.section.6.4.p.3">Therefore, the vendor should either encode all of their fields in a consistent manner, such as always in big-endian or always little-endian format, regardless of the host platform's endianness, or should encode some flag in the Custom Data payload to indicate in which endianness the rest of the payload is written.</p>
+<h1 id="rfc.section.7">
+<a href="#rfc.section.7">7.</a> Recommended File Name Extension: .pcapng</h1>
+<p id="rfc.section.7.p.1">The recommended file name extension for the "PCAP Next Generation Capture File Format" specified in this document is ".pcapng".</p>
+<p id="rfc.section.7.p.2">On Windows and macOS, files are distinguished by an extension to their filename. Such an extension is technically not actually required, as applications should be able to automatically detect the pcapng file format through the "magic bytes" at the beginning of the file, as some other UN*X desktop environments do. However, using name extensions makes it easier to work with files (e.g. visually distinguish file formats) so it is recommended - though not required - to use .pcapng as the name extension for files following this specification.</p>
+<p id="rfc.section.7.p.3">Please note: To avoid confusion (such as the current usage of .cap for a plethora of different capture file formats) other file name extensions than .pcapng should be avoided.</p>
+<h1 id="rfc.section.8">
+<a href="#rfc.section.8">8.</a> Conclusions</h1>
+<p id="rfc.section.8.p.1">The file format proposed in this document should be very versatile and satisfy a wide range of applications. In the simplest case, it can contain a raw capture of the network data, made of a series of Simple Packet Blocks. In the most complex case, it can be used as a repository for heterogeneous information. In every case, the file remains easy to parse and an application can always skip the data it is not interested in; at the same time, different applications can share the file, and each of them can benefit of the information produced by the others. Two or more files can be concatenated obtaining another valid file.</p>
+<h1 id="rfc.section.9">
+<a href="#rfc.section.9">9.</a> Implementations</h1>
+<p id="rfc.section.9.p.1">Some known implementations that read or write the pcapng file format are listed on the <a href="https://github.com/pcapng/pcapng/wiki/Implementations">pcapng GitHub wiki</a>.</p>
+<h1 id="rfc.section.10">
+<a href="#rfc.section.10">10.</a> Security Considerations</h1>
+<p id="rfc.section.10.p.1">TBD.</p>
+<h1 id="rfc.section.11">
+<a href="#rfc.section.11">11.</a> IANA Considerations</h1>
+<p id="rfc.section.11.p.1">TBD.</p>
+<p id="rfc.section.11.p.2">[Open issue: decide whether the block types, option types, NRB Record types, etc. should be IANA registries. And if so, what the IANA policy for each should be (see RFC 5226)]</p>
+<h1 id="rfc.section.11.1">
+<a href="#rfc.section.11.1">11.1.</a> <a href="#section_block_code_registry" id="section_block_code_registry">Standardized Block Type Codes</a>
+</h1>
+<p id="rfc.section.11.1.p.1">Every Block is uniquely identified by a 32-bit integer value, stored in the Block Header.</p>
+<p id="rfc.section.11.1.p.2">As pointed out in <a href="#section_block" class="xref">Section 3.1</a>, Block Type codes whose Most Significant Bit (bit 31) is set to 1 are reserved for local use by the application.</p>
+<p id="rfc.section.11.1.p.3">All the remaining Block Type codes (0x00000000 to 0x7FFFFFFF) are standardized by this document. Requests for new Block Type codes should be sent to the <a href="https://www.winpcap.org/mailman/listinfo/pcap-ng-format">pcap-ng-format mailing list</a>.</p>
+<p id="rfc.section.11.1.p.4">The following is a list of the Standardized Block Type Codes:</p>
+<div id="rfc.table.8"></div>
+<div id="blockcodes"></div>
+<table cellpadding="3" cellspacing="0" class="tt full center">
+<caption>Standardized Block Type Codes</caption>
+<thead><tr>
+<th class="left">Block Type Code</th>
+<th class="left">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="left">0x00000000</td>
+<td class="left">Reserved ???</td>
+</tr>
+<tr>
+<td class="left">0x00000001</td>
+<td class="left">
+<a href="#section_idb" class="xref">Interface Description Block</a> </td>
+</tr>
+<tr>
+<td class="left">0x00000002</td>
+<td class="left">
+<a href="#appendix_pb" class="xref">Packet Block</a> </td>
+</tr>
+<tr>
+<td class="left">0x00000003</td>
+<td class="left">
+<a href="#section_spb" class="xref">Simple Packet Block</a> </td>
+</tr>
+<tr>
+<td class="left">0x00000004</td>
+<td class="left">
+<a href="#section_nrb" class="xref">Name Resolution Block</a> </td>
+</tr>
+<tr>
+<td class="left">0x00000005</td>
+<td class="left">
+<a href="#section_isb" class="xref">Interface Statistics Block</a> </td>
+</tr>
+<tr>
+<td class="left">0x00000006</td>
+<td class="left">
+<a href="#section_epb" class="xref">Enhanced Packet Block</a> </td>
+</tr>
+<tr>
+<td class="left">0x00000007</td>
+<td class="left">IRIG Timestamp Block (requested by Gianluca Varenni &lt;gianluca.varenni@cacetech.com&gt;, CACE Technologies LLC); code also used for <a href="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Socket Aggregation Event Block</a> </td>
+</tr>
+<tr>
+<td class="left">0x00000008</td>
+<td class="left">
+<a href="https://en.wikipedia.org/wiki/ARINC_429">ARINC 429</a> in AFDX Encapsulation Information Block (requested by Gianluca Varenni &lt;gianluca.varenni@cacetech.com&gt;, CACE Technologies LLC) </td>
+</tr>
+<tr>
+<td class="left">0x00000009</td>
+<td class="left">
+<a href="#section_sdj_export" class="xref">systemd Journal Export Block</a> </td>
+</tr>
+<tr>
+<td class="left">0x0000000A</td>
+<td class="left">
+<a href="#section_dsb" class="xref">Decryption Secrets Block</a> </td>
+</tr>
+<tr>
+<td class="left">0x00000101</td>
+<td class="left">
+<a href="https://github.com/HoneProject">Hone Project</a> <a href="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Machine Info Block</a> (see also <a href="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google version</a>) </td>
+</tr>
+<tr>
+<td class="left">0x00000102</td>
+<td class="left">
+<a href="https://github.com/HoneProject">Hone Project</a> <a href="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Connection Event Block</a> (see also <a href="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google version</a>) </td>
+</tr>
+<tr>
+<td class="left">0x00000201</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Machine Info Block </td>
+</tr>
+<tr>
+<td class="left">0x00000202</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Process Info Block, version 1 </td>
+</tr>
+<tr>
+<td class="left">0x00000203</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> FD List Block </td>
+</tr>
+<tr>
+<td class="left">0x00000204</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Event Block </td>
+</tr>
+<tr>
+<td class="left">0x00000205</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Interface List Block </td>
+</tr>
+<tr>
+<td class="left">0x00000206</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> User List Block </td>
+</tr>
+<tr>
+<td class="left">0x00000207</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Process Info Block, version 2 </td>
+</tr>
+<tr>
+<td class="left">0x00000208</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Event Block with flags </td>
+</tr>
+<tr>
+<td class="left">0x00000209</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Process Info Block, version 3 </td>
+</tr>
+<tr>
+<td class="left">0x00000210</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Process Info Block, version 4 </td>
+</tr>
+<tr>
+<td class="left">0x00000211</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Process Info Block, version 5 </td>
+</tr>
+<tr>
+<td class="left">0x00000212</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Process Info Block, version 6 </td>
+</tr>
+<tr>
+<td class="left">0x00000213</td>
+<td class="left">
+<a href="https://github.com/draios/sysdig">Sysdig</a> Process Info Block, version 7 </td>
+</tr>
+<tr>
+<td class="left">0x00000BAD</td>
+<td class="left">
+<a href="#section_custom_block" class="xref">Custom Block that rewriters can copy into new files</a> </td>
+</tr>
+<tr>
+<td class="left">0x40000BAD</td>
+<td class="left">
+<a href="#section_custom_block" class="xref">Custom Block that rewriters should not copy into new files</a> </td>
+</tr>
+<tr>
+<td class="left">0x0A0D0D0A</td>
+<td class="left">
+<a href="#section_shb" class="xref">Section Header Block</a> </td>
+</tr>
+<tr>
+<td class="left">0x0A0D0A00-0x0A0D0AFF</td>
+<td class="left">Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.</td>
+</tr>
+<tr>
+<td class="left">0x000A0D0A-0xFF0A0D0A</td>
+<td class="left">Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.</td>
+</tr>
+<tr>
+<td class="left">0x000A0D0D-0xFF0A0D0D</td>
+<td class="left">Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.</td>
+</tr>
+<tr>
+<td class="left">0x0D0D0A00-0x0D0D0AFF</td>
+<td class="left">Reserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode.</td>
+</tr>
+<tr>
+<td class="left">0x80000000-0xFFFFFFFF</td>
+<td class="left">Reserved for local use.</td>
+</tr>
+</tbody>
+</table>
+<p id="rfc.section.11.1.p.5">[Open issue: reserve 0x40000000-0x7FFFFFFF for do-not-copy-bit range of base types?]</p>
+<h1 id="rfc.section.12">
+<a href="#rfc.section.12">12.</a> Contributors</h1>
+<p id="rfc.section.12.p.1">Loris Degioanni and Gianluca Varenni were coauthoring this document before it was submitted to the IETF.</p>
+<h1 id="rfc.section.13">
+<a href="#rfc.section.13">13.</a> Acknowledgments</h1>
+<p id="rfc.section.13.p.1">The authors wish to thank Anders Broman, Ulf Lamping, Richard Sharpe and many others for their invaluable comments.</p>
+<h1 id="rfc.references">
+<a href="#rfc.references">14.</a> Normative References</h1>
+<table><tbody><tr>
+<td class="reference"><b id="RFC2119">[RFC2119]</b></td>
+<td class="top">
+<a>Bradner, S.</a>, "<a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
+</tr></tbody></table>
+<h1 id="rfc.appendix.A">
+<a href="#rfc.appendix.A">Appendix A.</a> <a href="#appendix_pb" id="appendix_pb">Packet Block (obsolete!)</a>
+</h1>
+<p id="rfc.section.A.p.1">The Packet Block is obsolete, and MUST NOT be used in new files. Use the Enhanced Packet Block or Simple Packet Block instead. This section is for historical reference only.</p>
+<p id="rfc.section.A.p.2">A Packet Block was a container for storing packets coming from the network.</p>
+<div id="rfc.figure.21"></div>
+<div id="formatpb"></div>
+<pre>
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                    Block Type = 0x00000002                    |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |         Interface ID          |          Drops Count          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |                        Timestamp (High)                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16 |                        Timestamp (Low)                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+20 |                    Captured Packet Length                     |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+24 |                    Original Packet Length                     |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+28 /                                                               /
+   /                          Packet Data                          /
+   /              variable length, padded to 32 bits               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+</pre>
+<p class="figure">Figure 21: Packet Block Format</p>
+<p id="rfc.section.A.p.3">The Packet Block has the following fields: </p>
+
+<ul>
+<li>Block Type: The block type of the Packet Block is 2.</li>
+<li>Block Total Length: total size of this block, as described in <a href="#section_block" class="xref">Section 3.1</a>.</li>
+<li>Interface ID: specifies the interface this packet comes from; the correct interface will be the one whose Interface Description Block (within the current Section of the file) is identified by the same number (see <a href="#section_idb" class="xref">Section 4.2</a>) of this field. The interface ID MUST be valid, which means that an matching interface description block MUST exist.</li>
+<li>Drops Count: a local drop counter. It specifies the number of packets lost (by the interface and the operating system) between this packet and the preceding one. The value xFFFF (in hexadecimal) is reserved for those systems in which this information is not available.</li>
+<li>Timestamp (High) and Timestamp (Low): timestamp of the packet.  The format of the timestamp is the same as was already defined for the Enhanced Packet Block (<a href="#section_epb" class="xref">Section 4.3</a>).</li>
+<li>Captured Packet Length: number of octets captured from the packet (i.e. the length of the Packet Data field). It will be the minimum value among the Original Packet Length and the snapshot length for the interface (SnapLen, defined in <a href="#format_idb" class="xref">Figure 10</a>). The value of this field does not include the padding octets added at the end of the Packet Data field to align the Packet Data field to a 32-bit boundary.</li>
+<li>Original Packet Length: actual length of the packet when it was transmitted on the network. It can be different from Captured Packet Length if the packet has been truncated by the capture process.</li>
+<li>Packet Data: the data coming from the network, including link-layer headers. The actual length of this field is Captured Packet Length plus the padding to a 32-bit boundary. The format of the link-layer headers depends on the LinkType field specified in the Interface Description Block (see <a href="#section_idb" class="xref">Section 4.2</a>) and it is specified in the entry for that format in the <a href="http://www.tcpdump.org/linktypes.html">the tcpdump.org link-layer header types registry</a>.</li>
+<li>Options: optionally, a list of options (formatted according to the rules defined in <a href="#section_opt" class="xref">Section 3.5</a>) can be present.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.A.p.4">In addition to the options defined in <a href="#section_opt" class="xref">Section 3.5</a>, the following options were valid within this block:</p>
+<div id="rfc.table.9"></div>
+<div id="optionspb"></div>
+<table cellpadding="3" cellspacing="0" class="tt full center">
+<caption>Packet Block Options</caption>
+<thead><tr>
+<th class="left">Name</th>
+<th class="left">Code</th>
+<th class="left">Length</th>
+<th class="left">Multiple allowed?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="left">pack_flags</td>
+<td class="left">2</td>
+<td class="left">4</td>
+<td class="left">no</td>
+</tr>
+<tr>
+<td class="left">pack_hash</td>
+<td class="left">3</td>
+<td class="left">variable</td>
+<td class="left">yes</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+
+<dl>
+<dt>pack_flags:</dt>
+<dd style="margin-left: 8">
+<br>The pack_flags option is the same as the epb_flags of the enhanced packet block.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Example: '0'.</dd>
+<dt>pack_hash:</dt>
+<dd style="margin-left: 8">
+<br>The pack_hash option is the same as the epb_hash of the enhanced packet block.</dd>
+<dt></dt>
+<dd style="margin-left: 8">Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D 50 8E'.</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Michael Tuexen</span> (editor)
+	  <span class="n hidden">
+		<span class="family-name">Tuexen</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Muenster University of Applied Sciences</span>
+	<span class="adr">
+	  <span class="vcardline">Stegerwaldstrasse 39</span>
+
+	  <span class="vcardline">
+		<span class="locality">Steinfurt</span>,  
+		<span class="region"></span>
+		<span class="code">48565</span>
+	  </span>
+	  <span class="country-name vcardline">DE</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:tuexen@fh-muenster.de">tuexen@fh-muenster.de</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Fulvio Risso</span> 
+	  <span class="n hidden">
+		<span class="family-name">Risso</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Politecnico di Torino</span>
+	<span class="adr">
+	  <span class="vcardline">Corso Duca degli Abruzzi, 24</span>
+
+	  <span class="vcardline">
+		<span class="locality">Torino</span>,  
+		<span class="region"></span>
+		<span class="code">10129</span>
+	  </span>
+	  <span class="country-name vcardline">IT</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:fulvio.risso@polito.it">fulvio.risso@polito.it</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Jasper Bongertz</span> 
+	  <span class="n hidden">
+		<span class="family-name">Bongertz</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Airbus Defence and Space CyberSecurity</span>
+	<span class="adr">
+	  <span class="vcardline">Kanzlei 63c</span>
+
+	  <span class="vcardline">
+		<span class="locality">Meerbusch</span>,  
+		<span class="region"></span>
+		<span class="code">40667</span>
+	  </span>
+	  <span class="country-name vcardline">DE</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:jasper@packet-foo.com">jasper@packet-foo.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Gerald Combs</span> 
+	  <span class="n hidden">
+		<span class="family-name">Combs</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Wireshark Foundation</span>
+	<span class="adr">
+	  <span class="vcardline">339 Madson Pl</span>
+
+	  <span class="vcardline">
+		<span class="locality">Davis</span>,  
+		<span class="region">CA</span> 
+		<span class="code">95618</span>
+	  </span>
+	  <span class="country-name vcardline">US</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:gerald@wireshark.org">gerald@wireshark.org</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Guy Harris</span> 
+	  <span class="n hidden">
+		<span class="family-name">Harris</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:guy@alum.mit.edu">guy@alum.mit.edu</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>
