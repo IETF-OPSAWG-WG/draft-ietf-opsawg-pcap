@@ -77,6 +77,19 @@
       </address>
     </author>
 
+    <author initials='E.' surname='Chaudron' fullname='Eelco Chaudron'>
+     <organization abbrev='Red Hat'>Red Hat</organization>
+     <address>
+       <postal>
+         <street>De Entree 238</street>
+         <code>1101 EE</code>
+         <city>Amsterdam</city>
+         <country>NL</country>
+       </postal>
+        <email>eelco@redhat.com</email>
+      </address>
+    </author>
+
     <author fullname="Michael C. Richardson" initials="M."
             surname="Richardson">
       <organization abbrev="Sandelman">Sandelman Software Works</organization>
@@ -1332,6 +1345,22 @@ Section Header
           <c>4</c>
           <c>8</c>
           <c>no</c>
+
+          <c>epb_packetid</c>
+          <c>5</c>
+          <c>8</c>
+          <c>no</c>
+
+          <c>epb_queue</c>
+          <c>7</c>
+          <c>4</c>
+          <c>no</c>
+
+          <c>epb_verdict</c>
+          <c>7</c>
+          <c>variable, minimum verdict type-dependent</c>
+          <c>yes</c>
+
         </texttable>
 
         <t>
@@ -1370,6 +1399,37 @@ Section Header
             process.</t>
 
             <t>Example: '0'.</t>
+
+            <t hangText="epb_packetid:"><vspace blankLines="0"/>The
+            epb_packetid option is a 64-bit unsigned integer that uniquely
+            identifies the packet. If the same packet is seen by multiple
+            interfaces and there is a way for the capture application to
+            correlated them, the same epb_packetid value must be used. An
+            example could be where an XDP program on ingress captures a packet,
+            which gets modified and then exits the XDP program. In this case,
+            two packets are in the capture file, which are not identical but
+            the epb_packetid can be used correlate them.</t>
+
+            <t>Example: '0'.</t>
+
+            <t hangText="epb_queue:"><vspace blankLines="0"/>The epb_queue
+            option is a 32-bit unsigned integer that identifies on which queue
+            of the interface the specific packet was received.</t>
+
+            <t>Example: '0'.</t>
+
+            <t hangText="epb_verdict:"><vspace blankLines="0"/>The epb_verdict
+            option stores a verdict of the packet. This verdict can be set by
+            various components, i.e. Hardware, Linux's eBPF TC or XPD
+            framework, etc. etc. The first octet specifies the verdict type,
+            while the following octets contain the actual verdict data, whose
+            size depends on the verdict type, and hence from the value in the
+            first octet. The verdict type can be: Hardware (type octet = 0,
+            size = XXX), Linux_eBPF_TC (type octet = 1, size = 8 (64-bit
+            unsigned integer)), Linux_eBPF_XDP (type octet = 2, size = 8
+            (64-bit unsigned integer))</t>
+
+            <t>Example: Linux_eBPD_XDP -> XDP_PASS: '02 00 00 00 02'.</t>
 
           </list>
         </t>
