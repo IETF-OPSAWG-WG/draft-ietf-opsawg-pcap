@@ -1419,17 +1419,19 @@ Section Header
             <t>Example: '0'.</t>
 
             <t hangText="epb_verdict:"><vspace blankLines="0"/>The epb_verdict
-            option stores a verdict of the packet. This verdict can be set by
-            various components, i.e. Hardware, Linux's eBPF TC or XPD
-            framework, etc. etc. The first octet specifies the verdict type,
-            while the following octets contain the actual verdict data, whose
-            size depends on the verdict type, and hence from the value in the
-            first octet. The verdict type can be: Hardware (type octet = 0,
-            size = XXX), Linux_eBPF_TC (type octet = 1, size = 8 (64-bit
-            unsigned integer)), Linux_eBPF_XDP (type octet = 2, size = 8
-            (64-bit unsigned integer))</t>
+            option stores a verdict of the packet. The verdict indicates what
+            would be done with the packet after processing it. For example, a
+            firewall implemented with eBPF could drop the packet. This verdict
+            can be set by various components, i.e. Hardware, Linux's eBPF TC
+            or XDP framework, etc. etc. The first octet specifies the verdict
+            type, while the following octets contain the actual verdict data,
+            whose size depends on the verdict type, and hence from the value
+            in the first octet. The verdict type can be: Hardware (type
+            octet = 0, size = XXX), Linux_eBPF_TC (type octet = 1, size = 8
+            (64-bit unsigned integer)), Linux_eBPF_XDP (type octet = 2,
+            size = 8 (64-bit unsigned integer))</t>
 
-            <t>Example: Linux_eBPD_XDP -> XDP_PASS: '02 00 00 00 02'.</t>
+            <t>Example: '02 00 00 00 02' for Linux_eBPF_XDP with verdict XDP_PASS.</t>
 
           </list>
         </t>
