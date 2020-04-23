@@ -188,13 +188,13 @@
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  0 |                      Timestamp (Seconds)                      |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-16 |            Timestamp (Microseconds or nanoseconds)            |
+ 4 |            Timestamp (Microseconds or nanoseconds)            |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-20 |                    Captured Packet Length                     |
+ 8 |                    Captured Packet Length                     |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-24 |                    Original Packet Length                     |
+12 |                    Original Packet Length                     |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-28 /                                                               /
+16 /                                                               /
    /                          Packet Data                          /
    /                        variable length                        /
    /                                                               /
