@@ -958,7 +958,7 @@ Section Header
             target="LINKTYPES"/>.</t>
 
             <t>Reserved (16 bits): not used - MUST be filled with 0 by
-            pcap file writers, and MUST be ignored by pcapng file
+            pcapng file writers, and MUST be ignored by pcapng file
             readers.</t>
 
             <t>SnapLen (32 bits): an unsigned value indicating the

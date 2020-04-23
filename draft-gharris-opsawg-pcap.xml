@@ -14,7 +14,7 @@
 
   <front>
 
-    <title abbrev="pcapng">PCAP Capture File Format</title>
+    <title abbrev="pcap">PCAP Capture File Format</title>
 
     <author initials='G.' surname='Harris' fullname='Guy Harris'>
       <address>
@@ -121,7 +121,7 @@
             seconds and nanoseconds.  These numbers can be used to
             distinguish sections that have been saved on little-endian
             machines from the ones saved on big-endian machines, and to
-            heuristically identify pcapng files.</t>
+            heuristically identify pcap files.</t>
 
             <t>Major Version (16 bits): an unsigned value, giving the
             number of the current major version of the format. The
