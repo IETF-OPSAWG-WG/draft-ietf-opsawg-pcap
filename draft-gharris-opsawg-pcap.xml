@@ -107,6 +107,8 @@
 </artwork>
         </figure>
 
+        <t>The File Header length is 24 octets.</t>
+
         <t>The meaning of the fields in the File Header is:
           <list style="symbols">
 
@@ -201,6 +203,8 @@
    +---------------------------------------------------------------+
 </artwork>
         </figure>
+
+        <t>The Packet Header length is 16 octets.</t>
 
         <t>The meaning of the fields in the Packet Record is:
           <list style="symbols">
