@@ -1404,11 +1404,14 @@ Section Header
             epb_packetid option is a 64-bit unsigned integer that uniquely
             identifies the packet. If the same packet is seen by multiple
             interfaces and there is a way for the capture application to
-            correlated them, the same epb_packetid value must be used. An
-            example could be where an XDP program on ingress captures a packet,
-            which gets modified and then exits the XDP program. In this case,
-            two packets are in the capture file, which are not identical but
-            the epb_packetid can be used correlate them.</t>
+            correlate them, the same epb_packetid value must be used. An
+            example could be a router that captures packets on all its
+            interfaces in both directions. When a packet hits interface A
+            on ingress, an EPB entry gets created, TTL gets decremented,
+            and right before it egresses on interface B another EPB entry
+            gets created in the trace file. In this case, two packets are
+            in the capture file, which are not identical but the
+            epb_packetid can be used to correlate them.</t>
 
             <t>Example: '0'.</t>
 
@@ -1421,17 +1424,22 @@ Section Header
             <t hangText="epb_verdict:"><vspace blankLines="0"/>The epb_verdict
             option stores a verdict of the packet. The verdict indicates what
             would be done with the packet after processing it. For example, a
-            firewall implemented with eBPF could drop the packet. This verdict
-            can be set by various components, i.e. Hardware, Linux's eBPF TC
-            or XDP framework, etc. etc. The first octet specifies the verdict
-            type, while the following octets contain the actual verdict data,
-            whose size depends on the verdict type, and hence from the value
-            in the first octet. The verdict type can be: Hardware (type
-            octet = 0, size = XXX), Linux_eBPF_TC (type octet = 1, size = 8
-            (64-bit unsigned integer)), Linux_eBPF_XDP (type octet = 2,
-            size = 8 (64-bit unsigned integer))</t>
+            firewall could drop the packet. This verdict can be set by various
+            components, i.e. Hardware, Linux's eBPF TC or XDP framework, etc.
+            etc. The first octet specifies the verdict type, while the
+            following octets contain the actual verdict data, whose size
+            depends on the verdict type, and hence from the value in the first
+            octet. The verdict type can be: Hardware (type octet = 0, size =
+            variable), Linux_eBPF_TC (type octet = 1, size = 8 (64-bit unsigned
+            integer), value = TC_ACT_* as defined in the Linux
+            <eref target="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/uapi/linux/pkt_cls.h">pck_cls.h</eref>
+            include), Linux_eBPF_XDP (type octet = 2, size = 8 (64-bit unsigned
+            integer), value = xdp_action as defined in the Linux
+            <eref target="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/uapi/linux/bpf.h">pbf.h</eref>
+            include).</t>
 
-            <t>Example: '02 00 00 00 02' for Linux_eBPF_XDP with verdict XDP_PASS.</t>
+            <t>Example: '02 00 00 00 00 00 00 00 02' for Linux_eBPF_XDP with
+            verdict XDP_PASS.</t>
 
           </list>
         </t>
