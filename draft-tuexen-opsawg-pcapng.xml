@@ -1050,6 +1050,17 @@ Section Header
           <c>15</c>
           <c>variable</c>
           <c>no</c>
+
+          <c>if_txspeed</c>
+          <c>16</c>
+          <c>8</c>
+          <c>no</c>
+
+          <c>if_rxspeed</c>
+          <c>17</c>
+          <c>8</c>
+          <c>no</c>
+
         </texttable>
 
         <t>
@@ -1184,8 +1195,32 @@ Section Header
             Network Connection", "NETGEAR WNA1000Mv2 N150 Wireless USB
             Micro Adapter".</t>
 
+            <t hangText="if_txspeed:"><vspace blankLines="0"/>The
+            if_txrxspeeds option is a 64-bit unsigned value
+            indicating the interface transmit speed in bits per
+            second.</t>
+
+            <t>Example: the 64-bit decimal number 1024000 for
+            1024Kbps.</t>
+
+            <t hangText="if_rxspeed:"><vspace blankLines="0"/>The
+            if_rxspeed option is a 64-bit unsigned value
+            indicating the interface receive speed, in bits per
+            second.</t>
+
+            <t>Example: the 64-bit decimal number 8192000 for
+            8192Kbps.</t>
+
           </list>
         </t>
+
+        <t>If the interface transmit speed and receive speed are the
+        same, the if_speed option MUST be used and the if_txspeed and
+        if_rxspeed options MUST NOT be used.  If the transmit speed is
+        unknown, the if_speed and if_txspeed options MUST NOT be used;
+        if the receive speed is unknown, the if_speed and if_rxspeed
+        options MUST NOT be used.</t>
+
       </section>
 
       <section anchor="section_epb" title="Enhanced Packet Block">
