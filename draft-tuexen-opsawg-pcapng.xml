@@ -1367,6 +1367,11 @@ Section Header
           <c>4</c>
           <c>8</c>
           <c>no</c>
+
+          <c>epb_rssi</c>
+          <c>5</c>
+          <c>6</c>
+          <c>yes</c>
         </texttable>
 
         <t>
@@ -1405,6 +1410,13 @@ Section Header
             process.</t>
 
             <t>Example: '0'.</t>
+
+            <t hangText="epb_rssi:"><vspace blankLines="0"/>The
+            epb_rssi option represents an antenna-rssi pair for the received
+            packet. This consists of a unsigned 16 bit integer value for the antenna 
+            index, and a 32-bit floating point RSSI in dBm.</t>
+
+            <t>Example: '01 00 00 00 92 c2' for Antenna 1, -73.0 dBm.</t>
 
           </list>
         </t>
