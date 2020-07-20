@@ -678,6 +678,40 @@ Section Header
 
         </section>
 
+        <section anchor="section_simple_option" title="Simple Options">
+
+          <t>Simple Options are used for represending integer values that fit
+          into 24 bits of space.
+
+          <figure anchor="formatsimpleopt" title="Simple Options Format">
+            <artwork xml:space="preserve" name="" type="" align="center" alt="" width="" height="">
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Option Code  |                 Option Value                  |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ </artwork>
+          </figure>
+          </t>
+          <t>A Simple Option has the following fields:
+            <list style="symbols">
+
+              <t>Simple Option Code: The code number for the Simple Option, which
+              has the upper three bits set to '001'. Given the total size of the
+              option code equal to 8 bits, there are at most 32 distinct simple
+              option codes available for each block type.
+              </t>
+
+              <t>Option Value: An integer value stored in 24bits.</t>
+            </list>
+
+          </t>
+
+          <t>See <xref target="section_apb"/> for examples of Simple Options
+          usage.</t>
+
+        </section>
+
       </section>
 
       <section title="Data format">
@@ -2350,10 +2384,182 @@ Section Header
 
     <section title="Experimental Blocks (deserve further investigation)">
 
-      <section title="Alternative Packet Blocks (experimental)">
+      <section anchor="section_apb" title="Alternative Packet Block (experimental)">
 
-        <t>Can some other packet blocks (besides the ones described in the
-        previous paragraphs) be useful?</t>
+        <t>Alternative Packet Block offers an intermediate layout between
+        the Simple Packet Block and the Enhanced Packet Block. The
+        timestamp of a packet, and other fields that are present in the
+        Enhanced Packet Block are made optional in the Alternative Packet
+        Block and can be stored in the Options section. The Options,
+        Timestmap, and packet's body of this block MAY be compressed.
+        This packet block type is intended for use cases that store large
+        number of packets, are concerned about storage size, and optionally
+        engage compression. This block type has minimal overhead of 16
+        octets in storing packet data (size of: 'Block Type',
+        2 * 'Block Total Length', 'APB Flags').
+        </t>
+
+        <figure anchor="formatapb" title="Alternative Packet Block Format">
+          <artwork xml:space="preserve" name="" type="" align="left" alt="" width="" height="">
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                    Block Type = 0x0000000A                    |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |              APB Flags (apb_flags, code = 0x2001)             |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ \
+12 /                                                               /  \
+   /                      Options (variable)                       /   +
+   /                                                               /   |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+   | 
+   |                   Optional Timestamp (High)                   |   |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+   +- This part MAY
+   |                   Optional Timestamp (Low)                    |   |  be compressed
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+   |
+   /                                                               /   |
+   /                          Packet Data                          /   |
+   /              variable length, padded to 32 bits               /   +
+   /                                                               /  /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ /
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+ </artwork>
+        </figure>
+
+        <t>The Alternative Packet Block has the following fields:
+          <list style="symbols">
+            <t>Block Type: the block type of the Enhanced
+            Packet Block is 0x0A</t>
+
+            <t>Block Total Length: total size of this block,
+            as described in <xref target="section_block"/></t>
+
+            <t>APB Flags Option: Alternative
+            Packet Block Flags - MANDATORY option formatted as Simple Option
+            (see <xref target="section_simple_option"/>)
+            with code 0x2001. The APB Flags indicate presence of a Timestamp,
+            uncompressed Options size, and characteristics of the Packet Data.
+            See <xref target="apb_flags"/> for permissible bit settings.
+            This option MAY include total byte size of Options. If the size
+            is specified, then the opt_endofopt option is OPTIONAL. The value
+            of apb_opt_size is the number of octets comprising the entire
+            Options section in this block not counting the APB Flags. If
+            present, this option MUST be the first one in the Options data.</t>
+
+            <t>Options: list of permissible option values listed in the table
+            below are of Simple Option type (see
+            <xref target="section_simple_option"/>). The Options MAY be
+            compressed if the Compression Bits of the apb_flags are on.</t>
+
+            <t>Optional Timestmap (High) and Timestamp (Low): upper 32 bits
+            and lower 32 bits of a 64-bit timestamp. If the Timestamp bit of
+            the apb_flags is on, then the Timestamp (High/Low) is present
+            after the Options. If there is no apb_flags option or the
+            Timestamp bit of the apb_flags option is off, then the timestamp
+            is not present. If the Compression bits of the apb_flags option
+            are on, then the Options, Timestamp, and Packet Data are
+            compressed using Compression Type specified in the apb_flags.
+            Otherwise it's not compressed.
+            The timestamp is a single 64-bit unsigned integer that
+            represents the number of units of time that have elapsed since
+            1/1/1970 00:00:00 UTC. The length of a unit of time is specified
+            by the 'if_tsresol' option (see <xref target="format_idb"/>) of
+            the Interface Description block referenced by this packet.
+            Note that, unlike timestamps in the libpcap file format,
+            timestamps in Enhanced Packet Blocks are not saved as two 32-bit
+            values that represent the seconds and microseconds that have
+            elapsed since 1/1/1970 00:00:00 UTC. Timestamps in Enhanced
+            Packet Blocks are saved as two 32-bit words that represent
+            the upper and lower 32 bits of a single 64-bit quantity.</t>
+
+          </list>
+        </t>
+
+        <texttable title="Alternative Packet Block Flags" anchor="apb_flags">
+          <ttcol align="left">Bit Number</ttcol>
+          <ttcol align="left">Description</ttcol>
+
+          <c>0</c>
+          <c>Timestamp bit (0 = no timestamp, 1 = has timestmap)</c>
+
+          <c>1-2</c>
+          <c>Packet Direction. (00 = information not
+          available, 01 = inbound packet, 10 = outbound packet)</c>
+
+          <c>3-5</c>
+          <c>Reception Type (000 = not specified, 001 = unicast,
+          010 = multicast, 011 = broadcast, 100 = promiscuous).</c>
+
+          <c>6-11</c>
+          <c>Compression Type. When specified, the optional Timestamp and
+          Packet Data contents are compressed.  Permissible types:
+          0 (uncompressed), 1 (lzw), 2 (gzip), 3 (bzip2), 4 (zip),
+          5 (7z), 6 (lzo), 7 (ucl), 8 (snappy), other???</c>
+
+          <c>12-15</c>
+          <c>Reserved</c>
+
+          <c>16-23</c>
+          <c>Total uncompressed byte size of Options in this section
+          excluding the APB Flags. This setting is OPTIONAL. If set to 0,
+          then opt_endofopt is REQUIRED.</c>
+        </texttable>
+
+        <t>Options are described in the table below:</t>
+
+        <texttable anchor="options_apb" title="Alternative Packet Block Options">
+          <ttcol align="left">Name</ttcol>
+          <ttcol align="left">Code</ttcol>
+          <ttcol align="left">Length</ttcol>
+          <ttcol align="left">Multiple allowed?</ttcol>
+
+          <c>apb_orig_len</c>
+          <c>0x2002</c>
+          <c>-</c>
+          <c>no</c>
+
+          <c>apb_capt_len</c>
+          <c>0x2003</c>
+          <c>-</c>
+          <c>no</c>
+
+          <c>apb_iface_id</c>
+          <c>0x2004</c>
+          <c>-</c>
+          <c>no</c>
+
+        </texttable>
+
+        <t>
+          <list hangIndent="8" style="hanging">
+            <t hangText="apb_orig_len:"><vspace blankLines="0"/>Original
+            Packet Length. Actual length of the packet when it was
+            transmitted on the network. It can be different from captured
+            packet length if the packet has been truncated by the capture
+            process.</t>
+  
+            <t hangText="apb_capt_len:"><vspace blankLines="0"/>Captured
+            Packet Length: number of octets captured from the packet (i.e.
+            the length of the uncompressed Packet Data field). It will be
+            the minimum value among the Original Packet Length and the
+            snapshot length for the interface (SnapLen, defined in
+            <xref target="format_idb"/>). The value of this field does not
+            include the padding octets added at the end of the Packet Data
+            field to align the Packet Data field to a 32-bit boundary.</t>
+
+            <t hangText="apb_iface_id:"><vspace blankLines="0"/>It
+            specifies the interface this packet comes from; the correct
+            interface will be the one whose Interface Description Block
+            (within the current Section of the file) is identified by
+            the same value (see <xref target="section_idb"/>) of this
+            option. The interface ID MUST be valid, which means that an
+            matching interface description block MUST exist. If this option
+            is not defined, interface ID defaults to 0.</t>
+
+          </list>
+        </t> 
 
       </section>
 
