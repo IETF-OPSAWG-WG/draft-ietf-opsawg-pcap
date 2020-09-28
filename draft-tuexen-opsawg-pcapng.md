@@ -17,8 +17,8 @@ pi:    # can use array (if all yes) or hash here
   symrefs: yes
 
 author:
-
 - ins: M. Tuexen
+  role: editor
   name: Michael Tuexen
   org: Muenster University of Applied Sciences
   email: tuexen@fh-muenster.de
@@ -43,16 +43,14 @@ author:
   email: gharris@sonic.net
 
 - ins: M. Richardson
+  role: editor
   name: Michael Richardson
   org: Sandelman Software Works
   email: mcr+ietf@sandelman.ca
 
-
 normative:
-
-informative:
-  ref01:
-    target: "https://www.winpcap.org/mailman/listinfo/pcap-ng-format"
+  RFC2119:
+  RFC8179:
 
 --- abstract
 
@@ -139,7 +137,7 @@ CB:
      |                      Block Total Length                       |
      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
-{: #general-block-figure title="Basic block structure."}
+{: #general-block-fig title="Basic block structure."}
 
 The fields have the following meaning:
 
@@ -257,7 +255,7 @@ The fields have the following meaning:
    |
    +- Name Resolution
 ~~~~
-{: #logical-block-figure title="Logical Block Hierarchy of a pcapng File"}
+{: #logical-block-fig title="Logical Block Hierarchy of a pcapng File"}
 
    For example: each captured packet refers to a specific capture
    interface, the interface itself refers to a specific section.
@@ -280,7 +278,7 @@ The fields have the following meaning:
    block.  These are mandatory requirements that MUST be maintained in
    future versions of the block format.
 
-   {{physical-file-layout-figure}} shows a typical file layout, with a single Section Header
+   {{physical-file-layout-fig}} shows a typical file layout, with a single Section Header
    that covers the whole file.
 
 ~~~~
@@ -288,9 +286,9 @@ The fields have the following meaning:
    | SHB v1.0  |                      Data                         |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
-{: #physical-file-layout-figure title="File structure example: Typical layout with a single Section Header Block"}
+{: #physical-file-layout-fig title="File structure example: Typical layout with a single Section Header Block"}
 
-   {{three-section-blocks-figure}} shows a file that contains three headers, and is normally
+   {{three-section-blocks-fig}} shows a file that contains three headers, and is normally
    the result of file concatenation.  An application that understands
    only version 1.0 of the file format skips the intermediate section
    and restart processing the packets after the third Section Header.
@@ -302,9 +300,9 @@ The fields have the following meaning:
    | SHB v1.0  |  Data   | SHB V1.1  |  Data   | SHB V1.0  |  Data |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
-{: #three-section-blocks-figure title="File structure example: three Section Header Blocks in a single file"}
+{: #three-section-blocks-fig title="File structure example: three Section Header Blocks in a single file"}
 
-{{pcapng-classic-libpcap-figure}} shows a file comparable to a "classic libpcap" file - the minimum for a useful capture file.
+{{pcapng-classic-libpcap-fig}} shows a file comparable to a "classic libpcap" file - the minimum for a useful capture file.
 It contains a single Section Header Block (SHB), a single Interface Description Block (IDB) and a few Enhanced Packet Blocks (EPB).
 
 ~~~~
@@ -312,9 +310,9 @@ It contains a single Section Header Block (SHB), a single Interface Description 
    | SHB | IDB | EPB | EPB |    ...    | EPB |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
-{: #pcapng-classic-libpcap-figure title="File structure example: a pcapng file similar to a classical libpcap file"}
+{: #pcapng-classic-libpcap-fig title="File structure example: a pcapng file similar to a classical libpcap file"}
 
-{{complex-pcapng-figure}} shows a complex example file.
+{{complex-pcapng-fig}} shows a complex example file.
 In addition to the minimum file above, it contains packets captured from three interfaces,
    capturing on the third of which begins after packets have arrived on
    other interfaces, and also includes some Name Resolution Blocks (NRB)
@@ -325,7 +323,7 @@ In addition to the minimum file above, it contains packets captured from three i
    | SHB | IDB | IDB | EPB | NRB |...| IDB | EPB | ISB | NRB | EPB |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
-{: #complex-pcapng-figure title="File structure example: complex pcapng file"}}
+{: #complex-pcapng-fig title="File structure example: complex pcapng file"}
 
 The last example should make it obvious that the block structure
 makes the file format very flexible compared to the classical libpcap
@@ -430,7 +428,7 @@ format.
      |   Option Code == opt_endofopt  |  Option Length == 0          |
      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
-{: #option-code-figure title="Options Format"}
+{: #option-code-fig title="Options Format"}
 
    The following codes can always be present in any optional field:
 
@@ -484,7 +482,7 @@ Customs Options are used for portable, vendor-specific data related
      /              variable length, padded to 32 bits               /
      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
-{: #custom-option-figure title="Custom Options Format"}
+{: #custom-option-fig title="Custom Options Format"}
 
 The Custom Option has the following fields:
 
@@ -575,13 +573,13 @@ The Custom Option has the following fields:
 
    This section details the format of the blocks currently defined.
 
-##  Section Header Block
+## Section Header Block {#shb-section-header-block}
 
-   The Section Header Block (SHB) is mandatory.  It identifies the
-   beginning of a section of the capture capture file.  The
-   Section Header Block does not contain data but it rather identifies a
-   list of blocks (interfaces, packets) that are logically correlated.
-   Its format is shown in Figure 9.
+The Section Header Block (SHB) is mandatory.  It identifies the
+beginning of a section of the capture capture file.  The
+Section Header Block does not contain data but it rather identifies a
+list of blocks (interfaces, packets) that are logically correlated.
+Its format is shown in Figure 9.
 
 ~~~~
       0                   1                   2                   3
@@ -606,7 +604,7 @@ The Custom Option has the following fields:
       |                      Block Total Length                       |
       +---------------------------------------------------------------+
 ~~~~
-{: #section-header-block-figure title="Section Header Block Format"}
+{: #shg-section-header-block-fig title="Section Header Block Format"}
 
    The meaning of the fields is:
 
@@ -689,7 +687,7 @@ The Custom Option has the following fields:
           | shb_userappl | 4    | variable | no                |
           +--------------+------+----------+-------------------+
 ~~~~
-{: #section-header-block-options-table title="Section Header Block Options"}
+{: #shg-section-header-block-options-table title="Section Header Block Options"}
 
 shb\_hardware:
 : The shb_hardware option is a UTF-8 string containing the
@@ -764,7 +762,7 @@ original hardware/os/application info?)
       |                      Block Total Length                       |
       +---------------------------------------------------------------+
 ~~~~
-{: #interface-description-block-figure title="Interface Description Block Format"}
+{: #interface-description-block-fig title="Interface Description Block Format"}
 
 The meaning of the fields is:
 
