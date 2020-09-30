@@ -1641,7 +1641,7 @@ ns_dnsname:
   zero-terminated.
 {: vspace='0'}
 
-Example: "our_nameserver".
+Example: "our\_nameserver".
 
 
 {: hangIndent='8'}
@@ -1979,17 +1979,17 @@ The following is a list of Secrets Types.
 : WireGuard Key Log.
   Every line consists of the key type, equals sign ('='), and the
   base64-encoded 32-byte key with optional spaces before and in between.
-  The key type is one of LOCAL_STATIC_PRIVATE_KEY,
-  REMOTE_STATIC_PUBLIC_KEY, LOCAL_EPHEMERAL_PRIVATE_KEY,
-  or PRESHARED_KEY. This matches the output of [extract-handshakes.sh](https://git.zx2c4.com/WireGuard/tree/contrib/examples/extract-handshakes/README) which is part of the [WireGuard](https://www.wireguard.com/) project.
-  A PRESHARED_KEY line is linked to a session matched by a previous
-  LOCAL_EPHEMERAL_PRIVATE_KEY line.
+  The key type is one of LOCAL\_STATIC\_PRIVATE\_KEY,
+  REMOTE\_STATIC\_PUBLIC\_KEY, LOCAL_EPHEMERAL\_PRIVATE\_KEY,
+  or PRESHARED|_KEY. This matches the output of [extract-handshakes.sh](https://git.zx2c4.com/WireGuard/tree/contrib/examples/extract-handshakes/README) which is part of the [WireGuard](https://www.wireguard.com/) project.
+  A PRESHARED\_KEY line is linked to a session matched by a previous
+  LOCAL\_EPHEMERAL\_PRIVATE\_KEY line.
   Every line MUST be properly terminated with
   either carriage return and linefeed ('\r\n') or linefeed ('\n').
   Tools MUST be able to handle both line endings.
 {: vspace='1'}
 
-  Warning: LOCAL_STATIC_PRIVATE_KEY and potentially PRESHARED_KEY
+  Warning: LOCAL\_STATIC\_PRIVATE\_KEY and potentially PRESHARED\_KEY
   are long-term secrets, users SHOULD only store non-production keys,
   or ensure proper protection of the pcapng file.
 
