@@ -18,7 +18,6 @@ jobs:
           keys:
             - v2-cache-git-{{ .Branch }}-{{ .Revision }}
             - v2-cache-git-{{ .Branch }}
-            - v2-cache-git-master
             - v2-cache-git-
 
       - restore_cache:
@@ -89,6 +88,7 @@ jobs:
           key: v1-cache-references-{{ epoch }}
           paths:
             - ~/.cache/xml2rfc
+
 
 workflows:
   version: 2

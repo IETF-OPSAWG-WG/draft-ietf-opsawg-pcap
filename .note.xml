@@ -1,7 +1,7 @@
 <note title="Discussion Venues" removeInRFC="true">
 <t>Discussion of this document takes place on the
   OPSAWG Working Group mailing list (opsawg@ietf.org),
-  which is archived at <eref target="https://mailarchive.ietf.org/arch/browse/opsawg/">https://mailarchive.ietf.org/arch/browse/opsawg/</eref>.</t>
+  which is archived at <eref target="https://mailarchive.ietf.org/arch/browse/opsawg/"/>.</t>
 <t>Source for this draft and an issue tracker can be found at
-  <eref target="https://github.com/pcapng/pcapng">https://github.com/pcapng/pcapng</eref>.</t>
+  <eref target="https://github.com/pcapng/pcapng"/>.</t>
 </note>

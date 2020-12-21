@@ -1,13 +1,18 @@
-# PCAP Next Generation (pcapng) Capture File Format
+# OPSAWG Drafts
 
-This is the working area for the individual Internet-Draft, "PCAP Next Generation (pcapng) Capture File Format".
+This is the working area for individual Internet-Drafts.
 
-* [Editor's Copy](https://mcr.github.io/pcapng/#go.draft-tuexen-opsawg-pcapng.html)
+## PCAP Capture File Format
+
+* [Editor's Copy](https://pcapng.github.io/pcapng/#go.draft-gharris-opsawg-pcap.html)
+* [Individual Draft](https://tools.ietf.org/html/draft-gharris-opsawg-pcap)
+* [Compare Editor's Copy to Individual Draft](https://pcapng.github.io/pcapng/#go.draft-gharris-opsawg-pcap.diff)
+
+## PCAP Next Generation (pcapng) Capture File Format
+
+* [Editor's Copy](https://pcapng.github.io/pcapng/#go.draft-tuexen-opsawg-pcapng.html)
 * [Individual Draft](https://tools.ietf.org/html/draft-tuexen-opsawg-pcapng)
-* [Compare Editor's Copy to Individual Draft](https://mcr.github.io/pcapng/#go.draft-tuexen-opsawg-pcapng.diff)
-* [Current committed version as HTML](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii&type=ascii)
-* [Current committed version as Text](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/ascii&type=ascii)
-* [Current committed version as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=txt/pdf&type=ascii)
+* [Compare Editor's Copy to Individual Draft](https://pcapng.github.io/pcapng/#go.draft-tuexen-opsawg-pcapng.diff)
 
 ## Building the Draft
 
@@ -20,25 +25,8 @@ $ make
 This requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/master/doc/SETUP.md).
 
+
 ## Contributing
-
-### Implementations
-
-Some known implementations that read or write the pcapng file format are listed on the [wiki](https://github.com/pcapng/pcapng/wiki/Implementations).
-
-## The pcap Capture File Format
-
-This repository also includes a draft specification for the historic
-pcap file format.
-
-### The Latest Draft
-
-* View the [pcap draft as HTML](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=html/ascii&type=ascii).
-
-* View the [pcap draft as Text](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=txt/ascii&type=ascii).
-
-* View the [pcap draft as PDF](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-gharris-opsawg-pcap.xml&modeAsFormat=txt/pdf&type=ascii).
 
 See the
 [guidelines for contributions](https://github.com/pcapng/pcapng/blob/master/CONTRIBUTING.md).
-
