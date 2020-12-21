@@ -509,12 +509,15 @@ The following codes can always be present in any optional field:
 
 
 
+{: indent='8'}
 opt_endofopt:
 : The
   opt_endofopt option delimits the end of the optional fields. This
   option MUST NOT be repeated within a given list of options.
+{: vspace='0'}
 
 
+{: indent='8'}
 opt_comment:
 : The
   opt_comment option is a UTF-8 string containing human-readable
@@ -522,6 +525,7 @@ opt_comment:
   separators SHOULD be a carriage-return + linefeed ('\r\n') or just
   linefeed ('\n'); either form may appear and be considered a line
   separator. The string is not zero-terminated.
+{: vspace='0'}
 
 Examples: "This packet is the beginning of all of our
 problems", "Packets 17-23 showing a bogus TCP retransmission!\r\n
@@ -529,8 +533,11 @@ This is reported in bugzilla entry 1486.\nIt will be fixed in the
 future.".
 
 
+{: indent='8'}
 opt_custom:
-: This option is described in detail in {{section_custom_option}}.
+: This option is
+  described in detail in {{section_custom_option}}.
+{: vspace='0'}
 
 
 ### Custom Options {#section_custom_option}
@@ -563,6 +570,7 @@ The Custom Option has the following fields:
 * Custom Option Code: The code number for the Custom Option, which
   can be one of the following decimal numbers:
 
+  {: indent='8'}
   2988:
   : This option code
     identifies a Custom Option containing a UTF-8 string in the
@@ -573,6 +581,7 @@ The Custom Option has the following fields:
   {: vspace='0'}
 
 
+  {: indent='8'}
   2989:
   : This option code
     identifies a Custom Option containing binary octets in the
@@ -582,6 +591,7 @@ The Custom Option has the following fields:
   {: vspace='0'}
 
 
+  {: indent='8'}
   19372:
   : This option code
     identifies a Custom Option containing a UTF-8 string in the
@@ -591,6 +601,7 @@ The Custom Option has the following fields:
   {: vspace='0'}
 
 
+  {: indent='8'}
   19373:
   : This option code
     identifies a Custom Option containing binary octets in the
@@ -782,6 +793,7 @@ following options are valid within this block:
 
 
 
+{: indent='8'}
 shb_hardware:
 : The
   shb_hardware option is a UTF-8 string containing the description
@@ -792,6 +804,7 @@ shb_hardware:
 Examples: "x86 Personal Computer", "Sun Sparc Workstation".
 
 
+{: indent='8'}
 shb_os:
 : The shb_os option
   is a UTF-8 string containing the name of the operating system used
@@ -801,6 +814,7 @@ shb_os:
 Examples: "Windows XP SP2", "openSUSE 10.2".
 
 
+{: indent='8'}
 shb_userappl:
 : The
   shb_userappl option is a UTF-8 string containing the name of the
@@ -916,6 +930,7 @@ the following options are valid within this block:
 
 
 
+{: indent='8'}
 if_name:
 : The if_name option
   is a UTF-8 string containing the name of the device used to
@@ -925,6 +940,7 @@ if_name:
 Examples: "eth0", "\Device\NPF_{AD1CE675-96D0-47C5-ADD0-2504B9126B68}".
 
 
+{: indent='8'}
 if_description:
 : The
   if_description option is a UTF-8 string containing the description
@@ -936,6 +952,7 @@ Examples: "Wi-Fi", "Local Area Connection", "Wireless
 Network Connection", "First Ethernet Interface".
 
 
+{: indent='8'}
 if_IPv4addr:
 : The if_IPv4addr
   option is an IPv4 network address and corresponding netmask for
@@ -952,6 +969,7 @@ if_IPv4addr:
 Examples: '192 168 1 1 255 255 255 0'.
 
 
+{: indent='8'}
 if_IPv6addr:
 : The
   if_IPv6addr option is an IPv6 network address and corresponding
@@ -967,6 +985,7 @@ Example: 2001:0db8:85a3:08d3:1319:8a2e:0370:7344/64 is written
 40'.
 
 
+{: indent='8'}
 if_MACaddr:
 : The if_MACaddr
   option is the Interface Hardware MAC address (48 bits), if
@@ -976,6 +995,7 @@ if_MACaddr:
 Example: '00 01 02 03 04 05'.
 
 
+{: indent='8'}
 if_EUIaddr:
 : The if_EUIaddr
   option is the Interface Hardware EUI address (64 bits), if
@@ -985,6 +1005,7 @@ if_EUIaddr:
 Example: '02 34 56 FF FE 78 9A BC'.
 
 
+{: indent='8'}
 if_speed:
 : The if_speed
   option is a 64-bit unsigned value indicating the interface
@@ -994,6 +1015,7 @@ if_speed:
 Example: the 64-bit decimal number 100000000 for 100Mbps.
 
 
+{: indent='8'}
 if_tsresol:
 : The if_tsresol
   option identifies the resolution of timestamps. If the Most
@@ -1011,6 +1033,7 @@ if_tsresol:
 Example: '6'.
 
 
+{: indent='8'}
 if_tzone:
 : The if_tzone
   option identifies the time zone for GMT support (TODO: specify
@@ -1020,6 +1043,7 @@ if_tzone:
 Example: TODO: give a good example.
 
 
+{: indent='8'}
 if_filter:
 : The if_filter
   option identifies the filter (e.g. "capture only TCP traffic")
@@ -1034,6 +1058,7 @@ if_filter:
 Example: '00'"tcp port 23 and host 192.0.2.5".
 
 
+{: indent='8'}
 if_os:
 : The if_os option is
   a UTF-8 string containing the name of the operating system of the
@@ -1047,6 +1072,7 @@ if_os:
 Examples: "Windows XP SP2", "openSUSE 10.2".
 
 
+{: indent='8'}
 if_fcslen:
 : The if_fcslen
   option is an 8-bit unsigned integer value that specifies the
@@ -1059,6 +1085,7 @@ if_fcslen:
 Example: '4'.
 
 
+{: indent='8'}
 if_tsoffset:
 : The
   if_tsoffset option is a 64-bit signed integer value that
@@ -1075,6 +1102,7 @@ if_tsoffset:
 Example: '1234'.
 
 
+{: indent='8'}
 if_hardware:
 : The
   if_hardware option is a UTF-8 string containing the description
@@ -1086,6 +1114,7 @@ Network Connection", "NETGEAR WNA1000Mv2 N150 Wireless USB
 Micro Adapter".
 
 
+{: indent='8'}
 if_txspeed:
 : The
   if_txrxspeeds option is a 64-bit unsigned value
@@ -1097,6 +1126,7 @@ Example: the 64-bit decimal number 1024000 for
 1024Kbps.
 
 
+{: indent='8'}
 if_rxspeed:
 : The
   if_rxspeed option is a 64-bit unsigned value
@@ -1240,6 +1270,7 @@ the following options are valid within this block:
 
 
 
+{: indent='8'}
 epb_flags:
 : The epb_flags
   option is a 32-bit flags word containing link-layer information. A
@@ -1249,6 +1280,7 @@ epb_flags:
 Example: '0'.
 
 
+{: indent='8'}
 epb_hash:
 : The epb_hash
   option contains a hash of the packet. The first octet specifies the
@@ -1270,6 +1302,7 @@ Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D
 50 8E'.
 
 
+{: indent='8'}
 epb_dropcount:
 : The
   epb_dropcount option is a 64-bit unsigned integer value
@@ -1283,6 +1316,7 @@ epb_dropcount:
 Example: '0'.
 
 
+{: indent='8'}
 epb_packetid:
 : The
   epb_packetid option is a 64-bit unsigned integer that uniquely
@@ -1301,6 +1335,7 @@ epb_packetid:
 Example: '0'.
 
 
+{: indent='8'}
 epb_queue:
 : The epb_queue
   option is a 32-bit unsigned integer that identifies on which queue
@@ -1310,6 +1345,7 @@ epb_queue:
 Example: '0'.
 
 
+{: indent='8'}
 epb_verdict:
 : The epb_verdict
   option stores a verdict of the packet. The verdict indicates what
@@ -1525,6 +1561,7 @@ There are currently three possible types of records:
 
 
 
+{: indent='8'}
 nrb_record_end:
 : The
   nrb_record_end record delimits the end of name resolution
@@ -1533,6 +1570,7 @@ nrb_record_end:
 {: vspace='0'}
 
 
+{: indent='8'}
 nrb_record_ipv4:
 : The
   nrb_record_ipv4 record specifies an IPv4 address (contained in the
@@ -1551,6 +1589,7 @@ Example: '127 0 0 1'"localhost".
 valid?]
 
 
+{: indent='8'}
 nrb_record_ipv6:
 : The
   nrb_record_ipv6 record specifies an IPv6 address (contained in the
@@ -1594,6 +1633,7 @@ the following options are valid within this block:
 
 
 
+{: indent='8'}
 ns_dnsname:
 : The ns_dnsname
   option is a UTF-8 string containing the name of the machine (DNS
@@ -1604,6 +1644,7 @@ ns_dnsname:
 Example: "our\_nameserver".
 
 
+{: indent='8'}
 ns_dnsIP4addr:
 : The
   ns_dnsIP4addr option specifies the IPv4 address of the DNS server.
@@ -1615,6 +1656,7 @@ ns_dnsIP4addr:
 Example: '192 168 0 1'.
 
 
+{: indent='8'}
 ns_dnsIP6addr:
 : The
   ns_dnsIP6addr option specifies the IPv6 address of the DNS
@@ -1701,6 +1743,7 @@ the following options are valid within this block:
 
 
 
+{: indent='8'}
 isb_starttime:
 : The
   isb_starttime option specifies the time the capture started; time
@@ -1715,6 +1758,7 @@ Example: '96 c3 04 00 73 89 6a 65', in Little Endian, decodes
 to 2012-06-29 06:17:00.834163 UTC.
 
 
+{: indent='8'}
 isb_endtime:
 : The isb_endtime
   option specifies the time the capture ended; time will be stored
@@ -1728,6 +1772,7 @@ Example: '97 c3 04 00 aa 47 ca 64', in Little Endian, decodes
 to 2012-06-29 07:28:25.298858 UTC.
 
 
+{: indent='8'}
 isb_ifrecv:
 : The isb_ifrecv
   option specifies the 64-bit unsigned integer number of packets
@@ -1738,6 +1783,7 @@ isb_ifrecv:
 Example: the decimal number 100.
 
 
+{: indent='8'}
 isb_ifdrop:
 : The isb_ifdrop
   option specifies the 64-bit unsigned integer number of packets
@@ -1748,6 +1794,7 @@ isb_ifdrop:
 Example: '0'.
 
 
+{: indent='8'}
 isb_filteraccept:
 : The
   isb_filteraccept option specifies the 64-bit unsigned integer
@@ -1758,6 +1805,7 @@ isb_filteraccept:
 Example: the decimal number 100.
 
 
+{: indent='8'}
 isb_osdrop:
 : The isb_osdrop
   option specifies the 64-bit unsigned integer number of packets
@@ -1768,6 +1816,7 @@ isb_osdrop:
 Example: '0'.
 
 
+{: indent='8'}
 isb_usrdeliv:
 : The
   isb_usrdeliv option specifies the 64-bit unsigned integer number
@@ -1916,6 +1965,7 @@ The Decryption Secrets Block has the following fields.
 
 The following is a list of Secrets Types.
 
+{: indent='8'}
 0x544c534b:
 : TLS Key Log. This
   format is described at [NSS Key Log Format](https://developer.mozilla.org/NSS_Key_Log_Format). Every line MUST be properly terminated with
@@ -1924,6 +1974,7 @@ The following is a list of Secrets Types.
 {: vspace='0'}
 
 
+{: indent='8'}
 0x57474b4c:
 : WireGuard Key Log.
   Every line consists of the key type, equals sign ('='), and the
@@ -1942,6 +1993,7 @@ The following is a list of Secrets Types.
   are long-term secrets, users SHOULD only store non-production keys,
   or ensure proper protection of the pcapng file.
 
+{: indent='8'}
 0x5a4e574b:
 : ZigBee NWK Key
   and ZigBee PANID for that network. Network Key as described in
@@ -1953,6 +2005,7 @@ The following is a list of Secrets Types.
 {: vspace='0'}
 
 
+{: indent='8'}
 0x5a415053:
 : ZigBee APS Key.
   Application Support Link Key as described in the [ZigBee Specification](https://zigbeealliance.org/) 05-3473-21 (R21) section 4.4. Each 16 octet binary AES-128 key secures
@@ -2611,6 +2664,7 @@ the following options were valid within this block:
 
 
 
+{: indent='8'}
 pack_flags:
 : The pack_flags
   option is the same as the epb_flags of the enhanced packet
@@ -2620,6 +2674,7 @@ pack_flags:
 Example: '0'.
 
 
+{: indent='8'}
 pack_hash:
 : The pack_hash
   option is the same as the epb_hash of the enhanced packet block.
