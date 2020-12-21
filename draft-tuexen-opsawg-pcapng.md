@@ -72,6 +72,7 @@ author:
   uri: http://www.sandelman.ca/
 normative:
   RFC2119:
+  RFC8174:
 informative:
   LINKTYPES:
     target: http://www.tcpdump.org/linktypes.html
@@ -124,9 +125,7 @@ Merge/Append data:
 
 # Terminology
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-"SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-document are to be interpreted as described in {{RFC2119}}.
+{::boilerplate bcp14}
 
 ## Acronyms
 
