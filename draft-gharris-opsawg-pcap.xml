@@ -167,15 +167,16 @@
             <t>LinkType (32 bits): an unsigned value that defines, in
             the lower 16 bits, the link layer type of packets in the
             file, and optionally indicates the length of the Frame Check
-            Sequence (FCS) of packets in the upper 16 bits.  The list of
-            Standardized Link Layer Type codes is available in <xref
-            target="LINKTYPES"/>.  If bit
-            5 is set, bits 0 through 3 contain the length of the FCS
+            Sequence (FCS) of packets in the upper 16 bits.
+            The list of Standardized Link Layer Type codes is available in <xref
+            target="LINKTYPES"/>.
+            If bit 5 is set, bits 0 through 3 contain the length of the FCS
             field at the end of all packets; if bit 5 is not set, the
             length of the FCS field at the end of all packets is
-            unknown.  Bit 4, and bits 6 through 15, SHOULD be filled
-            with 0 by pcap file writers, and MUST be ignored by pcap
-            file readers.</t>
+            unknown.
+            Bit 4, and bits 6 through 15, SHOULD be filled with 0 by pcap
+            file writers, and MUST be ignored by pcap file readers.
+            </t>
 
           </list>
         </t>
@@ -276,7 +277,8 @@
     </section>
 
     <section title="IANA Considerations">
-      <t>TBD.</t>
+      <t>IANA is requested to create a registry entitled "PCAP LinkType values".</t>
+      <t>This registry is for values from 1 to 2147483647 (2^31).</t>
 
       <t>[Open issue: decide whether the LinkType values should be IANA
       registries.  And if so, what the IANA policy for each should be
