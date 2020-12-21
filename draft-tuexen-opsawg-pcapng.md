@@ -71,8 +71,6 @@ author:
   email: mcr+ietf@sandelman.ca
   uri: http://www.sandelman.ca/
 normative:
-  RFC2119:
-  RFC8174:
 informative:
   LINKTYPES:
     target: http://www.tcpdump.org/linktypes.html
