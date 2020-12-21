@@ -48,7 +48,7 @@ operating systems, and to read and write network traces to a file was
 later put into a library named libpcap.
 
 This document describes the format used by tcpdump, and other
-programs using libpcap, to write network traces.
+programs using libpcap, to read and write network traces.
 
 # Terminology
 
@@ -62,6 +62,11 @@ All fields in the File Header and in Packet Records will always be saved accordi
 This refers to all the fields that are saved as numbers and that span over two or more octets.
 
 The approach of having the file saved in the native format of the generating host is more efficient because it avoids translation of data when reading / writing on the host itself, which is the most common case when generating/processing capture captures.
+
+The packets are shown in traditional IETF diagram, with the bits numbered from the left to the right.
+The bit numbering does not reflect the binary value position, as IETF protocols are traditionally in big-endian network-byte order.
+The most significant bit is therefore on the left in this diagram as if the file is being
+stored on a big-endian system.
 
 # File Header
 
@@ -81,7 +86,7 @@ The File Header has the following format:
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    16 |                            SnapLen                            |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   20 |                           LinkType                            |
+   20 | FCS |f|                   LinkType                            |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
 {: #fig-header title='File Header' align="left"}
@@ -121,10 +126,11 @@ The portion of each packet that exceeds this value will not be stored in the fil
 This value MUST NOT be zero; if no limit was specified, the value should be a number greater than or equal to the largest packet length in the file.
 
 LinkType (32 bits):
-: an unsigned value that defines, in the lower 16 bits, the link layer type of packets in the file, and optionally indicates the length of the Frame Check Sequence (FCS) of packets in the upper 16 bits.
-The list of Standardized Link Layer Type codes is available in [LINKTYPES].
-If bit 5 is set, bits 0 through 3 contain the length of the FCS field at the end of all packets; if bit 5 is not set, the length of the FCS field at the end of all packets is unknown.
-Bit 4, and bits 6 through 15, SHOULD be filled with 0 by pcap file writers, and MUST be ignored   by pcap file readers.
+: an unsigned value that defines, in the lower 28 bits, the link layer type of packets in the file.
+
+Frame Cyclic Sequence present (4 bits):
+: if the "f" bit is set, then the FCS bits provide the number of bytes of FCS that are appended to each packet.
+: valid values are between 0 and 7, with ethernet typically having a length of 4 bytes.
 
 # Packet Record
 
