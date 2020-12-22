@@ -243,11 +243,7 @@ The LinkType Registry is a table of 16-bit numbers.
 The Registry has three sections according to {{RFC8126}}:
 
 * values from 0 to 32767 are marked as Specification Required.
-
-*   except that values 147 to 162 are reserved for Private Use
-
 * values from 32768 to 65000 are marked as First-Come First-Served.
-
 * values from 65000 to 65535 are marked as Private Use.
 
 The Registry has four columns: the symbolic name (LINKTYPE_something), the integer value,
@@ -295,6 +291,8 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_SCCP|142|SS7 Control Part, ITU-T Q.711/Q.712/Q.713/Q.714
 |LINKTYPE_DOCSIS|143|DOCSIS MAC frames, DOCSIS 3.1
 |LINKTYPE_LINUX_IRDA|144|Linux-IrDA packets w/LINKTYPE_LINUX_IRDA header
+|LINKTYPE_PRIVATE_USE_1|147|For private use
+|LINKTYPE_PRIVATE_USE_2|162|For private use
 |LINKTYPE_IEEE802_11_AVS|163|AVS monitor mode w/802.11 header
 |LINKTYPE_BACNET_MS_TP|165|BACnet MS/TP frames, per 9.3 MS/TP Frame Format ANSI 135
 |LINKTYPE_PPP_PPPD|166|PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC, different stuffing
