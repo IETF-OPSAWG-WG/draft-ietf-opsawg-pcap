@@ -212,9 +212,13 @@ and within that Registry to create a table called: "PCAP LinkType List".
 
 The LinkType Registry is a table of 16-bit numbers.
 The Registry has three sections according to {{RFC8126}}:
+
 * values from 0 to 32767 are marked as Specification Required.
+
 *   except that values 147 to 162 are reserved for Private Use
+
 * values from 32768 to 65000 are marked as First-Come First-Served.
+
 * values from 65000 to 65536 are marked as Private Use.
 
 The Registry has three columns: the integer value, the symbolic name (LINKTYPE_something),
