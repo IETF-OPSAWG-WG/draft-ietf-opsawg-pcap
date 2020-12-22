@@ -205,6 +205,35 @@ Files of that type will usually start with a Section Header Block, with a magic 
 
 This document requires the following IANA actions:
 
+## Media-Type Registry
+
+This section registers the the 'application/pcap' in the "Media Types" registry.
+These media types are used to indicate that the content is packet capture as described in this document.
+
+### application/pcap
+
+~~~~
+    Type name:  application
+    Subtype name:  pcap
+    Required parameters:  none
+    Optional parameters:  none
+    Encoding considerations:  PCAP files contain network packets
+    Security considerations:  See Security Considerations, Section
+    Interoperability considerations:  The format is designed to be broadly interoperable.
+    Published specification:  THIS RFC.
+    Applications that use this media type: tcpdump, wireshark, others.
+    Additional information:
+      Magic number(s): 0xA1B2C3D4, and 0xA1B23C4D in both endian orders
+      File extension(s):  .pcap
+      Macintosh file type code(s):  none
+    Person & email address to contact for further information: The Tcpdump Group, www.tcpdump.org
+    Intended usage:  LIMITED
+    Restrictions on usage:  NONE
+    Author:  Guy Harris and Michael Richardson
+    Change controller:  The Tcpdump Group
+    Provisional registration? (standards tree only):  NO
+~~~~
+
 ## LinkType Registry {#linktype}
 
 IANA is requested to create a new Registry entitled: "The PCAP Registry",
