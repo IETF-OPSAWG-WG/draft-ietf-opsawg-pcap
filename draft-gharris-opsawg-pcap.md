@@ -126,11 +126,14 @@ The portion of each packet that exceeds this value will not be stored in the fil
 This value MUST NOT be zero; if no limit was specified, the value should be a number greater than or equal to the largest packet length in the file.
 
 LinkType (16 bits):
-: an unsigned value that defines, in the lower 28 bits, the link layer type of packets in the file.
+: a 16-bit unsigned value that defines the link layer type of packets in the file.
+This field is defined in the {{linktype}} IANA registry.
 
-Frame Cyclic Sequence present (4 bits):
-: if the "f" bit is set, then the FCS bits provide the number of bytes of FCS that are appended to each packet.
-: valid values are between 0 and 7, with ethernet typically having a length of 4 bytes.
+Frame Cyclic Sequence (FCS) present (4 bits):
+: if the "f" bit is set, then the 3 FCS bits provide the number of 16-bit (2 byte) words of FCS that are appended to each packet.
+: valid values are between 0 and 7, with ethernet typically having a length of 4 bytes, or a value of 2.
+
+The bits marked as zero MUST be set to zero by pcap writers, and MUST be ignored by pcap readers.
 
 # Packet Record
 
@@ -199,7 +202,7 @@ Files of that type will usually start with a Section Header Block, with a magic 
 
 #  IANA Considerations
 
-   TBD.
+## LinkType Registry {#linktype}
 
    [Open issue: decide whether the LinkType values should be IANA
    registries.  And if so, what the IANA policy for each should be (see
