@@ -219,7 +219,7 @@ The Registry has three sections according to {{RFC8126}}:
 
 * values from 32768 to 65000 are marked as First-Come First-Served.
 
-* values from 65000 to 65536 are marked as Private Use.
+* values from 65000 to 65535 are marked as Private Use.
 
 The Registry has three columns: the integer value, the symbolic name (LINKTYPE_something),
 a very short description, and the document/requestor reference.
