@@ -86,7 +86,7 @@ The File Header has the following format:
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    16 |                            SnapLen                            |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   20 | FCS |f|                   LinkType                            |
+   20 | FCS |f|0 0 0 0 0 0 0 0 0 0 0 0|         LinkType              |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
 {: #fig-header title='File Header' align="left"}
@@ -125,7 +125,7 @@ SnapLen (32 bits):
 The portion of each packet that exceeds this value will not be stored in the file.
 This value MUST NOT be zero; if no limit was specified, the value should be a number greater than or equal to the largest packet length in the file.
 
-LinkType (32 bits):
+LinkType (16 bits):
 : an unsigned value that defines, in the lower 28 bits, the link layer type of packets in the file.
 
 Frame Cyclic Sequence present (4 bits):
