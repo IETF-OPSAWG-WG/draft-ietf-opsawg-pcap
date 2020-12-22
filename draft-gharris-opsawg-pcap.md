@@ -99,7 +99,7 @@ The meaning of the fields in the File Header is:
 Magic Number (32 bits):
 : an unsigned magic number, whose value is either the hexadecimal number 0xA1B2C3D4 or the hexadecimal number 0xA1B23C4D.
 : If the value is 0xA1B2C3D4, time stamps in Packet Records (see Figure 2) are in seconds and microseconds; if it is 0xA1B23C4D, time stamps in Packet Records are in seconds and    nanoseconds.
-: These numbers can be used to distinguish sections that have been saved on little-endian machines from the ones saved on big-endian machines, and to heuristically identify pcap files.
+: These numbers can be used to distinguish sessions that have been saved on little-endian machines from the ones saved on big-endian machines, and to heuristically identify pcap files.
 
 Major Version (16 bits):
 : an unsigned value, giving the number of the current major version of the format.
@@ -250,17 +250,17 @@ The Registry has three sections according to {{RFC8126}}:
 
 * values from 65000 to 65535 are marked as Private Use.
 
-The Registry has three columns: the integer value, the symbolic name (LINKTYPE_something),
+The Registry has four columns: the symbolic name (LINKTYPE_something), the integer value,
 a very short description, and the document/requestor reference.
 
 The Registry shall be populated as follows in the table below.
+In each case here, the reference should be http://www.tcpdump.org/linktypes.html, which is not repeated.
 
-This table is base upon the Link type list maintained by libpcap, and
+The initial value of table is base upon the Link type list maintained by libpcap, and
 published on the tcpdump.org web site as http://www.tcpdump.org/linktypes.html.
 
 There is often an associated DLT value which are often identical in value, but not universally so.
 DLT values are associated with specific operation system captures, and are operating system specific.
-In each case here, the reference should be http://www.tcpdump.org/linktypes.html, which is not repeated.
 
 | LINKTYPE name  | LINKTYPE value  |  description
 | :------------- | :----------:    | :----------
