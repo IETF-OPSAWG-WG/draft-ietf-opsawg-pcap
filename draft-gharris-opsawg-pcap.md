@@ -229,8 +229,8 @@ There is often an associated DLT value which are often identical in value, but n
 DLT values are associated with specific operation system captures, and are operating system specific.
 In each case here, the reference should be http://www.tcpdump.org/linktypes.html, which is not repeated.
 
-| LINKTYPE name  | LINKTYPE value  |  description | reference
-| :------------- | :----------:    | :----------  | :--------
+| LINKTYPE name  | LINKTYPE value  |  description
+| :------------- | :----------:    | :----------
 |LINKTYPE_NULL|0|BSD loopback encapsulation
 |LINKTYPE_ETHERNET|1|IEEE 802.3 Ethernet
 |LINKTYPE_AX25|3|AX.25 packet
