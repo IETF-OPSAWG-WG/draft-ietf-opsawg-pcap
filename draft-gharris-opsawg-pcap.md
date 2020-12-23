@@ -240,15 +240,15 @@ IANA is requested to create a new Registry entitled: "The PCAP Registry",
 and within that Registry to create a table called: "PCAP LinkType List".
 
 The LinkType Registry is a table of 16-bit numbers.
-The Registry has three sections according to {{RFC8126}}:
+The Registry has four sections with different {{RFC8126}} rules:
 
-* values from 0 to 32767 are marked as Specification Required.
+* values from 0 to 32767, except for values from 147 to 162, are marked as Specification Required;
 
-*   except that values 147 to 162 are reserved for Private Use
+* values from 32768 to 65000 are marked as First-Come First-Served;
 
-* values from 32768 to 65000 are marked as First-Come First-Served.
+* values from 147 to 162, and from 65000 to 65534 are marked as Private Use.
 
-* values from 65000 to 65535 are marked as Private Use.
+* the value 65535 is marked as RFC Required.
 
 The Registry has four columns: the symbolic name (LINKTYPE_something), the integer value,
 a very short description, and the document/requestor reference.
