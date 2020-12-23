@@ -240,7 +240,7 @@ IANA is requested to create a new Registry entitled: "The PCAP Registry",
 and within that Registry to create a table called: "PCAP LinkType List".
 
 The LinkType Registry is a table of 16-bit numbers.
-The Registry has three sections according to {{RFC8126}}:
+The Registry has four sections with different {{RFC8126}} rules:
 
 * values from 0 to 32767 are marked as Specification Required.
 * values from 32768 to 65000 are marked as First-Come First-Served.
