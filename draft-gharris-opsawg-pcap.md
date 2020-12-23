@@ -291,8 +291,22 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_SCCP|142|SS7 Control Part, ITU-T Q.711/Q.712/Q.713/Q.714
 |LINKTYPE_DOCSIS|143|DOCSIS MAC frames, DOCSIS 3.1
 |LINKTYPE_LINUX_IRDA|144|Linux-IrDA packets w/LINKTYPE_LINUX_IRDA header
-|LINKTYPE_PRIVATE_USE_1|147|For private use
-|LINKTYPE_PRIVATE_USE_2|162|For private use
+|LINKTYPE_RESERVED_01|147|For private use
+|LINKTYPE_RESERVED_02|148|For private use
+|LINKTYPE_RESERVED_03|149|For private use
+|LINKTYPE_RESERVED_04|150|For private use
+|LINKTYPE_RESERVED_05|151|For private use
+|LINKTYPE_RESERVED_06|152|For private use
+|LINKTYPE_RESERVED_07|153|For private use
+|LINKTYPE_RESERVED_08|154|For private use
+|LINKTYPE_RESERVED_09|155|For private use
+|LINKTYPE_RESERVED_10|156|For private use
+|LINKTYPE_RESERVED_11|157|For private use
+|LINKTYPE_RESERVED_12|158|For private use
+|LINKTYPE_RESERVED_13|159|For private use
+|LINKTYPE_RESERVED_14|160|For private use
+|LINKTYPE_RESERVED_15|161|For private use
+|LINKTYPE_RESERVED_16|162|For private use
 |LINKTYPE_IEEE802_11_AVS|163|AVS monitor mode w/802.11 header
 |LINKTYPE_BACNET_MS_TP|165|BACnet MS/TP frames, per 9.3 MS/TP Frame Format ANSI 135
 |LINKTYPE_PPP_PPPD|166|PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC, different stuffing
