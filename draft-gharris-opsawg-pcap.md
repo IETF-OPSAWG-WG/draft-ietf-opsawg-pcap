@@ -240,15 +240,11 @@ IANA is requested to create a new Registry entitled: "The PCAP Registry",
 and within that Registry to create a table called: "PCAP LinkType List".
 
 The LinkType Registry is a table of 16-bit numbers.
-The Registry has four sections with different {{RFC8126}} rules:
+The Registry has three sections with different {{RFC8126}} rules:
 
-* values from 0 to 32767, except for values from 147 to 162, are marked as Specification Required;
-
-* values from 32768 to 65000 are marked as First-Come First-Served;
-
-* values from 147 to 162, and from 65000 to 65534 are marked as Private Use.
-
-* the value 65535 is marked as RFC Required.
+* values from 0 to 32767 are marked as Specification Required.
+* values from 32768 to 65000 are marked as First-Come First-Served.
+* values from 65000 to 65535 are marked as Private Use.
 
 The Registry has four columns: the symbolic name (LINKTYPE_something), the integer value,
 a very short description, and the document/requestor reference.
@@ -295,6 +291,22 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_SCCP|142|SS7 Control Part, ITU-T Q.711/Q.712/Q.713/Q.714
 |LINKTYPE_DOCSIS|143|DOCSIS MAC frames, DOCSIS 3.1
 |LINKTYPE_LINUX_IRDA|144|Linux-IrDA packets w/LINKTYPE_LINUX_IRDA header
+|LINKTYPE_RESERVED_01|147|For private use
+|LINKTYPE_RESERVED_02|148|For private use
+|LINKTYPE_RESERVED_03|149|For private use
+|LINKTYPE_RESERVED_04|150|For private use
+|LINKTYPE_RESERVED_05|151|For private use
+|LINKTYPE_RESERVED_06|152|For private use
+|LINKTYPE_RESERVED_07|153|For private use
+|LINKTYPE_RESERVED_08|154|For private use
+|LINKTYPE_RESERVED_09|155|For private use
+|LINKTYPE_RESERVED_10|156|For private use
+|LINKTYPE_RESERVED_11|157|For private use
+|LINKTYPE_RESERVED_12|158|For private use
+|LINKTYPE_RESERVED_13|159|For private use
+|LINKTYPE_RESERVED_14|160|For private use
+|LINKTYPE_RESERVED_15|161|For private use
+|LINKTYPE_RESERVED_16|162|For private use
 |LINKTYPE_IEEE802_11_AVS|163|AVS monitor mode w/802.11 header
 |LINKTYPE_BACNET_MS_TP|165|BACnet MS/TP frames, per 9.3 MS/TP Frame Format ANSI 135
 |LINKTYPE_PPP_PPPD|166|PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC, different stuffing
