@@ -30,3 +30,15 @@ This requires that you have the necessary software installed.  See
 
 See the
 [guidelines for contributions](https://github.com/pcapng/pcapng/blob/master/CONTRIBUTING.md).
+
+The pcap and pcapng specifications are written using the
+[kramdown](https://kramdown.gettalong.org) superset of
+[Markdown](https://daringfireball.net/projects/markdown/syntax) and the
+[kramdown-rfc2629](https://github.com/cabo/kramdown-rfc2629) extensions
+to kramdown.  This allows
+[xml2rfc](https://xml2rfc.tools.ietf.org)-format RFCs and I-Ds to be
+written in extended Markdown and converted to xml2rfc.  Xml2rfc was
+originally defined in [RFC 2629](https://tools.ietf.org/html/rfc2629);
+version 2 is documented in [RFC
+7749](https://tools.ietf.org/html/rfc7749), and version 3 is documented
+in [RFC 7991](https://tools.ietf.org/html/rfc7991).
