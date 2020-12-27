@@ -262,28 +262,58 @@ DLT values are associated with specific operation system captures, and are opera
 | :------------- | :----------:    | :----------
 |LINKTYPE_NULL|0|BSD loopback encapsulation
 |LINKTYPE_ETHERNET|1|IEEE 802.3 Ethernet
+|LINKTYPE_EXP_ETHERNET|2|Xerox experimental 3Mb Ethernet
 |LINKTYPE_AX25|3|AX.25 packet
+|LINKTYPE_PRONET|4|Reserved for PRONET
+|LINKTYPE_CHAOS|5|Reserved for MIT CHAOSNET
 |LINKTYPE_IEEE802_5|6|IEEE 802.5 Token Ring
-|LINKTYPE_ARCNET_BSD|7|ARCNET Data Packets
+|LINKTYPE_ARCNET_BSD|7|ARCNET Data Packets with BSD encapsulation
 |LINKTYPE_SLIP|8|SLIP, w/LINKTYPE_SLIP header.
 |LINKTYPE_PPP|9|PPP, as per RFC 1661/RFC 1662
 |LINKTYPE_FDDI|10|FDDI: per ANSI INCITS 239-1994.
+|not to be used|11-49|Do not use these values
 |LINKTYPE_PPP_HDLC|50|PPP in HDLC-like framing, as per RFC 1662
 |LINKTYPE_PPP_ETHER|51|PPPoE; per RFC 2516
+|not to be used|52-98|Do not use these values
+|LINKTYPE_SYMANTEC_FIREWALL|99|Reserved for Symantec Enterprise Firewall
 |LINKTYPE_ATM_RFC1483|100|RFC 1483 LLC/SNAP-encapsulated ATM
 |LINKTYPE_RAW|101|Raw IP; begins with an IPv4 or IPv6 header
+|LINKTYPE_SLIP_BSDOS|102|Reserved for BSD/OS SLIP BPF header
+|LINKTYPE_PPP_BSDOS|103|Reserved for BSD/OS PPP BPF header
 |LINKTYPE_C_HDLC|104|Cisco PPP with HDLC framing, as per section 4.3.1 of RFC 1547
 |LINKTYPE_IEEE802_11|105|IEEE 802.11 wireless LAN.
+|LINKTYPE_ATM_CLIP|106|ATM Classical IP, with no header preceding IP
 |LINKTYPE_FRELAY|107|Frame Relay LAPF frames
 |LINKTYPE_LOOP|108|OpenBSD loopback encapsulation
+|LINKTYPE_ENC|109|Reserved for OpenBSD IPSEC encapsulation
+|LINKTYPE_LANE8023|110|Reserved for ATM LANE + 802.3
+|LINKTYPE_HIPPI|111|Reserved for NetBSD HIPPI
+|LINKTYPE_HDLC|112|Reserved for NetBSD HDLC framing
 |LINKTYPE_LINUX_SLL|113|Linux "cooked" capture encapsulation
 |LINKTYPE_LTALK|114|Apple LocalTalk
+|LINKTYPE_ECONET|115|Reserved for Acorn Econet
+|LINKTYPE_IPFILTER|116|Reserved for OpenBSD ipfilter
 |LINKTYPE_PFLOG|117|OpenBSD pflog; "struct pfloghdr" structure
+|LINKTYPE_CISCO_IOS|118|Reserved for Cisco-internal use
 |LINKTYPE_IEEE802_11_PRISM|119|Prism monitor mode
+|LINKTYPE_IEEE802_11_AIRONET|120|Reserved for 802.11 + FreeFreeBSD Aironet radio metadata
+|LINKTYPE_HHDLC|121|Reserved for Siemens HiPath HDLC
 |LINKTYPE_IP_OVER_FC|122|RFC 2625 IP-over-Fibre Channel
 |LINKTYPE_SUNATM|123|ATM traffic, / per SunATM devices
+|LINKTYPE_RIO|124|Reserved for RapidIO
+|LINKTYPE_PCI_EXP|125|Reserved for PCI Express
+|LINKTYPE_AURORA|126|Reserved for Xilinx Aurora link layer
 |LINKTYPE_IEEE802_11_RADIOTAP|127|Radiotap - followed by an 802.11 header
+|LINKTYPE_TZSP|128|Reserved for Tazmen Sniffer Protocol
 |LINKTYPE_ARCNET_LINUX|129|ARCNET Data Packets, per RFC 1051 frames w/variations
+|LINKTYPE_JUNIPER_MLPPP|130|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_MLFR|131|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_ES|132|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_GGSN|133|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_MFR|134|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_ATM2|135|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_SERVICES|136|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_ATM1|137|Reserved for Juniper Networks
 |LINKTYPE_APPLE_IP_OVER_IEEE1394|138|Apple IP-over-IEEE 1394 cooked header
 |LINKTYPE_MTP2_WITH_PHDR|139|Signaling System 7 (SS7) Message Transfer Part Level ITU-T Q.703
 |LINKTYPE_MTP2|140|SS7 Level 2, Q.703
@@ -291,6 +321,8 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_SCCP|142|SS7 Control Part, ITU-T Q.711/Q.712/Q.713/Q.714
 |LINKTYPE_DOCSIS|143|DOCSIS MAC frames, DOCSIS 3.1
 |LINKTYPE_LINUX_IRDA|144|Linux-IrDA packets w/LINKTYPE_LINUX_IRDA header
+|LINKTYPE_IBM_SP|145|Reserved for IBM SP switch
+|LINKTYPE_IBM_SN|146|Reserved for IBM Next Federation switch
 |LINKTYPE_RESERVED_01|147|For private use
 |LINKTYPE_RESERVED_02|148|For private use
 |LINKTYPE_RESERVED_03|149|For private use
@@ -308,19 +340,42 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_RESERVED_15|161|For private use
 |LINKTYPE_RESERVED_16|162|For private use
 |LINKTYPE_IEEE802_11_AVS|163|AVS monitor mode w/802.11 header
+|LINKTYPE_JUNIPER_MONITOR|164|Reserved for Juniper Networks
 |LINKTYPE_BACNET_MS_TP|165|BACnet MS/TP frames, per 9.3 MS/TP Frame Format ANSI 135
 |LINKTYPE_PPP_PPPD|166|PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC, different stuffing
+|LINKTYPE_JUNIPER_PPPOE|167|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_PPPOE_ATM|168|Reserved for Juniper Networks
 |LINKTYPE_GPRS_LLC|169|General Packet Radio Service Logical Link Control, as per 3GPP TS 04.64
 |LINKTYPE_GPF_T|170|Transparent-mapped generic framing procedure, as specified by ITU-T Recommendation G.7041/Y.1303
 |LINKTYPE_GPF_F|171|Frame-mapped generic framing procedure, as specified by ITU-T Recommendation G.7041/Y.1303
+|LINKTYPE_GCOM_T1E1|172|Reserved for Gcom T1/E1 line monitoring equipment
+|LINKTYPE_GCOM_SERIAL|173|Reserved for Gcom T1/E1 line monitoring equipment
+|LINKTYPE_JUNIPER_PIC_PEER|174|Reserved for Juniper Networks
+|LINKTYPE_ERF_ETH|175|Endace ERF header followed by 802.3 Ethernet
+|LINKTYPE_ERF_POS|176|Endace ERF header followed by Packet-over-SONET
 |LINKTYPE_LINUX_LAPD|177|Link Access Procedures on the D Channel (LAPD) frames, as specified by ITU-T Recommendation Q.920 and ITU-T Recommendation Q.921 , captured via vISDN, with a LINKTYPE_LINUX_LAPD header , followed by the Q.921 frame, starting with the address field.
+|LINKTYPE_JUNIPER_ETHER|178|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_PPP|179|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_FRELAY|180|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_CHDLC|181|Reserved for Juniper Networks
 |LINKTYPE_MFR|182|FRF.16.1 Multi-Link Frame Relay frames, beginning with an FRF.12 Interface fragmentation format fragmentation header.
+|LINKTYPE_JUNIPER_VP|182|Reserved for Juniper Networks
+|LINKTYPE_A653_ICM|185|Reserved for Arinc 653 Interpartition Communication messages
+|LINKTYPE_USB_FREEBSD|186|USB packets, beginning with a FreeBSD USB header
 |LINKTYPE_BLUETOOTH_HCI_H4|187|Bluetooth HCI UART transport layer; the frame contains an HCI packet indicator byte, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification , followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification.
+|LINKTYPE_IEEE802_16_MAC_CPS|188|Reserved for IEEE 802.16 MAC Common Part Sublayer
 |LINKTYPE_USB_LINUX|189|USB packets, beginning with a Linux USB header, as specified by the struct usbmon_packet in the Documentation/usb/usbmon.txt file in the Linux source tree. Only the first 48 bytes of that header are present. All fields in the header are in host byte order. When performing a live capture, the host byte order is the byte order of the machine on which the packets are captured. When reading a pcap file, the byte order is the byte order for the file, as specified by the file's magic number; when reading a pcapng file, the byte order is the byte order for the section of the pcapng file, as specified by the Section Header Block.
+|LINKTYPE_CAN20B|190|Reserved for Controller Area Network (CAN) v. 2.0B packets
+|LINKTYPE_IEEE802_15_4_LINUX|191|IEEE 802.15.4, with address fields padded, as is done by Linux drivers
 |LINKTYPE_PPI|192|Per-Packet Information information, as specified by the Per-Packet Information Header Specification , followed by a packet with the LINKTYPE_ value specified by the pph_dlt field of that header.
+|LINKTYPE_IEEE802_16_MAC_CPS_RADIO|193|Reserved for 802.16 MAC Common Part Sublayer plus radio header
+|LINKTYPE_JUNIPER_ISM|194|Reserved for Juniper Networks
 |LINKTYPE_IEEE802_15_4_WITHFCS|195|IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame.
 |LINKTYPE_SITA|196|Various link-layer types, with a pseudo-header , for SITA
 |LINKTYPE_ERF|197|Various link-layer types, with a pseudo-header, for Endace DAG cards; encapsulates Endace ERF records.
+|LINKTYPE_RAIF1|198|Reserved for Ethernet packets captured from a u10 Networks board
+|LINKTYPE_IPMB_KONTRON|199|Reserved for IPMB packet for IPMI, with a 2-byte header
+|LINKTYPE_JUNIPER_ST|200|Reserved for Juniper Networks
 |LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR|201|Bluetooth HCI UART transport layer; the frame contains a 4-byte direction field, in network byte order (big-endian), the low-order bit of which is set if the frame was sent from the host to the controller and clear if the frame was received by the host from the controller, followed by an HCI packet indicator byte, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification , followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification.
 |LINKTYPE_AX25_KISS|202|AX.25 packet, with a 1-byte KISS header containing a type indicator.
 |LINKTYPE_LAPD|203|Link Access Procedures on the D Channel (LAPD) frames, as specified by ITU-T Recommendation Q.920 and ITU-T Recommendation Q.921 , starting with the address field, with no pseudo-header.
@@ -328,9 +383,22 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_C_HDLC_WITH_DIR|205|Cisco PPP with HDLC framing, as per section 4.3.1 of RFC 1547 , preceded with a one-byte pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host.
 |LINKTYPE_FRELAY_WITH_DIR|206|Frame Relay LAPF frames, beginning with a one-byte pseudo-header with a zero value meaning received by this host (DCE->DTE) and a non-zero value meaning sent by this host (DTE->DCE), followed by an ITU-T Recommendation Q.922 LAPF header starting with the address field, and without an FCS at the end of the frame.
 |LINKTYPE_LAPB_WITH_DIR|207|Link Access Procedure, Balanced (LAPB), as specified by ITU-T Recommendation X.25 , preceded with a one-byte pseudo-header with a zero value meaning received by this host (DCE->DTE) and a non-zero value meaning sent by this host (DTE->DCE).
+|Reserved|208|Reserved for an unspecified link-layer type
 |LINKTYPE_IPMB_LINUX|209|IPMB over an I2C circuit, with a Linux-specific pseudo-header
+|LINKTYPE_FLEXRAY|210|Reserved for FlexRay automotive bus
+|LINKTYPE_MOST|211|Reserved for Media Oriented Systems Transport (MOST) bus
+|LINKTYPE_LIN|212|Reserved for Local Interconnect Network (LIN) bus for vehicle networks
+|LINKTYPE_X2E_SERIAL|213|Reserved for X2E serial line captures
+|LINKTYPE_X2E_XORAYA|214|Reserved for X2E Xoraya data loggers
 |LINKTYPE_IEEE802_15_4_NONASK_PHY|215|IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame, and with the PHY-level data for the O-QPSK, BPSK, GFSK, MSK, and RCC DSS BPSK PHYs (4 octets of 0 as preamble, one octet of SFD, one octet of frame length + reserved bit) preceding the MAC-layer data (starting with the frame control field).
+|LINKTYPE_LINUX_EVDEV|216|Reserved for Linux evdev messages
+|LINKTYPE_GSMTAP_UM|217|Reserved for GSM Um interface, with gsmtap header
+|LINKTYPE_GSMTAP_ABIS|218|Reserved for GSM Abis interface, with gsmtap header
+|LINKTYPE_MPLS|219|MPLS packets with MPLS label as the header
 |LINKTYPE_USB_LINUX_MMAPPED|220|USB packets, beginning with a Linux USB header, as specified by the struct usbmon_packet in the Documentation/usb/usbmon.txt file in the Linux source tree. All 64 bytes of the header are present. All fields in the header are in host byte order. When performing a live capture, the host byte order is the byte order of the machine on which the packets are captured. When reading a pcap file, the byte order is the byte order for the file, as specified by the file's magic number; when reading a pcapng file, the byte order is the byte order for the section of the pcapng file, as specified by the Section Header Block. For isochronous transfers, the ndesc field specifies the number of isochronous descriptors that follow.
+|LINKTYPE_DECT|221|Reserved for DECT packets, with a pseudo-header
+|LINKTYPE_AOS|222|Reserved for OS Space Data Link Protocol
+|LINKTYPE_WIHART|223|Reserved for Wireless HART (Highway Addressable Remote Transducer)
 |LINKTYPE_FC_2|224|Fibre Channel FC-2 frames, beginning with a Frame_Header.
 |LINKTYPE_FC_2_WITH_FRAME_DELIMS|225|Fibre Channel FC-2 frames, beginning an encoding of the SOF, followed by a Frame_Header, and ending with an encoding of the SOF. The encodings represent the frame delimiters as 4-byte sequences representing the corresponding ordered sets, with K28.5 represented as 0xBC, and the D symbols as the corresponding byte values; for example, SOFi2, which is K28.5 - D21.5 - D1.2 - D21.2, is represented as 0xBC 0xB5 0x55 0x55.
 |LINKTYPE_IPNET|226|Solaris ipnet pseudo-header , followed by an IPv4 or IPv6 datagram.
@@ -339,9 +407,13 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_IPV6|229|Raw IPv6; the packet begins with an IPv6 header.
 |LINKTYPE_IEEE802_15_4_NOFCS|230|IEEE 802.15.4 Low-Rate Wireless Network, without the FCS at the end of the frame.
 |LINKTYPE_DBUS|231|Raw D-Bus messages , starting with the endianness flag, followed by the message type, etc., but without the authentication handshake before the message sequence.
+|LINKTYPE_JUNIPER_VS|232|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_SRX_E2E|233|Reserved for Juniper Networks
+|LINKTYPE_JUNIPER_FIBRECHANNEL|234|Reserved for Juniper Networks
 |LINKTYPE_DVB_CI|235|DVB-CI (DVB Common Interface for communication between a PC Card module and a DVB receiver), with the message format specified by the PCAP format for DVB-CI specification
 |LINKTYPE_MUX27010|236|Variant of 3GPP TS 27.010 multiplexing protocol (similar to, but not the same as, 27.010).
 |LINKTYPE_STANAG_5066_D_PDU|237|D_PDUs as described by NATO standard STANAG 5066, starting with the synchronization sequence, and including both header and data CRCs. The current version of STANAG 5066 is backwards-compatible with the 1.0.2 version , although newer versions are classified.
+|LINKTYPE_JUNIPER_ATM_CEMIC|238|Reserved for Juniper Networks
 |LINKTYPE_NFLOG|239|Linux netlink NETLINK NFLOG socket log messages.
 |LINKTYPE_NETANALYZER|240|Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the MAC header and ending with the FCS.
 |LINKTYPE_NETANALYZER_TRANSPARENT|241|Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the preamble, SFD, and MAC header, and ending with the FCS.
@@ -349,11 +421,13 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_MPEG_2_TS|243|MPEG-2 Transport Stream transport packets, as specified by ISO 13818-1/ ITU-T Recommendation H.222.0 (see table 2-2 of section 2.4.3.2 Transport Stream packet layer).
 |LINKTYPE_NG40|244|Pseudo-header for ng4T GmbH's UMTS Iub/Iur-over-ATM and Iub/Iur-over-IP format as used by their ng40 protocol tester , followed by frames for the Frame Protocol as specified by 3GPP TS 25.427 for dedicated channels and 3GPP TS 25.435 for common/shared channels in the case of ATM AAL2 or UDP traffic, by SSCOP packets as specified by ITU-T Recommendation Q.2110 for ATM AAL5 traffic, and by NBAP packets for SCTP traffic.
 |LINKTYPE_NFC_LLCP|245|Pseudo-header for NFC LLCP packet captures , followed by frame data for the LLCP Protocol as specified by NFCForum-TS-LLCP_1.1
+|LINKTYPE_PFSYNC|246|Reserved for pfsync output
 |LINKTYPE_INFINIBAND|247|Raw InfiniBand frames, starting with the Local Routing Header, as specified in Chapter 5 Data packet format of InfiniBand™ Architectural Specification Release 1.2.1 Volume 1 - General Specifications
 |LINKTYPE_SCTP|248|SCTP packets, as defined by RFC 4960 , with no lower-level protocols such as IPv4 or IPv6.
 |LINKTYPE_USBPCAP|249|USB packets, beginning with a USBPcap header
 |LINKTYPE_RTAC_SERIAL|250|Serial-line packet header for the Schweitzer Engineering Laboratories RTAC product , followed by a payload for one of a number of industrial control protocols.
 |LINKTYPE_BLUETOOTH_LE_LL|251|Bluetooth Low Energy air interface Link Layer packets, in the format described in section 2.1 PACKET FORMAT of volume 6 of the Bluetooth Specification Version 4.0 (see PDF page 2200), but without the Preamble.
+|LINKTYPE_WIRESHARK_UPPER_PDU|252|Reserved for Wireshark
 |LINKTYPE_NETLINK|253|Linux Netlink capture encapsulation
 |LINKTYPE_BLUETOOTH_LINUX_MONITOR|254|Bluetooth Linux Monitor encapsulation of traffic for the BlueZ stack
 |LINKTYPE_BLUETOOTH_BREDR_BB|255|Bluetooth Basic Rate and Enhanced Data Rate baseband packets
@@ -368,7 +442,9 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_ISO_14443|264|Messages between ISO 14443 contactless smartcards (Proximity Integrated Circuit Card, PICC) and card readers (Proximity Coupling Device, PCD), with the message format specified by the PCAP format for ISO14443 specification
 |LINKTYPE_RDS|265|Radio data system (RDS) groups, as per IEC 62106, encapsulated in this form
 |LINKTYPE_USB_DARWIN|266|USB packets, beginning with a Darwin (macOS, etc.) USB header
+|LINKTYPE_OPENFLOW|267|Reserved for OpenBSD DLT_OPENFLOW
 |LINKTYPE_SDLC|268|SDLC packets, as specified by Chapter 1, DLC Links, section Synchronous Data Link Control (SDLC) of Systems Network Architecture Formats, GA27-3136-20 , without the flag fields, zero-bit insertion, or Frame Check Sequence field, containing SNA path information units (PIUs) as the payload.
+|LINKTYPE_TI_LLN_SNIFFER|269|Reserved for Texas Instruments protocol sniffer
 |LINKTYPE_LORATAP|270|LoRaTap pseudo-header , followed by the payload, which is typically the PHYPayload from the LoRaWan specification
 |LINKTYPE_VSOCK|271|Protocol for communication between host and guest machines in VMware and KVM hypervisors.
 |LINKTYPE_NORDIC_BLE|272|Messages to and from a Nordic Semiconductor nRF Sniffer for Bluetooth LE packets, beginning with a pseudo-header
@@ -376,6 +452,7 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_ETHERNET_MPACKET|274|mPackets, as specified by IEEE 802.3br Figure 99-4, starting with the preamble and always ending with a CRC field.
 |LINKTYPE_DISPLAYPORT_AUX|275|DisplayPort AUX channel monitoring data as specified by VESA DisplayPort(DP) Standard preceded by a pseudo-header
 |LINKTYPE_LINUX_SLL2|276|Linux cooked capture encapsulation v2
+|LINKTYPE_SERCOS_MONITOR|277|Reserved for Sercos Monitor
 |LINKTYPE_OPENVIZSLA|278|Openvizsla FPGA-based USB sniffer
 |LINKTYPE_EBHSCR|279|Elektrobit High Speed Capture and Replay (EBHSCR) format
 |LINKTYPE_VPP_DISPATCH|280|Records in traces from the http://fd.io VPP graph dispatch tracer, in the the graph dispatcher trace format
