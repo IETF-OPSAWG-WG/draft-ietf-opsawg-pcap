@@ -34,6 +34,11 @@ informative:
       org: radiotap.org
     title: Radiotap Web site
     target: http://www.radiotap.org/
+  AVS:
+    author:
+      fullname: Solomon Peachy
+    title: Archived AVS specification
+    target: http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt
 
 --- abstract
 
@@ -344,7 +349,7 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_RESERVED_14|160|For private use
 |LINKTYPE_RESERVED_15|161|For private use
 |LINKTYPE_RESERVED_16|162|For private use
-|LINKTYPE_IEEE802_11_AVS|163|AVS monitor mode w/802.11 header
+|LINKTYPE_IEEE802_11_AVS|163|AVS header{{AVS}}, followed by an 802.11 header
 |LINKTYPE_JUNIPER_MONITOR|164|Reserved for Juniper Networks
 |LINKTYPE_BACNET_MS_TP|165|BACnet MS/TP frames, per 9.3 MS/TP Frame Format ANSI 135
 |LINKTYPE_PPP_PPPD|166|PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC, different stuffing
