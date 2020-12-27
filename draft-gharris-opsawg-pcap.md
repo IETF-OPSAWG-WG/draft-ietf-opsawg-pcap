@@ -308,7 +308,7 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_RIO|124|Reserved for RapidIO
 |LINKTYPE_PCI_EXP|125|Reserved for PCI Express
 |LINKTYPE_AURORA|126|Reserved for Xilinx Aurora link layer
-|LINKTYPE_IEEE802_11_RADIOTAP|127|Radiotap{{Radiotap}} - followed by an 802.11 header
+|LINKTYPE_IEEE802_11_RADIOTAP|127|Radiotap header{{Radiotap}}, followed by an 802.11 header
 |LINKTYPE_TZSP|128|Reserved for Tazmen Sniffer Protocol
 |LINKTYPE_ARCNET_LINUX|129|ARCNET Data Packets, per RFC 1051 frames w/variations
 |LINKTYPE_JUNIPER_MLPPP|130|Reserved for Juniper Networks
