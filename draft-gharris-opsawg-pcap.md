@@ -253,7 +253,9 @@ The LinkType Registry is a table of 16-bit numbers.
 The Registry has three sections with different {{RFC8126}} rules:
 
 * values from 0 to 32767 are marked as Specification Required.
+
 * values from 32768 to 65000 are marked as First-Come First-Served.
+
 * values from 65000 to 65535 are marked as Private Use.
 
 The Registry has four columns: the symbolic name (LINKTYPE_something), the integer value,
