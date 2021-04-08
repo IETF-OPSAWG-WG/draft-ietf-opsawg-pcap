@@ -543,7 +543,7 @@ Customs Options are used for portable, vendor-specific data
 related to the block they're in. A Custom Option can be in any block
 type that can have options, can be repeated any number of times in a
 block, and may come before or after other option types - except the
-opt_endofopt which is always the last option. Different Custom
+opt_endofopt option, which is always the last option. Different Custom
 Options, of different type codes and/or different Private Enterprise
 Numbers, may be used in the same pcapng file. See {{section_vendor}} for additional details.
 
@@ -720,7 +720,7 @@ The meaning of the fields is:
   1. This value is palindromic, so that the reader is able to
     recognize the Section Header Block regardless of the endianness
     of the section. The endianness is recognized by reading the Byte
-    Order Magic, that is located 8 octets after the Block Type.
+    Order Magic, which is located 8 octets after the Block Type.
 
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
@@ -1978,7 +1978,7 @@ The following is a list of Secrets Types.
   base64-encoded 32-byte key with optional spaces before and in between.
   The key type is one of LOCAL\_STATIC\_PRIVATE\_KEY,
   REMOTE\_STATIC\_PUBLIC\_KEY, LOCAL_EPHEMERAL\_PRIVATE\_KEY,
-  or PRESHARED|_KEY. This matches the output of [extract-handshakes.sh](https://git.zx2c4.com/WireGuard/tree/contrib/examples/extract-handshakes/README) which is part of the [WireGuard](https://www.wireguard.com/) project.
+  or PRESHARED|_KEY. This matches the output of [extract-handshakes.sh](https://git.zx2c4.com/WireGuard/tree/contrib/examples/extract-handshakes/README), which is part of the [WireGuard](https://www.wireguard.com/) project.
   A PRESHARED\_KEY line is linked to a session matched by a previous
   LOCAL\_EPHEMERAL\_PRIVATE\_KEY line.
   Every line MUST be properly terminated with
