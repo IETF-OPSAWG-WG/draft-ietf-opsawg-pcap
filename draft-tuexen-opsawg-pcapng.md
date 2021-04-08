@@ -761,7 +761,7 @@ The meaning of the fields is:
   format did not change incompatibly (new block types were added);
   readers of pcapng files MUST treat a minor version of 2 the same way
   that they treat a minor version number of 0, and writers of pcapng
-  files SHOULD NOT write a minor version number of 0.  Note that using a
+  files MUST NOT write a minor version number of 0.  Note that using a
   minor version number other than 0 when writing a section of a pcapng
   file will produce a section that most existing software will not be
   able to read; future versions of some of that software will be able to
