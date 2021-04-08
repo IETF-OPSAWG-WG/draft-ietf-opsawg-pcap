@@ -741,7 +741,11 @@ The meaning of the fields is:
   version number and use different code paths for the two
   formats) and code that reads the old format could not read
   the new format. Note that adding a new block type or a new
-  option is NOT such a change.
+  option is NOT such a change; incompatibly changing the format of an
+  existing block type would be such a change. Note that using a
+  major version number other than 1 when writing a section of a pcapng
+  file will produce a section that most existing software will not be
+  able to read.
 
 * Minor Version (16 bits): an unsigned value, giving the
   number of the current minor version of the format. The
@@ -751,7 +755,19 @@ The meaning of the fields is:
   without checking the version number but code that reads the
   old format could not read all files in the new format. Note
   that adding a new block type or a new option is NOT such a
-  change.
+  change; using the Reserved field in an Interface Description Block
+  (see below) for additional information would be such a change.  Some
+  pcapng file writers have used a minor version of 2, but the file
+  format did not change incompatibly (new block types were added);
+  readers of pcapng files MUST treat a minor version of 2 the same way
+  that they treat a minor version number of 0, and writers of pcapng
+  files SHOULD NOT write a minor version number of 0.  Note that using a
+  minor version number other than 0 when writing a section of a pcapng
+  file will produce a section that most existing software will not be
+  able to read; future versions of some of that software will be able to
+  read sections with a version of 1.2, but not copies of that software
+  that are not updated to the latest version will not be able to read
+  them.
 
 * Section Length (64 bits): a signed value specifying the
   length in octets of the following section, excluding the
