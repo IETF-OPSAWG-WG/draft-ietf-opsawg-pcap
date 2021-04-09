@@ -734,40 +734,11 @@ The meaning of the fields is:
 
 * Major Version (16 bits): an unsigned value, giving the
   number of the current major version of the format. The
-  value for the current version of the format is 1. This
-  value should change if the format changes in such a way that
-  code that reads the new format could not read the old format
-  (i.e., code to read both formats would have to check the
-  version number and use different code paths for the two
-  formats) and code that reads the old format could not read
-  the new format. Note that adding a new block type or a new
-  option is NOT such a change; incompatibly changing the format of an
-  existing block type would be such a change. Note that using a
-  major version number other than 1 when writing a section of a pcapng
-  file will produce a section that most existing software will not be
-  able to read.
+  value for the current version of the format is 1.
 
 * Minor Version (16 bits): an unsigned value, giving the
   number of the current minor version of the format. The
-  value is for the current version of the format is 0. This
-  value should change if the format changes in such a way that
-  code that reads the new format could read the old format
-  without checking the version number but code that reads the
-  old format could not read all files in the new format. Note
-  that adding a new block type or a new option is NOT such a
-  change; using the Reserved field in an Interface Description Block
-  (see below) for additional information would be such a change.  Some
-  pcapng file writers have used a minor version of 2, but the file
-  format did not change incompatibly (new block types were added);
-  readers of pcapng files MUST treat a minor version of 2 the same way
-  that they treat a minor version number of 0, and writers of pcapng
-  files MUST NOT write a minor version number of 0.  Note that using a
-  minor version number other than 0 when writing a section of a pcapng
-  file will produce a section that most existing software will not be
-  able to read; future versions of some of that software will be able to
-  read sections with a version of 1.2, but not copies of that software
-  that are not updated to the latest version will not be able to read
-  them.
+  value for the current version of the format is 0.
 
 * Section Length (64 bits): a signed value specifying the
   length in octets of the following section, excluding the
@@ -788,12 +759,67 @@ The meaning of the fields is:
 * Options: optionally, a list of options (formatted according to
   the rules defined in {{section_opt}}) can be present.
 
+Writers of pcapng files MUST NOT write SHBs with a Major Version other
+than 1 or a Minor Version other than 0.  If they do so, they will write
+a file that many readers of pcapng files, such as programs using libpcap
+to read pcapng files (including, but not limited to, tcpdump),
+Wireshark, and possibly other programs not to be able to read their
+files.
 
-Adding new block types or options would not necessarily require
-that either Major or Minor numbers be changed, as code that does not
+Some pcapng file writers have used a minor version of 2, but the file
+format did not change incompatibly (new block types were added); Readers
+of pcapng files MUST treat a Minor Version of 2 as equivalent to a Minor
+Version of 0 (and, if they also write a pcapng file based on the results
+of reading one or more pcapng files, they MUST NOT, as per the previous
+sentence, write an SHB with a Minor Version of 2, even if they read an
+SHB with a Minor Version of 2).  As indicated above, using a minor
+version number other than 0 when writing a section of a pcapng file will
+produce a section that most existing software will not be able to read;
+future versions of some of that software will be able to read sections
+with a version of 1.2, but older copies of that software that are not
+updated to the latest version will still not be able to read them.
+
+The Major Version would be changed only if a new version of this
+specification, for a later major version of the file format, were
+created.  Such a version would only be created if the format were to
+change in such a way that code that reads the new format could not read
+the old format (i.e., code to read both formats would have to check the
+version number and use different code paths for the two formats) and
+code that reads the old format could not read the new format.  An
+incompatible change to the format of an existing block or an existing
+option would be such a change; the addition of a new block or a new
+option would not be such a change.  An example of such an incomparible
+change would be the addition of an additional field to the Section
+Header Block, following the Minor Version field and before the Snaplen
+field; software expecting the new SHB format would not correctly read
+the old SHB format, and software expecting the old SHB format would not
+correctly read the new SHB format.  (Note that a change to the SHB must
+leave the Block Type, Block Total Length, Byte-Order Magic, Major
+Version, and Minor Version fields at the same offsets from the beginning
+of the SHB and with the same lengths, must keep the value of the Block
+TYpe the same, must keep the two posssible values of the Byte-Order
+Magic the same, depending on the block's byte order, so that the rest of
+the SHB can be correctly interpreted.)
+
+The Minor Verson would be chagned only if a new version of this
+spacification, for a later minor version of the file format, were
+created.  Such a version would only be created if the format were to
+change in such a way that code that reads the new format could read the
+old format without checking the version number but code that reads the
+old format could not read all files in the new format.  A
+backward-compatible change to the format of an existing block or an
+existing opption would be such a change; the addition of a new block or
+a new option would not be such a change.  An example of such a
+backward-compatible but not forward-compatible change would be a change
+to the Interface Description block (see below) to use the current
+Reserved field to indicate the presence of additional fields before the
+Options, with a zero value indicate no such fields are present.
+
+I.e., adding new block types or options would not require that either
+the Major Version or the Minor Version be changed, as code that does not
 know about the block type or option should just skip it; only if
-skipping a block or option does not work should the minor version
-number be changed.
+skipping a block or option does not work should the minor version number
+be changed.
 
 Aside from the options defined in {{section_opt}}, the
 following options are valid within this block:
