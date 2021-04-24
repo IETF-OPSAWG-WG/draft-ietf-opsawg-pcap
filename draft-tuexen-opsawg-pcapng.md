@@ -288,8 +288,9 @@ being defined:
 * Event/Security Blocks
 
 
-Requests for new standardized Block Type codes should be sent
-to the [pcap-ng-format mailing list](https://www.winpcap.org/mailman/listinfo/pcap-ng-format).
+Requests for new standardized Block Type codes should be made by
+creating a pull request to update this document as described in
+{{section_block_code_registry}}.
 
 
 ## Logical Block Hierarchy
@@ -437,7 +438,9 @@ containing a single value:
 
 
 Requests for new standardized option codes for a given block
-should be sent to the [pcap-ng-format mailing list](https://www.winpcap.org/mailman/listinfo/pcap-ng-format).
+should be made by creating a pull request to update this document
+as described in {{section_block_code_registry}}.
+
 
 A given option may have a fixed length, in which case all
 instances of that option have a length that is equal to the
@@ -667,7 +670,7 @@ Neither of these formats guarantee 64-bit alignment.)
 
 
 
-# Block Definition
+# Block Definition {#section_block_definition}
 
 This section details the format of the blocks currently defined.
 
@@ -1988,7 +1991,10 @@ The Decryption Secrets Block has the following fields.
 
 * Secrets Type (32 bits): an unsigned integer identifier
   that describes the format of the following Secrets field.
-  Requests for new Secrets Type codes should be sent to the [pcap-ng-format mailing list](https://www.winpcap.org/mailman/listinfo/pcap-ng-format).
+  Requests for new Secrets Type codes should be made by creating
+  a pull request to update this document as described in
+  {{section_block_code_registry}}.
+
 
 * Secrets Length (32 bits): an unsigned integer that indicates
   the size of the following Secrets field, without any padding
@@ -2540,8 +2546,13 @@ codes whose Most Significant Bit (bit 31) is set to 1 are reserved for
 local use by the application.
 
 All the remaining Block Type codes (0x00000000 to 0x7FFFFFFF) are
-standardized by this document. Requests for new Block Type codes
-should be sent to the [pcap-ng-format mailing list](https://www.winpcap.org/mailman/listinfo/pcap-ng-format).
+standardized by this document. Requests for new Block Type codes,
+Option Type codes, and Secrets Type codes should be made by creating
+a pull request to update this document at [github.com/pcapng/pcapng](https://github.com/pcapng/pcapng).
+The pull request should add a description of the new block, option,
+or secret type to {{section_block_definition}}. The pull request
+description should contain a clear request for a new type code
+assignment.
 
 The following is a list of the Standardized Block Type Codes:
 
