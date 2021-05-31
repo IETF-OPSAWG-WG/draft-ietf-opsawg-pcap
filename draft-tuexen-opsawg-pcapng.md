@@ -804,8 +804,8 @@ TYpe the same, must keep the two posssible values of the Byte-Order
 Magic the same, depending on the block's byte order, so that the rest of
 the SHB can be correctly interpreted.)
 
-The Minor Verson would be chagned only if a new version of this
-spacification, for a later minor version of the file format, were
+The Minor Version would be changed only if a new version of this
+specification, for a later minor version of the file format, were
 created.  Such a version would only be created if the format were to
 change in such a way that code that reads the new format could read the
 old format without checking the version number but code that reads the
@@ -1887,7 +1887,7 @@ Journal Export Format entry data.
 One of the primary components of the systemd System and
 Service Manager is the "Journal", a message logging system that
 uses arrays of key-value pairs. Journal entries are stored in a
-databse-like file on disk but can be serialized to easily
+database-like file on disk but can be serialized to easily
 parseable "Journal Export Format" data or to a JSON object. The
 block described here is limited to Journal Export Format data
 only.
