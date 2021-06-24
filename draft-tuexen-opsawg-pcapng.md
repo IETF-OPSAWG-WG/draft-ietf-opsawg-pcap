@@ -1,7 +1,7 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-tuexen-opsawg-pcapng-02
+docname: draft-tuexen-opsawg-pcapng-latest
 cat: info
 pi:
   symrefs: 'yes'
