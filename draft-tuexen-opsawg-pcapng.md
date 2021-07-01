@@ -2457,14 +2457,14 @@ the octets.
 
 ## Endianness Issues {#section_vendor_endian}
 
-Implementers writing Custom Blocks or Custom Options should be
-aware that a pcapng file can be re-written by machines using a
+Implementers writing Custom Blocks or binary data Custom Options should
+be aware that a pcapng file can be re-written by machines using a
 different endianness than the original file, which means all known
-fields of the pcapng file will change endianness in the new file.
-Since the Custom Data payload of the Custom Block or Custom Option
-might be an arbitrary sequence of unknown octets to such machines, they
-cannot convert multi-octet values inside the Custom Data into the
-appropriate endianness.
+fields of the pcapng file will change endianness in the new file.  Since
+the Custom Data payload of the Custom Block or the binary data Custom
+Option might be an arbitrary sequence of unknown octets to such
+machines, they cannot convert multi-octet values inside the Custom Data
+into the appropriate endianness.
 
 For example, a little-endian machine can create a new pcapng file
 and add some binary data Custom Options to some Block(s) in the file.
@@ -2483,6 +2483,10 @@ little-endian format, regardless of the host platform's
 endianness, or should encode some flag in the Custom Data payload
 to indicate in which endianness the rest of the payload is written.
 
+The PEN field of a Custom Block or a Custom Option MUST be converted by
+code that reads pcapng files, so this is not an issue for that field. 
+This is also not an issue for the Custom Data payload of UTF-8 string
+Custom Options.
 
 
 # Recommended File Name Extension: .pcapng
