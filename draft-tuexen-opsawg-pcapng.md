@@ -2463,30 +2463,52 @@ different endianness than the original file, which means all known
 fields of the pcapng file will change endianness in the new file.  Since
 the Custom Data payload of the Custom Block or the binary data Custom
 Option might be an arbitrary sequence of unknown octets to such
-machines, they cannot convert multi-octet values inside the Custom Data
-into the appropriate endianness.
+machines, they cannot convert multi-octet values inside the Custom Data,
+or in the Options  section of a Custom Block,into the appropriate
+endianness.
 
-For example, a little-endian machine can create a new pcapng file
-and add some binary data Custom Options to some Block(s) in the file.
-This file can then be sent to a big-endian host, which will convert it
-to big-endian format if it re-writes the file. It will, however, leave
-the Custom Data payload alone (as little-endian format). If this file
-then gets sent back to the little-endian machine, then when that
-little-endian machine reads the file it will detect the format is big-
-endian, and swap the endianness while it parses the file - but that
-will cause the Custom Data payload to be incorrect since it was
-already in little-endian format.
+For example, a little-endian machine can create a new pcapng file and
+add some binary data Custom Options to some non-Custom Block(s) in the
+file.  This file can then be sent to a big-endian host, which will
+convert the Option Code, Option Length, and PEN fields of the options to
+big-endian format if it re-writes the file.  However, if the software
+reading the file does not understand the contents of all of the Custom
+Options, it will leave the Custom Data payload of the options alone (as
+little-endian format).  If this file then gets sent to a little-endian
+machine, then, when that little-endian machine reads the file, it will,
+if the software reading the file understands the contents of all the
+Custom Options, it will detect that the file format is big-endian, and
+swap the endianness while it parses the file - but that will cause the
+Custom Data payload to be incorrect since it was already in
+little-endian format.
 
-Therefore, the vendor should either encode all of their fields in a
-consistent manner, such as always in big-endian or always
-little-endian format, regardless of the host platform's
-endianness, or should encode some flag in the Custom Data payload
-to indicate in which endianness the rest of the payload is written.
+In addition, a little-endian machine can create a pcapng file and write
+some binary data Custom Blocks, containing options, to the file.  The
+file can then be sent to a big-endian host, which, if the software
+reading the file does not understand the contents of the Custom Blocks,
+will leave the Custom Data and Options alone (as little-endina format). 
+If this file then gets sent to a little-endian machine, then, when that
+little-endian machine reads the file, it will, if the software reading
+the file understands the contents of all the Custom Blocks, it will
+detect that the file format is big-endian, and swap the endianness while
+it parses the file - but that will cause the Custom Data payload, the
+Option Code and Option Length values in the Options, and the PEN in any
+Custom Options to be incorrect since they were already in little-endian
+format.
 
-The PEN field of a Custom Block or a Custom Option MUST be converted by
-code that reads pcapng files, so this is not an issue for that field. 
-This is also not an issue for the Custom Data payload of UTF-8 string
-Custom Options.
+Therefore, the vendor should either encode the Custom Data of their
+Custom Blocks and Custom Options, the Option Code and Option Length
+fields of options in Custom Blocks, and the PEN field of Custom Options
+in Custom Blocks in a consistent manner, such as always in big-endian or
+always in little-endian format, regardless of the host platform's
+endianness, or should encode some flag in the Custom Data payload to
+indicate in which endianness the rest of the payload is written.
+
+The PEN field of a Custom Block, or of a Custom Option not contained in
+a Custom Block, MUST be converted by code that reads pcapng files, so
+this is not an issue for that field, except for Custom Options in Custom
+Blocks.  This is also not an issue for the Custom Data payload of UTF-8
+string Custom Options.
 
 
 # Recommended File Name Extension: .pcapng
