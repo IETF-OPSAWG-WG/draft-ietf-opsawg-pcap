@@ -620,7 +620,7 @@ The Custom Option has the following fields:
 * Private Enterprise Number: An IANA-assigned Private Enterprise
   Number identifying the organization which defined the Custom
   Option. See {{section_vendor_uses}} for details. The
-  PEN number MUST be encoded using the same endianness as the Section
+  PEN MUST be encoded using the same endianness as the Section
   Header Block it is within the scope of.
 
 * Custom Data: the custom data, padded to a 32 bit boundary.
@@ -2412,7 +2412,7 @@ The portable use-case supports vendor-specific custom extensions in
 pcapng files which can be shared across systems, organizations, etc.
 To avoid number space collisions, an IANA-registered Private
 Enterprise Number (PEN) is encoded into the Custom Block or Custom
-Option, using the PEN number that belongs to the vendor defining the
+Option, using the PEN that belongs to the vendor defining the
 extension. Anyone can register a new PEN with IANA, for free, by
 filling out the online request form at [http://pen.iana.org/pen/PenApplication.page](http://pen.iana.org/pen/PenApplication.page).
 
