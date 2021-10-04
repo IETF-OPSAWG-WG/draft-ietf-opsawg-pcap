@@ -2228,7 +2228,7 @@ In addition, a little-endian machine can create a pcapng file and write
 some binary data Custom Blocks, containing options, to the file.  The
 file can then be sent to a big-endian host, which, if the software
 reading the file does not understand the contents of the Custom Blocks,
-will leave the Custom Data and Options alone (as little-endina format). 
+will leave the Custom Data and Options alone (as little-endina format).
 If this file then gets sent to a little-endian machine, then, when that
 little-endian machine reads the file, it will, if the software reading
 the file understands the contents of all the Custom Blocks, it will
