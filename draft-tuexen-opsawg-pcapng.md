@@ -72,6 +72,7 @@ author:
   uri: http://www.sandelman.ca/
 normative:
 informative:
+  I-D.richardson-opsawg-pcapng-extras:
   LINKTYPES:
     target: http://www.tcpdump.org/linktypes.html
     title: the tcpdump.org link-layer header types registry
@@ -1879,69 +1880,6 @@ aligned to a 32-bit boundary, such fields are not guaranteed to be
 aligned on a 64-bit boundary.
 
 
-## systemd Journal Export Block {#section_sdj_export}
-
-The [systemd](https://www.freedesktop.org/wiki/Software/systemd/)  [Journal Export Block](https://www.freedesktop.org/wiki/Software/systemd/export/) is a lightweight container for systemd
-Journal Export Format entry data.
-
-One of the primary components of the systemd System and
-Service Manager is the "Journal", a message logging system that
-uses arrays of key-value pairs. Journal entries are stored in a
-database-like file on disk but can be serialized to easily
-parseable "Journal Export Format" data or to a JSON object. The
-block described here is limited to Journal Export Format data
-only.
-
-A systemd Journal Export Block contains a single systemd
-Journal Export Format entry. Each entry MUST contain a
-__REALTIME_TIMESTAMP= field. If a timestamp for the block is
-required it can be derived from this field. Each entry MUST be
-zero-padded to 32 bits. Although the primary use of this block
-is intended for importing data from systemd, it could
-potentially be used to include arbitrary key-value data in a
-capture file.
-
-{{format_sdj_export}} shows the format of the
-Journal Export Block.
-
-
-~~~~
-                        1                   2                   3
-    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 0 |                    Block Type = 0x00000009                    |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 4 |                      Block Total Length                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 8 /                                                               /
-   /                         Journal Entry                         /
-   /              variable length, padded to 32 bits               /
-   /                                                               /
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |                      Block Total Length                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-~~~~
-{: #format_sdj_export title='systemd Journal Export Block Format' artwork-align="center"}
-
-The systemd Journal Export Block has the following fields:
-
-* Block Type: The block type of the Journal Export Block is 9.
-
-* Block Total Length: total size of this block, as described in {{section_block}}.
-
-* Journal Entry: A journal entry as described in the [Journal Export Format](https://www.freedesktop.org/wiki/Software/systemd/export/) documentation. Entries consist of a
-  series of field names followed by text or binary field data.
-  Common field names can be found in the [systemd.journal-fields](https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html) documentation. The __REALTIME_TIMESTAMP= field MUST be
-  present and valid as described above. Entries are not
-  guaranteed to be a multiple of four octets and must be
-  zero-padded. This allows the length of the entry to be
-  determined by finding the last non-zero octet in the Journal
-  Entry data. An entry may contain an entry separator
-  (trailing newline) as described in the Journal Export Format
-  specification
-
-
-
 ## Decryption Secrets Block {#section_dsb}
 
 A Decryption Secrets Block (DSB) stores (session) secrets that
@@ -2190,202 +2128,6 @@ The Custom Block has the following fields:
   option format and type code, as described in {{section_custom_option}}.
 
 
-
-
-# Experimental Blocks (deserve further investigation)
-
-## Alternative Packet Blocks (experimental)
-
-Can some other packet blocks (besides the ones described in the
-previous paragraphs) be useful?
-
-
-## Compression Block (experimental)
-
-The Compression Block is optional. A file can contain an arbitrary
-number of these blocks. A Compression Block, as the name says, is used
-to store compressed data. Its format is shown in {{formatcb}}.
-
-
-~~~~
-                        1                   2                   3
-    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 0 |                        Block Type = ?                         |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 4 |                      Block Total Length                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 8 |  Compr. Type  |                                               /
-   +-+-+-+-+-+-+-+-+                                               /
-   /                                                               /
-   /                       Compressed Data                         /
-   /                                                               /
-   /  variable length, octet-aligned and padded to end on a 32-bit /
-   /                         boundary                              /
-   /                                                               /
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |                      Block Total Length                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-~~~~
-{: #formatcb title='Compression Block Format' artwork-align="left"}
-
-The fields have the following meaning:
-
-* Block Type: The block type of the Compression Block is not yet
-  assigned.
-
-* Block Total Length: total size of this block, as described in {{section_block}}.
-
-* Compression Type (8 bits): an unsigned value that
-  specifies the compression algorithm.  Possible values for
-  this field are 0 (uncompressed), 1 (Lempel-Ziv), 2 (Gzip),
-  other?? Probably some kind of dumb and fast compression
-  algorithm could be effective with some types of traffic (for
-  example web), but which?
-
-* Compressed Data: data of this block. Once decompressed, it is
-  made of other blocks.
-
-
-
-## Encryption Block (experimental)
-
-The Encryption Block is optional. A file can contain an arbitrary
-number of these blocks. An Encryption Block is used to store encrypted
-data. Its format is shown in {{formateb}}.
-
-
-~~~~
-                        1                   2                   3
-    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 0 |                        Block Type = ?                         |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 4 |                      Block Total Length                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 8 |   Encr. Type  |                                               /
-   +-+-+-+-+-+-+-+-+                                               /
-   /                                                               /
-   /                       Encrypted Data                          /
-   /                                                               /
-   /                 variable length, octet-aligned                /
-   /                                                               /
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |                      Block Total Length                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-~~~~
-{: #formateb title='Encryption Block Format' artwork-align="left"}
-
-The fields have the following meaning:
-
-* Block Type: The block type of the Encryption Block is not yet
-  assigned.
-
-* Block Total Length: total size of this block, as described in {{section_block}}.
-
-* Encryption Type (8 bits): an unsigned value that
-  specifies the encryption algorithm.  Possible values for
-  this field are ??? (TODO) NOTE: this block should probably
-  contain other fields, depending on the encryption algorithm.
-  To be defined precisely.
-
-* Encrypted Data: data of this block. Once decrypted, it
-  originates other blocks.
-
-
-
-## Fixed Length Block (experimental)
-
-The Fixed Length Block is optional. A file can contain an arbitrary
-number of these blocks. A Fixed Length Block can be used to optimize
-the access to the file. Its format is shown in {{formatflm}}. A Fixed Length Block stores records with
-constant size. It contains a set of Blocks (normally Enhanced Packet
-Blocks or Simple Packet Blocks), of which it specifies the size.
-Knowing this size a priori helps to scan the file and to load some
-portions of it without truncating a block, and is particularly useful
-with cell-based networks like ATM.
-
-
-~~~~
-                        1                   2                   3
-    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 0 |                        Block Type = ?                         |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 4 |                      Block Total Length                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- 8 |          Cell Size            |                               |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+                               /
-   /                                                               /
-   /                        Fixed Size Data                        /
-   /                                                               /
-   /                 variable length, octet-aligned                /
-   /                                                               /
-   /                                                               /
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |                      Block Total Length                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-~~~~
-{: #formatflm title='Fixed Length Block Format' artwork-align="left"}
-
-The fields have the following meaning:
-
-* Block Type: The block type of the Fixed Length Block is not yet
-  assigned.
-
-* Block Total Length: total size of this block, as described in {{section_block}}.
-
-* Cell size (16 bits): an unsigned value that indicates the
-  size of the blocks contained in the data field.
-
-* Fixed Size Data: data of this block.
-
-
-
-## Directory Block (experimental)
-
-If present, this block contains the following information:
-
-* number of indexed packets (N)
-
-* table with position and length of any indexed packet (N
-  entries)
-
-
-A directory block MUST be followed by at least N packets, otherwise
-it MUST be considered invalid. It can be used to efficiently load
-portions of the file to memory and to support operations on memory
-mapped files. This block can be added by tools like network analyzers
-as a consequence of file processing.
-
-
-## Traffic Statistics and Monitoring Blocks (experimental)
-
-One or more blocks could be defined to contain network statistics
-or traffic monitoring information. They could be use to store data
-collected from RMON or Netflow probes, or from other network
-monitoring tools.
-
-
-## Event/Security Block (experimental)
-
-This block could be used to store events. Events could contain
-generic information (for example network load over 50%, server
-down...) or security alerts. An event could be:
-
-* skipped, if the application doesn't know how to do with it
-
-* processed independently by the packets. In other words, the
-  applications skips the packets and processes only the alerts
-
-* processed in relation to packets: for example, a security tool
-  could load only the packets of the file that are near a security
-  alert; a monitoring tool could skip the packets captured while the
-  server was down.
-
-
-
-
 # Vendor-Specific Custom Extensions {#section_vendor}
 
 This section uses the term "vendor" to describe an organization which
@@ -2592,7 +2334,7 @@ The following is a list of the Standardized Block Type Codes:
 | 0x00000006 |  [Enhanced Packet Block](#section_epb)  |
 | 0x00000007 |  IRIG Timestamp Block (requested by Gianluca Varenni \<gianluca.varenni@cacetech.com>, CACE Technologies LLC); code also used for <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Socket Aggregation Event Block</eref>  |
 | 0x00000008 |  <eref target="https://en.wikipedia.org/wiki/ARINC_429">ARINC 429</eref> in AFDX Encapsulation Information Block (requested by Gianluca Varenni \<gianluca.varenni@cacetech.com>, CACE Technologies LLC) |
-| 0x00000009 |  [systemd Journal Export Block](#section_sdj_export)  |
+| 0x00000009 |  [systemd Journal Export Block]{{I-D.richardson-opsawg-pcapng-extras}}  |
 | 0x0000000A |  [Decryption Secrets Block](#section_dsb)  |
 | 0x00000101 |  <eref target="https://github.com/HoneProject">Hone Project</eref> <eref target="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Machine Info Block</eref> (see also <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google version</eref>)  |
 | 0x00000102 |  <eref target="https://github.com/HoneProject">Hone Project</eref> <eref target="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Connection Event Block</eref> (see also <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google version</eref>)  |
