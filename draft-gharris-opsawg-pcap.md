@@ -97,7 +97,7 @@ The File Header has the following format:
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    16 |                            SnapLen                            |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   20 | FCS |f|0 0 0 0 0 0 0 0 0 0 0 0|         LinkType              |
+   20 |               LinkType and additional information             |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
 {: #fig-header title='File Header' align="left"}
@@ -136,15 +136,19 @@ SnapLen (32 bits):
 The portion of each packet that exceeds this value will not be stored in the file.
 This value MUST NOT be zero; if no limit was specified, the value should be a number greater than or equal to the largest packet length in the file.
 
-LinkType (16 bits):
-: a 16-bit unsigned value that defines the link layer type of packets in the file.
-This field is defined in the {{linktype}} IANA registry.
-
-Frame Cyclic Sequence (FCS) present (4 bits):
-: if the "f" bit is set, then the 3 FCS bits provide the number of 16-bit (2 byte) words of FCS that are appended to each packet.
-: valid values are between 0 and 7, with ethernet typically having a length of 4 bytes, or a value of 2.
-
-The bits marked as zero MUST be set to zero by pcap writers, and MUST be ignored by pcap readers.
+LinkType and additional information (32 bits):
+: a 32-bit unsigned value that contains the link-layer type of packets
+in the file and may contain additional information.
+: The lower 16 bits of that value are the link-layer type value, which is
+a value as defined in the {{linktype}} IANA registry.
+: The upper 3 bits contain an FCS length value, indicating the number of
+16-bit (2 byte) words of FCS that are appended to each packet, if the
+bit immediately below those 3 bits is set; if that bit is not set, and
+the FCS length is not indicated by the link-layer type value, the FCS
+length is unknown.  The valid values of the upper 3 bits are between 0
+and 7, eith Ethernet, for example, typically having a length of 2.
+: All other bits MUST be set to zero by pcap writers, and MUST be
+ignored by pcap readers.
 
 # Packet Record
 
