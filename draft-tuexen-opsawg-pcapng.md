@@ -792,7 +792,7 @@ version number and use different code paths for the two formats) and
 code that reads the old format could not read the new format.  An
 incompatible change to the format of an existing block or an existing
 option would be such a change; the addition of a new block or a new
-option would not be such a change.  An example of such an incomparible
+option would not be such a change.  An example of such an incompatible
 change would be the addition of an additional field to the Section
 Header Block, following the Minor Version field and before the Snaplen
 field; software expecting the new SHB format would not correctly read
@@ -801,7 +801,7 @@ correctly read the new SHB format.  (Note that a change to the SHB must
 leave the Block Type, Block Total Length, Byte-Order Magic, Major
 Version, and Minor Version fields at the same offsets from the beginning
 of the SHB and with the same lengths, must keep the value of the Block
-TYpe the same, must keep the two posssible values of the Byte-Order
+Type the same, must keep the two possible values of the Byte-Order
 Magic the same, depending on the block's byte order, so that the rest of
 the SHB can be correctly interpreted.)
 
@@ -812,7 +812,7 @@ change in such a way that code that reads the new format could read the
 old format without checking the version number but code that reads the
 old format could not read all files in the new format.  A
 backward-compatible change to the format of an existing block or an
-existing opption would be such a change; the addition of a new block or
+existing option would be such a change; the addition of a new block or
 a new option would not be such a change.  An example of such a
 backward-compatible but not forward-compatible change would be a change
 to the Interface Description block (see below) to use the current
@@ -2228,7 +2228,7 @@ In addition, a little-endian machine can create a pcapng file and write
 some binary data Custom Blocks, containing options, to the file.  The
 file can then be sent to a big-endian host, which, if the software
 reading the file does not understand the contents of the Custom Blocks,
-will leave the Custom Data and Options alone (as little-endina format).
+will leave the Custom Data and Options alone (as little-endian format).
 If this file then gets sent to a little-endian machine, then, when that
 little-endian machine reads the file, it will, if the software reading
 the file understands the contents of all the Custom Blocks, it will
