@@ -1,7 +1,7 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-gharris-opsawg-pcap-latest
+docname: draft-ietf-opsawg-pcap-latest
 cat: info
 pi:
   symrefs: 'yes'
