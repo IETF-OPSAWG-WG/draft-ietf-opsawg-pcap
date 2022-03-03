@@ -141,14 +141,20 @@ LinkType and additional information (32 bits):
 in the file and may contain additional information.
 : The lower 16 bits of that value are the link-layer type value, which is
 a value as defined in the {{linktype}} IANA registry.
-: The upper 3 bits contain an FCS length value, indicating the number of
-16-bit (2 byte) words of FCS that are appended to each packet, if the
-bit immediately below those 3 bits is set; if that bit is not set, and
-the FCS length is not indicated by the link-layer type value, the FCS
-length is unknown.  The valid values of the upper 3 bits are between 0
-and 7, eith Ethernet, for example, typically having a length of 2.
-: All other bits MUST be set to zero by pcap writers, and MUST be
+: The 10 bits above that value MUST be set to zero by pcap writers, and
+MUST be ignored by pcap readers.
+: The bit above those bits is set if and only if an FCS length value is
+present in the upper 4 bits.
+: The bit above that MUST be set to zero by pcap writers, and MUST be
 ignored by pcap readers.
+: The upper 4 bits contain an FCS length value, indicating the number of
+16-bit (2 byte) words of FCS that are appended to each packet, if the
+bit indicating the presence of an FCS length value is set; if the bit
+indicating the presence of an FCS length value is not set, and the FCS
+length is not indicated by the link-layer type value, the FCS length is
+unknown.  The valid values of the upper 4 bits are between 0 and 15;
+Ethernet, for example, would have an FCS length value of 2,
+corresponding to a 4 byte FCS.
 
 # Packet Record
 
