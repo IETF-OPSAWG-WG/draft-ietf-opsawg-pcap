@@ -195,12 +195,12 @@ interpreted by pcap readers; a reader SHOULD treat a non-zero value as
 an error.
 
 FCS len (4 bits):
-: a 4-bit unsigned value indicating the number of 16-bit (2 octet) words
+: a 4-bit unsigned value indicating the number of 16-bit (2-octet) words
 of FCS that are appended to each packet, if the P bit is set; if the P
 bit is not set, and the FCS length is not indicated by the link-layer
 type value, the FCS length is unknown.  The valid values of the FCS len
 field are between 0 and 15; Ethernet, for example, would have an FCS
-length value of 2, corresponding to a 4 octet FCS.
+length value of 2, corresponding to a 4-octet FCS.
 
 # Packet Record
 
@@ -224,7 +224,7 @@ coming from the network.
 ~~~~
 {: #fig-record title='Packet Record' align="left"}
 
-The Packet Record begins with a 16 octet header, followed by data from
+The Packet Record begins with a 16-octet header, followed by data from
 the packet.
 
 The meaning of the fields in the Packet Record is:
@@ -257,10 +257,10 @@ the link-layer headers depends on the LinkType field specified in the
 file header (see Figure 1) and it is specified in the entry for that
 format in [LINKTYPES].
 
-Packet Records are not padded to a 4 octet boundary; if the number of
+Packet Records are not padded to a 4-octet boundary; if the number of
 octets of packet data is not a multiple of 4, there are no padding
 octets following it, so Packet Records are not guaranteed to begin on a
-4 octet boundary within a file.
+4-octet boundary within a file.
 
 # Recommended File Name Extension: .pcap
 
