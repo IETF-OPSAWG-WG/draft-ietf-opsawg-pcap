@@ -139,14 +139,16 @@ This value MUST NOT be zero; if no limit was specified, the value should be a nu
 LinkType and additional information (32 bits):
 : a 32-bit unsigned value that contains the link-layer type of packets
 in the file and may contain additional information.
-: The lower 16 bits of that value are the link-layer type value, which is
+: The lower 16 bits of that value are the link-layer type, which is
 a value as defined in the {{linktype}} IANA registry.
 : The 10 bits above that value MUST be set to zero by pcap writers, and
-MUST be ignored by pcap readers.
+MUST NOT be interpretedd by pcap readers; a reader SHOULD treat a
+non-zero value as an error.
 : The bit above those bits is set if and only if an Frame Check Sequence
 (FCS) length value is present in the upper 4 bits.
-: The bit above that MUST be set to zero by pcap writers, and MUST be
-ignored by pcap readers.
+: The bit above that MUST be set to zero by pcap writers, and MUST NOT
+be interpreted by pcap readers; a reader SHOULD treat a non-zero value
+as an error.
 : The upper 4 bits contain an FCS length value, indicating the number of
 16-bit (2 byte) words of FCS that are appended to each packet, if the
 bit indicating the presence of an FCS length value is set; if the bit
