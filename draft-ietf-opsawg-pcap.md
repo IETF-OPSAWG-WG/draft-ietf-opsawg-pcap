@@ -211,9 +211,8 @@ coming from the network.
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    16 /                                                               /
       /                          Packet Data                          /
-      /                        variable length                        /
+      /                  variable length, not padded                  /
       /                                                               /
-      +---------------------------------------------------------------+
 ~~~~
 {: #fig-record title='Packet Record' align="left"}
 
@@ -252,7 +251,7 @@ format in [LINKTYPES].
 
 Packet Records are not padded to a 4 octet boundary; if the number of
 octets of packet data is not a multiple of 4, there are no padding
-octets following it. and Packet Records are not guaranteed to begin on a
+octets following it, so Packet Records are not guaranteed to begin on a
 4 octet boundary within a file.
 
 # Recommended File Name Extension: .pcap
