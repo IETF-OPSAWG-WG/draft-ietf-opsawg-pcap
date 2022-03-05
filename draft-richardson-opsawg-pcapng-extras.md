@@ -79,9 +79,7 @@ informative:
     target: http://www.tcpdump.org/linktypes.html
     title: the tcpdump.org link-layer header types registry
     author:
-    - ins: ''
-      name: ''
-      org: The Tcpdump Group
+    - org: The Tcpdump Group
     date: false
 
 --- abstract
