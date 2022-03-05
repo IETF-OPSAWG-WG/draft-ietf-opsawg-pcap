@@ -72,7 +72,7 @@ Packet Records, one per packet.
 
 All fields in the File Header and in the headers of Packet Records will
 always be written according to the characteristics (little endian / big
-endian) of the machine is writing the file.  This refers to all the
+endian) of the machine that is writing the file.  This refers to all the
 fields that are written as numbers and that span over two or more
 octets.
 
