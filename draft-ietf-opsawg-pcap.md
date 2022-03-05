@@ -143,8 +143,8 @@ in the file and may contain additional information.
 a value as defined in the {{linktype}} IANA registry.
 : The 10 bits above that value MUST be set to zero by pcap writers, and
 MUST be ignored by pcap readers.
-: The bit above those bits is set if and only if an FCS length value is
-present in the upper 4 bits.
+: The bit above those bits is set if and only if an Frame Check Sequence
+(FCS) length value is present in the upper 4 bits.
 : The bit above that MUST be set to zero by pcap writers, and MUST be
 ignored by pcap readers.
 : The upper 4 bits contain an FCS length value, indicating the number of
