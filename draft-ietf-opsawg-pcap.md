@@ -70,10 +70,10 @@ programs using libpcap, to read and write network traces.
 A capture file begins with a File Header, followed by zero or more
 Packet Records, one per packet.
 
-All fields in the File Header and in Packet Records will always be saved
-according to the characteristics (little endian / big endian) of the
-capturing machine.  This refers to all the fields that are saved as
-numbers and that span over two or more octets.
+All fields in the File Header and in the headers of Packet Records will
+always be saved according to the characteristics (little endian / big
+endian) of the machine that wrote the file.  This refers to all the fields that
+are saved as numbers and that span over two or more octets.
 
 The approach of having the file saved in the native format of the
 generating host is more efficient because it avoids translation of data
@@ -207,7 +207,8 @@ coming from the network.
 ~~~~
 {: #fig-record title='Packet Record' align="left"}
 
-The Packet Header length is 16 octets.
+The Packet Record begins with a 16 octet header, followed by data from
+the packet.
 
 The meaning of the fields in the Packet Record is:
 
