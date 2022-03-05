@@ -71,33 +71,29 @@ A capture file begins with a File Header, followed by zero or more
 Packet Records, one per packet.
 
 All fields in the File Header and in the headers of Packet Records will
-always be saved according to the characteristics (little endian / big
-endian) of the machine that wrote the file.  This refers to all the fields that
-are saved as numbers and that span over two or more octets.
+always be written according to the characteristics (little endian / big
+endian) of the machine is writing the file.  This refers to all the
+fields that are written as numbers and that span over two or more
+octets.
 
-The approach of having the file saved in the native format of the
-generating host is more efficient because it avoids translation of data
-when reading / writing on the host itself, which is the most common case
-when generating/processing capture captures.
-
-The packets are shown in traditional IETF diagram, with the bits
-numbered from the left to the right.  The bit numbering does not reflect
-the binary value position, as IETF protocols are traditionally in
-big-endian network-byte order.  The most significant bit is therefore on
-the left in this diagram as if the file is being stored on a big-endian
-system.
+The approach of having the file written in the native format of the host
+writing the file is more efficient because it avoids translation of data
+when writing the file or reading the file on the host that wrote the
+file, which is the most common case when generating or processing
+capture captures.
 
 # File Header
 
-The File Header has the following format:
+The File Header has the following format, with the octet offset of
+fields shown to the left of the field:
 
 ~~~~
-                           1                   2                   3
-       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     0 |                          Magic Number                         |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    4 |          Major Version        |         Minor Version         |
+    4 |          Major Version        |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    6 |          Major Version        |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     8 |                           Reserved1                           |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -120,9 +116,9 @@ Magic Number (32 bits):
 : If the value is 0xA1B2C3D4, time stamps in Packet Records (see Figure
 2) are in seconds and microseconds; if it is 0xA1B23C4D, time stamps in
 Packet Records are in seconds and nanoseconds.
-: These numbers can be used to distinguish sessions that have been saved
-on little-endian machines from the ones saved on big-endian machines,
-and to heuristically identify pcap files.
+: These numbers can be used to distinguish sessions that have been
+written on little-endian machines from the ones written on big-endian
+machines, and to heuristically identify pcap files.
 
 Major Version (16 bits):
 : an unsigned value, giving the number of the current major version of
@@ -188,8 +184,6 @@ A Packet Record is the standard container for storing the packets
 coming from the network.
 
 ~~~~
-                           1                   2                   3
-       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     0 |                      Timestamp (Seconds)                      |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
