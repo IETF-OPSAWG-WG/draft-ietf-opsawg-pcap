@@ -150,13 +150,13 @@ non-zero value as an error.
 be interpreted by pcap readers; a reader SHOULD treat a non-zero value
 as an error.
 : The upper 4 bits contain an FCS length value, indicating the number of
-16-bit (2 byte) words of FCS that are appended to each packet, if the
+16-bit (2 octet) words of FCS that are appended to each packet, if the
 bit indicating the presence of an FCS length value is set; if the bit
 indicating the presence of an FCS length value is not set, and the FCS
 length is not indicated by the link-layer type value, the FCS length is
 unknown.  The valid values of the upper 4 bits are between 0 and 15;
 Ethernet, for example, would have an FCS length value of 2,
-corresponding to a 4 byte FCS.
+corresponding to a 4 octet FCS.
 
 # Packet Record
 
@@ -204,6 +204,11 @@ Packet Data:
 : the data coming from the network, including link-layer headers.
 The actual length of this field is Captured Packet Length.
 The format of the link-layer headers depends on the LinkType field specified in the file header (see Figure 1) and it is specified in the entry for that format in [LINKTYPES].
+
+Packet Records are not padded to a 4 octet boundary; if the number of
+octets of packet data is not a multiple of 4, there are no padding
+octets following it. and Packet Records are not guaranteed to begin on a
+4 octet boundary within a file.
 
 # Recommended File Name Extension: .pcap
 
