@@ -166,7 +166,7 @@ The LinkType and additional information field is in the form
                            1                   2                   3
        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-      |FCSLEN |0|f|0 0 0 0 0 0 0 0 0 0|        link-layer type        |
+      |FCS len|R|P|     Reserved3     |        Link-layer type        |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
 {: #fig-linktype title='LinkType and additional information' align="left"}
@@ -175,24 +175,32 @@ The field is shown as if it were in the byte order of the host reading
 or writing the file, with bit 0 being the most-significant bit of the
 field and bit 31 being the least-significant bit of the field.
 
-: The lower 16 bits of that value are the link-layer type, which is
-a value as defined in the {{linktype}} IANA registry.
-: The 10 bits above that value MUST be set to zero by pcap writers, and
-MUST NOT be interpretedd by pcap readers; a reader SHOULD treat a
-non-zero value as an error.
-: The bit above those bits is set if and only if an Frame Check Sequence
-(FCS) length value is present in the upper 4 bits.
-: The bit above that MUST be set to zero by pcap writers, and MUST NOT
-be interpreted by pcap readers; a reader SHOULD treat a non-zero value
-as an error.
-: The upper 4 bits contain an FCS length value, indicating the number of
-16-bit (2 octet) words of FCS that are appended to each packet, if the
-bit indicating the presence of an FCS length value is set; if the bit
-indicating the presence of an FCS length value is not set, and the FCS
-length is not indicated by the link-layer type value, the FCS length is
-unknown.  The valid values of the upper 4 bits are between 0 and 15;
-Ethernet, for example, would have an FCS length value of 2,
-corresponding to a 4 octet FCS.
+Link-layer type (16 bits):
+: a 16-bit value indicating link-layer type for packets in the file;
+it is a value as defined in the {{linktype}} IANA registry.
+
+Reserved3 (10 bits):
+: not used - MUST be set to zero by pcap writers, and MUST NOT be
+interpretedd by pcap readers; a reader SHOULD treat a non-zero value as
+an error.
+
+P (1 bit):
+: a bit that, if set, indicates that the Frame Check Sequence (FCS)
+length value is present and, if not set, indicates that the FCS value is
+not present.
+
+R (1 bit):
+: not used - MUST be set to zero by pcap writers, and MUST NOT be
+interpreted by pcap readers; a reader SHOULD treat a non-zero value as
+an error.
+
+FCS len (4 bits):
+: a 4-bit unsigned value indicating the number of 16-bit (2 octet) words
+of FCS that are appended to each packet, if the P bit is set; if the P
+bit is not set, and the FCS length is not indicated by the link-layer
+type value, the FCS length is unknown.  The valid values of the FCS len
+field are between 0 and 15; Ethernet, for example, would have an FCS
+length value of 2, corresponding to a 4 octet FCS.
 
 # Packet Record
 
