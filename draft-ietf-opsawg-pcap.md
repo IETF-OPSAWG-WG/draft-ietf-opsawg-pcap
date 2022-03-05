@@ -159,6 +159,22 @@ to the largest packet length in the file.
 LinkType and additional information (32 bits):
 : a 32-bit unsigned value that contains the link-layer type of packets
 in the file and may contain additional information.
+
+The LinkType and additional information field is in the form
+
+~~~~
+                           1                   2                   3
+       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |FCSLEN |0|f|0 0 0 0 0 0 0 0 0 0|        link-layer type        |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+~~~~
+{: #fig-linktype title='LinkType and additional information' align="left"}
+
+The field is shown as if it were in the byte order of the host reading
+or writing the file, with bit 0 being the most-significant bit of the
+field and bit 31 being the least-significant bit of the field.
+
 : The lower 16 bits of that value are the link-layer type, which is
 a value as defined in the {{linktype}} IANA registry.
 : The 10 bits above that value MUST be set to zero by pcap writers, and
