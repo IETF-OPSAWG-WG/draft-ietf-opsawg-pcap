@@ -468,7 +468,7 @@ Block can give multiple IPv4 or IPv6 addresses for the
 interface if it has multiple IPv4 or IPv6 addresses assigned to
 it.  Other options may appear at most once in a given block.
 
-The option list is terminated by a option which uses the
+The option list is terminated by an option which uses the
 special 'End of Option' code (opt_endofopt).  Code that
 writes pcapng files MUST put an opt_endofopt option at the end
 of an option list.  Code that reads pcapng files MUST NOT assume
@@ -898,7 +898,7 @@ file does not contain any blocks that use an Interface ID, then the
 file does not need to have any IDBs.
 
 An Interface Description Block is valid only inside the section
-to which it belongs. The structure of a Interface Description Block is
+to which it belongs. The structure of an Interface Description Block is
 shown in {{format_idb}}.
 
 
@@ -1995,7 +1995,7 @@ The following is a list of Secrets Types.
   little endian format. The PANID is followed by the 2 octet (16 bit)
   short addresses, in little endian format, of the nodes to which
   the APS Key applies. The numerically lower short address shall come
-  first. There is a APS Key DSB for each node pair for which the
+  first. There is an APS Key DSB for each node pair for which the
   Link Key is known. As new links are formed, new DSBs contain the
   new Keys. If the APS Key changes for an existing link, it is
   contained in a new DSB with the new APS Key.
