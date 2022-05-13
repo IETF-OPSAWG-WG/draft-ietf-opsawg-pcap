@@ -889,13 +889,18 @@ interface that was used to capture the packet that an Enhanced
 Packet Block contains or to which the statistics in an Interface
 Statistic Block refer).
 
-There must be an Interface Description Block for each
-interface to which another block refers. Blocks such as an Enhanced
-Packet Block or an Interface Statistics Block contain an Interface ID
-value referring to a particular interface, and a Simple Packet Block
-implicitly refers to an interface with an Interface ID of 0. If the
-file does not contain any blocks that use an Interface ID, then the
-file does not need to have any IDBs.
+Within a section, there must be an Interface Description Block for each
+interface to which another block within that section refers.  Blocks
+such as an Enhanced Packet Block or an Interface Statistics Block
+contain an Interface ID value referring to a particular interface, and a
+Simple Packet Block implicitly refers to an interface with an Interface
+ID of 0.  If the file does not contain any blocks that use an Interface
+ID, then the file does not need to have any IDBs.
+
+There is no requirement that all Interface Description Blocks occur
+within a section before all blocks of other types, as long as the
+Interface Description Block for an interface occurs before any block
+that refers to that interface.
 
 An Interface Description Block is valid only inside the section
 to which it belongs. The structure of an Interface Description Block is
