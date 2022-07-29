@@ -256,7 +256,7 @@ Packet Data:
 : the data coming from the network, including link-layer headers.  The
 actual length of this field is Captured Packet Length.  The format of
 the link-layer headers depends on the LinkType field specified in the
-file header (see Figure 1) and it is specified in {{linktypes}}.
+file header (see Figure 1) and it is specified in {{I-D.richardson-opsawg-pcaplinktype}}.
 
 Packet Records are not padded to a 4-octet boundary; if the number of
 octets of packet data is not a multiple of 4, there are no padding
@@ -327,12 +327,12 @@ packet capture as described in this document.
 
 #  Contributors
 
-   [Insert pcap developers etc. here].
+Insert pcap developers etc. here
 
 #  Acknowledgments
 
-   The authors wish to thank [insert list here] and many others for
-   their invaluable comments.
+The authors wish to thank (many reviewers) and many others for
+their invaluable comments.
 
 <!--
 COMMENTS.

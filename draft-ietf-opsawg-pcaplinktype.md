@@ -315,12 +315,12 @@ DLT values are associated with specific operation system captures, and are opera
 
 #  Contributors
 
-   [Insert pcap developers etc. here].
+Insert pcap developers etc. here
 
 #  Acknowledgments
 
-   The authors wish to thank [insert list here] and many others for
-   their invaluable comments.
+The authors wish to thank (many reviewers) and many others for
+their invaluable comments.
 
 <!--
 COMMENTS.
