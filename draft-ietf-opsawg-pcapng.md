@@ -1,7 +1,7 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-ietf-opsawg-pcapng-latest
+docname: draft-richardson-opsawg-pcapng-latest
 cat: info
 pi:
   symrefs: 'yes'
@@ -71,14 +71,10 @@ author:
   email: mcr+ietf@sandelman.ca
   uri: http://www.sandelman.ca/
 normative:
+  I-D.richardson-opsawg-pcaplinktype:
+
 informative:
   I-D.richardson-opsawg-pcapng-extras:
-  LINKTYPES:
-    target: http://www.tcpdump.org/linktypes.html
-    title: the tcpdump.org link-layer header types registry
-    author:
-    - org: The Tcpdump Group
-    date: false
 
 --- abstract
 
@@ -937,7 +933,7 @@ The meaning of the fields is:
 
 * LinkType (16 bits): an unsigned value that defines the
   link layer type of this interface.  The list of Standardized
-  Link Layer Type codes is available in {{LINKTYPES}}.
+  Link Layer Type codes is available in {{I-D.richardson-opsawg-pcaplinktype}}.
 
 * Reserved (16 bits): not used - MUST be filled with 0 by
   pcapng file writers, and MUST be ignored by pcapng file
@@ -1296,7 +1292,7 @@ The Enhanced Packet Block has the following fields:
   boundary. The format of the link-layer headers depends on
   the LinkType field specified in the Interface Description
   Block (see {{section_idb}}) and it is specified
-  in the entry for that format in {{LINKTYPES}}.
+  in the entry for that format in {{I-D.richardson-opsawg-pcaplinktype}}.
 
 * Options: optionally, a list of options (formatted according to
   the rules defined in {{section_opt}}) can be present.
@@ -1512,7 +1508,7 @@ The Simple Packet Block has the following fields:
   of the data within this Packet Data field depends on the
   LinkType field specified in the Interface Description Block
   (see {{section_idb}}) and it is specified in
-  the entry for that format in {{LINKTYPES}}.
+  the entry for that format in {{I-D.richardson-opsawg-pcaplinktype}}.
 
 
 The Simple Packet Block does not contain the timestamp because this
@@ -2469,7 +2465,7 @@ The Packet Block has the following fields:
   boundary. The format of the link-layer headers depends on
   the LinkType field specified in the Interface Description
   Block (see {{section_idb}}) and it is specified
-  in the entry for that format in {{LINKTYPES}}.
+  in the entry for that format in {{I-D.richardson-opsawg-pcaplinktype}}.
 
 * Options: optionally, a list of options (formatted according to
   the rules defined in {{section_opt}}) can be present.
