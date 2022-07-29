@@ -1,7 +1,7 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-richardson-opsawg-pcaplink-latest
+docname: draft-richardson-opsawg-pcaplinktype-latest
 cat: info
 pi:
   symrefs: 'yes'
