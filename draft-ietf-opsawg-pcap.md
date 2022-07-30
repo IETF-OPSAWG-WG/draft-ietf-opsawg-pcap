@@ -1,7 +1,7 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-richardson-opsawg-pcap-latest
+docname: draft-ietf-opsawg-pcap-latest
 cat: info
 pi:
   symrefs: 'yes'
@@ -179,7 +179,7 @@ field and bit 31 being the least-significant bit of the field.
 
 Link-layer type (16 bits):
 : a 16-bit value indicating link-layer type for packets in the file;
-it is a value as defined in the {{linktype}} IANA registry.
+it is a value as defined in the PCAP LinkType list registry, as defined in {{I-D.richardson-opsawg-pcaplinktype}}.
 
 Reserved3 (10 bits):
 : not used - MUST be set to zero by pcap writers, and MUST NOT be
