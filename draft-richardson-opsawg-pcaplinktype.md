@@ -11,7 +11,7 @@ pi:
   inline: 'yes'
   sortrefs: 'no'
   strict: 'yes'
-title: PCAP Capture File Format
+title: Link-Layer Types for PCAP and PCAPNG Capture File Formats
 abbrev: pcap
 author:
 - role: editor
