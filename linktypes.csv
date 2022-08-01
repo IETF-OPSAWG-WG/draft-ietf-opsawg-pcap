@@ -108,7 +108,7 @@ LINKTYPE_DSA_TAG_BRCM_PREPEND,282,DLT_DSA_TAG_BRCM_PREPEND,"Ethernet frames, wit
 LINKTYPE_IEEE802_15_4_TAP,283,DLT_IEEE802_15_4_TAP,"IEEE 802.15.4 Low-Rate Wireless Networks, with a pseudo-header containing TLVs with metadata preceding the 802.15.4 header."
 LINKTYPE_DSA_TAG_DSA,284,DLT_DSA_TAG_DSA,"Ethernet frames, with a switch tag inserted between the source address field and the type/length field in the Ethernet header."
 LINKTYPE_DSA_TAG_EDSA,285,DLT_DSA_TAG_EDSA,"Ethernet frames, with a programmable Ethernet type switch tag inserted between the source address field and the type/length field in the Ethernet header."
-LINKTYPE_ELEE,286,DLT_ELEE,"Payload of lawful intercept packets using the ELEE protocol . The packet begins with the ELEE header; it does not include any transport-layer or lower-layer headers for protcols used to transport ELEE packets."
+LINKTYPE_ELEE,286,DLT_ELEE,"Payload of lawful intercept packets using the ELEE protocol . The packet begins with the ELEE header; it does not include any transport-layer or lower-layer headers for protocols used to transport ELEE packets."
 LINKTYPE_Z_WAVE_SERIAL,287,DLT_Z_WAVE_SERIAL,"Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection, as described in section 5 of the Z-Wave Serial API Host Application Programming Guide ."
 LINKTYPE_USB_2_0,288,DLT_USB_2_0,"USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 ""Protocol Layer"" of the the Universal Serial Bus Specification Revision 2.0 ."
 LINKTYPE_ATSC_ALP,289,DLT_ATSC_ALP,"ATSC Link-Layer Protocol frames, as described in section 5 of the A/330 Link-Layer Protocol specification, found at the ATSC 3.0 standards page , beginning with a Base Header."
