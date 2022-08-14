@@ -12,7 +12,7 @@ pi:
   sortrefs: 'no'
   strict: 'yes'
 title: Additional block types for PCAP Next Generation (pcapng) Capture File Format
-abbrev: pcapng
+abbrev: pcapng-extras
 author:
 - role: editor
   ins: M. Tuexen

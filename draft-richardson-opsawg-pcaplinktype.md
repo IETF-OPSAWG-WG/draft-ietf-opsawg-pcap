@@ -12,7 +12,7 @@ pi:
   sortrefs: 'no'
   strict: 'yes'
 title: Link-Layer Types for PCAP and PCAPNG Capture File Formats
-abbrev: pcap
+abbrev: pcaplinktype
 author:
 - role: editor
   ins: G. Harris
