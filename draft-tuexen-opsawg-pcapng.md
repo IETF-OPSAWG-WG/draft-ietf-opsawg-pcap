@@ -1599,6 +1599,8 @@ There are currently three possible types of records:
 | nrb_record_end | 0x0000 | 0 |
 | nrb_record_ipv4 | 0x0001 | variable |
 | nrb_record_ipv6 | 0x0002 | variable |
+| nrb_record_eui48 | 0x0003 | variable |
+| nrb_record_eui64 | 0x0004 | variable |
 {: #nrrecords title='Name Resolution Block Records'}
 
 
@@ -1643,6 +1645,24 @@ nrb_record_ipv6:
 
 Example: '20 01 0d b8 00 00 00 00 00 00 00 00 12 34 56
 78'"somehost".
+
+\[Open issue: is an empty string (i.e., just a zero-value octet)
+valid?]
+
+
+{: indent='8'}
+nrb_record_eui48 / nrb_record_eui64:
+: The
+  nrb_record_eui48 / nrb_record_eui64 records specifiy an EUI (or MAC)
+  address (contained in the first 6 octets for eui48, 8 octets for eui64),
+  followed by one or more zero-terminated strings containing names resolved
+  for that address.  As above, the minimum valid Record Length is 8 for
+  EUI-48 and 10 for EUI-64.  There is no presumption implied in how these
+  names were acquired unless the DNS server options listed below are present
+  in the NRB.
+{: vspace='0'}
+
+Example: '02 ca ff ee f0 0d'"teapot under test".
 
 \[Open issue: is an empty string (i.e., just a zero-value octet)
 valid?]
