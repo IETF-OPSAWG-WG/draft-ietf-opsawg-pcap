@@ -1030,7 +1030,7 @@ Example: 2001:0db8:85a3:08d3:1319:8a2e:0370:7344/64 is written
 {: indent='8'}
 if_MACaddr:
 : The if_MACaddr
-  option is the Interface Hardware MAC address (48 bits), if
+  option is the Interface Hardware EUI-48 (MAC) address (48 bits), if
   available.
 {: vspace='0'}
 
@@ -1040,7 +1040,7 @@ Example: '00 01 02 03 04 05'.
 {: indent='8'}
 if_EUIaddr:
 : The if_EUIaddr
-  option is the Interface Hardware EUI address (64 bits), if
+  option is the Interface Hardware EUI-64 address (64 bits), if
   available.
 {: vspace='0'}
 
