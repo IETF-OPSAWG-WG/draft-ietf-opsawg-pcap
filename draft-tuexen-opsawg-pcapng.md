@@ -1284,7 +1284,19 @@ The Enhanced Packet Block has the following fields:
   indicates the actual length of the packet when it was
   transmitted on the network.  It can be different from
   the Captured Packet Length if the packet has been truncated
-  by the capture process.
+  by the capture process; it SHOULD NOT be less than the Captured Packet
+  Length.
+
+  A pcapng file writer MAY write an Original Packet Length that is less
+  than the Captured Packet Length if both the Captured Packet Length and
+  the Original Packet length came from a file in which a packet had an
+  Original Packet Length less than the Captured Packet Length;
+  otherwise, it MUST write an Original Packet Length that is greater
+  than or equal to the Captured Packet Length.
+
+  A pcapng file reader MAY convert an Original Packet Length that is
+  less than the Captured Packet Length to a value that is greater than
+  or equal to the Captured Packet Length.
 
 * Packet Data: the data coming from the network, including
   link-layer headers. The actual length of this field is
