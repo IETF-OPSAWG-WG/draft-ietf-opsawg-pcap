@@ -27,7 +27,8 @@ author:
   uri: http://www.sandelman.ca/
 normative:
 informative:
-  I-D.tuexen-opsawg-pcapng:
+  I-D.ietf-opsawg-pcap: pcap
+  I-D.tuexen-opsawg-pcapng: pcapng
   RFC8126:
   Radiotap:
     author:
@@ -62,7 +63,7 @@ Within those formats each packet that is captured is described by a LINKTYPE val
 The LINKTYPE value selects one of many hundred formats for meta data and layer 2 encapsulation of the packet.
 
 This document creates a registry for the LINKTYPE format, establishing the IANA
-Considerations by which other uses of the pcap and pcapng formats may register new
+Considerations by which other uses of the {{-pcap}} and {{-pcapng}} formats may register new
 formats.
 
 #  IANA Considerations
