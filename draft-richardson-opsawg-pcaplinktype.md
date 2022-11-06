@@ -11,7 +11,7 @@ pi:
   inline: 'yes'
   sortrefs: 'no'
   strict: 'yes'
-title: PCAP Capture File Format
+title: PCAP and PCAPNG LINKTYPE Registry
 abbrev: pcap
 author:
 - role: editor
@@ -64,10 +64,6 @@ The LINKTYPE value selects one of many hundred formats for meta data and layer 2
 This document creates a registry for the LINKTYPE format, establishing the IANA
 Considerations by which other uses of the pcap and pcapng formats may register new
 formats.
-
-# Terminology
-
-{::boilerplate bcp14}
 
 #  IANA Considerations
 
