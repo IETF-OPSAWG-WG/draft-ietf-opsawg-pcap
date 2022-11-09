@@ -480,7 +480,7 @@ The format of the optional fields is shown in {{formatopt}}.
                      1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|      Option Code              |         Option Length         |
+|      Option Type              |         Option Length         |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 /                       Option Value                            /
 /              variable length, padded to 32 bits               /
@@ -489,14 +489,14 @@ The format of the optional fields is shown in {{formatopt}}.
 /                 . . . other options . . .                     /
 /                                                               /
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|   Option Code == opt_endofopt |   Option Length == 0          |
+|   Option Type == opt_endofopt |   Option Length == 0          |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
 {: #formatopt title='Options Format' artwork-align="center"}
 
 The following codes can always be present in any optional field:
 
-| Name | Code | Length | Multiple allowed? |
+| Name | Type | Length | Multiple allowed? |
 | opt_endofopt | 0 | 0 | no |
 | opt_comment | 1 | variable | yes |
 | opt_custom | 2988/2989/19372/19373 | variable, minimum 4 | yes |
@@ -550,7 +550,7 @@ Numbers, may be used in the same pcapng file. See {{section_vendor}} for additio
                      1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|     Custom Option Code        |         Option Length         |
+|     Custom Option Type        |         Option Length         |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                Private Enterprise Number (PEN)                |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -562,12 +562,12 @@ Numbers, may be used in the same pcapng file. See {{section_vendor}} for additio
 
 The Custom Option has the following fields:
 
-* Custom Option Code: The code number for the Custom Option, which
+* Custom Option Type: The type code number for the Custom Option, which
   can be one of the following decimal numbers:
 
   {: indent='8'}
   2988:
-  : This option code
+  : This option type code
     identifies a Custom Option containing a UTF-8 string in the
     Custom Data portion.  The string is not zero-terminated.
       This Custom Option can be safely copied to a new file if
@@ -578,7 +578,7 @@ The Custom Option has the following fields:
 
   {: indent='8'}
   2989:
-  : This option code
+  : This option type code
     identifies a Custom Option containing binary octets in the
     Custom Data portion. This Custom Option can be safely copied
     to a new file if the pcapng file is manipulated by an
@@ -588,7 +588,7 @@ The Custom Option has the following fields:
 
   {: indent='8'}
   19372:
-  : This option code
+  : This option type code
     identifies a Custom Option containing a UTF-8 string in the
     Custom Data portion.  The string is not zero-terminated.
     This Custom Option should not be copied to a new file if
@@ -598,7 +598,7 @@ The Custom Option has the following fields:
 
   {: indent='8'}
   19373:
-  : This option code
+  : This option type code
     identifies a Custom Option containing binary octets in the
     Custom Data portion. This Custom Option should not be copied
     to a new file if the pcapng file is manipulated by an
@@ -822,7 +822,7 @@ be changed.
 Aside from the options defined in {{section_opt}}, the
 following options are valid within this block:
 
-| Name | Code | Length | Multiple allowed? |
+| Name | Type | Length | Multiple allowed? |
 | shb_hardware | 2 | variable | no |
 | shb_os | 3 | variable | no |
 | shb_userappl | 4 | variable | no |
@@ -951,7 +951,7 @@ The meaning of the fields is:
 In addition to the options defined in {{section_opt}},
 the following options are valid within this block:
 
-| Name | Code | Length | Multiple allowed? |
+| Name | Type | Length | Multiple allowed? |
 | if_name | 2 | variable | no |
 | if_description | 3 | variable | no |
 | if_IPv4addr | 4 | 8 | yes |
@@ -1313,7 +1313,7 @@ The Enhanced Packet Block has the following fields:
 In addition to the options defined in {{section_opt}},
 the following options are valid within this block:
 
-| Name | Code | Length | Multiple allowed? |
+| Name | Type | Length | Multiple allowed? |
 | epb_flags | 2 | 4 | no |
 | epb_hash | 3 | variable, minimum hash type-dependent | yes |
 | epb_dropcount | 4 | 8 | no |
@@ -1607,7 +1607,7 @@ address and a name. An nrb_record_end MUST be added after the last
 Record, and MUST exist even if there are no other Records in the NRB.
 There are currently three possible types of records:
 
-| Name | Code | Length |
+| Name | Type | Length |
 | nrb_record_end | 0x0000 | 0 |
 | nrb_record_ipv4 | 0x0001 | variable |
 | nrb_record_ipv6 | 0x0002 | variable |
@@ -1699,7 +1699,7 @@ options (formatted according to the rules defined in {{section_opt}}) can be pre
 In addition to the options defined in {{section_opt}},
 the following options are valid within this block:
 
-| Name | Code | Length | Multiple allowed? |
+| Name | Type | Length | Multiple allowed? |
 | ns_dnsname | 2 | variable | no |
 | ns_dnsIP4addr | 3 | 4 | no |
 | ns_dnsIP6addr | 4 | 16 | no |
@@ -1805,7 +1805,7 @@ with systems that do not have a complete set of statistics. Therefore,
 In addition to the options defined in {{section_opt}},
 the following options are valid within this block:
 
-| Name | Code | Length | Multiple allowed? |
+| Name | Type | Length | Multiple allowed? |
 | isb_starttime | 2 | 8 | no |
 | isb_endtime | 3 | 8 | no |
 | isb_ifrecv | 4 | 8 | no |
@@ -2192,12 +2192,12 @@ filling out the online request form at [http://pen.iana.org/pen/PenApplication.p
 
 ## Controlling Copy Behavior {#section_vendor_copy}
 
-Both Custom Blocks and Custom Options support two different codes
-to distinguish their "copy" behavior: a code for when the block or
+Both Custom Blocks and Custom Options support two different type codes
+to distinguish their "copy" behavior: a type code for when the block or
 option can be safely copied into a new pcapng file by a pcapng
-manipulating application, and a code for when it should not be copied.
-A common reason for not copying a Custom Block or Custom Option is
-because it depends on other blocks or options in some way that would
+manipulating application, and a type code for when it should not be
+copied. A common reason for not copying a Custom Block or Custom Option
+is because it depends on other blocks or options in some way that would
 invalidate the custom data if the other blocks/options were removed or
 re-ordered. For example, if a Custom Block's data includes an
 Interface ID number in its Custom Data portion, then it cannot be
@@ -2211,8 +2211,8 @@ options.
 
 Note that the copy semantics is not related to privacy - there is
 no guarantee that a pcapng anonymizer will remove a Custom Block or
-Custom Option, even if the appropriate code is used requesting it not
-be copied; and the original pcapng file can be shared anyway. If the
+Custom Option, even if the appropriate type code is used requesting it
+not be copied; and the original pcapng file can be shared anyway. If the
 Custom Data portion of the Custom Block or Custom Option contains
 sensitive information, then it should be encrypted in some
 fashion.
@@ -2243,7 +2243,7 @@ endianness.
 For example, a little-endian machine can create a new pcapng file and
 add some binary data Custom Options to some non-Custom Block(s) in the
 file.  This file can then be sent to a big-endian host, which will
-convert the Option Code, Option Length, and PEN fields of the options to
+convert the Option Type, Option Length, and PEN fields of the options to
 big-endian format if it re-writes the file.  However, if the software
 reading the file does not understand the contents of all of the Custom
 Options, it will leave the Custom Data payload of the options alone (as
@@ -2265,12 +2265,12 @@ little-endian machine reads the file, it will, if the software reading
 the file understands the contents of all the Custom Blocks, it will
 detect that the file format is big-endian, and swap the endianness while
 it parses the file - but that will cause the Custom Data payload, the
-Option Code and Option Length values in the Options, and the PEN in any
+Option Type and Option Length values in the Options, and the PEN in any
 Custom Options to be incorrect since they were already in little-endian
 format.
 
 Therefore, the vendor should either encode the Custom Data of their
-Custom Blocks and Custom Options, the Option Code and Option Length
+Custom Blocks and Custom Options, the Option Type and Option Length
 fields of options in Custom Blocks, and the PEN field of Custom Options
 in Custom Blocks in a consistent manner, such as always in big-endian or
 always in little-endian format, regardless of the host platform's
@@ -2506,7 +2506,7 @@ The Packet Block has the following fields:
 In addition to the options defined in {{section_opt}},
 the following options were valid within this block:
 
-| Name | Code | Length | Multiple allowed? |
+| Name | Type | Length | Multiple allowed? |
 | pack_flags | 2 | 4 | no |
 | pack_hash | 3 | variable | yes |
 {: #optionspb title='Packet Block Options'}
