@@ -662,8 +662,14 @@ the lower 32 bits of the value, each written as 32-bit
 integers in the endianness of the machine that wrote the file.
 Neither of these formats guarantee 64-bit alignment.)
 
+### Strings
 
-
+If a string is specified as being encoded as UTF-8, software that reads
+that string MUST NOT assume that the string's value is valid UTF-8, and
+MAY discard a string that are is valid UTF-8 or MAY repair the string by
+replacing invalid octet sequences with valid sequences such as the
+sequence for a Unicode REPLACEMENT CHARACTER; software that writes that
+string fields MUST write only a valid UTF-8 string.
 
 # Block Definition {#section_block_definition}
 
