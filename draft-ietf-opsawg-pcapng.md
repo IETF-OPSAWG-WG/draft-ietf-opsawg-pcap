@@ -1,7 +1,7 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-tuexen-opsawg-pcapng-latest
+docname: draft-ietf-opsawg-pcapng-latest
 cat: info
 pi:
   symrefs: 'yes'
@@ -70,6 +70,12 @@ author:
   abbrev: Sandelman
   email: mcr+ietf@sandelman.ca
   uri: http://www.sandelman.ca/
+
+venue:
+  group: opsawg
+  mail: opsawg@ietf.org
+  github: IETF-OPSAWG-WG/pcapng
+
 normative:
   I-D.richardson-opsawg-pcaplinktype:
 
