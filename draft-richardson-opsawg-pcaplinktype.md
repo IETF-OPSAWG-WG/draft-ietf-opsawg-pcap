@@ -85,23 +85,25 @@ The Registry has three sections with different {{RFC8126}} rules:
 
 * values from 32768 to 65000 are marked as First-Come First-Served.
 
-* values from 65000 to 65535 are marked as Private Use.
+* values from 65001 to 65535 are marked as Private Use.
 
 The Registry has four columns: the symbolic name (LINKTYPE_something),
 the integer value, a very short description, and the document/requestor
 reference.
 
 The Registry shall be populated as follows in the table below.  In each
-case here, the reference should be
-http://www.tcpdump.org/linktypes.html, which is not repeated.
+case here, the reference should be to
+http://www.tcpdump.org/linktypes.html, which is not repeated each time.
 
 The initial value of table is base upon the Link type list maintained by
 libpcap, and published on the tcpdump.org web site as
 http://www.tcpdump.org/linktypes.html.
 
+Note that historically, values were assigned incrementally on First-Come/First-Served basis, with a preference for a public specification, but with no mandate.
+Some historical values may have less specification than desired.
+
 There is often an associated DLT value which are often identical in
 value, but not universally so.
-
 DLT values are associated with specific operation system captures, and are operating system specific, and are thus not subject to standardization.
 
 | LINKTYPE name  | LINKTYPE value  |  description
