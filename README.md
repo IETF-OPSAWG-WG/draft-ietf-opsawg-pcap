@@ -4,15 +4,15 @@ This is the working area for individual Internet-Drafts.
 
 ## PCAP Capture File Format
 
-* [Editor's Copy](https://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/#go.draft-gharris-opsawg-pcap.html)
-* [Individual Draft](https://tools.ietf.org/html/draft-gharris-opsawg-pcap)
-* [Compare Editor's Copy to Individual Draft](https://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/#go.draft-gharris-opsawg-pcap.diff)
+* [Editor's Copy](https://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/#go.draft-ietf-opsawg-pcap.html)
+* [Individual Draft](https://tools.ietf.org/html/draft-ietf-opsawg-pcap)
+* [Compare Editor's Copy to Individual Draft](https://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/#go.draft-ietf-opsawg-pcap.diff)
 
 ## PCAP Next Generation (pcapng) Capture File Format
 
-* [Editor's Copy](https://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/#go.draft-tuexen-opsawg-pcapng.html)
-* [Individual Draft](https://tools.ietf.org/html/draft-tuexen-opsawg-pcapng)
-* [Compare Editor's Copy to Individual Draft](https://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/#go.draft-tuexen-opsawg-pcapng.diff)
+* [Editor's Copy](https://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/#go.draft-ietf-opsawg-pcapng.html)
+* [Individual Draft](https://tools.ietf.org/html/draft-ietf-opsawg-pcapng)
+* [Compare Editor's Copy to Individual Draft](https://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/#go.draft-ietf-opsawg-pcapng.diff)
 
 ## Building the Draft
 
