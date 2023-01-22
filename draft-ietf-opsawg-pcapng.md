@@ -2331,7 +2331,7 @@ or more files can be concatenated obtaining another valid file.
 # Implementations
 
 Some known implementations that read or write the pcapng file format
-are listed on the [pcapng GitHub wiki](https://github.com/pcapng/pcapng/wiki/Implementations).
+are listed on the [pcapng GitHub wiki](https://github.com/IETF-OPSAWG-WG/pcapng/wiki/Implementations).
 
 
 # Security Considerations
@@ -2359,7 +2359,7 @@ local use by the application.
 All the remaining Block Type codes (0x00000000 to 0x7FFFFFFF) are
 standardized by this document. Requests for new Block Type codes,
 Option Type codes, and Secrets Type codes should be made by creating
-a pull request to update this document at [github.com/pcapng/pcapng](https://github.com/pcapng/pcapng).
+a pull request to update this document at [github.com/IETF-OPSAWG-WG/pcapng](https://github.com/IETF-OPSAWG-WG/pcapng).
 The pull request should add a description of the new block, option,
 or secret type to {{section_block_definition}}. The pull request
 description should contain a clear request for a new type code
