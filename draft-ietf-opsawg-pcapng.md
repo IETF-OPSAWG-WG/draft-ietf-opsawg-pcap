@@ -223,13 +223,13 @@ content.
 The currently standardized Block Type codes are specified in {{section_block_code_registry}}; they have been grouped in the
 following four categories:
 
-The following MANDATORY block MUST appear at least once in each file:
+(1) Mandatory: The following block MUST appear at least once in each file:
 
 * [Section Header Block](#section_shb): it defines the most important characteristics of the
   capture file.
 
 
-The following OPTIONAL blocks MAY appear in a file:
+(2) Optional: The following blocks MAY appear in a file:
 
 * [Interface Description Block](#section_idb):
   it defines the most important characteristics of the interface(s)
@@ -262,7 +262,7 @@ The following OPTIONAL blocks MAY appear in a file:
   contains vendor-specific data in a portable fashion.
 
 
-The following OBSOLETE block SHOULD NOT appear in newly written
+(3) Obsolete: The following block SHOULD NOT appear in newly written
 files (but is documented in the Appendix for reference):
 
 * [Packet Block](#appendix_pb): it contains a
@@ -270,7 +270,7 @@ files (but is documented in the Appendix for reference):
   superseded by the [Enhanced Packet Block](#section_epb).
 
 
-The following EXPERIMENTAL blocks are considered interesting but
+(4) Experimental: The following blocks are considered interesting but
 the authors believe that they deserve more in-depth discussion before
 being defined:
 
