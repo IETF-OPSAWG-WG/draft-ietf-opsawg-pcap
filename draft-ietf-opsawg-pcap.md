@@ -32,10 +32,10 @@ venue:
   github: IETF-OPSAWG-WG/pcapng
 
 normative:
-  I-D.richardson-opsawg-pcaplinktype:
+  I-D.ietf-opsawg-pcaplinktype:
 
 informative:
-  I-D.tuexen-opsawg-pcapng:
+  I-D.ietf-opsawg-pcapng:
   RFC8126:
   Radiotap:
     author:
@@ -185,7 +185,7 @@ field and bit 31 being the least-significant bit of the field.
 
 Link-layer type (16 bits):
 : a 16-bit value indicating link-layer type for packets in the file;
-it is a value as defined in the PCAP LinkType list registry, as defined in {{I-D.richardson-opsawg-pcaplinktype}}.
+it is a value as defined in the PCAP LinkType list registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 Reserved3 (10 bits):
 : not used - MUST be set to zero by pcap writers, and MUST NOT be
@@ -271,7 +271,7 @@ Packet Data:
 : the data coming from the network, including link-layer headers.  The
 actual length of this field is Captured Packet Length.  The format of
 the link-layer headers depends on the LinkType field specified in the
-file header (see Figure 1) and it is specified in {{I-D.richardson-opsawg-pcaplinktype}}.
+file header (see Figure 1) and it is specified in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 Packet Records are not padded to a 4-octet boundary; if the number of
 octets of packet data is not a multiple of 4, there are no padding
@@ -297,7 +297,7 @@ plethora of different capture file formats) file name extensions other
 than .pcap should be avoided.
 
 There is new work to create the PCAP Next Generation capture File Format
-(see {{I-D.tuexen-opsawg-pcapng}}).  The new file format is not
+(see {{I-D.ietf-opsawg-pcapng}}).  The new file format is not
 compatible with this specification, but many programs read both
 transparently.  Files of that type will usually start with a Section
 Header Block, with a magic number of 0x0A0D0D0A.
