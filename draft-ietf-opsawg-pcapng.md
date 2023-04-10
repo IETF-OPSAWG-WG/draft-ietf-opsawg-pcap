@@ -1677,7 +1677,7 @@ valid?]
 {: indent='8'}
 nrb_record_eui48 / nrb_record_eui64:
 : The
-  nrb_record_eui48 / nrb_record_eui64 records specifiy an EUI (or MAC)
+  nrb_record_eui48 / nrb_record_eui64 records specify an EUI (or MAC)
   address (contained in the first 6 octets for eui48, 8 octets for eui64),
   followed by one or more zero-terminated strings containing names resolved
   for that address.  As above, the minimum valid Record Length is 8 for
