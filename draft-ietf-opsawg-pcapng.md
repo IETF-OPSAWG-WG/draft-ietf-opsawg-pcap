@@ -1332,6 +1332,7 @@ the following options are valid within this block:
 | epb_packetid | 5 | 8 | no |
 | epb_queue | 6 | 4 | no |
 | epb_verdict | 7 | variable, minimum verdict type-dependent | yes |
+| epb_processid_threadid | 8 | 8 | no |
 {: #options_epb title='Enhanced Packet Block Options'}
 
 
@@ -1429,6 +1430,21 @@ epb_verdict:
 
 Example: '02 00 00 00 00 00 00 00 02' for Linux_eBPF_XDP with
 verdict XDP_PASS.
+
+
+{: indent='8'}
+epb_processid_threadid:
+: The epb_processid_threadid
+  option stores the numeric process identifier and thread identifier
+  of the process which originated the packet as unsigned 32-bit
+  integers. The value 0 can be used for each if the concept of a
+  process or thread identifier does not make sense in context (e.g.
+  for inbound packets) or if the operating system capturing the
+  packets has no concept of processes or threads, respectively.
+{: vspace='0'}
+
+Example: '00 00 04 D2 00 00 00 00' for process 1234 and an unknown
+thread.
 
 
 ### Enhanced Packet Block Flags Word {#section_epb_flags}
