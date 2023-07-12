@@ -148,8 +148,8 @@ files in the new format.
 Reserved1 (32 bits):
 : not used - SHOULD be filled with 0 by pcap file writers, and MUST be
 ignored by pcap file readers.  This value was documented by some older
-implementations as "gmt to local correction".  Some older pcap file
-writers stored non-zero values in this field.
+implementations as "gmt to local correction" or "time zone offset".
+Some older pcap file writers stored non-zero values in this field.
 
 Reserved2 (32 bits):
 : not used - SHOULD be filled with 0 by pcap file writers, and MUST be
