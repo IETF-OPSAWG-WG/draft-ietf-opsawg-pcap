@@ -189,7 +189,7 @@ it is a value as defined in the PCAP LinkType list registry, as defined in {{I-D
 
 Reserved3 (10 bits):
 : not used - MUST be set to zero by pcap writers, and MUST NOT be
-interpretedd by pcap readers; a reader SHOULD treat a non-zero value as
+interpreted by pcap readers; a reader SHOULD treat a non-zero value as
 an error.
 
 P (1 bit):
@@ -312,7 +312,7 @@ This document requires the following IANA actions:
 
 ## Media-Type Registry
 
-This section registers the the 'application/pcap' in the "Media Types"
+This section registers the 'application/pcap' in the "Media Types"
 registry.  These media types are used to indicate that the content is
 packet capture as described in this document.
 

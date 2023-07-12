@@ -62,7 +62,7 @@ The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
 later put into a library named libpcap.
 
-Other documents describe the original (legacy) format used by tcpdump (pcap), as as well the revised format (pcapng) which is used by tcpdump and wireshark.
+Other documents describe the original (legacy) format used by tcpdump (pcap), as well as the revised format (pcapng) which is used by tcpdump and wireshark.
 
 Within those formats each packet that is captured is described by a LINKTYPE value.
 The LINKTYPE value selects one of many hundred formats for meta data and layer 2 encapsulation of the packet.
@@ -309,7 +309,7 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_SERCOS_MONITOR|277|Reserved for Sercos Monitor
 |LINKTYPE_OPENVIZSLA|278|Openvizsla FPGA-based USB sniffer
 |LINKTYPE_EBHSCR|279|Elektrobit High Speed Capture and Replay (EBHSCR) format
-|LINKTYPE_VPP_DISPATCH|280|Records in traces from the http://fd.io VPP graph dispatch tracer, in the the graph dispatcher trace format
+|LINKTYPE_VPP_DISPATCH|280|Records in traces from the http://fd.io VPP graph dispatch tracer, in the graph dispatcher trace format
 |LINKTYPE_DSA_TAG_BRCM|281|Ethernet frames, with a switch tag inserted between the source address field and the type/length field in the Ethernet header.
 |LINKTYPE_DSA_TAG_BRCM_PREPEND|282|Ethernet frames, with a switch tag inserted before the destination address in the Ethernet header.
 |LINKTYPE_IEEE802_15_4_TAP|283|IEEE 802.15.4 Low-Rate Wireless Networks, with a pseudo-header containing TLVs with metadata preceding the 802.15.4 header.
@@ -317,7 +317,7 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_DSA_TAG_EDSA|285|Ethernet frames, with a programmable Ethernet type switch tag inserted between the source address field and the type/length field in the Ethernet header.
 |LINKTYPE_ELEE|286|Payload of lawful intercept packets using the ELEE protocol The packet begins with the ELEE header; it does not include any transport-layer or lower-layer headers for protocols used to transport ELEE packets.
 |LINKTYPE_Z_WAVE_SERIAL|287|Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection, as described in section 5 of the Z-Wave Serial API Host Application Programming Guide
-|LINKTYPE_USB_2_0|288|USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the the Universal Serial Bus Specification Revision 2.0
+|LINKTYPE_USB_2_0|288|USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the Universal Serial Bus Specification Revision 2.0
 |LINKTYPE_ATSC_ALP|289|ATSC Link-Layer Protocol frames, as described in section 5 of the A/330 Link-Layer Protocol specification, found at the ATSC 3.0 standards page , beginning with a Base Header
 
 
