@@ -171,14 +171,13 @@ The systemd Journal Export Block has the following fields:
   entry is a multiple of 4 octets long, therefore readers MUST NOT
   rely on the presence of a zero byte to terminate the entry.
 
-
-TBD: fix cross-reference (section_opt)
-
 * Options: optionally, a list of options (formatted according to
-  the rules defined in Xsection_optX) can be present.
+  the rules defined in {{I-D.tuexen-opsawg-pcapng}}, section "Options")
+  can be present.
 
 
-The options defined in Xsection_optX are valid within this block.
+The options defined in {{I-D.tuexen-opsawg-pcapng}}, section "Options"
+(opt_endofopt, opt_comment, opt_custom, ...) are valid within this block.
 There are currently no additional options definied for Journal Export
 Blocks.
 
