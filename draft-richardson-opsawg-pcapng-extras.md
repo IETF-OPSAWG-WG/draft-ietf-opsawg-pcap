@@ -100,7 +100,7 @@ TBD
 
 ## systemd Journal Export Block {#section_sdj_export}
 
-The [systemd](https://www.freedesktop.org/wiki/Software/systemd/)  [Journal Export Block](https://www.freedesktop.org/wiki/Software/systemd/export/) is a lightweight container for systemd
+The [systemd](https://systemd.io/)  [Journal Export Block](https://systemd.io/JOURNAL_EXPORT_FORMATS/) is a lightweight container for systemd
 Journal Export Format entry data.
 
 One of the primary components of the systemd System and
@@ -148,7 +148,7 @@ The systemd Journal Export Block has the following fields:
 
 * Block Total Length: total size of this block, as described in {{I-D.tuexen-opsawg-pcapng}}, section "Section Blocks".
 
-* Journal Entry: A journal entry as described in the [Journal Export Format](https://www.freedesktop.org/wiki/Software/systemd/export/) documentation. Entries consist of a
+* Journal Entry: A journal entry as described in the [Journal Export Format](https://systemd.io/JOURNAL_EXPORT_FORMATS/) documentation. Entries consist of a
   series of field names followed by text or binary field data.
   Common field names can be found in the [systemd.journal-fields](https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html) documentation. The __REALTIME_TIMESTAMP= field MUST be
   present and valid as described above. Entries are not
