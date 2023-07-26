@@ -93,7 +93,7 @@ The Registry has four columns: the symbolic name (LINKTYPE_something),
 the integer value, a very short description, and the document/requestor
 reference.
 
-The initila version of the registry is provided in the table below.  In each
+The initial version of the registry is provided in the table below.  In each
 case here, the reference should be to
 http://www.tcpdump.org/linktypes.html, which is not repeated each time.
 
