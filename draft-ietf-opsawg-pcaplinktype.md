@@ -48,7 +48,7 @@ informative:
 
 --- abstract
 
-This document creates a registry for the PCAP and PCAPNG LINKTYPE values.
+This document creates an IANA registry for the PCAP and PCAPNG LINKTYPE values.
 The PCAP and PCAPNG formats are used to save network captures from programs such as tcpdump and wireshark, when using libraries such as libpcap.
 
 --- middle
@@ -77,27 +77,23 @@ formats.
 
 #  IANA Considerations
 
-This document requires the following IANA actions:
-
 ## LinkType Registry {#linktype}
 
-IANA is requested to create a new Registry entitled: "The PCAP Registry",
-and within that Registry to create a table called: "PCAP LinkType List".
+IANA is requested to create a new registry entitled "The PCAP Registry". 
 
-The LinkType Registry is a table of 16-bit numbers.
-The Registry has three sections with different {{RFC8126}} rules:
+IANA is also requested to create a subregistry entitled "PCAP LinkType List" under that registry. The LinkType registry is a table of 16-bit numbers. The policy allocation {{RFC8126}} for this subregistry is as follows:
 
-* values from 0 to 32767 are marked as Specification Required.
+* Values from 0 to 32767 must be allocated via Specification Required.
 
-* values from 32768 to 65000 are marked as First-Come First-Served.
+* Values from 32768 to 65000 are allocated following a First-Come First-Served policy.
 
-* values from 65001 to 65535 are marked as Private Use.
+* Values from 65001 to 65535 are reserved for Private Use.
 
 The Registry has four columns: the symbolic name (LINKTYPE_something),
 the integer value, a very short description, and the document/requestor
 reference.
 
-The Registry shall be populated as follows in the table below.  In each
+The initila version of the registry is provided in the table below.  In each
 case here, the reference should be to
 http://www.tcpdump.org/linktypes.html, which is not repeated each time.
 
@@ -128,13 +124,13 @@ DLT values are associated with specific operation system captures, and are opera
 |not to be used|11-49|Do not use these values
 |LINKTYPE_PPP_HDLC|50|PPP in HDLC-like framing, as per RFC 1662
 |LINKTYPE_PPP_ETHER|51|PPPoE; per RFC 2516
-|not to be used|52-98|Do not use these values
+|Reserved|52-98|Do not use these values
 |LINKTYPE_SYMANTEC_FIREWALL|99|Reserved for Symantec Enterprise Firewall
 |LINKTYPE_ATM_RFC1483|100|RFC 1483 LLC/SNAP-encapsulated ATM
 |LINKTYPE_RAW|101|Raw IP; begins with an IPv4 or IPv6 header
 |LINKTYPE_SLIP_BSDOS|102|Reserved for BSD/OS SLIP BPF header
 |LINKTYPE_PPP_BSDOS|103|Reserved for BSD/OS PPP BPF header
-|LINKTYPE_C_HDLC|104|Cisco PPP with HDLC framing, as per section 4.3.1 of RFC 1547
+|LINKTYPE_C_HDLC|104|Cisco PPP with HDLC framing, as per Section 4.3.1 of RFC 1547
 |LINKTYPE_IEEE802_11|105|IEEE 802.11 wireless LAN.
 |LINKTYPE_ATM_CLIP|106|ATM Classical IP, with no header preceding IP
 |LINKTYPE_FRELAY|107|Frame Relay LAPF frames
