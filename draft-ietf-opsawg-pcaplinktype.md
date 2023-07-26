@@ -79,7 +79,7 @@ formats.
 
 ## LinkType Registry {#linktype}
 
-IANA is requested to create a new registry entitled "The PCAP Registry". 
+IANA is requested to create a new registry entitled "The PCAP Registry".
 
 IANA is also requested to create a subregistry entitled "PCAP LinkType List" under that registry. The LinkType registry is a table of 16-bit numbers. The policy allocation {{RFC8126}} for this subregistry is as follows:
 
