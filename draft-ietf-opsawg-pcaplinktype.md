@@ -94,7 +94,7 @@ The Registry has three sections with different {{RFC8126}} rules:
 * values from 65001 to 65535 are marked as Private Use.
 
 The Registry has four columns: the symbolic name (LINKTYPE_something),
-the integer value, a very short description, and the document/requestor
+the integer value, a very short description, and the document/requester
 reference.
 
 The Registry shall be populated as follows in the table below.  In each
