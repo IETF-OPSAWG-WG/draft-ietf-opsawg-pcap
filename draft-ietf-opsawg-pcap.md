@@ -116,6 +116,9 @@ fields shown to the left of the field:
 
 The File Header length is 24 octets.
 
+All fields in the File Header are in the byte order of the host writing
+the file.
+
 The meaning of the fields in the File Header is:
 
 Magic Number (32 bits):
@@ -234,6 +237,9 @@ coming from the network.
 
 The Packet Record begins with a 16-octet header, followed by data from
 the packet.
+
+All fields in the Packet Record header are in the byte order of the host
+writing the file.
 
 The meaning of the fields in the Packet Record is:
 
