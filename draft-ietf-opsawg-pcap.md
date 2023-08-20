@@ -304,7 +304,11 @@ Header Block, with a magic number of 0x0A0D0D0A.
 
 #  Security Considerations
 
-   TBD.
+A pcap file reader MUST do invalid header and packet checks.
+It can receive as input not only valid headers or packets, but any arbitrary
+random sequence of octets:
+Headers or packets originally malformed by the sender or by a fuzz tester,
+corrupted in transit or for some other reason.
 
 #  IANA Considerations
 
