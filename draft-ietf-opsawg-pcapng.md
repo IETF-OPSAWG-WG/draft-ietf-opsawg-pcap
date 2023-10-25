@@ -2017,6 +2017,39 @@ The following is a list of Secrets Types.
 
 
 {: indent='8'}
+0x55414b4c:
+: OPC UA Key Log.
+  Every line consists of a key/value pair separated by a colon and one space ('`: `').
+  Every line must be terminated by a linefeed ('`\n`').
+  The key name is composed of four parts separated by underscores ('`_`').
+
+  1. Keyset Name: Either 'server' or 'client'.
+
+  2. Key Material Type: Either be 'iv' (initialization vector) or 'key' (AES key).
+
+  3. Secure Channel ID: Encoded as decimal value.
+
+  4. Token ID: Encoded as decimal value.
+
+  The *value* contains the key data encoded as hexadecimal string with upper
+  case letters.  To create a valid keyset, four entries for one combination of
+  secure channel ID and token ID are required. These entries include 'iv' and
+  'key' for both 'server' and 'client'.
+
+  Currently, AES-128-CBC and AES-256-CBC are supported encryption algorithms:
+
+  * AES-128-CBC:
+    - IV Length: 16 bytes
+    - Key Length: 16 bytes
+
+  * AES-256-CBC:
+    - IV Length: 16 bytes
+    - Key Length: 32 bytes
+
+{: vspace='0'}
+
+
+{: indent='8'}
 0x57474b4c:
 : WireGuard Key Log.
   Every line consists of the key type, equals sign ('='), and the
@@ -2061,7 +2094,6 @@ The following is a list of Secrets Types.
   new Keys. If the APS Key changes for an existing link, it is
   contained in a new DSB with the new APS Key.
 {: vspace='0'}
-
 
 
 ~~~~
