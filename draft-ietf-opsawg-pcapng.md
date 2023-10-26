@@ -2017,6 +2017,50 @@ The following is a list of Secrets Types.
 
 
 {: indent='8'}
+0x55414b4c:
+: [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua) Key Log.
+  Every line consists of a key/value pair separated by a colon and one space ('`: `').
+  Every line must be terminated by a linefeed ('`\n`').
+  The key name is composed of four parts separated by underscores ('`_`').
+
+  * Keyset Name: Either 'server' or 'client'.
+
+      The Client keys are used to secure Messages sent by the Client. The
+      Server keys are used to secure Messages sent by the Server.
+
+  * Key Material Type:
+
+    - 'iv': initialization vector
+    - 'key': AES key
+    - 'siglen': signature length in bytes. This depdends on the used security policy.
+
+  * Secure Channel ID: Encoded as decimal value.
+
+  * Token ID: Encoded as decimal value.
+
+  The *value* contains the key data encoded as hexadecimal string with upper
+  case letters.  To create a valid keyset, four entries for one combination of
+  secure channel ID and token ID are required. These entries include 'iv' and
+  'key' for both 'server' and 'client'.
+
+  Currently, AES-128-CBC and AES-256-CBC are supported encryption algorithms:
+
+  * AES-128-CBC:
+    - IV Length: 16 bytes
+    - Key Length: 16 bytes
+
+  * AES-256-CBC:
+    - IV Length: 16 bytes
+    - Key Length: 32 bytes
+
+   More details on OPC UA Security can be found in the [OPC UA Specification Part 6 - Mappings](https://opcfoundation.org/developer-tools/documents/view/163),
+   the security policies are defined in [OPC UA Specification Part 7 - Profiles](https://opcfoundation.org/developer-tools/documents/view/164),
+   or can be found online on the [Profile Reporting website](https://opcfoundation.org/profilereporting).
+
+{: vspace='0'}
+
+
+{: indent='8'}
 0x57474b4c:
 : WireGuard Key Log.
   Every line consists of the key type, equals sign ('='), and the
@@ -2061,7 +2105,6 @@ The following is a list of Secrets Types.
   new Keys. If the APS Key changes for an existing link, it is
   contained in a new DSB with the new APS Key.
 {: vspace='0'}
-
 
 
 ~~~~
