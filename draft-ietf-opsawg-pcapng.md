@@ -2018,7 +2018,7 @@ The following is a list of Secrets Types.
 
 {: indent='8'}
 0x55414b4c:
-: OPC UA Key Log.
+: [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua) Key Log.
   Every line consists of a key/value pair separated by a colon and one space ('`: `').
   Every line must be terminated by a linefeed ('`\n`').
   The key name is composed of four parts separated by underscores ('`_`').
@@ -2052,6 +2052,10 @@ The following is a list of Secrets Types.
   * AES-256-CBC:
     - IV Length: 16 bytes
     - Key Length: 32 bytes
+
+   More details on OPC UA Security can be found in the [OPC UA Specification Part 6 - Mappings](https://opcfoundation.org/developer-tools/specifications-unified-architecture),
+   the security policies are defined in [OPC UA Specification Part 7 - Profiles](https://opcfoundation.org/developer-tools/specifications-unified-architecture),
+   or can be found online on the [Profile Reporting website](https://opcfoundation.org/profilereporting).
 
 {: vspace='0'}
 
