@@ -2023,13 +2023,20 @@ The following is a list of Secrets Types.
   Every line must be terminated by a linefeed ('`\n`').
   The key name is composed of four parts separated by underscores ('`_`').
 
-  1. Keyset Name: Either 'server' or 'client'.
+  * Keyset Name: Either 'server' or 'client'.
 
-  2. Key Material Type: Either be 'iv' (initialization vector) or 'key' (AES key).
+      The Client keys are used to secure Messages sent by the Client. The
+      Server keys are used to secure Messages sent by the Server.
 
-  3. Secure Channel ID: Encoded as decimal value.
+  * Key Material Type:
 
-  4. Token ID: Encoded as decimal value.
+    - 'iv': initialization vector
+    - 'key': AES key
+    - 'siglen': signature length in bytes. This depdends on the used security policy.
+
+  * Secure Channel ID: Encoded as decimal value.
+
+  * Token ID: Encoded as decimal value.
 
   The *value* contains the key data encoded as hexadecimal string with upper
   case letters.  To create a valid keyset, four entries for one combination of
