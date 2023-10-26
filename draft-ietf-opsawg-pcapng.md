@@ -2053,8 +2053,8 @@ The following is a list of Secrets Types.
     - IV Length: 16 bytes
     - Key Length: 32 bytes
 
-   More details on OPC UA Security can be found in the [OPC UA Specification Part 6 - Mappings](https://opcfoundation.org/developer-tools/specifications-unified-architecture),
-   the security policies are defined in [OPC UA Specification Part 7 - Profiles](https://opcfoundation.org/developer-tools/specifications-unified-architecture),
+   More details on OPC UA Security can be found in the [OPC UA Specification Part 6 - Mappings](https://opcfoundation.org/developer-tools/documents/view/163),
+   the security policies are defined in [OPC UA Specification Part 7 - Profiles](https://opcfoundation.org/developer-tools/documents/view/164),
    or can be found online on the [Profile Reporting website](https://opcfoundation.org/profilereporting).
 
 {: vspace='0'}
