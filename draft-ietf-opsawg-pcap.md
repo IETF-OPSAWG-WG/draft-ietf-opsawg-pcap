@@ -122,7 +122,7 @@ Magic Number (32 bits):
 : an unsigned magic number, whose value is either the hexadecimal number
 0xA1B2C3D4 or the hexadecimal number 0xA1B23C4D.
 : If the value is 0xA1B2C3D4, timestamps in Packet Records (see Figure
-2) are in seconds and microseconds; if it is 0xA1B23C4D, timestamps in
+3) are in seconds and microseconds; if it is 0xA1B23C4D, timestamps in
 Packet Records are in seconds and nanoseconds.
 : These numbers can be used to distinguish sessions that have been
 written on little-endian machines from the ones written on big-endian
