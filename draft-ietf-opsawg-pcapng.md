@@ -1463,7 +1463,10 @@ following:
 | 0-1 | Inbound / Outbound packet (00 = information not available, 01 = inbound, 10 = outbound) |
 | 2-4 | Reception type (000 = not specified, 001 = unicast, 010 = multicast, 011 = broadcast, 100 = promiscuous). |
 | 5-8 | FCS length, in octets (0000 if this information is not available). This value overrides the if_fcslen option of the Interface Description Block, and is used with those link layers (e.g. PPP) where the length of the FCS can change during time. |
-| 9-15 | Reserved (MUST be set to zero). |
+| 9 | Checksum not ready, as a consequence of checksum offloading, e.g. a transmitted packet on an interface doing checksum offloading, so that the host networking stack doesn't compute and fill in the checksum before handing the packet either to the network adapter or the wraparound code path in the packet capture mechanism. |
+| 10 | Checksum valid, the checksum has already been checked on the receive path before it was handed to the packet capture mechanism, so there's no need for the packet analyzer to check it. |
+| 11 | TCP segmentation offloaded, this is either a received packet corresponding to several received link-layer packets, with reassembly having been done before the packet was handed to the packet capture mechanism, or a transmitted packet that will correspond to several link-layer packets after being fragmented, but that was wrapped around to the packet capture mechanism before the fragmentation occurred. |
+| 12-15 | Reserved (MUST be set to zero). |
 | 16-31 | link-layer-dependent errors (Bit 31 = symbol error, Bit 30 = preamble error, Bit 29 = Start Frame Delimiter error, Bit 28 = unaligned frame error, Bit 27 = wrong Inter Frame Gap error, Bit 26 = packet too short error, Bit 25 = packet too long error, Bit 24 = CRC error, other?? are 16 bit enough?). |
 {: title=''}
 
