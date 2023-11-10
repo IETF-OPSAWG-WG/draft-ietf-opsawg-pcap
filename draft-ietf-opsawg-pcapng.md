@@ -2035,7 +2035,7 @@ The following is a list of Secrets Types.
 
     - 'iv': initialization vector
     - 'key': AES key
-    - 'siglen': signature length in bytes. This depdends on the used security policy.
+    - 'siglen': signature length in bytes. This depends on the used security policy.
 
   * Secure Channel ID: Encoded as decimal value.
 
