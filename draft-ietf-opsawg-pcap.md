@@ -310,6 +310,9 @@ random sequence of octets:
 Headers or packets originally malformed by the sender or by a fuzz tester,
 corrupted in transit or for some other reason.
 
+See also:
+https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap
+
 #  IANA Considerations
 
 This document requires the following IANA actions:
