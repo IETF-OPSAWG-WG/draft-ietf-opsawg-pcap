@@ -1090,11 +1090,15 @@ Example: '6'.
 {: indent='8'}
 if_tzone:
 : The if_tzone
-  option identifies the time zone for GMT support (TODO: specify
-  better).
+  option is a 32-bit field identifying the local time zone
+  of the capturing device for UTC support.
+  The first two octects interpreted as a signed integer specify the
+  time zone offset in minutes, while the latter two octets are the
+  additional daylight saving time offset (also in minutes).
+  Both values are not necessarily a multiple of 60.
 {: vspace='0'}
 
-Example: TODO: give a good example.
+Example: '3C 00 3C 00' for Europe/Berlin with daylight saving time.
 
 
 {: indent='8'}
