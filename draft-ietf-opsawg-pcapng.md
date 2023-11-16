@@ -1171,7 +1171,7 @@ Micro Adapter".
 {: indent='8'}
 if_txspeed:
 : The
-  if_txrxspeeds option is a 64-bit unsigned value
+  if_txspeed option is a 64-bit unsigned value
   indicating the interface transmit speed in bits per
   second.
 {: vspace='0'}
