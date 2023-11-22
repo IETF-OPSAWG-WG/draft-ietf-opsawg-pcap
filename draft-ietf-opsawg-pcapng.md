@@ -980,6 +980,7 @@ the following options are valid within this block:
 | if_hardware | 15 | variable | no |
 | if_txspeed | 16 | 8 | no |
 | if_rxspeed | 17 | 8 | no |
+| if_iana_tzname | 18 | variable | no |
 {: #optionsifb title='Interface Description Block Options'}
 
 
@@ -1090,11 +1091,15 @@ Example: '6'.
 {: indent='8'}
 if_tzone:
 : The if_tzone
-  option identifies the time zone for GMT support (TODO: specify
-  better).
+  option identifies the time zone for GMT support.  This option has
+  never been specified in greater detail, and, unless it identifies
+  something such as an [IANA time zone database](https://www.iana.org/time-zones)
+  timezone, woudl be insufficient for converting between UTC and local
+  time, and SHOULD NOT be used.  Instead, the if_iana_tzname option
+  SHOULD be used if time zone information is to be specified.
 {: vspace='0'}
 
-Example: TODO: give a good example.
+Example: none
 
 
 {: indent='8'}
@@ -1198,6 +1203,18 @@ if_rxspeed options MUST NOT be used.  If the transmit speed is
 unknown, the if_speed and if_txspeed options MUST NOT be used;
 if the receive speed is unknown, the if_speed and if_rxspeed
 options MUST NOT be used.
+
+
+{: indent='8'}
+if_iana_tzname:
+: The if_iana_tzname
+  option is a UTF-8 string that indicates the [IANA time zone database](https://www.iana.org/time-zones)
+  timezone name for the IANA database timezone in which the interface
+  is located.
+{: vspace='0'}
+
+Examples: "Africa/Nairobi", "Asia/Kolkata", "America/Sao_Paulo",
+"Europe/Berlin".
 
 
 ## Enhanced Packet Block {#section_epb}
