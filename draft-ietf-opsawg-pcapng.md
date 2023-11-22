@@ -1210,7 +1210,7 @@ if_iana_tzname:
 : The if_iana_tzname
   option is a UTF-8 string that indicates the [IANA time zone database](https://www.iana.org/time-zones)
   timezone name for the IANA database timezone in which the interface
-  is located.
+  is located. The string is not zero-terminated.
 {: vspace='0'}
 
 Examples: "Africa/Nairobi", "Asia/Kolkata", "America/Sao_Paulo",
