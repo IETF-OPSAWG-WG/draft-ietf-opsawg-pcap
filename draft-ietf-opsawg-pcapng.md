@@ -1092,8 +1092,8 @@ Example: '6'.
 if_tzone:
 : The if_tzone
   option identifies the time zone for GMT support.  This option has
-  never been specified in greater detail, and, unless it identifies
-  something such as an [IANA time zone database](https://www.iana.org/time-zones)
+  never been specified in greater detail, and, unless it were to
+  identify something such as an [IANA time zone database](https://www.iana.org/time-zones)
   timezone, would be insufficient for converting between UTC and local
   time.  Therefore, it SHOULD NOT be used; instead, the if_iana_tzname
   option SHOULD be used if time zone information is to be specified.
