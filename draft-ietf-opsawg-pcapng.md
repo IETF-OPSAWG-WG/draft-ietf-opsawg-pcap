@@ -1152,6 +1152,10 @@ if_tsoffset:
   timestamp of each packet to obtain the absolute timestamp of
   a packet. If the option is not present, an offset of 0 is assumed
   (i.e., timestamps in blocks are absolute timestamps).
+
+  This offset is not intended to be used as an offset between local
+  time and UTC; for this purpose, the if_iana_tzname option SHOULD be
+  used to specify a timezone.
 {: vspace='0'}
 
 Example: '1234'.
