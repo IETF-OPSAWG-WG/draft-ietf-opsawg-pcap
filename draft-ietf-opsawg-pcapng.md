@@ -1150,12 +1150,8 @@ if_tsoffset:
   if_tsoffset option is a 64-bit signed integer value that
   specifies an offset (in seconds) that must be added to the
   timestamp of each packet to obtain the absolute timestamp of
-  a packet. If the option is missing, the timestamps stored
-  in the packet MUST be considered absolute timestamps.  The
-  time zone of the offset can be specified with the option
-  if_tzone. TODO: won't a if_tsoffset_low for fractional
-  second offsets be useful for highly synchronized capture
-  systems?
+  a packet. If the option is not present, an offset of 0 is assumed
+  (i.e., timestamps in blocks are absolute timestamps).
 {: vspace='0'}
 
 Example: '1234'.
@@ -1250,9 +1246,9 @@ obsolete, [Packet Block](#appendix_pb):
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |                         Interface ID                          |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-12 |                        Timestamp (High)                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-16 |                        Timestamp (Low)                        |
+12 |                       (Upper 32 bits)                         |
+   + - - - - - - - - - - - -  Timestamp  - - - - - - - - - - - - - +
+16 |                       (Lower 32 bits)                         |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 20 |                    Captured Packet Length                     |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -1286,14 +1282,20 @@ The Enhanced Packet Block has the following fields:
   of this field. The interface ID MUST be valid, which means that an
   matching interface description block MUST exist.
 
-* Timestamp (High) and Timestamp (Low): upper 32 bits and
-  lower 32 bits of a 64-bit timestamp. The timestamp is a
-  single 64-bit unsigned integer that represents the number of
-  units of time that have elapsed since 1970-01-01 00:00:00 UTC.
-  The length of a unit of time is specified by the 'if_tsresol'
-  option (see {{format_idb}}) of the Interface
-  Description Block referenced by this packet. Note that,
-  unlike timestamps in the libpcap file format, timestamps in
+* Timestamp (64 bits): two 32-bit unsigned values, representing a single
+  64-bit unsigned integer, with the first value being the upper 32 bits
+  of that integer and the second value being the lower 32 bits of that
+  integer.  The 64-bit unsigned integer is a count of units of time.
+
+  The length of a unit of time is specified by the 'if_tsresol' option
+  (see {{format_idb}}) of the Interface Description Block specified by
+  the Interface ID.
+
+  The 'if_tsoffset' option value, converted from seconds to units of
+  time, plus the timestamp value, represents the number of units of
+  time that have elapsed since 1970-01-01 00:00:00 UTC.
+
+  Note that, unlike timestamps in the pcap file format, timestamps in
   Enhanced Packet Blocks are not saved as two 32-bit values
   that represent the seconds and microseconds that have
   elapsed since 1970-01-01 00:00:00 UTC. Timestamps in Enhanced
@@ -1812,9 +1814,9 @@ The format of the Interface Statistics Block is shown in {{format_isb}}.
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |                         Interface ID                          |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-12 |                        Timestamp (High)                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-16 |                        Timestamp (Low)                        |
+12 |                       (Upper 32 bits)                         |
+   + - - - - - - - - - - - -  Timestamp  - - - - - - - - - - - - - +
+16 |                       (Lower 32 bits)                         |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 20 /                                                               /
    /                      Options (variable)                       /
@@ -1832,23 +1834,24 @@ The fields have the following meaning:
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
-* Interface ID: specifies the interface these statistics refers
-  to; the correct interface will be the one whose Interface
-  Description Block (within the current Section of the file) is
-  identified by same number (see {{section_idb}}) of
-  this field.
+* Interface ID (32 bits): an unsigned value that specifies the
+  interface to which these statistics refer; the correct interface
+  will be the one whose Interface Description Block (within the current
+  Section of the file) is identified by the same number (see {{section_idb}})
+  of this field. The interface ID MUST be valid, which means that an
+  matching interface description block MUST exist.
 
-* Timestamp: time this statistics refers to. The format of the
-  timestamp is the same already defined in the Enhanced Packet Block
-  ({{section_epb}}); the length of a unit of time is
-  specified by the 'if_tsresol' option (see {{format_idb}}) of the Interface Description Block
-  referenced by this packet.
+* Timestamp (64 bits): the time at which the statistics values were
+  taken; two 32-bit unsigned values, in the same format as defined
+  for timestamps in the Enhanced Packet Block ({{section_epb}}),
+  using the 'if_tsresol' and 'if_tsoffset' values from the Interface
+  Description Block specified by the Interface ID.
 
 * Options: optionally, a list of options (formatted according to
   the rules defined in {{section_opt}}) can be present.
 
 
-All the statistic fields are defined as options in order to deal
+All the statistics fields are defined as options in order to deal
 with systems that do not have a complete set of statistics. Therefore,
 In addition to the options defined in {{section_opt}},
 the following options are valid within this block:
@@ -1867,13 +1870,12 @@ the following options are valid within this block:
 
 {: indent='8'}
 isb_starttime:
-: The
-  isb_starttime option specifies the time the capture started; time
-  will be stored in two blocks of four octets each. The format of the
-  timestamp is the same as the one defined in the Enhanced Packet
-  Block ({{section_epb}}); the length of a unit
-  of time is specified by the 'if_tsresol' option (see {{format_idb}}) of the Interface Description Block
-  referenced by this packet.
+: The isb_starttime
+  option specifies the time the capture started, consisting of two
+  unsigned 32-bit values, in the same format as defined for timestamps
+  in the Enhanced Packet Block ({{section_epb}}), using the 'if_tsresol'
+  and 'if_tsoffset' values from the Interface Description Block
+  specified by the Interface ID.
 {: vspace='0'}
 
 Example: '96 c3 04 00 73 89 6a 65', in Little Endian, decodes
@@ -1883,11 +1885,11 @@ to 2012-06-29 06:17:00.834163 UTC.
 {: indent='8'}
 isb_endtime:
 : The isb_endtime
-  option specifies the time the capture ended; time will be stored
-  in two blocks of four octets each. The format of the timestamp is
-  the same as the one defined in the Enhanced Packet Block ({{section_epb}}); the length of a unit of time is specified
-  by the 'if_tsresol' option (see {{format_idb}}) of
-  the Interface Description Block referenced by this packet.
+  option specifies the time the capture ended, consisting of two
+  unsigned 32-bit values, in the same format as defined for timestamps
+  in the Enhanced Packet Block ({{section_epb}}), using the 'if_tsresol'
+  and 'if_tsoffset' values from the Interface Description Block
+  specified by the Interface ID.
 {: vspace='0'}
 
 Example: '97 c3 04 00 aa 47 ca 64', in Little Endian, decodes
@@ -2525,9 +2527,9 @@ network.
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  8 |         Interface ID          |          Drops Count          |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-12 |                        Timestamp (High)                       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-16 |                        Timestamp (Low)                        |
+12 |                       (Upper 32 bits)                         |
+   + - - - - - - - - - - - -  Timestamp  - - - - - - - - - - - - - +
+16 |                       (Lower 32 bits)                         |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 20 |                    Captured Packet Length                     |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -2566,9 +2568,10 @@ The Packet Block has the following fields:
   is reserved for those systems in which this information is not
   available.
 
-* Timestamp (High) and Timestamp (Low): timestamp of the packet.
-  The format of the timestamp is the same as was already defined
-  for the Enhanced Packet Block ({{section_epb}}).
+* Timestamp (64 bits): two 32-bit unsigned values, in the same format
+  as defined for timestamps in the Enhanced Packet Block ({{section_epb}}),
+  using the 'if_tsresol' and 'if_tsoffset' values from the Interface
+  Description Block specified by the Interface ID.
 
 * Captured Packet Length: number of octets captured from the
   packet (i.e. the length of the Packet Data field). It will be the
