@@ -36,17 +36,6 @@ normative:
 
 informative:
   I-D.ietf-opsawg-pcapng:
-  RFC8126:
-  Radiotap:
-    author:
-      org: radiotap.org
-    title: Radiotap Web site
-    target: http://www.radiotap.org/
-  AVS:
-    author:
-      fullname: Solomon Peachy
-    title: Archived AVS specification
-    target: http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt
 
 --- abstract
 
