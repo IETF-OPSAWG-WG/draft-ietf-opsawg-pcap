@@ -2391,7 +2391,7 @@ Capture File Format" specified in this document is ".pcapng".
 On Windows and macOS, files are distinguished by an extension to their
 filename. Such an extension is technically not actually required, as
 applications should be able to automatically detect the pcapng file
-format through the Block Type and Byte-Order Magic fields in the Secton
+format through the Block Type and Byte-Order Magic fields in the Section
 Header Block at the beginning of the file, as some desktop environments
 other than those of Windows and macOS do. However, using name
 extensions makes it easier to work with files (e.g. visually
