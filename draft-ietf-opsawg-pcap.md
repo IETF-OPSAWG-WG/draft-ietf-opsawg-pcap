@@ -232,8 +232,9 @@ Timestamp (Seconds) and Timestamp (Microseconds or nanoseconds):
 number of seconds that have elapsed since 1970-01-01 00:00:00 UTC, and
 the microseconds or nanoseconds value represents the number of
 microseconds or nanoseconds that have elapsed since that seconds.
-: The Magic Number field in the File Header indicates whether the value
-is in units of microseconds or nanoseconds.
+: The Magic Number field in the File Header of a file indicates
+whether the values of the Timestamp (Microseconds or nanoseconds) fields
+of packets in that file are in units of microseconds or nanoseconds.
 
 Captured Packet Length (32 bits):
 : an unsigned value that indicates the number of octets captured from
@@ -273,13 +274,13 @@ The recommended file name extension for the "PCAP Capture File Format"
 specified in this document is ".pcap".
 
 On Windows and macOS, files are distinguished by an extension to their
-filename.  Such an extension is technically not actually required, as
+filename. Such an extension is technically not actually required, as
 applications should be able to automatically detect the pcap file format
 through the Magic Number field in the File Header, as some desktop
-environments other than the default ones of Windows and macOS do. 
-However, using name extensions makes it easier to work with files (e.g. 
-visually distinguish file formats) so it is recommended - though not
-required - to use .pcap as the name extension for files following this
+environments other than those of Windows and macOS do. However, using
+name extensions makes it easier to work with files (e.g. visually
+distinguish file formats) so it is recommended - though not required -
+to use .pcap as the name extension for files following this
 specification.
 
 Please note: To avoid confusion (such as the current usage of .cap for a
