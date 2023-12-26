@@ -729,8 +729,8 @@ The meaning of the fields is:
 
   1. This value is palindromic, so that the reader is able to
     recognize the Section Header Block regardless of the endianness
-    of the section. The endianness is recognized by reading the Byte
-    Order Magic, which is located 8 octets after the Block Type.
+    of the section. The endianness is recognized by reading the
+    Byte-Order Magic, which is located 8 octets after the Block Type.
 
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
@@ -2058,7 +2058,9 @@ The following is a list of Secrets Types.
 
     - 'iv': initialization vector
     - 'key': AES key
-    - 'siglen': signature length in bytes. This depends on the used security policy.
+
+    - 'siglen': signature length in octets. This depends on the used
+      security policy.
 
   * Secure Channel ID: Encoded as decimal value.
 
@@ -2072,12 +2074,12 @@ The following is a list of Secrets Types.
   Currently, AES-128-CBC and AES-256-CBC are supported encryption algorithms:
 
   * AES-128-CBC:
-    - IV Length: 16 bytes
-    - Key Length: 16 bytes
+    - IV Length: 16 octets
+    - Key Length: 16 octets
 
   * AES-256-CBC:
-    - IV Length: 16 bytes
-    - Key Length: 32 bytes
+    - IV Length: 16 octets
+    - Key Length: 32 octets
 
    More details on OPC UA Security can be found in the [OPC UA Specification Part 6 - Mappings](https://opcfoundation.org/developer-tools/documents/view/163),
    the security policies are defined in [OPC UA Specification Part 7 - Profiles](https://opcfoundation.org/developer-tools/documents/view/164),
@@ -2090,7 +2092,7 @@ The following is a list of Secrets Types.
 0x57474b4c:
 : WireGuard Key Log.
   Every line consists of the key type, equals sign ('='), and the
-  base64-encoded 32-byte key with optional spaces before and in between.
+  base64-encoded 32-octet key with optional spaces before and in between.
   The key type is one of LOCAL\_STATIC\_PRIVATE\_KEY,
   REMOTE\_STATIC\_PUBLIC\_KEY, LOCAL_EPHEMERAL\_PRIVATE\_KEY,
   or PRESHARED|_KEY. This matches the output of [extract-handshakes.sh](https://git.zx2c4.com/WireGuard/tree/contrib/examples/extract-handshakes/README), which is part of the [WireGuard](https://www.wireguard.com/) project.
@@ -2389,11 +2391,13 @@ Capture File Format" specified in this document is ".pcapng".
 On Windows and macOS, files are distinguished by an extension to their
 filename. Such an extension is technically not actually required, as
 applications should be able to automatically detect the pcapng file
-format through the "magic bytes" at the beginning of the file, as some
-other UN\*X desktop environments do. However, using name extensions makes
-it easier to work with files (e.g. visually distinguish file formats) so
-it is recommended - though not required - to use .pcapng as the name
-extension for files following this specification.
+format through the Block Type and Byte-Order Magic fields in the Secton
+Header Block at the beginning of the file, as some desktop environments
+other than those of Windows and macOS do. However, using name
+extensions makes it easier to work with files (e.g. visually
+distinguish file formats) so it is recommended - though not required -
+to use .pcapng as the name extension for files following this
+specification.
 
 Please note: To avoid confusion (such as the current usage of
 .cap for a plethora of different capture file formats) file
