@@ -232,8 +232,8 @@ Timestamp (Seconds) and Timestamp (Microseconds or nanoseconds):
 number of seconds that have elapsed since 1970-01-01 00:00:00 UTC, and
 the microseconds or nanoseconds value represents the number of
 microseconds or nanoseconds that have elapsed since that seconds.
-: Whether the value represents microseconds or nanoseconds is specified
-by the magic number in the File Header.
+: The Magic Number field in the File Header indicates whether the value
+is in units of microseconds or nanoseconds.
 
 Captured Packet Length (32 bits):
 : an unsigned value that indicates the number of octets captured from
@@ -275,11 +275,12 @@ specified in this document is ".pcap".
 On Windows and macOS, files are distinguished by an extension to their
 filename.  Such an extension is technically not actually required, as
 applications should be able to automatically detect the pcap file format
-through the "magic bytes" at the beginning of the file, as some other
-UN*X desktop environments do.  However, using name extensions makes it
-easier to work with files (e.g.  visually distinguish file formats) so
-it is recommended - though not required - to use .pcap as the name
-extension for files following this specification.
+through the Magic Number field in the File Header, as some desktop
+environments other than the default ones of Windows and macOS do. 
+However, using name extensions makes it easier to work with files (e.g. 
+visually distinguish file formats) so it is recommended - though not
+required - to use .pcap as the name extension for files following this
+specification.
 
 Please note: To avoid confusion (such as the current usage of .cap for a
 plethora of different capture file formats) file name extensions other
@@ -288,8 +289,11 @@ than .pcap should be avoided.
 There is new work to create the PCAP Next Generation capture File Format
 (see {{I-D.ietf-opsawg-pcapng}}).  The new file format is not
 compatible with this specification, but many programs read both
-transparently.  Files of that type will usually start with a Section
-Header Block, with a magic number of 0x0A0D0D0A.
+transparently.  Files of that type will start with a Section
+Header Block, the first four octets of which are 0x0A 0x0D 0x0D 0x0A,
+which does not match any of the Magic Number values in a pcap File
+Header, allowing code that reads both file formats to determine the
+format of a file.
 
 #  Security Considerations
 
