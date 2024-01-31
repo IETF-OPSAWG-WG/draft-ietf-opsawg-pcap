@@ -104,6 +104,11 @@ http://www.tcpdump.org/linktypes.html.
 Note that historically, values were assigned incrementally on First-Come/First-Served basis, with a preference for a public specification, but with no mandate.
 Some historical values may have less specification than desired.
 
+LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved for Private Use.  Their use is Deprecated in favour of the values above 65001.
+
+In general, Private Use values should never leak out of the entity that uses it.
+As the First-Come First-Served allocation is large and easily obtained, official values are recommended.
+
 There is often an associated DLT value which are often identical in
 value, but not universally so.
 DLT values are associated with specific operation system captures, and are operating system specific, and are thus not subject to standardization.
