@@ -104,6 +104,11 @@ http://www.tcpdump.org/linktypes.html.
 Note that historically, values were assigned incrementally on First-Come/First-Served basis, with a preference for a public specification, but with no mandate.
 Some historical values may have less specification than desired.
 
+LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved for Private Use.  Their use is Deprecated in favour of the values above 65001.
+
+In general, Private Use values should never leak out of the entity that uses it.
+As the First-Come First-Served allocation is large and easily obtained, official values are recommended.
+
 There is often an associated DLT value which are often identical in
 value, but not universally so.
 DLT values are associated with specific operation system captures, and are operating system specific, and are thus not subject to standardization.
@@ -173,22 +178,22 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_LINUX_IRDA|144|Linux-IrDA packets w/LINKTYPE_LINUX_IRDA header
 |LINKTYPE_IBM_SP|145|Reserved for IBM SP switch
 |LINKTYPE_IBM_SN|146|Reserved for IBM Next Federation switch
-|LINKTYPE_RESERVED_01|147|For private use
-|LINKTYPE_RESERVED_02|148|For private use
-|LINKTYPE_RESERVED_03|149|For private use
-|LINKTYPE_RESERVED_04|150|For private use
-|LINKTYPE_RESERVED_05|151|For private use
-|LINKTYPE_RESERVED_06|152|For private use
-|LINKTYPE_RESERVED_07|153|For private use
-|LINKTYPE_RESERVED_08|154|For private use
-|LINKTYPE_RESERVED_09|155|For private use
-|LINKTYPE_RESERVED_10|156|For private use
-|LINKTYPE_RESERVED_11|157|For private use
-|LINKTYPE_RESERVED_12|158|For private use
-|LINKTYPE_RESERVED_13|159|For private use
-|LINKTYPE_RESERVED_14|160|For private use
-|LINKTYPE_RESERVED_15|161|For private use
-|LINKTYPE_RESERVED_16|162|For private use
+|LINKTYPE_RESERVED_01|147|For private use (deprecated)
+|LINKTYPE_RESERVED_02|148|For private use (deprecated)
+|LINKTYPE_RESERVED_03|149|For private use (deprecated)
+|LINKTYPE_RESERVED_04|150|For private use (deprecated)
+|LINKTYPE_RESERVED_05|151|For private use (deprecated)
+|LINKTYPE_RESERVED_06|152|For private use (deprecated)
+|LINKTYPE_RESERVED_07|153|For private use (deprecated)
+|LINKTYPE_RESERVED_08|154|For private use (deprecated)
+|LINKTYPE_RESERVED_09|155|For private use (deprecated)
+|LINKTYPE_RESERVED_10|156|For private use (deprecated)
+|LINKTYPE_RESERVED_11|157|For private use (deprecated)
+|LINKTYPE_RESERVED_12|158|For private use (deprecated)
+|LINKTYPE_RESERVED_13|159|For private use (deprecated)
+|LINKTYPE_RESERVED_14|160|For private use (deprecated)
+|LINKTYPE_RESERVED_15|161|For private use (deprecated)
+|LINKTYPE_RESERVED_16|162|For private use (deprecated)
 |LINKTYPE_IEEE802_11_AVS|163|AVS header{{AVS}}, followed by an 802.11 header
 |LINKTYPE_JUNIPER_MONITOR|164|Reserved for Juniper Networks
 |LINKTYPE_BACNET_MS_TP|165|BACnet MS/TP frames, per 9.3 MS/TP Frame Format ANSI 135
