@@ -324,12 +324,26 @@ DLT values are associated with specific operation system captures, and are opera
 
 #  Contributors
 
-Insert pcap developers etc. here
+PCAP has been developed over three and half decades by a variety of developers, including:
+Bill Fenner,
+Denis Ovsienko,
+Francois-Xavier Le Bail,
+Fulvio Risso,
+Gerald Combs,
+Gianluca Varenni,
+Gisle Vanem,
+Hannes Gredler,
+Joerg Mayer,
+Michal Sekletar,
+Stephen Donnelly,
+Torsten Landschoff,
+and Jun-ichiro itojun Hagino
+
+PCAP was originally created at LBL by Steve McCanne, Craig Leres, and Van Jacobson.
 
 #  Acknowledgments
 
-The authors wish to thank (many reviewers) and many others for
-their invaluable comments.
+The authors wish to thank: Michael Tuexen, Mohamed Boucadair, Carsten Bormann, Henk Birkholtz, and Robert Wilton their invaluable comments and encouragement.
 
 <!--
 COMMENTS.
