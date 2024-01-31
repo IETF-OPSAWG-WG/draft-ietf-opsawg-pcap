@@ -336,34 +336,22 @@ https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html pseudo-header.
 |LINKTYPE_MDB|300|MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine, with the message format specified by https://www.kaiser.cx/pcap-mdb.html the PCAP format for MDB specification.
 |LINKTYPE_DECT_NR|301|DECT-2020 New Radio (NR) MAC layer specified in https://www.etsi.org/committee/1394-dect ETSI TS 103 636-4.
 The Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions.
+# Guidance for Designated Experts
 
-#  Guidance for Designated Experts
+When processing a request for a Specification Required allocation the Designated Experts are expected to be able to find the relevant specification at a clearly stable URL.
+It is noted that many enterprise web sites do not maintain URLs over a long period of time, and a documented in a "wp-uploaded" section is highly likely to disappear.
+In addition Specifications that require a reader to click through any kind of marketing or legal agreement are not considered public.
+(This is the opinion of other corporate lawyers, who worry about what their employees might have agreed to)
 
-When processing a request for a Specification Required allocation the
-Designated Experts are expected to be able to find the relevant
-specification at a clearly stable URL. It is noted that many enterprise
-web sites do not maintain URLs over a long period of time, and a
-documented in a "wp-uploaded" section is highly likely to disappear. In
-addition Specifications that require a reader to click through any kind
-of marketing or legal agreement are not considered public.  (This is the
-opinion of other corporate lawyers, who worry about what their employees
-might have agreed to)
+The specification needs to be clearly written, and when the contents of the link type can contain and IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.
 
-The specification needs to be clearly written, and when the contents of
-the link type can contain and IPv4 or IPv6 header, then the octets
-between the beginning of the link type and the IP header needs to be
-very clearly specified in that document.
+Specifications which are not publically available, but which may be obtained via liason agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the document will be public eventually, but are discouraged.
+For other documents, the Designated Expert will need use their judgement, or consult the WG or an Area Director.
 
-Specifications which are not publically available, but which may be
-obtained via liason agreements (such as to ITU-T, 3GPP, IEEE, etc.) are
-acceptable particularly if the document will be public eventually, but
-are discouraged. For other documents, the Designated Expert will need
-use their judgement, or consult the WG or an Area Director.
+Linktypes may be allocated for specifications not publically available may be made within the First-Come/First-Served area.
+This includes specifications that might be classified.
+The minimal requirement is for a contact person for that link type.
 
-Linktypes may be allocated for specifications not publically available
-may be made within the First-Come/First-Served area. This includes
-specifications that might be classified. The minimal requirement is for
-a contact person for that link type.
 
 #  Contributors
 
