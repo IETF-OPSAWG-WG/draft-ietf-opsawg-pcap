@@ -230,8 +230,9 @@ Timestamp (Seconds) and Timestamp (Microseconds or nanoseconds):
 : seconds and fraction of a seconds values of a timestamp.
 : The seconds value is a 32-bit unsigned integer that represents the
 number of seconds that have elapsed since 1970-01-01 00:00:00 UTC, and
-the microseconds or nanoseconds value represents the number of
-microseconds or nanoseconds that have elapsed since that seconds.
+the microseconds or nanoseconds value is a 32-bit unsigned value that
+represents the number of microseconds or nanoseconds that have elapsed
+since that seconds.
 : The Magic Number field in the File Header of a file indicates
 whether the values of the Timestamp (Microseconds or nanoseconds) fields
 of packets in that file are in units of microseconds or nanoseconds.
