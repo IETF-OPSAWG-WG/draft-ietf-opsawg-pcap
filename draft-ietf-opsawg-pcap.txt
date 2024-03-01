@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 28 June 2024                                          Sandelman
-                                                        26 December 2023
+Expires: 2 September 2024                                      Sandelman
+                                                            1 March 2024
 
 
                         PCAP Capture File Format
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 June 2024.
+   This Internet-Draft will expire on 2 September 2024.
 
 Copyright Notice
 
-   Copyright (c) 2023 IETF Trust and the persons identified as the
+   Copyright (c) 2024 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -271,8 +271,9 @@ Table of Contents
 
       The seconds value is a 32-bit unsigned integer that represents the
       number of seconds that have elapsed since 1970-01-01 00:00:00 UTC,
-      and the microseconds or nanoseconds value represents the number of
-      microseconds or nanoseconds that have elapsed since that seconds.
+      and the microseconds or nanoseconds value is a 32-bit unsigned
+      value that represents the number of microseconds or nanoseconds
+      that have elapsed since that seconds.
 
       The Magic Number field in the File Header of a file indicates
       whether the values of the Timestamp (Microseconds or nanoseconds)
@@ -400,9 +401,9 @@ Table of Contents
    [I-D.ietf-opsawg-pcaplinktype]
               Harris, G. and M. Richardson, "Link-Layer Types for PCAP
               and PCAPNG Capture File Formats", Work in Progress,
-              Internet-Draft, draft-ietf-opsawg-pcaplinktype-01, 23 July
-              2023, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              opsawg-pcaplinktype-01>.
+              Internet-Draft, draft-ietf-opsawg-pcaplinktype-02, 30
+              January 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-opsawg-pcaplinktype-02>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
