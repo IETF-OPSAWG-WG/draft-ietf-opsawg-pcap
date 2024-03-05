@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 2 September 2024                          Politecnico di Torino
+Expires: 6 September 2024                          Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 2 September 2024                          Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                            1 March 2024
+                                                            5 March 2024
 
 
            PCAP Next Generation (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 September 2024.
+   This Internet-Draft will expire on 6 September 2024.
 
 Copyright Notice
 
@@ -1211,7 +1211,7 @@ Table of Contents
       bits of a single 64-bit quantity.
 
    *  Captured Packet Length (32 bits): an unsigned value that indicates
-      the number of octets captured from the packet (i.e. the length of
+      the number of octets captured from the packet (i.e., the length of
       the Packet Data field).  It will be the minimum value among the
       Original Packet Length and the snapshot length for the interface
       (SnapLen, defined in Figure 10).  The value of this field does not
@@ -1219,10 +1219,13 @@ Table of Contents
       field to align the Packet Data field to a 32-bit boundary.
 
    *  Original Packet Length (32 bits): an unsigned value that indicates
-      the actual length of the packet when it was transmitted on the
-      network.  It can be different from the Captured Packet Length if
-      the packet has been truncated by the capture process; it SHOULD
-      NOT be less than the Captured Packet Length.
+      the number of octets of packet data that would have been provided
+      had the packet not been truncated to the snapshot length for the
+      interface or to a length limit imposed by the capture mechanism.
+      If no truncation was done, it will be the same as the Captured
+      Packet Length, but it will be different from the Captured Packet
+      Length if the packet has been truncated by the capture process.
+      It SHOULD NOT be less than the Captured Packet Length.
 
       A pcapng file writer MAY write an Original Packet Length that is
       less than the Captured Packet Length if both the Captured Packet

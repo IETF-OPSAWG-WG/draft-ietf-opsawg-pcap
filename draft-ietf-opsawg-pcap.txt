@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 2 September 2024                                      Sandelman
-                                                            1 March 2024
+Expires: 6 September 2024                                      Sandelman
+                                                            5 March 2024
 
 
                         PCAP Capture File Format
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 September 2024.
+   This Internet-Draft will expire on 6 September 2024.
 
 Copyright Notice
 
@@ -193,7 +193,7 @@ Table of Contents
       of octets captured from each packet.  The portion of each packet
       that exceeds this value will not be stored in the file.  This
       value MUST NOT be zero; if no limit was specified, the value
-      should be a number greater than or equal to the largest packet
+      SHOULD be a number greater than or equal to the largest packet
       length in the file.
 
    LinkType and additional information (32 bits):  a 32-bit unsigned
@@ -281,16 +281,19 @@ Table of Contents
       nanoseconds.
 
    Captured Packet Length (32 bits):  an unsigned value that indicates
-      the number of octets captured from the packet (i.e.  the length of
+      the number of octets captured from the packet (i.e., the length of
       the Packet Data field).  It will be the minimum value among the
       Original Packet Length and the snapshot length for the interface
       (SnapLen, defined in Figure 1).
 
    Original Packet Length (32 bits):  an unsigned value that indicates
-      the actual length of the packet when it was transmitted on the
-      network.  It can be different from the Captured Packet Length if
-      the packet has been truncated by the capture process; it SHOULD
-      NOT be less than the Captured Packet Length.
+      the number of octets of packet data that would have been provided
+      had the packet not been truncated to the snapshot length for the
+      interface or to a length limit imposed by the capture mechanism.
+      If no truncation was done, it will be the same as the Captured
+      Packet Length, but it will be different from the Captured Packet
+      Length if the packet has been truncated by the capture process.
+      It SHOULD NOT be less than the Captured Packet Length.
 
       A pcap file writer MAY write an Original Packet Length that is
       less than the Captured Packet Length if both the Captured Packet
@@ -304,7 +307,7 @@ Table of Contents
       than or equal to the Captured Packet Length.
 
    Packet Data:  the data coming from the network, including link-layer
-      headers.  The actual length of this field is Captured Packet
+      headers.  The actual length of this field is the Captured Packet
       Length.  The format of the link-layer headers depends on the
       LinkType field specified in the file header (see Figure 1) and it
       is specified in [I-D.ietf-opsawg-pcaplinktype].
