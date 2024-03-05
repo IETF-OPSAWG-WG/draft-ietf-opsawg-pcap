@@ -1308,19 +1308,21 @@ The Enhanced Packet Block has the following fields:
 
 * Captured Packet Length (32 bits): an unsigned value that
   indicates the number of octets captured from the packet
-  (i.e. the length of the Packet Data field). It will be the
+  (i.e., the length of the Packet Data field). It will be the
   minimum value among the Original Packet Length and the
-  snapshot length for the interface (SnapLen, defined in {{format_idb}}). The value of this field does
-  not include the padding octets added at the end of the Packet
-  Data field to align the Packet Data field to a 32-bit
-  boundary.
+  snapshot length for the interface (SnapLen, defined in
+  {{format_idb}}). The value of this field does not include the padding
+  octets added at the end of the Packet Data field to align the Packet
+  Data field to a 32-bit boundary.
 
-* Original Packet Length (32 bits): an unsigned value that
-  indicates the actual length of the packet when it was
-  transmitted on the network.  It can be different from
-  the Captured Packet Length if the packet has been truncated
-  by the capture process; it SHOULD NOT be less than the Captured Packet
-  Length.
+* Original Packet Length (32 bits): an unsigned value that indicates the
+  number of octets of packet data that would have been provided had the
+  packet not been truncated to the snapshot length for the interface or
+  to a length limit imposed by the capture mechanism.  If no truncation
+  was done, it will be the same as the Captured Packet Length, but it
+  will be different from the Captured Packet Length if the packet has
+  been truncated by the capture process. It SHOULD NOT be less than the
+  Captured Packet Length.
 
   A pcapng file writer MAY write an Original Packet Length that is less
   than the Captured Packet Length if both the Captured Packet Length and

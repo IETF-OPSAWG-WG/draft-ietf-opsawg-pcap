@@ -150,7 +150,7 @@ SnapLen (32 bits):
 : an unsigned value indicating the maximum number of octets captured
 from each packet.  The portion of each packet that exceeds this value
 will not be stored in the file.  This value MUST NOT be zero; if no
-limit was specified, the value should be a number greater than or equal
+limit was specified, the value SHOULD be a number greater than or equal
 to the largest packet length in the file.
 
 LinkType and additional information (32 bits):
@@ -239,30 +239,34 @@ of packets in that file are in units of microseconds or nanoseconds.
 
 Captured Packet Length (32 bits):
 : an unsigned value that indicates the number of octets captured from
-the packet (i.e.  the length of the Packet Data field).  It will be the
+the packet (i.e., the length of the Packet Data field).  It will be the
 minimum value among the Original Packet Length and the snapshot length
 for the interface (SnapLen, defined in Figure 1).
 
 Original Packet Length (32 bits):
-: an unsigned value that indicates the actual length of the packet when
-it was transmitted on the network.  It can be different from the
-Captured Packet Length if the packet has been truncated by the capture
-process; it SHOULD NOT be less than the Captured Packet Length.
+: an unsigned value that indicates the number of octets of packet data
+that would have been provided had the packet not been truncated to the
+snapshot length for the interface or to a length limit imposed by the
+capture mechanism. If no truncation was done, it will be the same as
+the Captured Packet Length, but it will be different from the Captured
+Packet Length if the packet has been truncated by the capture process.
+It SHOULD NOT be less than the Captured Packet Length.
 : A pcap file writer MAY write an Original Packet Length that is less
 than the Captured Packet Length if both the Captured Packet Length and
 the Original Packet length came from a file in which a packet had an
 Original Packet Length less than the Captured Packet Length; otherwise,
 it MUST write an Original Packet Length that is greater than or equal to
 the Captured Packet Length.
-: A pcap file reader MAY convert an Original
-Packet Length that is less than the Captured Packet Length to a value
-that is greater than or equal to the Captured Packet Length.
+: A pcap file reader MAY convert an Original Packet Length that is less
+than the Captured Packet Length to a value that is greater than or equal
+to the Captured Packet Length.
 
 Packet Data:
-: the data coming from the network, including link-layer headers.  The
-actual length of this field is Captured Packet Length.  The format of
-the link-layer headers depends on the LinkType field specified in the
-file header (see Figure 1) and it is specified in {{I-D.ietf-opsawg-pcaplinktype}}.
+: the data coming from the network, including link-layer headers. The
+actual length of this field is the Captured Packet Length. The format
+of the link-layer headers depends on the LinkType field specified in the
+file header (see Figure 1) and it is specified in
+{{I-D.ietf-opsawg-pcaplinktype}}.
 
 Packet Records are not padded to a 4-octet boundary; if the number of
 octets of packet data is not a multiple of 4, there are no padding
