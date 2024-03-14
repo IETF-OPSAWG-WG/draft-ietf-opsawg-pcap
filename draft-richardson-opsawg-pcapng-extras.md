@@ -137,6 +137,10 @@ Journal Export Block.
    /              variable length, padded to 32 bits               /
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ n /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
@@ -159,6 +163,23 @@ The systemd Journal Export Block has the following fields:
   (trailing newline) as described in the Journal Export Format
   specification
 
+  If the block contains options, there MUST be at least one byte of
+  zero padding present to mark the end of the journal entry.  This
+  only makes a difference if the journal entry is a multiple of four
+  octets long, in this case 4 bytes of zero padding MUST be appended.
+  Blocks without options do not contain any zero padding if the journal
+  entry is a multiple of 4 octets long, therefore readers MUST NOT
+  rely on the presence of a zero byte to terminate the entry.
+
+* Options: optionally, a list of options (formatted according to
+  the rules defined in {{I-D.tuexen-opsawg-pcapng}}, section "Options")
+  can be present.
+
+
+The options defined in {{I-D.tuexen-opsawg-pcapng}}, section "Options"
+(opt_endofopt, opt_comment, opt_custom, ...) are valid within this block.
+There are currently no additional options definied for Journal Export
+Blocks.
 
 
 ## Alternative Packet Blocks (experimental)
