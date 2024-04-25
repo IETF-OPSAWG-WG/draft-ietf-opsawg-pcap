@@ -173,13 +173,13 @@ Table of Contents
    |                                   |        |BSD encapsulation         |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_SLIP                      |   8    |SLIP, w/LINKTYPE_SLIP     |
-   |                                   |        |header.                   |
+   |                                   |        |header                    |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_PPP                       |   9    |PPP, as per RFC 1661/RFC  |
    |                                   |        |1662                      |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_FDDI                      |   10   |FDDI: per ANSI INCITS     |
-   |                                   |        |239-1994.                 |
+   |                                   |        |239-1994                  |
    +-----------------------------------+--------+--------------------------+
    |not to be used                     | 11-49  |Do not use these values   |
    +-----------------------------------+--------+--------------------------+
@@ -209,7 +209,7 @@ Table of Contents
    |                                   |        |framing, as per           |
    |                                   |        |Section 4.3.1 of RFC 1547 |
    +-----------------------------------+--------+--------------------------+
-   |LINKTYPE_IEEE802_11                |  105   |IEEE 802.11 wireless LAN. |
+   |LINKTYPE_IEEE802_11                |  105   |IEEE 802.11 wireless LAN  |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_ATM_CLIP                  |  106   |ATM Classical IP, with no |
    |                                   |        |header preceding IP       |
@@ -439,7 +439,7 @@ Table of Contents
    |                                   |        |LINKTYPE_LINUX_LAPD header|
    |                                   |        |, followed by the Q.921   |
    |                                   |        |frame, starting with the  |
-   |                                   |        |address field.            |
+   |                                   |        |address field             |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_JUNIPER_ETHER             |  178   |Reserved for Juniper      |
    |                                   |        |Networks                  |
@@ -457,7 +457,7 @@ Table of Contents
    |                                   |        |Relay frames, beginning   |
    |                                   |        |with an FRF.12 Interface  |
    |                                   |        |fragmentation format      |
-   |                                   |        |fragmentation header.     |
+   |                                   |        |fragmentation header      |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_JUNIPER_VP                |  183   |Reserved for Juniper      |
    |                                   |        |Networks                  |
@@ -487,7 +487,7 @@ Table of Contents
    |                                   |        |Functional Specification  |
    |                                   |        |portion of the most recent|
    |                                   |        |Bluetooth Core            |
-   |                                   |        |Specification.            |
+   |                                   |        |Specification             |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_IEEE802_16_MAC_CPS        |  188   |Reserved for IEEE 802.16  |
    |                                   |        |MAC Common Part Sublayer  |
@@ -518,7 +518,7 @@ Table of Contents
    |                                   |        |for the section of the    |
    |                                   |        |pcapng file, as specified |
    |                                   |        |by the Section Header     |
-   |                                   |        |Block.                    |
+   |                                   |        |Block                     |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_CAN20B                    |  190   |Reserved for Controller   |
    |                                   |        |Area Network (CAN) v. 2.0B|
@@ -536,7 +536,7 @@ Table of Contents
    |                                   |        |by a packet with the      |
    |                                   |        |LINKTYPE_ value specified |
    |                                   |        |by the pph_dlt field of   |
-   |                                   |        |that header.              |
+   |                                   |        |that header               |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_IEEE802_16_MAC_CPS_RADIO  |  193   |Reserved for 802.16 MAC   |
    |                                   |        |Common Part Sublayer plus |
@@ -548,7 +548,7 @@ Table of Contents
    |LINKTYPE_IEEE802_15_4_WITHFCS      |  195   |IEEE 802.15.4 Low-Rate    |
    |                                   |        |Wireless Networks, with   |
    |                                   |        |each packet having the FCS|
-   |                                   |        |at the end of the frame.  |
+   |                                   |        |at the end of the frame   |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_SITA                      |  196   |Various link-layer types, |
    |                                   |        |with a pseudo-header , for|
@@ -558,7 +558,7 @@ Table of Contents
    |                                   |        |with a pseudo-header, for |
    |                                   |        |Endace DAG cards;         |
    |                                   |        |encapsulates Endace ERF   |
-   |                                   |        |records.                  |
+   |                                   |        |records                   |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_RAIF1                     |  198   |Reserved for Ethernet     |
    |                                   |        |packets captured from a   |
@@ -596,12 +596,12 @@ Table of Contents
    |                                   |        |Functional Specification  |
    |                                   |        |portion of the most recent|
    |                                   |        |Bluetooth Core            |
-   |                                   |        |Specification.            |
+   |                                   |        |Specification             |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_AX25_KISS                 |  202   |AX.25 packet, with a      |
    |                                   |        |1-octet KISS header       |
    |                                   |        |containing a type         |
-   |                                   |        |indicator.                |
+   |                                   |        |indicator                 |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_LAPD                      |  203   |Link Access Procedures on |
    |                                   |        |the D Channel (LAPD)      |
@@ -610,7 +610,7 @@ Table of Contents
    |                                   |        |and ITU-T Recommendation  |
    |                                   |        |Q.921 , starting with the |
    |                                   |        |address field, with no    |
-   |                                   |        |pseudo-header.            |
+   |                                   |        |pseudo-header             |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_PPP_WITH_DIR              |  204   |PPP, as per RFC 1661 and  |
    |                                   |        |RFC 1662 , preceded with a|
@@ -629,7 +629,7 @@ Table of Contents
    |                                   |        |begins with the PPP       |
    |                                   |        |header.  The data in the  |
    |                                   |        |frame is not octet-stuffed|
-   |                                   |        |or bit-stuffed.           |
+   |                                   |        |or bit-stuffed            |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_C_HDLC_WITH_DIR           |  205   |Cisco PPP with HDLC       |
    |                                   |        |framing, as per section   |
@@ -639,7 +639,7 @@ Table of Contents
    |                                   |        |value meaning received by |
    |                                   |        |this host and a non-zero  |
    |                                   |        |value meaning sent by this|
-   |                                   |        |host.                     |
+   |                                   |        |host                      |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_FRELAY_WITH_DIR           |  206   |Frame Relay LAPF frames,  |
    |                                   |        |beginning with a one-octet|
@@ -653,7 +653,7 @@ Table of Contents
    |                                   |        |LAPF header starting with |
    |                                   |        |the address field, and    |
    |                                   |        |without an FCS at the end |
-   |                                   |        |of the frame.             |
+   |                                   |        |of the frame              |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_LAPB_WITH_DIR             |  207   |Link Access Procedure,    |
    |                                   |        |Balanced (LAPB), as       |
@@ -665,7 +665,7 @@ Table of Contents
    |                                   |        |this host (DCE->DTE) and a|
    |                                   |        |non-zero value meaning    |
    |                                   |        |sent by this host         |
-   |                                   |        |(DTE->DCE).               |
+   |                                   |        |(DTE->DCE)                |
    +-----------------------------------+--------+--------------------------+
    |Reserved                           |  208   |Reserved for an           |
    |                                   |        |unspecified link-layer    |
@@ -705,7 +705,7 @@ Table of Contents
    |                                   |        |length + reserved bit)    |
    |                                   |        |preceding the MAC-layer   |
    |                                   |        |data (starting with the   |
-   |                                   |        |frame control field).     |
+   |                                   |        |frame control field)      |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_LINUX_EVDEV               |  216   |Reserved for Linux evdev  |
    |                                   |        |messages                  |
@@ -750,7 +750,7 @@ Table of Contents
    |                                   |        |isochronous transfers, the|
    |                                   |        |ndesc field specifies the |
    |                                   |        |number of isochronous     |
-   |                                   |        |descriptors that follow.  |
+   |                                   |        |descriptors that follow   |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_DECT                      |  221   |Reserved for DECT packets,|
    |                                   |        |with a pseudo-header      |
@@ -764,7 +764,7 @@ Table of Contents
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_FC_2                      |  224   |Fibre Channel FC-2 frames,|
    |                                   |        |beginning with a          |
-   |                                   |        |Frame_Header.             |
+   |                                   |        |Frame_Header              |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_FC_2_WITH_FRAME_DELIMS    |  225   |Fibre Channel FC-2 frames,|
    |                                   |        |beginning an encoding of  |
@@ -784,29 +784,27 @@ Table of Contents
    |                                   |        |SOFi2, which is K28.5 -   |
    |                                   |        |D21.5 - D1.2 - D21.2, is  |
    |                                   |        |represented as 0xBC 0xB5  |
-   |                                   |        |0x55 0x55.                |
+   |                                   |        |0x55 0x55                 |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_IPNET                     |  226   |Solaris ipnet pseudo-     |
    |                                   |        |header , followed by an   |
-   |                                   |        |IPv4 or IPv6 datagram.    |
+   |                                   |        |IPv4 or IPv6 datagram     |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_CAN_SOCKETCAN             |  227   |CAN (Controller Area      |
    |                                   |        |Network) frames, with a   |
    |                                   |        |pseudo-header followed by |
-   |                                   |        |the frame payload.        |
+   |                                   |        |the frame payload         |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_IPV4                      |  228   |Raw IPv4; the packet      |
-   |                                   |        |begins with an IPv4       |
-   |                                   |        |header.                   |
+   |                                   |        |begins with an IPv4 header|
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_IPV6                      |  229   |Raw IPv6; the packet      |
-   |                                   |        |begins with an IPv6       |
-   |                                   |        |header.                   |
+   |                                   |        |begins with an IPv6 header|
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_IEEE802_15_4_NOFCS        |  230   |IEEE 802.15.4 Low-Rate    |
    |                                   |        |Wireless Network, without |
    |                                   |        |the FCS at the end of the |
-   |                                   |        |frame.                    |
+   |                                   |        |frame                     |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_DBUS                      |  231   |Raw D-Bus messages ,      |
    |                                   |        |starting with the         |
@@ -815,7 +813,7 @@ Table of Contents
    |                                   |        |but without the           |
    |                                   |        |authentication handshake  |
    |                                   |        |before the message        |
-   |                                   |        |sequence.                 |
+   |                                   |        |sequence                  |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_JUNIPER_VS                |  232   |Reserved for Juniper      |
    |                                   |        |Networks                  |
@@ -838,7 +836,7 @@ Table of Contents
    |LINKTYPE_MUX27010                  |  236   |Variant of 3GPP TS 27.010 |
    |                                   |        |multiplexing protocol     |
    |                                   |        |(similar to, but not the  |
-   |                                   |        |same as, 27.010).         |
+   |                                   |        |same as, 27.010)          |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_STANAG_5066_D_PDU         |  237   |D_PDUs as described by    |
    |                                   |        |NATO standard STANAG 5066,|
@@ -850,13 +848,13 @@ Table of Contents
    |                                   |        |5066 is backwards-        |
    |                                   |        |compatible with the 1.0.2 |
    |                                   |        |version , although newer  |
-   |                                   |        |versions are classified.  |
+   |                                   |        |versions are classified   |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_JUNIPER_ATM_CEMIC         |  238   |Reserved for Juniper      |
    |                                   |        |Networks                  |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_NFLOG                     |  239   |Linux netlink NETLINK     |
-   |                                   |        |NFLOG socket log messages.|
+   |                                   |        |NFLOG socket log messages |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_NETANALYZER               |  240   |Pseudo-header for Hilscher|
    |                                   |        |Gesellschaft für          |
@@ -865,7 +863,7 @@ Table of Contents
    |                                   |        |followed by an Ethernet   |
    |                                   |        |frame, beginning with the |
    |                                   |        |MAC header and ending with|
-   |                                   |        |the FCS.                  |
+   |                                   |        |the FCS                   |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_NETANALYZER_TRANSPARENT   |  241   |Pseudo-header for Hilscher|
    |                                   |        |Gesellschaft für          |
@@ -875,7 +873,7 @@ Table of Contents
    |                                   |        |frame, beginning with the |
    |                                   |        |preamble, SFD, and MAC    |
    |                                   |        |header, and ending with   |
-   |                                   |        |the FCS.                  |
+   |                                   |        |the FCS                   |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_IPOIB                     |  242   |IP-over-InfiniBand, as    |
    |                                   |        |specified by RFC 4391     |
@@ -887,7 +885,7 @@ Table of Contents
    |                                   |        |ITU-T Recommendation      |
    |                                   |        |H.222.0 (see table 2-2 of |
    |                                   |        |section 2.4.3.2 Transport |
-   |                                   |        |Stream packet layer).     |
+   |                                   |        |Stream packet layer)      |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_NG40                      |  244   |Pseudo-header for ng4T    |
    |                                   |        |GmbH's UMTS Iub/Iur-over- |
@@ -907,7 +905,7 @@ Table of Contents
    |                                   |        |Recommendation Q.2110 for |
    |                                   |        |ATM AAL5 traffic, and by  |
    |                                   |        |NBAP packets for SCTP     |
-   |                                   |        |traffic.                  |
+   |                                   |        |traffic                   |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_NFC_LLCP                  |  245   |Pseudo-header for NFC LLCP|
    |                                   |        |packet captures , followed|
@@ -930,7 +928,7 @@ Table of Contents
    |LINKTYPE_SCTP                      |  248   |SCTP packets, as defined  |
    |                                   |        |by RFC 4960 , with no     |
    |                                   |        |lower-level protocols such|
-   |                                   |        |as IPv4 or IPv6.          |
+   |                                   |        |as IPv4 or IPv6           |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_USBPCAP                   |  249   |USB packets, beginning    |
    |                                   |        |with a USBPcap header     |
@@ -941,7 +939,7 @@ Table of Contents
    |                                   |        |RTAC product , followed by|
    |                                   |        |a payload for one of a    |
    |                                   |        |number of industrial      |
-   |                                   |        |control protocols.        |
+   |                                   |        |control protocols         |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_BLUETOOTH_LE_LL           |  251   |Bluetooth Low Energy air  |
    |                                   |        |interface Link Layer      |
@@ -951,7 +949,7 @@ Table of Contents
    |                                   |        |of the Bluetooth          |
    |                                   |        |Specification Version 4.0 |
    |                                   |        |(see PDF page 2200), but  |
-   |                                   |        |without the Preamble.     |
+   |                                   |        |without the Preamble      |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_WIRESHARK_UPPER_PDU       |  252   |Reserved for Wireshark    |
    +-----------------------------------+--------+--------------------------+
@@ -976,7 +974,7 @@ Table of Contents
    |                                   |        |delimiter, ending with the|
    |                                   |        |end delimiter, and        |
    |                                   |        |including all octets      |
-   |                                   |        |between them.             |
+   |                                   |        |between them              |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_PKTAP                     |  258   |Apple PKTAP capture       |
    |                                   |        |encapsulation             |
@@ -990,7 +988,7 @@ Table of Contents
    |                                   |        |Clause 65 of Section 5 of |
    |                                   |        |IEEE 802.3 , followed     |
    |                                   |        |immediately by an Ethernet|
-   |                                   |        |frame.                    |
+   |                                   |        |frame                     |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_IPMI_HPM_2                |  260   |IPMI trace packets, as    |
    |                                   |        |specified by Table 3-20   |
@@ -1000,26 +998,26 @@ Table of Contents
    |                                   |        |timestamps for packets in |
    |                                   |        |this format must match the|
    |                                   |        |timestamps in the Trace   |
-   |                                   |        |Data Blocks.              |
+   |                                   |        |Data Blocks               |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_ZWAVE_R1_R2               |  261   |Z-Wave RF profile R1 and  |
    |                                   |        |R2 packets , as specified |
    |                                   |        |by ITU-T Recommendation   |
    |                                   |        |G.9959 , with some MAC    |
-   |                                   |        |layer fields moved.       |
+   |                                   |        |layer fields moved        |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_ZWAVE_R3                  |  262   |Z-Wave RF profile R3      |
    |                                   |        |packets , as specified by |
    |                                   |        |ITU-T Recommendation      |
    |                                   |        |G.9959 , with some MAC    |
-   |                                   |        |layer fields moved.       |
+   |                                   |        |layer fields moved        |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_WATTSTOPPER_DLM           |  263   |Formats for WattStopper   |
    |                                   |        |Digital Lighting          |
    |                                   |        |Management (DLM) and      |
    |                                   |        |Legrand Nitoo Open        |
    |                                   |        |protocol common packet    |
-   |                                   |        |structure captures.       |
+   |                                   |        |structure captures        |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_ISO_14443                 |  264   |Messages between ISO 14443|
    |                                   |        |contactless smartcards    |
@@ -1054,7 +1052,7 @@ Table of Contents
    |                                   |        |insertion, or Frame Check |
    |                                   |        |Sequence field, containing|
    |                                   |        |SNA path information units|
-   |                                   |        |(PIUs) as the payload.    |
+   |                                   |        |(PIUs) as the payload     |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_TI_LLN_SNIFFER            |  269   |Reserved for Texas        |
    |                                   |        |Instruments protocol      |
@@ -1069,7 +1067,7 @@ Table of Contents
    |LINKTYPE_VSOCK                     |  271   |Protocol for communication|
    |                                   |        |between host and guest    |
    |                                   |        |machines in VMware and KVM|
-   |                                   |        |hypervisors.              |
+   |                                   |        |hypervisors               |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_NORDIC_BLE                |  272   |Messages to and from a    |
    |                                   |        |Nordic Semiconductor nRF  |
@@ -1086,7 +1084,7 @@ Table of Contents
    |                                   |        |IEEE 802.3br Figure 99-4, |
    |                                   |        |starting with the preamble|
    |                                   |        |and always ending with a  |
-   |                                   |        |CRC field.                |
+   |                                   |        |CRC field                 |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_DISPLAYPORT_AUX           |  275   |DisplayPort AUX channel   |
    |                                   |        |monitoring data as        |
@@ -1119,26 +1117,26 @@ Table of Contents
    |                                   |        |between the source address|
    |                                   |        |field and the type/length |
    |                                   |        |field in the Ethernet     |
-   |                                   |        |header.                   |
+   |                                   |        |header                    |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_DSA_TAG_BRCM_PREPEND      |  282   |Ethernet frames, with a   |
    |                                   |        |switch tag inserted before|
    |                                   |        |the destination address in|
-   |                                   |        |the Ethernet header.      |
+   |                                   |        |the Ethernet header       |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_IEEE802_15_4_TAP          |  283   |IEEE 802.15.4 Low-Rate    |
    |                                   |        |Wireless Networks, with a |
    |                                   |        |pseudo-header containing  |
    |                                   |        |TLVs with metadata        |
    |                                   |        |preceding the 802.15.4    |
-   |                                   |        |header.                   |
+   |                                   |        |header                    |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_DSA_TAG_DSA               |  284   |Ethernet frames, with a   |
    |                                   |        |switch tag inserted       |
    |                                   |        |between the source address|
    |                                   |        |field and the type/length |
    |                                   |        |field in the Ethernet     |
-   |                                   |        |header.                   |
+   |                                   |        |header                    |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_DSA_TAG_EDSA              |  285   |Ethernet frames, with a   |
    |                                   |        |programmable Ethernet type|
@@ -1146,7 +1144,7 @@ Table of Contents
    |                                   |        |between the source address|
    |                                   |        |field and the type/length |
    |                                   |        |field in the Ethernet     |
-   |                                   |        |header.                   |
+   |                                   |        |header                    |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_ELEE                      |  286   |Payload of lawful         |
    |                                   |        |intercept packets using   |
@@ -1156,7 +1154,7 @@ Table of Contents
    |                                   |        |include any transport-    |
    |                                   |        |layer or lower-layer      |
    |                                   |        |headers for protocols used|
-   |                                   |        |to transport ELEE packets.|
+   |                                   |        |to transport ELEE packets |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_Z_WAVE_SERIAL             |  287   |Serial frames transmitted |
    |                                   |        |between a host and a      |
@@ -1239,7 +1237,7 @@ Table of Contents
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_FIRA_UCI                  |  299   |Ultra-wideband (UWB)      |
    |                                   |        |controller interface      |
-   |                                   |        |protocol (UCI).           |
+   |                                   |        |protocol (UCI)            |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_MDB                       |  300   |MDB (Multi-Drop Bus)      |
    |                                   |        |protocol between a vending|
@@ -1261,7 +1259,7 @@ Table of Contents
    |                                   |        |used the Receiver Identity|
    |                                   |        |value 0x0000 (reserved    |
    |                                   |        |address) is used to detect|
-   |                                   |        |broadcast transmissions.  |
+   |                                   |        |broadcast transmissions   |
    +-----------------------------------+--------+--------------------------+
 
                                   Table 1
