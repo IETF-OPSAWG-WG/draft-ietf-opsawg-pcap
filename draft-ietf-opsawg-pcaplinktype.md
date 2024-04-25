@@ -210,6 +210,7 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_JUNIPER_CHDLC|181|Reserved for Juniper Networks
 |LINKTYPE_MFR|182|FRF.16.1 Multi-Link Frame Relay frames, beginning with an FRF.12 Interface fragmentation format fragmentation header.
 |LINKTYPE_JUNIPER_VP|183|Reserved for Juniper Networks
+|LINKTYPE_A429|184|Reserved for ARINC 429 frames
 |LINKTYPE_A653_ICM|185|Reserved for Arinc 653 Interpartition Communication messages
 |LINKTYPE_USB_FREEBSD|186|USB packets, beginning with a FreeBSD USB header
 |LINKTYPE_BLUETOOTH_HCI_H4|187|Bluetooth HCI UART transport layer; the frame contains an HCI packet indicator octet, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification , followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification.
