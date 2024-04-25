@@ -316,6 +316,18 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_Z_WAVE_SERIAL|287|Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection, as described in section 5 of the Z-Wave Serial API Host Application Programming Guide
 |LINKTYPE_USB_2_0|288|USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the Universal Serial Bus Specification Revision 2.0
 |LINKTYPE_ATSC_ALP|289|ATSC Link-Layer Protocol frames, as described in section 5 of the A/330 Link-Layer Protocol specification, found at the ATSC 3.0 standards page , beginning with a Base Header
+|LINKTYPE_ETW|290|Event Tracing for Windows messages, beginning with a pseudo-header
+|LINKTYPE_NETANALYZER_NG|291|Reserved for Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software
+|LINKTYPE_ZBOSS_NCP|292|Serial NCP (Network Co-Processor) protocol for Zigbee stack ZBOSS by DSR. Am ZBOSS NCP protocol, beginning with a www.tcpdump.org/linktypes/LINKTYPE_ZBOSS_NCP.html header
+|LINKTYPE_USB_2_0_LOW_SPEED|293|Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the Universal Serial Bus Specification Revision 2.0
+|LINKTYPE_USB_2_0_FULL_SPEED|294|Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the Universal Serial Bus Specification Revision 2.0
+|LINKTYPE_USB_2_0_HIGH_SPEED|295|High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the Universal Serial Bus Specification Revision 2.0
+|LINKTYPE_AUERSWALD_LOG|296|Auerswald Logger Protocol
+|LINKTYPE_ZWAVE_TAP|297|Z-Wave packets, as specified by ITU-T Recommendation G.9959, with a TAP meta-data header
+|LINKTYPE_SILABS_DEBUG_CHANNEL|298|Silicon Labs debug channel protocol
+|LINKTYPE_FIRA_UCI|299|Ultra-wideband (UWB) controller interface protocol (UCI).
+|LINKTYPE_MDB|300|MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine, with the message format
+|LINKTYPE_DECT_NR|301|DECT-2020 New Radio (NR) MAC layer specified in TS 103 636-4. The Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions.
 
 
 #  Guidance for Designated Experts
