@@ -1751,6 +1751,11 @@ DLT values are associated with specific operation system captures, and are opera
               <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
             </tr>
             <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_A429</td>
+              <td class="text-center" rowspan="1" colspan="1">184</td>
+              <td class="text-left" rowspan="1" colspan="1">Reserved for ARINC 429 frames</td>
+            </tr>
+            <tr>
               <td class="text-left" rowspan="1" colspan="1">LINKTYPE_A653_ICM</td>
               <td class="text-center" rowspan="1" colspan="1">185</td>
               <td class="text-left" rowspan="1" colspan="1">Reserved for Arinc 653 Interpartition Communication messages</td>
@@ -2274,6 +2279,66 @@ DLT values are associated with specific operation system captures, and are opera
               <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ATSC_ALP</td>
               <td class="text-center" rowspan="1" colspan="1">289</td>
               <td class="text-left" rowspan="1" colspan="1">ATSC Link-Layer Protocol frames, as described in section 5 of the A/330 Link-Layer Protocol specification, found at the ATSC 3.0 standards page , beginning with a Base Header</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ETW</td>
+              <td class="text-center" rowspan="1" colspan="1">290</td>
+              <td class="text-left" rowspan="1" colspan="1">Event Tracing for Windows messages, beginning with a pseudo-header</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NETANALYZER_NG</td>
+              <td class="text-center" rowspan="1" colspan="1">291</td>
+              <td class="text-left" rowspan="1" colspan="1">Reserved for Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZBOSS_NCP</td>
+              <td class="text-center" rowspan="1" colspan="1">292</td>
+              <td class="text-left" rowspan="1" colspan="1">Serial NCP (Network Co-Processor) protocol for Zigbee stack ZBOSS by DSR. Am ZBOSS NCP protocol, beginning with a www.tcpdump.org/linktypes/LINKTYPE_ZBOSS_NCP.html header</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0_LOW_SPEED</td>
+              <td class="text-center" rowspan="1" colspan="1">293</td>
+              <td class="text-left" rowspan="1" colspan="1">Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the Universal Serial Bus Specification Revision 2.0</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0_FULL_SPEED</td>
+              <td class="text-center" rowspan="1" colspan="1">294</td>
+              <td class="text-left" rowspan="1" colspan="1">Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the Universal Serial Bus Specification Revision 2.0</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0_HIGH_SPEED</td>
+              <td class="text-center" rowspan="1" colspan="1">295</td>
+              <td class="text-left" rowspan="1" colspan="1">High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the Universal Serial Bus Specification Revision 2.0</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AUERSWALD_LOG</td>
+              <td class="text-center" rowspan="1" colspan="1">296</td>
+              <td class="text-left" rowspan="1" colspan="1">Auerswald Logger Protocol</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZWAVE_TAP</td>
+              <td class="text-center" rowspan="1" colspan="1">297</td>
+              <td class="text-left" rowspan="1" colspan="1">Z-Wave packets, as specified by ITU-T Recommendation G.9959, with a TAP meta-data header</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SILABS_DEBUG_CHANNEL</td>
+              <td class="text-center" rowspan="1" colspan="1">298</td>
+              <td class="text-left" rowspan="1" colspan="1">Silicon Labs debug channel protocol</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FIRA_UCI</td>
+              <td class="text-center" rowspan="1" colspan="1">299</td>
+              <td class="text-left" rowspan="1" colspan="1">Ultra-wideband (UWB) controller interface protocol (UCI).</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MDB</td>
+              <td class="text-center" rowspan="1" colspan="1">300</td>
+              <td class="text-left" rowspan="1" colspan="1">MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine, with the message format</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DECT_NR</td>
+              <td class="text-center" rowspan="1" colspan="1">301</td>
+              <td class="text-left" rowspan="1" colspan="1">DECT-2020 New Radio (NR) MAC layer specified in TS 103 636-4. The Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions.</td>
             </tr>
           </tbody>
         </table>
