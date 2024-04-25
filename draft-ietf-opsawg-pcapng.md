@@ -624,7 +624,7 @@ The Custom Option has the following fields:
   PEN MUST be encoded using the same endianness as the Section
   Header Block it is within the scope of.
 
-* Custom Data: the custom data, padded to a 32 bit boundary.
+* Custom Data: the custom data, padded to a 32-bit boundary.
 
 
 
@@ -1492,7 +1492,7 @@ following:
 | 10 | Checksum valid, the checksum has already been checked on the receive path before it was handed to the packet capture mechanism, so there's no need for the packet analyzer to check it. |
 | 11 | TCP segmentation offloaded, this is either a received packet corresponding to several received link-layer packets, with reassembly having been done before the packet was handed to the packet capture mechanism, or a transmitted packet that will correspond to several link-layer packets after being fragmented, but that was wrapped around to the packet capture mechanism before the fragmentation occurred. |
 | 12-15 | Reserved (MUST be set to zero). |
-| 16-31 | link-layer-dependent errors (Bit 31 = symbol error, Bit 30 = preamble error, Bit 29 = Start Frame Delimiter error, Bit 28 = unaligned frame error, Bit 27 = wrong Inter Frame Gap error, Bit 26 = packet too short error, Bit 25 = packet too long error, Bit 24 = CRC error, other?? are 16 bit enough?). |
+| 16-31 | link-layer-dependent errors (Bit 31 = symbol error, Bit 30 = preamble error, Bit 29 = Start Frame Delimiter error, Bit 28 = unaligned frame error, Bit 27 = wrong Inter Frame Gap error, Bit 26 = packet too short error, Bit 25 = packet too long error, Bit 24 = CRC error, other?? are 16 bits enough?). |
 {: title=''}
 
 NOTE: in earlier versions of this specification, the bits
@@ -2025,7 +2025,7 @@ The Decryption Secrets Block has the following fields.
   the size of the following Secrets field, without any padding
   octets.
 
-* Secrets Data: binary data containing secrets, padded to a 32 bit
+* Secrets Data: binary data containing secrets, padded to a 32-bit
   boundary.
 
 * Options: optionally, a list of options (formatted according to
@@ -2116,7 +2116,7 @@ The following is a list of Secrets Types.
   the [ZigBee Specification](https://zigbeealliance.org/) 05-3473-21 (R21) section 4.2.2.
   The NWK Key is a 16 octet binary AES-128 key used to secure NWK Level frames
   within a single PAN. The NWK key is immediately followed by the
-  2 octet (16 bit) network PANID in little endian format. If and when
+  2-octet (16-bit) network PANID in little endian format. If and when
   the NWK Key changes a new DSB will contain the new NWK Key.
 {: vspace='0'}
 
@@ -2126,8 +2126,8 @@ The following is a list of Secrets Types.
 : ZigBee APS Key.
   Application Support Link Key as described in the [ZigBee Specification](https://zigbeealliance.org/) 05-3473-21 (R21) section 4.4. Each 16 octet binary AES-128 key secures
   frames exchanged between a pair of network nodes. The APS Key is
-  immediately followed by the 2 octet (16 bit) network PANID in
-  little endian format. The PANID is followed by the 2 octet (16 bit)
+  immediately followed by the 2-octet (16-bit) network PANID in
+  little endian format. The PANID is followed by the 2-octet (16-bit)
   short addresses, in little endian format, of the nodes to which
   the APS Key applies. The numerically lower short address shall come
   first. There is an APS Key DSB for each node pair for which the
@@ -2252,7 +2252,7 @@ The Custom Block has the following fields:
   encoded using the same endianness as the Section Header
   Block it is within the scope of.
 
-* Custom Data: the custom data, padded to a 32 bit boundary.
+* Custom Data: the custom data, padded to a 32-bit boundary.
 
 * Options: optionally, a list of options (formatted according to
   the rules defined in {{section_opt}}) can be present.
