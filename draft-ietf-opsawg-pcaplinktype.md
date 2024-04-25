@@ -329,7 +329,6 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_MDB|300|MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine, with the message format
 |LINKTYPE_DECT_NR|301|DECT-2020 New Radio (NR) MAC layer specified in TS 103 636-4. The Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions.
 
-
 #  Guidance for Designated Experts
 
 When processing a request for a Specification Required allocation the
