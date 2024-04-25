@@ -592,7 +592,7 @@ Table of Contents
       using the same endianness as the Section Header Block it is within
       the scope of.
 
-   *  Custom Data: the custom data, padded to a 32 bit boundary.
+   *  Custom Data: the custom data, padded to a 32-bit boundary.
 
 3.6.  Data format
 
@@ -1426,7 +1426,7 @@ Table of Contents
     |        | Delimiter error, Bit 28 = unaligned frame error, Bit  |
     |        | 27 = wrong Inter Frame Gap error, Bit 26 = packet too |
     |        | short error, Bit 25 = packet too long error, Bit 24 = |
-    |        | CRC error, other?? are 16 bit enough?).               |
+    |        | CRC error, other?? are 16 bits enough?).              |
     +--------+-------------------------------------------------------+
 
                                  Table 5
@@ -1908,7 +1908,7 @@ Table of Contents
    *  Secrets Length (32 bits): an unsigned integer that indicates the
       size of the following Secrets field, without any padding octets.
 
-   *  Secrets Data: binary data containing secrets, padded to a 32 bit
+   *  Secrets Data: binary data containing secrets, padded to a 32-bit
       boundary.
 
    *  Options: optionally, a list of options (formatted according to the
@@ -2006,7 +2006,7 @@ Table of Contents
            (https://zigbeealliance.org/) 05-3473-21 (R21) section 4.2.2.
            The NWK Key is a 16 octet binary AES-128 key used to secure
            NWK Level frames within a single PAN.  The NWK key is
-           immediately followed by the 2 octet (16 bit) network PANID in
+           immediately followed by the 2-octet (16-bit) network PANID in
            little endian format.  If and when the NWK Key changes a new
            DSB will contain the new NWK Key.
 
@@ -2015,9 +2015,9 @@ Table of Contents
            the ZigBee Specification (https://zigbeealliance.org/)
            05-3473-21 (R21) section 4.4.  Each 16 octet binary AES-128
            key secures frames exchanged between a pair of network nodes.
-           The APS Key is immediately followed by the 2 octet (16 bit)
+           The APS Key is immediately followed by the 2-octet (16-bit)
            network PANID in little endian format.  The PANID is followed
-           by the 2 octet (16 bit) short addresses, in little endian
+           by the 2-octet (16-bit) short addresses, in little endian
            format, of the nodes to which the APS Key applies.  The
            numerically lower short address shall come first.  There is
            an APS Key DSB for each node pair for which the Link Key is
@@ -2134,7 +2134,7 @@ Table of Contents
       encoded using the same endianness as the Section Header Block it
       is within the scope of.
 
-   *  Custom Data: the custom data, padded to a 32 bit boundary.
+   *  Custom Data: the custom data, padded to a 32-bit boundary.
 
    *  Options: optionally, a list of options (formatted according to the
       rules defined in Section 3.5) can be present.  Note that custom

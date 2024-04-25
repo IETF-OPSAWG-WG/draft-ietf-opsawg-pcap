@@ -1965,7 +1965,7 @@ PEN MUST be encoded using the same endianness as the Section
 Header Block it is within the scope of.<a href="#section-3.5.1-4.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.5.1-4.4">
-              <p id="section-3.5.1-4.4.1">Custom Data: the custom data, padded to a 32 bit boundary.<a href="#section-3.5.1-4.4.1" class="pilcrow">¶</a></p>
+              <p id="section-3.5.1-4.4.1">Custom Data: the custom data, padded to a 32-bit boundary.<a href="#section-3.5.1-4.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -3093,7 +3093,7 @@ following:<a href="#section-4.3.1-2" class="pilcrow">¶</a></p>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">16-31</td>
-                <td class="text-left" rowspan="1" colspan="1">link-layer-dependent errors (Bit 31 = symbol error, Bit 30 = preamble error, Bit 29 = Start Frame Delimiter error, Bit 28 = unaligned frame error, Bit 27 = wrong Inter Frame Gap error, Bit 26 = packet too short error, Bit 25 = packet too long error, Bit 24 = CRC error, other?? are 16 bit enough?).</td>
+                <td class="text-left" rowspan="1" colspan="1">link-layer-dependent errors (Bit 31 = symbol error, Bit 30 = preamble error, Bit 29 = Start Frame Delimiter error, Bit 28 = unaligned frame error, Bit 27 = wrong Inter Frame Gap error, Bit 26 = packet too short error, Bit 25 = packet too long error, Bit 24 = CRC error, other?? are 16 bits enough?).</td>
               </tr>
             </tbody>
           </table>
@@ -3761,7 +3761,7 @@ the size of the following Secrets field, without any padding
 octets.<a href="#section-4.7-6.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.7-6.5">
-            <p id="section-4.7-6.5.1">Secrets Data: binary data containing secrets, padded to a 32 bit
+            <p id="section-4.7-6.5.1">Secrets Data: binary data containing secrets, padded to a 32-bit
 boundary.<a href="#section-4.7-6.5.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.7-6.6">
@@ -3878,7 +3878,7 @@ and ZigBee PANID for that network. Network Key as described in
 the <a href="https://zigbeealliance.org/">ZigBee Specification</a> 05-3473-21 (R21) section 4.2.2.
 The NWK Key is a 16 octet binary AES-128 key used to secure NWK Level frames
 within a single PAN. The NWK key is immediately followed by the
-2 octet (16 bit) network PANID in little endian format. If and when
+2-octet (16-bit) network PANID in little endian format. If and when
 the NWK Key changes a new DSB will contain the new NWK Key.<a href="#section-4.7-11.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
@@ -3889,8 +3889,8 @@ the NWK Key changes a new DSB will contain the new NWK Key.<a href="#section-4.7
             <p id="section-4.7-12.2.1">ZigBee APS Key.
 Application Support Link Key as described in the <a href="https://zigbeealliance.org/">ZigBee Specification</a> 05-3473-21 (R21) section 4.4. Each 16 octet binary AES-128 key secures
 frames exchanged between a pair of network nodes. The APS Key is
-immediately followed by the 2 octet (16 bit) network PANID in
-little endian format. The PANID is followed by the 2 octet (16 bit)
+immediately followed by the 2-octet (16-bit) network PANID in
+little endian format. The PANID is followed by the 2-octet (16-bit)
 short addresses, in little endian format, of the nodes to which
 the APS Key applies. The numerically lower short address shall come
 first. There is an APS Key DSB for each node pair for which the
@@ -4037,7 +4037,7 @@ encoded using the same endianness as the Section Header
 Block it is within the scope of.<a href="#section-4.8-5.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.8-5.4">
-            <p id="section-4.8-5.4.1">Custom Data: the custom data, padded to a 32 bit boundary.<a href="#section-4.8-5.4.1" class="pilcrow">¶</a></p>
+            <p id="section-4.8-5.4.1">Custom Data: the custom data, padded to a 32-bit boundary.<a href="#section-4.8-5.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.8-5.5">
             <p id="section-4.8-5.5.1">Options: optionally, a list of options (formatted according to
