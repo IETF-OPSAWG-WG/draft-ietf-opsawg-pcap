@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 6 September 2024                                      Sandelman
-                                                            5 March 2024
+Expires: 27 October 2024                                       Sandelman
+                                                           25 April 2024
 
 
        Link-Layer Types for PCAP and PCAPNG Capture File Formats
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 September 2024.
+   This Internet-Draft will expire on 27 October 2024.
 
 Copyright Notice
 
@@ -71,11 +71,12 @@ Table of Contents
    2.  Terminology
    3.  IANA Considerations
      3.1.  LinkType Registry
-   4.  Contributors
-   5.  Acknowledgments
-   6.  References
-     6.1.  Normative References
-     6.2.  Informative References
+   4.  Guidance for Designated Experts
+   5.  Contributors
+   6.  Acknowledgments
+   7.  References
+     7.1.  Normative References
+     7.2.  Informative References
    Authors' Addresses
 
 1.  Introduction
@@ -359,36 +360,52 @@ Table of Contents
    |                                     |        |switch              |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_01                |  147   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_02                |  148   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_03                |  149   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_04                |  150   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_05                |  151   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_06                |  152   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_07                |  153   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_08                |  154   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_09                |  155   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_10                |  156   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_11                |  157   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_12                |  158   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_13                |  159   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_14                |  160   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_15                |  161   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_RESERVED_16                |  162   |For private use     |
+   |                                     |        |(deprecated)        |
    +-------------------------------------+--------+--------------------+
    | LINKTYPE_IEEE802_11_AVS             |  163   |AVS header[AVS],    |
    |                                     |        |followed by an      |
@@ -1455,18 +1472,47 @@ Table of Contents
 
                                   Table 1
 
-4.  Contributors
+4.  Guidance for Designated Experts
+
+   When processing a request for a Specification Required allocation the
+   Designated Experts are expected to be able to find the relevant
+   specification at a clearly stable URL.  It is noted that many
+   enterprise web sites do not maintain URLs over a long period of time,
+   and a documented in a "wp-uploaded" section is highly likely to
+   disappear.  In addition Specifications that require a reader to click
+   through any kind of marketing or legal agreement are not considered
+   public.  (This is the opinion of other corporate lawyers, who worry
+   about what their employees might have agreed to)
+
+   The specification needs to be clearly written, and when the contents
+   of the link type can contain and IPv4 or IPv6 header, then the octets
+   between the beginning of the link type and the IP header needs to be
+   very clearly specified in that document.
+
+   Specifications which are not publically available, but which may be
+   obtained via liason agreements (such as to ITU-T, 3GPP, IEEE, etc.)
+   are acceptable particularly if the document will be public
+   eventually, but are discouraged.  For other documents, the Designated
+   Expert will need use their judgement, or consult the WG or an Area
+   Director.
+
+   Linktypes may be allocated for specifications not publically
+   available may be made within the First-Come/First-Served area.  This
+   includes specifications that might be classified.  The minimal
+   requirement is for a contact person for that link type.
+
+5.  Contributors
 
    Insert pcap developers etc. here
 
-5.  Acknowledgments
+6.  Acknowledgments
 
    The authors wish to thank (many reviewers) and many others for their
    invaluable comments.
 
-6.  References
+7.  References
 
-6.1.  Normative References
+7.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1477,7 +1523,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-6.2.  Informative References
+7.2.  Informative References
 
    [I-D.tuexen-opsawg-pcapng]
               Tüxen, M., Risso, F., Bongertz, J., Combs, G., Harris, G.,
