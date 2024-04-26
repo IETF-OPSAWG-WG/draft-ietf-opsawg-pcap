@@ -341,7 +341,7 @@ It is noted that many enterprise web sites do not maintain URLs over a long peri
 In addition Specifications that require a reader to click through any kind of marketing or legal agreement are not considered public.
 (This is the opinion of other corporate lawyers, who worry about what their employees might have agreed to)
 
-The specification needs to be clearly written, and when the contents of the link type can contain and IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.
+The specification needs to be clearly written, and when the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.
 
 Specifications which are not publically available, but which may be obtained via liason agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the document will be public eventually, but are discouraged.
 For other documents, the Designated Expert will need use their judgement, or consult the WG or an Area Director.
