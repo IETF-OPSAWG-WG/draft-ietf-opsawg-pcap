@@ -240,7 +240,7 @@ DLT values are associated with specific operation system captures, and are opera
 |LINKTYPE_FRELAY_WITH_DIR|206|Frame Relay LAPF frames, beginning with a one-octet pseudo-header with a zero value meaning received by this host (DCE->DTE) and a non-zero value meaning sent by this host (DTE->DCE), followed by an ITU-T Recommendation Q.922 LAPF header starting with the address field, and without an FCS at the end of the frame.
 |LINKTYPE_LAPB_WITH_DIR|207|Link Access Procedure, Balanced (LAPB), as specified by ITU-T Recommendation X.25 , preceded with a one-octet pseudo-header with a zero value meaning received by this host (DCE->DTE) and a non-zero value meaning sent by this host (DTE->DCE).
 |Reserved|208|Reserved for an unspecified link-layer type
-|LINKTYPE_IPMB_LINUX|209|IPMB over an I2C circuit, with a Linux-specific pseudo-header
+|LINKTYPE_I2C_LINUX|209|I2C packets, with a Linux-specific pseudo-header
 |LINKTYPE_FLEXRAY|210|Reserved for FlexRay automotive bus
 |LINKTYPE_MOST|211|Reserved for Media Oriented Systems Transport (MOST) bus
 |LINKTYPE_LIN|212|Reserved for Local Interconnect Network (LIN) bus for vehicle networks
