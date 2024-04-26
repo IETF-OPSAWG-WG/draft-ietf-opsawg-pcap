@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 27 October 2024                                       Sandelman
-                                                           25 April 2024
+Expires: 28 October 2024                                       Sandelman
+                                                           26 April 2024
 
 
        Link-Layer Types for PCAP and PCAPNG Capture File Formats
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 October 2024.
+   This Internet-Draft will expire on 28 October 2024.
 
 Copyright Notice
 
@@ -671,9 +671,8 @@ Table of Contents
    |                                   |        |unspecified link-layer    |
    |                                   |        |type                      |
    +-----------------------------------+--------+--------------------------+
-   |LINKTYPE_IPMB_LINUX                |  209   |IPMB over an I2C circuit, |
-   |                                   |        |with a Linux-specific     |
-   |                                   |        |pseudo-header             |
+   |LINKTYPE_I2C_LINUX                 |  209   |I2C packets, with a Linux-|
+   |                                   |        |specific pseudo-header    |
    +-----------------------------------+--------+--------------------------+
    |LINKTYPE_FLEXRAY                   |  210   |Reserved for FlexRay      |
    |                                   |        |automotive bus            |
