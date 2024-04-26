@@ -404,9 +404,9 @@ Table of Contents
    [I-D.ietf-opsawg-pcaplinktype]
               Harris, G. and M. Richardson, "Link-Layer Types for PCAP
               and PCAPNG Capture File Formats", Work in Progress,
-              Internet-Draft, draft-ietf-opsawg-pcaplinktype-02, 30
-              January 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-opsawg-pcaplinktype-02>.
+              Internet-Draft, draft-ietf-opsawg-pcaplinktype-03, 26
+              April 2024, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-opsawg-pcaplinktype-03>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
