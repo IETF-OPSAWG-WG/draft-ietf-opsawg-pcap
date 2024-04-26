@@ -777,7 +777,7 @@ Table of Contents
    about what their employees might have agreed to)
 
    The specification needs to be clearly written, and when the contents
-   of the link type can contain and IPv4 or IPv6 header, then the octets
+   of the link type can contain an IPv4 or IPv6 header, then the octets
    between the beginning of the link type and the IP header needs to be
    very clearly specified in that document.
 
