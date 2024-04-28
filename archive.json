@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-04-25T01:12:11.366470+00:00",
+  "timestamp": "2024-04-28T01:15:21.636979+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2218,9 +2218,17 @@
       "labels": [],
       "body": "\r\n1. FCFS might need only a review that it is not a duplicate.\r\n2. Specification Required just needs some clarify in the document.\r\n\r\n",
       "createdAt": "2023-07-26T17:42:20Z",
-      "updatedAt": "2023-07-26T17:42:20Z",
+      "updatedAt": "2024-04-25T18:50:03Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "[draft-ietf-opsawg-pcaplinktype-02](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcaplinktype-02) has such a section, but it appears not to have been checked into the .md file in the repository, unless I missed something and it was added and then removed in a later commit.\r\n\r\nI've put it into the .md file in a110d2f33f44a9322db8c007552cbdb5b439e820.\r\n\r\nIs there anything more to do on that section?",
+          "createdAt": "2024-04-25T18:50:02Z",
+          "updatedAt": "2024-04-25T18:50:02Z"
+        }
+      ]
     },
     {
       "number": 137,
@@ -2362,16 +2370,24 @@
       "id": "I_kwDOAU54e858N9tX",
       "title": "Should we keep the two texts '32-bit' versus '32 bits'? (and others 16, 64, ... )",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/151",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "fxlb",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "`git grep -nE '([0-9]-bit|[0-9] bit)' '*.md'` shows them.\r\n\r\n",
       "createdAt": "2024-01-16T14:03:12Z",
-      "updatedAt": "2024-01-16T14:19:52Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2024-04-25T18:41:45Z",
+      "closedAt": "2024-04-25T18:41:45Z",
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "\"N-bit\" is a [compound modifier](https://en.wikipedia.org/wiki/Compound_modifier), and is typically hyphenated; we should consistently do so, and, in 75d36463ead8f58c7e1b02a03c4fab29ed91dec6, I've fixed all the occurrences that I found, along with some occurrences of \"N octet\".\r\n\r\n\"N bits\" isn't a compound modifier, it's a phrase with a count of bits (and \"1 bit\" is also not a compound modifier if it doesn't modify something, as in \"a 1-bit field\").\r\n\r\nSo \"N bit\", when used as a modifier, should be hyphenated; \"N bits\" and \"1 bit\", when not used as a modifier, shouldn't be.",
+          "createdAt": "2024-04-25T18:41:45Z",
+          "updatedAt": "2024-04-25T18:41:45Z"
+        }
+      ]
     },
     {
       "number": 152,
