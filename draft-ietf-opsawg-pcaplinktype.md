@@ -33,6 +33,11 @@ venue:
 
 normative:
 informative:
+ Radiotap:
+    author:
+      org: radiotap.org
+    title: Radiotap Web site
+    target: http://www.radiotap.org/
   AVS:
     author:
       fullname: Solomon Peachy
