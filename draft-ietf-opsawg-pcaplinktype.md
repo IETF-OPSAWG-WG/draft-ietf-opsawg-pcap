@@ -33,11 +33,12 @@ venue:
 
 normative:
 informative:
- Radiotap:
+  Radiotap:
     author:
       org: radiotap.org
     title: Radiotap Web site
     target: http://www.radiotap.org/
+
   AVS:
     author:
       fullname: Solomon Peachy
@@ -262,7 +263,7 @@ As the First Come First Served range is large and easily obtained, official valu
 |LINKTYPE_LIN|212|Reserved for Local Interconnect Network (LIN) bus for vehicle networks|
 |LINKTYPE_X2E_SERIAL|213|Reserved for X2E serial line captures|
 |LINKTYPE_X2E_XORAYA|214|Reserved for X2E Xoraya data loggers|
-|LINKTYPE_IEEE802_15_4_NONASK_PHY|215|IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame, and with the PHY-level data for the O-QPSK, BPSK, GFSK, MSK, and RCC DSS BPSK PHYs (4 octets of 0 as preamble, one octet of SFD, one octet of frame length + reserved bit) preceding the MAC-layer data (starting with the frame control field).
+|LINKTYPE_IEEE802_15_4_NONASK_PHY|215|IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame, and with the PHY-level data for the O-QPSK, BPSK, GFSK, MSK, and RCC DSS BPSK PHYs (4 octets of 0 as preamble, one octet of SFD, one octet of frame length + reserved bit) preceding the MAC-layer data (starting with the frame control field)|
 |LINKTYPE_LINUX_EVDEV|216|Reserved for Linux evdev messages|
 |LINKTYPE_GSMTAP_UM|217|Reserved for GSM Um interface, with gsmtap header|
 |LINKTYPE_GSMTAP_ABIS|218|Reserved for GSM Abis interface, with gsmtap header|
@@ -286,8 +287,8 @@ As the First Come First Served range is large and easily obtained, official valu
 |LINKTYPE_MUX27010|236|Variant of 3GPP TS 27.010 multiplexing protocol (similar to, but not the same as, 27.010)|
 |LINKTYPE_STANAG_5066_D_PDU|237|D_PDUs as described by NATO standard STANAG 5066, starting with the synchronization sequence, and including both header and data CRCs. The current version of STANAG 5066 is backwards-compatible with the 1.0.2 version , although newer versions are classified|
 |LINKTYPE_JUNIPER_ATM_CEMIC|238|Reserved for Juniper Networks|
-|LINKTYPE_NFLOG|239|Linux netlink NETLINK NFLOG socket log messages.|
-|LINKTYPE_NETANALYZER|240|Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the MAC header and ending with the FCS.|
+|LINKTYPE_NFLOG|239|Linux netlink NETLINK NFLOG socket log messages|
+|LINKTYPE_NETANALYZER|240|Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the MAC header and ending with the FCS|
 |LINKTYPE_NETANALYZER_TRANSPARENT|241|Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the preamble, SFD, and MAC header, and ending with the FCS|
 |LINKTYPE_IPOIB|242|IP-over-InfiniBand, as specified by Section 6 of RFC 4391|
 |LINKTYPE_MPEG_2_TS|243|MPEG-2 Transport Stream transport packets, as specified by ISO 13818-1/ ITU-T Recommendation H.222.0 (see table 2-2 of section 2.4.3.2 Transport Stream packet layer)|
