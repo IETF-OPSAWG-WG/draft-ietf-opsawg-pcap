@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-05T01:15:30.566277+00:00",
+  "timestamp": "2024-05-07T01:11:59.698578+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -8278,6 +8278,74 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 154,
+      "id": "PR_kwDOAU54e85um1sm",
+      "title": "Proposal to structure the content + some minor edits",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/154",
+      "state": "OPEN",
+      "author": "boucadair",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-05-06T08:12:43Z",
+      "updatedAt": "2024-05-06T10:20:47Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "7d095fd0b3d26df8b7570e9a479bb20673b892b1",
+      "headRepository": "boucadair/draft-ietf-opsawg-pcap",
+      "headRefName": "patch-2",
+      "headRefOid": "3e5cc69161d1211a7e8355ccd2740df7eb758fec",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "boucadair",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "* have a better flow of the narrative text. For example, introduce first the meaning of each column before talking about ranges, etc.\r\n* Ease identifying each IANA action\r\n* Associate the DE guidance with the sub registry, not the registry group.\r\n* avoid redundancy by pointing to the specific 8126 sections\r\n* avoid embedded URLs, but use refs\r\n* add pointers for some specific items (even if these are well-known)",
+          "createdAt": "2024-05-06T10:20:46Z",
+          "updatedAt": "2024-05-06T10:20:46Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOAU54e855nBDs",
+          "commit": {
+            "abbreviatedOid": "3e5cc69"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-05-06T08:38:53Z",
+          "updatedAt": "2024-05-06T08:38:53Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "What's the reason for the additional space character?",
+              "createdAt": "2024-05-06T08:38:53Z",
+              "updatedAt": "2024-05-06T08:38:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e855noDZ",
+          "commit": {
+            "abbreviatedOid": "3e5cc69"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "I'm not sure from reading the diff what the goal is here.",
+          "createdAt": "2024-05-06T10:13:16Z",
+          "updatedAt": "2024-05-06T10:13:16Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
