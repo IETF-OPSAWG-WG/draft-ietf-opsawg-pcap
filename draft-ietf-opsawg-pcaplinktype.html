@@ -21,7 +21,7 @@ The PCAP and PCAPNG formats are used to save network captures from programs such
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.3
-    platformdirs 4.2.0
+    platformdirs 4.2.1
     pycountry 22.3.5
     PyYAML 6.0.1
     requests 2.31.0
@@ -1026,11 +1026,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">pcaplinktype</td>
-<td class="right">April 2024</td>
+<td class="right">May 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Harris &amp; Richardson</td>
-<td class="center">Expires 28 October 2024</td>
+<td class="center">Expires 11 November 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1043,12 +1043,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-opsawg-pcaplinktype-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-04-26" class="published">26 April 2024</time>
+<time datetime="2024-05-10" class="published">10 May 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-10-28">28 October 2024</time></dd>
+<dd class="expires"><time datetime="2024-11-11">11 November 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1102,7 +1102,7 @@ The PCAP and PCAPNG formats are used to save network captures from programs such
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 28 October 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 11 November 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1141,32 +1141,40 @@ The PCAP and PCAPNG formats are used to save network captures from programs such
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-linktype-registry" class="internal xref">LinkType Registry</a></p>
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-pcap-registry" class="internal xref">PCAP Registry</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-linktype-registry" class="internal xref">LinkType Registry</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
+                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-initial-values" class="internal xref">Initial Values</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
+                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-guidance-for-designated-exp" class="internal xref">Guidance for Designated Experts</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-guidance-for-designated-exp" class="internal xref">Guidance for Designated Experts</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-contributors" class="internal xref">Contributors</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-contributors" class="internal xref">Contributors</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1182,13 +1190,13 @@ Network Research Group at Lawrence Berkeley National Laboratory
 developed the tcpdump program to capture and dissect network traces.
 The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
-later put into a library named libpcap.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">Other documents describe the original (legacy) format used by tcpdump (pcap), as well as the revised format (pcapng) which is used by tcpdump and wireshark.<a href="#section-1-2" class="pilcrow">¶</a></p>
+later put into a library named libpcap <span>[<a href="#LIBPCAP" class="cite xref">LIBPCAP</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">Other documents describe the original (legacy) format used by tcpdump (pcap), as well as the revised format (pcapng) which is used by tcpdump and wireshark <span>[<a href="#Wireshark" class="cite xref">Wireshark</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Within those formats each packet that is captured is described by a LINKTYPE value.
-The LINKTYPE value selects one of many hundred formats for meta data and layer 2 encapsulation of the packet.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">This document creates a registry for the LINKTYPE format, establishing the IANA
+The LINKTYPE value selects one of many hundred formats for metadata and Layer 2 encapsulation of the packet.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">This document creates an IANA registry for the LINKTYPE format, establishing the IANA
 Considerations by which other uses of the pcap and pcapng formats may register new
-formats.<a href="#section-1-4" class="pilcrow">¶</a></p>
+LINKTYPE values.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="terminology">
@@ -1208,1170 +1216,1198 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-iana-considerations">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<div id="linktype">
+<div id="pcapreg">
 <section id="section-3.1">
-        <h3 id="name-linktype-registry">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-linktype-registry" class="section-name selfRef">LinkType Registry</a>
+        <h3 id="name-pcap-registry">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-pcap-registry" class="section-name selfRef">PCAP Registry</a>
         </h3>
-<p id="section-3.1-1">IANA is requested to create a new registry entitled "The PCAP Registry".<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1-2">IANA is also requested to create a subregistry entitled "PCAP LinkType List" under that registry. The LinkType registry is a table of 16-bit numbers. The policy allocation <span>[<a href="#RFC8126" class="cite xref">RFC8126</a>]</span> for this subregistry is as follows:<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">IANA is requested to create a new registry group entitled "The PCAP Registry".<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="linktype">
+<section id="section-3.2">
+        <h3 id="name-linktype-registry">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-linktype-registry" class="section-name selfRef">LinkType Registry</a>
+        </h3>
+<p id="section-3.2-1">IANA is also requested to create a registry entitled "PCAP LinkType List" under The PCAP registry group (<a href="#pcapreg" class="auto internal xref">Section 3.1</a>).<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">The registry has the following structure:<a href="#section-3.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.1-3.1">
-            <p id="section-3.1-3.1.1">Values from 0 to 32767 must be allocated via Specification Required.<a href="#section-3.1-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.2-3.1">
+            <p id="section-3.2-3.1.1">LINKTYPE Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).<a href="#section-3.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.1-3.2">
-            <p id="section-3.1-3.2.1">Values from 32768 to 65000 are allocated following a First-Come First-Served policy.<a href="#section-3.1-3.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.2-3.2">
+            <p id="section-3.2-3.2.1">LINKTYPE Value: Indicates the integer value assigned for this LinkType.<a href="#section-3.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.1-3.3">
-            <p id="section-3.1-3.3.1">Values from 65001 to 65535 are reserved for Private Use.<a href="#section-3.1-3.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.2-3.3">
+            <p id="section-3.2-3.3.1">Description: Provides a very short description.<a href="#section-3.2-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.2-3.4">
+            <p id="section-3.2-3.4.1">Reference: Indicates an authoritative the document reference for the LinkType or a requester reference.<a href="#section-3.2-3.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-3.1-4">The Registry has four columns: the symbolic name (LINKTYPE_something),
-the integer value, a very short description, and the document/requester
-reference.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
-<p id="section-3.1-5">The initial version of the registry is provided in the table below.  In each
+<p id="section-3.2-4">The LinkType value is a 16-bit number. The policy allocation for the LinkType values is as follows:<a href="#section-3.2-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.2-5.1">
+            <p id="section-3.2-5.1.1">Values from 0 to 32767 must be allocated via Specification Required (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.6" class="relref">Section 4.6</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>). Guidance for Designated Experts is provided in <a href="#sec-de" class="auto internal xref">Section 3.2.2</a>.<a href="#section-3.2-5.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.2-5.2">
+            <p id="section-3.2-5.2.1">Values from 32768 to 65000 are allocated following a First-Come First-Served policy (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.4" class="relref">Section 4.4</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>).<a href="#section-3.2-5.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.2-5.3">
+            <p id="section-3.2-5.3.1">Values from 65001 to 65535 are reserved for Private Use (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.1" class="relref">Section 4.1</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>).<a href="#section-3.2-5.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.2-6">The initial version of the registry is provided in <a href="#sec-initial" class="auto internal xref">Section 3.2.1</a>.  In each
 case here, the reference should be to
-http://www.tcpdump.org/linktypes.html, which is not repeated each time.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
-<p id="section-3.1-6">The initial value of table is base upon the Link type list maintained by
-libpcap, and published on the tcpdump.org web site as
-http://www.tcpdump.org/linktypes.html.<a href="#section-3.1-6" class="pilcrow">¶</a></p>
-<p id="section-3.1-7">Note that historically, values were assigned incrementally on First-Come/First-Served basis, with a preference for a public specification, but with no mandate.
-Some historical values may have less specification than desired.<a href="#section-3.1-7" class="pilcrow">¶</a></p>
-<p id="section-3.1-8">LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally reserved for Private Use.  Their use is Deprecated in favour of the values above 65001.<a href="#section-3.1-8" class="pilcrow">¶</a></p>
-<p id="section-3.1-9">In general, Private Use values should never leak out of the entity that uses it.
-As the First-Come First-Served allocation is large and easily obtained, official values are recommended.<a href="#section-3.1-9" class="pilcrow">¶</a></p>
-<p id="section-3.1-10">There is often an associated DLT value which are often identical in
-value, but not universally so.
-DLT values are associated with specific operation system captures, and are operating system specific, and are thus not subject to standardization.<a href="#section-3.1-10" class="pilcrow">¶</a></p>
+<span>[<a href="#TCPDUMP" class="cite xref">TCPDUMP</a>]</span> and the RFC number to be assigned to this document, which is not repeated each time.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
+<p id="section-3.2-7">The initial values table is based upon the Link type list maintained by
+libpcap, and published on <span>[<a href="#TCPDUMP" class="cite xref">TCPDUMP</a>]</span>.<a href="#section-3.2-7" class="pilcrow">¶</a></p>
+<p id="section-3.2-8">Note that historically, values were assigned incrementally following First Come First Served policy, with a preference for a public specification, but with no mandate.
+Some historical values may have less specification than desired.<a href="#section-3.2-8" class="pilcrow">¶</a></p>
+<p id="section-3.2-9">LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally reserved for Private Use. Their use is Deprecated in favour of the values in the 65001-65535 range.<a href="#section-3.2-9" class="pilcrow">¶</a></p>
+<p id="section-3.2-10">In general, Private Use values should never leak out of the entity that uses it.
+As the First Come First Served range is large and easily obtained, official values are recommended.<a href="#section-3.2-10" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-3.2-11.1">
+            <p id="section-3.2-11.1.1">There is often an associated DLT value which is often identical in value, but not universally so. DLT values are associated with specific operation system captures, and are operating system specific, and are thus not subject to standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<div id="sec-initial">
+<section id="section-3.2.1">
+          <h4 id="name-initial-values">
+<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-initial-values" class="section-name selfRef">Initial Values</a>
+          </h4>
 <table class="center" id="table-1">
-          <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+            <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
-            <tr>
-              <th class="text-left" rowspan="1" colspan="1">LINKTYPE name</th>
-              <th class="text-center" rowspan="1" colspan="1">LINKTYPE value</th>
-              <th class="text-left" rowspan="1" colspan="1">description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NULL</td>
-              <td class="text-center" rowspan="1" colspan="1">0</td>
-              <td class="text-left" rowspan="1" colspan="1">BSD loopback encapsulation</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ETHERNET</td>
-              <td class="text-center" rowspan="1" colspan="1">1</td>
-              <td class="text-left" rowspan="1" colspan="1">IEEE 802.3 Ethernet</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_EXP_ETHERNET</td>
-              <td class="text-center" rowspan="1" colspan="1">2</td>
-              <td class="text-left" rowspan="1" colspan="1">Xerox experimental 3Mb Ethernet</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AX25</td>
-              <td class="text-center" rowspan="1" colspan="1">3</td>
-              <td class="text-left" rowspan="1" colspan="1">AX.25 packet</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PRONET</td>
-              <td class="text-center" rowspan="1" colspan="1">4</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for PRONET</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_CHAOS</td>
-              <td class="text-center" rowspan="1" colspan="1">5</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for MIT CHAOSNET</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_5</td>
-              <td class="text-center" rowspan="1" colspan="1">6</td>
-              <td class="text-left" rowspan="1" colspan="1">IEEE 802.5 Token Ring</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ARCNET_BSD</td>
-              <td class="text-center" rowspan="1" colspan="1">7</td>
-              <td class="text-left" rowspan="1" colspan="1">ARCNET Data Packets with BSD encapsulation</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SLIP</td>
-              <td class="text-center" rowspan="1" colspan="1">8</td>
-              <td class="text-left" rowspan="1" colspan="1">SLIP, w/LINKTYPE_SLIP header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP</td>
-              <td class="text-center" rowspan="1" colspan="1">9</td>
-              <td class="text-left" rowspan="1" colspan="1">PPP, as per RFC 1661/RFC 1662</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FDDI</td>
-              <td class="text-center" rowspan="1" colspan="1">10</td>
-              <td class="text-left" rowspan="1" colspan="1">FDDI: per ANSI INCITS 239-1994.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">not to be used</td>
-              <td class="text-center" rowspan="1" colspan="1">11-49</td>
-              <td class="text-left" rowspan="1" colspan="1">Do not use these values</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_HDLC</td>
-              <td class="text-center" rowspan="1" colspan="1">50</td>
-              <td class="text-left" rowspan="1" colspan="1">PPP in HDLC-like framing, as per RFC 1662</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_ETHER</td>
-              <td class="text-center" rowspan="1" colspan="1">51</td>
-              <td class="text-left" rowspan="1" colspan="1">PPPoE; per RFC 2516</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">Reserved</td>
-              <td class="text-center" rowspan="1" colspan="1">52-98</td>
-              <td class="text-left" rowspan="1" colspan="1">Do not use these values</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SYMANTEC_FIREWALL</td>
-              <td class="text-center" rowspan="1" colspan="1">99</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Symantec Enterprise Firewall</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ATM_RFC1483</td>
-              <td class="text-center" rowspan="1" colspan="1">100</td>
-              <td class="text-left" rowspan="1" colspan="1">RFC 1483 LLC/SNAP-encapsulated ATM</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RAW</td>
-              <td class="text-center" rowspan="1" colspan="1">101</td>
-              <td class="text-left" rowspan="1" colspan="1">Raw IP; begins with an IPv4 or IPv6 header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SLIP_BSDOS</td>
-              <td class="text-center" rowspan="1" colspan="1">102</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for BSD/OS SLIP BPF header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_BSDOS</td>
-              <td class="text-center" rowspan="1" colspan="1">103</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for BSD/OS PPP BPF header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_C_HDLC</td>
-              <td class="text-center" rowspan="1" colspan="1">104</td>
-              <td class="text-left" rowspan="1" colspan="1">Cisco PPP with HDLC framing, as per Section 4.3.1 of RFC 1547</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11</td>
-              <td class="text-center" rowspan="1" colspan="1">105</td>
-              <td class="text-left" rowspan="1" colspan="1">IEEE 802.11 wireless LAN.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ATM_CLIP</td>
-              <td class="text-center" rowspan="1" colspan="1">106</td>
-              <td class="text-left" rowspan="1" colspan="1">ATM Classical IP, with no header preceding IP</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FRELAY</td>
-              <td class="text-center" rowspan="1" colspan="1">107</td>
-              <td class="text-left" rowspan="1" colspan="1">Frame Relay LAPF frames</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LOOP</td>
-              <td class="text-center" rowspan="1" colspan="1">108</td>
-              <td class="text-left" rowspan="1" colspan="1">OpenBSD loopback encapsulation</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ENC</td>
-              <td class="text-center" rowspan="1" colspan="1">109</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for OpenBSD IPSEC encapsulation</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LANE8023</td>
-              <td class="text-center" rowspan="1" colspan="1">110</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for ATM LANE + 802.3</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_HIPPI</td>
-              <td class="text-center" rowspan="1" colspan="1">111</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for NetBSD HIPPI</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_HDLC</td>
-              <td class="text-center" rowspan="1" colspan="1">112</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for NetBSD HDLC framing</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_SLL</td>
-              <td class="text-center" rowspan="1" colspan="1">113</td>
-              <td class="text-left" rowspan="1" colspan="1">Linux "cooked" capture encapsulation</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LTALK</td>
-              <td class="text-center" rowspan="1" colspan="1">114</td>
-              <td class="text-left" rowspan="1" colspan="1">Apple LocalTalk</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ECONET</td>
-              <td class="text-center" rowspan="1" colspan="1">115</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Acorn Econet</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPFILTER</td>
-              <td class="text-center" rowspan="1" colspan="1">116</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for OpenBSD ipfilter</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PFLOG</td>
-              <td class="text-center" rowspan="1" colspan="1">117</td>
-              <td class="text-left" rowspan="1" colspan="1">OpenBSD pflog; "struct pfloghdr" structure</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_CISCO_IOS</td>
-              <td class="text-center" rowspan="1" colspan="1">118</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Cisco-internal use</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11_PRISM</td>
-              <td class="text-center" rowspan="1" colspan="1">119</td>
-              <td class="text-left" rowspan="1" colspan="1">Prism monitor mode</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11_AIRONET</td>
-              <td class="text-center" rowspan="1" colspan="1">120</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for 802.11 + FreeFreeBSD Aironet radio metadata</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_HHDLC</td>
-              <td class="text-center" rowspan="1" colspan="1">121</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Siemens HiPath HDLC</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IP_OVER_FC</td>
-              <td class="text-center" rowspan="1" colspan="1">122</td>
-              <td class="text-left" rowspan="1" colspan="1">RFC 2625 IP-over-Fibre Channel</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SUNATM</td>
-              <td class="text-center" rowspan="1" colspan="1">123</td>
-              <td class="text-left" rowspan="1" colspan="1">ATM traffic, / per SunATM devices</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RIO</td>
-              <td class="text-center" rowspan="1" colspan="1">124</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for RapidIO</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PCI_EXP</td>
-              <td class="text-center" rowspan="1" colspan="1">125</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for PCI Express</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AURORA</td>
-              <td class="text-center" rowspan="1" colspan="1">126</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Xilinx Aurora link layer</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11_RADIOTAP</td>
-              <td class="text-center" rowspan="1" colspan="1">127</td>
-              <td class="text-left" rowspan="1" colspan="1">Radiotap header<span>[<a href="#Radiotap" class="cite xref">Radiotap</a>]</span>, followed by an 802.11 header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_TZSP</td>
-              <td class="text-center" rowspan="1" colspan="1">128</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Tazmen Sniffer Protocol</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ARCNET_LINUX</td>
-              <td class="text-center" rowspan="1" colspan="1">129</td>
-              <td class="text-left" rowspan="1" colspan="1">ARCNET Data Packets, per RFC 1051 frames w/variations</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_MLPPP</td>
-              <td class="text-center" rowspan="1" colspan="1">130</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_MLFR</td>
-              <td class="text-center" rowspan="1" colspan="1">131</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ES</td>
-              <td class="text-center" rowspan="1" colspan="1">132</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_GGSN</td>
-              <td class="text-center" rowspan="1" colspan="1">133</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_MFR</td>
-              <td class="text-center" rowspan="1" colspan="1">134</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ATM2</td>
-              <td class="text-center" rowspan="1" colspan="1">135</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_SERVICES</td>
-              <td class="text-center" rowspan="1" colspan="1">136</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ATM1</td>
-              <td class="text-center" rowspan="1" colspan="1">137</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_APPLE_IP_OVER_IEEE1394</td>
-              <td class="text-center" rowspan="1" colspan="1">138</td>
-              <td class="text-left" rowspan="1" colspan="1">Apple IP-over-IEEE 1394 cooked header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MTP2_WITH_PHDR</td>
-              <td class="text-center" rowspan="1" colspan="1">139</td>
-              <td class="text-left" rowspan="1" colspan="1">Signaling System 7 (SS7) Message Transfer Part Level ITU-T Q.703</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MTP2</td>
-              <td class="text-center" rowspan="1" colspan="1">140</td>
-              <td class="text-left" rowspan="1" colspan="1">SS7 Level 2, Q.703</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MTP3</td>
-              <td class="text-center" rowspan="1" colspan="1">141</td>
-              <td class="text-left" rowspan="1" colspan="1">SS7 Level 3, Q.704</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SCCP</td>
-              <td class="text-center" rowspan="1" colspan="1">142</td>
-              <td class="text-left" rowspan="1" colspan="1">SS7 Control Part, ITU-T Q.711/Q.712/Q.713/Q.714</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DOCSIS</td>
-              <td class="text-center" rowspan="1" colspan="1">143</td>
-              <td class="text-left" rowspan="1" colspan="1">DOCSIS MAC frames, DOCSIS 3.1</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_IRDA</td>
-              <td class="text-center" rowspan="1" colspan="1">144</td>
-              <td class="text-left" rowspan="1" colspan="1">Linux-IrDA packets w/LINKTYPE_LINUX_IRDA header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IBM_SP</td>
-              <td class="text-center" rowspan="1" colspan="1">145</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for IBM SP switch</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IBM_SN</td>
-              <td class="text-center" rowspan="1" colspan="1">146</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for IBM Next Federation switch</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_01</td>
-              <td class="text-center" rowspan="1" colspan="1">147</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_02</td>
-              <td class="text-center" rowspan="1" colspan="1">148</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_03</td>
-              <td class="text-center" rowspan="1" colspan="1">149</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_04</td>
-              <td class="text-center" rowspan="1" colspan="1">150</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_05</td>
-              <td class="text-center" rowspan="1" colspan="1">151</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_06</td>
-              <td class="text-center" rowspan="1" colspan="1">152</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_07</td>
-              <td class="text-center" rowspan="1" colspan="1">153</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_08</td>
-              <td class="text-center" rowspan="1" colspan="1">154</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_09</td>
-              <td class="text-center" rowspan="1" colspan="1">155</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_10</td>
-              <td class="text-center" rowspan="1" colspan="1">156</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_11</td>
-              <td class="text-center" rowspan="1" colspan="1">157</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_12</td>
-              <td class="text-center" rowspan="1" colspan="1">158</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_13</td>
-              <td class="text-center" rowspan="1" colspan="1">159</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_14</td>
-              <td class="text-center" rowspan="1" colspan="1">160</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_15</td>
-              <td class="text-center" rowspan="1" colspan="1">161</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_16</td>
-              <td class="text-center" rowspan="1" colspan="1">162</td>
-              <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11_AVS</td>
-              <td class="text-center" rowspan="1" colspan="1">163</td>
-              <td class="text-left" rowspan="1" colspan="1">AVS header<span>[<a href="#AVS" class="cite xref">AVS</a>]</span>, followed by an 802.11 header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_MONITOR</td>
-              <td class="text-center" rowspan="1" colspan="1">164</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BACNET_MS_TP</td>
-              <td class="text-center" rowspan="1" colspan="1">165</td>
-              <td class="text-left" rowspan="1" colspan="1">BACnet MS/TP frames, per 9.3 MS/TP Frame Format ANSI 135</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_PPPD</td>
-              <td class="text-center" rowspan="1" colspan="1">166</td>
-              <td class="text-left" rowspan="1" colspan="1">PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC, different stuffing</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_PPPOE</td>
-              <td class="text-center" rowspan="1" colspan="1">167</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_PPPOE_ATM</td>
-              <td class="text-center" rowspan="1" colspan="1">168</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GPRS_LLC</td>
-              <td class="text-center" rowspan="1" colspan="1">169</td>
-              <td class="text-left" rowspan="1" colspan="1">General Packet Radio Service Logical Link Control, as per 3GPP TS 04.64</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GPF_T</td>
-              <td class="text-center" rowspan="1" colspan="1">170</td>
-              <td class="text-left" rowspan="1" colspan="1">Transparent-mapped generic framing procedure, as specified by ITU-T Recommendation G.7041/Y.1303</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GPF_F</td>
-              <td class="text-center" rowspan="1" colspan="1">171</td>
-              <td class="text-left" rowspan="1" colspan="1">Frame-mapped generic framing procedure, as specified by ITU-T Recommendation G.7041/Y.1303</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GCOM_T1E1</td>
-              <td class="text-center" rowspan="1" colspan="1">172</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Gcom T1/E1 line monitoring equipment</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GCOM_SERIAL</td>
-              <td class="text-center" rowspan="1" colspan="1">173</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Gcom T1/E1 line monitoring equipment</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_PIC_PEER</td>
-              <td class="text-center" rowspan="1" colspan="1">174</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ERF_ETH</td>
-              <td class="text-center" rowspan="1" colspan="1">175</td>
-              <td class="text-left" rowspan="1" colspan="1">Endace ERF header followed by 802.3 Ethernet</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ERF_POS</td>
-              <td class="text-center" rowspan="1" colspan="1">176</td>
-              <td class="text-left" rowspan="1" colspan="1">Endace ERF header followed by Packet-over-SONET</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_LAPD</td>
-              <td class="text-center" rowspan="1" colspan="1">177</td>
-              <td class="text-left" rowspan="1" colspan="1">Link Access Procedures on the D Channel (LAPD) frames, as specified by ITU-T Recommendation Q.920 and ITU-T Recommendation Q.921 , captured via vISDN, with a LINKTYPE_LINUX_LAPD header , followed by the Q.921 frame, starting with the address field.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ETHER</td>
-              <td class="text-center" rowspan="1" colspan="1">178</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_PPP</td>
-              <td class="text-center" rowspan="1" colspan="1">179</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_FRELAY</td>
-              <td class="text-center" rowspan="1" colspan="1">180</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_CHDLC</td>
-              <td class="text-center" rowspan="1" colspan="1">181</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MFR</td>
-              <td class="text-center" rowspan="1" colspan="1">182</td>
-              <td class="text-left" rowspan="1" colspan="1">FRF.16.1 Multi-Link Frame Relay frames, beginning with an FRF.12 Interface fragmentation format fragmentation header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_VP</td>
-              <td class="text-center" rowspan="1" colspan="1">183</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_A429</td>
-              <td class="text-center" rowspan="1" colspan="1">184</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for ARINC 429 frames</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_A653_ICM</td>
-              <td class="text-center" rowspan="1" colspan="1">185</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Arinc 653 Interpartition Communication messages</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_FREEBSD</td>
-              <td class="text-center" rowspan="1" colspan="1">186</td>
-              <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a FreeBSD USB header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_HCI_H4</td>
-              <td class="text-center" rowspan="1" colspan="1">187</td>
-              <td class="text-left" rowspan="1" colspan="1">Bluetooth HCI UART transport layer; the frame contains an HCI packet indicator octet, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification , followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_16_MAC_CPS</td>
-              <td class="text-center" rowspan="1" colspan="1">188</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for IEEE 802.16 MAC Common Part Sublayer</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_LINUX</td>
-              <td class="text-center" rowspan="1" colspan="1">189</td>
-              <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a Linux USB header, as specified by the struct usbmon_packet in the Documentation/usb/usbmon.txt file in the Linux source tree. Only the first 48 octets of that header are present. All fields in the header are in host byte order. When performing a live capture, the host byte order is the byte order of the machine on which the packets are captured. When reading a pcap file, the byte order is the byte order for the file, as specified by the file's magic number; when reading a pcapng file, the byte order is the byte order for the section of the pcapng file, as specified by the Section Header Block.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_CAN20B</td>
-              <td class="text-center" rowspan="1" colspan="1">190</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Controller Area Network (CAN) v. 2.0B packets</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_15_4_LINUX</td>
-              <td class="text-center" rowspan="1" colspan="1">191</td>
-              <td class="text-left" rowspan="1" colspan="1">IEEE 802.15.4, with address fields padded, as is done by Linux drivers</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPI</td>
-              <td class="text-center" rowspan="1" colspan="1">192</td>
-              <td class="text-left" rowspan="1" colspan="1">Per-Packet Information information, as specified by the Per-Packet Information Header Specification , followed by a packet with the LINKTYPE_ value specified by the pph_dlt field of that header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_16_MAC_CPS_RADIO</td>
-              <td class="text-center" rowspan="1" colspan="1">193</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for 802.16 MAC Common Part Sublayer plus radio header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ISM</td>
-              <td class="text-center" rowspan="1" colspan="1">194</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_15_4_WITHFCS</td>
-              <td class="text-center" rowspan="1" colspan="1">195</td>
-              <td class="text-left" rowspan="1" colspan="1">IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SITA</td>
-              <td class="text-center" rowspan="1" colspan="1">196</td>
-              <td class="text-left" rowspan="1" colspan="1">Various link-layer types, with a pseudo-header , for SITA</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ERF</td>
-              <td class="text-center" rowspan="1" colspan="1">197</td>
-              <td class="text-left" rowspan="1" colspan="1">Various link-layer types, with a pseudo-header, for Endace DAG cards; encapsulates Endace ERF records.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RAIF1</td>
-              <td class="text-center" rowspan="1" colspan="1">198</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Ethernet packets captured from a u10 Networks board</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPMB_KONTRON</td>
-              <td class="text-center" rowspan="1" colspan="1">199</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for IPMB packet for IPMI, with a 2-octet header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ST</td>
-              <td class="text-center" rowspan="1" colspan="1">200</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR</td>
-              <td class="text-center" rowspan="1" colspan="1">201</td>
-              <td class="text-left" rowspan="1" colspan="1">Bluetooth HCI UART transport layer; the frame contains a 4-octet direction field, in network byte order (big-endian), the low-order bit of which is set if the frame was sent from the host to the controller and clear if the frame was received by the host from the controller, followed by an HCI packet indicator octet, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification , followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AX25_KISS</td>
-              <td class="text-center" rowspan="1" colspan="1">202</td>
-              <td class="text-left" rowspan="1" colspan="1">AX.25 packet, with a 1-octet KISS header containing a type indicator.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LAPD</td>
-              <td class="text-center" rowspan="1" colspan="1">203</td>
-              <td class="text-left" rowspan="1" colspan="1">Link Access Procedures on the D Channel (LAPD) frames, as specified by ITU-T Recommendation Q.920 and ITU-T Recommendation Q.921 , starting with the address field, with no pseudo-header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_WITH_DIR</td>
-              <td class="text-center" rowspan="1" colspan="1">204</td>
-              <td class="text-left" rowspan="1" colspan="1">PPP, as per RFC 1661 and RFC 1662 , preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host; if the first 2 octets are 0xff and 0x03, it's PPP in HDLC-like framing, with the PPP header following those two octets, otherwise it's PPP without framing, and the packet begins with the PPP header. The data in the frame is not octet-stuffed or bit-stuffed.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_C_HDLC_WITH_DIR</td>
-              <td class="text-center" rowspan="1" colspan="1">205</td>
-              <td class="text-left" rowspan="1" colspan="1">Cisco PPP with HDLC framing, as per section 4.3.1 of RFC 1547 , preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FRELAY_WITH_DIR</td>
-              <td class="text-center" rowspan="1" colspan="1">206</td>
-              <td class="text-left" rowspan="1" colspan="1">Frame Relay LAPF frames, beginning with a one-octet pseudo-header with a zero value meaning received by this host (DCE-&gt;DTE) and a non-zero value meaning sent by this host (DTE-&gt;DCE), followed by an ITU-T Recommendation Q.922 LAPF header starting with the address field, and without an FCS at the end of the frame.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LAPB_WITH_DIR</td>
-              <td class="text-center" rowspan="1" colspan="1">207</td>
-              <td class="text-left" rowspan="1" colspan="1">Link Access Procedure, Balanced (LAPB), as specified by ITU-T Recommendation X.25 , preceded with a one-octet pseudo-header with a zero value meaning received by this host (DCE-&gt;DTE) and a non-zero value meaning sent by this host (DTE-&gt;DCE).</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">Reserved</td>
-              <td class="text-center" rowspan="1" colspan="1">208</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for an unspecified link-layer type</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_I2C_LINUX</td>
-              <td class="text-center" rowspan="1" colspan="1">209</td>
-              <td class="text-left" rowspan="1" colspan="1">I2C packets, with a Linux-specific pseudo-header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FLEXRAY</td>
-              <td class="text-center" rowspan="1" colspan="1">210</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for FlexRay automotive bus</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MOST</td>
-              <td class="text-center" rowspan="1" colspan="1">211</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Media Oriented Systems Transport (MOST) bus</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LIN</td>
-              <td class="text-center" rowspan="1" colspan="1">212</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Local Interconnect Network (LIN) bus for vehicle networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_X2E_SERIAL</td>
-              <td class="text-center" rowspan="1" colspan="1">213</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for X2E serial line captures</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_X2E_XORAYA</td>
-              <td class="text-center" rowspan="1" colspan="1">214</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for X2E Xoraya data loggers</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_15_4_NONASK_PHY</td>
-              <td class="text-center" rowspan="1" colspan="1">215</td>
-              <td class="text-left" rowspan="1" colspan="1">IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame, and with the PHY-level data for the O-QPSK, BPSK, GFSK, MSK, and RCC DSS BPSK PHYs (4 octets of 0 as preamble, one octet of SFD, one octet of frame length + reserved bit) preceding the MAC-layer data (starting with the frame control field).</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_EVDEV</td>
-              <td class="text-center" rowspan="1" colspan="1">216</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Linux evdev messages</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GSMTAP_UM</td>
-              <td class="text-center" rowspan="1" colspan="1">217</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for GSM Um interface, with gsmtap header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GSMTAP_ABIS</td>
-              <td class="text-center" rowspan="1" colspan="1">218</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for GSM Abis interface, with gsmtap header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MPLS</td>
-              <td class="text-center" rowspan="1" colspan="1">219</td>
-              <td class="text-left" rowspan="1" colspan="1">MPLS packets with MPLS label as the header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_LINUX_MMAPPED</td>
-              <td class="text-center" rowspan="1" colspan="1">220</td>
-              <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a Linux USB header, as specified by the struct usbmon_packet in the Documentation/usb/usbmon.txt file in the Linux source tree. All 64 octets of the header are present. All fields in the header are in host byte order. When performing a live capture, the host byte order is the byte order of the machine on which the packets are captured. When reading a pcap file, the byte order is the byte order for the file, as specified by the file's magic number; when reading a pcapng file, the byte order is the byte order for the section of the pcapng file, as specified by the Section Header Block. For isochronous transfers, the ndesc field specifies the number of isochronous descriptors that follow.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DECT</td>
-              <td class="text-center" rowspan="1" colspan="1">221</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for DECT packets, with a pseudo-header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AOS</td>
-              <td class="text-center" rowspan="1" colspan="1">222</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for OS Space Data Link Protocol</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_WIHART</td>
-              <td class="text-center" rowspan="1" colspan="1">223</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Wireless HART (Highway Addressable Remote Transducer)</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FC_2</td>
-              <td class="text-center" rowspan="1" colspan="1">224</td>
-              <td class="text-left" rowspan="1" colspan="1">Fibre Channel FC-2 frames, beginning with a Frame_Header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FC_2_WITH_FRAME_DELIMS</td>
-              <td class="text-center" rowspan="1" colspan="1">225</td>
-              <td class="text-left" rowspan="1" colspan="1">Fibre Channel FC-2 frames, beginning an encoding of the SOF, followed by a Frame_Header, and ending with an encoding of the SOF. The encodings represent the frame delimiters as 4-octet sequences representing the corresponding ordered sets, with K28.5 represented as 0xBC, and the D symbols as the corresponding octet values; for example, SOFi2, which is K28.5 - D21.5 - D1.2 - D21.2, is represented as 0xBC 0xB5 0x55 0x55.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPNET</td>
-              <td class="text-center" rowspan="1" colspan="1">226</td>
-              <td class="text-left" rowspan="1" colspan="1">Solaris ipnet pseudo-header , followed by an IPv4 or IPv6 datagram.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_CAN_SOCKETCAN</td>
-              <td class="text-center" rowspan="1" colspan="1">227</td>
-              <td class="text-left" rowspan="1" colspan="1">CAN (Controller Area Network) frames, with a pseudo-header followed by the frame payload.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPV4</td>
-              <td class="text-center" rowspan="1" colspan="1">228</td>
-              <td class="text-left" rowspan="1" colspan="1">Raw IPv4; the packet begins with an IPv4 header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPV6</td>
-              <td class="text-center" rowspan="1" colspan="1">229</td>
-              <td class="text-left" rowspan="1" colspan="1">Raw IPv6; the packet begins with an IPv6 header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_15_4_NOFCS</td>
-              <td class="text-center" rowspan="1" colspan="1">230</td>
-              <td class="text-left" rowspan="1" colspan="1">IEEE 802.15.4 Low-Rate Wireless Network, without the FCS at the end of the frame.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DBUS</td>
-              <td class="text-center" rowspan="1" colspan="1">231</td>
-              <td class="text-left" rowspan="1" colspan="1">Raw D-Bus messages , starting with the endianness flag, followed by the message type, etc., but without the authentication handshake before the message sequence.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_VS</td>
-              <td class="text-center" rowspan="1" colspan="1">232</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_SRX_E2E</td>
-              <td class="text-center" rowspan="1" colspan="1">233</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_FIBRECHANNEL</td>
-              <td class="text-center" rowspan="1" colspan="1">234</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DVB_CI</td>
-              <td class="text-center" rowspan="1" colspan="1">235</td>
-              <td class="text-left" rowspan="1" colspan="1">DVB-CI (DVB Common Interface for communication between a PC Card module and a DVB receiver), with the message format specified by the PCAP format for DVB-CI specification</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MUX27010</td>
-              <td class="text-center" rowspan="1" colspan="1">236</td>
-              <td class="text-left" rowspan="1" colspan="1">Variant of 3GPP TS 27.010 multiplexing protocol (similar to, but not the same as, 27.010).</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_STANAG_5066_D_PDU</td>
-              <td class="text-center" rowspan="1" colspan="1">237</td>
-              <td class="text-left" rowspan="1" colspan="1">D_PDUs as described by NATO standard STANAG 5066, starting with the synchronization sequence, and including both header and data CRCs. The current version of STANAG 5066 is backwards-compatible with the 1.0.2 version , although newer versions are classified.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ATM_CEMIC</td>
-              <td class="text-center" rowspan="1" colspan="1">238</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NFLOG</td>
-              <td class="text-center" rowspan="1" colspan="1">239</td>
-              <td class="text-left" rowspan="1" colspan="1">Linux netlink NETLINK NFLOG socket log messages.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NETANALYZER</td>
-              <td class="text-center" rowspan="1" colspan="1">240</td>
-              <td class="text-left" rowspan="1" colspan="1">Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the MAC header and ending with the FCS.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NETANALYZER_TRANSPARENT</td>
-              <td class="text-center" rowspan="1" colspan="1">241</td>
-              <td class="text-left" rowspan="1" colspan="1">Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the preamble, SFD, and MAC header, and ending with the FCS.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPOIB</td>
-              <td class="text-center" rowspan="1" colspan="1">242</td>
-              <td class="text-left" rowspan="1" colspan="1">IP-over-InfiniBand, as specified by RFC 4391 section 6</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MPEG_2_TS</td>
-              <td class="text-center" rowspan="1" colspan="1">243</td>
-              <td class="text-left" rowspan="1" colspan="1">MPEG-2 Transport Stream transport packets, as specified by ISO 13818-1/ ITU-T Recommendation H.222.0 (see table 2-2 of section 2.4.3.2 Transport Stream packet layer).</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NG40</td>
-              <td class="text-center" rowspan="1" colspan="1">244</td>
-              <td class="text-left" rowspan="1" colspan="1">Pseudo-header for ng4T GmbH's UMTS Iub/Iur-over-ATM and Iub/Iur-over-IP format as used by their ng40 protocol tester , followed by frames for the Frame Protocol as specified by 3GPP TS 25.427 for dedicated channels and 3GPP TS 25.435 for common/shared channels in the case of ATM AAL2 or UDP traffic, by SSCOP packets as specified by ITU-T Recommendation Q.2110 for ATM AAL5 traffic, and by NBAP packets for SCTP traffic.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NFC_LLCP</td>
-              <td class="text-center" rowspan="1" colspan="1">245</td>
-              <td class="text-left" rowspan="1" colspan="1">Pseudo-header for NFC LLCP packet captures , followed by frame data for the LLCP Protocol as specified by NFCForum-TS-LLCP_1.1</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PFSYNC</td>
-              <td class="text-center" rowspan="1" colspan="1">246</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for pfsync output</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_INFINIBAND</td>
-              <td class="text-center" rowspan="1" colspan="1">247</td>
-              <td class="text-left" rowspan="1" colspan="1">Raw InfiniBand frames, starting with the Local Routing Header, as specified in Chapter 5 Data packet format of InfiniBand™ Architectural Specification Release 1.2.1 Volume 1 - General Specifications</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SCTP</td>
-              <td class="text-center" rowspan="1" colspan="1">248</td>
-              <td class="text-left" rowspan="1" colspan="1">SCTP packets, as defined by RFC 4960 , with no lower-level protocols such as IPv4 or IPv6.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USBPCAP</td>
-              <td class="text-center" rowspan="1" colspan="1">249</td>
-              <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a USBPcap header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RTAC_SERIAL</td>
-              <td class="text-center" rowspan="1" colspan="1">250</td>
-              <td class="text-left" rowspan="1" colspan="1">Serial-line packet header for the Schweitzer Engineering Laboratories RTAC product , followed by a payload for one of a number of industrial control protocols.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_LE_LL</td>
-              <td class="text-center" rowspan="1" colspan="1">251</td>
-              <td class="text-left" rowspan="1" colspan="1">Bluetooth Low Energy air interface Link Layer packets, in the format described in section 2.1 PACKET FORMAT of volume 6 of the Bluetooth Specification Version 4.0 (see PDF page 2200), but without the Preamble.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_WIRESHARK_UPPER_PDU</td>
-              <td class="text-center" rowspan="1" colspan="1">252</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Wireshark</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NETLINK</td>
-              <td class="text-center" rowspan="1" colspan="1">253</td>
-              <td class="text-left" rowspan="1" colspan="1">Linux Netlink capture encapsulation</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_LINUX_MONITOR</td>
-              <td class="text-center" rowspan="1" colspan="1">254</td>
-              <td class="text-left" rowspan="1" colspan="1">Bluetooth Linux Monitor encapsulation of traffic for the BlueZ stack</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_BREDR_BB</td>
-              <td class="text-center" rowspan="1" colspan="1">255</td>
-              <td class="text-left" rowspan="1" colspan="1">Bluetooth Basic Rate and Enhanced Data Rate baseband packets</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR</td>
-              <td class="text-center" rowspan="1" colspan="1">256</td>
-              <td class="text-left" rowspan="1" colspan="1">Bluetooth Low Energy link-layer packets</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PROFIBUS_DL</td>
-              <td class="text-center" rowspan="1" colspan="1">257</td>
-              <td class="text-left" rowspan="1" colspan="1">PROFIBUS data link layer packets, as specified by IEC standard 61158-4-3, beginning with the start delimiter, ending with the end delimiter, and including all octets between them.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PKTAP</td>
-              <td class="text-center" rowspan="1" colspan="1">258</td>
-              <td class="text-left" rowspan="1" colspan="1">Apple PKTAP capture encapsulation</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_EPON</td>
-              <td class="text-center" rowspan="1" colspan="1">259</td>
-              <td class="text-left" rowspan="1" colspan="1">Ethernet-over-passive-optical-network packets, starting with the last 6 octets of the modified preamble as specified by 65.1.3.2 Transmit in Clause 65 of Section 5 of IEEE 802.3 , followed immediately by an Ethernet frame.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPMI_HPM_2</td>
-              <td class="text-center" rowspan="1" colspan="1">260</td>
-              <td class="text-left" rowspan="1" colspan="1">IPMI trace packets, as specified by Table 3-20 Trace Data Block Format in the PICMG HPM.2 specification The timestamps for packets in this format must match the timestamps in the Trace Data Blocks.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZWAVE_R1_R2</td>
-              <td class="text-center" rowspan="1" colspan="1">261</td>
-              <td class="text-left" rowspan="1" colspan="1">Z-Wave RF profile R1 and R2 packets , as specified by ITU-T Recommendation G.9959 , with some MAC layer fields moved.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZWAVE_R3</td>
-              <td class="text-center" rowspan="1" colspan="1">262</td>
-              <td class="text-left" rowspan="1" colspan="1">Z-Wave RF profile R3 packets , as specified by ITU-T Recommendation G.9959 , with some MAC layer fields moved.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_WATTSTOPPER_DLM</td>
-              <td class="text-center" rowspan="1" colspan="1">263</td>
-              <td class="text-left" rowspan="1" colspan="1">Formats for WattStopper Digital Lighting Management (DLM) and Legrand Nitoo Open protocol common packet structure captures.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ISO_14443</td>
-              <td class="text-center" rowspan="1" colspan="1">264</td>
-              <td class="text-left" rowspan="1" colspan="1">Messages between ISO 14443 contactless smartcards (Proximity Integrated Circuit Card, PICC) and card readers (Proximity Coupling Device, PCD), with the message format specified by the PCAP format for ISO14443 specification</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RDS</td>
-              <td class="text-center" rowspan="1" colspan="1">265</td>
-              <td class="text-left" rowspan="1" colspan="1">Radio data system (RDS) groups, as per IEC 62106, encapsulated in this form</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_DARWIN</td>
-              <td class="text-center" rowspan="1" colspan="1">266</td>
-              <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a Darwin (macOS, etc.) USB header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_OPENFLOW</td>
-              <td class="text-center" rowspan="1" colspan="1">267</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for OpenBSD DLT_OPENFLOW</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SDLC</td>
-              <td class="text-center" rowspan="1" colspan="1">268</td>
-              <td class="text-left" rowspan="1" colspan="1">SDLC packets, as specified by Chapter 1, DLC Links, section Synchronous Data Link Control (SDLC) of Systems Network Architecture Formats, GA27-3136-20 , without the flag fields, zero-bit insertion, or Frame Check Sequence field, containing SNA path information units (PIUs) as the payload.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_TI_LLN_SNIFFER</td>
-              <td class="text-center" rowspan="1" colspan="1">269</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Texas Instruments protocol sniffer</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LORATAP</td>
-              <td class="text-center" rowspan="1" colspan="1">270</td>
-              <td class="text-left" rowspan="1" colspan="1">LoRaTap pseudo-header , followed by the payload, which is typically the PHYPayload from the LoRaWan specification</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_VSOCK</td>
-              <td class="text-center" rowspan="1" colspan="1">271</td>
-              <td class="text-left" rowspan="1" colspan="1">Protocol for communication between host and guest machines in VMware and KVM hypervisors.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NORDIC_BLE</td>
-              <td class="text-center" rowspan="1" colspan="1">272</td>
-              <td class="text-left" rowspan="1" colspan="1">Messages to and from a Nordic Semiconductor nRF Sniffer for Bluetooth LE packets, beginning with a pseudo-header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DOCSIS31_XRA31</td>
-              <td class="text-center" rowspan="1" colspan="1">273</td>
-              <td class="text-left" rowspan="1" colspan="1">DOCSIS packets and bursts, preceded by a pseudo-header giving metadata about the packet</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ETHERNET_MPACKET</td>
-              <td class="text-center" rowspan="1" colspan="1">274</td>
-              <td class="text-left" rowspan="1" colspan="1">mPackets, as specified by IEEE 802.3br Figure 99-4, starting with the preamble and always ending with a CRC field.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DISPLAYPORT_AUX</td>
-              <td class="text-center" rowspan="1" colspan="1">275</td>
-              <td class="text-left" rowspan="1" colspan="1">DisplayPort AUX channel monitoring data as specified by VESA DisplayPort(DP) Standard preceded by a pseudo-header</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_SLL2</td>
-              <td class="text-center" rowspan="1" colspan="1">276</td>
-              <td class="text-left" rowspan="1" colspan="1">Linux cooked capture encapsulation v2</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SERCOS_MONITOR</td>
-              <td class="text-center" rowspan="1" colspan="1">277</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Sercos Monitor</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_OPENVIZSLA</td>
-              <td class="text-center" rowspan="1" colspan="1">278</td>
-              <td class="text-left" rowspan="1" colspan="1">Openvizsla FPGA-based USB sniffer</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_EBHSCR</td>
-              <td class="text-center" rowspan="1" colspan="1">279</td>
-              <td class="text-left" rowspan="1" colspan="1">Elektrobit High Speed Capture and Replay (EBHSCR) format</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_VPP_DISPATCH</td>
-              <td class="text-center" rowspan="1" colspan="1">280</td>
-              <td class="text-left" rowspan="1" colspan="1">Records in traces from the http://fd.io VPP graph dispatch tracer, in the graph dispatcher trace format</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DSA_TAG_BRCM</td>
-              <td class="text-center" rowspan="1" colspan="1">281</td>
-              <td class="text-left" rowspan="1" colspan="1">Ethernet frames, with a switch tag inserted between the source address field and the type/length field in the Ethernet header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DSA_TAG_BRCM_PREPEND</td>
-              <td class="text-center" rowspan="1" colspan="1">282</td>
-              <td class="text-left" rowspan="1" colspan="1">Ethernet frames, with a switch tag inserted before the destination address in the Ethernet header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_15_4_TAP</td>
-              <td class="text-center" rowspan="1" colspan="1">283</td>
-              <td class="text-left" rowspan="1" colspan="1">IEEE 802.15.4 Low-Rate Wireless Networks, with a pseudo-header containing TLVs with metadata preceding the 802.15.4 header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DSA_TAG_DSA</td>
-              <td class="text-center" rowspan="1" colspan="1">284</td>
-              <td class="text-left" rowspan="1" colspan="1">Ethernet frames, with a switch tag inserted between the source address field and the type/length field in the Ethernet header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DSA_TAG_EDSA</td>
-              <td class="text-center" rowspan="1" colspan="1">285</td>
-              <td class="text-left" rowspan="1" colspan="1">Ethernet frames, with a programmable Ethernet type switch tag inserted between the source address field and the type/length field in the Ethernet header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ELEE</td>
-              <td class="text-center" rowspan="1" colspan="1">286</td>
-              <td class="text-left" rowspan="1" colspan="1">Payload of lawful intercept packets using the ELEE protocol The packet begins with the ELEE header; it does not include any transport-layer or lower-layer headers for protocols used to transport ELEE packets.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_Z_WAVE_SERIAL</td>
-              <td class="text-center" rowspan="1" colspan="1">287</td>
-              <td class="text-left" rowspan="1" colspan="1">Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection, as described in section 5 of the Z-Wave Serial API Host Application Programming Guide</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0</td>
-              <td class="text-center" rowspan="1" colspan="1">288</td>
-              <td class="text-left" rowspan="1" colspan="1">USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the the Universal Serial Bus Specification Revision 2.0</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ATSC_ALP</td>
-              <td class="text-center" rowspan="1" colspan="1">289</td>
-              <td class="text-left" rowspan="1" colspan="1">ATSC Link-Layer Protocol frames, as described in section 5 of the A/330 Link-Layer Protocol specification, found at https://www.atsc.org/atsc-documents/type/3-0-standards/, beginning with a Base Header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ETW</td>
-              <td class="text-center" rowspan="1" colspan="1">290</td>
-              <td class="text-left" rowspan="1" colspan="1">Event Tracing for Windows messages, beginning with a https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html pseudo-header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NETANALYZER_NG</td>
-              <td class="text-center" rowspan="1" colspan="1">291</td>
-              <td class="text-left" rowspan="1" colspan="1">Reserved for Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZBOSS_NCP</td>
-              <td class="text-center" rowspan="1" colspan="1">292</td>
-              <td class="text-left" rowspan="1" colspan="1">Serial NCP (Network Co-Processor) protocol for Zigbee stack ZBOSS by DSR. https://cloud.dsr-corporation.com/index.php/s/BAn4LtRWbJjFiAm ZBOSS NCP protocol, beginning with a www.tcpdump.org/linktypes/LINKTYPE_ZBOSS_NCP.html header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0_LOW_SPEED</td>
-              <td class="text-center" rowspan="1" colspan="1">293</td>
-              <td class="text-left" rowspan="1" colspan="1">Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0_FULL_SPEED</td>
-              <td class="text-center" rowspan="1" colspan="1">294</td>
-              <td class="text-left" rowspan="1" colspan="1">Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0_HIGH_SPEED</td>
-              <td class="text-center" rowspan="1" colspan="1">295</td>
-              <td class="text-left" rowspan="1" colspan="1">High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AUERSWALD_LOG</td>
-              <td class="text-center" rowspan="1" colspan="1">296</td>
-              <td class="text-left" rowspan="1" colspan="1">Auerswald Logger Protocol, as described in https://github.com/Auerswald-GmbH/auerlog/blob/master/auerlog.txt.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZWAVE_TAP</td>
-              <td class="text-center" rowspan="1" colspan="1">297</td>
-              <td class="text-left" rowspan="1" colspan="1">Z-Wave packets, as specified by https://www.itu.int/rec/T-REC-G.9959/en ITU-T Recommendation G.9959, with a https://gitlab.com/exegin/zwave-g9959-tap TAP meta-data header.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SILABS_DEBUG_CHANNEL</td>
-              <td class="text-center" rowspan="1" colspan="1">298</td>
-              <td class="text-left" rowspan="1" colspan="1">Silicon Labs debug channel protocol, as described in https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/debug-channel.md</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FIRA_UCI</td>
-              <td class="text-center" rowspan="1" colspan="1">299</td>
-              <td class="text-left" rowspan="1" colspan="1">https://www.tcpdump.org/linktypes/LINKTYPE_FIRA_UCI.html Ultra-wideband (UWB) controller interface protocol (UCI).</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MDB</td>
-              <td class="text-center" rowspan="1" colspan="1">300</td>
-              <td class="text-left" rowspan="1" colspan="1">MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine, with the message format specified by https://www.kaiser.cx/pcap-mdb.html the PCAP format for MDB specification.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DECT_NR</td>
-              <td class="text-center" rowspan="1" colspan="1">301</td>
-              <td class="text-left" rowspan="1" colspan="1">DECT-2020 New Radio (NR) MAC layer specified in https://www.etsi.org/committee/1394-dect ETSI TS 103 636-4. The Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions.</td>
-            </tr>
-          </tbody>
-        </table>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">LINKTYPE Name</th>
+                <th class="text-center" rowspan="1" colspan="1">LINKTYPE Value</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NULL</td>
+                <td class="text-center" rowspan="1" colspan="1">0</td>
+                <td class="text-left" rowspan="1" colspan="1">BSD loopback encapsulation</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ETHERNET</td>
+                <td class="text-center" rowspan="1" colspan="1">1</td>
+                <td class="text-left" rowspan="1" colspan="1">IEEE 802.3 Ethernet</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_EXP_ETHERNET</td>
+                <td class="text-center" rowspan="1" colspan="1">2</td>
+                <td class="text-left" rowspan="1" colspan="1">Xerox experimental 3Mb Ethernet</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AX25</td>
+                <td class="text-center" rowspan="1" colspan="1">3</td>
+                <td class="text-left" rowspan="1" colspan="1">AX.25 packet</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PRONET</td>
+                <td class="text-center" rowspan="1" colspan="1">4</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for PRONET</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_CHAOS</td>
+                <td class="text-center" rowspan="1" colspan="1">5</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for MIT CHAOSNET</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_5</td>
+                <td class="text-center" rowspan="1" colspan="1">6</td>
+                <td class="text-left" rowspan="1" colspan="1">IEEE 802.5 Token Ring</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ARCNET_BSD</td>
+                <td class="text-center" rowspan="1" colspan="1">7</td>
+                <td class="text-left" rowspan="1" colspan="1">ARCNET Data Packets with BSD encapsulation</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SLIP</td>
+                <td class="text-center" rowspan="1" colspan="1">8</td>
+                <td class="text-left" rowspan="1" colspan="1">SLIP, w/LINKTYPE_SLIP header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP</td>
+                <td class="text-center" rowspan="1" colspan="1">9</td>
+                <td class="text-left" rowspan="1" colspan="1">PPP, as per RFC 1661/RFC 1662</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FDDI</td>
+                <td class="text-center" rowspan="1" colspan="1">10</td>
+                <td class="text-left" rowspan="1" colspan="1">FDDI: per ANSI INCITS 239-1994</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">not to be used</td>
+                <td class="text-center" rowspan="1" colspan="1">11-49</td>
+                <td class="text-left" rowspan="1" colspan="1">Do not use these values</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_HDLC</td>
+                <td class="text-center" rowspan="1" colspan="1">50</td>
+                <td class="text-left" rowspan="1" colspan="1">PPP in HDLC-like framing, as per RFC 1662</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_ETHER</td>
+                <td class="text-center" rowspan="1" colspan="1">51</td>
+                <td class="text-left" rowspan="1" colspan="1">PPPoE; per RFC 2516</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Reserved</td>
+                <td class="text-center" rowspan="1" colspan="1">52-98</td>
+                <td class="text-left" rowspan="1" colspan="1">Do not use these values</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SYMANTEC_FIREWALL</td>
+                <td class="text-center" rowspan="1" colspan="1">99</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Symantec Enterprise Firewall</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ATM_RFC1483</td>
+                <td class="text-center" rowspan="1" colspan="1">100</td>
+                <td class="text-left" rowspan="1" colspan="1">RFC 1483 LLC/SNAP-encapsulated ATM</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RAW</td>
+                <td class="text-center" rowspan="1" colspan="1">101</td>
+                <td class="text-left" rowspan="1" colspan="1">Raw IP; begins with an IPv4 or IPv6 header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SLIP_BSDOS</td>
+                <td class="text-center" rowspan="1" colspan="1">102</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for BSD/OS SLIP BPF header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_BSDOS</td>
+                <td class="text-center" rowspan="1" colspan="1">103</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for BSD/OS PPP BPF header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_C_HDLC</td>
+                <td class="text-center" rowspan="1" colspan="1">104</td>
+                <td class="text-left" rowspan="1" colspan="1">Cisco PPP with HDLC framing, as per Section 4.3.1 of RFC 1547</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11</td>
+                <td class="text-center" rowspan="1" colspan="1">105</td>
+                <td class="text-left" rowspan="1" colspan="1">IEEE 802.11 wireless LAN</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ATM_CLIP</td>
+                <td class="text-center" rowspan="1" colspan="1">106</td>
+                <td class="text-left" rowspan="1" colspan="1">ATM Classical IP, with no header preceding IP</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FRELAY</td>
+                <td class="text-center" rowspan="1" colspan="1">107</td>
+                <td class="text-left" rowspan="1" colspan="1">Frame Relay LAPF frames</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LOOP</td>
+                <td class="text-center" rowspan="1" colspan="1">108</td>
+                <td class="text-left" rowspan="1" colspan="1">OpenBSD loopback encapsulation</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ENC</td>
+                <td class="text-center" rowspan="1" colspan="1">109</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for OpenBSD IPSEC encapsulation</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LANE8023</td>
+                <td class="text-center" rowspan="1" colspan="1">110</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for ATM LANE + 802.3</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_HIPPI</td>
+                <td class="text-center" rowspan="1" colspan="1">111</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for NetBSD HIPPI</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_HDLC</td>
+                <td class="text-center" rowspan="1" colspan="1">112</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for NetBSD HDLC framing</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_SLL</td>
+                <td class="text-center" rowspan="1" colspan="1">113</td>
+                <td class="text-left" rowspan="1" colspan="1">Linux "cooked" capture encapsulation</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LTALK</td>
+                <td class="text-center" rowspan="1" colspan="1">114</td>
+                <td class="text-left" rowspan="1" colspan="1">Apple LocalTalk</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ECONET</td>
+                <td class="text-center" rowspan="1" colspan="1">115</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Acorn Econet</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPFILTER</td>
+                <td class="text-center" rowspan="1" colspan="1">116</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for OpenBSD ipfilter</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PFLOG</td>
+                <td class="text-center" rowspan="1" colspan="1">117</td>
+                <td class="text-left" rowspan="1" colspan="1">OpenBSD pflog; "struct pfloghdr" structure</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_CISCO_IOS</td>
+                <td class="text-center" rowspan="1" colspan="1">118</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Cisco-internal use</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11_PRISM</td>
+                <td class="text-center" rowspan="1" colspan="1">119</td>
+                <td class="text-left" rowspan="1" colspan="1">Prism monitor mode</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11_AIRONET</td>
+                <td class="text-center" rowspan="1" colspan="1">120</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for 802.11 + FreeFreeBSD Aironet radio metadata</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_HHDLC</td>
+                <td class="text-center" rowspan="1" colspan="1">121</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Siemens HiPath HDLC</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IP_OVER_FC</td>
+                <td class="text-center" rowspan="1" colspan="1">122</td>
+                <td class="text-left" rowspan="1" colspan="1">RFC 2625 IP-over-Fibre Channel</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SUNATM</td>
+                <td class="text-center" rowspan="1" colspan="1">123</td>
+                <td class="text-left" rowspan="1" colspan="1">ATM traffic, / per SunATM devices</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RIO</td>
+                <td class="text-center" rowspan="1" colspan="1">124</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for RapidIO</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PCI_EXP</td>
+                <td class="text-center" rowspan="1" colspan="1">125</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for PCI Express</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AURORA</td>
+                <td class="text-center" rowspan="1" colspan="1">126</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Xilinx Aurora link layer</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11_RADIOTAP</td>
+                <td class="text-center" rowspan="1" colspan="1">127</td>
+                <td class="text-left" rowspan="1" colspan="1">Radiotap header<span>[<a href="#Radiotap" class="cite xref">Radiotap</a>]</span>, followed by an 802.11 header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_TZSP</td>
+                <td class="text-center" rowspan="1" colspan="1">128</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Tazmen Sniffer Protocol</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ARCNET_LINUX</td>
+                <td class="text-center" rowspan="1" colspan="1">129</td>
+                <td class="text-left" rowspan="1" colspan="1">ARCNET Data Packets, per RFC 1051 frames w/variations</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_MLPPP</td>
+                <td class="text-center" rowspan="1" colspan="1">130</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_MLFR</td>
+                <td class="text-center" rowspan="1" colspan="1">131</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ES</td>
+                <td class="text-center" rowspan="1" colspan="1">132</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_GGSN</td>
+                <td class="text-center" rowspan="1" colspan="1">133</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_MFR</td>
+                <td class="text-center" rowspan="1" colspan="1">134</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ATM2</td>
+                <td class="text-center" rowspan="1" colspan="1">135</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_SERVICES</td>
+                <td class="text-center" rowspan="1" colspan="1">136</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ATM1</td>
+                <td class="text-center" rowspan="1" colspan="1">137</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_APPLE_IP_OVER_IEEE1394</td>
+                <td class="text-center" rowspan="1" colspan="1">138</td>
+                <td class="text-left" rowspan="1" colspan="1">Apple IP-over-IEEE 1394 cooked header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MTP2_WITH_PHDR</td>
+                <td class="text-center" rowspan="1" colspan="1">139</td>
+                <td class="text-left" rowspan="1" colspan="1">Signaling System 7 (SS7) Message Transfer Part Level ITU-T Q.703</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MTP2</td>
+                <td class="text-center" rowspan="1" colspan="1">140</td>
+                <td class="text-left" rowspan="1" colspan="1">SS7 Level 2, Q.703</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MTP3</td>
+                <td class="text-center" rowspan="1" colspan="1">141</td>
+                <td class="text-left" rowspan="1" colspan="1">SS7 Level 3, Q.704</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SCCP</td>
+                <td class="text-center" rowspan="1" colspan="1">142</td>
+                <td class="text-left" rowspan="1" colspan="1">SS7 Control Part, ITU-T Q.711/Q.712/Q.713/Q.714</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DOCSIS</td>
+                <td class="text-center" rowspan="1" colspan="1">143</td>
+                <td class="text-left" rowspan="1" colspan="1">DOCSIS MAC frames, DOCSIS 3.1</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_IRDA</td>
+                <td class="text-center" rowspan="1" colspan="1">144</td>
+                <td class="text-left" rowspan="1" colspan="1">Linux-IrDA packets w/LINKTYPE_LINUX_IRDA header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IBM_SP</td>
+                <td class="text-center" rowspan="1" colspan="1">145</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for IBM SP switch</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IBM_SN</td>
+                <td class="text-center" rowspan="1" colspan="1">146</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for IBM Next Federation switch</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_01</td>
+                <td class="text-center" rowspan="1" colspan="1">147</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_02</td>
+                <td class="text-center" rowspan="1" colspan="1">148</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_03</td>
+                <td class="text-center" rowspan="1" colspan="1">149</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_04</td>
+                <td class="text-center" rowspan="1" colspan="1">150</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_05</td>
+                <td class="text-center" rowspan="1" colspan="1">151</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_06</td>
+                <td class="text-center" rowspan="1" colspan="1">152</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_07</td>
+                <td class="text-center" rowspan="1" colspan="1">153</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_08</td>
+                <td class="text-center" rowspan="1" colspan="1">154</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_09</td>
+                <td class="text-center" rowspan="1" colspan="1">155</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_10</td>
+                <td class="text-center" rowspan="1" colspan="1">156</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_11</td>
+                <td class="text-center" rowspan="1" colspan="1">157</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_12</td>
+                <td class="text-center" rowspan="1" colspan="1">158</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_13</td>
+                <td class="text-center" rowspan="1" colspan="1">159</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_14</td>
+                <td class="text-center" rowspan="1" colspan="1">160</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_15</td>
+                <td class="text-center" rowspan="1" colspan="1">161</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RESERVED_16</td>
+                <td class="text-center" rowspan="1" colspan="1">162</td>
+                <td class="text-left" rowspan="1" colspan="1">For private use (deprecated)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11_AVS</td>
+                <td class="text-center" rowspan="1" colspan="1">163</td>
+                <td class="text-left" rowspan="1" colspan="1">AVS header<span>[<a href="#AVS" class="cite xref">AVS</a>]</span>, followed by an 802.11 header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_MONITOR</td>
+                <td class="text-center" rowspan="1" colspan="1">164</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BACNET_MS_TP</td>
+                <td class="text-center" rowspan="1" colspan="1">165</td>
+                <td class="text-left" rowspan="1" colspan="1">BACnet MS/TP frames, per 9.3 MS/TP Frame Format ANSI 135</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_PPPD</td>
+                <td class="text-center" rowspan="1" colspan="1">166</td>
+                <td class="text-left" rowspan="1" colspan="1">PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC, different stuffing</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_PPPOE</td>
+                <td class="text-center" rowspan="1" colspan="1">167</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_PPPOE_ATM</td>
+                <td class="text-center" rowspan="1" colspan="1">168</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GPRS_LLC</td>
+                <td class="text-center" rowspan="1" colspan="1">169</td>
+                <td class="text-left" rowspan="1" colspan="1">General Packet Radio Service Logical Link Control, as per 3GPP TS 04.64</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GPF_T</td>
+                <td class="text-center" rowspan="1" colspan="1">170</td>
+                <td class="text-left" rowspan="1" colspan="1">Transparent-mapped generic framing procedure, as specified by ITU-T Recommendation G.7041/Y.1303</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GPF_F</td>
+                <td class="text-center" rowspan="1" colspan="1">171</td>
+                <td class="text-left" rowspan="1" colspan="1">Frame-mapped generic framing procedure, as specified by ITU-T Recommendation G.7041/Y.1303</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GCOM_T1E1</td>
+                <td class="text-center" rowspan="1" colspan="1">172</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Gcom T1/E1 line monitoring equipment</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GCOM_SERIAL</td>
+                <td class="text-center" rowspan="1" colspan="1">173</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Gcom T1/E1 line monitoring equipment</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_PIC_PEER</td>
+                <td class="text-center" rowspan="1" colspan="1">174</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ERF_ETH</td>
+                <td class="text-center" rowspan="1" colspan="1">175</td>
+                <td class="text-left" rowspan="1" colspan="1">Endace ERF header followed by 802.3 Ethernet</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ERF_POS</td>
+                <td class="text-center" rowspan="1" colspan="1">176</td>
+                <td class="text-left" rowspan="1" colspan="1">Endace ERF header followed by Packet-over-SONET</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_LAPD</td>
+                <td class="text-center" rowspan="1" colspan="1">177</td>
+                <td class="text-left" rowspan="1" colspan="1">Link Access Procedures on the D Channel (LAPD) frames, as specified by ITU-T Recommendation Q.920 and ITU-T Recommendation Q.921 , captured via vISDN, with a LINKTYPE_LINUX_LAPD header, followed by the Q.921 frame, starting with the address field</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ETHER</td>
+                <td class="text-center" rowspan="1" colspan="1">178</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_PPP</td>
+                <td class="text-center" rowspan="1" colspan="1">179</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_FRELAY</td>
+                <td class="text-center" rowspan="1" colspan="1">180</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_CHDLC</td>
+                <td class="text-center" rowspan="1" colspan="1">181</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MFR</td>
+                <td class="text-center" rowspan="1" colspan="1">182</td>
+                <td class="text-left" rowspan="1" colspan="1">FRF.16.1 Multi-Link Frame Relay frames, beginning with an FRF.12 Interface fragmentation format fragmentation header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_VP</td>
+                <td class="text-center" rowspan="1" colspan="1">183</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_A429</td>
+                <td class="text-center" rowspan="1" colspan="1">184</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for ARINC 429 frames</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_A653_ICM</td>
+                <td class="text-center" rowspan="1" colspan="1">185</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Arinc 653 Interpartition Communication messages</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_FREEBSD</td>
+                <td class="text-center" rowspan="1" colspan="1">186</td>
+                <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a FreeBSD USB header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_HCI_H4</td>
+                <td class="text-center" rowspan="1" colspan="1">187</td>
+                <td class="text-left" rowspan="1" colspan="1">Bluetooth HCI UART transport layer; the frame contains an HCI packet indicator octet, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification, followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_16_MAC_CPS</td>
+                <td class="text-center" rowspan="1" colspan="1">188</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for IEEE 802.16 MAC Common Part Sublayer</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_LINUX</td>
+                <td class="text-center" rowspan="1" colspan="1">189</td>
+                <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a Linux USB header, as specified by the struct usbmon_packet in the Documentation/usb/usbmon.txt file in the Linux source tree. Only the first 48 octets of that header are present. All fields in the header are in host byte order. When performing a live capture, the host byte order is the byte order of the machine on which the packets are captured. When reading a pcap file, the byte order is the byte order for the file, as specified by the file's magic number; when reading a pcapng file, the byte order is the byte order for the section of the pcapng file, as specified by the Section Header Block</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_CAN20B</td>
+                <td class="text-center" rowspan="1" colspan="1">190</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Controller Area Network (CAN) v. 2.0B packets</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_15_4_LINUX</td>
+                <td class="text-center" rowspan="1" colspan="1">191</td>
+                <td class="text-left" rowspan="1" colspan="1">IEEE 802.15.4, with address fields padded, as is done by Linux drivers</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPI</td>
+                <td class="text-center" rowspan="1" colspan="1">192</td>
+                <td class="text-left" rowspan="1" colspan="1">Per-Packet Information information, as specified by the Per-Packet Information Header Specification , followed by a packet with the LINKTYPE_ value specified by the pph_dlt field of that header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_16_MAC_CPS_RADIO</td>
+                <td class="text-center" rowspan="1" colspan="1">193</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for 802.16 MAC Common Part Sublayer plus radio header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ISM</td>
+                <td class="text-center" rowspan="1" colspan="1">194</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_15_4_WITHFCS</td>
+                <td class="text-center" rowspan="1" colspan="1">195</td>
+                <td class="text-left" rowspan="1" colspan="1">IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SITA</td>
+                <td class="text-center" rowspan="1" colspan="1">196</td>
+                <td class="text-left" rowspan="1" colspan="1">Various link-layer types, with a pseudo-header, for SITA</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ERF</td>
+                <td class="text-center" rowspan="1" colspan="1">197</td>
+                <td class="text-left" rowspan="1" colspan="1">Various link-layer types, with a pseudo-header, for Endace DAG cards; encapsulates Endace ERF records</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RAIF1</td>
+                <td class="text-center" rowspan="1" colspan="1">198</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Ethernet packets captured from a u10 Networks board</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPMB_KONTRON</td>
+                <td class="text-center" rowspan="1" colspan="1">199</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for IPMB packet for IPMI, with a 2-octet header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ST</td>
+                <td class="text-center" rowspan="1" colspan="1">200</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR</td>
+                <td class="text-center" rowspan="1" colspan="1">201</td>
+                <td class="text-left" rowspan="1" colspan="1">Bluetooth HCI UART transport layer; the frame contains a 4-octet direction field, in network byte order (big-endian), the low-order bit of which is set if the frame was sent from the host to the controller and clear if the frame was received by the host from the controller, followed by an HCI packet indicator octet, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification, followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AX25_KISS</td>
+                <td class="text-center" rowspan="1" colspan="1">202</td>
+                <td class="text-left" rowspan="1" colspan="1">AX.25 packet, with a 1-octet KISS header containing a type indicator</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LAPD</td>
+                <td class="text-center" rowspan="1" colspan="1">203</td>
+                <td class="text-left" rowspan="1" colspan="1">Link Access Procedures on the D Channel (LAPD) frames, as specified by ITU-T Recommendation Q.920 and ITU-T Recommendation Q.921 , starting with the address field, with no pseudo-header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_WITH_DIR</td>
+                <td class="text-center" rowspan="1" colspan="1">204</td>
+                <td class="text-left" rowspan="1" colspan="1">PPP, as per RFC 1661 and RFC 1662 , preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host; if the first 2 octets are 0xff and 0x03, it's PPP in HDLC-like framing, with the PPP header following those two octets, otherwise it's PPP without framing, and the packet begins with the PPP header. The data in the frame is not octet-stuffed or bit-stuffed</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_C_HDLC_WITH_DIR</td>
+                <td class="text-center" rowspan="1" colspan="1">205</td>
+                <td class="text-left" rowspan="1" colspan="1">Cisco PPP with HDLC framing, as per section 4.3.1 of RFC 1547 , preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FRELAY_WITH_DIR</td>
+                <td class="text-center" rowspan="1" colspan="1">206</td>
+                <td class="text-left" rowspan="1" colspan="1">Frame Relay LAPF frames, beginning with a one-octet pseudo-header with a zero value meaning received by this host (DCE-&gt;DTE) and a non-zero value meaning sent by this host (DTE-&gt;DCE), followed by an ITU-T Recommendation Q.922 LAPF header starting with the address field, and without an FCS at the end of the frame</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LAPB_WITH_DIR</td>
+                <td class="text-center" rowspan="1" colspan="1">207</td>
+                <td class="text-left" rowspan="1" colspan="1">Link Access Procedure, Balanced (LAPB), as specified by ITU-T Recommendation X.25 , preceded with a one-octet pseudo-header with a zero value meaning received by this host (DCE-&gt;DTE) and a non-zero value meaning sent by this host (DTE-&gt;DCE)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Reserved</td>
+                <td class="text-center" rowspan="1" colspan="1">208</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for an unspecified link-layer type</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_I2C_LINUX</td>
+                <td class="text-center" rowspan="1" colspan="1">209</td>
+                <td class="text-left" rowspan="1" colspan="1">I2C packets, with a Linux-specific pseudo-header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FLEXRAY</td>
+                <td class="text-center" rowspan="1" colspan="1">210</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for FlexRay automotive bus</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MOST</td>
+                <td class="text-center" rowspan="1" colspan="1">211</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Media Oriented Systems Transport (MOST) bus</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LIN</td>
+                <td class="text-center" rowspan="1" colspan="1">212</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Local Interconnect Network (LIN) bus for vehicle networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_X2E_SERIAL</td>
+                <td class="text-center" rowspan="1" colspan="1">213</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for X2E serial line captures</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_X2E_XORAYA</td>
+                <td class="text-center" rowspan="1" colspan="1">214</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for X2E Xoraya data loggers</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_15_4_NONASK_PHY</td>
+                <td class="text-center" rowspan="1" colspan="1">215</td>
+                <td class="text-left" rowspan="1" colspan="1">IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame, and with the PHY-level data for the O-QPSK, BPSK, GFSK, MSK, and RCC DSS BPSK PHYs (4 octets of 0 as preamble, one octet of SFD, one octet of frame length + reserved bit) preceding the MAC-layer data (starting with the frame control field)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_EVDEV</td>
+                <td class="text-center" rowspan="1" colspan="1">216</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Linux evdev messages</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GSMTAP_UM</td>
+                <td class="text-center" rowspan="1" colspan="1">217</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for GSM Um interface, with gsmtap header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GSMTAP_ABIS</td>
+                <td class="text-center" rowspan="1" colspan="1">218</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for GSM Abis interface, with gsmtap header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MPLS</td>
+                <td class="text-center" rowspan="1" colspan="1">219</td>
+                <td class="text-left" rowspan="1" colspan="1">MPLS packets with MPLS label as the header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_LINUX_MMAPPED</td>
+                <td class="text-center" rowspan="1" colspan="1">220</td>
+                <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a Linux USB header, as specified by the struct usbmon_packet in the Documentation/usb/usbmon.txt file in the Linux source tree. All 64 octets of the header are present. All fields in the header are in host byte order. When performing a live capture, the host byte order is the byte order of the machine on which the packets are captured. When reading a pcap file, the byte order is the byte order for the file, as specified by the file's magic number; when reading a pcapng file, the byte order is the byte order for the section of the pcapng file, as specified by the Section Header Block. For isochronous transfers, the ndesc field specifies the number of isochronous descriptors that follow</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DECT</td>
+                <td class="text-center" rowspan="1" colspan="1">221</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for DECT packets, with a pseudo-header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AOS</td>
+                <td class="text-center" rowspan="1" colspan="1">222</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for OS Space Data Link Protocol</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_WIHART</td>
+                <td class="text-center" rowspan="1" colspan="1">223</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Wireless HART (Highway Addressable Remote Transducer)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FC_2</td>
+                <td class="text-center" rowspan="1" colspan="1">224</td>
+                <td class="text-left" rowspan="1" colspan="1">Fibre Channel FC-2 frames, beginning with a Frame_Header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FC_2_WITH_FRAME_DELIMS</td>
+                <td class="text-center" rowspan="1" colspan="1">225</td>
+                <td class="text-left" rowspan="1" colspan="1">Fibre Channel FC-2 frames, beginning an encoding of the SOF, followed by a Frame_Header, and ending with an encoding of the SOF. The encodings represent the frame delimiters as 4-octet sequences representing the corresponding ordered sets, with K28.5 represented as 0xBC, and the D symbols as the corresponding octet values; for example, SOFi2, which is K28.5 - D21.5 - D1.2 - D21.2, is represented as 0xBC 0xB5 0x55 0x55</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPNET</td>
+                <td class="text-center" rowspan="1" colspan="1">226</td>
+                <td class="text-left" rowspan="1" colspan="1">Solaris ipnet pseudo-header , followed by an IPv4 or IPv6 datagram</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_CAN_SOCKETCAN</td>
+                <td class="text-center" rowspan="1" colspan="1">227</td>
+                <td class="text-left" rowspan="1" colspan="1">CAN (Controller Area Network) frames, with a pseudo-header followed by the frame payload</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPV4</td>
+                <td class="text-center" rowspan="1" colspan="1">228</td>
+                <td class="text-left" rowspan="1" colspan="1">Raw IPv4; the packet begins with an IPv4 header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPV6</td>
+                <td class="text-center" rowspan="1" colspan="1">229</td>
+                <td class="text-left" rowspan="1" colspan="1">Raw IPv6; the packet begins with an IPv6 header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_15_4_NOFCS</td>
+                <td class="text-center" rowspan="1" colspan="1">230</td>
+                <td class="text-left" rowspan="1" colspan="1">IEEE 802.15.4 Low-Rate Wireless Network, without the FCS at the end of the frame</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DBUS</td>
+                <td class="text-center" rowspan="1" colspan="1">231</td>
+                <td class="text-left" rowspan="1" colspan="1">Raw D-Bus messages , starting with the endianness flag, followed by the message type, etc., but without the authentication handshake before the message sequence</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_VS</td>
+                <td class="text-center" rowspan="1" colspan="1">232</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_SRX_E2E</td>
+                <td class="text-center" rowspan="1" colspan="1">233</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_FIBRECHANNEL</td>
+                <td class="text-center" rowspan="1" colspan="1">234</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DVB_CI</td>
+                <td class="text-center" rowspan="1" colspan="1">235</td>
+                <td class="text-left" rowspan="1" colspan="1">DVB-CI (DVB Common Interface for communication between a PC Card module and a DVB receiver), with the message format specified by the PCAP format for DVB-CI specification</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MUX27010</td>
+                <td class="text-center" rowspan="1" colspan="1">236</td>
+                <td class="text-left" rowspan="1" colspan="1">Variant of 3GPP TS 27.010 multiplexing protocol (similar to, but not the same as, 27.010)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_STANAG_5066_D_PDU</td>
+                <td class="text-center" rowspan="1" colspan="1">237</td>
+                <td class="text-left" rowspan="1" colspan="1">D_PDUs as described by NATO standard STANAG 5066, starting with the synchronization sequence, and including both header and data CRCs. The current version of STANAG 5066 is backwards-compatible with the 1.0.2 version , although newer versions are classified</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ATM_CEMIC</td>
+                <td class="text-center" rowspan="1" colspan="1">238</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Juniper Networks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NFLOG</td>
+                <td class="text-center" rowspan="1" colspan="1">239</td>
+                <td class="text-left" rowspan="1" colspan="1">Linux netlink NETLINK NFLOG socket log messages</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NETANALYZER</td>
+                <td class="text-center" rowspan="1" colspan="1">240</td>
+                <td class="text-left" rowspan="1" colspan="1">Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the MAC header and ending with the FCS</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NETANALYZER_TRANSPARENT</td>
+                <td class="text-center" rowspan="1" colspan="1">241</td>
+                <td class="text-left" rowspan="1" colspan="1">Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the preamble, SFD, and MAC header, and ending with the FCS</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPOIB</td>
+                <td class="text-center" rowspan="1" colspan="1">242</td>
+                <td class="text-left" rowspan="1" colspan="1">IP-over-InfiniBand, as specified by Section 6 of RFC 4391</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MPEG_2_TS</td>
+                <td class="text-center" rowspan="1" colspan="1">243</td>
+                <td class="text-left" rowspan="1" colspan="1">MPEG-2 Transport Stream transport packets, as specified by ISO 13818-1/ ITU-T Recommendation H.222.0 (see table 2-2 of section 2.4.3.2 Transport Stream packet layer)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NG40</td>
+                <td class="text-center" rowspan="1" colspan="1">244</td>
+                <td class="text-left" rowspan="1" colspan="1">Pseudo-header for ng4T GmbH's UMTS Iub/Iur-over-ATM and Iub/Iur-over-IP format as used by their ng40 protocol tester , followed by frames for the Frame Protocol as specified by 3GPP TS 25.427 for dedicated channels and 3GPP TS 25.435 for common/shared channels in the case of ATM AAL2 or UDP traffic, by SSCOP packets as specified by ITU-T Recommendation Q.2110 for ATM AAL5 traffic, and by NBAP packets for SCTP traffic</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NFC_LLCP</td>
+                <td class="text-center" rowspan="1" colspan="1">245</td>
+                <td class="text-left" rowspan="1" colspan="1">Pseudo-header for NFC LLCP packet captures , followed by frame data for the LLCP Protocol as specified by NFCForum-TS-LLCP_1.1</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PFSYNC</td>
+                <td class="text-center" rowspan="1" colspan="1">246</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for pfsync output</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_INFINIBAND</td>
+                <td class="text-center" rowspan="1" colspan="1">247</td>
+                <td class="text-left" rowspan="1" colspan="1">Raw InfiniBand frames, starting with the Local Routing Header, as specified in Chapter 5 Data packet format of InfiniBand™ Architectural Specification Release 1.2.1 Volume 1 - General Specifications</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SCTP</td>
+                <td class="text-center" rowspan="1" colspan="1">248</td>
+                <td class="text-left" rowspan="1" colspan="1">SCTP packets, as defined by RFC 4960 , with no lower-level protocols such as IPv4 or IPv6</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USBPCAP</td>
+                <td class="text-center" rowspan="1" colspan="1">249</td>
+                <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a USBPcap header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RTAC_SERIAL</td>
+                <td class="text-center" rowspan="1" colspan="1">250</td>
+                <td class="text-left" rowspan="1" colspan="1">Serial-line packet header for the Schweitzer Engineering Laboratories RTAC product , followed by a payload for one of a number of industrial control protocols</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_LE_LL</td>
+                <td class="text-center" rowspan="1" colspan="1">251</td>
+                <td class="text-left" rowspan="1" colspan="1">Bluetooth Low Energy air interface Link Layer packets, in the format described in Section 2.1 (PACKET FORMAT) of volume 6 of the Bluetooth Specification Version 4.0 (see PDF page 2200), but without the Preamble</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_WIRESHARK_UPPER_PDU</td>
+                <td class="text-center" rowspan="1" colspan="1">252</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Wireshark</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NETLINK</td>
+                <td class="text-center" rowspan="1" colspan="1">253</td>
+                <td class="text-left" rowspan="1" colspan="1">Linux Netlink capture encapsulation</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_LINUX_MONITOR</td>
+                <td class="text-center" rowspan="1" colspan="1">254</td>
+                <td class="text-left" rowspan="1" colspan="1">Bluetooth Linux Monitor encapsulation of traffic for the BlueZ stack</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_BREDR_BB</td>
+                <td class="text-center" rowspan="1" colspan="1">255</td>
+                <td class="text-left" rowspan="1" colspan="1">Bluetooth Basic Rate and Enhanced Data Rate baseband packets</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR</td>
+                <td class="text-center" rowspan="1" colspan="1">256</td>
+                <td class="text-left" rowspan="1" colspan="1">Bluetooth Low Energy link-layer packets</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PROFIBUS_DL</td>
+                <td class="text-center" rowspan="1" colspan="1">257</td>
+                <td class="text-left" rowspan="1" colspan="1">PROFIBUS data link layer packets, as specified by IEC standard 61158-4-3, beginning with the start delimiter, ending with the end delimiter, and including all octets between them</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PKTAP</td>
+                <td class="text-center" rowspan="1" colspan="1">258</td>
+                <td class="text-left" rowspan="1" colspan="1">Apple PKTAP capture encapsulation</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_EPON</td>
+                <td class="text-center" rowspan="1" colspan="1">259</td>
+                <td class="text-left" rowspan="1" colspan="1">Ethernet-over-passive-optical-network packets, starting with the last 6 octets of the modified preamble as specified by 65.1.3.2 Transmit in Clause 65 of Section 5 of IEEE 802.3, followed immediately by an Ethernet frame</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPMI_HPM_2</td>
+                <td class="text-center" rowspan="1" colspan="1">260</td>
+                <td class="text-left" rowspan="1" colspan="1">IPMI trace packets, as specified by Table 3-20 Trace Data Block Format in the PICMG HPM.2 specification The timestamps for packets in this format must match the timestamps in the Trace Data Blocks</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZWAVE_R1_R2</td>
+                <td class="text-center" rowspan="1" colspan="1">261</td>
+                <td class="text-left" rowspan="1" colspan="1">Z-Wave RF profile R1 and R2 packets , as specified by ITU-T Recommendation G.9959 , with some MAC layer fields moved</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZWAVE_R3</td>
+                <td class="text-center" rowspan="1" colspan="1">262</td>
+                <td class="text-left" rowspan="1" colspan="1">Z-Wave RF profile R3 packets, as specified by ITU-T Recommendation G.9959, with some MAC layer fields moved</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_WATTSTOPPER_DLM</td>
+                <td class="text-center" rowspan="1" colspan="1">263</td>
+                <td class="text-left" rowspan="1" colspan="1">Formats for WattStopper Digital Lighting Management (DLM) and Legrand Nitoo Open protocol common packet structure captures</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ISO_14443</td>
+                <td class="text-center" rowspan="1" colspan="1">264</td>
+                <td class="text-left" rowspan="1" colspan="1">Messages between ISO 14443 contactless smartcards (Proximity Integrated Circuit Card, PICC) and card readers (Proximity Coupling Device, PCD), with the message format specified by the PCAP format for ISO14443 specification</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RDS</td>
+                <td class="text-center" rowspan="1" colspan="1">265</td>
+                <td class="text-left" rowspan="1" colspan="1">Radio data system (RDS) groups, as per IEC 62106, encapsulated in this form</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_DARWIN</td>
+                <td class="text-center" rowspan="1" colspan="1">266</td>
+                <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a Darwin (macOS, etc.) USB header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_OPENFLOW</td>
+                <td class="text-center" rowspan="1" colspan="1">267</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for OpenBSD DLT_OPENFLOW</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SDLC</td>
+                <td class="text-center" rowspan="1" colspan="1">268</td>
+                <td class="text-left" rowspan="1" colspan="1">SDLC packets, as specified by Chapter 1, DLC Links, section Synchronous Data Link Control (SDLC) of Systems Network Architecture Formats, GA27-3136-20 , without the flag fields, zero-bit insertion, or Frame Check Sequence field, containing SNA path information units (PIUs) as the payload</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_TI_LLN_SNIFFER</td>
+                <td class="text-center" rowspan="1" colspan="1">269</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Texas Instruments protocol sniffer</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LORATAP</td>
+                <td class="text-center" rowspan="1" colspan="1">270</td>
+                <td class="text-left" rowspan="1" colspan="1">LoRaTap pseudo-header , followed by the payload, which is typically the PHYPayload from the LoRaWan specification</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_VSOCK</td>
+                <td class="text-center" rowspan="1" colspan="1">271</td>
+                <td class="text-left" rowspan="1" colspan="1">Protocol for communication between host and guest machines in VMware and KVM hypervisors</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NORDIC_BLE</td>
+                <td class="text-center" rowspan="1" colspan="1">272</td>
+                <td class="text-left" rowspan="1" colspan="1">Messages to and from a Nordic Semiconductor nRF Sniffer for Bluetooth LE packets, beginning with a pseudo-header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DOCSIS31_XRA31</td>
+                <td class="text-center" rowspan="1" colspan="1">273</td>
+                <td class="text-left" rowspan="1" colspan="1">DOCSIS packets and bursts, preceded by a pseudo-header giving metadata about the packet</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ETHERNET_MPACKET</td>
+                <td class="text-center" rowspan="1" colspan="1">274</td>
+                <td class="text-left" rowspan="1" colspan="1">mPackets, as specified by IEEE 802.3br Figure 99-4, starting with the preamble and always ending with a CRC field</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DISPLAYPORT_AUX</td>
+                <td class="text-center" rowspan="1" colspan="1">275</td>
+                <td class="text-left" rowspan="1" colspan="1">DisplayPort AUX channel monitoring data as specified by VESA DisplayPort(DP) Standard preceded by a pseudo-header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_SLL2</td>
+                <td class="text-center" rowspan="1" colspan="1">276</td>
+                <td class="text-left" rowspan="1" colspan="1">Linux cooked capture encapsulation v2</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SERCOS_MONITOR</td>
+                <td class="text-center" rowspan="1" colspan="1">277</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Sercos Monitor</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_OPENVIZSLA</td>
+                <td class="text-center" rowspan="1" colspan="1">278</td>
+                <td class="text-left" rowspan="1" colspan="1">Openvizsla FPGA-based USB sniffer</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_EBHSCR</td>
+                <td class="text-center" rowspan="1" colspan="1">279</td>
+                <td class="text-left" rowspan="1" colspan="1">Elektrobit High Speed Capture and Replay (EBHSCR) format</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_VPP_DISPATCH</td>
+                <td class="text-center" rowspan="1" colspan="1">280</td>
+                <td class="text-left" rowspan="1" colspan="1">Records in traces from the http://fd.io VPP graph dispatch tracer, in the graph dispatcher trace format</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DSA_TAG_BRCM</td>
+                <td class="text-center" rowspan="1" colspan="1">281</td>
+                <td class="text-left" rowspan="1" colspan="1">Ethernet frames, with a switch tag inserted between the source address field and the type/length field in the Ethernet header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DSA_TAG_BRCM_PREPEND</td>
+                <td class="text-center" rowspan="1" colspan="1">282</td>
+                <td class="text-left" rowspan="1" colspan="1">Ethernet frames, with a switch tag inserted before the destination address in the Ethernet header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_15_4_TAP</td>
+                <td class="text-center" rowspan="1" colspan="1">283</td>
+                <td class="text-left" rowspan="1" colspan="1">IEEE 802.15.4 Low-Rate Wireless Networks, with a pseudo-header containing TLVs with metadata preceding the 802.15.4 header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DSA_TAG_DSA</td>
+                <td class="text-center" rowspan="1" colspan="1">284</td>
+                <td class="text-left" rowspan="1" colspan="1">Ethernet frames, with a switch tag inserted between the source address field and the type/length field in the Ethernet header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DSA_TAG_EDSA</td>
+                <td class="text-center" rowspan="1" colspan="1">285</td>
+                <td class="text-left" rowspan="1" colspan="1">Ethernet frames, with a programmable Ethernet type switch tag inserted between the source address field and the type/length field in the Ethernet header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ELEE</td>
+                <td class="text-center" rowspan="1" colspan="1">286</td>
+                <td class="text-left" rowspan="1" colspan="1">Payload of lawful intercept packets using the ELEE protocol The packet begins with the ELEE header; it does not include any transport-layer or lower-layer headers for protocols used to transport ELEE packets</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_Z_WAVE_SERIAL</td>
+                <td class="text-center" rowspan="1" colspan="1">287</td>
+                <td class="text-left" rowspan="1" colspan="1">Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection, as described in section 5 of the Z-Wave Serial API Host Application Programming Guide</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0</td>
+                <td class="text-center" rowspan="1" colspan="1">288</td>
+                <td class="text-left" rowspan="1" colspan="1">USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the the Universal Serial Bus Specification Revision 2.0</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ATSC_ALP</td>
+                <td class="text-center" rowspan="1" colspan="1">289</td>
+                <td class="text-left" rowspan="1" colspan="1">ATSC Link-Layer Protocol frames, as described in section 5 of the A/330 Link-Layer Protocol specification, found at https://www.atsc.org/atsc-documents/type/3-0-standards/, beginning with a Base Header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ETW</td>
+                <td class="text-center" rowspan="1" colspan="1">290</td>
+                <td class="text-left" rowspan="1" colspan="1">Event Tracing for Windows messages, beginning with a https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html pseudo-header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NETANALYZER_NG</td>
+                <td class="text-center" rowspan="1" colspan="1">291</td>
+                <td class="text-left" rowspan="1" colspan="1">Reserved for Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZBOSS_NCP</td>
+                <td class="text-center" rowspan="1" colspan="1">292</td>
+                <td class="text-left" rowspan="1" colspan="1">Serial NCP (Network Co-Processor) protocol for Zigbee stack ZBOSS by DSR. https://cloud.dsr-corporation.com/index.php/s/BAn4LtRWbJjFiAm ZBOSS NCP protocol, beginning with a www.tcpdump.org/linktypes/LINKTYPE_ZBOSS_NCP.html header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0_LOW_SPEED</td>
+                <td class="text-center" rowspan="1" colspan="1">293</td>
+                <td class="text-left" rowspan="1" colspan="1">Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0_FULL_SPEED</td>
+                <td class="text-center" rowspan="1" colspan="1">294</td>
+                <td class="text-left" rowspan="1" colspan="1">Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0_HIGH_SPEED</td>
+                <td class="text-center" rowspan="1" colspan="1">295</td>
+                <td class="text-left" rowspan="1" colspan="1">High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AUERSWALD_LOG</td>
+                <td class="text-center" rowspan="1" colspan="1">296</td>
+                <td class="text-left" rowspan="1" colspan="1">Auerswald Logger Protocol, as described in https://github.com/Auerswald-GmbH/auerlog/blob/master/auerlog.txt</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZWAVE_TAP</td>
+                <td class="text-center" rowspan="1" colspan="1">297</td>
+                <td class="text-left" rowspan="1" colspan="1">Z-Wave packets, as specified by https://www.itu.int/rec/T-REC-G.9959/en ITU-T Recommendation G.9959, with a https://gitlab.com/exegin/zwave-g9959-tap TAP meta-data header</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SILABS_DEBUG_CHANNEL</td>
+                <td class="text-center" rowspan="1" colspan="1">298</td>
+                <td class="text-left" rowspan="1" colspan="1">Silicon Labs debug channel protocol, as described in https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/debug-channel.md</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FIRA_UCI</td>
+                <td class="text-center" rowspan="1" colspan="1">299</td>
+                <td class="text-left" rowspan="1" colspan="1">https://www.tcpdump.org/linktypes/LINKTYPE_FIRA_UCI.html Ultra-wideband (UWB) controller interface protocol (UCI)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MDB</td>
+                <td class="text-center" rowspan="1" colspan="1">300</td>
+                <td class="text-left" rowspan="1" colspan="1">MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine, with the message format specified by https://www.kaiser.cx/pcap-mdb.html the PCAP format for MDB specification</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DECT_NR</td>
+                <td class="text-center" rowspan="1" colspan="1">301</td>
+                <td class="text-left" rowspan="1" colspan="1">DECT-2020 New Radio (NR) MAC layer specified in https://www.etsi.org/committee/1394-dect ETSI TS 103 636-4. The Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions</td>
+              </tr>
+            </tbody>
+          </table>
 </section>
 </div>
-</section>
-</div>
-<div id="guidance-for-designated-experts">
-<section id="section-4">
-      <h2 id="name-guidance-for-designated-exp">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-guidance-for-designated-exp" class="section-name selfRef">Guidance for Designated Experts</a>
-      </h2>
-<p id="section-4-1">When processing a request for a Specification Required allocation the Designated Experts are expected to be able to find the relevant specification at a clearly stable URL.
+<div id="sec-de">
+<section id="section-3.2.2">
+          <h4 id="name-guidance-for-designated-exp">
+<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-guidance-for-designated-exp" class="section-name selfRef">Guidance for Designated Experts</a>
+          </h4>
+<p id="section-3.2.2-1">When processing a request for a Specification Required allocation the Designated Experts are expected to be able to find the relevant specification at a clearly stable URL.
 It is noted that many enterprise web sites do not maintain URLs over a long period of time, and a documented in a "wp-uploaded" section is highly likely to disappear.
 In addition Specifications that require a reader to click through any kind of marketing or legal agreement are not considered public.
-(This is the opinion of other corporate lawyers, who worry about what their employees might have agreed to)<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2">The specification needs to be clearly written, and when the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3">Specifications which are not publically available, but which may be obtained via liason agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the document will be public eventually, but are discouraged.
-For other documents, the Designated Expert will need use their judgement, or consult the WG or an Area Director.<a href="#section-4-3" class="pilcrow">¶</a></p>
-<p id="section-4-4">Linktypes may be allocated for specifications not publically available may be made within the First-Come/First-Served area.
+(This is the opinion of other corporate lawyers, who worry about what their employees might have agreed to)<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-2">The specification needs to be clearly written, and when the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.<a href="#section-3.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-3">Specifications which are not publically available, but which may be obtained via liason agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the document will be public eventually, but are discouraged.
+For other documents, the Designated Expert will need use their judgement, or consult the WG or an Area Director.<a href="#section-3.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-4">Linktypes may be allocated for specifications not publically available may be made within the First-Come/First-Served area.
 This includes specifications that might be classified.
-The minimal requirement is for a contact person for that link type.<a href="#section-4-4" class="pilcrow">¶</a></p>
+The minimal requirement is for a contact person for that link type.<a href="#section-3.2.2-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="contributors">
-<section id="section-5">
+<section id="section-4">
       <h2 id="name-contributors">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-contributors" class="section-name selfRef">Contributors</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-contributors" class="section-name selfRef">Contributors</a>
       </h2>
-<p id="section-5-1">PCAP has been developed over three and half decades by a variety of developers, including:
+<p id="section-4-1">PCAP has been developed over three and half decades by a variety of developers, including:
 Bill Fenner,
 Denis Ovsienko,
 Francois-Xavier Le Bail,
@@ -2384,26 +2420,26 @@ Joerg Mayer,
 Michal Sekletar,
 Stephen Donnelly,
 Torsten Landschoff,
-and Jun-ichiro itojun Hagino<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">PCAP was originally created at LBL by Steve McCanne, Craig Leres, and Van Jacobson.<a href="#section-5-2" class="pilcrow">¶</a></p>
+and Jun-ichiro itojun Hagino<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">PCAP was originally created at LBL by Steve McCanne, Craig Leres, and Van Jacobson.<a href="#section-4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="acknowledgments">
-<section id="section-6">
+<section id="section-5">
       <h2 id="name-acknowledgments">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="section-6-1">The authors wish to thank: Michael Tuexen, Mohamed Boucadair, Carsten Bormann, Henk Birkholtz, and Robert Wilton their invaluable comments and encouragement.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">The authors wish to thank: Michael Tuexen, Mohamed Boucadair, Carsten Bormann, Henk Birkholtz, and Robert Wilton their invaluable comments and encouragement.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<section id="section-7">
+<section id="section-6">
       <h2 id="name-references">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-7.1">
+<section id="section-6.1">
         <h3 id="name-normative-references">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -2411,33 +2447,41 @@ and Jun-ichiro itojun Hagino<a href="#section-5-1" class="pilcrow">¶</a></p>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8126">[RFC8126]</dt>
+      <dd>
+<span class="refAuthor">Cotton, M.</span>, <span class="refAuthor">Leiba, B.</span>, and <span class="refAuthor">T. Narten</span>, <span class="refTitle">"Guidelines for Writing an IANA Considerations Section in RFCs"</span>, <span class="seriesInfo">BCP 26</span>, <span class="seriesInfo">RFC 8126</span>, <span class="seriesInfo">DOI 10.17487/RFC8126</span>, <time datetime="2017-06" class="refDate">June 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8126">https://www.rfc-editor.org/rfc/rfc8126</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-7.2">
+<section id="section-6.2">
         <h3 id="name-informative-references">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="I-D.tuexen-opsawg-pcapng">[I-D.tuexen-opsawg-pcapng]</dt>
-        <dd>
-<span class="refAuthor">Tüxen, M.</span>, <span class="refAuthor">Risso, F.</span>, <span class="refAuthor">Bongertz, J.</span>, <span class="refAuthor">Combs, G.</span>, <span class="refAuthor">Harris, G.</span>, <span class="refAuthor">Chaudron, E.</span>, and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"PCAP Next Generation (pcapng) Capture File Format"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-tuexen-opsawg-pcapng-05</span>, <time datetime="2022-07-29" class="refDate">29 July 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-tuexen-opsawg-pcapng-05">https://datatracker.ietf.org/doc/html/draft-tuexen-opsawg-pcapng-05</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8126">[RFC8126]</dt>
-        <dd>
-<span class="refAuthor">Cotton, M.</span>, <span class="refAuthor">Leiba, B.</span>, and <span class="refAuthor">T. Narten</span>, <span class="refTitle">"Guidelines for Writing an IANA Considerations Section in RFCs"</span>, <span class="seriesInfo">BCP 26</span>, <span class="seriesInfo">RFC 8126</span>, <span class="seriesInfo">DOI 10.17487/RFC8126</span>, <time datetime="2017-06" class="refDate">June 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8126">https://www.rfc-editor.org/rfc/rfc8126</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="Radiotap">[Radiotap]</dt>
         <dd>
 <span class="refAuthor">radiotap.org</span>, <span class="refTitle">"Radiotap Web site"</span>, <span>n.d.</span>, <span>&lt;<a href="http://www.radiotap.org/">http://www.radiotap.org/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="AVS">[AVS]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Peachy, S.</span>, <span class="refTitle">"Archived AVS specification"</span>, <span>n.d.</span>, <span>&lt;<a href="http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt">http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="TCPDUMP">[TCPDUMP]</dt>
+        <dd>
+<span class="refTitle">"LINK-LAYER HEADER TYPES"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes.html">https://www.tcpdump.org/linktypes.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LIBPCAP">[LIBPCAP]</dt>
+        <dd>
+<span class="refTitle">"libpcap"</span>, <span>n.d.</span>, <span>&lt;<a href="https://github.com/the-tcpdump-group/libpcap">https://github.com/the-tcpdump-group/libpcap</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Wireshark">[Wireshark]</dt>
+      <dd>
+<span class="refTitle">"Homepage of Wireshark"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.wireshark.org">https://www.wireshark.org</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
