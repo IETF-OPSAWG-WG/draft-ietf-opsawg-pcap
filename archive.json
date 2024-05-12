@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-09T01:11:36.066642+00:00",
+  "timestamp": "2024-05-12T01:17:52.907591+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -8284,24 +8284,26 @@
       "id": "PR_kwDOAU54e85um1sm",
       "title": "Proposal to structure the content + some minor edits",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/154",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "boucadair",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-05-06T08:12:43Z",
-      "updatedAt": "2024-05-06T10:20:47Z",
+      "updatedAt": "2024-05-10T15:02:25Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "7d095fd0b3d26df8b7570e9a479bb20673b892b1",
       "headRepository": "boucadair/draft-ietf-opsawg-pcap",
       "headRefName": "patch-2",
       "headRefOid": "3e5cc69161d1211a7e8355ccd2740df7eb758fec",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-05-10T15:02:25Z",
+      "mergedAt": "2024-05-10T15:02:25Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "62508cc306d4c55b592ebb0f689fd5742eb5d157"
+      },
       "comments": [
         {
           "author": "boucadair",
