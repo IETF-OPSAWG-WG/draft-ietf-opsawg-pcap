@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-26T01:18:44.321373+00:00",
+  "timestamp": "2024-05-28T01:13:41.861960+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2434,6 +2434,58 @@
           "body": "> Is the current [document](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/master/draft-ietf-opsawg-pcapng.md) using special markdown formatting like some kind of extensions to markdown,\r\n\r\nTo quote [the README.md file in this repository](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/master/README.md):\r\n\r\n> The pcap and pcapng specifications are written using the [kramdown](https://kramdown.gettalong.org) superset of [Markdown](https://daringfireball.net/projects/markdown/syntax) and the [kramdown-rfc2629](https://github.com/cabo/kramdown-rfc2629) extensions to kramdown.  This allows [xml2rfc](https://xml2rfc.tools.ietf.org)-format RFCs and I-Ds to be written in extended Markdown and converted to xml2rfc.  Xml2rfc was originally defined in [RFC 2629](https://tools.ietf.org/html/rfc2629); version 2 is documented in [RFC 7749](https://tools.ietf.org/html/rfc7749), and version 3 is documented in [RFC 7991](https://tools.ietf.org/html/rfc7991).",
           "createdAt": "2024-01-19T06:11:11Z",
           "updatedAt": "2024-01-19T06:11:11Z"
+        }
+      ]
+    },
+    {
+      "number": 155,
+      "id": "I_kwDOAU54e86KOZZS",
+      "title": "Media type registration for pcapng",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/155",
+      "state": "OPEN",
+      "author": "johnthacker",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "It would be good to register pcapng as a media type with the IANA:\r\nhttps://www.iana.org/assignments/media-types/media-types.xhtml\r\n\r\npcap is registered as [application/vnd.tcpdump.pcap](https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap) and has a Media Type registry section under IANA Considerations.",
+      "createdAt": "2024-05-27T12:21:02Z",
+      "updatedAt": "2024-05-27T19:45:50Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> pcap is registered as [application/vnd.tcpdump.pcap](https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap) and has a Media Type registry section under IANA Considerations.\r\n\r\n...and, as I remember, the application for pcap (which I did not write) was praised for how complete and comprehensive it was.  Whoever writs the application for pcapng should try to emulate that; pcapng is more complicated, so the security considerations will be more complicated.",
+          "createdAt": "2024-05-27T19:18:46Z",
+          "updatedAt": "2024-05-27T19:18:46Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> (which I did not write)\r\n\r\nGlen Turner wrote [the application for a media type for pcap](https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap); I'm listed as \"Author/Change controller\" (with an old email address) primarily 1) as a developer and maintainer of both libpcap and Wireshark (including its code to read and write pcap files) and 2) an editorial contributor, so that I'm the closest thing to an \"official owner\".",
+          "createdAt": "2024-05-27T19:35:28Z",
+          "updatedAt": "2024-05-27T19:35:28Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Here's [the email thread on tcpdump-workers where the application was discussed](https://seclists.org/tcpdump/2010/q4/47).",
+          "createdAt": "2024-05-27T19:37:51Z",
+          "updatedAt": "2024-05-27T19:37:51Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "And, yes, I found the email notifying Glen and me that the application was accepted; one of the reviewers did indeed praise the \"security considerations\" section.  (I don't know to whom the mail was sent other than us, so I won't quote the comment offered or give the commenter's name.)",
+          "createdAt": "2024-05-27T19:41:20Z",
+          "updatedAt": "2024-05-27T19:41:20Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@vk5tu, just letting you know that I've mentioned your work on the pcap media-type registration here, including the praise it got for your \"security considerations\" section.",
+          "createdAt": "2024-05-27T19:45:48Z",
+          "updatedAt": "2024-05-27T19:45:48Z"
         }
       ]
     }
