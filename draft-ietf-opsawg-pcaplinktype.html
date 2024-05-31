@@ -1191,7 +1191,7 @@ developed the tcpdump program to capture and dissect network traces.
 The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
 later put into a library named libpcap <span>[<a href="#LIBPCAP" class="cite xref">LIBPCAP</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">Other documents describe the original (legacy) format used by tcpdump (pcap), as well as the revised format (pcapng) which is used by tcpdump and wireshark <span>[<a href="#Wireshark" class="cite xref">Wireshark</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-2">Other documents describe the original (legacy) format used by tcpdump (pcap), as well as the revised format (pcapng) which is used by tcpdump and Wireshark <span>[<a href="#Wireshark" class="cite xref">Wireshark</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Within those formats each packet that is captured is described by a LINKTYPE value.
 The LINKTYPE value selects one of many hundred formats for metadata and Layer 2 encapsulation of the packet.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">This document creates an IANA registry for the LINKTYPE format, establishing the IANA
@@ -1292,7 +1292,9 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NULL</td>
                 <td class="text-center" rowspan="1" colspan="1">0</td>
                 <td class="text-left" rowspan="1" colspan="1">BSD loopback encapsulation</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_NULL" class="cite xref">LINKTYPE_NULL</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ETHERNET</td>
@@ -1310,7 +1312,9 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AX25</td>
                 <td class="text-center" rowspan="1" colspan="1">3</td>
                 <td class="text-left" rowspan="1" colspan="1">AX.25 packet</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#AX.25" class="cite xref">AX.25</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PRONET</td>
@@ -1339,14 +1343,18 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SLIP</td>
                 <td class="text-center" rowspan="1" colspan="1">8</td>
-                <td class="text-left" rowspan="1" colspan="1">SLIP, w/LINKTYPE_SLIP header</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">SLIP</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_SLIP" class="cite xref">LINKTYPE_SLIP</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP</td>
                 <td class="text-center" rowspan="1" colspan="1">9</td>
-                <td class="text-left" rowspan="1" colspan="1">PPP, as per RFC 1661/RFC 1662</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">PPP</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC1661" class="cite xref">RFC1661</a>]</span>/<span>[<a href="#RFC1662" class="cite xref">RFC1662</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FDDI</td>
@@ -1363,14 +1371,18 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_HDLC</td>
                 <td class="text-center" rowspan="1" colspan="1">50</td>
-                <td class="text-left" rowspan="1" colspan="1">PPP in HDLC-like framing, as per RFC 1662</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">PPP in HDLC-like framing</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC1662" class="cite xref">RFC1662</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_ETHER</td>
                 <td class="text-center" rowspan="1" colspan="1">51</td>
-                <td class="text-left" rowspan="1" colspan="1">PPPoE; per RFC 2516</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">PPPoE</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="https://rfc-editor.org/rfc/rfc2516#section-4" class="relref">Section 4</a> of [<a href="#RFC2516" class="cite xref">RFC2516</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">Reserved</td>
@@ -1387,8 +1399,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ATM_RFC1483</td>
                 <td class="text-center" rowspan="1" colspan="1">100</td>
-                <td class="text-left" rowspan="1" colspan="1">RFC 1483 LLC/SNAP-encapsulated ATM</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">LLC/SNAP-encapsulated ATM</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC1483" class="cite xref">RFC1483</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RAW</td>
@@ -1411,8 +1425,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_C_HDLC</td>
                 <td class="text-center" rowspan="1" colspan="1">104</td>
-                <td class="text-left" rowspan="1" colspan="1">Cisco PPP with HDLC framing, as per Section 4.3.1 of RFC 1547</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Cisco PPP with HDLC framing</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="https://rfc-editor.org/rfc/rfc1547#section-4.3.1" class="relref">Section 4.3.1</a> of [<a href="#RFC1547" class="cite xref">RFC1547</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11</td>
@@ -1466,7 +1482,9 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_SLL</td>
                 <td class="text-center" rowspan="1" colspan="1">113</td>
                 <td class="text-left" rowspan="1" colspan="1">Linux "cooked" capture encapsulation</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_LINUX_SLL" class="cite xref">LINKTYPE_LINUX_SLL</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LTALK</td>
@@ -1519,8 +1537,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IP_OVER_FC</td>
                 <td class="text-center" rowspan="1" colspan="1">122</td>
-                <td class="text-left" rowspan="1" colspan="1">RFC 2625 IP-over-Fibre Channel</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">IP-over-Fibre Channel, starting with the Network_Header</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC2625" class="cite xref">RFC2625</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SUNATM</td>
@@ -1549,8 +1569,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11_RADIOTAP</td>
                 <td class="text-center" rowspan="1" colspan="1">127</td>
-                <td class="text-left" rowspan="1" colspan="1">Radiotap header<span>[<a href="#Radiotap" class="cite xref">Radiotap</a>]</span>, followed by an 802.11 header</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Radiotap header, followed by an 802.11 header</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Radiotap" class="cite xref">Radiotap</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_TZSP</td>
@@ -1621,38 +1643,50 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MTP2_WITH_PHDR</td>
                 <td class="text-center" rowspan="1" colspan="1">139</td>
-                <td class="text-left" rowspan="1" colspan="1">Signaling System 7 (SS7) Message Transfer Part Level ITU-T Q.703</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Signaling System 7 (SS7) Message Transfer Part Level</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Q.703" class="cite xref">Q.703</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MTP2</td>
                 <td class="text-center" rowspan="1" colspan="1">140</td>
-                <td class="text-left" rowspan="1" colspan="1">SS7 Level 2, Q.703</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">SS7 Level 2</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Q.703" class="cite xref">Q.703</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MTP3</td>
                 <td class="text-center" rowspan="1" colspan="1">141</td>
-                <td class="text-left" rowspan="1" colspan="1">SS7 Level 3, Q.704</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">SS7 Level 3, with no MTP2 header</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Q.704" class="cite xref">Q.704</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SCCP</td>
                 <td class="text-center" rowspan="1" colspan="1">142</td>
-                <td class="text-left" rowspan="1" colspan="1">SS7 Control Part, ITU-T Q.711/Q.712/Q.713/Q.714</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">SS7 Control Part, with no MTP3 or MTP2 header</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Q.711" class="cite xref">Q.711</a>]</span> <span>[<a href="#Q.712" class="cite xref">Q.712</a>]</span> <span>[<a href="#Q.713" class="cite xref">Q.713</a>]</span> <span>[<a href="#Q.714" class="cite xref">Q.714</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DOCSIS</td>
                 <td class="text-center" rowspan="1" colspan="1">143</td>
-                <td class="text-left" rowspan="1" colspan="1">DOCSIS MAC frames, DOCSIS 3.1</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">DOCSIS MAC frames</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#DOCSIS-4.0-MULP" class="cite xref">DOCSIS-4.0-MULP</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_IRDA</td>
                 <td class="text-center" rowspan="1" colspan="1">144</td>
-                <td class="text-left" rowspan="1" colspan="1">Linux-IrDA packets w/LINKTYPE_LINUX_IRDA header</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Linux-IrDA packets</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_LINUX_IRDA" class="cite xref">LINKTYPE_LINUX_IRDA</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IBM_SP</td>
@@ -1765,8 +1799,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_11_AVS</td>
                 <td class="text-center" rowspan="1" colspan="1">163</td>
-                <td class="text-left" rowspan="1" colspan="1">AVS header<span>[<a href="#AVS" class="cite xref">AVS</a>]</span>, followed by an 802.11 header</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">AVS header, followed by an 802.11 header</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#AVS" class="cite xref">AVS</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_MONITOR</td>
@@ -1777,8 +1813,9 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_BACNET_MS_TP</td>
                 <td class="text-center" rowspan="1" colspan="1">165</td>
-                <td class="text-left" rowspan="1" colspan="1">BACnet MS/TP frames, per 9.3 MS/TP Frame Format ANSI 135</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">BACnet MS/TP frames</td>
+                <td class="text-left" rowspan="1" colspan="1">Section 9.3 MS/TP Frame Format of <span>[<a href="#ASHRAE-135" class="cite xref">ASHRAE-135</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_PPPD</td>
@@ -1802,19 +1839,25 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GPRS_LLC</td>
                 <td class="text-center" rowspan="1" colspan="1">169</td>
                 <td class="text-left" rowspan="1" colspan="1">General Packet Radio Service Logical Link Control, as per 3GPP TS 04.64</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#_3GPP-TS-04.64" class="cite xref">_3GPP-TS-04.64</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GPF_T</td>
                 <td class="text-center" rowspan="1" colspan="1">170</td>
-                <td class="text-left" rowspan="1" colspan="1">Transparent-mapped generic framing procedure, as specified by ITU-T Recommendation G.7041/Y.1303</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Transparent-mapped generic framing procedure</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#G.7041" class="cite xref">G.7041</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GPF_F</td>
                 <td class="text-center" rowspan="1" colspan="1">171</td>
-                <td class="text-left" rowspan="1" colspan="1">Frame-mapped generic framing procedure, as specified by ITU-T Recommendation G.7041/Y.1303</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Frame-mapped generic framing procedure</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#G.7041" class="cite xref">G.7041</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_GCOM_T1E1</td>
@@ -1849,8 +1892,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_LAPD</td>
                 <td class="text-center" rowspan="1" colspan="1">177</td>
-                <td class="text-left" rowspan="1" colspan="1">Link Access Procedures on the D Channel (LAPD) frames, as specified by ITU-T Recommendation Q.920 and ITU-T Recommendation Q.921 , captured via vISDN, with a LINKTYPE_LINUX_LAPD header, followed by the Q.921 frame, starting with the address field</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Linux vISDN LAPD frames</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_LINUX_LAPD" class="cite xref">LINKTYPE_LINUX_LAPD</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ETHER</td>
@@ -1880,7 +1925,9 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MFR</td>
                 <td class="text-center" rowspan="1" colspan="1">182</td>
                 <td class="text-left" rowspan="1" colspan="1">FRF.16.1 Multi-Link Frame Relay frames, beginning with an FRF.12 Interface fragmentation format fragmentation header</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#FRF.16.1" class="cite xref">FRF.16.1</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_VP</td>
@@ -1940,7 +1987,9 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPI</td>
                 <td class="text-center" rowspan="1" colspan="1">192</td>
                 <td class="text-left" rowspan="1" colspan="1">Per-Packet Information information, as specified by the Per-Packet Information Header Specification , followed by a packet with the LINKTYPE_ value specified by the pph_dlt field of that header</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#PPI" class="cite xref">PPI</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IEEE802_16_MAC_CPS_RADIO</td>
@@ -1969,8 +2018,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ERF</td>
                 <td class="text-center" rowspan="1" colspan="1">197</td>
-                <td class="text-left" rowspan="1" colspan="1">Various link-layer types, with a pseudo-header, for Endace DAG cards; encapsulates Endace ERF records</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Endace ERF records</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#ERF" class="cite xref">ERF</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RAIF1</td>
@@ -1999,14 +2050,18 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_AX25_KISS</td>
                 <td class="text-center" rowspan="1" colspan="1">202</td>
-                <td class="text-left" rowspan="1" colspan="1">AX.25 packet, with a 1-octet KISS header containing a type indicator</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">AX.25 packet, with a KISS header</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#KISS" class="cite xref">KISS</a>]</span> <span>[<a href="#AX.25" class="cite xref">AX.25</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LAPD</td>
                 <td class="text-center" rowspan="1" colspan="1">203</td>
-                <td class="text-left" rowspan="1" colspan="1">Link Access Procedures on the D Channel (LAPD) frames, as specified by ITU-T Recommendation Q.920 and ITU-T Recommendation Q.921 , starting with the address field, with no pseudo-header</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Link Access Procedures on the D Channel (LAPD) frames, starting with the address field, with no pseudo-header</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Q.920" class="cite xref">Q.920</a>]</span> <span>[<a href="#Q.921" class="cite xref">Q.921</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_PPP_WITH_DIR</td>
@@ -2017,8 +2072,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_C_HDLC_WITH_DIR</td>
                 <td class="text-center" rowspan="1" colspan="1">205</td>
-                <td class="text-left" rowspan="1" colspan="1">Cisco PPP with HDLC framing, as per section 4.3.1 of RFC 1547 , preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Cisco PPP with HDLC framing, preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="https://rfc-editor.org/rfc/rfc1547#section-4.3.1" class="relref">Section 4.3.1</a> of [<a href="#RFC1547" class="cite xref">RFC1547</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FRELAY_WITH_DIR</td>
@@ -2041,14 +2098,18 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_I2C_LINUX</td>
                 <td class="text-center" rowspan="1" colspan="1">209</td>
-                <td class="text-left" rowspan="1" colspan="1">I2C packets, with a Linux-specific pseudo-header</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Linux I2C packets</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_I2C_LINUX" class="cite xref">LINKTYPE_I2C_LINUX</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_FLEXRAY</td>
                 <td class="text-center" rowspan="1" colspan="1">210</td>
-                <td class="text-left" rowspan="1" colspan="1">Reserved for FlexRay automotive bus</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">FlexRay frames or symbols, with a pseudo-header</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_FLEXRAY" class="cite xref">LINKTYPE_FLEXRAY</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MOST</td>
@@ -2059,8 +2120,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LIN</td>
                 <td class="text-center" rowspan="1" colspan="1">212</td>
-                <td class="text-left" rowspan="1" colspan="1">Reserved for Local Interconnect Network (LIN) bus for vehicle networks</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Local Interconnect Network (LIN) automotive bus</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_LIN" class="cite xref">LINKTYPE_LIN</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_X2E_SERIAL</td>
@@ -2143,8 +2206,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPNET</td>
                 <td class="text-center" rowspan="1" colspan="1">226</td>
-                <td class="text-left" rowspan="1" colspan="1">Solaris ipnet pseudo-header , followed by an IPv4 or IPv6 datagram</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Solaris ipnet</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_IPNET" class="cite xref">LINKTYPE_IPNET</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_CAN_SOCKETCAN</td>
@@ -2174,7 +2239,9 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DBUS</td>
                 <td class="text-center" rowspan="1" colspan="1">231</td>
                 <td class="text-left" rowspan="1" colspan="1">Raw D-Bus messages , starting with the endianness flag, followed by the message type, etc., but without the authentication handshake before the message sequence</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#D-Bus" class="cite xref">D-Bus</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_VS</td>
@@ -2197,8 +2264,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DVB_CI</td>
                 <td class="text-center" rowspan="1" colspan="1">235</td>
-                <td class="text-left" rowspan="1" colspan="1">DVB-CI (DVB Common Interface for communication between a PC Card module and a DVB receiver), with the message format specified by the PCAP format for DVB-CI specification</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">DVB-CI messages</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#DVB-CI-PCAP" class="cite xref">DVB-CI-PCAP</a>]</span><span>[<a href="#DVB-CI" class="cite xref">DVB-CI</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MUX27010</td>
@@ -2210,7 +2279,9 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_STANAG_5066_D_PDU</td>
                 <td class="text-center" rowspan="1" colspan="1">237</td>
                 <td class="text-left" rowspan="1" colspan="1">D_PDUs as described by NATO standard STANAG 5066, starting with the synchronization sequence, and including both header and data CRCs. The current version of STANAG 5066 is backwards-compatible with the 1.0.2 version , although newer versions are classified</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#STANAG-5066" class="cite xref">STANAG-5066</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_JUNIPER_ATM_CEMIC</td>
@@ -2239,14 +2310,17 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_IPOIB</td>
                 <td class="text-center" rowspan="1" colspan="1">242</td>
-                <td class="text-left" rowspan="1" colspan="1">IP-over-InfiniBand, as specified by Section 6 of RFC 4391</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">IP-over-InfiniBand</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="https://rfc-editor.org/rfc/rfc4391#section-6" class="relref">Section 6</a> of [<a href="#RFC4391" class="cite xref">RFC4391</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_MPEG_2_TS</td>
                 <td class="text-center" rowspan="1" colspan="1">243</td>
-                <td class="text-left" rowspan="1" colspan="1">MPEG-2 Transport Stream transport packets, as specified by ISO 13818-1/ ITU-T Recommendation H.222.0 (see table 2-2 of section 2.4.3.2 Transport Stream packet layer)</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">MPEG-2 Transport Stream transport packets</td>
+                <td class="text-left" rowspan="1" colspan="1">Table 2-2 of section 2.4.3.2 Transport Stream packet layer of <span>[<a href="#H.222.0" class="cite xref">H.222.0</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_NG40</td>
@@ -2282,7 +2356,9 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USBPCAP</td>
                 <td class="text-center" rowspan="1" colspan="1">249</td>
                 <td class="text-left" rowspan="1" colspan="1">USB packets, beginning with a USBPcap header</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#USBPcap" class="cite xref">USBPcap</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RTAC_SERIAL</td>
@@ -2353,14 +2429,18 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZWAVE_R1_R2</td>
                 <td class="text-center" rowspan="1" colspan="1">261</td>
-                <td class="text-left" rowspan="1" colspan="1">Z-Wave RF profile R1 and R2 packets , as specified by ITU-T Recommendation G.9959 , with some MAC layer fields moved</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Z-Wave RF profile R1 and R2 packets</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_ZWAVE_R1_R2" class="cite xref">LINKTYPE_ZWAVE_R1_R2</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZWAVE_R3</td>
                 <td class="text-center" rowspan="1" colspan="1">262</td>
-                <td class="text-left" rowspan="1" colspan="1">Z-Wave RF profile R3 packets, as specified by ITU-T Recommendation G.9959, with some MAC layer fields moved</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Z-Wave RF profile R3 packets</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_ZWAVE_R3" class="cite xref">LINKTYPE_ZWAVE_R3</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_WATTSTOPPER_DLM</td>
@@ -2371,8 +2451,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ISO_14443</td>
                 <td class="text-center" rowspan="1" colspan="1">264</td>
-                <td class="text-left" rowspan="1" colspan="1">Messages between ISO 14443 contactless smartcards (Proximity Integrated Circuit Card, PICC) and card readers (Proximity Coupling Device, PCD), with the message format specified by the PCAP format for ISO14443 specification</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">ISO 14443 contactless smartcard messages</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#ISO-14443-PCAP" class="cite xref">ISO-14443-PCAP</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_RDS</td>
@@ -2425,8 +2507,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DOCSIS31_XRA31</td>
                 <td class="text-center" rowspan="1" colspan="1">273</td>
-                <td class="text-left" rowspan="1" colspan="1">DOCSIS packets and bursts, preceded by a pseudo-header giving metadata about the packet</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">DOCSIS packets and bursts, preceded by a pseudo-header</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#DOCSIS-XRA" class="cite xref">DOCSIS-XRA</a>]</span> <span>[<a href="#DOCSIS-4.0-MULP" class="cite xref">DOCSIS-4.0-MULP</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ETHERNET_MPACKET</td>
@@ -2444,7 +2528,9 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_LINUX_SLL2</td>
                 <td class="text-center" rowspan="1" colspan="1">276</td>
                 <td class="text-left" rowspan="1" colspan="1">Linux cooked capture encapsulation v2</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#LINKTYPE_LINUX_SLL2" class="cite xref">LINKTYPE_LINUX_SLL2</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SERCOS_MONITOR</td>
@@ -2462,13 +2548,17 @@ As the First Come First Served range is large and easily obtained, official valu
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_EBHSCR</td>
                 <td class="text-center" rowspan="1" colspan="1">279</td>
                 <td class="text-left" rowspan="1" colspan="1">Elektrobit High Speed Capture and Replay (EBHSCR) format</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#EBHSCR" class="cite xref">EBHSCR</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_VPP_DISPATCH</td>
                 <td class="text-center" rowspan="1" colspan="1">280</td>
-                <td class="text-left" rowspan="1" colspan="1">Records in traces from the http://fd.io VPP graph dispatch tracer, in the graph dispatcher trace format</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">fd.io VPP graph dispatcher trace records</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#FD.io-VPP" class="cite xref">FD.io-VPP</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_DSA_TAG_BRCM</td>
@@ -2509,8 +2599,9 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_Z_WAVE_SERIAL</td>
                 <td class="text-center" rowspan="1" colspan="1">287</td>
-                <td class="text-left" rowspan="1" colspan="1">Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection, as described in section 5 of the Z-Wave Serial API Host Application Programming Guide</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Z_WAVE_SERIAL" class="cite xref">Z_WAVE_SERIAL</a>]</span> section 5</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_USB_2_0</td>
@@ -2569,8 +2660,10 @@ As the First Come First Served range is large and easily obtained, official valu
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_ZWAVE_TAP</td>
                 <td class="text-center" rowspan="1" colspan="1">297</td>
-                <td class="text-left" rowspan="1" colspan="1">Z-Wave packets, as specified by https://www.itu.int/rec/T-REC-G.9959/en ITU-T Recommendation G.9959, with a https://gitlab.com/exegin/zwave-g9959-tap TAP meta-data header</td>
-                <td class="text-left" rowspan="1" colspan="1"> </td>
+                <td class="text-left" rowspan="1" colspan="1">Z-Wave packets, as specified by ITU-T Recommendation G.9959, with a https://gitlab.com/exegin/zwave-g9959-tap TAP meta-data header</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Exegin-TAP-Link" class="cite xref">Exegin-TAP-Link</a>]</span>
+</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">LINKTYPE_SILABS_DEBUG_CHANNEL</td>
@@ -2682,14 +2775,6 @@ and Jun-ichiro itojun Hagino<a href="#section-4-1" class="pilcrow">¶</a></p>
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="Radiotap">[Radiotap]</dt>
-        <dd>
-<span class="refAuthor">radiotap.org</span>, <span class="refTitle">"Radiotap Web site"</span>, <span>n.d.</span>, <span>&lt;<a href="http://www.radiotap.org/">http://www.radiotap.org/</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="AVS">[AVS]</dt>
-        <dd>
-<span class="refAuthor">Peachy, S.</span>, <span class="refTitle">"Archived AVS specification"</span>, <span>n.d.</span>, <span>&lt;<a href="http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt">http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="TCPDUMP">[TCPDUMP]</dt>
         <dd>
 <span class="refTitle">"LINK-LAYER HEADER TYPES"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes.html">https://www.tcpdump.org/linktypes.html</a>&gt;</span>. </dd>
@@ -2699,8 +2784,220 @@ and Jun-ichiro itojun Hagino<a href="#section-4-1" class="pilcrow">¶</a></p>
 <span class="refTitle">"libpcap"</span>, <span>n.d.</span>, <span>&lt;<a href="https://github.com/the-tcpdump-group/libpcap">https://github.com/the-tcpdump-group/libpcap</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="Wireshark">[Wireshark]</dt>
-      <dd>
+        <dd>
 <span class="refTitle">"Homepage of Wireshark"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.wireshark.org">https://www.wireshark.org</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="_3GPP-TS-04.64">[_3GPP-TS-04.64]</dt>
+        <dd>
+<span class="refTitle">"Digital cellular telecommunications system (Phase 2+); General Packet Radio Service (GPRS); Mobile Station - Serving GPRS Support Node (MS-SGSN) Logical Link Control (LLC) layer specification"</span>, <span class="refContent">3GPP TS 04.64</span>, <span>n.d.</span>. </dd>
+<dd class="break"></dd>
+<dt id="ASHRAE-135">[ASHRAE-135]</dt>
+        <dd>
+<span class="refTitle">"BACnet(TM): A Data Communication Protocol for Building Automation and Control Networks"</span>, <span class="refContent">ANSI/ASHRAE Standard 135</span>, <span>n.d.</span>. </dd>
+<dd class="break"></dd>
+<dt id="AVS">[AVS]</dt>
+        <dd>
+<span class="refAuthor">Peachy, S.</span>, <span class="refTitle">"Archived AVS specification"</span>, <span>n.d.</span>, <span>&lt;<a href="http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt">http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="AX.25">[AX.25]</dt>
+        <dd>
+<span class="refAuthor">Beech, W. A.</span>, <span class="refAuthor">Nielsen, D. E.</span>, and <span class="refAuthor">J. Taylor</span>, <span class="refTitle">"AX.25 Link Access Protocol for Amateur Packet Radio Version 2.2"</span>, <time datetime="1998-07" class="refDate">July 1998</time>, <span>&lt;<a href="https://www.ax25.net/AX25.2.2-Jul%2098-2.pdf">https://www.ax25.net/AX25.2.2-Jul%2098-2.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="D-Bus">[D-Bus]</dt>
+        <dd>
+<span class="refAuthor">Pennington, H.</span>, <span class="refAuthor">Carlsson, A.</span>, <span class="refAuthor">Larsson, A.</span>, <span class="refAuthor">Herzberg, S.</span>, <span class="refAuthor">McVittie, S.</span>, and <span class="refAuthor">D. Zeuthen</span>, <span class="refTitle">"D-Bus Specification"</span>, <span>n.d.</span>, <span>&lt;<a href="https://dbus.freedesktop.org/doc/dbus-specification.html">https://dbus.freedesktop.org/doc/dbus-specification.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="DOCSIS-4.0-MULP">[DOCSIS-4.0-MULP]</dt>
+        <dd>
+<span class="refTitle">"DOCSIS 4.0 MAC and Upper Layer Protocols Interface Specification"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.cablelabs.com/specifications/CM-SP-MULPIv4.0">https://www.cablelabs.com/specifications/CM-SP-MULPIv4.0</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="DOCSIS-XRA">[DOCSIS-XRA]</dt>
+        <dd>
+<span class="refTitle">"Excentis XRA Header"</span>, <span>n.d.</span>, <span>&lt;<a href="https://support.excentis.com/index.php?/Knowledgebase/Article/View/159">https://support.excentis.com/index.php?/Knowledgebase/Article/View/159</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="DVB-CI">[DVB-CI]</dt>
+        <dd>
+<span class="refTitle">"Common Interface Specification for Conditional Access and other Digital Video Broadcasting Decoder Applications"</span>, <span>n.d.</span>, <span>&lt;<a href="https://dvb.org/?standard=common-interface-specification-for-conditional-access-and-other-digital-video-broadcasting-decoder-applications">https://dvb.org/?standard=common-interface-specification-for-conditional-access-and-other-digital-video-broadcasting-decoder-applications</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="DVB-CI-PCAP">[DVB-CI-PCAP]</dt>
+        <dd>
+<span class="refAuthor">Kaiser, M.</span>, <span class="refTitle">"PCAP format for DVB-CI"</span>, <time datetime="2021-01" class="refDate">January 2021</time>, <span>&lt;<a href="https://www.kaiser.cx/pcap-dvbci.html">https://www.kaiser.cx/pcap-dvbci.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="EBHSCR">[EBHSCR]</dt>
+        <dd>
+<span class="refTitle">"Documentation EBHSCR"</span>, <span>n.d.</span>, <span>&lt;<a href="http://www.elektrobit.com/ebhscr">http://www.elektrobit.com/ebhscr</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ERF">[ERF]</dt>
+        <dd>
+<span class="refTitle">"ERF Types Reference Guide"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.endace.com/erf-extensible-record-format-types.pdf">https://www.endace.com/erf-extensible-record-format-types.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Exegin-TAP-Link">[Exegin-TAP-Link]</dt>
+        <dd>
+<span class="refTitle">"IEEE 802.15.4 TAP Link Type Specification"</span>, <span>n.d.</span>, <span>&lt;<a href="https://github.com/jkcko/ieee802.15.4-tap/blob/master/IEEE%20802.15.4%20TAP%20Link%20Type%20Specification.pdf">https://github.com/jkcko/ieee802.15.4-tap/blob/master/IEEE%20802.15.4%20TAP%20Link%20Type%20Specification.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="FD.io-VPP">[FD.io-VPP]</dt>
+        <dd>
+<span class="refTitle">"VNET (VPP Network Stack)"</span>, <span>n.d.</span>, <span>&lt;<a href="https://fdio-vpp.readthedocs.io/en/latest/gettingstarted/developers/vnet.html">https://fdio-vpp.readthedocs.io/en/latest/gettingstarted/developers/vnet.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="FRF.16.1">[FRF.16.1]</dt>
+        <dd>
+<span class="refTitle">"Multilink Frame Relay UNI/NNI Implementation Agreement FRF.16.1"</span>, <time datetime="2002-05" class="refDate">May 2002</time>, <span>&lt;<a href="https://web.archive.org/web/20160427004354/https://www.broadband-forum.org/technical/download/FRF.16/frf16.1.pdf">https://web.archive.org/web/20160427004354/https://www.broadband-forum.org/technical/download/FRF.16/frf16.1.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="G.7041">[G.7041]</dt>
+        <dd>
+<span class="refTitle">"Generic Framing Procedure"</span>, <span class="refContent">ITU-T Recommendation G.7041/Y.1303</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-G.7041/en">https://www.itu.int/rec/T-REC-G.7041/en</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="G.9959">[G.9959]</dt>
+        <dd>
+<span class="refTitle">"Short range narrow-band digital radiocommunication transceivers - PHY, MAC, SAR and LLC layer specifications"</span>, <span class="refContent">ITU-T Recommendation G.9959</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-G.9959/en">https://www.itu.int/rec/T-REC-G.9959/en</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="H.222.0">[H.222.0]</dt>
+        <dd>
+<span class="refTitle">"Information technology - Generic coding of moving pictures and associated audio information: Systems"</span>, <span class="refContent">ITU-T Recommendation H.222.0</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-H.222.0">https://www.itu.int/rec/T-REC-H.222.0</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ISO-14443-PCAP">[ISO-14443-PCAP]</dt>
+        <dd>
+<span class="refAuthor">Kaiser, M.</span>, <span class="refTitle">"PCAP format for ISO14443"</span>, <time datetime="2021-01" class="refDate">January 2021</time>, <span>&lt;<a href="https://www.kaiser.cx/posts/pcap-iso14443/">https://www.kaiser.cx/posts/pcap-iso14443/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="KISS">[KISS]</dt>
+        <dd>
+<span class="refTitle">"The KISS TNC - A simple Host-to-TNC communications protocol"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.ax25.net/kiss.aspx">https://www.ax25.net/kiss.aspx</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_NULL">[LINKTYPE_NULL]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_NULL"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_NULL.html">https://www.tcpdump.org/linktypes/LINKTYPE_NULL.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_FLEXRAY">[LINKTYPE_FLEXRAY]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_FLEXRAY"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_FLEXRAY.html">https://www.tcpdump.org/linktypes/LINKTYPE_FLEXRAY.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_I2C_LINUX">[LINKTYPE_I2C_LINUX]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_I2C_LINUX"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_I2C_LINUX.html">https://www.tcpdump.org/linktypes/LINKTYPE_I2C_LINUX.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_IPNET">[LINKTYPE_IPNET]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_IPNET"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_IPNET.html">https://www.tcpdump.org/linktypes/LINKTYPE_IPNET.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_LIN">[LINKTYPE_LIN]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_LIN"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_LIN.html">https://www.tcpdump.org/linktypes/LINKTYPE_LIN.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_LINUX_IRDA">[LINKTYPE_LINUX_IRDA]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_LINUX_IRDA"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_IRDA.html">https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_IRDA.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_LINUX_LAPD">[LINKTYPE_LINUX_LAPD]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_LINUX_LAPD"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_LAPD.html">https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_LAPD.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_LINUX_SLL">[LINKTYPE_LINUX_SLL]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_LINUX_SLL"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_SLL.html">https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_SLL.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_LINUX_SLL2">[LINKTYPE_LINUX_SLL2]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_LINUX_SLL2"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_SLL2.html">https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_SLL2.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_SLIP">[LINKTYPE_SLIP]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_SLIP"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_SLIP.html">https://www.tcpdump.org/linktypes/LINKTYPE_SLIP.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_ZWAVE_R1_R2">[LINKTYPE_ZWAVE_R1_R2]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_ZWAVE_R1_R2"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_ZWAVE_R1_R2.html">https://www.tcpdump.org/linktypes/LINKTYPE_ZWAVE_R1_R2.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_ZWAVE_R3">[LINKTYPE_ZWAVE_R3]</dt>
+        <dd>
+<span class="refTitle">"LINKTYPE_ZWAVE_R3"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_ZWAVE_R3.html">https://www.tcpdump.org/linktypes/LINKTYPE_ZWAVE_R3.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LoRaTap">[LoRaTap]</dt>
+        <dd>
+<span class="refTitle">"LoRaTap"</span>, <span>n.d.</span>, <span>&lt;<a href="https://github.com/eriknl/LoRaTap/blob/master/README.md">https://github.com/eriknl/LoRaTap/blob/master/README.md</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LoRaWAN">[LoRaWAN]</dt>
+        <dd>
+<span class="refTitle">"About the LoRaWAN Standards"</span>, <span>n.d.</span>, <span>&lt;<a href="https://lora-alliance.org/lorawan-for-developers/">https://lora-alliance.org/lorawan-for-developers/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="PPI">[PPI]</dt>
+        <dd>
+<span class="refTitle">"Per-Packet Information Header Specification"</span>, <time datetime="2007-05" class="refDate">May 2007</time>, <span>&lt;<a href="https://web.archive.org/web/20160328114748/http://www.cacetech.com/documents/PPI%20Header%20format%201.0.7.pdf">https://web.archive.org/web/20160328114748/http://www.cacetech.com/documents/PPI%20Header%20format%201.0.7.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Q.703">[Q.703]</dt>
+        <dd>
+<span class="refTitle">"Specifications of Signalling System No. 7 Signalling Link"</span>, <span class="refContent">ITU-T Recommendation Q.703</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-Q.703/en/">https://www.itu.int/rec/T-REC-Q.703/en/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Q.704">[Q.704]</dt>
+        <dd>
+<span class="refTitle">"Specifications of Signalling System No. 7 Signalling Network Functions And Messages"</span>, <span class="refContent">ITU-T Recommendation Q.704</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-Q.704/en/">https://www.itu.int/rec/T-REC-Q.704/en/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Q.711">[Q.711]</dt>
+        <dd>
+<span class="refTitle">"Specifications of Signalling System No. 7 Functional description of the signalling connection control part"</span>, <span class="refContent">ITU-T Recommendation Q.711</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-Q.711/en/">https://www.itu.int/rec/T-REC-Q.711/en/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Q.712">[Q.712]</dt>
+        <dd>
+<span class="refTitle">"Specifications of Signalling System No. 7 Definition and function of signalling connection control part messages"</span>, <span class="refContent">ITU-T Recommendation Q.712</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-Q.712/en/">https://www.itu.int/rec/T-REC-Q.712/en/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Q.713">[Q.713]</dt>
+        <dd>
+<span class="refTitle">"Specifications of Signalling System No. 7 Signalling connection control part functions and codes"</span>, <span class="refContent">ITU-T Recommendation Q.713</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-Q.713/en/">https://www.itu.int/rec/T-REC-Q.713/en/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Q.714">[Q.714]</dt>
+        <dd>
+<span class="refTitle">"Specifications of Signalling System No. 7 Signalling connection control part procedures"</span>, <span class="refContent">ITU-T Recommendation Q.714</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-Q.714/en/">https://www.itu.int/rec/T-REC-Q.714/en/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Radiotap">[Radiotap]</dt>
+        <dd>
+<span class="refAuthor">radiotap.org</span>, <span class="refTitle">"Radiotap Web site"</span>, <span>n.d.</span>, <span>&lt;<a href="http://www.radiotap.org/">http://www.radiotap.org/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Q.920">[Q.920]</dt>
+        <dd>
+<span class="refTitle">"Digital Subscriber Signalling System No. 1 (DSS1) - ISDN User-Network Interface Data Link Layer - General aspects"</span>, <span class="refContent">ITU-T Recommendation Q.920</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-Q.920/en/">https://www.itu.int/rec/T-REC-Q.920/en/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Q.921">[Q.921]</dt>
+        <dd>
+<span class="refTitle">"ISDN user-network interface - Data Link Layer specification"</span>, <span class="refContent">ITU-T Recommendation Q.921</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-Q.921/en/">https://www.itu.int/rec/T-REC-Q.921/en/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="STANAG-5066">[STANAG-5066]</dt>
+        <dd>
+<span class="refTitle">"Profile for Maritime High Frequency (HF) Radio Data Communications"</span>, <span class="refContent">STANAG 5066</span>, <span>n.d.</span>, <span>&lt;<a href="https://web.archive.org/web/20051004082010/http://www.armymars.net/ArmyMARS/HF-Email/resources/stanag5066.pdf">https://web.archive.org/web/20051004082010/http://www.armymars.net/ArmyMARS/HF-Email/resources/stanag5066.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="USBPcap">[USBPcap]</dt>
+        <dd>
+<span class="refTitle">"USBPcap Capture format specification"</span>, <span>n.d.</span>, <span>&lt;<a href="https://desowin.org/usbpcap/captureformat.html">https://desowin.org/usbpcap/captureformat.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Z_WAVE_SERIAL">[Z_WAVE_SERIAL]</dt>
+        <dd>
+<span class="refTitle">"Z-Wave Serial API Host Application Programming Guide"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.silabs.com/documents/public/user-guides/INS12350-Serial-API-Host-Appl.-Prg.-Guide.pdf">https://www.silabs.com/documents/public/user-guides/INS12350-Serial-API-Host-Appl.-Prg.-Guide.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC1661">[RFC1661]</dt>
+        <dd>
+<span class="refAuthor">Simpson, W., Ed.</span>, <span class="refTitle">"The Point-to-Point Protocol (PPP)"</span>, <span class="seriesInfo">STD 51</span>, <span class="seriesInfo">RFC 1661</span>, <span class="seriesInfo">DOI 10.17487/RFC1661</span>, <time datetime="1994-07" class="refDate">July 1994</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc1661">https://www.rfc-editor.org/rfc/rfc1661</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC1662">[RFC1662]</dt>
+        <dd>
+<span class="refAuthor">Simpson, W., Ed.</span>, <span class="refTitle">"PPP in HDLC-like Framing"</span>, <span class="seriesInfo">STD 51</span>, <span class="seriesInfo">RFC 1662</span>, <span class="seriesInfo">DOI 10.17487/RFC1662</span>, <time datetime="1994-07" class="refDate">July 1994</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc1662">https://www.rfc-editor.org/rfc/rfc1662</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2516">[RFC2516]</dt>
+        <dd>
+<span class="refAuthor">Mamakos, L.</span>, <span class="refAuthor">Lidl, K.</span>, <span class="refAuthor">Evarts, J.</span>, <span class="refAuthor">Carrel, D.</span>, <span class="refAuthor">Simone, D.</span>, and <span class="refAuthor">R. Wheeler</span>, <span class="refTitle">"A Method for Transmitting PPP Over Ethernet (PPPoE)"</span>, <span class="seriesInfo">RFC 2516</span>, <span class="seriesInfo">DOI 10.17487/RFC2516</span>, <time datetime="1999-02" class="refDate">February 1999</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2516">https://www.rfc-editor.org/rfc/rfc2516</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC1483">[RFC1483]</dt>
+        <dd>
+<span class="refAuthor">Heinanen, J.</span>, <span class="refTitle">"Multiprotocol Encapsulation over ATM Adaptation Layer 5"</span>, <span class="seriesInfo">RFC 1483</span>, <span class="seriesInfo">DOI 10.17487/RFC1483</span>, <time datetime="1993-07" class="refDate">July 1993</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc1483">https://www.rfc-editor.org/rfc/rfc1483</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC1547">[RFC1547]</dt>
+        <dd>
+<span class="refAuthor">Perkins, D.</span>, <span class="refTitle">"Requirements for an Internet Standard Point-to-Point Protocol"</span>, <span class="seriesInfo">RFC 1547</span>, <span class="seriesInfo">DOI 10.17487/RFC1547</span>, <time datetime="1993-12" class="refDate">December 1993</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc1547">https://www.rfc-editor.org/rfc/rfc1547</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2625">[RFC2625]</dt>
+        <dd>
+<span class="refAuthor">Rajagopal, M.</span>, <span class="refAuthor">Bhagwat, R.</span>, and <span class="refAuthor">W. Rickard</span>, <span class="refTitle">"IP and ARP over Fibre Channel"</span>, <span class="seriesInfo">RFC 2625</span>, <span class="seriesInfo">DOI 10.17487/RFC2625</span>, <time datetime="1999-06" class="refDate">June 1999</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2625">https://www.rfc-editor.org/rfc/rfc2625</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4391">[RFC4391]</dt>
+      <dd>
+<span class="refAuthor">Chu, J.</span> and <span class="refAuthor">V. Kashyap</span>, <span class="refTitle">"Transmission of IP over InfiniBand (IPoIB)"</span>, <span class="seriesInfo">RFC 4391</span>, <span class="seriesInfo">DOI 10.17487/RFC4391</span>, <time datetime="2006-04" class="refDate">April 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4391">https://www.rfc-editor.org/rfc/rfc4391</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
