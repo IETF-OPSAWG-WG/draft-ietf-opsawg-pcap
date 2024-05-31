@@ -130,8 +130,8 @@ As the First Come First Served range is large and easily obtained, official valu
 
 ### Initial Values {#sec-initial}
 
-| LINKTYPE Name | LINKTYPE Value | Description |
-|:-------------|:---------------:|:----------|
+| LINKTYPE Name | LINKTYPE Value | Description | Reference |
+|:--------------|:--------------:|:------------|:----------|
 |LINKTYPE_NULL|0|BSD loopback encapsulation|
 |LINKTYPE_ETHERNET|1|IEEE 802.3 Ethernet|
 |LINKTYPE_EXP_ETHERNET|2|Xerox experimental 3Mb Ethernet|
