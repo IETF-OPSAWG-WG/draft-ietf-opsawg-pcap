@@ -178,9 +178,53 @@ informative:
     title: The KISS TNC - A simple Host-to-TNC communications protocol
     target: https://www.ax25.net/kiss.aspx
 
-  LINKTYPE_NULL:
-    title: LINKTYPE_NULL
-    target: https://www.tcpdump.org/linktypes/LINKTYPE_NULL.html
+  LINKTYPE_APPLE_IP_OVER_IEEE1394:
+    title: LINKTYPE_APPLE_IP_OVER_IEEE1394
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_APPLE_IP_OVER_IEEE1394.html
+
+  LINKTYPE_BLUETOOTH_BREDR_BB:
+    title: LINKTYPE_BLUETOOTH_BREDR_BB
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_BREDR_BB.html
+
+  LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR:
+    title: LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR.html
+
+  LINKTYPE_BLUETOOTH_LINUX_MONITOR:
+    title: LINKTYPE_BLUETOOTH_LINUX_MONITOR
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_LINUX_MONITOR.html
+
+  LINKTYPE_CAN_SOCKETCAN:
+    title: LINKTYPE_CAN_SOCKETCAN
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_CAN_SOCKETCAN.html
+
+  LINKTYPE_DISPLAYPORT_AUX:
+    title: LINKTYPE_DISPLAYPORT_AUX
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_DISPLAYPORT_AUX.html
+
+  LINKTYPE_DSA_TAG_BRCM:
+    title: LINKTYPE_DSA_TAG_BRCM
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_BRCM.html
+
+  LINKTYPE_DSA_TAG_BRCM_PREPEND:
+    title: LINKTYPE_DSA_TAG_BRCM_PREPEND
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_BRCM_PREPEND.html
+
+  LINKTYPE_DSA_TAG_DSA:
+    title: LINKTYPE_DSA_TAG_DSA
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_DSA.html
+
+  LINKTYPE_DSA_TAG_EDSA:
+    title: LINKTYPE_DSA_TAG_EDSA
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_EDSA.html
+
+  LINKTYPE_ETW:
+    title: LINKTYPE_ETW
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html
+
+  LINKTYPE_FIRA_UCI:
+    title: LINKTYPE_FIRA_UCI
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_FIRA_UCI.html
 
   LINKTYPE_FLEXRAY:
     title: LINKTYPE_FLEXRAY
@@ -189,6 +233,10 @@ informative:
   LINKTYPE_I2C_LINUX:
     title: LINKTYPE_I2C_LINUX
     target: https://www.tcpdump.org/linktypes/LINKTYPE_I2C_LINUX.html
+
+  LINKTYPE_IEEE802_11_PRISM:
+    title: LINKTYPE_IEEE802_11_PRISM
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_IEEE802_11_PRISM.html
 
   LINKTYPE_IPNET:
     title: LINKTYPE_IPNET
@@ -214,9 +262,85 @@ informative:
     title: LINKTYPE_LINUX_SLL2
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_SLL2.html
 
+  LINKTYPE_LOOP:
+    title: LINKTYPE_LOOP
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_LOOP.html
+
+  LINKTYPE_MUX27010:
+    title: LINKTYPE_MUX27010
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_MUX27010.html
+
+  LINKTYPE_NETANALYZER:
+    title: LINKTYPE_NETANALYZER
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_NETANALYZER.html
+
+  LINKTYPE_NETANALYZER_TRANSPARENT:
+    title: LINKTYPE_NETANALYZER_TRANSPARENT
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_NETANALYZER_TRANSPARENT.html
+
+  LINKTYPE_NETLINK:
+    title: LINKTYPE_NETLINK
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_NETLINK.html
+
+  LINKTYPE_NFC_LLCP:
+    title: LINKTYPE_NFC_LLCP
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_NFC_LLCP.html
+
+  LINKTYPE_NFLOG:
+    title: LINKTYPE_NFLOG
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_NFLOG.html
+
+  LINKTYPE_NG40:
+    title: LINKTYPE_NG40
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_NG40.html
+
+  LINKTYPE_NORDIC_BLE:
+    title: LINKTYPE_NORDIC_BLE
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_NORDIC_BLE.html
+
+  LINKTYPE_NULL:
+    title: LINKTYPE_NULL
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_NULL.html
+
+  LINKTYPE_PKTAP:
+    title: LINKTYPE_PKTAP
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_PKTAP.html
+
+  LINKTYPE_RDS:
+    title: LINKTYPE_RDS
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_RDS.html
+
+  LINKTYPE_RTAC_SERIAL:
+    title: LINKTYPE_RTAC_SERIAL
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_RTAC_SERIAL.html
+
+  LINKTYPE_SITA:
+    title: LINKTYPE_SITA
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_SITA.html
+
   LINKTYPE_SLIP:
     title: LINKTYPE_SLIP
     target: https://www.tcpdump.org/linktypes/LINKTYPE_SLIP.html
+
+  LINKTYPE_SUNATM:
+    title: LINKTYPE_SUNATM
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_SUNATM.html
+
+  LINKTYPE_USB_DARWIN:
+    title: LINKTYPE_USB_DARWIN
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_DARWIN.html
+
+  LINKTYPE_VSOCK:
+    title: LINKTYPE_VSOCK
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_VSOCK.html
+
+  LINKTYPE_WATTSTOPPER_DLM:
+    title: LINKTYPE_WATTSTOPPER_DLM
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_WATTSTOPPER_DLM.html
+
+  LINKTYPE_ZBOSS_NCP:
+    title: LINKTYPE_ZBOSS_NCP
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_ZBOSS_NCP.html
 
   LINKTYPE_ZWAVE_R1_R2:
     title: LINKTYPE_ZWAVE_R1_R2
@@ -233,6 +357,11 @@ informative:
   LoRaWAN:
     title: About the LoRaWAN Standards
     target: https://lora-alliance.org/lorawan-for-developers/
+
+  OpenVizsla:
+    title: OpenVizsla protocol description
+    date: August 22, 2018
+    target: https://github.com/matwey/libopenvizsla/wiki/OpenVizsla-protocol-description
 
   PPI:
     title: Per-Packet Information Header Specification
@@ -413,7 +542,7 @@ As the First Come First Served range is large and easily obtained, official valu
 |LINKTYPE_IEEE802_11|105|IEEE 802.11 wireless LAN|
 |LINKTYPE_ATM_CLIP|106|ATM Classical IP, with no header preceding IP|
 |LINKTYPE_FRELAY|107|Frame Relay LAPF frames|
-|LINKTYPE_LOOP|108|OpenBSD loopback encapsulation|
+|LINKTYPE_LOOP|108|OpenBSD loopback encapsulation|{{LINKTYPE_LOOP}}
 |LINKTYPE_ENC|109|Reserved for OpenBSD IPSEC encapsulation|
 |LINKTYPE_LANE8023|110|Reserved for ATM LANE + 802.3|
 |LINKTYPE_HIPPI|111|Reserved for NetBSD HIPPI|
@@ -424,11 +553,11 @@ As the First Come First Served range is large and easily obtained, official valu
 |LINKTYPE_IPFILTER|116|Reserved for OpenBSD ipfilter|
 |LINKTYPE_PFLOG|117|OpenBSD pflog; "struct pfloghdr" structure|
 |LINKTYPE_CISCO_IOS|118|Reserved for Cisco-internal use|
-|LINKTYPE_IEEE802_11_PRISM|119|Prism monitor mode|
+|LINKTYPE_IEEE802_11_PRISM|119|Prism monitor mode|{{LINKTYPE_IEEE802_11_PRISM}}
 |LINKTYPE_IEEE802_11_AIRONET|120|Reserved for 802.11 + FreeFreeBSD Aironet radio metadata|
 |LINKTYPE_HHDLC|121|Reserved for Siemens HiPath HDLC|
 |LINKTYPE_IP_OVER_FC|122|IP-over-Fibre Channel, starting with the Network_Header|{{?RFC2625}}
-|LINKTYPE_SUNATM|123|ATM traffic, / per SunATM devices|
+|LINKTYPE_SUNATM|123|ATM traffic captured from a SunATM device|{{LINKTYPE_SUNATM}}
 |LINKTYPE_RIO|124|Reserved for RapidIO|
 |LINKTYPE_PCI_EXP|125|Reserved for PCI Express|
 |LINKTYPE_AURORA|126|Reserved for Xilinx Aurora link layer|
@@ -443,7 +572,7 @@ As the First Come First Served range is large and easily obtained, official valu
 |LINKTYPE_JUNIPER_ATM2|135|Reserved for Juniper Networks|
 |LINKTYPE_JUNIPER_SERVICES|136|Reserved for Juniper Networks|
 |LINKTYPE_JUNIPER_ATM1|137|Reserved for Juniper Networks|
-|LINKTYPE_APPLE_IP_OVER_IEEE1394|138|Apple IP-over-IEEE 1394 cooked header|
+|LINKTYPE_APPLE_IP_OVER_IEEE1394|138|Apple IP-over-IEEE 1394 cooked header|{{LINKTYPE_APPLE_IP_OVER_IEEE1394}}
 |LINKTYPE_MTP2_WITH_PHDR|139|Signaling System 7 (SS7) Message Transfer Part Level|{{Q.703}}
 |LINKTYPE_MTP2|140|SS7 Level 2|{{Q.703}}
 |LINKTYPE_MTP3|141|SS7 Level 3, with no MTP2 header|{{Q.704}}
@@ -501,7 +630,7 @@ As the First Come First Served range is large and easily obtained, official valu
 |LINKTYPE_IEEE802_16_MAC_CPS_RADIO|193|Reserved for 802.16 MAC Common Part Sublayer plus radio header|
 |LINKTYPE_JUNIPER_ISM|194|Reserved for Juniper Networks|
 |LINKTYPE_IEEE802_15_4_WITHFCS|195|IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame|
-|LINKTYPE_SITA|196|Various link-layer types, with a pseudo-header, for SITA|
+|LINKTYPE_SITA|196|Various link-layer types, with a pseudo-header|{{LINKTYPE_SITA}}
 |LINKTYPE_ERF|197|Endace ERF records|{{ERF}}
 |LINKTYPE_RAIF1|198|Reserved for Ethernet packets captured from a u10 Networks board|
 |LINKTYPE_IPMB_KONTRON|199|Reserved for IPMB packet for IPMI, with a 2-octet header|
@@ -532,7 +661,7 @@ As the First Come First Served range is large and easily obtained, official valu
 |LINKTYPE_FC_2|224|Fibre Channel FC-2 frames, beginning with a Frame_Header|
 |LINKTYPE_FC_2_WITH_FRAME_DELIMS|225|Fibre Channel FC-2 frames, beginning an encoding of the SOF, followed by a Frame_Header, and ending with an encoding of the SOF. The encodings represent the frame delimiters as 4-octet sequences representing the corresponding ordered sets, with K28.5 represented as 0xBC, and the D symbols as the corresponding octet values; for example, SOFi2, which is K28.5 - D21.5 - D1.2 - D21.2, is represented as 0xBC 0xB5 0x55 0x55|
 |LINKTYPE_IPNET|226|Solaris ipnet|{{LINKTYPE_IPNET}}
-|LINKTYPE_CAN_SOCKETCAN|227|CAN (Controller Area Network) frames, with a pseudo-header followed by the frame payload|
+|LINKTYPE_CAN_SOCKETCAN|227|Controller Area Network frames|{{LINKTYPE_CAN_SOCKETCAN}}
 |LINKTYPE_IPV4|228|Raw IPv4; the packet begins with an IPv4 header|
 |LINKTYPE_IPV6|229|Raw IPv6; the packet begins with an IPv6 header|
 |LINKTYPE_IEEE802_15_4_NOFCS|230|IEEE 802.15.4 Low-Rate Wireless Network, without the FCS at the end of the frame|
@@ -541,70 +670,70 @@ As the First Come First Served range is large and easily obtained, official valu
 |LINKTYPE_JUNIPER_SRX_E2E|233|Reserved for Juniper Networks|
 |LINKTYPE_JUNIPER_FIBRECHANNEL|234|Reserved for Juniper Networks|
 |LINKTYPE_DVB_CI|235|DVB-CI messages|{{DVB-CI-PCAP}}{{DVB-CI}}
-|LINKTYPE_MUX27010|236|Variant of 3GPP TS 27.010 multiplexing protocol (similar to, but not the same as, 27.010)|
+|LINKTYPE_MUX27010|236|Variant of 3GPP TS 27.010 multiplexing protocol|{{LINKTYPE_MUX27010}}
 |LINKTYPE_STANAG_5066_D_PDU|237|D_PDUs as described by NATO standard STANAG 5066, starting with the synchronization sequence, and including both header and data CRCs. The current version of STANAG 5066 is backwards-compatible with the 1.0.2 version , although newer versions are classified|{{STANAG-5066}}
 |LINKTYPE_JUNIPER_ATM_CEMIC|238|Reserved for Juniper Networks|
-|LINKTYPE_NFLOG|239|Linux netlink NETLINK NFLOG socket log messages|
-|LINKTYPE_NETANALYZER|240|Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the MAC header and ending with the FCS|
-|LINKTYPE_NETANALYZER_TRANSPARENT|241|Pseudo-header for Hilscher Gesellschaft für Systemautomation mbH netANALYZER devices , followed by an Ethernet frame, beginning with the preamble, SFD, and MAC header, and ending with the FCS|
+|LINKTYPE_NFLOG|239|Linux netlink NETLINK NFLOG socket log messages|{{LINKTYPE_NFLOG}}
+|LINKTYPE_NETANALYZER|240|Ethernet frames with netANALYZER pseudo-header|{{LINKTYPE_NETANALYZER}}
+|LINKTYPE_NETANALYZER_TRANSPARENT|241|Ethernet frames with netANALYZER pseudo-header, preamble, and SFD|{{LINKTYPE_NETANALYZER_TRANSPARENT}}
 |LINKTYPE_IPOIB|242|IP-over-InfiniBand|{{Section 6 of ?RFC4391}}
 |LINKTYPE_MPEG_2_TS|243|MPEG-2 Transport Stream transport packets|Table 2-2 of section 2.4.3.2 Transport Stream packet layer of {{H.222.0}}
-|LINKTYPE_NG40|244|Pseudo-header for ng4T GmbH's UMTS Iub/Iur-over-ATM and Iub/Iur-over-IP format as used by their ng40 protocol tester , followed by frames for the Frame Protocol as specified by 3GPP TS 25.427 for dedicated channels and 3GPP TS 25.435 for common/shared channels in the case of ATM AAL2 or UDP traffic, by SSCOP packets as specified by ITU-T Recommendation Q.2110 for ATM AAL5 traffic, and by NBAP packets for SCTP traffic|
-|LINKTYPE_NFC_LLCP|245|Pseudo-header for NFC LLCP packet captures , followed by frame data for the LLCP Protocol as specified by NFCForum-TS-LLCP_1.1|
+|LINKTYPE_NG40|244|Frames from ng4T GmbH's ng40 protocol tester|{{LINKTYPE_NG40}}
+|LINKTYPE_NFC_LLCP|245|	NFC Logical Link Control Protocol frames, with a pseudo-header|{{LINKTYPE_NFC_LLCP}}
 |LINKTYPE_PFSYNC|246|Reserved for pfsync output|
 |LINKTYPE_INFINIBAND|247|Raw InfiniBand frames, starting with the Local Routing Header, as specified in Chapter 5 Data packet format of InfiniBand™ Architectural Specification Release 1.2.1 Volume 1 - General Specifications|
 |LINKTYPE_SCTP|248|SCTP packets, as defined by RFC 4960 , with no lower-level protocols such as IPv4 or IPv6|
 |LINKTYPE_USBPCAP|249|USB packets, beginning with a USBPcap header|{{USBPcap}}
-|LINKTYPE_RTAC_SERIAL|250|Serial-line packet header for the Schweitzer Engineering Laboratories RTAC product , followed by a payload for one of a number of industrial control protocols|
+|LINKTYPE_RTAC_SERIAL|250|Serial-line packet from the Schweitzer Engineering Laboratories RTAC product|{{LINKTYPE_RTAC_SERIAL}}
 |LINKTYPE_BLUETOOTH_LE_LL|251|Bluetooth Low Energy air interface Link Layer packets, in the format described in Section 2.1 (PACKET FORMAT) of volume 6 of the Bluetooth Specification Version 4.0 (see PDF page 2200), but without the Preamble|
 |LINKTYPE_WIRESHARK_UPPER_PDU|252|Reserved for Wireshark|
-|LINKTYPE_NETLINK|253|Linux Netlink capture encapsulation|
-|LINKTYPE_BLUETOOTH_LINUX_MONITOR|254|Bluetooth Linux Monitor encapsulation of traffic for the BlueZ stack|
-|LINKTYPE_BLUETOOTH_BREDR_BB|255|Bluetooth Basic Rate and Enhanced Data Rate baseband packets|
-|LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR|256|Bluetooth Low Energy link-layer packets|
+|LINKTYPE_NETLINK|253|Linux Netlink capture encapsulation|{{LINKTYPE_NETLINK}} {{?RFC3549}}
+|LINKTYPE_BLUETOOTH_LINUX_MONITOR|254|Bluetooth Linux Monitor|{{LINKTYPE_BLUETOOTH_LINUX_MONITOR}}
+|LINKTYPE_BLUETOOTH_BREDR_BB|255|Bluetooth Basic Rate and Enhanced Data Rate baseband packets|{{LINKTYPE_BLUETOOTH_BREDR_BB}}
+|LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR|256|Bluetooth Low Energy link-layer packets|{{LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR}}
 |LINKTYPE_PROFIBUS_DL|257|PROFIBUS data link layer packets, as specified by IEC standard 61158-4-3, beginning with the start delimiter, ending with the end delimiter, and including all octets between them|
-|LINKTYPE_PKTAP|258|Apple PKTAP capture encapsulation|
+|LINKTYPE_PKTAP|258|Apple PKTAP capture encapsulation|{{LINKTYPE_PKTAP}}
 |LINKTYPE_EPON|259|Ethernet-over-passive-optical-network packets, starting with the last 6 octets of the modified preamble as specified by 65.1.3.2 Transmit in Clause 65 of Section 5 of IEEE 802.3, followed immediately by an Ethernet frame|
 |LINKTYPE_IPMI_HPM_2|260|IPMI trace packets, as specified by Table 3-20 Trace Data Block Format in the PICMG HPM.2 specification The timestamps for packets in this format must match the timestamps in the Trace Data Blocks|
 |LINKTYPE_ZWAVE_R1_R2|261|Z-Wave RF profile R1 and R2 packets|{{LINKTYPE_ZWAVE_R1_R2}}
 |LINKTYPE_ZWAVE_R3|262|Z-Wave RF profile R3 packets|{{LINKTYPE_ZWAVE_R3}}
-|LINKTYPE_WATTSTOPPER_DLM|263|Formats for WattStopper Digital Lighting Management (DLM) and Legrand Nitoo Open protocol common packet structure captures|
+|LINKTYPE_WATTSTOPPER_DLM|263|WattStopper Digital Lighting Management (DLM) and Legrand Nitoo Open protocol packets|{{LINKTYPE_WATTSTOPPER_DLM}}
 |LINKTYPE_ISO_14443|264|ISO 14443 contactless smartcard messages|{{ISO-14443-PCAP}}
-|LINKTYPE_RDS|265|Radio data system (RDS) groups, as per IEC 62106, encapsulated in this form|
-|LINKTYPE_USB_DARWIN|266|USB packets, beginning with a Darwin (macOS, etc.) USB header|
+|LINKTYPE_RDS|265|IEC 62106 Radio data system (RDS) groups|{{LINKTYPE_RDS}}
+|LINKTYPE_USB_DARWIN|266|USB packets captured on a Darwin-based operating system (macOS, etc.)|{{LINKTYPE_USB_DARWIN}}
 |LINKTYPE_OPENFLOW|267|Reserved for OpenBSD DLT_OPENFLOW|
 |LINKTYPE_SDLC|268|SDLC packets, as specified by Chapter 1, DLC Links, section Synchronous Data Link Control (SDLC) of Systems Network Architecture Formats, GA27-3136-20 , without the flag fields, zero-bit insertion, or Frame Check Sequence field, containing SNA path information units (PIUs) as the payload|
 |LINKTYPE_TI_LLN_SNIFFER|269|Reserved for Texas Instruments protocol sniffer|
 |LINKTYPE_LORATAP|270|LoRaTap pseudo-header , followed by the payload, which is typically the PHYPayload from the LoRaWan specification|
-|LINKTYPE_VSOCK|271|Protocol for communication between host and guest machines in VMware and KVM hypervisors|
-|LINKTYPE_NORDIC_BLE|272|Messages to and from a Nordic Semiconductor nRF Sniffer for Bluetooth LE packets, beginning with a pseudo-header|
+|LINKTYPE_VSOCK|271|Protocol for communication between host and guest machines in VMware and KVM hypervisors|{{LINKTYPE_VSOCK}}
+|LINKTYPE_NORDIC_BLE|272|Messages to and from a Nordic Semiconductor nRF Sniffer for Bluetooth LE packets|{{LINKTYPE_NORDIC_BLE}}
 |LINKTYPE_DOCSIS31_XRA31|273|DOCSIS packets and bursts, preceded by a pseudo-header|{{DOCSIS-XRA}} {{DOCSIS-4.0-MULP}}
 |LINKTYPE_ETHERNET_MPACKET|274|mPackets, as specified by IEEE 802.3br Figure 99-4, starting with the preamble and always ending with a CRC field|
-|LINKTYPE_DISPLAYPORT_AUX|275|DisplayPort AUX channel monitoring data as specified by VESA DisplayPort(DP) Standard preceded by a pseudo-header|
+|LINKTYPE_DISPLAYPORT_AUX|275|DisplayPort AUX channel monitoring messages|{{LINKTYPE_DISPLAYPORT_AUX}}
 |LINKTYPE_LINUX_SLL2|276|Linux cooked capture encapsulation v2|{{LINKTYPE_LINUX_SLL2}}
 |LINKTYPE_SERCOS_MONITOR|277|Reserved for Sercos Monitor|
-|LINKTYPE_OPENVIZSLA|278|Openvizsla FPGA-based USB sniffer|
+|LINKTYPE_OPENVIZSLA|278|OpenVizsla FPGA-based USB sniffer|{{OpenVizsla}}
 |LINKTYPE_EBHSCR|279|Elektrobit High Speed Capture and Replay (EBHSCR) format|{{EBHSCR}}
 |LINKTYPE_VPP_DISPATCH|280|fd.io VPP graph dispatcher trace records|{{FD.io-VPP}}
-|LINKTYPE_DSA_TAG_BRCM|281|Ethernet frames, with a switch tag inserted between the source address field and the type/length field in the Ethernet header|
-|LINKTYPE_DSA_TAG_BRCM_PREPEND|282|Ethernet frames, with a switch tag inserted before the destination address in the Ethernet header|
+|LINKTYPE_DSA_TAG_BRCM|281|Ethernet frames, with a Broadcom switch tag inserted|{{LINKTYPE_DSA_TAG_BRCM}}
+|LINKTYPE_DSA_TAG_BRCM_PREPEND|282|Ethernet frames, with a Broadcom switch tag prepended|{{LINKTYPE_DSA_TAG_BRCM_PREPEND}}
 |LINKTYPE_IEEE802_15_4_TAP|283|IEEE 802.15.4 Low-Rate Wireless Networks, with a pseudo-header containing TLVs with metadata preceding the 802.15.4 header|
-|LINKTYPE_DSA_TAG_DSA|284|Ethernet frames, with a switch tag inserted between the source address field and the type/length field in the Ethernet header|
-|LINKTYPE_DSA_TAG_EDSA|285|Ethernet frames, with a programmable Ethernet type switch tag inserted between the source address field and the type/length field in the Ethernet header|
+|LINKTYPE_DSA_TAG_DSA|284|Ethernet frames, with a Marvell DSA switch tag inserted|{{LINKTYPE_DSA_TAG_DSA}}
+|LINKTYPE_DSA_TAG_EDSA|285|Ethernet frames, with a Marvell EDSA switch tag inserted|{{LINKTYPE_DSA_TAG_EDSA}}
 |LINKTYPE_ELEE|286|Payload of lawful intercept packets using the ELEE protocol The packet begins with the ELEE header; it does not include any transport-layer or lower-layer headers for protocols used to transport ELEE packets|
 |LINKTYPE_Z_WAVE_SERIAL|287|Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection|{{Z_WAVE_SERIAL}} section 5
 |LINKTYPE_USB_2_0|288|USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the the Universal Serial Bus Specification Revision 2.0|
 |LINKTYPE_ATSC_ALP|289|ATSC Link-Layer Protocol frames, as described in section 5 of the A/330 Link-Layer Protocol specification, found at https://www.atsc.org/atsc-documents/type/3-0-standards/, beginning with a Base Header|
-|LINKTYPE_ETW|290|Event Tracing for Windows messages, beginning with a https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html pseudo-header|
+|LINKTYPE_ETW|290|Event Tracing for Windows messages|{{LINKTYPE_ETW}}
 |LINKTYPE_NETANALYZER_NG|291|Reserved for Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software|
-|LINKTYPE_ZBOSS_NCP|292|Serial NCP (Network Co-Processor) protocol for Zigbee stack ZBOSS by DSR. https://cloud.dsr-corporation.com/index.php/s/BAn4LtRWbJjFiAm ZBOSS NCP protocol, beginning with a www.tcpdump.org/linktypes/LINKTYPE_ZBOSS_NCP.html header|
+|LINKTYPE_ZBOSS_NCP|292|ZBOSS NCP Serial Protocol, with a pseudo-header|{{LINKTYPE_ZBOSS_NCP}}
 |LINKTYPE_USB_2_0_LOW_SPEED|293|Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0|
 |LINKTYPE_USB_2_0_FULL_SPEED|294|Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0|
 |LINKTYPE_USB_2_0_HIGH_SPEED|295|High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0|
 |LINKTYPE_AUERSWALD_LOG|296|Auerswald Logger Protocol, as described in https://github.com/Auerswald-GmbH/auerlog/blob/master/auerlog.txt|
 |LINKTYPE_ZWAVE_TAP|297|Z-Wave packets, as specified by ITU-T Recommendation G.9959, with a https://gitlab.com/exegin/zwave-g9959-tap TAP meta-data header|{{Exegin-TAP-Link}}
 |LINKTYPE_SILABS_DEBUG_CHANNEL|298|Silicon Labs debug channel protocol, as described in https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/debug-channel.md|
-|LINKTYPE_FIRA_UCI|299| https://www.tcpdump.org/linktypes/LINKTYPE_FIRA_UCI.html Ultra-wideband (UWB) controller interface protocol (UCI)|
+|LINKTYPE_FIRA_UCI|299|Ultra-wideband (UWB) controller interface protocol (UCI)|{{LINKTYPE_FIRA_UCI}}
 |LINKTYPE_MDB|300|MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine, with the message format specified by https://www.kaiser.cx/pcap-mdb.html the PCAP format for MDB specification|
 |LINKTYPE_DECT_NR|301|DECT-2020 New Radio (NR) MAC layer specified in https://www.etsi.org/committee/1394-dect ETSI TS 103 636-4. The Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions|
 
