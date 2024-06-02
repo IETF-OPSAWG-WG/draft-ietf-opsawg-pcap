@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-30T01:14:16.235413+00:00",
+  "timestamp": "2024-06-02T01:19:00.793341+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2449,7 +2449,7 @@
       "labels": [],
       "body": "It would be good to register pcapng as a media type with the IANA:\r\nhttps://www.iana.org/assignments/media-types/media-types.xhtml\r\n\r\npcap is registered as [application/vnd.tcpdump.pcap](https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap) and has a Media Type registry section under IANA Considerations.",
       "createdAt": "2024-05-27T12:21:02Z",
-      "updatedAt": "2024-05-28T06:22:13Z",
+      "updatedAt": "2024-05-30T12:31:19Z",
       "closedAt": null,
       "comments": [
         {
@@ -2493,6 +2493,13 @@
           "body": "@guyharris I kept a little archive of that mini project: https://www.gdt.id.au/~gdt/presentations/2011-03-23-iana-mime/\n",
           "createdAt": "2024-05-28T06:22:12Z",
           "updatedAt": "2024-05-28T06:22:12Z"
+        },
+        {
+          "author": "johnthacker",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "It seems like the two options are:\r\n\r\n1. Make an application to put it in the vendor tree (application/vnd.wireshark.pcapng ? A vendor of tcpdump doesn't make as much sense so long as https://github.com/the-tcpdump-group/libpcap/issues/1321 is open). Then update this draft with the information. The advantage, as before, is that registration can happen fairly quickly.\r\n2. Apply to put it in the standards tree as part of this RFC. Presumably make a [provisional application](https://www.rfc-editor.org/rfc/rfc6838.html#section-5.2.1). Arguably more proper, but doesn't really take affect until this draft achieves consensus and is published, and it's been four years already.\r\n\r\nIt might be possible to register in the vendor tree right away and then have that entry be listed as a deprecated alias when putting it in the standards tree.",
+          "createdAt": "2024-05-30T12:31:18Z",
+          "updatedAt": "2024-05-30T12:31:18Z"
         }
       ]
     }
@@ -8350,7 +8357,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-05-06T08:12:43Z",
-      "updatedAt": "2024-05-10T15:02:25Z",
+      "updatedAt": "2024-05-31T09:09:40Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "7d095fd0b3d26df8b7570e9a479bb20673b892b1",
@@ -8370,6 +8377,13 @@
           "body": "* have a better flow of the narrative text. For example, introduce first the meaning of each column before talking about ranges, etc.\r\n* Ease identifying each IANA action\r\n* Associate the DE guidance with the sub registry, not the registry group.\r\n* avoid redundancy by pointing to the specific 8126 sections\r\n* avoid embedded URLs, but use refs\r\n* add pointers for some specific items (even if these are well-known)",
           "createdAt": "2024-05-06T10:20:46Z",
           "updatedAt": "2024-05-06T10:20:46Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The similar registry for Sun's snoop format:\r\n\r\nhttps://www.iana.org/assignments/snoop-datalink-types/snoop-datalink-types.xhtml\r\n\r\nin most cases has, in its Reference column, a reference either to [RFC 1761](https://www.rfc-editor.org/rfc/rfc1761.html), which is the RFC for the snoop file format, or to [RFC 3827](https://www.rfc-editor.org/rfc/rfc3827.html), which is an RFC that registers additional snoop datalink types.  The only exception is the IP-over-Infiniband type, which also has a reference to [RFC 4391](https://www.rfc-editor.org/rfc/rfc4391.html), the IP-over-Infiniband RFC.\r\n\r\nPerhaps the idea is that most of the entries in that registry are presumed to be \"obvious\", e.g. \"IEEE 802.3\" and \"Ethernet\" both, presumably, refer to Ethernet.  (The difference between \"Ethernet\" and \"IEEE 802.3\" may reflect the pre-802.3y split between Digital/Intel/Xerox Ethernet, with a 2-octet type field after the two MAC addresses, and 802.3 Ethernet, with a 2-octet length field after the two MAC addresses; in 802.3y, support for D/I/X Ethernet was added to 802.3, with the difference between a type field and a length field being whether the field value is too large for an Ethernet payload, in which case the field is a type value rather than a length value.)\r\n\r\n\"Ethernet\" was, presumably, considered \"obvious\" as it means \"Ethernet frames\", and, similarly, \"IEEE 802.5 Token Ring\" was considered \"obvious\" for similar reasons.\r\n\r\nHowever, \"HDLC\", \"Character Synchronous\", \"IBM Channel-to-Channel\", \"Fibre Channel\", \"ATM\", and \"ATM Classical IP\" aren't entirely obvious (if they're even *close* to obvious at all!).\r\n\r\nWe're tryin to avoid that problem with the pcap/pcapng link-layer type registry, so many of the entries in the table will need one or more references to make it clear what format the packet data is in (and to keep the description in the table short!).\r\n\r\nIs the idea that the Reference column would contain references such as that?  [The tcpdump.org link-layer types page](https://www.tcpdump.org/linktypes.html), which is the source for the table in this I-D, has links of that sort in the \"Description\" column, and I'm in the process of updating that page to move many of the detailed descriptions into pages on that Web site, with the description having just a short description that links to the appropriate page.  That page could be used as a reference for that type in the I-D.\r\n\r\nFor link-layer types that have links to other sites, such as the AX.25 link type, that link would be the reference.\r\n\r\nSo would the document reference in the Reference column:\r\n\r\n> Reference: Indicates an authoritative the document reference for the LinkType or a requester reference.\r\n\r\nbe to such a document?  Or, perhaps, to one or more such documents?\r\n\r\n(By the way, that column description needs editing.)",
+          "createdAt": "2024-05-31T09:09:39Z",
+          "updatedAt": "2024-05-31T09:09:39Z"
         }
       ],
       "reviews": [
@@ -8405,6 +8419,46 @@
           "createdAt": "2024-05-06T10:13:16Z",
           "updatedAt": "2024-05-06T10:13:16Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOAU54e858k-2V",
+          "commit": {
+            "abbreviatedOid": "3e5cc69"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-05-31T07:26:23Z",
+          "updatedAt": "2024-05-31T07:26:24Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "It appears the extra space before \"Radiotap:\" was removed.",
+              "createdAt": "2024-05-31T07:26:23Z",
+              "updatedAt": "2024-05-31T07:26:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e858lpt4",
+          "commit": {
+            "abbreviatedOid": "3e5cc69"
+          },
+          "author": "boucadair",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-05-31T09:00:10Z",
+          "updatedAt": "2024-05-31T09:00:10Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Yes. Thanks.",
+              "createdAt": "2024-05-31T09:00:10Z",
+              "updatedAt": "2024-05-31T09:00:10Z"
+            }
+          ]
         }
       ]
     }
