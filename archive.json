@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-02T01:19:00.793341+00:00",
+  "timestamp": "2024-06-04T01:15:23.890116+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -369,15 +369,15 @@
       "id": "MDU6SXNzdWUxMDI2NzMzNDU=",
       "title": "Need to specify the IDB if_tzone option format",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/24",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "hadrielk",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Currently the IDB if_tzone option is declared but not specified. (a signed int32 for number of seconds West of UTC?)\n\nI'm not sure why this option is in the IDB instead of the SHB, so that might be something to think about too. (I guess if your system is really, really big, then you could have interfaces in different timezones... ;)\n",
       "createdAt": "2015-08-23T23:51:26Z",
-      "updatedAt": "2019-02-06T05:27:44Z",
-      "closedAt": null,
+      "updatedAt": "2024-06-02T08:48:39Z",
+      "closedAt": "2024-06-02T08:48:38Z",
       "comments": [
         {
           "author": "hadrielk",
@@ -399,6 +399,13 @@
           "body": "I would vote to replace it with if_tzid, which is a string containing a \"timezone\" id from [the IANA Time Zone Database](https://www.iana.org/time-zones).  See [the tzdb Theory file](https://www.ietf.org/timezones/theory.html) for more information; I put \"timezone\" in quotes because tzdb regions don't necessarily correspond to time zones.",
           "createdAt": "2019-02-06T05:27:44Z",
           "updatedAt": "2019-02-06T05:27:44Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I would vote to replace it with if_tzid, which is a string containing a \"timezone\" id from [the IANA Time Zone Database](https://www.iana.org/time-zones). See [the tzdb Theory file](https://www.ietf.org/timezones/theory.html) for more information; I put \"timezone\" in quotes because tzdb regions don't necessarily correspond to time zones.\r\n\r\nDone in e63374c8aa03fdfd296042ff92c4fc565b2b2980, which adds that string option under the name if_iana_tzname, and deprecate if_tzone, and further edited in f723acfa7785f4de27e366af5dae14f087a8932c, ebbe8cf24c1963d593be8531467a6f24ec0eae66, and c100ba99cf7da09cb2e19236df680b20bf179593.",
+          "createdAt": "2024-06-02T08:48:39Z",
+          "updatedAt": "2024-06-02T08:48:39Z"
         }
       ]
     },
@@ -1382,7 +1389,7 @@
       "labels": [],
       "body": "Is there a way in the pcapng format to provide a second timestamp for a packet?\r\nI am looking at an RS485 UART serial protocol. Packets can have different BAUD rates and different delays between single Bytes. For analysing the protocol it is important to know the time gap between the end of one packet and the start of the next packet. So my question is whether a standard way exists in pcapng to have a second timestamp in a packet for the end of transmission.\r\n",
       "createdAt": "2019-04-05T10:49:10Z",
-      "updatedAt": "2019-04-07T04:13:21Z",
+      "updatedAt": "2024-06-02T08:08:23Z",
       "closedAt": null,
       "comments": [
         {
@@ -1391,6 +1398,13 @@
           "body": "There isn't a standard way to do that.\r\n\r\nThe pcapng format doesn't explicitly indicate what the timestamp represents; it just speaks of it as a timestamp.\r\n\r\nAnd many of the capture mechanisms that provide packets to put into pcapng files don't specify that, either; packets are typically captured on network interfaces managed by the host OS's networking stack, and the timestamp of a packet is the time at which the part of the network interface that adds timestamps to packets sees the packet.  This can be - and usually *is* - some unknown amount of time after the last bit of the packet reached the network adapter when receiving packets.  When the packet is sent by the host doing the packet capture, it's some unknown amount of time *before* the first bit of the packet is transmitted by the network adapter.\r\n\r\nIf your protocol will require a new LINKTYPE_/DLT_ value to put it in a pcapng (or pcap) file, I would suggest having the packets begin with a pseudo-header giving *both* the start time *and* the end time of the packet, unless you choose to make one of those times be the timestamp in the pcapng EPB.",
           "createdAt": "2019-04-07T04:13:21Z",
           "updatedAt": "2019-04-07T04:13:21Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "An alternative would be to add an \"end-of-packet timestamp\" option to the pcapng Enhanced Packet Block, with the same timestamp format as the packet timestamp. (This obviously wouldn't apply to pcap, which does not have per-packet options.)\r\n\r\nThe same caveats stated in the previous paragraph would apply to the end-of-packet timestamp as well.",
+          "createdAt": "2024-06-02T08:08:22Z",
+          "updatedAt": "2024-06-02T08:08:22Z"
         }
       ]
     },
@@ -1406,7 +1420,7 @@
       "labels": [],
       "body": "I might miss something here, but the parsing of an SHB is specifically hard due to the byte order being contained after the block length.\r\nSo how about we introduce two new BlockTypes, such as LitteEndianSectionHeaderBlock (0x0a1b2c3d) and BigEndianSectionHeaderBlock (0x3d2c1b0a). Both Blocks would have the same design as the current SHB, but without the byte order magic.",
       "createdAt": "2019-08-06T11:14:04Z",
-      "updatedAt": "2019-08-06T18:31:27Z",
+      "updatedAt": "2024-06-02T09:14:27Z",
       "closedAt": "2019-08-06T18:28:02Z",
       "comments": [
         {
@@ -1699,16 +1713,24 @@
       "id": "MDU6SXNzdWU3NzQ5NDQxODA=",
       "title": "Current pcap draft doesn't include the link-type descriptions from https://www.tcpdump.org/linktypes/",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/101",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "guyharris",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Some link-layer header types have descriptions that point to pages not hosted on www.tcpdump.org, e.g. the IEEE 802 specifications.  We can (and should) link to those in the table without problems.\r\n\r\nOthers have link-type descriptions that are currently hosted on www.tcpdump.org at https://www.tcpdump.org/linktypes/.  We can either 1) continue to provide them, and link to them, or 2) turn them into appendices of the specification and refer to them internally.",
       "createdAt": "2020-12-26T22:48:15Z",
-      "updatedAt": "2020-12-26T22:48:15Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2024-06-02T08:31:13Z",
+      "closedAt": "2024-06-02T08:31:13Z",
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The link-layer types don't belong in the pcap draft, nor do they belong in the pcapng draft, as they're used in both documents. Instead, they're in [draft-ietf-opsawg-pcaplinktype](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/master/draft-ietf-opsawg-pcaplinktype.md).",
+          "createdAt": "2024-06-02T08:31:13Z",
+          "updatedAt": "2024-06-02T08:31:13Z"
+        }
+      ]
     },
     {
       "number": 102,
@@ -2053,15 +2075,15 @@
       "id": "I_kwDOAU54e85NxMX3",
       "title": "Section 4.5 (Name Res. Block) - MAC/EUI address to name mapping?",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/118",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "eqvinox",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Hi all,\r\n\r\nvery simple question: is there any plan/possibility to create a NRB option for MAC/EUI-48 (and for completeness EUI-64) to name mappings?\r\n\r\nPresumably it'd just be `'02 ca ff ee f0 0d'\"teapot under test\"` for the data contents; is it possible to \"pre-allocate\" two (48/64 bit) record types for this?",
       "createdAt": "2022-07-14T12:49:51Z",
-      "updatedAt": "2022-07-14T18:10:38Z",
-      "closedAt": null,
+      "updatedAt": "2024-06-02T08:34:38Z",
+      "closedAt": "2024-06-02T08:34:38Z",
       "comments": [
         {
           "author": "mcr",
@@ -2069,6 +2091,13 @@
           "body": "It sure would be welcome.  At this point, what we really need is more conversation on opsawg@ietf.org to get the documents actually, and clearly adopted.  ",
           "createdAt": "2022-07-14T18:10:38Z",
           "updatedAt": "2022-07-14T18:10:38Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Added in #119.",
+          "createdAt": "2024-06-02T08:34:38Z",
+          "updatedAt": "2024-06-02T08:34:38Z"
         }
       ]
     },
@@ -2394,22 +2423,22 @@
       "id": "I_kwDOAU54e858gbgE",
       "title": "Order of options in a block with respect to option code?",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/152",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "daluu",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "I was looking at the spec, https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/master/draft-ietf-opsawg-pcapng.md, let me know if I'm viewing the wrong/outdated version.\r\n\r\nI didn't find any mention on ordering of options within the options section of a block. Does/should order matter (in terms of order by option code)? Does the spec offer any guidance on this matter?\r\n\r\nI'm assuming that this currently is open ended, and readers should be able to handle processing options in any order and writers can write the options in any order. I did some tests in this area and found that Wireshark seems to be able to handle options in any order.\r\n\r\nPersonally though, for readability, and in cases of working with unit tests around pcapng read/write of options, I'd prefer to write options ordered by option code, and if the reader code were to display/visualize them, I'd also sort and order them (if not needing to render the data as it is exactly written). It's easier to read/skim/look them over in (ascending) order than some undefined order.\r\n\r\nI just wanted to pose this question to get the matter clarified. If the spec does mention ordering, please point me to it. Thanks.",
       "createdAt": "2024-01-18T18:54:31Z",
-      "updatedAt": "2024-01-18T20:09:34Z",
-      "closedAt": null,
+      "updatedAt": "2024-06-02T08:36:42Z",
+      "closedAt": "2024-06-02T08:36:42Z",
       "comments": [
         {
           "author": "guyharris",
           "authorAssociation": "COLLABORATOR",
-          "body": "> I didn't find any mention on ordering of options within the options section of a block. Does/should order matter (in terms of order by option code)?\r\n\r\nNo/no.\r\n\r\n> I'm assuming that this currently is open ended,\r\n\r\nYes.\r\n\r\n> and readers should be able to handle processing options in any order\r\n\r\nYes.\r\n\r\n> and writers can write the options in any order. \r\n\r\nYes.\r\n\r\n> Personally though, for readability, and in cases of working with unit tests around pcapng read/write of options, I'd prefer to write options ordered by option code,\r\n\r\nYou're welcome to do so, but other writers are not and will not be required to do so.\r\n\r\nNote that, as option codes are assigned sequentially, that order has no significance other than the oder in which options happened to be assigned.\r\n\r\n> and if the reader code were to display/visualize them, I'd also sort and order them.\r\n\r\nYour reader is welcome to do so, but other readers are not and will not be required to do so. A reader may, for example, group them as it chooses, or treat some as more likely to be interesting and put those first, etc..",
+          "body": "> I didn't find any mention on ordering of options within the options section of a block. Does/should order matter (in terms of order by option code)?\r\n\r\nNo/no.\r\n\r\n> I'm assuming that this currently is open ended,\r\n\r\nYes.\r\n\r\n> and readers should be able to handle processing options in any order\r\n\r\nYes.\r\n\r\n> and writers can write the options in any order. \r\n\r\nYes.\r\n\r\n> Personally though, for readability, and in cases of working with unit tests around pcapng read/write of options, I'd prefer to write options ordered by option code,\r\n\r\nYou're welcome to do so, but other writers are not and will not be required to do so.\r\n\r\nNote that, as option codes are assigned sequentially, that order has no significance other than the order in which options happened to be assigned.\r\n\r\n> and if the reader code were to display/visualize them, I'd also sort and order them.\r\n\r\nYour reader is welcome to do so, but other readers are not and will not be required to do so. A reader may, for example, group them as it chooses, or treat some as more likely to be interesting and put those first, etc..",
           "createdAt": "2024-01-18T20:09:33Z",
-          "updatedAt": "2024-01-18T20:09:33Z"
+          "updatedAt": "2024-06-02T08:35:54Z"
         }
       ]
     },
@@ -2418,15 +2447,15 @@
       "id": "I_kwDOAU54e858jWQv",
       "title": "PCAPNG specification document formatting question, maybe some issues found",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/153",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "daluu",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Is the current [document](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/master/draft-ietf-opsawg-pcapng.md) using special markdown formatting like some kind of extensions to markdown, or is it other formatting to be applied when rendered  into other document formats (e.g. HTML)?\r\n\r\nAsking because I notice what I view in github here for that document, or downloading and viewing with a markdown viewer like Marko for macOS, not all the formatting seems to be applied, when compared to an older draft copy like this one: https://www.ietf.org/staging/draft-tuexen-opsawg-pcapng-02.html. Particularly section headings and like the tables for the options for each block type.\r\n\r\nOr did the document formatting get malformed/corrupted since the older draft was revised?",
       "createdAt": "2024-01-19T05:49:26Z",
-      "updatedAt": "2024-01-19T06:11:12Z",
-      "closedAt": null,
+      "updatedAt": "2024-06-02T08:00:32Z",
+      "closedAt": "2024-06-02T08:00:32Z",
       "comments": [
         {
           "author": "guyharris",
@@ -2434,6 +2463,13 @@
           "body": "> Is the current [document](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/master/draft-ietf-opsawg-pcapng.md) using special markdown formatting like some kind of extensions to markdown,\r\n\r\nTo quote [the README.md file in this repository](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/master/README.md):\r\n\r\n> The pcap and pcapng specifications are written using the [kramdown](https://kramdown.gettalong.org) superset of [Markdown](https://daringfireball.net/projects/markdown/syntax) and the [kramdown-rfc2629](https://github.com/cabo/kramdown-rfc2629) extensions to kramdown.  This allows [xml2rfc](https://xml2rfc.tools.ietf.org)-format RFCs and I-Ds to be written in extended Markdown and converted to xml2rfc.  Xml2rfc was originally defined in [RFC 2629](https://tools.ietf.org/html/rfc2629); version 2 is documented in [RFC 7749](https://tools.ietf.org/html/rfc7749), and version 3 is documented in [RFC 7991](https://tools.ietf.org/html/rfc7991).",
           "createdAt": "2024-01-19T06:11:11Z",
           "updatedAt": "2024-01-19T06:11:11Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "So it's not pure Markdown, nor is it likely ever to be pure Markdown.",
+          "createdAt": "2024-06-02T08:00:32Z",
+          "updatedAt": "2024-06-02T08:00:32Z"
         }
       ]
     },
@@ -2502,6 +2538,22 @@
           "updatedAt": "2024-05-30T12:31:18Z"
         }
       ]
+    },
+    {
+      "number": 156,
+      "id": "I_kwDOAU54e86K2g8I",
+      "title": "Should the pcap specification's Security Considerations section pick up the considerations from the Media-Type registration?",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/156",
+      "state": "OPEN",
+      "author": "guyharris",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Currently, it just links to https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap, which contains a detailed Security Considerations section, with several specific considerations.\r\n\r\nShould those be copied to the specification's Security Considerations section?\r\n\r\n(And is there a procedure for updating the registration for vnd.tcpdump.pcap?  If and when the I-D is accepted as an RFC, the registration's \"Published specification\" section should probably be updated to refer to the RFC as the published specification.\r\n\r\nAnd my email address should be updated as well.)\r\n\r\n",
+      "createdAt": "2024-06-02T09:01:06Z",
+      "updatedAt": "2024-06-02T09:01:06Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -8357,7 +8409,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-05-06T08:12:43Z",
-      "updatedAt": "2024-05-31T09:09:40Z",
+      "updatedAt": "2024-06-03T07:22:12Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "7d095fd0b3d26df8b7570e9a479bb20673b892b1",
@@ -8384,6 +8436,13 @@
           "body": "The similar registry for Sun's snoop format:\r\n\r\nhttps://www.iana.org/assignments/snoop-datalink-types/snoop-datalink-types.xhtml\r\n\r\nin most cases has, in its Reference column, a reference either to [RFC 1761](https://www.rfc-editor.org/rfc/rfc1761.html), which is the RFC for the snoop file format, or to [RFC 3827](https://www.rfc-editor.org/rfc/rfc3827.html), which is an RFC that registers additional snoop datalink types.  The only exception is the IP-over-Infiniband type, which also has a reference to [RFC 4391](https://www.rfc-editor.org/rfc/rfc4391.html), the IP-over-Infiniband RFC.\r\n\r\nPerhaps the idea is that most of the entries in that registry are presumed to be \"obvious\", e.g. \"IEEE 802.3\" and \"Ethernet\" both, presumably, refer to Ethernet.  (The difference between \"Ethernet\" and \"IEEE 802.3\" may reflect the pre-802.3y split between Digital/Intel/Xerox Ethernet, with a 2-octet type field after the two MAC addresses, and 802.3 Ethernet, with a 2-octet length field after the two MAC addresses; in 802.3y, support for D/I/X Ethernet was added to 802.3, with the difference between a type field and a length field being whether the field value is too large for an Ethernet payload, in which case the field is a type value rather than a length value.)\r\n\r\n\"Ethernet\" was, presumably, considered \"obvious\" as it means \"Ethernet frames\", and, similarly, \"IEEE 802.5 Token Ring\" was considered \"obvious\" for similar reasons.\r\n\r\nHowever, \"HDLC\", \"Character Synchronous\", \"IBM Channel-to-Channel\", \"Fibre Channel\", \"ATM\", and \"ATM Classical IP\" aren't entirely obvious (if they're even *close* to obvious at all!).\r\n\r\nWe're tryin to avoid that problem with the pcap/pcapng link-layer type registry, so many of the entries in the table will need one or more references to make it clear what format the packet data is in (and to keep the description in the table short!).\r\n\r\nIs the idea that the Reference column would contain references such as that?  [The tcpdump.org link-layer types page](https://www.tcpdump.org/linktypes.html), which is the source for the table in this I-D, has links of that sort in the \"Description\" column, and I'm in the process of updating that page to move many of the detailed descriptions into pages on that Web site, with the description having just a short description that links to the appropriate page.  That page could be used as a reference for that type in the I-D.\r\n\r\nFor link-layer types that have links to other sites, such as the AX.25 link type, that link would be the reference.\r\n\r\nSo would the document reference in the Reference column:\r\n\r\n> Reference: Indicates an authoritative the document reference for the LinkType or a requester reference.\r\n\r\nbe to such a document?  Or, perhaps, to one or more such documents?\r\n\r\n(By the way, that column description needs editing.)",
           "createdAt": "2024-05-31T09:09:39Z",
           "updatedAt": "2024-05-31T09:09:39Z"
+        },
+        {
+          "author": "boucadair",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> We're tryin to avoid that problem with the pcap/pcapng link-layer type registry, so many of the entries in the table will need one or more references to make it clear what format the packet data is in (and to keep the description in the table short!).\r\n\r\nThanks. Sounds good to me.\r\n\r\n> So would the document reference in the Reference column:\r\n> \r\n> > Reference: Indicates an authoritative the document reference for the LinkType or a requester reference.\r\n> \r\n> be to such a document? Or, perhaps, to one or more such documents?\r\n\r\nACK. One r more documents can be listed there\r\n\r\n\r\n\r\n",
+          "createdAt": "2024-06-03T07:22:11Z",
+          "updatedAt": "2024-06-03T07:22:11Z"
         }
       ],
       "reviews": [
