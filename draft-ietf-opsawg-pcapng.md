@@ -1906,8 +1906,8 @@ to 2012-06-29 07:28:25.298858 UTC.
 isb_ifrecv:
 : The isb_ifrecv
   option specifies the 64-bit unsigned integer number of packets
-  received from the physical interface starting from the beginning
-  of the capture.
+  that were received from the physical interface, starting at the
+  beginning of the capture.
 {: vspace='0'}
 
 Example: the decimal number 100.
@@ -1917,8 +1917,8 @@ Example: the decimal number 100.
 isb_ifdrop:
 : The isb_ifdrop
   option specifies the 64-bit unsigned integer number of packets
-  dropped by the interface due to lack of resources starting from
-  the beginning of the capture.
+  that were dropped by the interface due to lack of resources,
+  starting at the beginning of the capture.
 {: vspace='0'}
 
 Example: '0'.
@@ -1928,8 +1928,8 @@ Example: '0'.
 isb_filteraccept:
 : The
   isb_filteraccept option specifies the 64-bit unsigned integer
-  number of packets accepted by filter starting from the beginning
-  of the capture.
+  number of packets that were accepted by the filter, starting
+  from the beginning of the capture.
 {: vspace='0'}
 
 Example: the decimal number 100.
@@ -1939,8 +1939,8 @@ Example: the decimal number 100.
 isb_osdrop:
 : The isb_osdrop
   option specifies the 64-bit unsigned integer number of packets
-  dropped by the operating system starting from the beginning of the
-  capture.
+  that were dropped by the operating system, starting from the
+  beginning of the capture.
 {: vspace='0'}
 
 Example: '0'.
@@ -1950,11 +1950,11 @@ Example: '0'.
 isb_usrdeliv:
 : The
   isb_usrdeliv option specifies the 64-bit unsigned integer number
-  of packets delivered to the user starting from the beginning of
-  the capture. The value contained in this field can be different
-  from the value 'isb_filteraccept - isb_osdrop' because some
-  packets could still be in the OS buffers when the capture
-  ended.
+  of packets that were delivered to the user, starting from the
+  beginning of the capture. The value contained in this field can
+  be different from the value 'isb_filteraccept - isb_osdrop'
+  because some packets could still be in the OS buffers when the
+  capture ended.
 {: vspace='0'}
 
 Example: '0'.
