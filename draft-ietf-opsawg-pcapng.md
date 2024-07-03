@@ -1877,11 +1877,11 @@ the following options are valid within this block:
 {: indent='8'}
 isb_starttime:
 : The isb_starttime
-  option specifies the time the capture started, consisting of two
-  unsigned 32-bit values, in the same format as defined for timestamps
-  in the Enhanced Packet Block ({{section_epb}}), using the 'if_tsresol'
-  and 'if_tsoffset' values from the Interface Description Block
-  specified by the Interface ID.
+  option specifies the time that traffic capture started on this
+  interface, consisting of two unsigned 32-bit values, in the same
+  format as defined for timestamps in the Enhanced Packet Block
+  ({{section_epb}}), using the 'if_tsresol' and 'if_tsoffset' values
+  from the Interface Description Block specified by the Interface ID.
 {: vspace='0'}
 
 Example: '96 c3 04 00 73 89 6a 65', in Little Endian, decodes
@@ -1891,11 +1891,11 @@ to 2012-06-29 06:17:00.834163 UTC.
 {: indent='8'}
 isb_endtime:
 : The isb_endtime
-  option specifies the time the capture ended, consisting of two
-  unsigned 32-bit values, in the same format as defined for timestamps
-  in the Enhanced Packet Block ({{section_epb}}), using the 'if_tsresol'
-  and 'if_tsoffset' values from the Interface Description Block
-  specified by the Interface ID.
+  option specifies the time that traffic capture ended on this
+  interface, consisting of two unsigned 32-bit values, in the same
+  format as defined for timestamps in the Enhanced Packet Block
+  ({{section_epb}}), using the 'if_tsresol' and 'if_tsoffset' values
+  from the Interface Description Block specified by the Interface ID.
 {: vspace='0'}
 
 Example: '97 c3 04 00 aa 47 ca 64', in Little Endian, decodes
