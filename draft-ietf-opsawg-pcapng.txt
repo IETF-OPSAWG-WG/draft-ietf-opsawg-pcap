@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 19 December 2024                          Politecnico di Torino
+Expires: 4 January 2025                            Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 19 December 2024                          Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                            17 June 2024
+                                                             3 July 2024
 
 
            PCAP Next Generation (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 December 2024.
+   This Internet-Draft will expire on 4 January 2025.
 
 Copyright Notice
 
@@ -1791,23 +1791,23 @@ Table of Contents
                Table 8: Interface Statistics Block Options
 
    isb_starttime:
-           The isb_starttime option specifies the time the capture
-           started, consisting of two unsigned 32-bit values, in the
-           same format as defined for timestamps in the Enhanced Packet
-           Block (Section 4.3), using the 'if_tsresol' and 'if_tsoffset'
-           values from the Interface Description Block specified by the
-           Interface ID.
+           The isb_starttime option specifies the time that traffic
+           capture started on this interface, consisting of two unsigned
+           32-bit values, in the same format as defined for timestamps
+           in the Enhanced Packet Block (Section 4.3), using the
+           'if_tsresol' and 'if_tsoffset' values from the Interface
+           Description Block specified by the Interface ID.
 
    Example: '96 c3 04 00 73 89 6a 65', in Little Endian, decodes to
    2012-06-29 06:17:00.834163 UTC.
 
    isb_endtime:
-           The isb_endtime option specifies the time the capture ended,
-           consisting of two unsigned 32-bit values, in the same format
-           as defined for timestamps in the Enhanced Packet Block
-           (Section 4.3), using the 'if_tsresol' and 'if_tsoffset'
-           values from the Interface Description Block specified by the
-           Interface ID.
+           The isb_endtime option specifies the time that traffic
+           capture ended on this interface, consisting of two unsigned
+           32-bit values, in the same format as defined for timestamps
+           in the Enhanced Packet Block (Section 4.3), using the
+           'if_tsresol' and 'if_tsoffset' values from the Interface
+           Description Block specified by the Interface ID.
 
    Example: '97 c3 04 00 aa 47 ca 64', in Little Endian, decodes to
    2012-06-29 07:28:25.298858 UTC.
