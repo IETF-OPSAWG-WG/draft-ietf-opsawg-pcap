@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 4 January 2025                            Politecnico di Torino
+Expires: 7 January 2025                            Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 4 January 2025                            Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                             3 July 2024
+                                                             6 July 2024
 
 
            PCAP Next Generation (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 January 2025.
+   This Internet-Draft will expire on 7 January 2025.
 
 Copyright Notice
 
@@ -1916,6 +1916,23 @@ Table of Contents
       options are currently defined.
 
    The following is a list of Secrets Types.
+
+   0x5353484b:
+           SSH Key Log. Every line consists of a cookie, key type, and
+           key separated by one space.  The cookie is the hex-encoded
+           (client or server) 16 bytes cookie (32 characters) found in
+           the SSH_MSG_KEXINIT sent during algorithm negotiation
+           (https://datatracker.ietf.org/doc/html/rfc4253#section-7.1)
+           by the endpoint whose private random is disclosed.  The key
+           type is either SHARED_SECRET or PRIVATE_KEY.  The key is hex-
+           encoded and either the shared secret ('K' in RFC 4253
+           (https://datatracker.ietf.org/doc/html/rfc4253#section-8) or
+           the private random number (referred to as 'x' for the client
+           and 'y' for the server in RFC 4253) used to generate the
+           shared secret during DH key exchange; its length depends on
+           the algorithm.  Every line MUST be terminated with either a
+           carriage return and linefeed ('\r\n') or a linefeed ('\n').
+           Tools MUST be able to handle both line endings.
 
    0x544c534b:
            TLS Key Log. This format is described at NSS Key Log Format
