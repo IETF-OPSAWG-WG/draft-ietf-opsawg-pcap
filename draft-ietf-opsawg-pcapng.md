@@ -2045,7 +2045,7 @@ The following is a list of Secrets Types.
   by the endpoint whose private random is disclosed.
   The key type is either SHARED\_SECRET or PRIVATE\_KEY.
   The key is hex-encoded and either the shared secret ('K' in
-  [RFC 4253](https://datatracker.ietf.org/doc/html/rfc4253#section-8) or the
+  [RFC 4253](https://datatracker.ietf.org/doc/html/rfc4253#section-8)) or the
   private random number (referred to as 'x' for the client and 'y'
   for the server in RFC 4253) used to generate the shared secret during DH
   key exchange; its length depends on the algorithm.
