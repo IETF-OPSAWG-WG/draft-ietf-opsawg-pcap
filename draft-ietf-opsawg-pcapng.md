@@ -2036,6 +2036,26 @@ The Decryption Secrets Block has the following fields.
 The following is a list of Secrets Types.
 
 {: indent='8'}
+0x5353484b:
+: SSH Key Log.
+  Every line consists of a cookie, key type, and key separated by one space.
+  The cookie is the hex-encoded (client or server) 16 bytes cookie
+  (32 characters) found in the SSH\_MSG\_KEXINIT sent during
+  [algorithm negotiation](https://datatracker.ietf.org/doc/html/rfc4253#section-7.1)
+  by the endpoint whose private random is disclosed.
+  The key type is either SHARED\_SECRET or PRIVATE\_KEY.
+  The key is hex-encoded and either the shared secret ('K' in
+  [RFC 4253](https://datatracker.ietf.org/doc/html/rfc4253#section-8) or the
+  private random number (referred to as 'x' for the client and 'y'
+  for the server in RFC 4253) used to generate the shared secret during DH
+  key exchange; its length depends on the algorithm.
+  Every line MUST be terminated with either a carriage return and linefeed
+  ('\r\n') or a linefeed ('\n').
+  Tools MUST be able to handle both line endings.
+{: vspace='0'}
+
+
+{: indent='8'}
 0x544c534b:
 : TLS Key Log. This
   format is described at [NSS Key Log Format](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format). Every line MUST be properly terminated with
