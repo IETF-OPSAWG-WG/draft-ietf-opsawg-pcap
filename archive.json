@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-04T01:17:07.073408+00:00",
+  "timestamp": "2024-07-07T01:23:21.443697+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -8520,6 +8520,112 @@
           ]
         }
       ]
+    },
+    {
+      "number": 157,
+      "id": "PR_kwDOAU54e850kvcg",
+      "title": "pcapng: Add SSH Key Log secrets type for DSB",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/157",
+      "state": "MERGED",
+      "author": "johnthacker",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add a brief description of the SSH Key Log for embedding SSH secrets into a DSB.\r\n\r\nWireshark commits\r\nhttps://gitlab.com/wireshark/wireshark/-/commit/0d38b359c1c12ba1f9d94b67b932297a84b6f582 and\r\nhttps://gitlab.com/wireshark/wireshark/-/commit/7356889242e790b1c0ed1555dea4c486d6bb81e5 added support for this type.",
+      "createdAt": "2024-07-06T00:53:52Z",
+      "updatedAt": "2024-07-06T02:29:31Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "60ff03b0dafc3b13287b43fadd4e2c1919fd7bd2",
+      "headRepository": "johnthacker/draft-ietf-opsawg-pcap",
+      "headRefName": "ssh_dsb",
+      "headRefOid": "d50f11172eb41a29eeb96af6a834fc0588ab25c5",
+      "closedAt": "2024-07-06T01:12:46Z",
+      "mergedAt": "2024-07-06T01:12:46Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "9eaeaf3b23e2b10d70871106a585e6be850dad28"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 158,
+      "id": "PR_kwDOAU54e850lABr",
+      "title": "pcapng: Fix missing parenthesis",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/158",
+      "state": "MERGED",
+      "author": "johnthacker",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "One end parenthesis for the link, a second one for the parenthetical comment text.",
+      "createdAt": "2024-07-06T03:06:49Z",
+      "updatedAt": "2024-07-06T06:47:00Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "9eaeaf3b23e2b10d70871106a585e6be850dad28",
+      "headRepository": "johnthacker/draft-ietf-opsawg-pcap",
+      "headRefName": "ssh_dsb",
+      "headRefOid": "b4efe4a61d151a112ab4e8818d5c29888c731e05",
+      "closedAt": "2024-07-06T06:46:59Z",
+      "mergedAt": "2024-07-06T06:46:59Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "05e74a6d2d25c40a4931720709a90cfaaafaf90f"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 159,
+      "id": "PR_kwDOAU54e850lh8k",
+      "title": "pcapng: Replace dead link to TLS key log page",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/159",
+      "state": "MERGED",
+      "author": "johnthacker",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The Mozilla Developer Network Web Docs site reorganized and removed a lot of the historical and legacy docs. The archive for the documentation for NSS is broken and doesn't have the TLS key log page: https://firefox-source-docs.mozilla.org/security/nss/index.html\r\n\r\nLink to a backup archive site with the same content.",
+      "createdAt": "2024-07-06T11:20:29Z",
+      "updatedAt": "2024-07-06T23:32:50Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "05e74a6d2d25c40a4931720709a90cfaaafaf90f",
+      "headRepository": "johnthacker/draft-ietf-opsawg-pcap",
+      "headRefName": "tls_dsb",
+      "headRefOid": "cb805c1b32dfa5d650c40119af3cf2f593405a9e",
+      "closedAt": "2024-07-06T18:06:03Z",
+      "mergedAt": "2024-07-06T18:06:03Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "6d2ddccaa6f9030401605e43d44df59580b372f1"
+      },
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Well, that's annoying, given how much that log format seems to be used, based on a Google search I just did for \"NSS Key Log Format\".",
+          "createdAt": "2024-07-06T18:06:34Z",
+          "updatedAt": "2024-07-06T18:06:34Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "A link to archive.org is a better choice, and it's what the RFC Editor will ask for.\r\n",
+          "createdAt": "2024-07-06T21:10:11Z",
+          "updatedAt": "2024-07-06T21:10:11Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> A link to archive.org is a better choice, and it's what the RFC Editor will ask for.\r\n\r\nDone in 9a18839c98f5aeb4977b6119f9398c3782eaddd2.",
+          "createdAt": "2024-07-06T23:32:49Z",
+          "updatedAt": "2024-07-06T23:32:49Z"
+        }
+      ],
+      "reviews": []
     }
   ]
 }
