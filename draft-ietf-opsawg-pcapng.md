@@ -81,6 +81,7 @@ normative:
 
 informative:
   I-D.richardson-opsawg-pcapng-extras:
+  I-D.ietf-tls-keylogfile:
 
 --- abstract
 
@@ -2057,8 +2058,9 @@ The following is a list of Secrets Types.
 
 {: indent='8'}
 0x544c534b:
-: TLS Key Log. This
-  format is described at [NSS Key Log Format](https://web.archive.org/web/20220206172425/https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format). Every line MUST be properly terminated with
+: TLS Key Log.
+  This format is described in {{I-D.ietf-tls-keylogfile}}.
+  Every line MUST be properly terminated with
   either carriage return and linefeed ('\r\n') or linefeed ('\n').
   Tools MUST be able to handle both line endings.
 {: vspace='0'}
