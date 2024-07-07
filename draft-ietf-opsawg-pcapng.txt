@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 7 January 2025                            Politecnico di Torino
+Expires: 8 January 2025                            Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 7 January 2025                            Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                             6 July 2024
+                                                             7 July 2024
 
 
            PCAP Next Generation (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 January 2025.
+   This Internet-Draft will expire on 8 January 2025.
 
 Copyright Notice
 
@@ -1935,13 +1935,11 @@ Table of Contents
            Tools MUST be able to handle both line endings.
 
    0x544c534b:
-           TLS Key Log. This format is described at NSS Key Log Format
-           (https://web.archive.org/web/20220206172425/
-           https://developer.mozilla.org/en-
-           US/docs/Mozilla/Projects/NSS/Key_Log_Format).  Every line
-           MUST be properly terminated with either carriage return and
-           linefeed ('\r\n') or linefeed ('\n').  Tools MUST be able to
-           handle both line endings.
+           TLS Key Log. This format is described in
+           [I-D.ietf-tls-keylogfile].  Every line MUST be properly
+           terminated with either carriage return and linefeed ('\r\n')
+           or linefeed ('\n').  Tools MUST be able to handle both line
+           endings.
 
    0x55414b4c:
            OPC UA (https://opcfoundation.org/about/opc-technologies/opc-
@@ -2515,6 +2513,12 @@ Table of Contents
               pcapng-extras-01, 29 July 2022,
               <https://datatracker.ietf.org/doc/html/draft-richardson-
               opsawg-pcapng-extras-01>.
+
+   [I-D.ietf-tls-keylogfile]
+              Thomson, M., "The SSLKEYLOGFILE Format for TLS", Work in
+              Progress, Internet-Draft, draft-ietf-tls-keylogfile-02, 29
+              April 2024, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-tls-keylogfile-02>.
 
 Appendix A.  Packet Block (obsolete!)
 
