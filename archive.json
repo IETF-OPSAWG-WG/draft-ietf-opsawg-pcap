@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-07T01:23:21.443697+00:00",
+  "timestamp": "2024-07-09T01:18:08.818664+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -8589,7 +8589,7 @@
       "labels": [],
       "body": "The Mozilla Developer Network Web Docs site reorganized and removed a lot of the historical and legacy docs. The archive for the documentation for NSS is broken and doesn't have the TLS key log page: https://firefox-source-docs.mozilla.org/security/nss/index.html\r\n\r\nLink to a backup archive site with the same content.",
       "createdAt": "2024-07-06T11:20:29Z",
-      "updatedAt": "2024-07-06T23:32:50Z",
+      "updatedAt": "2024-07-07T15:00:20Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "05e74a6d2d25c40a4931720709a90cfaaafaf90f",
@@ -8623,6 +8623,82 @@
           "body": "> A link to archive.org is a better choice, and it's what the RFC Editor will ask for.\r\n\r\nDone in 9a18839c98f5aeb4977b6119f9398c3782eaddd2.",
           "createdAt": "2024-07-06T23:32:49Z",
           "updatedAt": "2024-07-06T23:32:49Z"
+        },
+        {
+          "author": "johnthacker",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Even better, there's an Internet-Draft describing the format:\r\n\r\nhttps://datatracker.ietf.org/doc/draft-ietf-tls-keylogfile/\r\n\r\nhttps://www.ietf.org/archive/id/draft-ietf-tls-keylogfile-02.html\r\n\r\nhttps://tlswg.org/sslkeylogfile/draft-ietf-tls-keylogfile.html\r\n\r\nThat's probably the best thing to cite.",
+          "createdAt": "2024-07-07T15:00:19Z",
+          "updatedAt": "2024-07-07T15:00:19Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 160,
+      "id": "PR_kwDOAU54e850nXr4",
+      "title": "Cite the IETF Internet-Draft for the TLS Key Log format",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/160",
+      "state": "MERGED",
+      "author": "johnthacker",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Cite the IETF Internet-Draft for the TLS Key Log file, rather than the Wayback Machine.\r\nAdd it as an informative reference.",
+      "createdAt": "2024-07-07T15:21:41Z",
+      "updatedAt": "2024-07-07T18:46:45Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "9a18839c98f5aeb4977b6119f9398c3782eaddd2",
+      "headRepository": "johnthacker/draft-ietf-opsawg-pcap",
+      "headRefName": "tls_dsb",
+      "headRefOid": "52c984ab464ea3b2c05dbb8e7ca1f370f1748027",
+      "closedAt": "2024-07-07T18:46:45Z",
+      "mergedAt": "2024-07-07T18:46:45Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "53eb9409e58589795aa9bed7a84335e01b12b559"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 161,
+      "id": "PR_kwDOAU54e850qPEp",
+      "title": "Add if_tsoffset_ns option to IDB",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/161",
+      "state": "OPEN",
+      "author": "GioMusto",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This new option allows having a grater precision in the timestamp offset of packets.",
+      "createdAt": "2024-07-08T08:20:14Z",
+      "updatedAt": "2024-07-08T10:03:11Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "53eb9409e58589795aa9bed7a84335e01b12b559",
+      "headRepository": "GioMusto/draft-ietf-opsawg-pcap",
+      "headRefName": "master",
+      "headRefOid": "bddfa8ec23272a9cfd14540301f2f59986ab20ff",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "So, in effect, the rules are:\r\n\r\n1. initialize a pair consisting of a 64-bit seconds value and a 32-bit nanoseconds value to {0, 0};\r\n2. if there's a ts_offset option, set the seconds value to the option's value;\r\n3. if there's a ts_nsoffset option, set the nanoseconds value to the option's value;\r\n4. for all packet from this interface, add the resulting seconds/nanoseconsds value to each time stamp.\r\n\r\nWhat should be done if the time stamp resolution for this interface isn't 1 nanosecond?  For example, what if it only has microsecond resolution?\r\n\r\nAn alternative would be to have an offset option that's a 64-bit value, with the same resolution as interface time stamps on the interface; you'd just add that value to the time stamp in a packet block; that seems a bit less complicated.  The ts_offset value, if any, would be an additional offset to add, after the 64-bit offset is added.\r\n\r\n(Having ts_offset be in seconds would provide a way to keep the pcapng file format usable for microsecond-resolution time stamps even after 2^63-1 microseconds (about 292271 years), usable for nanosecond-resolution time stamps even after 2^63-1 nanoseconds (about 292 years) and, if we ever need picosecond-resolution time stamps, even after 2^63-1 picoseconds (about .29 years).)",
+          "createdAt": "2024-07-08T09:06:09Z",
+          "updatedAt": "2024-07-08T09:06:09Z"
+        },
+        {
+          "author": "GioMusto",
+          "authorAssociation": "NONE",
+          "body": "I also thought about the second option (having a separate 64-bit value), but I didn't like it because it provided potential overlap between the two options (i.e. multiple ways of expressing the same offset), but I agree it would provide more flexibility.\r\n\r\nFor that to work, we should still define a default precision in case there's no `if_tsresol` option. Also, is it ok having an option depending on another one?",
+          "createdAt": "2024-07-08T10:03:10Z",
+          "updatedAt": "2024-07-08T10:03:10Z"
         }
       ],
       "reviews": []
