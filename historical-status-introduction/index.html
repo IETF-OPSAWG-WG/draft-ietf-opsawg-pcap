@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IETF-OPSAWG-WG/draft-ietf-opsawg-pcap historical-status-introduction preview</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <style type="text/css">/*<![CDATA[*/
+      body { font-family: "Helvetica Neue","Open Sans", Helvetica, Calibri,sans-serif; }
+      h1, h2, td { font-family: "Helvetica Neue", "Roboto Condensed", "Open Sans", Helvetica, Calibri, sans-serif; }
+      h1 { font-size: 20px; } h2 { font-size: 16px; }
+      table { margin: 5px 10px; border-collapse: collapse; }
+      th, td { font-weight: normal; text-align: left; padding: 2px 5px; }
+      a:link { color: #000; } a:visited { color: #00a; }
+    /*]]>*/</style>
+  </head>
+  <body>
+    <h1>Editor's drafts for historical-status-introduction branch of <a href="https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/tree/historical-status-introduction">IETF-OPSAWG-WG/draft-ietf-opsawg-pcap</a></h1>
+    <table id="branch-historical-status-introduction">
+      <tr>
+        <td><a href="./draft-ietf-opsawg-pcapng.html" class="html draft-ietf-opsawg-pcapng" title="PCAP Next Generation (pcapng) Capture File Format (HTML)">pcapng</a></td>
+        <td><a href="./draft-ietf-opsawg-pcapng.txt" class="txt draft-ietf-opsawg-pcapng" title="PCAP Next Generation (pcapng) Capture File Format (Text)">plain text</a></td>
+        <td>same as master</td>
+      </tr>
+      <tr>
+        <td><a href="./draft-richardson-opsawg-pcapng-extras.html" class="html draft-richardson-opsawg-pcapng-extras" title="Additional block types for PCAP Next Generation (pcapng) Capture File Format (HTML)">pcapng-extras</a></td>
+        <td><a href="./draft-richardson-opsawg-pcapng-extras.txt" class="txt draft-richardson-opsawg-pcapng-extras" title="Additional block types for PCAP Next Generation (pcapng) Capture File Format (Text)">plain text</a></td>
+        <td>same as master</td>
+      </tr>
+      <tr>
+        <td><a href="./draft-ietf-opsawg-pcap.html" class="html draft-ietf-opsawg-pcap" title="PCAP Capture File Format (HTML)">pcap</a></td>
+        <td><a href="./draft-ietf-opsawg-pcap.txt" class="txt draft-ietf-opsawg-pcap" title="PCAP Capture File Format (Text)">plain text</a></td>
+        <td>same as master</td>
+      </tr>
+      <tr>
+        <td><a href="./draft-ietf-opsawg-pcaplinktype.html" class="html draft-ietf-opsawg-pcaplinktype" title="Link-Layer Types for PCAP and PCAPNG Capture File Formats (HTML)">pcaplinktype</a></td>
+        <td><a href="./draft-ietf-opsawg-pcaplinktype.txt" class="txt draft-ietf-opsawg-pcaplinktype" title="Link-Layer Types for PCAP and PCAPNG Capture File Formats (Text)">plain text</a></td>
+        <td>same as master</td>
+      </tr>
+    </table>
+    <script>
+window.onload = function() {
+  var referrer_branch = 'master';
+  // e.g., "https://github.com/user/repo/tree/master"
+  var chunks = document.referrer.split("/");
+  if (chunks[2] === 'github.com' && chunks[5] === 'tree') {
+    referrer_branch = chunks[6];
+  }
+  let branch = document.querySelector('#branch-' + referrer_branch);
+  let h = document.location.hash.substring(1);
+  if (h === 'show') {
+    document.location.hash = '#' + branch.id;
+  } else if (branch && h.startsWith('go')) {
+    let e = branch.querySelector(h.substring(2));
+    if (e && e.href) {
+      document.location = e.href;
+    }
+  }
+};
+    </script>
+  </body>
+</html>
