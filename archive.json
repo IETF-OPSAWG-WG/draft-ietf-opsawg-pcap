@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-08-11T01:26:21.407149+00:00",
+  "timestamp": "2024-08-13T01:22:03.697554+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -37,6 +37,16 @@
       "name": "wontfix",
       "description": null,
       "color": "ffffff"
+    },
+    {
+      "name": "pcapv3",
+      "description": "aka pcapng",
+      "color": "9D21BC"
+    },
+    {
+      "name": "pcap-extras",
+      "description": "",
+      "color": "8BE450"
     }
   ],
   "issues": [
@@ -545,10 +555,12 @@
       "author": "hadrielk",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "Currently the draft says this for EPB's (and the deprecated Packet Block) Capture Length field:\n\n```\nCaptured Packet Length: number of bytes captured from the packet (i.e. the length of the Packet Data\nfield). It will be the minimum value among the Original Packet Length and the snapshot length for the\ninterface (SnapLen, defined in Figure 10).\n```\n\nSo does this mean it MUST be `MIN(SnapLen, Original Packet Length)`, and cannot be more or less than it? (unless SnapLen is 0 obviously)\n\nI ask because Wireshark currently just uses the Capture Length value, ignoring the SnapLen and Original Packet Length. I had thought this was just a bug in Wireshark, but I'm not sure it is. One could argue that the IDB's SnapLen should only apply to the capture length of Simple Packet Blocks.\n",
       "createdAt": "2015-08-29T14:50:08Z",
-      "updatedAt": "2019-02-06T03:47:57Z",
+      "updatedAt": "2024-08-12T12:27:30Z",
       "closedAt": null,
       "comments": [
         {
@@ -611,10 +623,12 @@
       "author": "erik4711",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "**3.1. General Block Structure**\r\n- The idea of having the \"Block Total Length\" both before the block body and after is a nice idea since it allows for fast forward and backward navigation in a pcapng file. However, backward navigation does not work very well if we allow switching between big and little endian in the same pcapng file (see comments for #42 4.1 SHB). Code that navigates backwards and passes a section boundary where the endianness is changed will most likely loose traction of block boundaries.\r\n- Please refrain from padding stuff to 32 bit boundaries. Doing so actually introduces unnecessary complexity rather than solving a problem.\r\n\r\nMy recommendation is to not allow SHB's to change the endianness, or even better only allow ONE Section Header Block per pcapng file.",
       "createdAt": "2016-11-22T11:27:54Z",
-      "updatedAt": "2016-11-25T19:51:32Z",
+      "updatedAt": "2024-08-12T12:27:12Z",
       "closedAt": null,
       "comments": [
         {
@@ -726,10 +740,12 @@
       "author": "erik4711",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "**4.1. Section Header Block**\r\n\r\nFrom the pcapng spec:\r\n`\u201cPlease note: The endianness is indicated by the Section Header Block [section_shb]. Since this block can appear several times in a pcapng file, a single file can contain both endianness variants.\u201d`\r\n\r\n- I would prefer if the spec would only allow for one SHB per pcapng file. I'm guessing the reason for allowing multiple SHB's is to facilitate merging of pcapng files, but such freedom comes with a too high cost. One problem that comes with allowing multiple SHB's is that the trailing \"Block Total Length\" at the end of each block can't be used to move backwards in a pcapng file, since a change of endian by an SHB will cause the length field to be interpreted incorrectly. Even skipping forward in a pcapng file can be dangerous unless care is taken to read the endian of each newly encountered SHB. Merging pcapng files is an easy task, even if we allow only one SHB per file, so there is no need to simplify this task even more. There are just too many downsides to having multiple SHB's in a pcapng file. Which reminds me of this quote by Einstein: \u201cEverything should be made as simple as possible, but no simpler.\u201d\r\n- There is no real point in allowing for both big-endian and little-endian. Requiring all pcapng writers to use one endianness will not even affect performance notably. Just think of all the network protocols specified for big endian even though many CPU's are little endian. TCP is, for example, forced to transmit sequence numbers and window size values in big endian, yet you will never see the endianness conversion being a performance issue in TCP. I would personally prefer to have all pcapng files to be big endian ONLY.\r\n- Section Length field isn't used, it can be removed from the spec.\r\n- Having the \u201cByte-Order Magic\u201d field after the \u201cBlock Total Length\u201d isn't great, since we need to know the endian (from the magic field) before we can parse the length field anyway. I understand that this is an attempt of having the SHB to extend the generic \u201cGeneral Block Structure\u201d. However, the SHB can NEVER be parsed as a generic block anyway since it allows for a change of endianness which must be dealt with by all parsers.\r\n- Please refrain from padding stuff to 32 bit boundaries. Doing so actually introduces unnecessary complexity rather than solving a problem.\r\n\r\nMy recommendation: Only allow one SHB per pcapng file.",
       "createdAt": "2016-11-22T11:30:54Z",
-      "updatedAt": "2016-11-22T11:31:11Z",
+      "updatedAt": "2024-08-12T12:26:58Z",
       "closedAt": null,
       "comments": []
     },
@@ -742,10 +758,12 @@
       "author": "erik4711",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "**4.2. Interface Description Block**\r\nThe SnapLen field can be removed. We already have the captured length of packets in the EPB. The only packet that actually need the SnapLen is the SPB, which I recommend should be deprecated.",
       "createdAt": "2016-11-22T11:33:47Z",
-      "updatedAt": "2016-11-22T11:33:47Z",
+      "updatedAt": "2024-08-12T12:26:23Z",
       "closedAt": null,
       "comments": []
     },
@@ -758,10 +776,12 @@
       "author": "erik4711",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "**4.3. Enhanced Packet Block**\r\n\r\nIs there any valid reason for splitting the 64 bit timestamp into two separate 32 bit values? Several 64 bit fields already exist in the spec, such as the Section Length field of SHB and epb_dropcount option. Also, please note that if we would require the pcapng spec to be big-endian only then we wouldn't need to make this type of differentiation.\r\n\r\nMy recommendation is that the timestamp should be serialized as a single 64 bit value rather than as two 32 bit values.",
       "createdAt": "2016-11-22T11:34:55Z",
-      "updatedAt": "2016-11-22T11:37:48Z",
+      "updatedAt": "2024-08-12T12:25:48Z",
       "closedAt": null,
       "comments": []
     },
@@ -774,10 +794,12 @@
       "author": "erik4711",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "**4.4. Simple Packet Block**\r\n\r\nPlease deprecate the SPB. Adding a simple block type does not make implementing the spec easier, it just adds an extra piece of code that must also be implemented. Additionally, I haven't seen any sniffer that actually writes packets in the SPB format.",
       "createdAt": "2016-11-22T11:35:35Z",
-      "updatedAt": "2016-11-22T11:35:35Z",
+      "updatedAt": "2024-08-12T12:25:38Z",
       "closedAt": null,
       "comments": []
     },
@@ -790,10 +812,12 @@
       "author": "erik4711",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "**4.6. Interface Statistics Block**\r\nPlease deprecate ISB. The block is rarely used and most of the information in this block can be calculated by reading the EPB's anyway (like start time, end time, received frames, number of drops)",
       "createdAt": "2016-11-22T11:36:16Z",
-      "updatedAt": "2016-11-22T11:36:16Z",
+      "updatedAt": "2024-08-12T12:25:29Z",
       "closedAt": null,
       "comments": []
     },
@@ -805,11 +829,13 @@
       "state": "OPEN",
       "author": "erik4711",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "mcr"
+      ],
       "labels": [],
       "body": "**5. Experimental Blocks**\r\nPlease drop all experimental blocks before finalizing the specification.",
       "createdAt": "2016-11-22T11:36:49Z",
-      "updatedAt": "2016-11-22T13:57:23Z",
+      "updatedAt": "2024-08-12T12:28:00Z",
       "closedAt": null,
       "comments": [
         {
@@ -818,6 +844,13 @@
           "body": "Please comment on my proposed addition: https://github.com/pcapng/pcapng/pull/40 ([formatted version](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/saleyn/pcapng/apb/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii&type=ascii#section_apb)).",
           "createdAt": "2016-11-22T13:56:16Z",
           "updatedAt": "2016-11-22T13:57:23Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think we moved them all to -extras.  If you agree, please close.\r\n",
+          "createdAt": "2024-08-12T12:25:08Z",
+          "updatedAt": "2024-08-12T12:25:08Z"
         }
       ]
     },
@@ -830,10 +863,12 @@
       "author": "ryankurte",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "**Update:**\r\n\r\n*This has been split into two components, per-interface information is approached by introducing a Capture Information Block (CIB) attached to a given interface in #51, per-packet information through the addition of new options to the existing Extended Packet Block (EPB) in #56*\r\n\r\n*The following is left for reference*\r\n\r\n**Original:**\r\n\r\nHi there,\r\n\r\nI would like to propose the addition of a set of option fields useful for wireless packet capture.\r\nA number of these are available in the 802.11 radiotap (meta)header, however are generally useful outside the 802.11 protocol.\r\n\r\nThere is an argument [here](https://wiki.wireshark.org/Development/PcapNg) that \"there's already code to handle that in programs that read pcap and pcap-ng files, there's already code in drivers to generate that information when capturing packets\" which doesn't really stand for non-802.11 protocols. \r\nBy supporting these options as part of the core pcap-ng protocol we would enable development of interesting tools for visualisation and analysis of wireless networks that are protocol independent.\r\n\r\nThe option fields I would propose initially are:\r\n\r\n1. GPS Location (lat/lng/alt) as 3x 32-bit floats for EPB and IDB\r\n2. RSSI in dBm as 1x 32-bit float for EPB\r\n3. Frequency in Hz as 1x 32-bit float for EPB and IDB\r\n4. Channel as 1x 16-bit uint for EPB\r\n5. Channel Spacing as 1x 32-bit float for IDB\r\n\r\nSupporting GPS Location and frequency in the IDB or EPB allows for specification of multiple static capture points or moving captures at different frequencies.\r\n\r\nCheers,\r\n\r\nRyan",
       "createdAt": "2017-11-13T03:02:41Z",
-      "updatedAt": "2019-01-05T22:23:38Z",
+      "updatedAt": "2024-08-12T12:28:11Z",
       "closedAt": null,
       "comments": [
         {
@@ -1193,15 +1228,15 @@
       "id": "MDU6SXNzdWUyNzk4NzQyOTA=",
       "title": "Release the RFC into public domain",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/49",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "KOLANICH",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Hello. I'm creating a derivative work based on the RFC (more precisely I have translated most of the spec (not quite fully, some features are missing because of limitations of present KS) into Kaitai Struct language, but I wanna insert there the comments copied from the RFC and modify some of them to fit better). As I understand, the copyrights on the RFC make it illegal to insert and modify the quotes from it. So I wonder if copyright holders could release this into public domain, so it to be legal to do the needed things.",
       "createdAt": "2017-12-06T19:19:16Z",
-      "updatedAt": "2020-02-10T11:01:36Z",
-      "closedAt": null,
+      "updatedAt": "2024-08-12T12:30:17Z",
+      "closedAt": "2024-08-12T12:30:17Z",
       "comments": [
         {
           "author": "guyharris",
@@ -1216,6 +1251,13 @@
           "body": "Well...august is expiration time, so ...",
           "createdAt": "2020-02-10T11:01:35Z",
           "updatedAt": "2020-02-10T11:01:35Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The Authors of the document retain (joint) copyright, even after RFC.  \r\nIt can't go into public domain and be published as an RFC.\r\nIf you don't like the wording, then suggest better wording now.  You are allowed verbatim quotes by IETF Trust rules.",
+          "createdAt": "2024-08-12T12:30:05Z",
+          "updatedAt": "2024-08-12T12:30:05Z"
         }
       ]
     },
@@ -1228,10 +1270,12 @@
       "author": "guyharris",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "There's at least one pcapng user who wants to be able to support proprietary fieldbus protocols in their captures but don't want to register them as official link-layer header types (apparently, that might involve revealing the *names* of the protocols, and the protocols are *so* proprietary that even *that's* not acceptable).\r\n\r\nAnd some vendors have their own protocols and resell equipment from vendors who have other such protocols, so they can't all be assigned, for example, `LINKTYPE_USER1`.\r\n\r\nI can see others wanting to have proprietary unregistered protocols and give them an identifier guaranteed to be unique.\r\n\r\nSo perhaps we should support custom link-layer types, identified, like custom blocks and options, by a Private Enterprise Number and a per-enterprise identifier.\r\n\r\nA couple of ways of implementing this are:\r\n\r\n1. Reserve a LinkType value of 0xFFFF in an IDB for custom link-layer types, and require an IDB with that link-layer type to have a new \"custom link-layer type\" option, containing a PEN and a 32-bit per-enterprise identifier.\r\n\r\n1. Add a new \"Custom Interface Description Block\" (name subject to revision if that's a stupid name), with most of the same fields, and all of the same options, as an IDB, but with the LinkType and Reserved fields replaced by a PEN and a 32-bit per-enterprise identifier.",
       "createdAt": "2018-08-10T20:26:03Z",
-      "updatedAt": "2018-08-18T11:21:44Z",
+      "updatedAt": "2024-08-12T12:30:53Z",
       "closedAt": null,
       "comments": [
         {
@@ -1311,10 +1355,12 @@
       "author": "guyharris",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "Issue 1:\r\n\r\nThe ISB has a time stamp, but it just says that it's the \"time this statistics refers to\", without indicating in what way a set of statistics refers to a particular time.\r\n\r\nI *suspect* the intent was \"the time as of which these values were current\", i.e. that a program writing a capture would fetch statistics it hasn't been maintaining itself and would then write out an ISB with the current date/time as the time stamp.\r\n\r\nIssue 2:\r\n\r\nThere are options in the ISB for the capture start and end time.  If you have an ISB with a capture start and end time, followed by more packet blocks, what does that mean?  If there are more packets, obviously either 1) the capture hasn't stopped on the interface in question or 2) somebody added more packets to the end.\r\n\r\nWe might want to indicate that only an ISB that follows all packet blocks for the interface in question should have the end time specified - and that, if you write out ISBs before the capture stops on that interface, if any of them have a capture start time, all the capture start time values should be the same for that interface.",
       "createdAt": "2019-02-14T05:31:14Z",
-      "updatedAt": "2019-02-14T05:31:14Z",
+      "updatedAt": "2024-08-12T12:31:01Z",
       "closedAt": null,
       "comments": []
     },
@@ -1327,10 +1373,12 @@
       "author": "guyharris",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "[The Interface Description Block description in the pcapng specification](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii&type=ascii#rfc.section.4.2) says that the `if_fcslen` option's value for the FCS length is in units of bits.\r\n\r\nWireshark, however, treats it as if it's in units of bytes.\r\n\r\nAre there any programs that write out an `if_fcslen` option in the Interface Description Block?  If so, does they write it out in units of bits or bytes?",
       "createdAt": "2019-03-03T10:25:53Z",
-      "updatedAt": "2023-11-09T08:48:12Z",
+      "updatedAt": "2024-08-12T12:24:48Z",
       "closedAt": null,
       "comments": [
         {
@@ -1386,10 +1434,12 @@
       "author": "horsth",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "Is there a way in the pcapng format to provide a second timestamp for a packet?\r\nI am looking at an RS485 UART serial protocol. Packets can have different BAUD rates and different delays between single Bytes. For analysing the protocol it is important to know the time gap between the end of one packet and the start of the next packet. So my question is whether a standard way exists in pcapng to have a second timestamp in a packet for the end of transmission.\r\n",
       "createdAt": "2019-04-05T10:49:10Z",
-      "updatedAt": "2024-06-02T08:08:23Z",
+      "updatedAt": "2024-08-12T12:24:38Z",
       "closedAt": null,
       "comments": [
         {
@@ -1834,10 +1884,12 @@
       "author": "rluvaton",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "If the option list is empty does code that writes pcapng files MUST put an `opt_endofopt` anyway?\n\n> The option list is terminated by a option which uses the special 'End of Option' code (opt_endofopt). Code that writes pcapng files MUST put an opt_endofopt option at the end of an option list. Code that reads pcapng files MUST NOT assume an option list will have an opt_endofopt option at the end; it MUST also check for the end of the block, and SHOULD treat blocks where the option list has no opt_endofopt option as if the option list had an opt_endofopt option at the end.\n>\n> from [Pcapng specification- options](https://www.ietf.org/id/draft-tuexen-opsawg-pcapng-03.html#name-options)",
       "createdAt": "2021-07-08T05:09:29Z",
-      "updatedAt": "2023-01-22T21:18:17Z",
+      "updatedAt": "2024-08-12T12:23:53Z",
       "closedAt": null,
       "comments": [
         {
@@ -1879,10 +1931,12 @@
       "author": "SxN02",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "I would like to suggest an addition to _pcapng_, in the form of an IETF language tag, where it is applicable. First it came to mind to have it associated with the field _opt_comment_ (section 3.5), but then I realized that it may add value elsewhere too, so it should be, perhaps, part of block headers if it is relevant in blocks.\r\n\r\nThe reason for this addition is to point to the original language, giving (to applications rendering _pcapng_) information for on-the-fly translation. The language tags can be recognized as strings starting with a letter, ending in a letter and, optionally, having between start and end letters and/or dashes, but not consecutive dashes. A \"smart\" application may be capable of indexing and searching in both the original language and the target language.\r\n\r\nI believe it to be a very small addition and yet have an important contribution to future-proofing the format. Please share your thought on it.",
       "createdAt": "2021-09-23T22:16:55Z",
-      "updatedAt": "2021-09-25T00:08:40Z",
+      "updatedAt": "2024-08-12T12:23:18Z",
       "closedAt": null,
       "comments": [
         {
@@ -1920,7 +1974,7 @@
       "labels": [],
       "body": "We have a GitHub action that builds the drafts and updates the corresponding GitHub Pages; does the CircleCi testing provide any benefits not provided by the GitHub action?\r\n\r\nCurrently, that action is failing with\r\n\r\n```\r\ngit -C /tmp/ghpages236 push -qf https://github.com/pcapng/pcapng gh-pages\r\nPassword for 'https://****************************************@github.com': make: *** [lib/ghpages.mk:123: ghpages] Hangup\r\n\r\nToo long with no output (exceeded 10m0s): context deadline exceeded\r\n```\r\n\r\nwhich looks suspiciously as if the command\r\n\r\n```\r\ngit -C $(GHPAGES_ROOT) push -qf https://$(GITHUB_PUSH_TOKEN)@github.com/$(GITHUB_REPO_FULL) gh-pages >/dev/null 2>&1\r\n```\r\n\r\nin lib/ghpages.mk is timing out because it's asking for a password and nobody supplies it with one.  This may be due to the push token being bogus, or something such as that.\r\n\r\nIt appears that the GitHub Pages *are* getting updated by the GitHub action, so having CircleCI doesn't appear to be necessary, unless I'm missing something.",
       "createdAt": "2022-03-05T10:55:02Z",
-      "updatedAt": "2022-03-06T14:33:07Z",
+      "updatedAt": "2024-08-12T12:22:58Z",
       "closedAt": null,
       "comments": [
         {
@@ -1929,6 +1983,13 @@
           "body": "Hi Guy,\r\n\r\nI think it is only historic because there is no GitHub Actions on the origin of this repo...",
           "createdAt": "2022-03-06T14:33:07Z",
           "updatedAt": "2022-03-06T14:33:07Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We can/should do whatever the MT Makefiles use, which I think is now Github actions.",
+          "createdAt": "2024-08-12T12:22:57Z",
+          "updatedAt": "2024-08-12T12:22:57Z"
         }
       ]
     },
@@ -3498,10 +3559,12 @@
       "author": "saleyn",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "This PR is based on proposal submitted to the pcap-ng-format mailing list. It introduces two new features:\n- Alternative Packet Block\n- Simple Option Type\n\nSee [formatted version](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/saleyn/pcapng/apb/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii&type=ascii#section_apb) of the document that includes the proposed changes.\n",
       "createdAt": "2016-08-16T12:21:09Z",
-      "updatedAt": "2023-07-23T19:17:47Z",
+      "updatedAt": "2024-08-12T12:22:11Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "547a1d407eeeced701402659faffcc09b8eb4179",
@@ -3552,10 +3615,12 @@
       "author": "ryankurte",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "Adds a Capture Information Block (CIB) with global location/orientation/velocity vectors. CIBs are associated with an IDB using the interface number. It is intended that this will be extended with other useful fields in the future.\r\n\r\nThis began in #48, which has now been split into two components. \r\n- The CIB (this PR) for appending information to a capture interface (that applies to all packets captured after the CIB, until the next CIB).\r\n- New EPB options (#56), for appending RSSI etc. to EPBs.\r\n\r\nThe proposal with changes is viewable [here](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/ryankurte/pcapng/proposed-wireless-fields/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii#rfc.section.4.7) (thanks @guyharris!). \r\n\r\n*Please read the RFC or check out the diff for an up to date view of the changes*",
       "createdAt": "2018-06-14T22:33:16Z",
-      "updatedAt": "2023-07-23T19:20:55Z",
+      "updatedAt": "2024-08-12T12:21:59Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "bf17d7fe42e9c2b4a695bf816cae27be4c9c978a",
@@ -4531,10 +4596,12 @@
       "author": "ryankurte",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "Following from #48, this PR is to add per-packet options for capture information to the EPB, alongside the per-interface options introduced in #51.\r\n\r\nThis PR is a work in progress and requires further discussion, opening now so there is a clear delineation between this and #51.\r\n\r\n**TODO:**\r\n- What RF options do we want?\r\n- How do we want to represent them?\r\n  - I am in favour of 32-bit IEEE-754 floats where sensible, rather than defining our own fixed-point approximations (and we have already accepted the inclusion of this for location information)\r\n\r\n**Options:**\r\n- [x] RSSI per antenna\r\n\r\nThe updated RFC can be viewed [here](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/ryankurte/pcapng/proposed-epb-options/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii#section_epb)\r\n\r\n*Please read the RFC or check out the diff for an up to date view of the changes*",
       "createdAt": "2019-01-05T22:07:10Z",
-      "updatedAt": "2023-07-23T19:21:52Z",
+      "updatedAt": "2024-08-12T12:21:45Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "f25b23a97b5699ef12a81ddc84a0014cc4d0c4ed",
@@ -7211,10 +7278,12 @@
       "author": "eqvinox",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcap-extras"
+      ],
       "body": "Can't currently put options on captured log messages... (Also adding a nanosecond timestamp in the next commit.)\r\n\r\n---\r\nReally want to add a comment on some log messages :smile:\r\n\r\nI'm fully aware wireshark (aka the primary pcap-ng editing tool) doesn't support this yet, I just feel like specifying out things before implementing them. I *may* code this up for wireshark in a bit. It currently ignores the \"trailing garbage\" (my generator already tries generating comments because I didn't check that the journal block actually supports options\u2026)\r\n\r\nI'm 99.9% sure this shouldn't cause any compatibility problems; any reader or writer unaware of the options would still process the blocks correctly. Even if a writer was previously generating \"excessive\" padding (0\u20263 + n*4 zero bytes), it would just be read as end-of-options. Doing it this way should make existing readers just ignore the options.\r\n\r\nNo idea how to make the cross-document reference to `section_opt` work :disappointed:",
       "createdAt": "2022-09-01T10:02:55Z",
-      "updatedAt": "2023-07-24T23:40:51Z",
+      "updatedAt": "2024-08-12T12:21:35Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "6dbff11f50bef7a4548c58107ac53a0809679efe",
@@ -7289,10 +7358,12 @@
       "assignees": [
         "mcr"
       ],
-      "labels": [],
+      "labels": [
+        "pcap-extras"
+      ],
       "body": "... to allow nanosecond resolution.\r\n\r\n---\r\nNot much to say here, just useful to have a way of encoding nanosecond precision timestamps.",
       "createdAt": "2022-09-01T10:04:28Z",
-      "updatedAt": "2023-07-23T23:57:09Z",
+      "updatedAt": "2024-08-12T12:21:13Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "6dbff11f50bef7a4548c58107ac53a0809679efe",
@@ -8671,10 +8742,12 @@
       "author": "GioMusto",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pcapv3"
+      ],
       "body": "This new option allows having a grater precision in the timestamp offset of packets.",
       "createdAt": "2024-07-08T08:20:14Z",
-      "updatedAt": "2024-07-08T10:03:11Z",
+      "updatedAt": "2024-08-12T12:20:53Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "53eb9409e58589795aa9bed7a84335e01b12b559",
@@ -8701,6 +8774,32 @@
           "updatedAt": "2024-07-08T10:03:10Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 162,
+      "id": "PR_kwDOAU54e854GWHb",
+      "title": "added text explaining relationship between documents",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/162",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "add text to introduction.",
+      "createdAt": "2024-08-12T12:18:18Z",
+      "updatedAt": "2024-08-12T12:18:18Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "53eb9409e58589795aa9bed7a84335e01b12b559",
+      "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "headRefName": "historical-status-introduction",
+      "headRefOid": "e386597bc7dff2982deadbc53c6a7d0d2b8e9921",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
