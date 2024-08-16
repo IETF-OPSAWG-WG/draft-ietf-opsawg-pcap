@@ -753,6 +753,16 @@ Linktypes may be allocated for specifications not publically available may be ma
 This includes specifications that might be classified.
 The minimal requirement is for a contact person for that link type.
 
+# Security Considerations
+
+This document describes the IANA registration rules for the LINKTYPE encapsulations.
+PCAP, and PCAPNG packet file formats use this value to determine what kind of headers preceed network packet captures.
+Many of these formats can contain IPv4 and IPv6 packets.
+A system reading PCAP or PCAPNG format captures can be subject to arbitrary inputs that may be controlled by malicious entities, so utmost caution is required.
+
+Many LINKTYPE formats include a "snapshot" length, which may be smaller than the actual packet.  It is therefore very likely that trailing parts of a packet capture may be omitted, yet internal length fields in the packets will claim the packet is bigger than the capture.
+This leads to trivial buffer overreads, and systems interpreting the packets need to carefully scrutinize all attempts to read data from a capture.
+
 
 #  Contributors
 
