@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 8 January 2025                                        Sandelman
-                                                             7 July 2024
+Expires: 17 February 2025                                      Sandelman
+                                                          16 August 2024
 
 
        Link-Layer Types for PCAP and PCAPNG Capture File Formats
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 January 2025.
+   This Internet-Draft will expire on 17 February 2025.
 
 Copyright Notice
 
@@ -74,11 +74,12 @@ Table of Contents
      3.2.  LinkType Registry
        3.2.1.  Initial Values
        3.2.2.  Guidance for Designated Experts
-   4.  Contributors
-   5.  Acknowledgments
-   6.  References
-     6.1.  Normative References
-     6.2.  Informative References
+   4.  Security Considerations
+   5.  Contributors
+   6.  Acknowledgments
+   7.  References
+     7.1.  Normative References
+     7.2.  Informative References
    Authors' Addresses
 
 1.  Introduction
@@ -769,7 +770,25 @@ Table of Contents
    includes specifications that might be classified.  The minimal
    requirement is for a contact person for that link type.
 
-4.  Contributors
+4.  Security Considerations
+
+   This document describes the IANA registration rules for the LINKTYPE
+   encapsulations.  PCAP, and PCAPNG packet file formats use this value
+   to determine what kind of headers preceed network packet captures.
+   Many of these formats can contain IPv4 and IPv6 packets.  A system
+   reading PCAP or PCAPNG format captures can be subject to arbitrary
+   inputs that may be controlled by malicious entities, so utmost
+   caution is required.
+
+   Many LINKTYPE formats include a "snapshot" length, which may be
+   smaller than the actual packet.  It is therefore very likely that
+   trailing parts of a packet capture may be omitted, yet internal
+   length fields in the packets will claim the packet is bigger than the
+   capture.  This leads to trivial buffer overreads, and systems
+   interpreting the packets need to carefully scrutinize all attempts to
+   read data from a capture.
+
+5.  Contributors
 
    PCAP has been developed over three and half decades by a variety of
    developers, including: Bill Fenner, Denis Ovsienko, Francois-Xavier
@@ -780,15 +799,15 @@ Table of Contents
    PCAP was originally created at LBL by Steve McCanne, Craig Leres, and
    Van Jacobson.
 
-5.  Acknowledgments
+6.  Acknowledgments
 
    The authors wish to thank: Michael Tuexen, Mohamed Boucadair, Carsten
    Bormann, Henk Birkholtz, and Robert Wilton their invaluable comments
    and encouragement.
 
-6.  References
+7.  References
 
-6.1.  Normative References
+7.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -804,7 +823,7 @@ Table of Contents
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
               <https://www.rfc-editor.org/rfc/rfc8126>.
 
-6.2.  Informative References
+7.2.  Informative References
 
    [TCPDUMP]  "LINK-LAYER HEADER TYPES", n.d.,
               <https://www.tcpdump.org/linktypes.html>.

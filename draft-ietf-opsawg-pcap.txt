@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 8 January 2025                                        Sandelman
-                                                             7 July 2024
+Expires: 17 February 2025                                      Sandelman
+                                                          16 August 2024
 
 
                         PCAP Capture File Format
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 January 2025.
+   This Internet-Draft will expire on 17 February 2025.
 
 Copyright Notice
 
@@ -404,9 +404,9 @@ Table of Contents
    [I-D.ietf-opsawg-pcaplinktype]
               Harris, G. and M. Richardson, "Link-Layer Types for PCAP
               and PCAPNG Capture File Formats", Work in Progress,
-              Internet-Draft, draft-ietf-opsawg-pcaplinktype-03, 26
-              April 2024, <https://datatracker.ietf.org/doc/html/draft-
-              ietf-opsawg-pcaplinktype-03>.
+              Internet-Draft, draft-ietf-opsawg-pcaplinktype-04, 4
+              August 2024, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-opsawg-pcaplinktype-04>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -423,9 +423,9 @@ Table of Contents
               Tüxen, M., Risso, F., Bongertz, J., Combs, G., Harris, G.,
               Chaudron, E., and M. Richardson, "PCAP Next Generation
               (pcapng) Capture File Format", Work in Progress, Internet-
-              Draft, draft-ietf-opsawg-pcapng-01, 23 July 2023,
+              Draft, draft-ietf-opsawg-pcapng-02, 4 August 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
-              pcapng-01>.
+              pcapng-02>.
 
 Authors' Addresses
 
