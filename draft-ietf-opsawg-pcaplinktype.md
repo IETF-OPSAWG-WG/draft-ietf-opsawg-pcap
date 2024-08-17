@@ -746,7 +746,7 @@ In addition Specifications that require a reader to click through any kind of ma
 
 The specification needs to be clearly written, and when the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.
 
-Specifications which are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the document will be public eventually, but are discouraged.
+Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the document will be public eventually, but are discouraged.
 For other documents, the Designated Expert will need use their judgement, or consult the WG or an Area Director.
 
 Linktypes may be allocated for specifications not publicly available may be made within the First-Come/First-Served area.
