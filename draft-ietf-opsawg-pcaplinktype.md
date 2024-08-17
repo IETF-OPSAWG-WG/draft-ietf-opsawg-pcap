@@ -746,17 +746,17 @@ In addition Specifications that require a reader to click through any kind of ma
 
 The specification needs to be clearly written, and when the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.
 
-Specifications which are not publically available, but which may be obtained via liason agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the document will be public eventually, but are discouraged.
+Specifications which are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the document will be public eventually, but are discouraged.
 For other documents, the Designated Expert will need use their judgement, or consult the WG or an Area Director.
 
-Linktypes may be allocated for specifications not publically available may be made within the First-Come/First-Served area.
+Linktypes may be allocated for specifications not publicly available may be made within the First-Come/First-Served area.
 This includes specifications that might be classified.
 The minimal requirement is for a contact person for that link type.
 
 # Security Considerations
 
 This document describes the IANA registration rules for the LINKTYPE encapsulations.
-PCAP, and PCAPNG packet file formats use this value to determine what kind of headers preceed network packet captures.
+PCAP, and PCAPNG packet file formats use this value to determine what kind of headers precede network packet captures.
 Many of these formats can contain IPv4 and IPv6 packets.
 A system reading PCAP or PCAPNG format captures can be subject to arbitrary inputs that may be controlled by malicious entities, so utmost caution is required.
 
