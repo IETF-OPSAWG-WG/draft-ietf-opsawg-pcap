@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 17 February 2025                                      Sandelman
-                                                          16 August 2024
+Expires: 18 February 2025                                      Sandelman
+                                                          17 August 2024
 
 
        Link-Layer Types for PCAP and PCAPNG Capture File Formats
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 February 2025.
+   This Internet-Draft will expire on 18 February 2025.
 
 Copyright Notice
 
@@ -758,23 +758,23 @@ Table of Contents
    between the beginning of the link type and the IP header needs to be
    very clearly specified in that document.
 
-   Specifications which are not publically available, but which may be
-   obtained via liason agreements (such as to ITU-T, 3GPP, IEEE, etc.)
+   Specifications which are not publicly available, but which may be
+   obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.)
    are acceptable particularly if the document will be public
    eventually, but are discouraged.  For other documents, the Designated
    Expert will need use their judgement, or consult the WG or an Area
    Director.
 
-   Linktypes may be allocated for specifications not publically
-   available may be made within the First-Come/First-Served area.  This
-   includes specifications that might be classified.  The minimal
-   requirement is for a contact person for that link type.
+   Linktypes may be allocated for specifications not publicly available
+   may be made within the First-Come/First-Served area.  This includes
+   specifications that might be classified.  The minimal requirement is
+   for a contact person for that link type.
 
 4.  Security Considerations
 
    This document describes the IANA registration rules for the LINKTYPE
    encapsulations.  PCAP, and PCAPNG packet file formats use this value
-   to determine what kind of headers preceed network packet captures.
+   to determine what kind of headers precede network packet captures.
    Many of these formats can contain IPv4 and IPv6 packets.  A system
    reading PCAP or PCAPNG format captures can be subject to arbitrary
    inputs that may be controlled by malicious entities, so utmost
