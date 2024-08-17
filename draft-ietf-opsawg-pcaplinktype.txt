@@ -758,7 +758,7 @@ Table of Contents
    between the beginning of the link type and the IP header needs to be
    very clearly specified in that document.
 
-   Specifications which are not publicly available, but which may be
+   Specifications that are not publicly available, but which may be
    obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.)
    are acceptable particularly if the document will be public
    eventually, but are discouraged.  For other documents, the Designated
