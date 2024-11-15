@@ -9,3 +9,7 @@ else
 	git clone -q --depth 10 $(CLONE_ARGS) \
 	    -b main https://github.com/martinthomson/i-d-template $(LIBDIR)
 endif
+
+linktypes.xml draft-ietf-opsawg-pcaplinktype.md: linktypes.csv
+	linktype2stanza >linktypes.xml
+

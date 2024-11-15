@@ -1,0 +1,32 @@
+#!/usr/bin/perl
+
+# Object interface
+use Text::CSV;
+
+my @rows;
+# Read/parse CSV
+
+binmode(STDOUT, ":utf8");
+
+# binary => 1,
+my $csv = Text::CSV->new ({ auto_diag => 1, sep_char => "|", decode_utf8 => 1, escape_char => "\"" });
+open my $fh, "<:encoding(utf8)", "linktypes.csv" or die "linktypes.csv: $!";
+
+while (my $row = $csv->getline ($fh)) {
+    print ">Name:\n:".$row->[1]."\n";
+    print "Number:\n:".$row->[2]."\n";
+    print "Description:\n:".$row->[3]."\n";
+    my $ref = $row->[4];
+    if(defined($ref)) {
+        $ref =~ s/\s*$//;
+        my $reflen = length($ref);
+        if($reflen > 0) {
+            print "Reference:\n:".$row->[4]."\n";
+        }
+    }
+
+    print "\n\n";
+    }
+close $fh;
+
+
