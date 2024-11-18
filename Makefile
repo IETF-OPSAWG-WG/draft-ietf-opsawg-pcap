@@ -11,5 +11,5 @@ else
 endif
 
 linktypes.xml draft-ietf-opsawg-pcaplinktype.md: linktypes.csv
-	linktype2stanza >linktypes.xml
+	./linktype2stanza >linktypes.xml
 
