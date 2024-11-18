@@ -13,19 +13,18 @@ my $csv = Text::CSV->new ({ auto_diag => 1, sep_char => "|", decode_utf8 => 1, e
 open my $fh, "<:encoding(utf8)", "linktypes.csv" or die "linktypes.csv: $!";
 
 while (my $row = $csv->getline ($fh)) {
-    print ">Name:\n:".$row->[1]."\n";
-    print "Number:\n:".$row->[2]."\n";
-    print "Description:\n:".$row->[3]."\n";
+    print "Name\n: ".$row->[1]."\n\n";
+    print "Number\n: ".$row->[2]."\n\n";
+    print "Description\n: ".$row->[3]."\n";
     my $ref = $row->[4];
     if(defined($ref)) {
         $ref =~ s/\s*$//;
         my $reflen = length($ref);
         if($reflen > 0) {
-            print "Reference:\n:".$row->[4]."\n";
+            print "\nReference\n: ".$row->[4]."\n";
         }
     }
-
-    print "\n\n";
+    print "{: spacing=\"compact\"}\n\n";
     }
 close $fh;
 
