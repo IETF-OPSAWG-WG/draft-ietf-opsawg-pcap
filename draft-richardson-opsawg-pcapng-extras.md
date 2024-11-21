@@ -137,6 +137,10 @@ Journal Export Block.
    /              variable length, padded to 32 bits               /
    /                                                               /
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ n /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Block Total Length                       |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
@@ -159,6 +163,60 @@ The systemd Journal Export Block has the following fields:
   (trailing newline) as described in the Journal Export Format
   specification
 
+  If the block contains options, there MUST be at least one byte of
+  zero padding present to mark the end of the journal entry.  This
+  only makes a difference if the journal entry is a multiple of four
+  octets long, in this case 4 bytes of zero padding MUST be appended.
+  Blocks without options do not contain any zero padding if the journal
+  entry is a multiple of 4 octets long, therefore readers MUST NOT
+  rely on the presence of a zero byte to terminate the entry.
+
+* Options: optionally, a list of options (formatted according to
+  the rules defined in {{I-D.tuexen-opsawg-pcapng}}, section "Options")
+  can be present.
+
+
+Aside from the options defined in {{I-D.tuexen-opsawg-pcapng}},
+section "Options" (opt_endofopt, opt_comment, opt_custom, ...),
+the following options are valid within this block:
+
+| Name | Code | Length | Multiple allowed? |
+| jeb_timestamp | 2 | 12 | no |
+{: #options_jeb title='Journal Export Block Options'}
+
+
+
+~~~~
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                    Option Type = 0x00000002                   |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |                    Timestamp Seconds (High)                   |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                    Timestamp Seconds (Low)                    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 |                     Timestamp Nanoseconds                     |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+~~~~
+{: #format_jeb_timestamp title='Journal Export Block Timestamp Format' artwork-align="center"}
+
+{: indent='8'}
+jeb_timestamp:
+: This option allows providing an extended precision timestamp for the
+  captured journal entry.  While microsecond resolution is a good choice
+  for general system logging, debugging and tracing use cases covered by
+  pcap-ng benefit from more precise timestamps to correlate other events.
+
+  The timestamp is in units of that have elapsed since 1970-01-01 00:00:00 UTC.
+  Note that these are 3 32-bit fields using the endianness indicated by the
+  Section Header Block.  The third word is always nanoseconds and unaffected by
+  timestamp resolution options elsewhere.
+
+  Even if this option is used, the __REALTIME_TIMESTAMP field MUST still be
+  present in the journal entry.  The two items SHOULD have the same value
+  (ignoring the difference in precision).
+{: vspace='0'}
 
 
 ## Alternative Packet Blocks (experimental)
