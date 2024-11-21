@@ -10,6 +10,6 @@ else
 	    -b main https://github.com/martinthomson/i-d-template $(LIBDIR)
 endif
 
-linktypes.xml draft-ietf-opsawg-pcaplinktype.md: linktypes.csv
+linktypes.xml: linktypes.csv
 	./linktype2stanza >linktypes.xml
 

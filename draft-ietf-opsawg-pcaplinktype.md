@@ -491,9 +491,9 @@ The registry has the following structure:
 
 The LinkType value is a 16-bit number. The policy allocation for the LinkType values is as follows:
 
-* Values from 0 to 32767 must be allocated via Specification Required ({{Section 4.6 of !RFC8126}}). Guidance for Designated Experts is provided in {{sec-de}}.
+* Values from 32768 to 65000 must be allocated via Specification Required ({{Section 4.6 of !RFC8126}}). Guidance for Designated Experts is provided in {{sec-de}}.
 
-* Values from 32768 to 65000 are allocated following a First-Come First-Served policy ({{Section 4.4 of !RFC8126}}).
+* Values from 0 to 32767 are allocated following a First-Come First-Served policy ({{Section 4.4 of !RFC8126}}).  Note that this category includes the historical allocations which have an uneven level of definition.
 
 * Values from 65001 to 65535 are reserved for Private Use ({{Section 4.1 of !RFC8126}}).
 
