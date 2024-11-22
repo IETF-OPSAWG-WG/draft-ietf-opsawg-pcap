@@ -24,7 +24,7 @@ while (my $row = $csv->getline ($fh)) {
             print "\nReference\n: ".$row->[4]."\n";
         }
     }
-    print "{: spacing=\"compact\"}\n\n";
+    print "{: spacing=\"compact\"}\n\n\n\n";
     }
 close $fh;
 
