@@ -11,7 +11,10 @@ jobs:
           command: |
             xml2rfc --version
             gem list -q kramdown-rfc2629
+            echo "Hello"
+            file /usr/bin/perl
             /usr/bin/perl --version
+            echo "Goodbye"
             echo -n 'mmark '; mmark --version
 
       - restore_cache:
