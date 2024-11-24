@@ -6,15 +6,6 @@ jobs:
     working_directory: ~/draft
 
     steps:
-      -run
-          name: "Install Perl"
-          command: |
-            sudo apt-get update && \
-            sudo apt-get install --assume-yes --quiet \
-              --no-install-suggests --no-install-recommends \
-              perl
-            ls -l /usr/bin/perl
-
       - run:
           name: "Print Configuration"
           command: |
@@ -51,6 +42,16 @@ jobs:
             fi
 
       - checkout
+
+      -run
+          name: "Install Perl and Text::CSV, and build linktypes.xml""
+          command: |
+            sudo apt-get update && \
+            sudo apt-get install --assume-yes --quiet \
+              --no-install-suggests --no-install-recommends \
+              perl cpanminus
+            cpanm Text::CSV
+            make linktypes.xml
 
       # Build txt and html versions of drafts
       - run:
