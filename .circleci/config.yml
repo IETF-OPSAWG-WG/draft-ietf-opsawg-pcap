@@ -43,7 +43,7 @@ jobs:
 
       - checkout
 
-      -run
+      -run:
           name: "Install Perl and Text::CSV, and build linktypes.xml"
           command: |
             sudo apt-get update && \
