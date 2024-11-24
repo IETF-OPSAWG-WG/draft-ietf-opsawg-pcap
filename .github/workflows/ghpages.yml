@@ -25,6 +25,8 @@ jobs:
        sudo apt-get install --assume-yes --quiet \
          --no-install-suggests --no-install-recommends \
          perl
+       echo "Where's Waldo?"
+       find / -name '*perl*' -print
 
     - name: "Checkout"
       uses: actions/checkout@v2

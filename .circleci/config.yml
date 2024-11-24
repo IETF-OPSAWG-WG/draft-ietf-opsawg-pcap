@@ -7,14 +7,6 @@ jobs:
 
     steps:
       - run:
-        name: "Install Perl"
-        command: |
-          sudo apt-get update && \
-          sudo apt-get install --assume-yes --quiet \
-            --no-install-suggests --no-install-recommends \
-            perl
-
-      - run:
           name: "Print Configuration"
           command: |
             xml2rfc --version
