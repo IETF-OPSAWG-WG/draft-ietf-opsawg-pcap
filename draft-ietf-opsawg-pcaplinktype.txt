@@ -201,7 +201,7 @@ Table of Contents
 
    Name  LINKTYPE_PRONET
    Number  4
-   Description  Reserved for PRONET
+   Description  Reserved for Proteon PRONet Token Ring
 
    Name  LINKTYPE_CHAOS
    Number  5
