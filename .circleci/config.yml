@@ -44,7 +44,7 @@ jobs:
       - checkout
 
       -run
-          name: "Install Perl and Text::CSV, and build linktypes.xml""
+          name: "Install Perl and Text::CSV, and build linktypes.xml"
           command: |
             sudo apt-get update && \
             sudo apt-get install --assume-yes --quiet \
