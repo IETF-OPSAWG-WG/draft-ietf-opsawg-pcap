@@ -98,7 +98,7 @@ Number
 : 7
 
 Description
-: ARCNET Data Packets with BSD encapsulation
+: Reserved for ARCNET Data Packets with BSD encapsulation
 {: spacing="compact"}
 
 
@@ -590,7 +590,7 @@ Number
 : 129
 
 Description
-: ARCNET Data Packets, per RFC 1051 frames w/variations
+: Reserved for ARCNET Data Packets with Linux encapsulation
 {: spacing="compact"}
 
 
