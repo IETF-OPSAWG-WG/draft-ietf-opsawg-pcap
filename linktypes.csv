@@ -2,7 +2,7 @@
 |LINKTYPE_ETHERNET|1|IEEE 802.3 Ethernet|
 |LINKTYPE_EXP_ETHERNET|2|Xerox experimental 3Mb Ethernet|
 |LINKTYPE_AX25|3|AX.25 packet|{{AX.25}}
-|LINKTYPE_PRONET|4|Reserved for PRONET|
+|LINKTYPE_PRONET|4|Reserved for Proteon PRONet Token Ring|
 |LINKTYPE_CHAOS|5|Reserved for MIT Chaosnet|{{AIM-628}}
 |LINKTYPE_IEEE802_5|6|IEEE 802.5 Token Ring|
 |LINKTYPE_ARCNET_BSD|7|ARCNET Data Packets with BSD encapsulation|
