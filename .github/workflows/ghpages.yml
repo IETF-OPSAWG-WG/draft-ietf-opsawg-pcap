@@ -42,7 +42,7 @@ jobs:
       uses: perl-actions/install-with-cpanm@v1
       with:
         install: |
-          Text::CSV;
+          Text::CSV
 
     - name: "Build Drafts"
       uses: martinthomson/i-d-template@v1
