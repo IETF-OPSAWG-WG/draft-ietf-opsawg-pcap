@@ -50,7 +50,7 @@ jobs:
 
       # Build txt and html versions of drafts
       - run:
-          name: "Build Drafts"
+          name: "Build Drafts Beer"
           command: |
             make linktypes.xml
             make 'CLONE_ARGS=--reference ~/git-reference'
