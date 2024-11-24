@@ -2478,9 +2478,9 @@ or secret type to {{section_block_definition}}. The pull request
 description should contain a clear request for a new type code
 assignment.
 
-The following is a list of the Standardized Block Type Codes; ??, in an
+The following is a list of the Standardized Block Type Codes; XX, in an
 item in the list means that the item refers to all possible values in
-which the "??" is from 00 to FF:
+which the "XX" is from 00 to FF:
 
 | Block Type Code | Description |
 | 0x00000000 | Reserved ??? |
@@ -2512,10 +2512,10 @@ which the "??" is from 00 to FF:
 | 0x00000BAD |  [Custom Block that rewriters can copy into new files](#section_custom_block)  |
 | 0x40000BAD |  [Custom Block that rewriters should not copy into new files](#section_custom_block)  |
 | 0x0A0D0D0A |  [Section Header Block](#section_shb)  |
-| 0x0A0D0A?? | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
-| 0x??0A0D0A | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
-| 0x??0A0D0D | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
-| 0x0D0D0A?? | Reserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode. |
+| 0x0A0D0AXX | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
+| 0xXX0A0D0A | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
+| 0xXX0A0D0D | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
+| 0x0D0D0AXX | Reserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode. |
 | 0x80000000-0xFFFFFFFF | Reserved for local use. |
 {: #blockcodes title='Standardized Block Type Codes'}
 
