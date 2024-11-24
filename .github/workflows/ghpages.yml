@@ -38,12 +38,6 @@ jobs:
           refcache-${{ steps.cache-setup.outputs.date }}
           refcache-
 
-    - name: "Install Perl and cpanm"
-      uses: perl-actions/install-with-cpanm@v1
-      with:
-        install: |
-          Text::CSV
-
     - name: "Build Drafts"
       uses: martinthomson/i-d-template@v1
 
