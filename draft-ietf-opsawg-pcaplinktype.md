@@ -52,6 +52,15 @@ informative:
       Node (MS-SGSN) Logical Link Control (LLC) layer specification
     refcontent: 3GPP TS 04.64
 
+  AIM-628:
+    author:
+    - fullname: David A. Moon
+      org: MIT Artificial Intelligence Laboratory
+    title: Chaosnet
+    date: June 1981
+    refcontent: MIT A.I. Memo No. 628
+    target: http://www.bitsavers.org/pdf/mit/ai/AIM-628_chaosnet.pdf
+
   ASHRAE-135:
     title: >
       BACnet(TM): A Data Communication Protocol for Building Automation
