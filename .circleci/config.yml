@@ -11,6 +11,7 @@ jobs:
           command: |
             xml2rfc --version
             gem list -q kramdown-rfc2629
+            find / -name '*perl*' -print
             perl --version
             echo -n 'mmark '; mmark --version
 
