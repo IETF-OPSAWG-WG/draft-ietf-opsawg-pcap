@@ -39,19 +39,9 @@ jobs:
 
       - checkout
 
-      - run:
-          name: "Install Perl and Text::CSV, and build linktypes.xml"
-          command: |
-            apt-get update && \
-            apt-get install --assume-yes --quiet \
-              --no-install-suggests --no-install-recommends \
-              perl cpanminus
-            cpanm Text::CSV
-            make linktypes.xml
-
       # Build txt and html versions of drafts
       - run:
-          name: "Build Drafts Beer"
+          name: "Build Drafts"
           command: "make 'CLONE_ARGS=--reference ~/git-reference'"
 
       # Update editor's copy on gh-pages
