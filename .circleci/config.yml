@@ -42,7 +42,9 @@ jobs:
       # Build txt and html versions of drafts
       - run:
           name: "Build Drafts"
-          command: "make 'CLONE_ARGS=--reference ~/git-reference'"
+          command: |
+            make linktypes.xml
+            make 'CLONE_ARGS=--reference ~/git-reference'
 
       # Update editor's copy on gh-pages
       - run:
