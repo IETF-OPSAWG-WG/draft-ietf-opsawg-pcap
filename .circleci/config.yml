@@ -11,10 +11,6 @@ jobs:
           command: |
             xml2rfc --version
             gem list -q kramdown-rfc2629
-            echo "Hello"
-            ls -l /usr/bin/perl
-            /usr/bin/perl --version
-            echo "Goodbye"
             echo -n 'mmark '; mmark --version
 
       - restore_cache:
@@ -56,9 +52,7 @@ jobs:
       # Build txt and html versions of drafts
       - run:
           name: "Build Drafts Beer"
-          command: |
-            make linktypes.xml
-            make 'CLONE_ARGS=--reference ~/git-reference'
+          command: "make 'CLONE_ARGS=--reference ~/git-reference'"
 
       # Update editor's copy on gh-pages
       - run:
