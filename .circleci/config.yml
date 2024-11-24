@@ -6,6 +6,15 @@ jobs:
     working_directory: ~/draft
 
     steps:
+      -run
+          name: "Install Perl"
+          command: |
+            sudo apt-get update && \
+            sudo apt-get install --assume-yes --quiet \
+              --no-install-suggests --no-install-recommends \
+              perl
+            ls -l /usr/bin/perl
+
       - run:
           name: "Print Configuration"
           command: |
