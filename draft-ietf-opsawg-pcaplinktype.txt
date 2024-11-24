@@ -214,7 +214,7 @@ Table of Contents
 
    Name  LINKTYPE_ARCNET_BSD
    Number  7
-   Description  ARCNET Data Packets with BSD encapsulation
+   Description  Reserved for ARCNET Data Packets with BSD encapsulation
 
    Name  LINKTYPE_SLIP
    Number  8
@@ -378,7 +378,8 @@ Table of Contents
 
    Name  LINKTYPE_ARCNET_LINUX
    Number  129
-   Description  ARCNET Data Packets, per RFC 1051 frames w/variations
+   Description  Reserved for ARCNET Data Packets with Linux
+      encapsulation
 
    Name  LINKTYPE_JUNIPER_MLPPP
    Number  130
