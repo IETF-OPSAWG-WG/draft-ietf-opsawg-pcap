@@ -11,5 +11,5 @@ else
 endif
 
 linktypes.xml: linktypes.csv
-	./linktype2stanza >linktypes.xml
+	perl linktype2stanza >linktypes.xml
 
