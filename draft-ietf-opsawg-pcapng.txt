@@ -2349,7 +2349,9 @@ Table of Contents
    Section 4.  The pull request description should contain a clear
    request for a new type code assignment.
 
-   The following is a list of the Standardized Block Type Codes:
+   The following is a list of the Standardized Block Type Codes; ??, in
+   an item in the list means that the item refers to all possible values
+   in which the "??" is from 00 to FF:
 
     +=====================+===========================================+
     |Block Type Code      |Description                                |
@@ -2449,19 +2451,19 @@ Table of Contents
     +---------------------+-------------------------------------------+
     |0x0A0D0D0A           |Section Header Block (Section 4.1)         |
     +---------------------+-------------------------------------------+
-    |0x0A0D0A00-0x0A0D0AFF|Reserved.  Used to detect trace files      |
+    |0x0A0D0A??           |Reserved.  Used to detect trace files      |
     |                     |corrupted because of file transfers using  |
     |                     |the HTTP protocol in text mode.            |
     +---------------------+-------------------------------------------+
-    |0x000A0D0A-0xFF0A0D0A|Reserved.  Used to detect trace files      |
+    |0x??0A0D0A           |Reserved.  Used to detect trace files      |
     |                     |corrupted because of file transfers using  |
     |                     |the HTTP protocol in text mode.            |
     +---------------------+-------------------------------------------+
-    |0x000A0D0D-0xFF0A0D0D|Reserved.  Used to detect trace files      |
+    |0x??0A0D0D           |Reserved.  Used to detect trace files      |
     |                     |corrupted because of file transfers using  |
     |                     |the HTTP protocol in text mode.            |
     +---------------------+-------------------------------------------+
-    |0x0D0D0A00-0x0D0D0AFF|Reserved.  Used to detect trace files      |
+    |0x0D0D0A??           |Reserved.  Used to detect trace files      |
     |                     |corrupted because of file transfers using  |
     |                     |the FTP protocol in text mode.             |
     +---------------------+-------------------------------------------+
