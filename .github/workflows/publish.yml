@@ -25,7 +25,7 @@ jobs:
         date -u "+::set-output name=date::%FT%T"
 
     - name: "Cache References"
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: ${{ steps.cache-setup.outputs.path }}
         key: refcache-${{ steps.date.outputs.date }}
