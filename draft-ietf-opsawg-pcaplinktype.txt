@@ -193,6 +193,7 @@ Table of Contents
    Name  LINKTYPE_EXP_ETHERNET
    Number  2
    Description  Xerox experimental 3Mb Ethernet
+   Reference  [PracConsEthDesign]
 
    Name  LINKTYPE_AX25
    Number  3
@@ -215,6 +216,7 @@ Table of Contents
    Name  LINKTYPE_ARCNET_BSD
    Number  7
    Description  Reserved for ARCNET Data Packets with BSD encapsulation
+   Reference  [ATA-878.1-1999][Draft-ATA-878.2][RFC1051][RFC1201]
 
    Name  LINKTYPE_SLIP
    Number  8
@@ -380,6 +382,7 @@ Table of Contents
    Number  129
    Description  Reserved for ARCNET Data Packets with Linux
       encapsulation
+   Reference  [ATA-878.1-1999][Draft-ATA-878.2][RFC1051][RFC1201]
 
    Name  LINKTYPE_JUNIPER_MLPPP
    Number  130
@@ -1393,6 +1396,12 @@ Table of Contents
               Automation and Control Networks", ANSI/ASHRAE Standard
               135, n.d..
 
+   [ATA-878.1-1999]
+              "ATA 878.1 - 1999 Local Area Network - Token Bus", ARCNET
+              Trade Association standard 878.1-1999, 1999,
+              <https://web.archive.org/web/20100414154838/
+              http://www.arcnet.com/resources/ata8781.pdf>.
+
    [AVS]      Peachy, S., "Archived AVS specification", n.d.,
               <http://web.archive.org/web/20040803232023/
               http://www.shaftnet.org/~pizza/software/capturefrm.txt>.
@@ -1416,6 +1425,12 @@ Table of Contents
               "Excentis XRA Header", n.d.,
               <https://support.excentis.com/index.php?/Knowledgebase/
               Article/View/159>.
+
+   [Draft-ATA-878.2]
+              "Draft ATA 878.2 ARCNET Packet Fragmentation Standard
+              Version 1.4", ARCNET Trade Association draft standard
+              878.2, 1992, <https://web.archive.org/web/20100414154914/
+              http://www.arcnet.com/resources/ata8782.pdf>.
 
    [DVB-CI]   "Common Interface Specification for Conditional Access and
               other Digital Video Broadcasting Decoder Applications",
@@ -1681,6 +1696,12 @@ Table of Contents
               <https://github.com/matwey/libopenvizsla/wiki/OpenVizsla-
               protocol-description>.
 
+   [PracConsEthDesign]
+              Crane, R. C. and E. A. Taft, "Practical Considerations in
+              Ethernet Local Network Design", February 1980,
+              <http://bitsavers.org/pdf/xerox/ethernet_3mb/Practical_Con
+              siderations_in_Ethernet_Local_Network_Design_Feb1980.pdf>.
+
    [PPI]      "Per-Packet Information Header Specification", May 2007,
               <https://web.archive.org/web/20160328114748/
               http://www.cacetech.com/documents/
@@ -1713,9 +1734,6 @@ Table of Contents
               connection control part procedures", ITU-T Recommendation
               Q.714, n.d., <https://www.itu.int/rec/T-REC-Q.714/en/>.
 
-   [Radiotap] radiotap.org, "Radiotap Web site", n.d.,
-              <http://www.radiotap.org/>.
-
    [Q.920]    "Digital Subscriber Signalling System No. 1 (DSS1) - ISDN
               User-Network Interface Data Link Layer - General aspects",
               ITU-T Recommendation Q.920, n.d.,
@@ -1724,6 +1742,9 @@ Table of Contents
    [Q.921]    "ISDN user-network interface - Data Link Layer
               specification", ITU-T Recommendation Q.921, n.d.,
               <https://www.itu.int/rec/T-REC-Q.921/en/>.
+
+   [Radiotap] radiotap.org, "Radiotap Web site", n.d.,
+              <http://www.radiotap.org/>.
 
    [STANAG-5066]
               "Profile for Maritime High Frequency (HF) Radio Data
@@ -1739,6 +1760,15 @@ Table of Contents
               "Z-Wave Serial API Host Application Programming Guide",
               n.d., <https://www.silabs.com/documents/public/user-
               guides/INS12350-Serial-API-Host-Appl.-Prg.-Guide.pdf>.
+
+   [RFC1051]  Prindeville, P., "Standard for the transmission of IP
+              datagrams and ARP packets over ARCNET networks", RFC 1051,
+              DOI 10.17487/RFC1051, March 1988,
+              <https://www.rfc-editor.org/rfc/rfc1051>.
+
+   [RFC1201]  Provan, D., "Transmitting IP traffic over ARCNET
+              networks", STD 46, RFC 1201, DOI 10.17487/RFC1201,
+              February 1991, <https://www.rfc-editor.org/rfc/rfc1201>.
 
    [RFC1661]  Simpson, W., Ed., "The Point-to-Point Protocol (PPP)",
               STD 51, RFC 1661, DOI 10.17487/RFC1661, July 1994,
