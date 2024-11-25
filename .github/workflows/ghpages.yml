@@ -26,8 +26,8 @@ jobs:
       id: cache-setup
       run: |
         mkdir -p "$HOME"/.cache/xml2rfc
-        echo "::set-output name=path::$HOME/.cache/xml2rfc"
-        date -u "+::set-output name=date::%FT%T"
+        echo "path=$HOME/.cache/xml2rfc" >> $GITHUB_OUTPUT
+        date -u "+date=%FT%T" >> $GITHUB_OUTPUT
 
     - name: "Cache References"
       uses: actions/cache@v4
