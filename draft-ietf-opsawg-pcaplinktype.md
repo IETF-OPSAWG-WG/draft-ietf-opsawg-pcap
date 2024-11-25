@@ -11,7 +11,7 @@ pi:
   inline: 'yes'
   sortrefs: 'no'
   strict: 'yes'
-title: Link-Layer Types for PCAP and PCAPNG Capture File Formats
+title: Link-Layer Types for PCAP-related Capture File Formats
 abbrev: pcaplinktype
 author:
 - role: editor
@@ -454,8 +454,7 @@ informative:
 
 --- abstract
 
-This document creates an IANA registry for the PCAP and PCAPNG LINKTYPE values.
-The PCAP and PCAPNG formats are used to save network captures from programs such as tcpdump and wireshark, when using libraries such as libpcap.
+This document creates an IANA registry for the PCAP-related LINKTYPE values.
 
 --- middle
 
@@ -468,13 +467,13 @@ The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
 later put into a library named libpcap {{LIBPCAP}}.
 
-Other documents describe the original (legacy) format used by tcpdump (pcap), as well as the revised format (pcapng) which is used by tcpdump and Wireshark {{Wireshark}}.
+Other documents describe the original (legacy) format used by tcpdump (pcap, {{?I-D.ietf-opsawg-pcap}}), as well as the revised format {{?I-D.ietf-opsawg-pcapng}} which is used by tcpdump and Wireshark {{Wireshark}}.
 
 Within those formats each packet that is captured is described by a LINKTYPE value.
 The LINKTYPE value selects one of many hundred formats for metadata and Layer 2 encapsulation of the packet.
 
 This document creates an IANA registry for the LINKTYPE format, establishing the IANA
-Considerations by which other uses of the pcap and pcapng formats may register new
+Considerations by which other uses of the pcap-related formats may register new
 LINKTYPE values.
 
 # Terminology
@@ -496,7 +495,7 @@ The registry has the following structure:
 * LINKTYPE Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).
 * LINKTYPE Value: Indicates the integer value assigned for this LinkType.
 * Description: Provides a very short description.
-* Reference: Indicates an authoritative the document reference for the LinkType or a requester reference.
+* Reference: Indicates an authoritative document reference for the LinkType or a requester reference.
 
 The LinkType value is a 16-bit number. The policy allocation for the LinkType values is as follows:
 
@@ -507,21 +506,21 @@ The LinkType value is a 16-bit number. The policy allocation for the LinkType va
 * Values from 65001 to 65535 are reserved for Private Use ({{Section 4.1 of !RFC8126}}).
 
 The initial version of the registry is provided in {{sec-initial}}.  In each
-case here, the reference should be to
+case here, the reference should be set to
 {{TCPDUMP}} and the RFC number to be assigned to this document, which is not repeated each time.
 
-The initial values table is based upon the Link type list maintained by
+The initial contents of the table are based upon the Link type list maintained by
 libpcap, and published on {{TCPDUMP}}.
 
-Note that historically, values were assigned incrementally following First Come First Served policy, with a preference for a public specification, but with no mandate.
+Note that historically, values were assigned incrementally following First Come First Served (FCFS) policy, with a preference for a public specification, but with no mandate.
 Some historical values may have less specification than desired.
 
 LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved for Private Use. Their use is Deprecated in favour of the values in the 65001-65535 range.
 
 In general, Private Use values should never leak out of the entity that uses it.
-As the First Come First Served range is large and easily obtained, official values are recommended.
+As the FCFS range is large and easily obtained, official values are recommended.
 
-> There is often an associated DLT value which is often identical in value, but not universally so. DLT values are associated with specific operation system captures, and are operating system specific, and are thus not subject to standardization.
+> There is often an associated Data Link Type (DLT) value which is often identical in value, but not universally so. DLT values are associated with specific operation system captures, and are operating system specific, and are thus not subject to standardization.
 
 ### Initial Values {#sec-initial}
 
@@ -534,24 +533,23 @@ This is the initial table for the registry:
 
 When processing a request for a Specification Required allocation the Designated Experts are expected to be able to find the relevant specification at a clearly stable URL.
 It is noted that many enterprise web sites do not maintain URLs over a long period of time, and a documented in a "wp-uploaded" section is highly likely to disappear.
-In addition Specifications that require a reader to click through any kind of marketing or legal agreement are not considered public.
-(This is the opinion of other corporate lawyers, who worry about what their employees might have agreed to)
+In addition specifications that require a reader to click through any kind of marketing or legal agreement are not considered public.
 
 The specification needs to be clearly written, and when the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.
 
-Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the document will be public eventually, but are discouraged.
-For other documents, the Designated Expert will need use their judgement, or consult the WG or an Area Director.
+Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.
+For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.
 
-Linktypes may be allocated for specifications not publicly available may be made within the First-Come/First-Served area.
+Linktypes may be allocated for specifications not publicly available may be made within the FCFS range.
 This includes specifications that might be classified.
-The minimal requirement is for a contact person for that link type.
+The minimal requirement is to provide a contact person for that link type.
 
 # Security Considerations
 
 This document describes the IANA registration rules for the LINKTYPE encapsulations.
-PCAP, and PCAPNG packet file formats use this value to determine what kind of headers precede network packet captures.
+PCAP-related packet file formats use this value to determine what kind of headers precede network packet captures.
 Many of these formats can contain IPv4 and IPv6 packets.
-A system reading PCAP or PCAPNG format captures can be subject to arbitrary inputs that may be controlled by malicious entities, so utmost caution is required.
+A system reading PCAP-related format captures can be subject to arbitrary inputs that may be controlled by malicious entities, so utmost caution is required.
 
 Many LINKTYPE formats include a "snapshot" length, which may be smaller than the actual packet.  It is therefore very likely that trailing parts of a packet capture may be omitted, yet internal length fields in the packets will claim the packet is bigger than the capture.
 This leads to trivial buffer overreads, and systems interpreting the packets need to carefully scrutinize all attempts to read data from a capture.
