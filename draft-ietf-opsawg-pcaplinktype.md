@@ -67,6 +67,12 @@ informative:
       and Control Networks
     refcontent: ANSI/ASHRAE Standard 135
 
+  ATA-878.1-1999:
+    title: ATA 878.1 - 1999 Local Area Network - Token Bus
+    date: 1999
+    refcontent: ARCNET Trade Association standard 878.1-1999
+    target: https://web.archive.org/web/20100414154838/http://www.arcnet.com/resources/ata8781.pdf
+
   AVS:
     author:
       fullname: Solomon Peachy
@@ -118,6 +124,12 @@ informative:
   DOCSIS-XRA:
     title: Excentis XRA Header
     target: https://support.excentis.com/index.php?/Knowledgebase/Article/View/159
+
+  Draft-ATA-878.2:
+    title: Draft ATA 878.2 ARCNET Packet Fragmentation Standard Version 1.4
+    date: 1992
+    refcontent: ARCNET Trade Association draft standard 878.2
+    target: https://web.archive.org/web/20100414154914/http://www.arcnet.com/resources/ata8782.pdf
 
   DVB-CI:
     title: >
@@ -372,6 +384,16 @@ informative:
     date: August 22, 2018
     target: https://github.com/matwey/libopenvizsla/wiki/OpenVizsla-protocol-description
 
+  PracConsEthDesign:
+    title: Practical Considerations in Ethernet Local Network Design
+    date: February 1980
+    author:
+    - fullname: Ronald C. Crane
+      org: Xerox Palo Alto Research Center
+    - fullname: Edward A. Taft
+      org: Xerox Palo Alto Research Center
+    target: http://bitsavers.org/pdf/xerox/ethernet_3mb/Practical_Considerations_in_Ethernet_Local_Network_Design_Feb1980.pdf
+
   PPI:
     title: Per-Packet Information Header Specification
     date: May 16, 2007
@@ -419,12 +441,6 @@ informative:
     refcontent: ITU-T Recommendation Q.714
     target: https://www.itu.int/rec/T-REC-Q.714/en/
 
-  Radiotap:
-    author:
-      org: radiotap.org
-    title: Radiotap Web site
-    target: http://www.radiotap.org/
-
   Q.920:
     title: >
       Digital Subscriber Signalling System No. 1 (DSS1) - ISDN
@@ -437,6 +453,12 @@ informative:
       ISDN user-network interface - Data Link Layer specification
     refcontent: ITU-T Recommendation Q.921
     target: https://www.itu.int/rec/T-REC-Q.921/en/
+
+  Radiotap:
+    author:
+      org: radiotap.org
+    title: Radiotap Web site
+    target: http://www.radiotap.org/
 
   STANAG-5066:
     title: >

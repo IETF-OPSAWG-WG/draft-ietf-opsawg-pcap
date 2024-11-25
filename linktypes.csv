@@ -1,11 +1,11 @@
 |LINKTYPE_NULL|0|BSD loopback encapsulation|{{LINKTYPE_NULL}}
 |LINKTYPE_ETHERNET|1|IEEE 802.3 Ethernet|
-|LINKTYPE_EXP_ETHERNET|2|Xerox experimental 3Mb Ethernet|
+|LINKTYPE_EXP_ETHERNET|2|Xerox experimental 3Mb Ethernet|{{PracConsEthDesign}}
 |LINKTYPE_AX25|3|AX.25 packet|{{AX.25}}
 |LINKTYPE_PRONET|4|Reserved for Proteon PRONet Token Ring|
 |LINKTYPE_CHAOS|5|Reserved for MIT Chaosnet|{{AIM-628}}
 |LINKTYPE_IEEE802_5|6|IEEE 802.5 Token Ring|
-|LINKTYPE_ARCNET_BSD|7|Reserved for ARCNET Data Packets with BSD encapsulation|
+|LINKTYPE_ARCNET_BSD|7|Reserved for ARCNET Data Packets with BSD encapsulation|{{ATA-878.1-1999}}{{Draft-ATA-878.2}}{{?RFC1051}}{{?RFC1201}}
 |LINKTYPE_SLIP|8|SLIP|{{LINKTYPE_SLIP}}
 |LINKTYPE_PPP|9|PPP|{{?RFC1661}}/{{?RFC1662}}
 |LINKTYPE_FDDI|10|FDDI: per ANSI INCITS 239-1994|
@@ -43,7 +43,7 @@
 |LINKTYPE_AURORA|126|Reserved for Xilinx Aurora link layer|
 |LINKTYPE_IEEE802_11_RADIOTAP|127|Radiotap header, followed by an 802.11 header|{{Radiotap}}
 |LINKTYPE_TZSP|128|Reserved for Tazmen Sniffer Protocol|
-|LINKTYPE_ARCNET_LINUX|129|Reserved for ARCNET Data Packets with Linux encapsulation|
+|LINKTYPE_ARCNET_LINUX|129|Reserved for ARCNET Data Packets with Linux encapsulation|{{ATA-878.1-1999}}{{Draft-ATA-878.2}}{{?RFC1051}}{{?RFC1201}}
 |LINKTYPE_JUNIPER_MLPPP|130|Reserved for Juniper Networks|
 |LINKTYPE_JUNIPER_MLFR|131|Reserved for Juniper Networks|
 |LINKTYPE_JUNIPER_ES|132|Reserved for Juniper Networks|
