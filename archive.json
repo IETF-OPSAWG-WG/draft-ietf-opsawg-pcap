@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-09-08T01:37:08.444682+00:00",
+  "timestamp": "2024-11-26T01:42:16.797009+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2615,6 +2615,155 @@
       "updatedAt": "2024-06-02T09:01:06Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 164,
+      "id": "I_kwDOAU54e86bz_L9",
+      "title": "Add information to associate packets with processes",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/164",
+      "state": "OPEN",
+      "author": "prakharPant",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I have modified the wireshark code to include the process information for the packets that it captures. \r\n\r\nI want to add this issue to suggest support for capturing process information through pcapng.\r\n\r\nhttps://gitlab.com/wireshark/wireshark/-/merge_requests/17737\r\n\r\nCurrently I have modified the pcapng and pcapio code. In my merge request. (Linked above) \r\n\r\nI still have a lot of work to do but if you could guide me on whether this is the right way to approach the issue then that would be very helpful. \r\n\r\nI've created struct process info - \r\n\r\nstruct process_info {\r\n    __u32 pid;       // Current process ID\r\n    __u32 ppid;      // Parent process ID\r\n    __u32 gpid;      // Grandparent process ID\r\n    char comm[TASK_COMM_LEN]; // Command name of the process\r\n    char p_comm[TASK_COMM_LEN]; // Command name of the parent process\r\n    char gp_comm[TASK_COMM_LEN]; // Command name of the grandparent process\r\n};\r\n\r\nI am passing the struct from dumpcap in wireshark and have modified the pcapng_write_enhanced_packet_block to include the struct. \r\n\r\nFurther I add the option for the struct and pass it off along with the enhanced packet block. \r\n\r\nThen parse the option in pcapng and store it against the modified wtap_rec struct that includes the process_info struct. \r\n\r\nHow should I go about getting this implemented?\r\n\r\nThanks\r\n\r\n",
+      "createdAt": "2024-10-25T13:20:50Z",
+      "updatedAt": "2024-11-03T14:22:57Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "By the way, if more than one process has a file descriptor/Windows HANDLE/whatever for a given socket, *all* of those processes should be associated with a packet that arrives on the socket - network packets aren't sent to *processes*, they're sent to *endpoints*.",
+          "createdAt": "2024-11-02T09:27:15Z",
+          "updatedAt": "2024-11-02T09:27:15Z"
+        },
+        {
+          "author": "prakharPant",
+          "authorAssociation": "NONE",
+          "body": "Do you mean through fork(). So we should have a linked list till as long as we can find parent processes pids? Unrelated processes can't have the same fd, right?\r\n\r\nYeah I agree. The idea of associating all the processes, instead of just 3, with the packet sounds really good to me, maybe in the form of a linked list with a parent parameter that links to another process (if applicable) and so on.",
+          "createdAt": "2024-11-03T10:37:28Z",
+          "updatedAt": "2024-11-03T13:12:20Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Do you mean through fork().\r\n\r\nOn UN\\*Xes, that's the main way by which more than one process can share a file descriptor such as a descriptor for a socket. On some UN\\*Xes, a file descriptor can also be passed to another process over a UNIX-domain socket, and there's a call in Windows that can be used to pass a `HANDLE` to another process.\r\n\r\n> So we should have a linked list till as long as we can find parent processes pids?\r\n\r\nIf a program or library is keeping track of which sockets belong to which processes, each socket would need some aggregate data structure holding a collection of processes, yes.\r\n\r\n> Unrelated processes can't have the same fd, right?\r\n\r\nAs noted above, yes, they can, both on some UN\\*Xes.  On Windows, the same may be the case, with `HANDLE` rather than FD; at least on NT, I'm guessing that, below Winsock, there's a `HANDLE` for every socket, but that could be wrong.\r\n\r\n(Also, OSes other than UN\\*Xes and Windows could produce pcapng files, or even just have rpcap servers to provide a sequence of packets, so changes to pcapng for this should at least try to allow using it with various non-UN\\*X, mainframe OSes, IBM i, OpenVMS, and various Internet of Things OSes, for example. That may just mean using a pcapng block of some sort to contain information about a process, with information about the process recorded as options, so that various bits of information can be recorded if, and only if, it can be obtained about the process for that OS.)",
+          "createdAt": "2024-11-03T12:30:26Z",
+          "updatedAt": "2024-11-03T12:30:26Z"
+        },
+        {
+          "author": "kayoub5",
+          "authorAssociation": "NONE",
+          "body": "The processes could be unrelated, this is allowed using the SO_REUSEPORT socket option.\r\n\r\nsee https://stackoverflow.com/a/68837302/1438522 ",
+          "createdAt": "2024-11-03T12:43:38Z",
+          "updatedAt": "2024-11-03T12:43:38Z"
+        },
+        {
+          "author": "prakharPant",
+          "authorAssociation": "NONE",
+          "body": "Yeah unrelated processes can share the same fd. My merge request is such that it only associates the processes that called the tcp/udp send/recv msg kernel function on linux. \r\n\r\ni.e. it associates the packet to the process that sent the packet and it's parent and grandparent and not another one that may share the same file handle / socket. \r\n\r\nHowever a process could spawn a child which could then detach from the process by changing it's process group and then send and receive packets on the original process' behalf, which would then not be recorded. \r\n\r\nAlthough I think it may be rare. Still we should associate all processes to the packet that was sent through a socket. ",
+          "createdAt": "2024-11-03T14:21:22Z",
+          "updatedAt": "2024-11-03T14:22:57Z"
+        }
+      ]
+    },
+    {
+      "number": 165,
+      "id": "I_kwDOAU54e86fWl32",
+      "title": "Sysdig Standardized Block Type Codes",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/165",
+      "state": "CLOSED",
+      "author": "bubbasnmp",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Is it correct that the Sysdig block numbers did not increment as hexadecimal numbers?  \r\n\r\n```\r\n0x00000209\tSysdig Process Info Block, version 3\r\n0x00000210\tSysdig Process Info Block, version 4\r\n```\r\nWhy not:  \r\n```\r\n0x00000209\tSysdig Process Info Block, version 3\r\n0x0000020A\tSysdig Process Info Block, version 4\r\n```\r\n\r\n\r\nhttps://www.ietf.org/archive/id/draft-tuexen-opsawg-pcapng-03.html#name-standardized-block-type-cod  \r\n```\r\n0x00000201\tSysdig Machine Info Block\r\n0x00000202\tSysdig Process Info Block, version 1\r\n0x00000203\tSysdig FD List Block\r\n0x00000204\tSysdig Event Block\r\n0x00000205\tSysdig Interface List Block\r\n0x00000206\tSysdig User List Block\r\n0x00000207\tSysdig Process Info Block, version 2\r\n0x00000208\tSysdig Event Block with flags\r\n0x00000209\tSysdig Process Info Block, version 3\r\n0x00000210\tSysdig Process Info Block, version 4\r\n0x00000211\tSysdig Process Info Block, version 5\r\n0x00000212\tSysdig Process Info Block, version 6\r\n0x00000213\tSysdig Process Info Block, version 7\r\n```\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+      "createdAt": "2024-11-19T20:42:19Z",
+      "updatedAt": "2024-11-21T06:54:46Z",
+      "closedAt": "2024-11-19T23:16:32Z",
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@geraldcombs? @ldegio?",
+          "createdAt": "2024-11-19T21:16:09Z",
+          "updatedAt": "2024-11-19T21:16:09Z"
+        },
+        {
+          "author": "bubbasnmp",
+          "authorAssociation": "NONE",
+          "body": "I'm still learning my way around. Assuming this is the master source for `libscap`.  \r\nhttps://github.com/falcosecurity/libs/blob/master/userspace/libscap/scap_savefile.h#L100  \r\n  \r\n`#define PL_BLOCK_TYPE_V4 0x210`",
+          "createdAt": "2024-11-19T23:16:32Z",
+          "updatedAt": "2024-11-19T23:16:32Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "It appears that the code does, in fact, go from 0x209 to 0x0210, in which case the spec should reflect that.",
+          "createdAt": "2024-11-19T23:26:58Z",
+          "updatedAt": "2024-11-19T23:26:58Z"
+        },
+        {
+          "author": "bubbasnmp",
+          "authorAssociation": "NONE",
+          "body": "Is this the most current spec: https://datatracker.ietf.org/doc/draft-ietf-opsawg-pcapng/ ?  \r\nIt goes up to 0x00000213.   \r\n  \r\n[wiretap/pcapng_module.h](https://gitlab.com/wireshark/wireshark/-/blob/master/wiretap/pcapng_module.h) has entries up to `0x00000222` with another jump from `0x00000219` to `0x00000220`.",
+          "createdAt": "2024-11-20T01:30:15Z",
+          "updatedAt": "2024-11-20T01:30:15Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "https://datatracker.ietf.org/doc/draft-ietf-opsawg-pcapng/ is the current version of the Internet-Draft.\r\n\r\nhttps://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/draft-ietf-opsawg-pcap.html is produced from the tip of the main branch.\r\n\r\n(If this were a software product, the first of those would be the current release, and the latter would be what you get if you build from the repository. :-))",
+          "createdAt": "2024-11-20T03:05:53Z",
+          "updatedAt": "2024-11-20T03:05:53Z"
+        },
+        {
+          "author": "packetfoo",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> @geraldcombs? @ldegio?\r\n\r\nNot sure how that one happened - back then (in February 2014) Loris asked for block numbers and we agreed on 0x200-0x206 at the time, per email. I didn't find anything regarding higher numbers being added later.",
+          "createdAt": "2024-11-20T15:03:52Z",
+          "updatedAt": "2024-11-20T15:03:52Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Not sure how that one happened\r\n\r\n\"That\" as in \"Sysdig adding additional block types\" or \"adding those block types to the specification\"?",
+          "createdAt": "2024-11-20T18:47:58Z",
+          "updatedAt": "2024-11-20T18:47:58Z"
+        },
+        {
+          "author": "packetfoo",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> > Not sure how that one happened\r\n> \r\n> \"That\" as in \"Sysdig adding additional block types\" or \"adding those block types to the specification\"?\r\n\r\nAs in \"Sysdig adding additional block types\". I added the first block types to the specification in agreement wit Loris, which may not have been an ideal way of proceeding. I didn't know a better way back at the time.",
+          "createdAt": "2024-11-21T06:54:44Z",
+          "updatedAt": "2024-11-21T06:54:44Z"
+        }
+      ]
+    },
+    {
+      "number": 166,
+      "id": "I_kwDOAU54e86fw5UN",
+      "title": "Reserved Standardized Block Type Codes",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/166",
+      "state": "CLOSED",
+      "author": "bubbasnmp",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Are the \"Reserved\" ranges at end of the list accurate and can they be arranged in numerical order?  \r\n\r\n```\r\n0x0A0D0D0A\tSection Header Block (Section 4.1)\r\n0x0A0D0A00-0x0A0D0AFF\tReserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.\r\n0x000A0D0A-0xFF0A0D0A\tReserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.\r\n0x000A0D0D-0xFF0A0D0D\tReserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.\r\n0x0D0D0A00-0x0D0D0AFF\tReserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode.\r\n0x80000000-0xFFFFFFFF\tReserved for local use.\r\n```\r\n\r\nThe ranges for the first two put SHB and `0x40000BAD` in reserved sections.  \r\n```\r\n0x000A0D0A-0xFF0A0D0A\tReserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.\r\n0x000A0D0D-0xFF0A0D0D\tReserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.\r\n\r\n0x0A0D0A00-0x0A0D0AFF\tReserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode.\r\n\r\n0x0A0D0D0A\tSection Header Block (Section 4.1)\r\n\r\n0x0D0D0A00-0x0D0D0AFF\tReserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode.\r\n\r\n0x80000000-0xFFFFFFFF\tReserved for local use. (bit 31 is set to 1)\r\n```\r\n(Initially added here: https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/f7fdc15a7b511a82bcb788d1d9886568415fa5ea/draft-tuexen-opsawg-pcapng.xml#L1047  ) ???\r\n\r\n",
+      "createdAt": "2024-11-21T17:58:07Z",
+      "updatedAt": "2024-11-24T11:18:47Z",
+      "closedAt": "2024-11-24T11:18:47Z",
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> The ranges for the first two put SHB and 0x40000BAD in reserved sections.\r\n\r\nThey were not *intended* to be ranges, they were intended to be sets of 256 values in which the uppermost 8 bits had values from 0x00 to 0xFF and the other bytes had specific values, but the use of a hyphen made inferring that they represented a range a reasonable thing to do.\r\n\r\nIn e1099094acb43ad7fe6e19290772cbb79dca6b5c I changed all of the non-range \"ranges\" of that sort (including the one that happens to be a range because the non-fixed bits are the lower 8 bits) to be single items with \"?? in place of the 8 bits that can have a value from 0x00 to 0xFF.",
+          "createdAt": "2024-11-24T11:16:59Z",
+          "updatedAt": "2024-11-24T11:16:59Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -8827,6 +8976,32 @@
       "mergeCommit": {
         "oid": "a8f952c3785e700943c469d2125761e2ee1254ce"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 167,
+      "id": "PR_kwDOAU54e86DAbyF",
+      "title": "review of -08",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/167",
+      "state": "OPEN",
+      "author": "boucadair",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "* avoid referring to PCAPNG, in case the WG decides to change the name\r\n* expand acronyms\r\n* remove some statements in the guidance that I think aren't helpful.\r\n* nits",
+      "createdAt": "2024-11-25T09:38:38Z",
+      "updatedAt": "2024-11-25T09:38:38Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "7cfe1395d73976e423bfcdb8834af0c4e0c94ce8",
+      "headRepository": "boucadair/draft-ietf-opsawg-pcap",
+      "headRefName": "patch-3",
+      "headRefOid": "74edf19cebad34deb37a5394f845f80622f77f49",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
