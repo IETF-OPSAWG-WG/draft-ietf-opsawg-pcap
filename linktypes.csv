@@ -1,7 +1,7 @@
 |LINKTYPE_NULL|0|BSD loopback encapsulation|{{LINKTYPE_NULL}}
 |LINKTYPE_ETHERNET|1|IEEE 802.3 Ethernet|
 |LINKTYPE_EXP_ETHERNET|2|Xerox experimental 3Mb Ethernet|{{PracConsEthDesign}}
-|LINKTYPE_AX25|3|AX.25 packet|{{AX.25}}
+|LINKTYPE_AX25|3|AX.25 layer 2 packets|{{AX.25}}
 |LINKTYPE_PRONET|4|Reserved for Proteon PRONet Token Ring|
 |LINKTYPE_CHAOS|5|Reserved for MIT Chaosnet|{{AIM-628}}
 |LINKTYPE_IEEE802_5|6|IEEE 802.5 Token Ring|

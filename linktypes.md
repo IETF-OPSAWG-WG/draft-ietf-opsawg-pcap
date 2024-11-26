@@ -47,7 +47,7 @@ Number
 : 3
 
 Description
-: AX.25 packet
+: AX.25 layer 2 packets
 
 Reference
 : {{AX.25}}
