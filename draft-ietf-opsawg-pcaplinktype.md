@@ -36,14 +36,17 @@ normative:
 informative:
   TCPDUMP:
     title: LINK-LAYER HEADER TYPES
+    date: false
     target: https://www.tcpdump.org/linktypes.html
 
   LIBPCAP:
     title: libpcap
+    date: false
     target: https://github.com/the-tcpdump-group/libpcap
 
   Wireshark:
     title: Homepage of Wireshark
+    date: false
     target: https://www.wireshark.org
 
   3GPP-TS-04.64:
@@ -51,6 +54,7 @@ informative:
       Digital cellular telecommunications system (Phase 2+); General
       Packet Radio Service (GPRS); Mobile Station - Serving GPRS Support
       Node (MS-SGSN) Logical Link Control (LLC) layer specification
+    date: false
     refcontent: 3GPP TS 04.64
 
   AIM-628:
@@ -66,6 +70,7 @@ informative:
     title: >
       BACnet(TM): A Data Communication Protocol for Building Automation
       and Control Networks
+    date: false
     refcontent: ANSI/ASHRAE Standard 135
 
   ATA-878.1-1999:
@@ -78,6 +83,7 @@ informative:
     author:
       fullname: Solomon Peachy
     title: Archived AVS specification
+    date: false
     target: http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt
 
   AX.25:
@@ -97,6 +103,7 @@ informative:
 
   D-Bus:
     title: D-Bus Specification
+    date: false
     author:
     - fullname: Havoc Pennington
       ins: H. Pennington
@@ -120,10 +127,12 @@ informative:
 
   DOCSIS-4.0-MULP:
     title: DOCSIS 4.0 MAC and Upper Layer Protocols Interface Specification
+    date: false
     target: https://www.cablelabs.com/specifications/CM-SP-MULPIv4.0
 
   DOCSIS-XRA:
     title: Excentis XRA Header
+    date: false
     target: https://support.excentis.com/index.php?/Knowledgebase/Article/View/159
 
   Draft-ATA-878.2:
@@ -136,6 +145,7 @@ informative:
     title: >
       Common Interface Specification for Conditional Access and other
       Digital Video Broadcasting Decoder Applications
+    date: false
     target: https://dvb.org/?standard=common-interface-specification-for-conditional-access-and-other-digital-video-broadcasting-decoder-applications
 
   DVB-CI-PCAP:
@@ -149,18 +159,22 @@ informative:
 
   EBHSCR:
     title: Documentation EBHSCR
+    date: false
     target: http://www.elektrobit.com/ebhscr
 
   ERF:
     title: ERF Types Reference Guide
+    date: false
     target: https://www.endace.com/erf-extensible-record-format-types.pdf
 
   Exegin-TAP-Link:
     title: IEEE 802.15.4 TAP Link Type Specification
+    date: false
     target: https://github.com/jkcko/ieee802.15.4-tap/blob/master/IEEE%20802.15.4%20TAP%20Link%20Type%20Specification.pdf
 
   FD.io-VPP:
     title: VNET (VPP Network Stack)
+    date: false
     target: https://fdio-vpp.readthedocs.io/en/latest/gettingstarted/developers/vnet.html
 
   FRF.16.1:
@@ -171,12 +185,14 @@ informative:
   G.7041:
     title: >
       Generic Framing Procedure
+    date: false
     refcontent: ITU-T Recommendation G.7041/Y.1303
     target: https://www.itu.int/rec/T-REC-G.7041/en
 
   G.9959:
     title: >
       Short range narrow-band digital radiocommunication transceivers - PHY, MAC, SAR and LLC layer specifications
+    date: false
     refcontent: ITU-T Recommendation G.9959
     target: https://www.itu.int/rec/T-REC-G.9959/en
 
@@ -185,6 +201,7 @@ informative:
       Information technology - Generic coding of moving pictures and
       associated audio information: Systems
     refcontent: ITU-T Recommendation H.222.0
+    date: false
     target: https://www.itu.int/rec/T-REC-H.222.0
 
   ISO-14443-PCAP:
@@ -198,186 +215,232 @@ informative:
 
   KISS:
     title: The KISS TNC - A simple Host-to-TNC communications protocol
+    date: false
     target: https://www.ax25.net/kiss.aspx
 
   LINKTYPE_APPLE_IP_OVER_IEEE1394:
     title: LINKTYPE_APPLE_IP_OVER_IEEE1394
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_APPLE_IP_OVER_IEEE1394.html
 
   LINKTYPE_BLUETOOTH_BREDR_BB:
     title: LINKTYPE_BLUETOOTH_BREDR_BB
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_BREDR_BB.html
 
   LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR:
     title: LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR.html
 
   LINKTYPE_BLUETOOTH_LINUX_MONITOR:
     title: LINKTYPE_BLUETOOTH_LINUX_MONITOR
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_LINUX_MONITOR.html
 
   LINKTYPE_CAN_SOCKETCAN:
     title: LINKTYPE_CAN_SOCKETCAN
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_CAN_SOCKETCAN.html
 
   LINKTYPE_DISPLAYPORT_AUX:
     title: LINKTYPE_DISPLAYPORT_AUX
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DISPLAYPORT_AUX.html
 
   LINKTYPE_DSA_TAG_BRCM:
     title: LINKTYPE_DSA_TAG_BRCM
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_BRCM.html
 
   LINKTYPE_DSA_TAG_BRCM_PREPEND:
     title: LINKTYPE_DSA_TAG_BRCM_PREPEND
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_BRCM_PREPEND.html
 
   LINKTYPE_DSA_TAG_DSA:
     title: LINKTYPE_DSA_TAG_DSA
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_DSA.html
 
   LINKTYPE_DSA_TAG_EDSA:
     title: LINKTYPE_DSA_TAG_EDSA
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_EDSA.html
 
   LINKTYPE_ETW:
     title: LINKTYPE_ETW
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html
 
   LINKTYPE_FIRA_UCI:
     title: LINKTYPE_FIRA_UCI
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_FIRA_UCI.html
 
   LINKTYPE_FLEXRAY:
     title: LINKTYPE_FLEXRAY
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_FLEXRAY.html
 
   LINKTYPE_I2C_LINUX:
     title: LINKTYPE_I2C_LINUX
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_I2C_LINUX.html
 
   LINKTYPE_IEEE802_11_PRISM:
     title: LINKTYPE_IEEE802_11_PRISM
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IEEE802_11_PRISM.html
 
   LINKTYPE_IPNET:
     title: LINKTYPE_IPNET
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IPNET.html
 
   LINKTYPE_LIN:
     title: LINKTYPE_LIN
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LIN.html
 
   LINKTYPE_LINUX_IRDA:
     title: LINKTYPE_LINUX_IRDA
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_IRDA.html
 
   LINKTYPE_LINUX_LAPD:
     title: LINKTYPE_LINUX_LAPD
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_LAPD.html
 
   LINKTYPE_LINUX_SLL:
     title: LINKTYPE_LINUX_SLL
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_SLL.html
 
   LINKTYPE_LINUX_SLL2:
     title: LINKTYPE_LINUX_SLL2
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_SLL2.html
 
   LINKTYPE_LOOP:
     title: LINKTYPE_LOOP
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LOOP.html
 
   LINKTYPE_MUX27010:
     title: LINKTYPE_MUX27010
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_MUX27010.html
 
   LINKTYPE_NETANALYZER:
     title: LINKTYPE_NETANALYZER
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NETANALYZER.html
 
   LINKTYPE_NETANALYZER_TRANSPARENT:
     title: LINKTYPE_NETANALYZER_TRANSPARENT
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NETANALYZER_TRANSPARENT.html
 
   LINKTYPE_NETLINK:
     title: LINKTYPE_NETLINK
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NETLINK.html
 
   LINKTYPE_NFC_LLCP:
     title: LINKTYPE_NFC_LLCP
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NFC_LLCP.html
 
   LINKTYPE_NFLOG:
     title: LINKTYPE_NFLOG
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NFLOG.html
 
   LINKTYPE_NG40:
     title: LINKTYPE_NG40
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NG40.html
 
   LINKTYPE_NORDIC_BLE:
     title: LINKTYPE_NORDIC_BLE
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NORDIC_BLE.html
 
   LINKTYPE_NULL:
     title: LINKTYPE_NULL
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NULL.html
 
   LINKTYPE_PKTAP:
     title: LINKTYPE_PKTAP
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PKTAP.html
 
   LINKTYPE_RDS:
     title: LINKTYPE_RDS
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_RDS.html
 
   LINKTYPE_RTAC_SERIAL:
     title: LINKTYPE_RTAC_SERIAL
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_RTAC_SERIAL.html
 
   LINKTYPE_SITA:
     title: LINKTYPE_SITA
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_SITA.html
 
   LINKTYPE_SLIP:
     title: LINKTYPE_SLIP
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_SLIP.html
 
   LINKTYPE_SUNATM:
     title: LINKTYPE_SUNATM
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_SUNATM.html
 
   LINKTYPE_USB_DARWIN:
     title: LINKTYPE_USB_DARWIN
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_DARWIN.html
 
   LINKTYPE_VSOCK:
     title: LINKTYPE_VSOCK
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_VSOCK.html
 
   LINKTYPE_WATTSTOPPER_DLM:
     title: LINKTYPE_WATTSTOPPER_DLM
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_WATTSTOPPER_DLM.html
 
   LINKTYPE_ZBOSS_NCP:
     title: LINKTYPE_ZBOSS_NCP
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ZBOSS_NCP.html
 
   LINKTYPE_ZWAVE_R1_R2:
     title: LINKTYPE_ZWAVE_R1_R2
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ZWAVE_R1_R2.html
 
   LINKTYPE_ZWAVE_R3:
     title: LINKTYPE_ZWAVE_R3
+    date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ZWAVE_R3.html
 
   LoRaTap:
     title: LoRaTap
+    date: false
     target: https://github.com/eriknl/LoRaTap/blob/master/README.md
 
   LoRaWAN:
     title: About the LoRaWAN Standards
+    date: false
     target: https://lora-alliance.org/lorawan-for-developers/
 
   OpenVizsla:
@@ -405,6 +468,7 @@ informative:
       Specifications of Signalling System No. 7
       Signalling Link
     refcontent: ITU-T Recommendation Q.703
+    date: false
     target: https://www.itu.int/rec/T-REC-Q.703/en/
 
   Q.704:
@@ -412,6 +476,7 @@ informative:
       Specifications of Signalling System No. 7
       Signalling Network Functions And Messages
     refcontent: ITU-T Recommendation Q.704
+    date: false
     target: https://www.itu.int/rec/T-REC-Q.704/en/
 
   Q.711:
@@ -419,6 +484,7 @@ informative:
       Specifications of Signalling System No. 7
       Functional description of the signalling connection control part
     refcontent: ITU-T Recommendation Q.711
+    date: false
     target: https://www.itu.int/rec/T-REC-Q.711/en/
 
   Q.712:
@@ -426,6 +492,7 @@ informative:
       Specifications of Signalling System No. 7
       Definition and function of signalling connection control part messages
     refcontent: ITU-T Recommendation Q.712
+    date: false
     target: https://www.itu.int/rec/T-REC-Q.712/en/
 
   Q.713:
@@ -433,6 +500,7 @@ informative:
       Specifications of Signalling System No. 7
       Signalling connection control part functions and codes
     refcontent: ITU-T Recommendation Q.713
+    date: false
     target: https://www.itu.int/rec/T-REC-Q.713/en/
 
   Q.714:
@@ -440,6 +508,7 @@ informative:
       Specifications of Signalling System No. 7
       Signalling connection control part procedures
     refcontent: ITU-T Recommendation Q.714
+    date: false
     target: https://www.itu.int/rec/T-REC-Q.714/en/
 
   Q.920:
@@ -447,32 +516,38 @@ informative:
       Digital Subscriber Signalling System No. 1 (DSS1) - ISDN
       User-Network Interface Data Link Layer - General aspects
     refcontent: ITU-T Recommendation Q.920
+    date: false
     target: https://www.itu.int/rec/T-REC-Q.920/en/
 
   Q.921:
     title: >
       ISDN user-network interface - Data Link Layer specification
     refcontent: ITU-T Recommendation Q.921
+    date: false
     target: https://www.itu.int/rec/T-REC-Q.921/en/
 
   Radiotap:
     author:
       org: radiotap.org
     title: Radiotap Web site
+    date: false
     target: http://www.radiotap.org/
 
   STANAG-5066:
     title: >
       Profile for Maritime High Frequency (HF) Radio Data Communications
     refcontent: STANAG 5066
+    date: false
     target: https://web.archive.org/web/20051004082010/http://www.armymars.net/ArmyMARS/HF-Email/resources/stanag5066.pdf
 
   USBPcap:
     title: USBPcap Capture format specification
+    date: false
     target: https://desowin.org/usbpcap/captureformat.html
 
   Z_WAVE_SERIAL:
     title: Z-Wave Serial API Host Application Programming Guide
+    date: false
     target: https://www.silabs.com/documents/public/user-guides/INS12350-Serial-API-Host-Appl.-Prg.-Guide.pdf
 
 --- abstract
