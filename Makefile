@@ -10,6 +10,6 @@ else
 	    -b main https://github.com/martinthomson/i-d-template $(LIBDIR)
 endif
 
-linktypes.xml: linktypes.csv
-	/usr/bin/perl linktype2stanza >linktypes.xml
+linktypes.md: linktypes.csv
+	/usr/bin/perl linktype2stanza >linktypes.md
 

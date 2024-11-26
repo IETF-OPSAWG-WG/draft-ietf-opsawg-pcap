@@ -549,7 +549,7 @@ As the First Come First Served range is large and easily obtained, official valu
 
 This is the initial table for the registry:
 
-{::include linktypes.xml}
+{::include linktypes.md}
 
 
 ### Guidance for Designated Experts {#sec-de}
