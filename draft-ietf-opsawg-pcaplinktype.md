@@ -3,6 +3,7 @@ stand_alone: true
 ipr: trust200902
 docname: draft-ietf-opsawg-pcaplinktype-latest
 cat: info
+stream: IETF
 pi:
   symrefs: 'yes'
   toc: 'yes'
