@@ -197,7 +197,7 @@ Table of Contents
 
    Name  LINKTYPE_AX25
    Number  3
-   Description  AX.25 packet
+   Description  AX.25 layer 2 packets
    Reference  [AX.25]
 
    Name  LINKTYPE_PRONET
