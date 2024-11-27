@@ -490,13 +490,16 @@ The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
 later put into a library named libpcap {{LIBPCAP}}.
 
-Other documents describe the original (legacy) format used by tcpdump (pcap, {{?I-D.ietf-opsawg-pcap}}), as well as the revised format {{?I-D.ietf-opsawg-pcapng}} which is used by tcpdump and Wireshark {{Wireshark}}.
+Other documents describe the original (legacy) format used by tcpdump
+(PCAP, {{?I-D.ietf-opsawg-pcap}}), as well as the revised format
+{{?I-D.ietf-opsawg-pcapng}} which is used by tcpdump and Wireshark
+{{Wireshark}}.
 
 Within those formats each packet that is captured is described by a LINKTYPE value.
 The LINKTYPE value selects one of many hundred formats for metadata and Layer 2 encapsulation of the packet.
 
 This document creates an IANA registry for the LINKTYPE format, establishing the IANA
-Considerations by which other uses of the pcap-related formats may register new
+Considerations by which other uses of the PCAP-related formats may register new
 LINKTYPE values.
 
 # Terminology
@@ -511,7 +514,7 @@ IANA is requested to create a new registry group entitled "The PCAP Registry".
 
 ## LinkType Registry {#linktype}
 
-IANA is also requested to create a registry entitled "PCAP LinkType List" under The PCAP registry group ({{pcapreg}}).
+IANA is also requested to create a registry entitled "PCAP-related LinkType List" under The PCAP registry group ({{pcapreg}}).
 
 The registry has the following structure:
 
