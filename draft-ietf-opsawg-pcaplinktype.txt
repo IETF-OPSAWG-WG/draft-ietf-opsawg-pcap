@@ -652,10 +652,10 @@ Table of Contents
       octets of that header are present.  All fields in the header are
       in host byte order.  When performing a live capture, the host byte
       order is the byte order of the machine on which the packets are
-      captured.  When reading a pcap file, the byte order is the byte
+      captured.  When reading a PCAP file, the byte order is the byte
       order for the file, as specified by the file's magic number; when
-      reading a pcapng file, the byte order is the byte order for the
-      section of the pcapng file, as specified by the Section Header
+      reading a PCAPNG file, the byte order is the byte order for the
+      section of the PCAPNG file, as specified by the Section Header
       Block
 
    Name  LINKTYPE_CAN20B
@@ -834,10 +834,10 @@ Table of Contents
       header are present.  All fields in the header are in host byte
       order.  When performing a live capture, the host byte order is the
       byte order of the machine on which the packets are captured.  When
-      reading a pcap file, the byte order is the byte order for the
+      reading a PCAP file, the byte order is the byte order for the
       file, as specified by the file's magic number; when reading a
-      pcapng file, the byte order is the byte order for the section of
-      the pcapng file, as specified by the Section Header Block.  For
+      PCAPNG file, the byte order is the byte order for the section of
+      the PCAPNG file, as specified by the Section Header Block.  For
       isochronous transfers, the ndesc field specifies the number of
       isochronous descriptors that follow
 
