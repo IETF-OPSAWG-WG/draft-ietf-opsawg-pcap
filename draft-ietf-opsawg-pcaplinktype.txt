@@ -66,18 +66,17 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  Terminology
-   3.  IANA Considerations
-     3.1.  PCAP Registry
-     3.2.  LinkType Registry
-       3.2.1.  Initial Values
-       3.2.2.  Guidance for Designated Experts
-   4.  Security Considerations
-   5.  Contributors
-   6.  Acknowledgments
-   7.  References
-     7.1.  Normative References
-     7.2.  Informative References
+   2.  IANA Considerations
+     2.1.  PCAP Registry
+     2.2.  LinkType Registry
+       2.2.1.  Initial Values
+       2.2.2.  Guidance for Designated Experts
+   3.  Security Considerations
+   4.  Contributors
+   5.  Acknowledgments
+   6.  References
+     6.1.  Normative References
+     6.2.  Informative References
    Authors' Addresses
 
 1.  Introduction
@@ -102,25 +101,17 @@ Table of Contents
    establishing the IANA Considerations by which other uses of the PCAP-
    related formats may register new LINKTYPE values.
 
-2.  Terminology
+2.  IANA Considerations
 
-   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
-   "OPTIONAL" in this document are to be interpreted as described in
-   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
-   capitals, as shown here.
-
-3.  IANA Considerations
-
-3.1.  PCAP Registry
+2.1.  PCAP Registry
 
    IANA is requested to create a new registry group entitled "The PCAP
    Registry".
 
-3.2.  LinkType Registry
+2.2.  LinkType Registry
 
    IANA is also requested to create a registry entitled "PCAP-related
-   LinkType List" under The PCAP registry group (Section 3.1).
+   LinkType List" under The PCAP registry group (Section 2.1).
 
    The registry has the following structure:
 
@@ -140,7 +131,7 @@ Table of Contents
 
    *  Values from 32768 to 65000 must be allocated via Specification
       Required (Section 4.6 of [RFC8126]).  Guidance for Designated
-      Experts is provided in Section 3.2.2.
+      Experts is provided in Section 2.2.2.
 
    *  Values from 0 to 32767 are allocated following a First-Come First-
       Served policy (Section 4.4 of [RFC8126]).  Note that this category
@@ -150,7 +141,7 @@ Table of Contents
    *  Values from 65001 to 65535 are reserved for Private Use
       (Section 4.1 of [RFC8126]).
 
-   The initial version of the registry is provided in Section 3.2.1.  In
+   The initial version of the registry is provided in Section 2.2.1.  In
    each case here, the reference should be set to [TCPDUMP] and the RFC
    number to be assigned to this document, which is not repeated each
    time.
@@ -177,7 +168,7 @@ Table of Contents
       operating system specific, and are thus not subject to
       standardization.
 
-3.2.1.  Initial Values
+2.2.1.  Initial Values
 
    This is the initial table for the registry:
 
@@ -1287,7 +1278,7 @@ Table of Contents
       value 0x0000 (reserved address) is used to detect broadcast
       transmissions
 
-3.2.2.  Guidance for Designated Experts
+2.2.2.  Guidance for Designated Experts
 
    When processing a request for a Specification Required allocation the
    Designated Experts are expected to be able to find the relevant
@@ -1315,7 +1306,7 @@ Table of Contents
    might be classified.  The minimal requirement is to provide a contact
    person for that link type.
 
-4.  Security Considerations
+3.  Security Considerations
 
    This document describes the IANA registration rules for the LINKTYPE
    encapsulations.  PCAP-related packet file formats use this value to
@@ -1333,7 +1324,7 @@ Table of Contents
    interpreting the packets need to carefully scrutinize all attempts to
    read data from a capture.
 
-5.  Contributors
+4.  Contributors
 
    PCAP has been developed over three and half decades by a variety of
    developers, including: Bill Fenner, Denis Ovsienko, Francois-Xavier
@@ -1344,31 +1335,22 @@ Table of Contents
    PCAP was originally created at LBL by Steve McCanne, Craig Leres, and
    Van Jacobson.
 
-6.  Acknowledgments
+5.  Acknowledgments
 
    The authors wish to thank: Michael Tuexen, Mohamed Boucadair, Carsten
    Bormann, Henk Birkholtz, and Robert Wilton their invaluable comments
    and encouragement.
 
-7.  References
+6.  References
 
-7.1.  Normative References
-
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/rfc/rfc2119>.
-
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+6.1.  Normative References
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
               <https://www.rfc-editor.org/rfc/rfc8126>.
 
-7.2.  Informative References
+6.2.  Informative References
 
    [TCPDUMP]  "LINK-LAYER HEADER TYPES", n.d.,
               <https://www.tcpdump.org/linktypes.html>.
