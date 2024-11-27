@@ -68,7 +68,7 @@ A capture file begins with a File Header, followed by zero or more
 Packet Records, one per packet.
 
 All fields in the File Header and in the headers of Packet Records will
-always be written according to the characteristics (little endian / big
+always be written according to the characteristics (little-endian / big-
 endian) of the machine that is writing the file.  This refers to all the
 fields that are written as numbers and that span over two or more
 octets.
@@ -85,12 +85,12 @@ The File Header has the following format, with the octet offset of
 fields shown to the left of the field:
 
 ~~~~
+                           1                   2                   3
+       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     0 |                          Magic Number                         |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    4 |          Major Version        |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    6 |          Minor Version        |
+    4 |         Major Version         |         Minor Version         |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     8 |                           Reserved1                           |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -119,7 +119,8 @@ machines, and to heuristically identify pcap files.
 
 Major Version (16 bits):
 : an unsigned value, giving the number of the current major version of
-the format.  The value for the current version of the format is 2.  This
+the format.  The value for the current version of the format is 2
+(big-endian 0x00 0x02 or little-endian 0x02 0x00).  This
 value should change if the format changes in such a way that code that
 reads the new format could not read the old format (i.e., code to read
 both formats would have to check the version number and use different
@@ -128,7 +129,8 @@ not read the new format.
 
 Minor Version (16 bits):
 : an unsigned value, giving the number of the current minor version of
-the format.  The value for the current version of the format is 4.
+the format.  The value for the current version of the format is 4
+(big-endian 0x00 0x04 or little-endian 0x04 0x00).
 This value should change if the format changes in such a way that code
 that reads the new format could read the old format without checking the
 version number but code that reads the old format could not read all
