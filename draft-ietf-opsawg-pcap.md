@@ -128,7 +128,7 @@ not read the new format.
 
 Minor Version (16 bits):
 : an unsigned value, giving the number of the current minor version of
-the format.  The value is for the current version of the format is 4.
+the format.  The value for the current version of the format is 4.
 This value should change if the format changes in such a way that code
 that reads the new format could read the old format without checking the
 version number but code that reads the old format could not read all
