@@ -55,8 +55,19 @@ The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
 later put into a library named libpcap.
 
-This document describes the format used by tcpdump, and other
+This document describes the historical format used by tcpdump, and other
 programs using libpcap, to read and write network traces.
+This document describes version 2 of the pcap format.
+
+This document is published as historical, as there has existed for some time, an updated format originally called "pcapng", that replaces this file format.  See {{?I-D.ietf-opsawg-pcapng}}
+No new extensions for this format are expected, although new LINKLAYER types that are registed using {{!I-D.ietf.opsawg-pcaplinktype}} can be included in pcap files.
+
+A major limitation of the pcap v2 format described here is that files consist of a header which is different than the other blocks in the file.
+This prevents pcap v2 files from being simply concatenated for processing.
+It is also difficult to break pcap v2 files apart, as a new header always needs to be placed at the beginning of any new file.  The pcapng format does not suffer from these problems.
+
+More significantly, pcap v2 files can only contain packets in a single LINKTYPE format, and this often means that packets are often from a single network interface as not all LINKTYPEs include a way to indicate which interface a packet is from.
+
 
 # Terminology
 
