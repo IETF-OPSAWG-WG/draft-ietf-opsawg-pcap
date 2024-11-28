@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-26T01:42:16.797009+00:00",
+  "timestamp": "2024-11-28T01:43:25.051690+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2762,6 +2762,44 @@
           "body": "> The ranges for the first two put SHB and 0x40000BAD in reserved sections.\r\n\r\nThey were not *intended* to be ranges, they were intended to be sets of 256 values in which the uppermost 8 bits had values from 0x00 to 0xFF and the other bytes had specific values, but the use of a hyphen made inferring that they represented a range a reasonable thing to do.\r\n\r\nIn e1099094acb43ad7fe6e19290772cbb79dca6b5c I changed all of the non-range \"ranges\" of that sort (including the one that happens to be a range because the non-fixed bits are the lower 8 bits) to be single items with \"?? in place of the 8 bits that can have a value from 0x00 to 0xFF.",
           "createdAt": "2024-11-24T11:16:59Z",
           "updatedAt": "2024-11-24T11:16:59Z"
+        }
+      ]
+    },
+    {
+      "number": 168,
+      "id": "I_kwDOAU54e86gkKgY",
+      "title": "About File Header figure in draft-ietf-opsawg-pcap.md",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/168",
+      "state": "CLOSED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "```\r\nIn draft-ietf-opsawg-pcapng.md, we have:\r\n\r\n                        1                   2                   3\r\n    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1\r\n   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n 0 |                   Block Type = 0x0A0D0D0A                     |\r\n   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n 4 |                      Block Total Length                       |\r\n   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n 8 |                      Byte-Order Magic                         |\r\n   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n12 |          Major Version        |         Minor Version         |\r\n   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n\r\nMajor Version (16 bits)\r\nMinor Version (16 bits)\r\n\r\nIn draft-ietf-opsawg-pcap.md, we have:\r\n\r\n      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n    0 |                          Magic Number                         |\r\n      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n    4 |          Major Version        |\r\n      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n    6 |          Minor Version        |\r\n      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n\r\nMajor Version (16 bits)\r\nMinor Version (16 bits)\r\n\r\nThe reason for this difference is not clear to me. To have a better\r\ncoherence shouldn't we have:\r\n\r\n                           1                   2                   3\r\n       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1\r\n      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n    0 |                          Magic Number                         |\r\n      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n    4 |          Major Version        |         Minor Version         |\r\n      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\r\n\r\nThis also indicates the positions of the two fields Major Version and\r\nMinor Version, two bytes after the Magic Number field and two bytes after\r\nthe previous.\r\n\r\n\r\n\r\n```",
+      "createdAt": "2024-11-26T09:14:38Z",
+      "updatedAt": "2024-11-27T22:12:33Z",
+      "closedAt": "2024-11-27T22:09:43Z",
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "My concern here is that some people *might* read that as a 32-bit value that gets byte-swapped and then has the upper 16 bits contain the major version and the lower 16 bits contain the minor version; if so, the pcapng spec should also be changed in some places.\r\n\r\n#106 was a case that's somewhat similar; *however*, that was a case where the field *is* a 32-bit ward that gets byte-swapped and then has subfields extracted from it, so that might not apply to the version fields, which are two separate 16-bit fields.\r\n\r\nFor protocols, I guess this isn't an issue, as many packet block diagrams in RFCs show a sequence of carved-up 32-bit words.  The one difference is that the byte order of pcap files isn't known, but that might not be an issue.",
+          "createdAt": "2024-11-27T09:27:58Z",
+          "updatedAt": "2024-11-27T09:27:58Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "It seems to be well explained by:\r\n```\r\n\"All fields in the File Header and in the headers of Packet Records will\r\nalways be written according to the characteristics (little endian / big\r\nendian) of the machine that is writing the file.  This refers to all the\r\nfields that are written as numbers and that span over two or more\r\noctets.\"\r\n```\r\nPerhaps update Major Version / Minor Version descriptions via:\r\n`The value for the current version of the format is 2\r\n(big-endian 0x00 0x02 or little-endian 0x02 0x00).`\r\n`The value for the current version of the format is 4\r\n(big-endian 0x00 0x04 or little-endian 0x04 0x00).`\r\n",
+          "createdAt": "2024-11-27T12:39:54Z",
+          "updatedAt": "2024-11-27T21:56:03Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Done by PR #170 170 (4a0a959bd05ba9caffce91d051bc4a261567ddc0).",
+          "createdAt": "2024-11-27T22:12:32Z",
+          "updatedAt": "2024-11-27T22:12:32Z"
         }
       ]
     }
@@ -8984,20 +9022,190 @@
       "id": "PR_kwDOAU54e86DAbyF",
       "title": "review of -08",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/167",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "boucadair",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "* avoid referring to PCAPNG, in case the WG decides to change the name\r\n* expand acronyms\r\n* remove some statements in the guidance that I think aren't helpful.\r\n* nits",
       "createdAt": "2024-11-25T09:38:38Z",
-      "updatedAt": "2024-11-25T09:38:38Z",
+      "updatedAt": "2024-11-27T08:40:35Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "7cfe1395d73976e423bfcdb8834af0c4e0c94ce8",
       "headRepository": "boucadair/draft-ietf-opsawg-pcap",
       "headRefName": "patch-3",
       "headRefOid": "74edf19cebad34deb37a5394f845f80622f77f49",
+      "closedAt": "2024-11-26T16:41:26Z",
+      "mergedAt": "2024-11-26T16:41:25Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "4b7dd7f5f7f7dbc99cac579a9632e48f8fc5b704"
+      },
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This uses both \"pcap-related\" and \"PCAP-related\"; which one should be used?",
+          "createdAt": "2024-11-26T19:06:36Z",
+          "updatedAt": "2024-11-26T19:06:36Z"
+        },
+        {
+          "author": "boucadair",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@guyharris, \"PCAP-related\" would be my favorite. Please note that you still have some few \"pcap\" and \"pcapng\" in at least one description. You may change these as well for consistency. Thanks. ",
+          "createdAt": "2024-11-27T07:16:30Z",
+          "updatedAt": "2024-11-27T07:16:30Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @guyharris, \"PCAP-related\" would be my favorite.\r\n\r\nDone in ce58d5d577ed7f4db0877e37bf0e7710fad834e5.\r\n\r\nI also renamed the proposed registry from \"PCAP LinkType List\" to \"PCAP-related LinkType List\".  Should the proposed registry group also be renamed from \"The PCAP Registry\" to \"The PCAP-related Registry\"? It might also end up having a registry for PCAPNG, or whatever PCAPbis is called, block and option types as well at some point.\r\n\r\n> Please note that you still have some few \"pcap\" and \"pcapng\" in at least one description.\r\n\r\nDone in 9982337643702afe4e4aeecac66b115c45f4d530.",
+          "createdAt": "2024-11-27T07:58:42Z",
+          "updatedAt": "2024-11-27T07:58:42Z"
+        },
+        {
+          "author": "boucadair",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Maybe rename \"The PCAP-related Registry\" as registry group and simply \"PCAP\" as subregistry? Future PCAP versions specs will say whether they leverage the existing \"PCAP\" subregistry or create a new one with their favorite PCAP brand :-)",
+          "createdAt": "2024-11-27T08:40:34Z",
+          "updatedAt": "2024-11-27T08:40:34Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 169,
+      "id": "PR_kwDOAU54e86DTb3m",
+      "title": "no boilterplate",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/169",
+      "state": "MERGED",
+      "author": "boucadair",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "as the doc does not seem to use any normative language.",
+      "createdAt": "2024-11-27T08:41:42Z",
+      "updatedAt": "2024-11-27T09:00:16Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "9982337643702afe4e4aeecac66b115c45f4d530",
+      "headRepository": "boucadair/draft-ietf-opsawg-pcap",
+      "headRefName": "patch-4",
+      "headRefOid": "2a5deb50273054d56216a99a9d048ff0f0295732",
+      "closedAt": "2024-11-27T09:00:16Z",
+      "mergedAt": "2024-11-27T09:00:16Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "e7c5e3a2fa266651233031a65a3f9b9c26b8cd30"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 170,
+      "id": "PR_kwDOAU54e86DTdOh",
+      "title": "pcap: Update the 'File Header' diagram about Major/Minor Versions",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/170",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Use the same format as in the 'Section Header Block Format' pcapng diagram.\r\n\r\nThis also indicates the positions of the two fields Major Version and Minor Version, two bytes after the Magic Number field and two bytes after the previous.\r\n\r\nMoreover:\r\nAdd the hexa 16-bit values for both endian orders:\r\n  \"(big-endian 0x00 0x02 or little-endian 0x02 0x00)\" for Major Version.\r\n  \"(big-endian 0x00 0x04 or little-endian 0x04 0x00)\" for Minor Version.\r\n    \r\ns/little endian/little-endian/\r\ns/big endian/big-endian/\r\n",
+      "createdAt": "2024-11-27T08:45:02Z",
+      "updatedAt": "2024-11-27T22:09:19Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "42bd2de2e37c6db36bfff2ef80ea232fc06fca90",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "major_minor",
+      "headRefOid": "9b8be7a81469fa4c47403ee0947a9a8fc5be9373",
+      "closedAt": "2024-11-27T22:04:55Z",
+      "mergedAt": "2024-11-27T22:04:55Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "4a0a959bd05ba9caffce91d051bc4a261567ddc0"
+      },
+      "comments": [
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "See issue #168.",
+          "createdAt": "2024-11-27T08:46:00Z",
+          "updatedAt": "2024-11-27T08:46:00Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "2 is 0x0002, no matter the byte order; what differs between the byte orders is how that value is encoded as a sequence of bytes, e.g. 0x00 0x02 for big-endian and 0x02 0x00 for little-endian, so perhaps that's how it should be written in the added text.",
+          "createdAt": "2024-11-27T21:36:39Z",
+          "updatedAt": "2024-11-27T21:36:39Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Yes sure. I will do it.",
+          "createdAt": "2024-11-27T21:48:28Z",
+          "updatedAt": "2024-11-27T21:48:28Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Thank you!",
+          "createdAt": "2024-11-27T22:09:11Z",
+          "updatedAt": "2024-11-27T22:09:11Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 171,
+      "id": "PR_kwDOAU54e86DVTTJ",
+      "title": "pcap: Fix a typo",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/171",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-11-27T12:40:43Z",
+      "updatedAt": "2024-11-27T17:39:06Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "e7c5e3a2fa266651233031a65a3f9b9c26b8cd30",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "typo",
+      "headRefOid": "63d224d11290bfa6e86ad780286ee7ce313bb0c1",
+      "closedAt": "2024-11-27T17:39:06Z",
+      "mergedAt": "2024-11-27T17:39:06Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "42bd2de2e37c6db36bfff2ef80ea232fc06fca90"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 172,
+      "id": "PR_kwDOAU54e86DZILD",
+      "title": "pcapng: Add the hexa values for both endian orders for Major Version",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/172",
+      "state": "OPEN",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Moreover:\r\ns/little endian/little-endian/\r\ns/big endian/big-endian/",
+      "createdAt": "2024-11-27T22:33:00Z",
+      "updatedAt": "2024-11-27T22:33:00Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "4a0a959bd05ba9caffce91d051bc4a261567ddc0",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "Major",
+      "headRefOid": "b716f4de01fd013ffd1fd285ac1fbe9dd2d6a92f",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
