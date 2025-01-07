@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-05T01:43:05.647290+00:00",
+  "timestamp": "2025-01-07T01:37:45.288549+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2408,15 +2408,15 @@
       "id": "I_kwDOAU54e856lFpQ",
       "title": "Any reason to use octet and byte? consistency?",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/149",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "fxlb",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "$ git grep -c octet '*.md'                                                      \r\ndraft-ietf-opsawg-pcap.md:13\r\ndraft-ietf-opsawg-pcaplinktype.md:4\r\ndraft-ietf-opsawg-pcapng.md:70\r\ndraft-richardson-opsawg-pcapng-extras.md:5\r\n\r\n$ git grep -c byte '*.md'                                      \r\ndraft-ietf-opsawg-pcap.md:2\r\ndraft-ietf-opsawg-pcaplinktype.md:11\r\ndraft-ietf-opsawg-pcapng.md:9\r\n",
       "createdAt": "2023-12-26T16:23:22Z",
-      "updatedAt": "2023-12-26T18:13:43Z",
-      "closedAt": null,
+      "updatedAt": "2025-01-06T11:26:47Z",
+      "closedAt": "2025-01-06T10:04:39Z",
       "comments": [
         {
           "author": "guyharris",
@@ -2452,6 +2452,13 @@
           "body": "> In RFCs there are 1597 byte order and 32 octet order. Less use indeed but not unused. Thus why not change to octet order?\r\n\r\nAnd then there's https://developers.google.com/nearby/fast-pair/specifications/introduction#OctetOrder, which says\r\n\r\n> Octet order\r\n> \r\n> Wherever a field consists of multiple bytes, the byte ordering is big-endian, that is, network byte order (most-significant octet to least-significant octet).\r\n> \r\n> Note that while this is standard for bytes transferred over networks, it is different from the byte ordering for multi-byte fields in Bluetooth SIG specifications (for example, a service UUID in an advertisement is little-endian).\r\n\r\nso Google can't make up their mind. :-)",
           "createdAt": "2023-12-26T18:13:42Z",
           "updatedAt": "2023-12-26T18:13:42Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Agreed, thus done.",
+          "createdAt": "2025-01-06T10:04:39Z",
+          "updatedAt": "2025-01-06T11:26:47Z"
         }
       ]
     },
@@ -2802,6 +2809,22 @@
           "updatedAt": "2024-11-27T22:12:32Z"
         }
       ]
+    },
+    {
+      "number": 173,
+      "id": "I_kwDOAU54e86lHYVb",
+      "title": "Consistency with integer/value ...",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/173",
+      "state": "OPEN",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We should do some changes for consistency:\r\n```\r\ngit grep 'integer value' *.md | wc -l\r\n6\r\ngit grep 'unsigned value' *.md | wc -l\r\n30\r\ngit grep 'unsigned integer' *.md | wc -l\r\n16\r\ngit grep 'unsigned integer value' *.md | wc -l\r\n2\r\ngit grep '\\<signed value' *.md | wc -l\r\n1\r\ngit grep '\\<signed integer' *.md | wc -l\r\n1\r\ngit grep '\\<signed integer value' *.md | wc -l\r\n1\r\n```",
+      "createdAt": "2025-01-06T08:57:24Z",
+      "updatedAt": "2025-01-06T09:08:49Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
