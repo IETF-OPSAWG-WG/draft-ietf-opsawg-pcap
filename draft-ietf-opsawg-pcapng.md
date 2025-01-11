@@ -188,14 +188,14 @@ is shown in {{formatblock}}.
 
 The fields have the following meaning:
 
-* Block Type (32 bits): a unique unsigned value that
+* Block Type (32 bits): a unique unsigned integer that
   identifies the block. Values whose Most Significant Bit
   (MSB) is equal to 1 are reserved for local use. They can be
   used to make extensions to the file format to save private
   data to the file. The list of currently defined types can
   be found in {{section_block_code_registry}}.
 
-* Block Total Length (32 bits): an unsigned value giving
+* Block Total Length (32 bits): an unsigned integer giving
   the total size of this block, in octets. For instance, the
   length of a block that does not have a body is 12 octets: 4
   octets for the Block Type, 4 octets for the initial Block
@@ -419,7 +419,7 @@ fields remain, and to skip all the optional fields at once.
 Options are a list of Type - Length - Value fields, each one
 containing a single value:
 
-* Option Type (16 bits): an unsigned value that contains
+* Option Type (16 bits): an unsigned integer that contains
   the code that specifies the type of the current TLV record.
   Option types whose Most Significant Bit is equal to one are
   reserved for local use; therefore, there is no guarantee
@@ -429,7 +429,7 @@ containing a single value:
   vendor-specific extensions, the Custom Option MUST be used
   instead, as defined in {{section_custom_option}}).
 
-* Option Length (16 bits): an unsigned value that contains
+* Option Length (16 bits): an unsigned integer that contains
   the actual length of the following 'Option Value' field
   without the padding octets.
 
@@ -743,15 +743,15 @@ The meaning of the fields is:
   big-endian machines, and to heuristically identify pcapng
   files.
 
-* Major Version (16 bits): an unsigned value, giving the
+* Major Version (16 bits): an unsigned integer, giving the
   number of the current major version of the format. The
   value for the current version of the format is 1.
 
-* Minor Version (16 bits): an unsigned value, giving the
+* Minor Version (16 bits): an unsigned integer, giving the
   number of the current minor version of the format. The
   value for the current version of the format is 0.
 
-* Section Length (64 bits): a signed value specifying the
+* Section Length (64 bits): a signed integer specifying the
   length in octets of the following section, excluding the
   Section Header Block itself.  This field can be used to skip
   the section, for faster navigation inside large files. If
@@ -944,7 +944,7 @@ The meaning of the fields is:
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
-* LinkType (16 bits): an unsigned value that defines the
+* LinkType (16 bits): an unsigned integer that defines the
   link layer type of this interface.  The list of Standardized
   Link Layer Type codes is available in {{I-D.richardson-opsawg-pcaplinktype}}.
 
@@ -952,7 +952,7 @@ The meaning of the fields is:
   pcapng file writers, and MUST be ignored by pcapng file
   readers.
 
-* SnapLen (32 bits): an unsigned value indicating the
+* SnapLen (32 bits): an unsigned integer indicating the
   maximum number of octets captured from each packet.  The
   portion of each packet that exceeds this value will not be
   stored in the file. A value of zero indicates no limit.
@@ -1064,7 +1064,7 @@ Example: '02 34 56 FF FE 78 9A BC'.
 {: indent='8'}
 if_speed:
 : The if_speed
-  option is a 64-bit unsigned value indicating the interface
+  option is a 64-bit unsigned integer indicating the interface
   speed, in bits per second.
 {: vspace='0'}
 
@@ -1135,7 +1135,7 @@ Examples: "Windows XP SP2", "openSUSE 10.2".
 {: indent='8'}
 if_fcslen:
 : The if_fcslen
-  option is an 8-bit unsigned integer value that specifies the
+  option is an 8-bit unsigned integer that specifies the
   length of the Frame Check Sequence (in bits) for this interface.
   For link layers whose FCS length can change during time, the
   Enhanced Packet Block epb_flags Option can be used in each
@@ -1148,7 +1148,7 @@ Example: '4'.
 {: indent='8'}
 if_tsoffset:
 : The
-  if_tsoffset option is a 64-bit signed integer value that
+  if_tsoffset option is a 64-bit signed integer that
   specifies an offset (in seconds) that must be added to the
   timestamp of each packet to obtain the absolute timestamp of
   a packet. If the option is not present, an offset of 0 is assumed
@@ -1177,7 +1177,7 @@ Micro Adapter".
 {: indent='8'}
 if_txspeed:
 : The
-  if_txspeed option is a 64-bit unsigned value
+  if_txspeed option is a 64-bit unsigned integer
   indicating the interface transmit speed in bits per
   second.
 {: vspace='0'}
@@ -1189,7 +1189,7 @@ Example: the 64-bit decimal number 1024000 for
 {: indent='8'}
 if_rxspeed:
 : The
-  if_rxspeed option is a 64-bit unsigned value
+  if_rxspeed option is a 64-bit unsigned integer
   indicating the interface receive speed, in bits per
   second.
 {: vspace='0'}
@@ -1279,7 +1279,7 @@ The Enhanced Packet Block has the following fields:
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
-* Interface ID (32 bits): an unsigned value that specifies the
+* Interface ID (32 bits): an unsigned integer that specifies the
   interface on which this packet was received or transmitted;
   the correct interface will be the one whose Interface
   Description Block (within the current Section of the file) is
@@ -1287,7 +1287,7 @@ The Enhanced Packet Block has the following fields:
   of this field. The interface ID MUST be valid, which means that an
   matching interface description block MUST exist.
 
-* Timestamp (64 bits): two 32-bit unsigned values, representing a single
+* Timestamp (64 bits): two 32-bit unsigned integers, representing a single
   64-bit unsigned integer, with the first value being the upper 32 bits
   of that integer and the second value being the lower 32 bits of that
   integer.  The 64-bit unsigned integer is a count of units of time.
@@ -1307,7 +1307,7 @@ The Enhanced Packet Block has the following fields:
   Packet Blocks are saved as two 32-bit words that represent
   the upper and lower 32 bits of a single 64-bit quantity.
 
-* Captured Packet Length (32 bits): an unsigned value that
+* Captured Packet Length (32 bits): an unsigned integer that
   indicates the number of octets captured from the packet
   (i.e., the length of the Packet Data field). It will be the
   minimum value among the Original Packet Length and the
@@ -1316,7 +1316,7 @@ The Enhanced Packet Block has the following fields:
   octets added at the end of the Packet Data field to align the Packet
   Data field to a 32-bit boundary.
 
-* Original Packet Length (32 bits): an unsigned value that indicates the
+* Original Packet Length (32 bits): an unsigned integer that indicates the
   number of octets of packet data that would have been provided had the
   packet not been truncated to the snapshot length for the interface or
   to a length limit imposed by the capture mechanism.  If no truncation
@@ -1398,7 +1398,7 @@ Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D
 {: indent='8'}
 epb_dropcount:
 : The
-  epb_dropcount option is a 64-bit unsigned integer value
+  epb_dropcount option is a 64-bit unsigned integer
   specifying the number of packets lost (by the interface and
   the operating system) between this packet and the preceding
   one for the same interface or, for the first packet for an
@@ -1558,7 +1558,7 @@ The Simple Packet Block has the following fields:
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
-* Original Packet Length (32 bits): an unsigned value
+* Original Packet Length (32 bits): an unsigned integer
   indicating the actual length of the packet when it was
   transmitted on the network. It can be different from length
   of the Packet Data field's length if the packet has been
@@ -1841,7 +1841,7 @@ The fields have the following meaning:
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
-* Interface ID (32 bits): an unsigned value that specifies the
+* Interface ID (32 bits): an unsigned integer that specifies the
   interface to which these statistics refer; the correct interface
   will be the one whose Interface Description Block (within the current
   Section of the file) is identified by the same number (see {{section_idb}})
@@ -1849,7 +1849,7 @@ The fields have the following meaning:
   matching interface description block MUST exist.
 
 * Timestamp (64 bits): the time at which the statistics values were
-  taken; two 32-bit unsigned values, in the same format as defined
+  taken; two 32-bit unsigned integers, in the same format as defined
   for timestamps in the Enhanced Packet Block ({{section_epb}}),
   using the 'if_tsresol' and 'if_tsoffset' values from the Interface
   Description Block specified by the Interface ID.
@@ -2602,7 +2602,7 @@ The Packet Block has the following fields:
   is reserved for those systems in which this information is not
   available.
 
-* Timestamp (64 bits): two 32-bit unsigned values, in the same format
+* Timestamp (64 bits): two 32-bit unsigned integers, in the same format
   as defined for timestamps in the Enhanced Packet Block ({{section_epb}}),
   using the 'if_tsresol' and 'if_tsoffset' values from the Interface
   Description Block specified by the Interface ID.

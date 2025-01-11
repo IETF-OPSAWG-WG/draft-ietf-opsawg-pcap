@@ -118,7 +118,7 @@ written on little-endian machines from the ones written on big-endian
 machines, and to heuristically identify pcap files.
 
 Major Version (16 bits):
-: an unsigned value, giving the number of the current major version of
+: an unsigned integer, giving the number of the current major version of
 the format.  The value for the current version of the format is 2
 (big-endian 0x00 0x02 or little-endian 0x02 0x00).  This
 value should change if the format changes in such a way that code that
@@ -128,7 +128,7 @@ code paths for the two formats) and code that reads the old format could
 not read the new format.
 
 Minor Version (16 bits):
-: an unsigned value, giving the number of the current minor version of
+: an unsigned integer, giving the number of the current minor version of
 the format.  The value for the current version of the format is 4
 (big-endian 0x00 0x04 or little-endian 0x04 0x00).
 This value should change if the format changes in such a way that code
@@ -149,14 +149,14 @@ implementations as "accuracy of timestamps".  Some older pcap file
 writers stored non-zero values in this field.
 
 SnapLen (32 bits):
-: an unsigned value indicating the maximum number of octets captured
+: an unsigned integer indicating the maximum number of octets captured
 from each packet.  The portion of each packet that exceeds this value
 will not be stored in the file.  This value MUST NOT be zero; if no
 limit was specified, the value SHOULD be a number greater than or equal
 to the largest packet length in the file.
 
 LinkType and additional information (32 bits):
-: a 32-bit unsigned value that contains the link-layer type of packets
+: a 32-bit unsigned integer that contains the link-layer type of packets
 in the file and may contain additional information.
 
 The LinkType and additional information field is in the form
@@ -194,7 +194,7 @@ interpreted by pcap readers; a reader SHOULD treat a non-zero value as
 an error.
 
 FCS len (4 bits):
-: a 4-bit unsigned value indicating the number of 16-bit (2-octet) words
+: a 4-bit unsigned integer indicating the number of 16-bit (2-octet) words
 of FCS that are appended to each packet, if the P bit is set; if the P
 bit is not set, and the FCS length is not indicated by the link-layer
 type value, the FCS length is unknown.  The valid values of the FCS len
@@ -232,7 +232,7 @@ Timestamp (Seconds) and Timestamp (Microseconds or nanoseconds):
 : seconds and fraction of a seconds values of a timestamp.
 : The seconds value is a 32-bit unsigned integer that represents the
 number of seconds that have elapsed since 1970-01-01 00:00:00 UTC, and
-the microseconds or nanoseconds value is a 32-bit unsigned value that
+the microseconds or nanoseconds value is a 32-bit unsigned integer that
 represents the number of microseconds or nanoseconds that have elapsed
 since that seconds.
 : The Magic Number field in the File Header of a file indicates
@@ -240,13 +240,13 @@ whether the values of the Timestamp (Microseconds or nanoseconds) fields
 of packets in that file are in units of microseconds or nanoseconds.
 
 Captured Packet Length (32 bits):
-: an unsigned value that indicates the number of octets captured from
+: an unsigned integer that indicates the number of octets captured from
 the packet (i.e., the length of the Packet Data field).  It will be the
 minimum value among the Original Packet Length and the snapshot length
 for the interface (SnapLen, defined in Figure 1).
 
 Original Packet Length (32 bits):
-: an unsigned value that indicates the number of octets of packet data
+: an unsigned integer that indicates the number of octets of packet data
 that would have been provided had the packet not been truncated to the
 snapshot length for the interface or to a length limit imposed by the
 capture mechanism. If no truncation was done, it will be the same as
