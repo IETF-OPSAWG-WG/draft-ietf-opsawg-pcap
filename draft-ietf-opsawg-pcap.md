@@ -175,7 +175,7 @@ or writing the file, with bit 0 being the most-significant bit of the
 field and bit 31 being the least-significant bit of the field.
 
 Link-layer type (16 bits):
-: a 16-bit value indicating link-layer type for packets in the file;
+: a 16-bit unsigned integer indicating link-layer type for packets in the file;
 it is a value as defined in the PCAP LinkType list registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 Reserved3 (10 bits):
