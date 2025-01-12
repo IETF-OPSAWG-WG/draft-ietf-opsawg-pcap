@@ -515,11 +515,11 @@ IANA is also requested to create a registry entitled "PCAP-related LinkType List
 The registry has the following structure:
 
 * LINKTYPE Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).
-* LINKTYPE Value: Indicates the integer value assigned for this LinkType.
+* LINKTYPE Value: Indicates the 16-bit unsigned integer assigned for this LinkType.
 * Description: Provides a very short description.
 * Reference: Indicates an authoritative document reference for the LinkType or a requester reference.
 
-The LinkType value is a 16-bit number. The policy allocation for the LinkType values is as follows:
+The policy allocation for the LinkType values is as follows:
 
 * Values from 32768 to 65000 must be allocated via Specification Required ({{Section 4.6 of !RFC8126}}). Guidance for Designated Experts is provided in {{sec-de}}.
 
