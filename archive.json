@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-09T02:04:28.487869+00:00",
+  "timestamp": "2025-01-12T01:44:46.441990+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2822,9 +2822,45 @@
       "labels": [],
       "body": "We should do some changes for consistency:\r\n```\r\ngit grep 'integer value' *.md | wc -l\r\n6\r\ngit grep 'unsigned value' *.md | wc -l\r\n30\r\ngit grep 'unsigned integer' *.md | wc -l\r\n16\r\ngit grep 'unsigned integer value' *.md | wc -l\r\n2\r\ngit grep '\\<signed value' *.md | wc -l\r\n1\r\ngit grep '\\<signed integer' *.md | wc -l\r\n1\r\ngit grep '\\<signed integer value' *.md | wc -l\r\n1\r\n```",
       "createdAt": "2025-01-06T08:57:24Z",
-      "updatedAt": "2025-01-06T09:08:49Z",
+      "updatedAt": "2025-01-11T21:39:13Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Proposal:\r\n```\r\ns/unsigned value/unsigned integer/g\r\ns/signed value/signed integer/g\r\ns/unsigned integer value/unsigned integer/g\r\ns/signed integer value/signed integer/g\r\n```",
+          "createdAt": "2025-01-11T12:20:53Z",
+          "updatedAt": "2025-01-11T12:20:53Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "+1\r\n\r\nand, as per #174, `s/value/{appropriate signedness qualifier} integer/`.",
+          "createdAt": "2025-01-11T18:26:47Z",
+          "updatedAt": "2025-01-11T18:26:47Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> +1\r\n\r\nIs #175.\r\n\r\n> and, as per #174, `s/value/{appropriate signedness qualifier} integer/`.\r\n\r\nWill be another PR.",
+          "createdAt": "2025-01-11T18:51:53Z",
+          "updatedAt": "2025-01-11T20:27:28Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "And also:\r\n```\r\ngit grep 'integer value' '*.md'\r\ndraft-ietf-opsawg-pcaplinktype.md:518:* LINKTYPE Value: Indicates the integer value assigned for this LinkType.\r\ndraft-ietf-opsawg-pcapng.md:1233:* it stores the Interface Identifier as a 32-bit integer value.\r\ndraft-ietf-opsawg-pcapng.md:2465:Every Block is uniquely identified by a 32-bit integer value, stored\r\n```",
+          "createdAt": "2025-01-11T18:54:30Z",
+          "updatedAt": "2025-01-11T18:54:30Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "`draft-ietf-opsawg-pcapng.md:1233 * it stores the Interface Identifier as a 32-bit integer value.`\r\nUnsigned?\r\nYes (line 1282: * Interface ID (32 bits): an unsigned integer)\r\n\r\n`draft-ietf-opsawg-pcapng.md:2465 Every Block is uniquely identified by a 32-bit integer value, stored`\r\nUnsigned?",
+          "createdAt": "2025-01-11T19:20:16Z",
+          "updatedAt": "2025-01-11T21:39:13Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -9229,6 +9265,60 @@
       "headRepository": "fxlb/pcapng",
       "headRefName": "Major",
       "headRefOid": "b716f4de01fd013ffd1fd285ac1fbe9dd2d6a92f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 174,
+      "id": "PR_kwDOAU54e86HbbtM",
+      "title": "pcap: State that the link-layer type is an unsigned integer",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/174",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "It is a 16-bit unsigned integer.\r\nSource: draft-ietf-opsawg-pcaplinktype.md states that it can have values from 32768 to 65000 and from 65001 to 65535.",
+      "createdAt": "2025-01-11T15:33:28Z",
+      "updatedAt": "2025-01-11T18:24:42Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "4a0a959bd05ba9caffce91d051bc4a261567ddc0",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "linktype",
+      "headRefOid": "b9e1ce0fa85c0136a3dac81a9b9e3f62c7b8e932",
+      "closedAt": "2025-01-11T18:23:34Z",
+      "mergedAt": "2025-01-11T18:23:34Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "8f3201400028410e19da4f3956a0881d3c1c5dce"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 175,
+      "id": "PR_kwDOAU54e86Hbxoe",
+      "title": "Standardize terminology for clarity and consistency (value -> integer)",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/175",
+      "state": "OPEN",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "s/unsigned value/unsigned integer/g\r\ns/signed value/signed integer/g\r\ns/unsigned integer value/unsigned integer/g\r\ns/signed integer value/signed integer/g",
+      "createdAt": "2025-01-11T18:51:05Z",
+      "updatedAt": "2025-01-11T18:51:05Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "8f3201400028410e19da4f3956a0881d3c1c5dce",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "value_integer",
+      "headRefOid": "740b40988c54610a916b769ea05720d21ebb1d4b",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
