@@ -156,7 +156,7 @@ limit was specified, the value SHOULD be a number greater than or equal
 to the largest packet length in the file.
 
 LinkType and additional information (32 bits):
-: a 32-bit unsigned integer that contains the link-layer type of packets
+: an unsigned integer that contains the link-layer type of packets
 in the file and may contain additional information.
 
 The LinkType and additional information field is in the form
@@ -175,7 +175,7 @@ or writing the file, with bit 0 being the most-significant bit of the
 field and bit 31 being the least-significant bit of the field.
 
 Link-layer type (16 bits):
-: a 16-bit unsigned integer indicating link-layer type for packets in the file;
+: an unsigned integer indicating link-layer type for packets in the file;
 it is a value as defined in the PCAP LinkType list registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 Reserved3 (10 bits):
@@ -194,7 +194,7 @@ interpreted by pcap readers; a reader SHOULD treat a non-zero value as
 an error.
 
 FCS len (4 bits):
-: a 4-bit unsigned integer indicating the number of 16-bit (2-octet) words
+: an unsigned integer indicating the number of 16-bit (2-octet) words
 of FCS that are appended to each packet, if the P bit is set; if the P
 bit is not set, and the FCS length is not indicated by the link-layer
 type value, the FCS length is unknown.  The valid values of the FCS len
