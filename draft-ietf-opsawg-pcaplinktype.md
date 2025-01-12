@@ -592,7 +592,7 @@ Joerg Mayer,
 Michal Sekletar,
 Stephen Donnelly,
 Torsten Landschoff,
-and Jun-ichiro itojun Hagino
+and Jun-ichiro itojun Hagino.
 
 PCAP was originally created at LBL by Steve McCanne, Craig Leres, and Van Jacobson.
 
