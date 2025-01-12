@@ -1363,7 +1363,7 @@ to the largest packet length in the file.<a href="#section-4-5.16.1" class="pilc
         <dd class="break"></dd>
 <dt id="section-4-5.17">LinkType and additional information (32 bits):</dt>
         <dd style="margin-left: 1.5em" id="section-4-5.18">
-          <p id="section-4-5.18.1">a 32-bit unsigned integer that contains the link-layer type of packets
+          <p id="section-4-5.18.1">an unsigned integer that contains the link-layer type of packets
 in the file and may contain additional information.<a href="#section-4-5.18.1" class="pilcrow">¶</a></p>
 </dd>
       <dd class="break"></dd>
@@ -1390,7 +1390,7 @@ field and bit 31 being the least-significant bit of the field.<a href="#section-
 <span class="break"></span><dl class="dlParallel" id="section-4-9">
         <dt id="section-4-9.1">Link-layer type (16 bits):</dt>
         <dd style="margin-left: 1.5em" id="section-4-9.2">
-          <p id="section-4-9.2.1">a 16-bit unsigned integer indicating link-layer type for packets in the file;
+          <p id="section-4-9.2.1">an unsigned integer indicating link-layer type for packets in the file;
 it is a value as defined in the PCAP LinkType list registry, as defined in <span>[<a href="#I-D.ietf-opsawg-pcaplinktype" class="cite xref">I-D.ietf-opsawg-pcaplinktype</a>]</span>.<a href="#section-4-9.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
@@ -1417,7 +1417,7 @@ an error.<a href="#section-4-9.8.1" class="pilcrow">¶</a></p>
         <dd class="break"></dd>
 <dt id="section-4-9.9">FCS len (4 bits):</dt>
         <dd style="margin-left: 1.5em" id="section-4-9.10">
-          <p id="section-4-9.10.1">a 4-bit unsigned integer indicating the number of 16-bit (2-octet) words
+          <p id="section-4-9.10.1">an unsigned integer indicating the number of 16-bit (2-octet) words
 of FCS that are appended to each packet, if the P bit is set; if the P
 bit is not set, and the FCS length is not indicated by the link-layer
 type value, the FCS length is unknown.  The valid values of the FCS len
