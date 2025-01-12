@@ -207,7 +207,7 @@ Table of Contents
    *  Block Total Length: total size of this block, as described in
       [I-D.tuexen-opsawg-pcapng], section "Section Blocks".
 
-   *  Compression Type (8 bits): an unsigned value that specifies the
+   *  Compression Type (8 bits): an unsigned integer that specifies the
       compression algorithm.  Possible values for this field are 0
       (uncompressed), 1 (Lempel-Ziv), 2 (Gzip), other?? Probably some
       kind of dumb and fast compression algorithm could be effective
@@ -250,7 +250,7 @@ Table of Contents
    *  Block Total Length: total size of this block, as described in
       [I-D.tuexen-opsawg-pcapng], section "Section Blocks".
 
-   *  Encryption Type (8 bits): an unsigned value that specifies the
+   *  Encryption Type (8 bits): an unsigned integer that specifies the
       encryption algorithm.  Possible values for this field are ???
       (TODO) NOTE: this block should probably contain other fields,
       depending on the encryption algorithm.  To be defined precisely.
@@ -298,8 +298,8 @@ Table of Contents
    *  Block Total Length: total size of this block, as described in
       [I-D.tuexen-opsawg-pcapng], section "Section Blocks".
 
-   *  Cell size (16 bits): an unsigned value that indicates the size of
-      the blocks contained in the data field.
+   *  Cell size (16 bits): an unsigned integer that indicates the size
+      of the blocks contained in the data field.
 
    *  Fixed Size Data: data of this block.
 

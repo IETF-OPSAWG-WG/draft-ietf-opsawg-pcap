@@ -1458,7 +1458,7 @@ is shown in <a href="#formatblock" class="auto internal xref">Figure 1</a>.<a hr
 <p id="section-3.1-3">The fields have the following meaning:<a href="#section-3.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1-4.1">
-            <p id="section-3.1-4.1.1">Block Type (32 bits): a unique unsigned value that
+            <p id="section-3.1-4.1.1">Block Type (32 bits): a unique unsigned integer that
 identifies the block. Values whose Most Significant Bit
 (MSB) is equal to 1 are reserved for local use. They can be
 used to make extensions to the file format to save private
@@ -1466,7 +1466,7 @@ data to the file. The list of currently defined types can
 be found in <a href="#section_block_code_registry" class="auto internal xref">Section 10.1</a>.<a href="#section-3.1-4.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.1-4.2">
-            <p id="section-3.1-4.2.1">Block Total Length (32 bits): an unsigned value giving
+            <p id="section-3.1-4.2.1">Block Total Length (32 bits): an unsigned integer giving
 the total size of this block, in octets. For instance, the
 length of a block that does not have a body is 12 octets: 4
 octets for the Block Type, 4 octets for the initial Block
@@ -1734,7 +1734,7 @@ fields remain, and to skip all the optional fields at once.<a href="#section-3.5
 containing a single value:<a href="#section-3.5-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.5-4.1">
-            <p id="section-3.5-4.1.1">Option Type (16 bits): an unsigned value that contains
+            <p id="section-3.5-4.1.1">Option Type (16 bits): an unsigned integer that contains
 the code that specifies the type of the current TLV record.
 Option types whose Most Significant Bit is equal to one are
 reserved for local use; therefore, there is no guarantee
@@ -1745,7 +1745,7 @@ vendor-specific extensions, the Custom Option MUST be used
 instead, as defined in <a href="#section_custom_option" class="auto internal xref">Section 3.5.1</a>).<a href="#section-3.5-4.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.5-4.2">
-            <p id="section-3.5-4.2.1">Option Length (16 bits): an unsigned value that contains
+            <p id="section-3.5-4.2.1">Option Length (16 bits): an unsigned integer that contains
 the actual length of the following 'Option Value' field
 without the padding octets.<a href="#section-3.5-4.2.1" class="pilcrow">¶</a></p>
 </li>
@@ -2134,17 +2134,17 @@ big-endian machines, and to heuristically identify pcapng
 files.<a href="#section-4.1-4.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.1-4.4">
-            <p id="section-4.1-4.4.1">Major Version (16 bits): an unsigned value, giving the
+            <p id="section-4.1-4.4.1">Major Version (16 bits): an unsigned integer, giving the
 number of the current major version of the format. The
 value for the current version of the format is 1.<a href="#section-4.1-4.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.1-4.5">
-            <p id="section-4.1-4.5.1">Minor Version (16 bits): an unsigned value, giving the
+            <p id="section-4.1-4.5.1">Minor Version (16 bits): an unsigned integer, giving the
 number of the current minor version of the format. The
 value for the current version of the format is 0.<a href="#section-4.1-4.5.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.1-4.6">
-            <p id="section-4.1-4.6.1">Section Length (64 bits): a signed value specifying the
+            <p id="section-4.1-4.6.1">Section Length (64 bits): a signed integer specifying the
 length in octets of the following section, excluding the
 Section Header Block itself.  This field can be used to skip
 the section, for faster navigation inside large files. If
@@ -2368,7 +2368,7 @@ is 1.<a href="#section-4.2-8.1.1" class="pilcrow">¶</a></p>
             <p id="section-4.2-8.2.1">Block Total Length: total size of this block, as described in <a href="#section_block" class="auto internal xref">Section 3.1</a>.<a href="#section-4.2-8.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.2-8.3">
-            <p id="section-4.2-8.3.1">LinkType (16 bits): an unsigned value that defines the
+            <p id="section-4.2-8.3.1">LinkType (16 bits): an unsigned integer that defines the
 link layer type of this interface.  The list of Standardized
 Link Layer Type codes is available in <span>[<a href="#I-D.richardson-opsawg-pcaplinktype" class="cite xref">I-D.richardson-opsawg-pcaplinktype</a>]</span>.<a href="#section-4.2-8.3.1" class="pilcrow">¶</a></p>
 </li>
@@ -2378,7 +2378,7 @@ pcapng file writers, and MUST be ignored by pcapng file
 readers.<a href="#section-4.2-8.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.2-8.5">
-            <p id="section-4.2-8.5.1">SnapLen (32 bits): an unsigned value indicating the
+            <p id="section-4.2-8.5.1">SnapLen (32 bits): an unsigned integer indicating the
 maximum number of octets captured from each packet.  The
 portion of each packet that exceeds this value will not be
 stored in the file. A value of zero indicates no limit.<a href="#section-4.2-8.5.1" class="pilcrow">¶</a></p>
@@ -2589,7 +2589,7 @@ available.<a href="#section-4.2-21.2.1" class="pilcrow">¶</a></p>
           <dt id="section-4.2-23.1">if_speed:</dt>
           <dd style="margin-left: 4.0em" id="section-4.2-23.2">
             <p id="section-4.2-23.2.1">The if_speed
-option is a 64-bit unsigned value indicating the interface
+option is a 64-bit unsigned integer indicating the interface
 speed, in bits per second.<a href="#section-4.2-23.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
@@ -2660,7 +2660,7 @@ not zero-terminated.<a href="#section-4.2-31.2.1" class="pilcrow">¶</a></p>
           <dt id="section-4.2-33.1">if_fcslen:</dt>
           <dd style="margin-left: 4.0em" id="section-4.2-33.2">
             <p id="section-4.2-33.2.1">The if_fcslen
-option is an 8-bit unsigned integer value that specifies the
+option is an 8-bit unsigned integer that specifies the
 length of the Frame Check Sequence (in bits) for this interface.
 For link layers whose FCS length can change during time, the
 Enhanced Packet Block epb_flags Option can be used in each
@@ -2673,7 +2673,7 @@ Enhanced Packet Block (see <a href="#section_epb_flags" class="auto internal xre
           <dt id="section-4.2-35.1">if_tsoffset:</dt>
           <dd style="margin-left: 4.0em" id="section-4.2-35.2">
             <p id="section-4.2-35.2.1">The
-if_tsoffset option is a 64-bit signed integer value that
+if_tsoffset option is a 64-bit signed integer that
 specifies an offset (in seconds) that must be added to the
 timestamp of each packet to obtain the absolute timestamp of
 a packet. If the option is not present, an offset of 0 is assumed
@@ -2701,7 +2701,7 @@ Micro Adapter".<a href="#section-4.2-38" class="pilcrow">¶</a></p>
           <dt id="section-4.2-39.1">if_txspeed:</dt>
           <dd style="margin-left: 4.0em" id="section-4.2-39.2">
             <p id="section-4.2-39.2.1">The
-if_txspeed option is a 64-bit unsigned value
+if_txspeed option is a 64-bit unsigned integer
 indicating the interface transmit speed in bits per
 second.<a href="#section-4.2-39.2.1" class="pilcrow">¶</a></p>
 </dd>
@@ -2713,7 +2713,7 @@ second.<a href="#section-4.2-39.2.1" class="pilcrow">¶</a></p>
           <dt id="section-4.2-41.1">if_rxspeed:</dt>
           <dd style="margin-left: 4.0em" id="section-4.2-41.2">
             <p id="section-4.2-41.2.1">The
-if_rxspeed option is a 64-bit unsigned value
+if_rxspeed option is a 64-bit unsigned integer
 indicating the interface receive speed, in bits per
 second.<a href="#section-4.2-41.2.1" class="pilcrow">¶</a></p>
 </dd>
@@ -2814,7 +2814,7 @@ rather in an option of the block itself.<a href="#section-4.3-3.2.1" class="pilc
             <p id="section-4.3-6.2.1">Block Total Length: total size of this block, as described in <a href="#section_block" class="auto internal xref">Section 3.1</a>.<a href="#section-4.3-6.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.3-6.3">
-            <p id="section-4.3-6.3.1">Interface ID (32 bits): an unsigned value that specifies the
+            <p id="section-4.3-6.3.1">Interface ID (32 bits): an unsigned integer that specifies the
 interface on which this packet was received or transmitted;
 the correct interface will be the one whose Interface
 Description Block (within the current Section of the file) is
@@ -2823,7 +2823,7 @@ of this field. The interface ID MUST be valid, which means that an
 matching interface description block MUST exist.<a href="#section-4.3-6.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.3-6.4">
-            <p id="section-4.3-6.4.1">Timestamp (64 bits): two 32-bit unsigned values, representing a single
+            <p id="section-4.3-6.4.1">Timestamp (64 bits): two 32-bit unsigned integers, representing a single
 64-bit unsigned integer, with the first value being the upper 32 bits
 of that integer and the second value being the lower 32 bits of that
 integer.  The 64-bit unsigned integer is a count of units of time.<a href="#section-4.3-6.4.1" class="pilcrow">¶</a></p>
@@ -2844,7 +2844,7 @@ Packet Blocks are saved as two 32-bit words that represent
 the upper and lower 32 bits of a single 64-bit quantity.<a href="#section-4.3-6.4.4" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.3-6.5">
-            <p id="section-4.3-6.5.1">Captured Packet Length (32 bits): an unsigned value that
+            <p id="section-4.3-6.5.1">Captured Packet Length (32 bits): an unsigned integer that
 indicates the number of octets captured from the packet
 (i.e., the length of the Packet Data field). It will be the
 minimum value among the Original Packet Length and the
@@ -2854,7 +2854,7 @@ octets added at the end of the Packet Data field to align the Packet
 Data field to a 32-bit boundary.<a href="#section-4.3-6.5.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.3-6.6">
-            <p id="section-4.3-6.6.1">Original Packet Length (32 bits): an unsigned value that indicates the
+            <p id="section-4.3-6.6.1">Original Packet Length (32 bits): an unsigned integer that indicates the
 number of octets of packet data that would have been provided had the
 packet not been truncated to the snapshot length for the interface or
 to a length limit imposed by the capture mechanism.  If no truncation
@@ -2986,7 +2986,7 @@ the capture library.<a href="#section-4.3-11.2.1" class="pilcrow">¶</a></p>
           <dt id="section-4.3-13.1">epb_dropcount:</dt>
           <dd style="margin-left: 4.0em" id="section-4.3-13.2">
             <p id="section-4.3-13.2.1">The
-epb_dropcount option is a 64-bit unsigned integer value
+epb_dropcount option is a 64-bit unsigned integer
 specifying the number of packets lost (by the interface and
 the operating system) between this packet and the preceding
 one for the same interface or, for the first packet for an
@@ -3186,7 +3186,7 @@ Block.<a href="#section-4.4-4" class="pilcrow">¶</a></p>
             <p id="section-4.4-7.2.1">Block Total Length: total size of this block, as described in <a href="#section_block" class="auto internal xref">Section 3.1</a>.<a href="#section-4.4-7.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.4-7.3">
-            <p id="section-4.4-7.3.1">Original Packet Length (32 bits): an unsigned value
+            <p id="section-4.4-7.3.1">Original Packet Length (32 bits): an unsigned integer
 indicating the actual length of the packet when it was
 transmitted on the network. It can be different from length
 of the Packet Data field's length if the packet has been
@@ -3537,7 +3537,7 @@ same interface.<a href="#section-4.6-1" class="pilcrow">¶</a></p>
             <p id="section-4.6-5.2.1">Block Total Length: total size of this block, as described in <a href="#section_block" class="auto internal xref">Section 3.1</a>.<a href="#section-4.6-5.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.6-5.3">
-            <p id="section-4.6-5.3.1">Interface ID (32 bits): an unsigned value that specifies the
+            <p id="section-4.6-5.3.1">Interface ID (32 bits): an unsigned integer that specifies the
 interface to which these statistics refer; the correct interface
 will be the one whose Interface Description Block (within the current
 Section of the file) is identified by the same number (see <a href="#section_idb" class="auto internal xref">Section 4.2</a>)
@@ -3546,7 +3546,7 @@ matching interface description block MUST exist.<a href="#section-4.6-5.3.1" cla
 </li>
           <li class="normal" id="section-4.6-5.4">
             <p id="section-4.6-5.4.1">Timestamp (64 bits): the time at which the statistics values were
-taken; two 32-bit unsigned values, in the same format as defined
+taken; two 32-bit unsigned integers, in the same format as defined
 for timestamps in the Enhanced Packet Block (<a href="#section_epb" class="auto internal xref">Section 4.3</a>),
 using the 'if_tsresol' and 'if_tsoffset' values from the Interface
 Description Block specified by the Interface ID.<a href="#section-4.6-5.4.1" class="pilcrow">¶</a></p>
@@ -4645,7 +4645,7 @@ is reserved for those systems in which this information is not
 available.<a href="#appendix-A-5.4.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-A-5.5">
-          <p id="appendix-A-5.5.1">Timestamp (64 bits): two 32-bit unsigned values, in the same format
+          <p id="appendix-A-5.5.1">Timestamp (64 bits): two 32-bit unsigned integers, in the same format
 as defined for timestamps in the Enhanced Packet Block (<a href="#section_epb" class="auto internal xref">Section 4.3</a>),
 using the 'if_tsresol' and 'if_tsoffset' values from the Interface
 Description Block specified by the Interface ID.<a href="#appendix-A-5.5.1" class="pilcrow">¶</a></p>
