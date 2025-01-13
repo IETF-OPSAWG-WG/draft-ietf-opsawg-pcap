@@ -2090,7 +2090,7 @@ The following is a list of Secrets Types.
 
   * Token ID: Encoded as decimal value.
 
-  The *value* contains the key data encoded as hexadecimal string with upper
+  The value contains the key data encoded as hexadecimal string with upper
   case letters.  To create a valid keyset, four entries for one combination of
   secure channel ID and token ID are required. These entries include 'iv' and
   'key' for both 'server' and 'client'.
