@@ -1329,7 +1329,7 @@ Table of Contents
    developers, including: Bill Fenner, Denis Ovsienko, Francois-Xavier
    Le Bail, Fulvio Risso, Gerald Combs, Gianluca Varenni, Gisle Vanem,
    Hannes Gredler, Joerg Mayer, Michal Sekletar, Stephen Donnelly,
-   Torsten Landschoff, and Jun-ichiro itojun Hagino
+   Torsten Landschoff, and Jun-ichiro itojun Hagino.
 
    PCAP was originally created at LBL by Steve McCanne, Craig Leres, and
    Van Jacobson.
