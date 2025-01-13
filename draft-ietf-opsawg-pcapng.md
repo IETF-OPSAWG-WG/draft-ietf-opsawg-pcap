@@ -2040,7 +2040,7 @@ The following is a list of Secrets Types.
 0x5353484b:
 : SSH Key Log.
   Every line consists of a cookie, key type, and key separated by one space.
-  The cookie is the hex-encoded (client or server) 16 bytes cookie
+  The cookie is the hex-encoded (client or server) 16 octets cookie
   (32 characters) found in the SSH\_MSG\_KEXINIT sent during
   [algorithm negotiation](https://datatracker.ietf.org/doc/html/rfc4253#section-7.1)
   by the endpoint whose private random is disclosed.
