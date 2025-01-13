@@ -2002,7 +2002,7 @@ Header Block it is within the scope of.<a href="#section-3.5.1-4.3.1" class="pil
 <a href="#section-3.6.1" class="section-number selfRef">3.6.1. </a><a href="#name-endianness" class="section-name selfRef">Endianness</a>
           </h4>
 <p id="section-3.6.1-1">Data contained in each section will always be saved according to
-the characteristics (little endian / big endian) of the capturing
+the characteristics (little-endian / big-endian) of the capturing
 machine. This refers to all the fields that are saved as numbers and
 that span over two or more octets.<a href="#section-3.6.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.6.1-2">The approach of having each section saved in the native format of
@@ -2136,7 +2136,8 @@ files.<a href="#section-4.1-4.3.1" class="pilcrow">¶</a></p>
           <li class="normal" id="section-4.1-4.4">
             <p id="section-4.1-4.4.1">Major Version (16 bits): an unsigned integer, giving the
 number of the current major version of the format. The
-value for the current version of the format is 1.<a href="#section-4.1-4.4.1" class="pilcrow">¶</a></p>
+value for the current version of the format is 1
+(big-endian 0x00 0x01 or little-endian 0x01 0x00).<a href="#section-4.1-4.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.1-4.5">
             <p id="section-4.1-4.5.1">Minor Version (16 bits): an unsigned integer, giving the
@@ -3919,7 +3920,7 @@ and ZigBee PANID for that network. Network Key as described in
 the <a href="https://zigbeealliance.org/">ZigBee Specification</a> 05-3473-21 (R21) section 4.2.2.
 The NWK Key is a 16 octet binary AES-128 key used to secure NWK Level frames
 within a single PAN. The NWK key is immediately followed by the
-2-octet (16-bit) network PANID in little endian format. If and when
+2-octet (16-bit) network PANID in little-endian format. If and when
 the NWK Key changes a new DSB will contain the new NWK Key.<a href="#section-4.7-12.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
@@ -3931,8 +3932,8 @@ the NWK Key changes a new DSB will contain the new NWK Key.<a href="#section-4.7
 Application Support Link Key as described in the <a href="https://zigbeealliance.org/">ZigBee Specification</a> 05-3473-21 (R21) section 4.4. Each 16 octet binary AES-128 key secures
 frames exchanged between a pair of network nodes. The APS Key is
 immediately followed by the 2-octet (16-bit) network PANID in
-little endian format. The PANID is followed by the 2-octet (16-bit)
-short addresses, in little endian format, of the nodes to which
+little-endian format. The PANID is followed by the 2-octet (16-bit)
+short addresses, in little-endian format, of the nodes to which
 the APS Key applies. The numerically lower short address shall come
 first. There is an APS Key DSB for each node pair for which the
 Link Key is known. As new links are formed, new DSBs contain the
