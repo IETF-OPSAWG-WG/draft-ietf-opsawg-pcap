@@ -885,7 +885,7 @@ information describing an interface on which packet data is
 captured.
 
 Tools that write / read the capture file associate an incrementing
-unsigned 32-bit number (starting from '0') to each Interface
+32-bit unsigned integer (starting from '0') to each Interface
 Definition Block, called the Interface ID for the interface in
 question. This number is unique within each Section and
 identifies the interface to which the IDB refers; it is only
@@ -1230,7 +1230,7 @@ format of an Enhanced Packet Block is shown in {{format_epb}}.
 The Enhanced Packet Block is an improvement over the original, now
 obsolete, [Packet Block](#appendix_pb):
 
-* it stores the Interface Identifier as a 32-bit integer value.
+* it stores the Interface Identifier as a 32-bit unsigned integer.
   This is a requirement when a capture stores packets coming from a
   large number of interfaces;
 
@@ -1475,10 +1475,10 @@ thread.
 
 ### Enhanced Packet Block Flags Word {#section_epb_flags}
 
-The Enhanced Packet Block Flags Word is a 32-bit value that
-contains link-layer information about the packet.
+The Enhanced Packet Block Flags Word contains link-layer information about
+the packet.
 
-The word is encoded as an unsigned 32-bit integer, using the
+The word is encoded as a 32-bit unsigned integer, using the
 endianness of the Section Header Block scope it is in. In the
 following table, the bits are numbered with 0 being the
 least-significant bit and 31 being the most-significant bit of
@@ -1879,7 +1879,7 @@ the following options are valid within this block:
 isb_starttime:
 : The isb_starttime
   option specifies the time that traffic capture started on this
-  interface, consisting of two unsigned 32-bit values, in the same
+  interface, consisting of two 32-bit unsigned integers, in the same
   format as defined for timestamps in the Enhanced Packet Block
   ({{section_epb}}), using the 'if_tsresol' and 'if_tsoffset' values
   from the Interface Description Block specified by the Interface ID.
@@ -1893,7 +1893,7 @@ to 2012-06-29 06:17:00.834163 UTC.
 isb_endtime:
 : The isb_endtime
   option specifies the time that traffic capture ended on this
-  interface, consisting of two unsigned 32-bit values, in the same
+  interface, consisting of two 32-bit unsigned integers, in the same
   format as defined for timestamps in the Enhanced Packet Block
   ({{section_epb}}), using the 'if_tsresol' and 'if_tsoffset' values
   from the Interface Description Block specified by the Interface ID.
@@ -2462,7 +2462,7 @@ for each should be (see RFC 5226)]
 
 ## Standardized Block Type Codes {#section_block_code_registry}
 
-Every Block is uniquely identified by a 32-bit integer value, stored
+Every Block is uniquely identified by a 32-bit unsigned integer, stored
 in the Block Header.
 
 As pointed out in {{section_block}}, Block Type
