@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-12T01:44:46.441990+00:00",
+  "timestamp": "2025-01-14T01:25:40.525290+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2815,15 +2815,15 @@
       "id": "I_kwDOAU54e86lHYVb",
       "title": "Consistency with integer/value ...",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/173",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "fxlb",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "We should do some changes for consistency:\r\n```\r\ngit grep 'integer value' *.md | wc -l\r\n6\r\ngit grep 'unsigned value' *.md | wc -l\r\n30\r\ngit grep 'unsigned integer' *.md | wc -l\r\n16\r\ngit grep 'unsigned integer value' *.md | wc -l\r\n2\r\ngit grep '\\<signed value' *.md | wc -l\r\n1\r\ngit grep '\\<signed integer' *.md | wc -l\r\n1\r\ngit grep '\\<signed integer value' *.md | wc -l\r\n1\r\n```",
       "createdAt": "2025-01-06T08:57:24Z",
-      "updatedAt": "2025-01-11T21:39:13Z",
-      "closedAt": null,
+      "updatedAt": "2025-01-13T10:44:36Z",
+      "closedAt": "2025-01-13T10:44:35Z",
       "comments": [
         {
           "author": "fxlb",
@@ -2859,6 +2859,27 @@
           "body": "`draft-ietf-opsawg-pcapng.md:1233 * it stores the Interface Identifier as a 32-bit integer value.`\r\nUnsigned?\r\nYes (line 1282: * Interface ID (32 bits): an unsigned integer)\r\n\r\n`draft-ietf-opsawg-pcapng.md:2465 Every Block is uniquely identified by a 32-bit integer value, stored`\r\nUnsigned?",
           "createdAt": "2025-01-11T19:20:16Z",
           "updatedAt": "2025-01-11T21:39:13Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> `draft-ietf-opsawg-pcapng.md:2465 Every Block is uniquely identified by a 32-bit integer value, stored` Unsigned?\r\n\r\nThey're really enum values, just as link-layer types are, so in a sense it's irrelevant, and, unlike link-layer types, where the value is given in decimal, and anything 16-bit that goes beyond 32767 is clearly unsigned, the block type values are given in hex, and those are less often given as signed (`-0x7fffffff`), so that's *less* of a clear case.\r\n\r\nBut, by analogy to link-layer types, and to avoid people inadvertently sign-extending and causing problems, I'd vote for unsigned.",
+          "createdAt": "2025-01-12T02:30:05Z",
+          "updatedAt": "2025-01-12T02:30:05Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Ok, this (and some others) are updated in PR #178.",
+          "createdAt": "2025-01-12T13:38:06Z",
+          "updatedAt": "2025-01-12T13:38:06Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Done.",
+          "createdAt": "2025-01-13T10:44:36Z",
+          "updatedAt": "2025-01-13T10:44:36Z"
         }
       ]
     }
@@ -9060,7 +9081,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-08-17T08:53:20Z",
-      "updatedAt": "2024-08-17T09:12:39Z",
+      "updatedAt": "2025-01-12T08:19:03Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "0edf5b07a9eee47d4eb3381dcf2e79b927e7de14",
@@ -9230,7 +9251,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-11-27T12:40:43Z",
-      "updatedAt": "2024-11-27T17:39:06Z",
+      "updatedAt": "2025-01-12T08:17:00Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "e7c5e3a2fa266651233031a65a3f9b9c26b8cd30",
@@ -9251,24 +9272,26 @@
       "id": "PR_kwDOAU54e86DZILD",
       "title": "pcapng: Add the hexa values for both endian orders for Major Version",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/172",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "fxlb",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Moreover:\r\ns/little endian/little-endian/\r\ns/big endian/big-endian/",
       "createdAt": "2024-11-27T22:33:00Z",
-      "updatedAt": "2024-11-27T22:33:00Z",
+      "updatedAt": "2025-01-13T10:39:35Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
-      "baseRefOid": "4a0a959bd05ba9caffce91d051bc4a261567ddc0",
+      "baseRefOid": "86833973bacabc3e05ee5a387cad3efdf4265089",
       "headRepository": "fxlb/pcapng",
       "headRefName": "Major",
-      "headRefOid": "b716f4de01fd013ffd1fd285ac1fbe9dd2d6a92f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "c0cb45cad09c9d24e9a1f12aa71603dcbf8e32cb",
+      "closedAt": "2025-01-13T10:33:57Z",
+      "mergedAt": "2025-01-13T10:33:57Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "c66edeb42dd5bcfbd93bac765c2bf4304a1eb54a"
+      },
       "comments": [],
       "reviews": []
     },
@@ -9305,24 +9328,293 @@
       "id": "PR_kwDOAU54e86Hbxoe",
       "title": "Standardize terminology for clarity and consistency (value -> integer)",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/175",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "fxlb",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "s/unsigned value/unsigned integer/g\r\ns/signed value/signed integer/g\r\ns/unsigned integer value/unsigned integer/g\r\ns/signed integer value/signed integer/g",
       "createdAt": "2025-01-11T18:51:05Z",
-      "updatedAt": "2025-01-11T18:51:05Z",
+      "updatedAt": "2025-01-12T19:09:38Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "d5d22d9a55d01c441eced796bac58e94f34fc94a",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "value_integer",
+      "headRefOid": "ca31d1aa21d9e514103ac08c07a2bc22d2227a87",
+      "closedAt": "2025-01-12T10:25:12Z",
+      "mergedAt": "2025-01-12T10:25:12Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "26341d4854caced476711a4b027e63320644ff74"
+      },
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For some of these, \"{signed|unsigned} integer\" is preceded by \"''N''-bit\", even if the field is defined earlier as being ''N'' bits wide; in others, it isn't.  Should \"{signed|unsigned} integer\" always be preceded by the bit width? (If so, that's a separate change.)",
+          "createdAt": "2025-01-12T10:25:05Z",
+          "updatedAt": "2025-01-12T10:25:05Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "It seems not, as it is sometimes redundant, indeed.\r\nProposal: PR #177 for pcap draft.",
+          "createdAt": "2025-01-12T12:51:09Z",
+          "updatedAt": "2025-01-12T12:51:09Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> It seems not, as it is sometimes redundant, indeed. Proposal: PR #177 for pcap draft.\r\n\r\nMerged.",
+          "createdAt": "2025-01-12T19:09:36Z",
+          "updatedAt": "2025-01-12T19:09:36Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 176,
+      "id": "PR_kwDOAU54e86Hcc8t",
+      "title": "linktypes: Update the LINKTYPE Value description",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/176",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-01-12T05:25:31Z",
+      "updatedAt": "2025-01-12T08:20:43Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "8f3201400028410e19da4f3956a0881d3c1c5dce",
       "headRepository": "fxlb/pcapng",
+      "headRefName": "pcaplinktype",
+      "headRefOid": "41623f2595538c1fd7e19168556da68108058bf3",
+      "closedAt": "2025-01-12T06:22:44Z",
+      "mergedAt": "2025-01-12T06:22:44Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "d5d22d9a55d01c441eced796bac58e94f34fc94a"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 177,
+      "id": "PR_kwDOAU54e86Hc8JJ",
+      "title": "pcap: Remove some redundant bit widths",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/177",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-01-12T12:47:30Z",
+      "updatedAt": "2025-01-12T19:42:56Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "26341d4854caced476711a4b027e63320644ff74",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "pcap",
+      "headRefOid": "748c5bad69670b4c36883893e6bd11b83e4d235d",
+      "closedAt": "2025-01-12T19:08:58Z",
+      "mergedAt": "2025-01-12T19:08:58Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "2c62250a973e8cd974d41778951af02bc0ac55de"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 178,
+      "id": "PR_kwDOAU54e86HdAPK",
+      "title": "Standardize terminology for clarity and consistency (more updates)",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/178",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-01-12T13:32:53Z",
+      "updatedAt": "2025-01-13T06:02:16Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "2c62250a973e8cd974d41778951af02bc0ac55de",
+      "headRepository": "fxlb/pcapng",
       "headRefName": "value_integer",
-      "headRefOid": "740b40988c54610a916b769ea05720d21ebb1d4b",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "902519c5a14293aa1c39bd934da73cfe68e161c9",
+      "closedAt": "2025-01-13T03:17:43Z",
+      "mergedAt": "2025-01-13T03:17:43Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "c9fe57a1d303d7ab37c4214b2aadca02ed1c1bc8"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOAU54e86XuUbI",
+          "commit": {
+            "abbreviatedOid": "9f43e13"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-01-12T19:12:49Z",
+          "updatedAt": "2025-01-12T19:12:49Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "More bit-width redundancy? \"...is a 32-bit value ... encoded as a 32-bit unsigned integer\".",
+              "createdAt": "2025-01-12T19:12:49Z",
+              "updatedAt": "2025-01-12T19:12:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86XuVu8",
+          "commit": {
+            "abbreviatedOid": "902519c"
+          },
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-01-12T19:50:46Z",
+          "updatedAt": "2025-01-12T19:50:46Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "Updated.",
+              "createdAt": "2025-01-12T19:50:46Z",
+              "updatedAt": "2025-01-12T19:50:46Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 179,
+      "id": "PR_kwDOAU54e86HdGC1",
+      "title": "linktypes: Add a period at the end of the first Contributors sentence",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/179",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-01-12T14:34:47Z",
+      "updatedAt": "2025-01-13T14:40:13Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "2c62250a973e8cd974d41778951af02bc0ac55de",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "pcaplinktype",
+      "headRefOid": "1e8abb27020edebb3609f5ad462986576dd26e8f",
+      "closedAt": "2025-01-13T09:23:52Z",
+      "mergedAt": "2025-01-13T09:23:52Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "86833973bacabc3e05ee5a387cad3efdf4265089"
+      },
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "That's a sentence, hence the period at the end.",
+          "createdAt": "2025-01-12T19:10:57Z",
+          "updatedAt": "2025-01-12T19:10:57Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Maybe I've misunderstood. There aren't two sentences?\r\n\r\n1) PCAP has been developed [...]and Jun-ichiro itojun Hagino\r\n\r\n2) PCAP was originally created at LBL by Steve McCanne, Craig Leres, and Van Jacobson.",
+          "createdAt": "2025-01-13T09:11:58Z",
+          "updatedAt": "2025-01-13T09:11:58Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "\"PCAP has been developed [...]and Jun-ichiro itojun Hagino\" is not a proper sentence, as there's no end-of-sentence period. \"PCAP has been developed [...]and Jun-ichiro itojun Hagino.\" is a proper sentence.",
+          "createdAt": "2025-01-13T09:22:55Z",
+          "updatedAt": "2025-01-13T09:22:55Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Sorry, I misread the change.",
+          "createdAt": "2025-01-13T09:23:34Z",
+          "updatedAt": "2025-01-13T09:23:34Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "No problem...",
+          "createdAt": "2025-01-13T14:40:11Z",
+          "updatedAt": "2025-01-13T14:40:11Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 180,
+      "id": "PR_kwDOAU54e86HfgGh",
+      "title": "pcapng: Use \"octet\", rather than \"byte\", to refer to units of 8 bits",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/180",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-01-13T07:40:20Z",
+      "updatedAt": "2025-01-13T07:50:57Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "c9fe57a1d303d7ab37c4214b2aadca02ed1c1bc8",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "octet",
+      "headRefOid": "d0d310a737b94c69357f9a4da03b938baacce23a",
+      "closedAt": "2025-01-13T07:50:57Z",
+      "mergedAt": "2025-01-13T07:50:57Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "41e7a688dca285bf41340b84ec4354925b33f511"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 181,
+      "id": "PR_kwDOAU54e86HfqxH",
+      "title": "pcapng: Use \"value\", rather than \"*value*\", no need to italicize",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/181",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-01-13T08:10:04Z",
+      "updatedAt": "2025-01-13T08:56:32Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "41e7a688dca285bf41340b84ec4354925b33f511",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "value",
+      "headRefOid": "efa5a7e99fe6d6ee35fc665503a32e9ca8fa962c",
+      "closedAt": "2025-01-13T08:56:31Z",
+      "mergedAt": "2025-01-13T08:56:31Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "226090d043a0cadcefb669675be9c2379d8d10ec"
+      },
       "comments": [],
       "reviews": []
     }
