@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-27T01:39:33.314085+00:00",
+  "timestamp": "2025-03-02T01:44:07.300684+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -743,11 +743,19 @@
       "labels": [
         "pcapv3"
       ],
-      "body": "**4.1. Section Header Block**\r\n\r\nFrom the pcapng spec:\r\n`\u201cPlease note: The endianness is indicated by the Section Header Block [section_shb]. Since this block can appear several times in a pcapng file, a single file can contain both endianness variants.\u201d`\r\n\r\n- I would prefer if the spec would only allow for one SHB per pcapng file. I'm guessing the reason for allowing multiple SHB's is to facilitate merging of pcapng files, but such freedom comes with a too high cost. One problem that comes with allowing multiple SHB's is that the trailing \"Block Total Length\" at the end of each block can't be used to move backwards in a pcapng file, since a change of endian by an SHB will cause the length field to be interpreted incorrectly. Even skipping forward in a pcapng file can be dangerous unless care is taken to read the endian of each newly encountered SHB. Merging pcapng files is an easy task, even if we allow only one SHB per file, so there is no need to simplify this task even more. There are just too many downsides to having multiple SHB's in a pcapng file. Which reminds me of this quote by Einstein: \u201cEverything should be made as simple as possible, but no simpler.\u201d\r\n- There is no real point in allowing for both big-endian and little-endian. Requiring all pcapng writers to use one endianness will not even affect performance notably. Just think of all the network protocols specified for big endian even though many CPU's are little endian. TCP is, for example, forced to transmit sequence numbers and window size values in big endian, yet you will never see the endianness conversion being a performance issue in TCP. I would personally prefer to have all pcapng files to be big endian ONLY.\r\n- Section Length field isn't used, it can be removed from the spec.\r\n- Having the \u201cByte-Order Magic\u201d field after the \u201cBlock Total Length\u201d isn't great, since we need to know the endian (from the magic field) before we can parse the length field anyway. I understand that this is an attempt of having the SHB to extend the generic \u201cGeneral Block Structure\u201d. However, the SHB can NEVER be parsed as a generic block anyway since it allows for a change of endianness which must be dealt with by all parsers.\r\n- Please refrain from padding stuff to 32 bit boundaries. Doing so actually introduces unnecessary complexity rather than solving a problem.\r\n\r\nMy recommendation: Only allow one SHB per pcapng file.",
+      "body": "**4.1. Section Header Block**\n\nFrom the pcapng spec:\n`\u201cPlease note: The endianness is indicated by the Section Header Block [section_shb]. Since this block can appear several times in a pcapng file, a single file can contain both endianness variants.\u201d`\n\n- I would prefer if the spec would only allow for one SHB per pcapng file. I'm guessing the reason for allowing multiple SHB's is to facilitate merging of pcapng files, but such freedom comes with a too high cost. One problem that comes with allowing multiple SHB's is that the trailing \"Block Total Length\" at the end of each block can't be used to move backwards in a pcapng file, since a change of endian by an SHB will cause the length field to be interpreted incorrectly. Even skipping forward in a pcapng file can be dangerous unless care is taken to read the endian of each newly encountered SHB. Merging pcapng files is an easy task, even if we allow only one SHB per file, so there is no need to simplify this task even more. There are just too many downsides to having multiple SHB's in a pcapng file. Which reminds me of this quote by Einstein: \u201cEverything should be made as simple as possible, but no simpler.\u201d\n- There is no real point in allowing for both big-endian and little-endian. Requiring all pcapng writers to use one endianness will not even affect performance notably. Just think of all the network protocols specified for big endian even though many CPU's are little endian. TCP is, for example, forced to transmit sequence numbers and window size values in big endian, yet you will never see the endianness conversion being a performance issue in TCP. I would personally prefer to have all pcapng files to be big endian ONLY.\n- Section Length field isn't used, it can be removed from the spec.\n- Having the \u201cByte-Order Magic\u201d field after the \u201cBlock Total Length\u201d isn't great, since we need to know the endian (from the magic field) before we can parse the length field anyway. I understand that this is an attempt of having the SHB to extend the generic \u201cGeneral Block Structure\u201d. However, the SHB can NEVER be parsed as a generic block anyway since it allows for a change of endianness which must be dealt with by all parsers.\n- Please refrain from padding stuff to 32 bit boundaries. Doing so actually introduces unnecessary complexity rather than solving a problem.\n\nMy recommendation: Only allow one SHB per pcapng file, or better yet - require that pcapng files MUST be big endian, regardless of the endianess of the machine writing to it.",
       "createdAt": "2016-11-22T11:30:54Z",
-      "updatedAt": "2024-08-12T12:26:58Z",
+      "updatedAt": "2025-02-27T14:10:36Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "erik4711",
+          "authorAssociation": "NONE",
+          "body": "The text in Section 5.4 in the IETF draft highlights that allowing both big- and little endian is problematic.\n\n>Implementers writing Custom Blocks or binary data Custom Options should be aware that a pcapng file can be re-written by machines using a different endianness than the original file, which means all known fields of the pcapng file will change endianness in the new file. Since the Custom Data payload of the Custom Block or the binary data Custom Option might be an arbitrary sequence of unknown octets to such machines, they cannot convert multi-octet values inside the Custom Data, or in the Options section of a Custom Block,into the appropriate endianness.\n>For example, a little-endian machine can create a new pcapng file and add some binary data Custom Options to some non-Custom Block(s) in the file. This file can then be sent to a big-endian host, which will convert the Option Type, Option Length, and PEN fields of the options to big-endian format if it re-writes the file. However, if the software reading the file does not understand the contents of all of the Custom Options, it will leave the Custom Data payload of the options alone (as little-endian format). If this file then gets sent to a little-endian machine, then, when that little-endian machine reads the file, it will, if the software reading the file understands the contents of all the Custom Options, it will detect that the file format is big-endian, and swap the endianness while it parses the file - but that will cause the Custom Data payload to be incorrect since it was already in little-endian format.\n>In addition, a little-endian machine can create a pcapng file and write some binary data Custom Blocks, containing options, to the file. The file can then be sent to a big-endian host, which, if the software reading the file does not understand the contents of the Custom Blocks, will leave the Custom Data and Options alone (as little-endian format). If this file then gets sent to a little-endian machine, then, when that little-endian machine reads the file, it will, if the software reading the file understands the contents of all the Custom Blocks, it will detect that the file format is big-endian, and swap the endianness while it parses the file - but that will cause the Custom Data payload, the Option Type and Option Length values in the Options, and the PEN in any Custom Options to be incorrect since they were already in little-endian format.\n>Therefore, the vendor should either encode the Custom Data of their Custom Blocks and Custom Options, the Option Type and Option Length fields of options in Custom Blocks, and the PEN field of Custom Options in Custom Blocks in a consistent manner, such as always in big-endian or always in little-endian format, regardless of the host platform's endianness, or should encode some flag in the Custom Data payload to indicate in which endianness the rest of the payload is written.\n>Therefore, the vendor should either encode the Custom Data of their Custom Blocks and Custom Options, the Option Type and Option Length fields of options in Custom Blocks, and the PEN field of Custom Options in Custom Blocks in a consistent manner, such as always in big-endian or always in little-endian format, regardless of the host platform's endianness, or should encode some flag in the Custom Data payload to indicate in which endianness the rest of the payload is written.\n",
+          "createdAt": "2025-02-27T14:08:37Z",
+          "updatedAt": "2025-02-27T14:08:37Z"
+        }
+      ]
     },
     {
       "number": 43,
@@ -835,7 +843,7 @@
       "labels": [],
       "body": "**5. Experimental Blocks**\r\nPlease drop all experimental blocks before finalizing the specification.",
       "createdAt": "2016-11-22T11:36:49Z",
-      "updatedAt": "2024-08-12T12:28:00Z",
+      "updatedAt": "2025-02-27T13:57:32Z",
       "closedAt": null,
       "comments": [
         {
@@ -851,6 +859,13 @@
           "body": "I think we moved them all to -extras.  If you agree, please close.\r\n",
           "createdAt": "2024-08-12T12:25:08Z",
           "updatedAt": "2024-08-12T12:25:08Z"
+        },
+        {
+          "author": "erik4711",
+          "authorAssociation": "NONE",
+          "body": "Section 3.2. \"Block Types\" currently says:\n\n>(4) Experimental: The following blocks are considered interesting but the authors believe that they deserve more in-depth discussion before being defined:\n>- Alternative Packet Blocks\n>- Compression Block\n>- Encryption Block\n>- Fixed Length Block\n>- Directory Block\n>- Traffic Statistics and Monitoring Blocks\n>- Event/Security Blocks\n\nI wouldn't recommend listing \"interesting\" block types in the IETF draft. They should be either defined in the spec or left out completely. I'd prefer the latter.",
+          "createdAt": "2025-02-27T13:57:32Z",
+          "updatedAt": "2025-02-27T13:57:32Z"
         }
       ]
     },
