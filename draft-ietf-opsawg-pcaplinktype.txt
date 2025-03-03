@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 17 July 2025                                          Sandelman
-                                                         13 January 2025
+Expires: 4 September 2025                                      Sandelman
+                                                            3 March 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 July 2025.
+   This Internet-Draft will expire on 4 September 2025.
 
 Copyright Notice
 
@@ -1351,21 +1351,19 @@ Table of Contents
 
 6.2.  Informative References
 
-   [TCPDUMP]  "LINK-LAYER HEADER TYPES", n.d.,
+   [TCPDUMP]  "LINK-LAYER HEADER TYPES",
               <https://www.tcpdump.org/linktypes.html>.
 
-   [LIBPCAP]  "libpcap", n.d.,
-              <https://github.com/the-tcpdump-group/libpcap>.
+   [LIBPCAP]  "libpcap", <https://github.com/the-tcpdump-group/libpcap>.
 
    [Wireshark]
-              "Homepage of Wireshark", n.d.,
-              <https://www.wireshark.org>.
+              "Homepage of Wireshark", <https://www.wireshark.org>.
 
    [_3GPP-TS-04.64]
               "Digital cellular telecommunications system (Phase 2+);
               General Packet Radio Service (GPRS); Mobile Station -
               Serving GPRS Support Node (MS-SGSN) Logical Link Control
-              (LLC) layer specification", 3GPP TS 04.64, n.d..
+              (LLC) layer specification", 3GPP TS 04.64.
 
    [AIM-628]  Moon, D. A., "Chaosnet", MIT A.I. Memo No. 628, June 1981,
               <http://www.bitsavers.org/pdf/mit/ai/AIM-
@@ -1374,7 +1372,7 @@ Table of Contents
    [ASHRAE-135]
               "BACnet(TM): A Data Communication Protocol for Building
               Automation and Control Networks", ANSI/ASHRAE Standard
-              135, n.d..
+              135.
 
    [ATA-878.1-1999]
               "ATA 878.1 - 1999 Local Area Network - Token Bus", ARCNET
@@ -1382,7 +1380,7 @@ Table of Contents
               <https://web.archive.org/web/20100414154838/
               http://www.arcnet.com/resources/ata8781.pdf>.
 
-   [AVS]      Peachy, S., "Archived AVS specification", n.d.,
+   [AVS]      Peachy, S., "Archived AVS specification",
               <http://web.archive.org/web/20040803232023/
               http://www.shaftnet.org/~pizza/software/capturefrm.txt>.
 
@@ -1391,18 +1389,17 @@ Table of Contents
               July 1998, <https://www.ax25.net/AX25.2.2-Jul%2098-2.pdf>.
 
    [D-Bus]    Pennington, H., Carlsson, A., Larsson, A., Herzberg, S.,
-              McVittie, S., and D. Zeuthen, "D-Bus Specification", n.d.,
+              McVittie, S., and D. Zeuthen, "D-Bus Specification",
               <https://dbus.freedesktop.org/doc/dbus-
               specification.html>.
 
    [DOCSIS-4.0-MULP]
               "DOCSIS 4.0 MAC and Upper Layer Protocols Interface
-              Specification", n.d.,
-              <https://www.cablelabs.com/specifications/CM-SP-
-              MULPIv4.0>.
+              Specification", <https://www.cablelabs.com/specifications/
+              CM-SP-MULPIv4.0>.
 
    [DOCSIS-XRA]
-              "Excentis XRA Header", n.d.,
+              "Excentis XRA Header",
               <https://support.excentis.com/index.php?/Knowledgebase/
               Article/View/159>.
 
@@ -1414,28 +1411,27 @@ Table of Contents
 
    [DVB-CI]   "Common Interface Specification for Conditional Access and
               other Digital Video Broadcasting Decoder Applications",
-              n.d., <https://dvb.org/?standard=common-interface-
-              specification-for-conditional-access-and-other-digital-
-              video-broadcasting-decoder-applications>.
+              <https://dvb.org/?standard=common-interface-specification-
+              for-conditional-access-and-other-digital-video-
+              broadcasting-decoder-applications>.
 
    [DVB-CI-PCAP]
               Kaiser, M., "PCAP format for DVB-CI", January 2021,
               <https://www.kaiser.cx/pcap-dvbci.html>.
 
-   [EBHSCR]   "Documentation EBHSCR", n.d.,
+   [EBHSCR]   "Documentation EBHSCR",
               <http://www.elektrobit.com/ebhscr>.
 
-   [ERF]      "ERF Types Reference Guide", n.d.,
-              <https://www.endace.com/erf-extensible-record-format-
-              types.pdf>.
+   [ERF]      "ERF Types Reference Guide", <https://www.endace.com/erf-
+              extensible-record-format-types.pdf>.
 
    [Exegin-TAP-Link]
-              "IEEE 802.15.4 TAP Link Type Specification", n.d.,
+              "IEEE 802.15.4 TAP Link Type Specification",
               <https://github.com/jkcko/ieee802.15.4-tap/blob/master/
               IEEE%20802.15.4%20TAP%20Link%20Type%20Specification.pdf>.
 
    [FD.io-VPP]
-              "VNET (VPP Network Stack)", n.d., <https://fdio-
+              "VNET (VPP Network Stack)", <https://fdio-
               vpp.readthedocs.io/en/latest/gettingstarted/developers/
               vnet.html>.
 
@@ -1446,16 +1442,16 @@ Table of Contents
               frf16.1.pdf>.
 
    [G.7041]   "Generic Framing Procedure", ITU-T Recommendation G.7041/
-              Y.1303, n.d., <https://www.itu.int/rec/T-REC-G.7041/en>.
+              Y.1303, <https://www.itu.int/rec/T-REC-G.7041/en>.
 
    [G.9959]   "Short range narrow-band digital radiocommunication
               transceivers - PHY, MAC, SAR and LLC layer
-              specifications", ITU-T Recommendation G.9959, n.d.,
+              specifications", ITU-T Recommendation G.9959,
               <https://www.itu.int/rec/T-REC-G.9959/en>.
 
    [H.222.0]  "Information technology - Generic coding of moving
               pictures and associated audio information: Systems", ITU-T
-              Recommendation H.222.0, n.d.,
+              Recommendation H.222.0,
               <https://www.itu.int/rec/T-REC-H.222.0>.
 
    [ISO-14443-PCAP]
@@ -1463,212 +1459,200 @@ Table of Contents
               <https://www.kaiser.cx/posts/pcap-iso14443/>.
 
    [KISS]     "The KISS TNC - A simple Host-to-TNC communications
-              protocol", n.d., <https://www.ax25.net/kiss.aspx>.
+              protocol", <https://www.ax25.net/kiss.aspx>.
 
    [LINKTYPE_APPLE_IP_OVER_IEEE1394]
-              "LINKTYPE_APPLE_IP_OVER_IEEE1394", n.d.,
+              "LINKTYPE_APPLE_IP_OVER_IEEE1394",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_APPLE_IP_OVER_IEEE1394.html>.
 
    [LINKTYPE_BLUETOOTH_BREDR_BB]
-              "LINKTYPE_BLUETOOTH_BREDR_BB", n.d.,
+              "LINKTYPE_BLUETOOTH_BREDR_BB",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_BREDR_BB.html>.
 
    [LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR]
-              "LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR", n.d.,
+              "LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR.html>.
 
    [LINKTYPE_BLUETOOTH_LINUX_MONITOR]
-              "LINKTYPE_BLUETOOTH_LINUX_MONITOR", n.d.,
+              "LINKTYPE_BLUETOOTH_LINUX_MONITOR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_LINUX_MONITOR.html>.
 
    [LINKTYPE_CAN_SOCKETCAN]
-              "LINKTYPE_CAN_SOCKETCAN", n.d.,
+              "LINKTYPE_CAN_SOCKETCAN",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_CAN_SOCKETCAN.html>.
 
    [LINKTYPE_DISPLAYPORT_AUX]
-              "LINKTYPE_DISPLAYPORT_AUX", n.d.,
+              "LINKTYPE_DISPLAYPORT_AUX",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DISPLAYPORT_AUX.html>.
 
    [LINKTYPE_DSA_TAG_BRCM]
-              "LINKTYPE_DSA_TAG_BRCM", n.d.,
+              "LINKTYPE_DSA_TAG_BRCM",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_BRCM.html>.
 
    [LINKTYPE_DSA_TAG_BRCM_PREPEND]
-              "LINKTYPE_DSA_TAG_BRCM_PREPEND", n.d.,
+              "LINKTYPE_DSA_TAG_BRCM_PREPEND",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_BRCM_PREPEND.html>.
 
    [LINKTYPE_DSA_TAG_DSA]
-              "LINKTYPE_DSA_TAG_DSA", n.d.,
+              "LINKTYPE_DSA_TAG_DSA",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_DSA.html>.
 
    [LINKTYPE_DSA_TAG_EDSA]
-              "LINKTYPE_DSA_TAG_EDSA", n.d.,
+              "LINKTYPE_DSA_TAG_EDSA",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_EDSA.html>.
 
    [LINKTYPE_ETW]
-              "LINKTYPE_ETW", n.d.,
+              "LINKTYPE_ETW",
               <https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html>.
 
    [LINKTYPE_FIRA_UCI]
-              "LINKTYPE_FIRA_UCI", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_FIRA_UCI", <https://www.tcpdump.org/linktypes/
               LINKTYPE_FIRA_UCI.html>.
 
    [LINKTYPE_FLEXRAY]
-              "LINKTYPE_FLEXRAY", n.d.,
+              "LINKTYPE_FLEXRAY",
               <https://www.tcpdump.org/linktypes/LINKTYPE_FLEXRAY.html>.
 
    [LINKTYPE_I2C_LINUX]
-              "LINKTYPE_I2C_LINUX", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_I2C_LINUX", <https://www.tcpdump.org/linktypes/
               LINKTYPE_I2C_LINUX.html>.
 
    [LINKTYPE_IEEE802_11_PRISM]
-              "LINKTYPE_IEEE802_11_PRISM", n.d.,
+              "LINKTYPE_IEEE802_11_PRISM",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_11_PRISM.html>.
 
    [LINKTYPE_IPNET]
-              "LINKTYPE_IPNET", n.d.,
+              "LINKTYPE_IPNET",
               <https://www.tcpdump.org/linktypes/LINKTYPE_IPNET.html>.
 
    [LINKTYPE_LIN]
-              "LINKTYPE_LIN", n.d.,
+              "LINKTYPE_LIN",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LIN.html>.
 
    [LINKTYPE_LINUX_IRDA]
-              "LINKTYPE_LINUX_IRDA", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_LINUX_IRDA", <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_IRDA.html>.
 
    [LINKTYPE_LINUX_LAPD]
-              "LINKTYPE_LINUX_LAPD", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_LINUX_LAPD", <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_LAPD.html>.
 
    [LINKTYPE_LINUX_SLL]
-              "LINKTYPE_LINUX_SLL", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_LINUX_SLL", <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_SLL.html>.
 
    [LINKTYPE_LINUX_SLL2]
-              "LINKTYPE_LINUX_SLL2", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_LINUX_SLL2", <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_SLL2.html>.
 
    [LINKTYPE_LOOP]
-              "LINKTYPE_LOOP", n.d.,
+              "LINKTYPE_LOOP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LOOP.html>.
 
    [LINKTYPE_MUX27010]
-              "LINKTYPE_MUX27010", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_MUX27010", <https://www.tcpdump.org/linktypes/
               LINKTYPE_MUX27010.html>.
 
    [LINKTYPE_NETANALYZER]
-              "LINKTYPE_NETANALYZER", n.d.,
+              "LINKTYPE_NETANALYZER",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_NETANALYZER.html>.
 
    [LINKTYPE_NETANALYZER_TRANSPARENT]
-              "LINKTYPE_NETANALYZER_TRANSPARENT", n.d.,
+              "LINKTYPE_NETANALYZER_TRANSPARENT",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_NETANALYZER_TRANSPARENT.html>.
 
    [LINKTYPE_NETLINK]
-              "LINKTYPE_NETLINK", n.d.,
+              "LINKTYPE_NETLINK",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NETLINK.html>.
 
    [LINKTYPE_NFC_LLCP]
-              "LINKTYPE_NFC_LLCP", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_NFC_LLCP", <https://www.tcpdump.org/linktypes/
               LINKTYPE_NFC_LLCP.html>.
 
    [LINKTYPE_NFLOG]
-              "LINKTYPE_NFLOG", n.d.,
+              "LINKTYPE_NFLOG",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NFLOG.html>.
 
    [LINKTYPE_NG40]
-              "LINKTYPE_NG40", n.d.,
+              "LINKTYPE_NG40",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NG40.html>.
 
    [LINKTYPE_NORDIC_BLE]
-              "LINKTYPE_NORDIC_BLE", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_NORDIC_BLE", <https://www.tcpdump.org/linktypes/
               LINKTYPE_NORDIC_BLE.html>.
 
    [LINKTYPE_NULL]
-              "LINKTYPE_NULL", n.d.,
+              "LINKTYPE_NULL",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NULL.html>.
 
    [LINKTYPE_PKTAP]
-              "LINKTYPE_PKTAP", n.d.,
+              "LINKTYPE_PKTAP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_PKTAP.html>.
 
    [LINKTYPE_RDS]
-              "LINKTYPE_RDS", n.d.,
+              "LINKTYPE_RDS",
               <https://www.tcpdump.org/linktypes/LINKTYPE_RDS.html>.
 
    [LINKTYPE_RTAC_SERIAL]
-              "LINKTYPE_RTAC_SERIAL", n.d.,
+              "LINKTYPE_RTAC_SERIAL",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_RTAC_SERIAL.html>.
 
    [LINKTYPE_SITA]
-              "LINKTYPE_SITA", n.d.,
+              "LINKTYPE_SITA",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SITA.html>.
 
    [LINKTYPE_SLIP]
-              "LINKTYPE_SLIP", n.d.,
+              "LINKTYPE_SLIP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SLIP.html>.
 
    [LINKTYPE_SUNATM]
-              "LINKTYPE_SUNATM", n.d.,
+              "LINKTYPE_SUNATM",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SUNATM.html>.
 
    [LINKTYPE_USB_DARWIN]
-              "LINKTYPE_USB_DARWIN", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_USB_DARWIN", <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_DARWIN.html>.
 
    [LINKTYPE_VSOCK]
-              "LINKTYPE_VSOCK", n.d.,
+              "LINKTYPE_VSOCK",
               <https://www.tcpdump.org/linktypes/LINKTYPE_VSOCK.html>.
 
    [LINKTYPE_WATTSTOPPER_DLM]
-              "LINKTYPE_WATTSTOPPER_DLM", n.d.,
+              "LINKTYPE_WATTSTOPPER_DLM",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_WATTSTOPPER_DLM.html>.
 
    [LINKTYPE_ZBOSS_NCP]
-              "LINKTYPE_ZBOSS_NCP", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_ZBOSS_NCP", <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZBOSS_NCP.html>.
 
    [LINKTYPE_ZWAVE_R1_R2]
-              "LINKTYPE_ZWAVE_R1_R2", n.d.,
+              "LINKTYPE_ZWAVE_R1_R2",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZWAVE_R1_R2.html>.
 
    [LINKTYPE_ZWAVE_R3]
-              "LINKTYPE_ZWAVE_R3", n.d.,
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_ZWAVE_R3", <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZWAVE_R3.html>.
 
-   [LoRaTap]  "LoRaTap", n.d.,
+   [LoRaTap]  "LoRaTap",
               <https://github.com/eriknl/LoRaTap/blob/master/README.md>.
 
-   [LoRaWAN]  "About the LoRaWAN Standards", n.d.,
+   [LoRaWAN]  "About the LoRaWAN Standards",
               <https://lora-alliance.org/lorawan-for-developers/>.
 
    [OpenVizsla]
@@ -1688,58 +1672,58 @@ Table of Contents
               PPI%20Header%20format%201.0.7.pdf>.
 
    [Q.703]    "Specifications of Signalling System No. 7 Signalling
-              Link", ITU-T Recommendation Q.703, n.d.,
+              Link", ITU-T Recommendation Q.703,
               <https://www.itu.int/rec/T-REC-Q.703/en/>.
 
    [Q.704]    "Specifications of Signalling System No. 7 Signalling
               Network Functions And Messages", ITU-T Recommendation
-              Q.704, n.d., <https://www.itu.int/rec/T-REC-Q.704/en/>.
+              Q.704, <https://www.itu.int/rec/T-REC-Q.704/en/>.
 
    [Q.711]    "Specifications of Signalling System No. 7 Functional
               description of the signalling connection control part",
-              ITU-T Recommendation Q.711, n.d.,
+              ITU-T Recommendation Q.711,
               <https://www.itu.int/rec/T-REC-Q.711/en/>.
 
    [Q.712]    "Specifications of Signalling System No. 7 Definition and
               function of signalling connection control part messages",
-              ITU-T Recommendation Q.712, n.d.,
+              ITU-T Recommendation Q.712,
               <https://www.itu.int/rec/T-REC-Q.712/en/>.
 
    [Q.713]    "Specifications of Signalling System No. 7 Signalling
               connection control part functions and codes", ITU-T
-              Recommendation Q.713, n.d.,
+              Recommendation Q.713,
               <https://www.itu.int/rec/T-REC-Q.713/en/>.
 
    [Q.714]    "Specifications of Signalling System No. 7 Signalling
               connection control part procedures", ITU-T Recommendation
-              Q.714, n.d., <https://www.itu.int/rec/T-REC-Q.714/en/>.
+              Q.714, <https://www.itu.int/rec/T-REC-Q.714/en/>.
 
    [Q.920]    "Digital Subscriber Signalling System No. 1 (DSS1) - ISDN
               User-Network Interface Data Link Layer - General aspects",
-              ITU-T Recommendation Q.920, n.d.,
+              ITU-T Recommendation Q.920,
               <https://www.itu.int/rec/T-REC-Q.920/en/>.
 
    [Q.921]    "ISDN user-network interface - Data Link Layer
-              specification", ITU-T Recommendation Q.921, n.d.,
+              specification", ITU-T Recommendation Q.921,
               <https://www.itu.int/rec/T-REC-Q.921/en/>.
 
-   [Radiotap] radiotap.org, "Radiotap Web site", n.d.,
+   [Radiotap] radiotap.org, "Radiotap Web site",
               <http://www.radiotap.org/>.
 
    [STANAG-5066]
               "Profile for Maritime High Frequency (HF) Radio Data
-              Communications", STANAG 5066, n.d.,
+              Communications", STANAG 5066,
               <https://web.archive.org/web/20051004082010/
               http://www.armymars.net/ArmyMARS/HF-Email/resources/
               stanag5066.pdf>.
 
-   [USBPcap]  "USBPcap Capture format specification", n.d.,
+   [USBPcap]  "USBPcap Capture format specification",
               <https://desowin.org/usbpcap/captureformat.html>.
 
    [Z_WAVE_SERIAL]
               "Z-Wave Serial API Host Application Programming Guide",
-              n.d., <https://www.silabs.com/documents/public/user-
-              guides/INS12350-Serial-API-Host-Appl.-Prg.-Guide.pdf>.
+              <https://www.silabs.com/documents/public/user-guides/
+              INS12350-Serial-API-Host-Appl.-Prg.-Guide.pdf>.
 
    [I-D.ietf-opsawg-pcap]
               Harris, G. and M. Richardson, "PCAP Capture File Format",

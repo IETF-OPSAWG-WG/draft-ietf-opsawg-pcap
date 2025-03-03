@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 17 July 2025                              Politecnico di Torino
+Expires: 4 September 2025                          Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 17 July 2025                              Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                         13 January 2025
+                                                            3 March 2025
 
 
            PCAP Next Generation (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 July 2025.
+   This Internet-Draft will expire on 4 September 2025.
 
 Copyright Notice
 
@@ -1396,7 +1396,7 @@ Table of Contents
     | 5-8    | FCS length, in octets (0000 if this information is    |
     |        | not available).  This value overrides the if_fcslen   |
     |        | option of the Interface Description Block, and is     |
-    |        | used with those link layers (e.g.  PPP) where the     |
+    |        | used with those link layers (e.g. PPP) where the      |
     |        | length of the FCS can change during time.             |
     +--------+-------------------------------------------------------+
     | 9      | Checksum not ready, as a consequence of checksum      |
@@ -2519,10 +2519,11 @@ Table of Contents
               opsawg-pcapng-extras-01>.
 
    [I-D.ietf-tls-keylogfile]
-              Thomson, M., "The SSLKEYLOGFILE Format for TLS", Work in
-              Progress, Internet-Draft, draft-ietf-tls-keylogfile-02, 29
-              April 2024, <https://datatracker.ietf.org/doc/html/draft-
-              ietf-tls-keylogfile-02>.
+              Thomson, M., Rosomakho, Y., and H. Tschofenig, "The
+              SSLKEYLOGFILE Format for TLS", Work in Progress, Internet-
+              Draft, draft-ietf-tls-keylogfile-03, 4 February 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
+              keylogfile-03>.
 
 Appendix A.  Packet Block (obsolete!)
 
