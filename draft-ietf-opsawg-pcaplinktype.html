@@ -18,7 +18,7 @@
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.5
+    Jinja2 3.1.6
     lxml 5.3.0
     platformdirs 4.3.6
     pycountry 24.6.1
@@ -1048,7 +1048,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Harris &amp; Richardson</td>
-<td class="center">Expires 4 September 2025</td>
+<td class="center">Expires 25 September 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1061,12 +1061,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-opsawg-pcaplinktype-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-03-03" class="published">3 March 2025</time>
+<time datetime="2025-03-24" class="published">24 March 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-09-04">4 September 2025</time></dd>
+<dd class="expires"><time datetime="2025-09-25">25 September 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1119,7 +1119,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1981,7 +1981,7 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-38.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-38.6">
-              <p id="section-2.2.1-38.6.1">Reserved for 802.11 + FreeFreeBSD Aironet radio metadata<a href="#section-2.2.1-38.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-38.6.1">Reserved for 802.11 + FreeBSD Aironet radio metadata<a href="#section-2.2.1-38.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2329,7 +2329,7 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-57.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-57.6">
-              <p id="section-2.2.1-57.6.1">Signaling System 7 (SS7) Message Transfer Part Level<a href="#section-2.2.1-57.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-57.6.1">Signaling System 7 (SS7) Message Transfer Part (MTP) Level 2<a href="#section-2.2.1-57.6.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 <dt id="section-2.2.1-57.7">Reference</dt>
@@ -2351,7 +2351,7 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-58.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-58.6">
-              <p id="section-2.2.1-58.6.1">SS7 Level 2<a href="#section-2.2.1-58.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-58.6.1">SS7 MTP Level 2<a href="#section-2.2.1-58.6.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 <dt id="section-2.2.1-58.7">Reference</dt>
@@ -2373,7 +2373,7 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-59.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-59.6">
-              <p id="section-2.2.1-59.6.1">SS7 Level 3, with no MTP2 header<a href="#section-2.2.1-59.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-59.6.1">SS7 MTP Level 3, with no MTP2 header<a href="#section-2.2.1-59.6.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 <dt id="section-2.2.1-59.7">Reference</dt>
@@ -3524,7 +3524,12 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-122.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-122.6">
-              <p id="section-2.2.1-122.6.1">PPP, as per RFC 1661 and RFC 1662 , preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host; if the first 2 octets are 0xff and 0x03, it's PPP in HDLC-like framing, with the PPP header following those two octets, otherwise it's PPP without framing, and the packet begins with the PPP header. The data in the frame is not octet-stuffed or bit-stuffed<a href="#section-2.2.1-122.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-122.6.1">PPP, preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host; if the first 2 octets are 0xff and 0x03, it's PPP in HDLC-like framing, with the PPP header following those two octets, otherwise it's PPP without framing, and the packet begins with the PPP header. The data in the frame is not octet-stuffed or bit-stuffed<a href="#section-2.2.1-122.6.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-2.2.1-122.7">Reference</dt>
+            <dd style="margin-left: 1.5em" id="section-2.2.1-122.8">
+              <p id="section-2.2.1-122.8.1"><span>[<a href="#RFC1661" class="cite xref">RFC1661</a>]</span>/<span>[<a href="#RFC1662" class="cite xref">RFC1662</a>]</span><a href="#section-2.2.1-122.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -4357,7 +4362,12 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-166.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-166.6">
-              <p id="section-2.2.1-166.6.1">SCTP packets, as defined by RFC 4960 , with no lower-level protocols such as IPv4 or IPv6<a href="#section-2.2.1-166.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-166.6.1">SCTP packets, with no lower-level protocols such as IPv4 or IPv6<a href="#section-2.2.1-166.6.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-2.2.1-166.7">Reference</dt>
+            <dd style="margin-left: 1.5em" id="section-2.2.1-166.8">
+              <p id="section-2.2.1-166.8.1"><span>[<a href="#RFC4960" class="cite xref">RFC4960</a>]</span><a href="#section-2.2.1-166.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5072,7 +5082,12 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-201.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-201.6">
-              <p id="section-2.2.1-201.6.1">IEEE 802.15.4 Low-Rate Wireless Networks, with a pseudo-header containing TLVs with metadata preceding the 802.15.4 header<a href="#section-2.2.1-201.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-201.6.1">IEEE 802.15.4 Low-Rate Wireless Networks, with a tap header preceding the 802.15.4 header<a href="#section-2.2.1-201.6.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-2.2.1-201.7">Reference</dt>
+            <dd style="margin-left: 1.5em" id="section-2.2.1-201.8">
+              <p id="section-2.2.1-201.8.1"><span>[<a href="#Exegin-802.15.4-TAP" class="cite xref">Exegin-802.15.4-TAP</a>]</span><a href="#section-2.2.1-201.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5189,7 +5204,7 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-207.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-207.6">
-              <p id="section-2.2.1-207.6.1">ATSC Link-Layer Protocol frames, as described in section 5 of the A/330 Link-Layer Protocol specification, found at https://www.atsc.org/atsc-documents/type/3-0-standards/, beginning with a Base Header<a href="#section-2.2.1-207.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-207.6.1">ATSC Link-Layer Protocol frames, as described in section 5 of the <span>[<a href="#A_330" class="cite xref">A_330</a>]</span> Link-Layer Protocol specification, beginning with a Base Header<a href="#section-2.2.1-207.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5267,7 +5282,7 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-211.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-211.6">
-              <p id="section-2.2.1-211.6.1">Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0<a href="#section-2.2.1-211.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-211.6.1">Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of <span>[<a href="#USB-2.0" class="cite xref">USB-2.0</a>]</span><a href="#section-2.2.1-211.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5284,7 +5299,7 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-212.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-212.6">
-              <p id="section-2.2.1-212.6.1">Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0<a href="#section-2.2.1-212.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-212.6.1">Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of <span>[<a href="#USB-2.0" class="cite xref">USB-2.0</a>]</span><a href="#section-2.2.1-212.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5301,7 +5316,7 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-213.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-213.6">
-              <p id="section-2.2.1-213.6.1">High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0<a href="#section-2.2.1-213.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-213.6.1">High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of <span>[<a href="#USB-2.0" class="cite xref">USB-2.0</a>]</span><a href="#section-2.2.1-213.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5318,7 +5333,7 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-214.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-214.6">
-              <p id="section-2.2.1-214.6.1">Auerswald Logger Protocol, as described in https://github.com/Auerswald-GmbH/auerlog/blob/master/auerlog.txt<a href="#section-2.2.1-214.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-214.6.1">Auerswald Logger Protocol, as described in <span>[<a href="#Auerswald-Logger" class="cite xref">Auerswald-Logger</a>]</span><a href="#section-2.2.1-214.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5335,12 +5350,12 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-215.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-215.6">
-              <p id="section-2.2.1-215.6.1">Z-Wave packets, as specified by ITU-T Recommendation G.9959, with a https://gitlab.com/exegin/zwave-g9959-tap TAP meta-data header<a href="#section-2.2.1-215.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-215.6.1">Z-Wave packets, as specified by ITU-T Recommendation G.9959, with a meta-data header<a href="#section-2.2.1-215.6.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 <dt id="section-2.2.1-215.7">Reference</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-215.8">
-              <p id="section-2.2.1-215.8.1"><span>[<a href="#Exegin-TAP-Link" class="cite xref">Exegin-TAP-Link</a>]</span><span>[<a href="#G.9959" class="cite xref">G.9959</a>]</span><a href="#section-2.2.1-215.8.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-215.8.1"><span>[<a href="#Exegin-Z-Wave-G.9959-TAP" class="cite xref">Exegin-Z-Wave-G.9959-TAP</a>]</span><span>[<a href="#G.9959" class="cite xref">G.9959</a>]</span><a href="#section-2.2.1-215.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5357,7 +5372,12 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-216.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-216.6">
-              <p id="section-2.2.1-216.6.1">Silicon Labs debug channel protocol, as described in https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/debug-channel.md<a href="#section-2.2.1-216.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-216.6.1">Silicon Labs debug channel protocol<a href="#section-2.2.1-216.6.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-2.2.1-216.7">Reference</dt>
+            <dd style="margin-left: 1.5em" id="section-2.2.1-216.8">
+              <p id="section-2.2.1-216.8.1"><span>[<a href="#Silabs-Debug-Channel" class="cite xref">Silabs-Debug-Channel</a>]</span><a href="#section-2.2.1-216.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5396,7 +5416,12 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-218.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-218.6">
-              <p id="section-2.2.1-218.6.1">MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine, with the message format specified by https://www.kaiser.cx/pcap-mdb.html the PCAP format for MDB specification<a href="#section-2.2.1-218.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-218.6.1">MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine<a href="#section-2.2.1-218.6.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-2.2.1-218.7">Reference</dt>
+            <dd style="margin-left: 1.5em" id="section-2.2.1-218.8">
+              <p id="section-2.2.1-218.8.1"><span>[<a href="#MDB-PCAP" class="cite xref">MDB-PCAP</a>]</span><a href="#section-2.2.1-218.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5413,7 +5438,12 @@ As the FCFS range is large and easily obtained, official values are recommended.
             <dd class="break"></dd>
 <dt id="section-2.2.1-219.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-2.2.1-219.6">
-              <p id="section-2.2.1-219.6.1">DECT-2020 New Radio (NR) MAC layer specified in https://www.etsi.org/committee/1394-dect ETSI TS 103 636-4. The Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions<a href="#section-2.2.1-219.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-219.6.1">DECT-2020 New Radio (NR) MAC layer; the Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions<a href="#section-2.2.1-219.6.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-2.2.1-219.7">Reference</dt>
+            <dd style="margin-left: 1.5em" id="section-2.2.1-219.8">
+              <p id="section-2.2.1-219.8.1"><span>[<a href="#ETSI-TS-103-636-4" class="cite xref">ETSI-TS-103-636-4</a>]</span><a href="#section-2.2.1-219.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5522,6 +5552,10 @@ and Jun-ichiro itojun Hagino.<a href="#section-4-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refTitle">"Digital cellular telecommunications system (Phase 2+); General Packet Radio Service (GPRS); Mobile Station - Serving GPRS Support Node (MS-SGSN) Logical Link Control (LLC) layer specification"</span>, <span class="refContent">3GPP TS 04.64</span>. </dd>
 <dd class="break"></dd>
+<dt id="A_330">[A_330]</dt>
+        <dd>
+<span class="refTitle">"ATSC 3.0 System"</span>, <span class="refContent">ATSC Standard A/300</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.atsc.org/atsc-documents/type/3-0-standards/">https://www.atsc.org/atsc-documents/type/3-0-standards/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="AIM-628">[AIM-628]</dt>
         <dd>
 <span class="refAuthor">Moon, D. A.</span>, <span class="refTitle">"Chaosnet"</span>, <span class="refContent">MIT A.I. Memo No. 628</span>, <time datetime="1981-06" class="refDate">June 1981</time>, <span>&lt;<a href="http://www.bitsavers.org/pdf/mit/ai/AIM-628_chaosnet.pdf">http://www.bitsavers.org/pdf/mit/ai/AIM-628_chaosnet.pdf</a>&gt;</span>. </dd>
@@ -5533,6 +5567,10 @@ and Jun-ichiro itojun Hagino.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <dt id="ATA-878.1-1999">[ATA-878.1-1999]</dt>
         <dd>
 <span class="refTitle">"ATA 878.1 - 1999 Local Area Network - Token Bus"</span>, <span class="refContent">ARCNET Trade Association standard 878.1-1999</span>, <time datetime="1999" class="refDate">1999</time>, <span>&lt;<a href="https://web.archive.org/web/20100414154838/http://www.arcnet.com/resources/ata8781.pdf">https://web.archive.org/web/20100414154838/http://www.arcnet.com/resources/ata8781.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Auerswald-Logger">[Auerswald-Logger]</dt>
+        <dd>
+<span class="refTitle">"Packet structure"</span>, <span>n.d.</span>, <span>&lt;<a href="https://github.com/Auerswald-GmbH/auerlog/blob/master/auerlog.txt">https://github.com/Auerswald-GmbH/auerlog/blob/master/auerlog.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="AVS">[AVS]</dt>
         <dd>
@@ -5570,13 +5608,21 @@ and Jun-ichiro itojun Hagino.<a href="#section-4-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refTitle">"Documentation EBHSCR"</span>, <span>&lt;<a href="http://www.elektrobit.com/ebhscr">http://www.elektrobit.com/ebhscr</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="ETSI-TS-103-636-4">[ETSI-TS-103-636-4]</dt>
+        <dd>
+<span class="refTitle">"DECT-2020 New Radio (NR); Part 4: MAC layer; Release 2"</span>, <span class="refContent">ETSI TS 13 636-4</span>, <span>n.d.</span>. </dd>
+<dd class="break"></dd>
 <dt id="ERF">[ERF]</dt>
         <dd>
 <span class="refTitle">"ERF Types Reference Guide"</span>, <span>&lt;<a href="https://www.endace.com/erf-extensible-record-format-types.pdf">https://www.endace.com/erf-extensible-record-format-types.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="Exegin-TAP-Link">[Exegin-TAP-Link]</dt>
+<dt id="Exegin-802.15.4-TAP">[Exegin-802.15.4-TAP]</dt>
         <dd>
 <span class="refTitle">"IEEE 802.15.4 TAP Link Type Specification"</span>, <span>&lt;<a href="https://github.com/jkcko/ieee802.15.4-tap/blob/master/IEEE%20802.15.4%20TAP%20Link%20Type%20Specification.pdf">https://github.com/jkcko/ieee802.15.4-tap/blob/master/IEEE%20802.15.4%20TAP%20Link%20Type%20Specification.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Exegin-Z-Wave-G.9959-TAP">[Exegin-Z-Wave-G.9959-TAP]</dt>
+        <dd>
+<span class="refAuthor">Brandson, C.</span>, <span class="refTitle">"Z-Wave G.9959 TAP Link Type Specificatino"</span>, <span>&lt;<a href="https://gitlab.com/exegin/zwave-g9959-tap">https://gitlab.com/exegin/zwave-g9959-tap</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="FD.io-VPP">[FD.io-VPP]</dt>
         <dd>
@@ -5786,6 +5832,10 @@ and Jun-ichiro itojun Hagino.<a href="#section-4-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refTitle">"About the LoRaWAN Standards"</span>, <span>&lt;<a href="https://lora-alliance.org/lorawan-for-developers/">https://lora-alliance.org/lorawan-for-developers/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="MDB-PCAP">[MDB-PCAP]</dt>
+        <dd>
+<span class="refAuthor">Kaiser, M.</span>, <span class="refTitle">"PCAP format for MDB"</span>, <time datetime="2023-08" class="refDate">August 2023</time>, <span>&lt;<a href="https://www.kaiser.cx/posts/pcap-mdb/">https://www.kaiser.cx/posts/pcap-mdb/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="OpenVizsla">[OpenVizsla]</dt>
         <dd>
 <span class="refTitle">"OpenVizsla protocol description"</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://github.com/matwey/libopenvizsla/wiki/OpenVizsla-protocol-description">https://github.com/matwey/libopenvizsla/wiki/OpenVizsla-protocol-description</a>&gt;</span>. </dd>
@@ -5834,9 +5884,17 @@ and Jun-ichiro itojun Hagino.<a href="#section-4-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">radiotap.org</span>, <span class="refTitle">"Radiotap Web site"</span>, <span>&lt;<a href="http://www.radiotap.org/">http://www.radiotap.org/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="Silabs-Debug-Channel">[Silabs-Debug-Channel]</dt>
+        <dd>
+<span class="refTitle">"Silabs Debug Channel Format"</span>, <span>n.d.</span>, <span>&lt;<a href="https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/debug-channel.md">https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/debug-channel.md</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="STANAG-5066">[STANAG-5066]</dt>
         <dd>
 <span class="refTitle">"Profile for Maritime High Frequency (HF) Radio Data Communications"</span>, <span class="refContent">STANAG 5066</span>, <span>&lt;<a href="https://web.archive.org/web/20051004082010/http://www.armymars.net/ArmyMARS/HF-Email/resources/stanag5066.pdf">https://web.archive.org/web/20051004082010/http://www.armymars.net/ArmyMARS/HF-Email/resources/stanag5066.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="USB-2.0">[USB-2.0]</dt>
+        <dd>
+<span class="refTitle">"Universal Serial Bus Specification Revision 2.0"</span>, <time datetime="2000-04" class="refDate">April 2000</time>, <span>&lt;<a href="https://www.usb.org/document-library/usb-20-specification">https://www.usb.org/document-library/usb-20-specification</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="USBPcap">[USBPcap]</dt>
         <dd>
@@ -5848,11 +5906,11 @@ and Jun-ichiro itojun Hagino.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="I-D.ietf-opsawg-pcap">[I-D.ietf-opsawg-pcap]</dt>
         <dd>
-<span class="refAuthor">Harris, G.</span> and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"PCAP Capture File Format"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-opsawg-pcap-04</span>, <time datetime="2024-08-04" class="refDate">4 August 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcap-04">https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcap-04</a>&gt;</span>. </dd>
+<span class="refAuthor">Harris, G.</span> and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"PCAP Capture File Format"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-opsawg-pcap-05</span>, <time datetime="2025-03-03" class="refDate">3 March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcap-05">https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcap-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-opsawg-pcapng">[I-D.ietf-opsawg-pcapng]</dt>
         <dd>
-<span class="refAuthor">Tüxen, M.</span>, <span class="refAuthor">Risso, F.</span>, <span class="refAuthor">Bongertz, J.</span>, <span class="refAuthor">Combs, G.</span>, <span class="refAuthor">Harris, G.</span>, <span class="refAuthor">Chaudron, E.</span>, and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"PCAP Next Generation (pcapng) Capture File Format"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-opsawg-pcapng-02</span>, <time datetime="2024-08-04" class="refDate">4 August 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng-02">https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng-02</a>&gt;</span>. </dd>
+<span class="refAuthor">Tüxen, M.</span>, <span class="refAuthor">Risso, F.</span>, <span class="refAuthor">Bongertz, J.</span>, <span class="refAuthor">Combs, G.</span>, <span class="refAuthor">Harris, G.</span>, <span class="refAuthor">Chaudron, E.</span>, and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"PCAP Next Generation (pcapng) Capture File Format"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-opsawg-pcapng-03</span>, <time datetime="2025-03-03" class="refDate">3 March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng-03">https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng-03</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC1051">[RFC1051]</dt>
         <dd>
@@ -5889,6 +5947,10 @@ and Jun-ichiro itojun Hagino.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <dt id="RFC4391">[RFC4391]</dt>
         <dd>
 <span class="refAuthor">Chu, J.</span> and <span class="refAuthor">V. Kashyap</span>, <span class="refTitle">"Transmission of IP over InfiniBand (IPoIB)"</span>, <span class="seriesInfo">RFC 4391</span>, <span class="seriesInfo">DOI 10.17487/RFC4391</span>, <time datetime="2006-04" class="refDate">April 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4391">https://www.rfc-editor.org/rfc/rfc4391</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4960">[RFC4960]</dt>
+        <dd>
+<span class="refAuthor">Stewart, R., Ed.</span>, <span class="refTitle">"Stream Control Transmission Protocol"</span>, <span class="seriesInfo">RFC 4960</span>, <span class="seriesInfo">DOI 10.17487/RFC4960</span>, <time datetime="2007-09" class="refDate">September 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4960">https://www.rfc-editor.org/rfc/rfc4960</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC3549">[RFC3549]</dt>
       <dd>

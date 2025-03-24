@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 4 September 2025                                      Sandelman
-                                                            3 March 2025
+Expires: 25 September 2025                                     Sandelman
+                                                           24 March 2025
 
 
                         PCAP Capture File Format
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 September 2025.
+   This Internet-Draft will expire on 25 September 2025.
 
 Copyright Notice
 
@@ -425,9 +425,9 @@ Table of Contents
               Tüxen, M., Risso, F., Bongertz, J., Combs, G., Harris, G.,
               Chaudron, E., and M. Richardson, "PCAP Next Generation
               (pcapng) Capture File Format", Work in Progress, Internet-
-              Draft, draft-ietf-opsawg-pcapng-02, 4 August 2024,
+              Draft, draft-ietf-opsawg-pcapng-03, 3 March 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
-              pcapng-02>.
+              pcapng-03>.
 
 Authors' Addresses
 
