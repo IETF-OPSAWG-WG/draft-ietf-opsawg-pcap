@@ -1381,7 +1381,7 @@ Table of Contents
               "Packet structure", n.d., <https://github.com/Auerswald-
               GmbH/auerlog/blob/master/auerlog.txt>.
 
-   [AVS]      Peachy, S., "Archived AVS specification",
+   [AVS]      Peachy, S., "AVS Capture Frame Format Version 2",
               <http://web.archive.org/web/20040803232023/
               http://www.shaftnet.org/~pizza/software/capturefrm.txt>.
 
@@ -1400,9 +1400,8 @@ Table of Contents
               CM-SP-MULPIv4.0>.
 
    [DOCSIS-XRA]
-              "Excentis XRA Header",
-              <https://support.excentis.com/index.php?/Knowledgebase/
-              Article/View/159>.
+              "Excentis XRA Header Definition",
+              <https://support.excentis.com/knowledge/article/45>.
 
    [Draft-ATA-878.2]
               "Draft ATA 878.2 ARCNET Packet Fragmentation Standard
@@ -1418,7 +1417,7 @@ Table of Contents
 
    [DVB-CI-PCAP]
               Kaiser, M., "PCAP format for DVB-CI", January 2021,
-              <https://www.kaiser.cx/pcap-dvbci.html>.
+              <https://www.kaiser.cx/pcap-dvbci/>.
 
    [EBHSCR]   "Documentation EBHSCR",
               <http://www.elektrobit.com/ebhscr>.
@@ -1432,8 +1431,7 @@ Table of Contents
 
    [Exegin-802.15.4-TAP]
               "IEEE 802.15.4 TAP Link Type Specification",
-              <https://github.com/jkcko/ieee802.15.4-tap/blob/master/
-              IEEE%20802.15.4%20TAP%20Link%20Type%20Specification.pdf>.
+              <https://gitlab.com/exegin/ieee802-15-4-tap>.
 
    [Exegin-Z-Wave-G.9959-TAP]
               Brandson, C., "Z-Wave G.9959 TAP Link Type Specificatino",
@@ -1720,7 +1718,7 @@ Table of Contents
               <https://www.itu.int/rec/T-REC-Q.921/en/>.
 
    [Radiotap] radiotap.org, "Radiotap Web site",
-              <http://www.radiotap.org/>.
+              <https://www.radiotap.org>.
 
    [Silabs-Debug-Channel]
               "Silabs Debug Channel Format", n.d., <https://github.com/S
