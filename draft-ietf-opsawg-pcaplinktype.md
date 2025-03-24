@@ -92,7 +92,7 @@ informative:
   AVS:
     author:
       fullname: Solomon Peachy
-    title: Archived AVS specification
+    title: AVS Capture Frame Format Version 2
     date: false
     target: http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt
 
@@ -141,9 +141,9 @@ informative:
     target: https://www.cablelabs.com/specifications/CM-SP-MULPIv4.0
 
   DOCSIS-XRA:
-    title: Excentis XRA Header
+    title: Excentis XRA Header Definition
     date: false
-    target: https://support.excentis.com/index.php?/Knowledgebase/Article/View/159
+    target: https://support.excentis.com/knowledge/article/45
 
   Draft-ATA-878.2:
     title: Draft ATA 878.2 ARCNET Packet Fragmentation Standard Version 1.4
@@ -165,7 +165,7 @@ informative:
       ins: M. Kaiser
       org: ""
     date: January 2, 2021
-    target: https://www.kaiser.cx/pcap-dvbci.html
+    target: https://www.kaiser.cx/pcap-dvbci/
 
   EBHSCR:
     title: Documentation EBHSCR
@@ -185,7 +185,7 @@ informative:
   Exegin-802.15.4-TAP:
     title: IEEE 802.15.4 TAP Link Type Specification
     date: false
-    target: https://github.com/jkcko/ieee802.15.4-tap/blob/master/IEEE%20802.15.4%20TAP%20Link%20Type%20Specification.pdf
+    target: https://gitlab.com/exegin/ieee802-15-4-tap
 
   Exegin-Z-Wave-G.9959-TAP:
     author:
@@ -563,7 +563,7 @@ informative:
       org: radiotap.org
     title: Radiotap Web site
     date: false
-    target: http://www.radiotap.org/
+    target: https://www.radiotap.org
 
   Silabs-Debug-Channel:
     title: Silabs Debug Channel Format
