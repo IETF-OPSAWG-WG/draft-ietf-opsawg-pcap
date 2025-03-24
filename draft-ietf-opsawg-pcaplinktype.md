@@ -57,6 +57,12 @@ informative:
     date: false
     refcontent: 3GPP TS 04.64
 
+  A/330:
+    title: >
+      ATSC 3.0 System
+    refcontent: ATSC Standard A/300
+    target: https://www.atsc.org/atsc-documents/type/3-0-standards/
+
   AIM-628:
     author:
     - fullname: David A. Moon
@@ -78,6 +84,10 @@ informative:
     date: 1999
     refcontent: ARCNET Trade Association standard 878.1-1999
     target: https://web.archive.org/web/20100414154838/http://www.arcnet.com/resources/ata8781.pdf
+
+  Auerswald-Logger:
+    title: Packet structure
+    target: https://github.com/Auerswald-GmbH/auerlog/blob/master/auerlog.txt
 
   AVS:
     author:
@@ -162,15 +172,27 @@ informative:
     date: false
     target: http://www.elektrobit.com/ebhscr
 
+  ETSI-TS-103-636-4:
+    title: >
+      DECT-2020 New Radio (NR); Part 4: MAC layer; Release 2
+    refcontent: ETSI TS 13 636-4
+
   ERF:
     title: ERF Types Reference Guide
     date: false
     target: https://www.endace.com/erf-extensible-record-format-types.pdf
 
-  Exegin-TAP-Link:
+  Exegin-802.15.4-TAP:
     title: IEEE 802.15.4 TAP Link Type Specification
     date: false
     target: https://github.com/jkcko/ieee802.15.4-tap/blob/master/IEEE%20802.15.4%20TAP%20Link%20Type%20Specification.pdf
+
+  Exegin-Z-Wave-G.9959-TAP:
+    author:
+    - fullname: Chris Brandson
+    title: Z-Wave G.9959 TAP Link Type Specificatino
+    date: false
+    target: https://gitlab.com/exegin/zwave-g9959-tap
 
   FD.io-VPP:
     title: VNET (VPP Network Stack)
@@ -191,7 +213,8 @@ informative:
 
   G.9959:
     title: >
-      Short range narrow-band digital radiocommunication transceivers - PHY, MAC, SAR and LLC layer specifications
+      Short range narrow-band digital radiocommunication transceivers -
+      PHY, MAC, SAR and LLC layer specifications
     date: false
     refcontent: ITU-T Recommendation G.9959
     target: https://www.itu.int/rec/T-REC-G.9959/en
@@ -443,6 +466,15 @@ informative:
     date: false
     target: https://lora-alliance.org/lorawan-for-developers/
 
+  MDB-PCAP:
+    author:
+    - fullname: Martin Kaiser
+      ins: M. Kaiser
+      org: ""
+    title: PCAP format for MDB
+    date: August 7, 2023
+    target: https://www.kaiser.cx/posts/pcap-mdb/
+
   OpenVizsla:
     title: OpenVizsla protocol description
     date: August 22, 2018
@@ -533,12 +565,21 @@ informative:
     date: false
     target: http://www.radiotap.org/
 
+  Silabs-Debug-Channel:
+    title: Silabs Debug Channel Format
+    target: https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/debug-channel.md
+
   STANAG-5066:
     title: >
       Profile for Maritime High Frequency (HF) Radio Data Communications
     refcontent: STANAG 5066
     date: false
     target: https://web.archive.org/web/20051004082010/http://www.armymars.net/ArmyMARS/HF-Email/resources/stanag5066.pdf
+
+  USB-2.0:
+    title: Universal Serial Bus Specification Revision 2.0
+    date: April 27, 2000
+    target: https://www.usb.org/document-library/usb-20-specification
 
   USBPcap:
     title: USBPcap Capture format specification

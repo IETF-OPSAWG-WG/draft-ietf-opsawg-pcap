@@ -479,7 +479,7 @@ Number
 : 120
 
 Description
-: Reserved for 802.11 + FreeFreeBSD Aironet radio metadata
+: Reserved for 802.11 + FreeBSD Aironet radio metadata
 {: spacing="compact"}
 
 
@@ -722,7 +722,7 @@ Number
 : 139
 
 Description
-: Signaling System 7 (SS7) Message Transfer Part Level
+: Signaling System 7 (SS7) Message Transfer Part (MTP) Level 2
 
 Reference
 : {{Q.703}}
@@ -737,7 +737,7 @@ Number
 : 140
 
 Description
-: SS7 Level 2
+: SS7 MTP Level 2
 
 Reference
 : {{Q.703}}
@@ -752,7 +752,7 @@ Number
 : 141
 
 Description
-: SS7 Level 3, with no MTP2 header
+: SS7 MTP Level 3, with no MTP2 header
 
 Reference
 : {{Q.704}}
@@ -1556,7 +1556,10 @@ Number
 : 204
 
 Description
-: PPP, as per RFC 1661 and RFC 1662 , preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host; if the first 2 octets are 0xff and 0x03, it's PPP in HDLC-like framing, with the PPP header following those two octets, otherwise it's PPP without framing, and the packet begins with the PPP header. The data in the frame is not octet-stuffed or bit-stuffed
+: PPP, preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host; if the first 2 octets are 0xff and 0x03, it's PPP in HDLC-like framing, with the PPP header following those two octets, otherwise it's PPP without framing, and the packet begins with the PPP header. The data in the frame is not octet-stuffed or bit-stuffed
+
+Reference
+: {{?RFC1661}}/{{?RFC1662}}
 {: spacing="compact"}
 
 
@@ -2135,7 +2138,10 @@ Number
 : 248
 
 Description
-: SCTP packets, as defined by RFC 4960 , with no lower-level protocols such as IPv4 or IPv6
+: SCTP packets, with no lower-level protocols such as IPv4 or IPv6
+
+Reference
+: {{?RFC4960}}
 {: spacing="compact"}
 
 
@@ -2627,7 +2633,10 @@ Number
 : 283
 
 Description
-: IEEE 802.15.4 Low-Rate Wireless Networks, with a pseudo-header containing TLVs with metadata preceding the 802.15.4 header
+: IEEE 802.15.4 Low-Rate Wireless Networks, with a tap header preceding the 802.15.4 header
+
+Reference
+: {{Exegin-802.15.4-TAP}}
 {: spacing="compact"}
 
 
@@ -2708,7 +2717,7 @@ Number
 : 289
 
 Description
-: ATSC Link-Layer Protocol frames, as described in section 5 of the A/330 Link-Layer Protocol specification, found at https://www.atsc.org/atsc-documents/type/3-0-standards/, beginning with a Base Header
+: ATSC Link-Layer Protocol frames, as described in section 5 of the {{A/330}} Link-Layer Protocol specification, beginning with a Base Header
 {: spacing="compact"}
 
 
@@ -2762,7 +2771,7 @@ Number
 : 293
 
 Description
-: Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0
+: Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of {{USB-2.0}}
 {: spacing="compact"}
 
 
@@ -2774,7 +2783,7 @@ Number
 : 294
 
 Description
-: Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0
+: Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of {{USB-2.0}}
 {: spacing="compact"}
 
 
@@ -2786,7 +2795,7 @@ Number
 : 295
 
 Description
-: High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0
+: High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of {{USB-2.0}}
 {: spacing="compact"}
 
 
@@ -2798,7 +2807,7 @@ Number
 : 296
 
 Description
-: Auerswald Logger Protocol, as described in https://github.com/Auerswald-GmbH/auerlog/blob/master/auerlog.txt
+: Auerswald Logger Protocol, as described in {{Auerswald-Logger}}
 {: spacing="compact"}
 
 
@@ -2810,10 +2819,10 @@ Number
 : 297
 
 Description
-: Z-Wave packets, as specified by ITU-T Recommendation G.9959, with a https://gitlab.com/exegin/zwave-g9959-tap TAP meta-data header
+: Z-Wave packets, as specified by ITU-T Recommendation G.9959, with a meta-data header
 
 Reference
-: {{Exegin-TAP-Link}}{{G.9959}}
+: {{Exegin-Z-Wave-G.9959-TAP}}{{G.9959}}
 {: spacing="compact"}
 
 
@@ -2825,7 +2834,10 @@ Number
 : 298
 
 Description
-: Silicon Labs debug channel protocol, as described in https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/debug-channel.md
+: Silicon Labs debug channel protocol
+
+Reference
+: {{Silabs-Debug-Channel}}
 {: spacing="compact"}
 
 
@@ -2852,7 +2864,10 @@ Number
 : 300
 
 Description
-: MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine, with the message format specified by https://www.kaiser.cx/pcap-mdb.html the PCAP format for MDB specification
+: MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine
+
+Reference
+: {{MDB-PCAP}}
 {: spacing="compact"}
 
 
@@ -2864,7 +2879,10 @@ Number
 : 301
 
 Description
-: DECT-2020 New Radio (NR) MAC layer specified in https://www.etsi.org/committee/1394-dect ETSI TS 103 636-4. The Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions
+: DECT-2020 New Radio (NR) MAC layer; the Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions
+
+Reference
+: {{ETSI-TS-103-636-4}}
 {: spacing="compact"}
 
 
