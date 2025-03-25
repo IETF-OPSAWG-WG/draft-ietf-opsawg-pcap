@@ -1370,9 +1370,9 @@ Table of Contents
    Name  LINKTYPE_DECT_NR
    Number  301
    Description  DECT-2020 New Radio (NR) MAC layer; the Physical Header
-      Field is always encoded using 80 bits (10 bytes).  Broadcast
-      transmissions using 40 bits (5 bytes) is padded with 40 zero bits
-      (5 bytes).  When padding is used the Receiver Identity value
+      Field is always encoded using 80 bits (10 octets).  Broadcast
+      transmissions using 40 bits (5 octets) is padded with 40 zero bits
+      (5 octets).  When padding is used the Receiver Identity value
       0x0000 (reserved address) is used to detect broadcast
       transmissions
    Reference  [ETSI-TS-103-636-4]
