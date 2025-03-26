@@ -308,7 +308,7 @@ Number
 : 107
 
 Description
-: Frame Relay LAPF frames
+: Frame Relay LAPF
 {: spacing="compact"}
 
 
@@ -488,7 +488,7 @@ Number
 : 122
 
 Description
-: IP-over-Fibre Channel, starting with the Network_Header
+: IP-over-Fibre Channel
 
 Reference
 : {{?RFC2625}}
@@ -1247,10 +1247,10 @@ Number
 : 182
 
 Description
-: FRF.16.1 Multi-Link Frame Relay frames, beginning with an FRF.12 Interface fragmentation format fragmentation header
+: FRF.16.1 Multi-Link Frame Relay frames
 
 Reference
-: {{FRF.16.1}}
+: {{FRF.16.1}} {{FRF.12}}
 {: spacing="compact"}
 
 
@@ -1310,7 +1310,7 @@ Number
 : 187
 
 Description
-: Bluetooth HCI UART transport layer; the frame contains an HCI packet indicator octet, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification, followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification
+: Bluetooth HCI UART transport layer frames
 {: spacing="compact"}
 
 
@@ -1334,7 +1334,7 @@ Number
 : 189
 
 Description
-: USB packets, beginning with a Linux USB header, as specified by the struct usbmon_packet in the Documentation/usb/usbmon.txt file in the Linux source tree. Only the first 48 octets of that header are present. All fields in the header are in host byte order. When performing a live capture, the host byte order is the byte order of the machine on which the packets are captured. When reading a PCAP file, the byte order is the byte order for the file, as specified by the file's magic number; when reading a PCAPNG file, the byte order is the byte order for the section of the PCAPNG file, as specified by the Section Header Block
+: USB packets, beginning with a Linux USB header
 {: spacing="compact"}
 
 
@@ -1358,7 +1358,7 @@ Number
 : 191
 
 Description
-: IEEE 802.15.4, with address fields padded, as is done by Linux drivers
+: Reserved for IEEE 802.15.4 with address fields padded by Linux
 {: spacing="compact"}
 
 
@@ -1370,7 +1370,7 @@ Number
 : 192
 
 Description
-: Per-Packet Information information, as specified by the Per-Packet Information Header Specification , followed by a packet with the LINKTYPE_ value specified by the pph_dlt field of that header
+: Per-Packet Information header preceding packet data
 
 Reference
 : {{PPI}}
@@ -1409,7 +1409,7 @@ Number
 : 195
 
 Description
-: IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame
+: IEEE 802.15.4 packets with FCS
 {: spacing="compact"}
 
 
@@ -1484,7 +1484,7 @@ Number
 : 201
 
 Description
-: Bluetooth HCI UART transport layer; the frame contains a 4-octet direction field, in network byte order (big-endian), the low-order bit of which is set if the frame was sent from the host to the controller and clear if the frame was received by the host from the controller, followed by an HCI packet indicator octet, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification, followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification
+: Bluetooth HCI UART transport frames with a direction pseudo-header
 {: spacing="compact"}
 
 
@@ -1511,7 +1511,7 @@ Number
 : 203
 
 Description
-: Link Access Procedures on the D Channel (LAPD) frames, starting with the address field, with no pseudo-header
+: Q.921 LAPD frames
 
 Reference
 : {{Q.920}} {{Q.921}}
@@ -1526,7 +1526,7 @@ Number
 : 204
 
 Description
-: PPP, preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host; if the first 2 octets are 0xff and 0x03, it's PPP in HDLC-like framing, with the PPP header following those two octets, otherwise it's PPP without framing, and the packet begins with the PPP header. The data in the frame is not octet-stuffed or bit-stuffed
+: PPP, with a direction header
 
 Reference
 : {{?RFC1661}}/{{?RFC1662}}
@@ -1541,7 +1541,7 @@ Number
 : 205
 
 Description
-: Cisco PPP with HDLC framing, preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host
+: Cisco PPP with HDLC framing, with a direction header
 
 Reference
 : {{Section 4.3.1 of ?RFC1547}}
@@ -1556,7 +1556,7 @@ Number
 : 206
 
 Description
-: Frame Relay LAPF frames, beginning with a one-octet pseudo-header with a zero value meaning received by this host (DCE->DTE) and a non-zero value meaning sent by this host (DTE->DCE), followed by an ITU-T Recommendation Q.922 LAPF header starting with the address field, and without an FCS at the end of the frame
+: Frame Relay LAPF, with a direction header
 {: spacing="compact"}
 
 
@@ -1568,7 +1568,7 @@ Number
 : 207
 
 Description
-: Link Access Procedure, Balanced (LAPB), as specified by ITU-T Recommendation X.25 , preceded with a one-octet pseudo-header with a zero value meaning received by this host (DCE->DTE) and a non-zero value meaning sent by this host (DTE->DCE)
+: X.25 LAPB, with a direction header
 {: spacing="compact"}
 
 
@@ -1664,7 +1664,7 @@ Number
 : 215
 
 Description
-: IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame, and with the PHY-level data for the O-QPSK, BPSK, GFSK, MSK, and RCC DSS BPSK PHYs (4 octets of 0 as preamble, one octet of SFD, one octet of frame length + reserved bit) preceding the MAC-layer data (starting with the frame control field)
+: IEEE 802.15.4 with PHY header
 {: spacing="compact"}
 
 
@@ -1724,7 +1724,7 @@ Number
 : 220
 
 Description
-: USB packets, beginning with a Linux USB header, as specified by the struct usbmon_packet in the Documentation/usb/usbmon.txt file in the Linux source tree. All 64 octets of the header are present. All fields in the header are in host byte order. When performing a live capture, the host byte order is the byte order of the machine on which the packets are captured. When reading a PCAP file, the byte order is the byte order for the file, as specified by the file's magic number; when reading a PCAPNG file, the byte order is the byte order for the section of the PCAPNG file, as specified by the Section Header Block. For isochronous transfers, the ndesc field specifies the number of isochronous descriptors that follow
+: USB packets, beginning with an extended Linux USB header
 {: spacing="compact"}
 
 
@@ -1772,7 +1772,7 @@ Number
 : 224
 
 Description
-: Fibre Channel FC-2 frames, beginning with a Frame_Header
+: Fibre Channel FC-2 frames
 {: spacing="compact"}
 
 
@@ -1784,7 +1784,7 @@ Number
 : 225
 
 Description
-: Fibre Channel FC-2 frames, beginning an encoding of the SOF, followed by a Frame_Header, and ending with an encoding of the SOF. The encodings represent the frame delimiters as 4-octet sequences representing the corresponding ordered sets, with K28.5 represented as 0xBC, and the D symbols as the corresponding octet values; for example, SOFi2, which is K28.5 - D21.5 - D1.2 - D21.2, is represented as 0xBC 0xB5 0x55 0x55
+: Fibre Channel FC-2 frames with SOF and EOF
 {: spacing="compact"}
 
 
@@ -1844,7 +1844,7 @@ Number
 : 230
 
 Description
-: IEEE 802.15.4 Low-Rate Wireless Network, without the FCS at the end of the frame
+: IEEE 802.15.4 packets without FCS
 {: spacing="compact"}
 
 
@@ -1856,7 +1856,7 @@ Number
 : 231
 
 Description
-: Raw D-Bus messages , starting with the endianness flag, followed by the message type, etc., but without the authentication handshake before the message sequence
+: Raw D-Bus messages
 
 Reference
 : {{D-Bus}}
@@ -1934,7 +1934,7 @@ Number
 : 237
 
 Description
-: D_PDUs as described by NATO standard STANAG 5066, starting with the synchronization sequence, and including both header and data CRCs. The current version of STANAG 5066 is backwards-compatible with the 1.0.2 version , although newer versions are classified
+: STANAG 5066 D_PDUs
 
 Reference
 : {{STANAG-5066}}
@@ -2351,10 +2351,10 @@ Number
 : 270
 
 Description
-: LoRaTap pseudo-header , followed by the payload, which is typically the PHYPayload from the LoRaWan specification
+: LoRaWan packets with a LoRaTap pseudo-header
 
 Reference
-: {{LoRaTap}}{{LoRaWAN}}
+: {{LoRaTap}}{{LoRaWAN-Link-Layer-1.0.4}}
 {: spacing="compact"}
 
 
@@ -2696,7 +2696,7 @@ Number
 : 297
 
 Description
-: Z-Wave packets, as specified by ITU-T Recommendation G.9959, with a meta-data header
+: Z-Wave packets, with a meta-data header
 
 Reference
 : {{Exegin-Z-Wave-G.9959-TAP}}{{G.9959}}
@@ -2738,7 +2738,7 @@ Number
 : 300
 
 Description
-: MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine
+: MDB (Multi-Drop Bus) protocol vending machine protocol
 
 Reference
 : {{MDB-PCAP}}
@@ -2753,7 +2753,7 @@ Number
 : 301
 
 Description
-: DECT-2020 New Radio (NR) MAC layer; the Physical Header Field is always encoded using 80 bits (10 octets). Broadcast transmissions using 40 bits (5 octets) is padded with 40 zero bits (5 octets). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions
+: DECT-2020 New Radio (NR) MAC layer
 
 Reference
 : {{ETSI-TS-103-636-4}}

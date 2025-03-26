@@ -141,6 +141,9 @@ informative:
     date: July 1998
     target: https://www.ax25.net/AX25.2.2-Jul%2098-2.pdf
 
+  Bluetooth-Core:
+    title: Bluetooth Core Specification
+
   D-Bus:
     title: D-Bus Specification
     date: false
@@ -230,10 +233,21 @@ informative:
     date: false
     target: https://gitlab.com/exegin/zwave-g9959-tap
 
+  FC-FS-5:
+    title: >
+      Fibre Channel - Framing and Signaling - 5
+    date: April 30, 2019
+    refcontent: INCITS 545-2019
+
   FD.io-VPP:
     title: VNET (VPP Network Stack)
     date: false
     target: https://fdio-vpp.readthedocs.io/en/latest/gettingstarted/developers/vnet.html
+
+  FRF.12:
+    title: Frame Relay Fragmentation Implementation Agreement - FRF.12
+    date: December 1997
+    target: https://web.archive.org/web/20160426183112/https://www.broadband-forum.org/technical/download/FRF.12/frf12.pdf
 
   FRF.16.1:
     title: Multilink Frame Relay UNI/NNI Implementation Agreement FRF.16.1
@@ -269,6 +283,10 @@ informative:
       frequency range from 64,0 MHz to 108,0 MHz - Part 1: Modulation
       characteristics and baseband coding
     refcontent: IEC 62106-1
+
+  IEEE-802.15.4:
+    title: IEEE Standard for Low-Rate Wireless Networks
+    refcontent: IEEE Std 802.15.4
 
   IEEE-C37.118.1:
     title: IEEE Standard for Synchrophasor Measurements for Power Systems
@@ -315,15 +333,23 @@ informative:
     title: Linux `uapi/linux/can/error.h` header
     target: https://github.com/torvalds/linux/blob/master/include/uapi/linux/can/error.h
 
+  LLCP-1.4:
+    author:
+      org: NFC Forum
+    title: >
+      Logical Link Control Protocol Technical Specification Version 1.4
+    date: December 2022
+    target: https://nfc-forum.org/build/specifications
+
   LoRaTap:
     title: LoRaTap
     date: false
     target: https://github.com/eriknl/LoRaTap/blob/master/README.md
 
-  LoRaWAN:
-    title: About the LoRaWAN Standards
-    date: false
-    target: https://lora-alliance.org/lorawan-for-developers/
+  LoRaWAN-Link-Layer-1.0.4:
+    title: LoRaWAN L2 1.0.4 Specification
+    date: October 2020
+    target: https://lora-alliance.org/resource_hub/lorawan-104-specification-package/
 
   MDB-PCAP:
     author:
@@ -471,6 +497,15 @@ informative:
     title: USBPcap Capture format specification
     date: false
     target: https://desowin.org/usbpcap/captureformat.html
+
+  X.25:
+    title: >
+      Interface between Data Terminal Equipment (DTE) and Data
+      Circuit-terminating Equipment (DCE) for terminals operating in the
+      packet mode and connected to public data networks by dedicated
+      circuit
+    refcontent: ITU-T Recommendation X.25
+    target: https://www.itu.int/rec/T-REC-X.25/en/
 
   ZBOSS:
     title: ZBOSS NCP Serial Protocol
@@ -656,18 +691,19 @@ with a corresponding Flags bit are only considered valid when the bit is
 set.
 
 The RF Channel field ranges 0 to 78.  It reflects the value described in
-the Bluetooth specification Volume 2, Part A, Section 2.
+Volume 2, Part A, Section 2 "Frequency bands and channel arrangement" of
+{{Bluetooth-Core}}.
 
 The Signal Power and Noise Power fields are signed integers expressing
 values in dBm.
 
 The Access Code Offenses field is an unsigned integer indicating the
 number of deviations from the valid access code that led to the packet
-capture.  Access codes are interpreted as described in Bluetooth
-specification Volume 2, Part B, Section 6.3.
+capture.  Access codes are interpreted as described in Volume 2, Part B,
+Section 6.3 "Access code" of {{Bluetooth-Core}}.
 
-The Payload Transport Rate field represents a column of Bluetooth
-specification Volume 2, Part B, Section 6.5, Table 6.2, and is
+The Payload Transport Rate field represents a column in Volume 2, Part
+B, Section 6.5 "Packet types", Table 6.2 of {{Bluetooth-Core}}, and is
 interpreted as two nibbles as follows.
 
 * `0x.0` indicates the BT payload was BR and captured with GFSK
@@ -691,19 +727,19 @@ The Corrected Header Bits field is an unsigned integer indicating the
 number of corrected bits in the 18-bit BT Packet Header.  The valid
 range is 0 to 18.
 
-The Corrected Payload Bits field is a signed integer indicating
-the number of errored and corrected bits in the captured BT payload.
+The Corrected Payload Bits field is a signed integer indicating the
+number of errored and corrected bits in the captured BT payload.
 Interpretation of this field corresponds to the Payload Transport Rate.
 The value ranges from 0 to 80 when the BT payload was captured at R=1/3
-as per Bluetooth specification Volume 2, Part B, Section 7.4.  The value
+as per Volume 2, Part B, Section 7.4 of {{Bluetooth-Core}}.  The value
 ranges from -360 to +180 when the BT payload was captured at R=2/3 as
-per Bluetooth specification Volume 2, Part B, Section 7.5.  A negative
+per Volume 2, Part B, Section 7.5 of {{Bluetooth-Core}}.  A negative
 number indicates the field absolute value is the sum of the number of
 corrected and uncorrectable bits.
 
 The Lower Address Part field is the 24-bit value recovered from the
-captured SYNC WORD as defined in Bluetooth specification Volume 2, Part
-B, Section 6.3.3.  The most significant byte of this field is reserved
+captured SYNC WORD as defined in Volume 2, Part B, Section 6.3.3 of
+{{Bluetooth-Core}}.  The most significant byte of this field is reserved
 and must be zero.
 
 The Reference LAP field corresponds to the Lower Address Part configured
@@ -713,9 +749,9 @@ The Reference UAP field corresponds to the Upper Address Part configured
 into the capture tool and corresponds to the Reference LAP.
 
 The BT Packet Header field is the 18-bit value recovered from the packet
-capture, and is defined in Bluetooth specification Volume 2, Part B,
-Section 6.4.  The most significant 14 bits are reserved and must be
-zero.
+capture, and is defined in Volume 2, Part B, Section 6.4 of
+{{Bluetooth-Core}}.  The most significant 14 bits are reserved and must
+be zero.
 
 The Flags field represents packed bits defined as follows.
 
@@ -745,11 +781,65 @@ The Flags field represents packed bits defined as follows.
 All other bit positions of the Flags field are reserved and must be zero.
 
 The decoded BR or EDR Payload optionally follows the previous fields,
-and is formatted as detailed in Bluetooth specification Volume 2, Part
-B, Section 6.  The packet is decoded per Bluetooth specification Volume
-2, Part B, Section 7.  All multi-octet values in the BR or EDR Payload
-are always expressed in little-endian format, as is the normal Bluetooth
-practice.
+and is formatted as detailed in Volume 2, Part B, Section 6 of
+{{Bluetooth-Core}}.  The packet is decoded per Volume 2, Part B, Section
+7 of {{Bluetooth-Core}}.  All multi-octet values in the BR or EDR
+Payload are always expressed in little-endian format, as is the normal
+Bluetooth practice.
+
+## LINKTYPE_BLUETOOTH_HCI_H4
+
+### Packet structure
+
+    +---------------------------+
+    |   HCI packet indicator    |
+    |         (1 Octet)         |
+    +---------------------------+
+    |          Payload          |
+    .                           .
+    .                           .
+    .                           .
+
+### Description
+
+The HCI packet indicator field contains a packet indicator value, as
+specified by Volume 4, Part A, Section 2 "Protocol" of
+{{Bluetooth-Core}}.
+
+The payload is an HCI packet, as specified by Volume 4, Part E of
+{{Bluetooth-Core}}, of the packet type indicated by the packet indicator
+value.
+
+## LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR
+
+### Packet structure
+
+    +---------------------------+
+    |         Direction         |
+    |         (4 Octets)        |
+    +---------------------------+
+    |   HCI packet indicator    |
+    |         (1 Octet)         |
+    +---------------------------+
+    |          Payload          |
+    .                           .
+    .                           .
+    .                           .
+
+### Description
+
+The Direction field is a 4-octet direction field, in network byte order
+(big-endian), the low-order bit of which is set if the frame was sent
+from the host to the controller and clear if the frame was received by
+the host from the controller.
+
+The HCI packet indicator field contains a packet indicator value, as
+specified by Volume 4, Part A, Section 2 "Protocol" of
+{{Bluetooth-Core}}.
+
+The payload is an HCI packet, as specified by Volume 4, Part E of
+{{Bluetooth-Core}}, of the packet type indicated by the packet indicator
+value.
 
 ## LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
 
@@ -786,15 +876,15 @@ with a corresponding Flags bit are only considered valid when the bit is
 set.
 
 The RF Channel field ranges 0 to 39.  It reflects the value described in
-the Bluetooth Core Specification v5.2, Volume 6, Part A, Section 2.
+Volume 6, Part A, Section 2 of {{Bluetooth-Core}}.
 
 The Signal Power and Noise Power fields are signed integers expressing
 values in dBm.
 
 The Access Address Offenses field is an unsigned integer indicating the
 number of deviations from the valid access address that led to the
-packet capture.  Access addresses are interpreted as described in the
-Bluetooth Core Specification v5.2, Volume 6, Part B, Section 2.1.2.
+packet capture.  Access addresses are interpreted as described in
+Volume 6, Part B, Section 2.1.2 of {{Bluetooth-Core}}.
 
 The Reference Access Address field corresponds to the Access Address
 configured into the capture tool that led to the capture of this packet.
@@ -858,19 +948,18 @@ in the LE Packet are always expressed in little-endian format, as is the
 normal Bluetooth practice.
 
 For packets using the LE Uncoded PHYs (LE 1M PHY and LE 2M PHY) as
-defined in the Bluetooth Core Specification v5.2, Volume 6, Part B,
-Section 2.1, the LE Packet is represented as the four-octet access
-address, immediately followed by the PDU and CRC; it does not include
-the preamble.
+defined in Volume 6, Part B, Section 2.1 of {{Bluetooth-Core}}, the LE
+Packet is represented as the four-octet access address, immediately
+followed by the PDU and CRC; it does not include the preamble.
 
-For packets using the LE Coded PHY as defined in the Bluetooth Core
-Specification v5.2, Volume 6, Part B, Section 2.2, the LE Packet is
-represented as the four-octet access address, followed by the Coding
-Indicator (CI), stored in a one-octet field with the lower 2 bits
-containing the CI value, immediately followed by the PDU and the CRC; it
-does not include the preamble.  Packets using the LE Coded PHY are
-represented in an uncoded form, so the TERM1 and TERM2 coding
-terminators are not included in the LE packet field.
+For packets using the LE Coded PHY as defined in Volume 6, Part B,
+Section 2.2 of {{Bluetooth-Core}}, the LE Packet is represented as the
+four-octet access address, followed by the Coding Indicator (CI), stored
+in a one-octet field with the lower 2 bits containing the CI value,
+immediately followed by the PDU and the CRC; it does not include the
+preamble.  Packets using the LE Coded PHY are represented in an uncoded
+form, so the TERM1 and TERM2 coding terminators are not included in the
+LE packet field.
 
 ## LINKTYPE_BLUETOOTH_LINUX_MONITOR
 
@@ -1171,6 +1260,54 @@ Software that generates `LINKTYPE_CAN_SOCKETCAN` CAN XL frames:
 * May strip trailing padding bytes to save disk space if all above statements are satisfied.
 
 The payload is the data field of the CAN XL packet.
+
+## LINKTYPE_C_HDLC
+
+### Description
+
+Packets are "Cisco HDLC" frames, as specified by {{Section 4.3.1 of
+?RFC1547}}.
+
+## LINKTYPE_C_HDLC_WITH_DIR
+
+### Packet structure
+
+    +------------------+
+    |     Direction    |
+    |     (1 Octet)    |
+    +------------------+
+    | Cisco HDLC frame |
+    .                  .
+    .                  .
+    .                  .
+
+### Description
+
+The Direction field is zero if the frame was received by the host
+that captured the traffic and non-zero if the frame was sent by that
+host.
+
+The Cisco HDLC frame is as specified by {{Section 4.3.1 of ?RFC1547}}.
+
+## LINKTYPE_DBUS
+
+### Description
+
+Packets are Raw D-Bus messages, as specified by {{D-Bus}}, starting with
+the endianness flag, followed by the message type, etc., but without the
+authentication handshake before the message sequence.
+
+## LINKTYPE_DECT_NR
+
+### Description
+
+Packets are DECT-2020 New Radio (NR) MAC layer frames, as per
+{{ETSI-TS-103-636-4}}.
+
+The Physical Header Field is always encoded using 80 bits (10 bytes).
+Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero
+bits (5 bytes).  When padding is used the Receiver Identity value 0x0000
+(reserved address) is used to detect broadcast transmissions
 
 ## LINKTYPE_DISPLAYPORT_AUX
 
@@ -1632,6 +1769,26 @@ message string.
 `Providername` is a null-terminated UTF-16LE string that contains the
 event provider name string.
 
+## LINKTYPE_FC_2
+
+### Description
+
+Packets are Fibre Channel FC-2 frames, as specified in section 11 "Frame
+Transmission and Reception" of {{FC-FS-5}}, with the SOF and EOF
+omitted.
+
+## LINKTYPE_FC_2_WITH_FRAME_DELIMS
+
+### Description
+
+Packets are Fibre Channel FC-2 frames, as specified in section 11 "Frame
+Transmission and Reception" of {{FC-FS-5}}, beginning with an encoding
+of the SOF and ending with an encoding of the EOF.  The encodings
+represent the frame delimiters as 4-octet sequences representing the
+corresponding ordered sets, with K28.5 represented as 0xBC, and the D
+symbols as the corresponding octet values; for example, SOFi2, which is
+K28.5 - D21.5 - D1.2 - D21.2, is represented as 0xBC 0xB5 0x55 0x55.
+
 ## LINKTYPE_FIRA_UCI
 
 The protocol description is available to members only on the FiRa
@@ -1751,6 +1908,35 @@ The payload of a FlexRay Symbol packet has the structure
 
 The lower 7 bits of the Symbol Length indicate the length of the
 received symbol, in bits.
+
+## LINKTYPE_FRELAY
+
+### Description
+
+Packets are Frame Relay LAPF frames, as described in section 2 "Frame
+structure for peer-to-peer communication" of {{Q.922}}.
+
+## LINKTYPE_FRELAY_WITH_DIR
+
+### Packet structure
+
+    +------------+
+    | Direction  |
+    | (1 Octet)  |
+    +------------+
+    | LAPF frame |
+    .            .
+    .            .
+    .            .
+
+### Description
+
+The Direction field is zero if the frame was received by the host
+that captured the traffic and non-zero if the frame was sent by that
+host.
+
+The LAPF frame is as described in section 2 "Frame structure for
+peer-to-peer communication" of {{Q.922}}.
 
 ## LINKTYPE_I2C_LINUX
 
@@ -1906,6 +2092,64 @@ adapters. There is no official specification for the Prism header;
 {{Prism}} describes what one person found from examining some adapter
 drivers.
 
+## LINKTYPE_IEEE802_15_4_NOFCS
+
+### Description
+
+IEEE 802.15.4 frames, as described by section 7.2 "General MAC frame
+format" of {{IEEE-802.15.4}}, with the FCS omitted.
+
+## LINKTYPE_IEEE802_15_4_WITHFCS
+
+### Description
+
+IEEE 802.15.4 frames, as described by section 7.2 "General MAC frame
+format" of {{IEEE-802.15.4}}, with each packet having the FCS at the end
+of the frame.
+
+## LINKTYPE_IEEE802_15_4_NONASK_PHY
+
+## Packet structure
+
+    +---------------------------------------+
+    |                Preamble               |
+    |               (4 Octets)              |
+    +---------------------------------------+
+    |                   SFD                 |
+    |                (1 Octet)              |
+    +---------------------------------------+
+    |                   PHR                 |
+    |              (1-2 Octets)             |
+    +---------------------------------------+
+    |            802.15.4 MAC frame         |
+    .                                       .
+    .                                       .
+    .                                       .
+
+### Description
+
+The packets are IEEE 802.15.4 O-QPSK, BPSK, GFSK, MSK, and RCC DSSS BPSK
+PHY frames.
+
+The Preamble field is as described in the clauses for the respective
+PHYs in {{IEEE-802.15.4}}.
+
+The SFD is as described in the clauses for the respective PHYs in
+{{IEEE-802.15.4}}.
+
+The PHR is as described in the clauses for the respective PHYs in
+{{IEEE-802.15.4}}.
+
+THe 802.15.4 MAC frame is as described by section 7.2 "General MAC frame
+format" of {{IEEE-802.15.4}}. (FCS?)
+
+## LINKTYPE_IP_OVER_FC
+
+### Description
+
+IP-over-Fibre Channel, as described by {{?RFC2625}}. The packet data
+begins withwith the Network_Header.
+
 ## LINKTYPE_IPNET
 
 ### Packet structure
@@ -1972,6 +2216,16 @@ same machine.
 
 The payload is an IPv4 or IPv6 datagram, beginning with the IP header;
 the family field indicates which it is.
+
+## LINKTYPE_LAPD
+
+### Description
+
+Link Access Procedures on the D Channel (LAPD) frames, as specified by
+section 2 "Frame structure for peer-to-peer communication" of {{Q.921}}.
+The flags at the beginning and end of the frame are not present.  If the
+FCS is present for a frame in a PCAP or PCAPNG file, the file MUST
+indicate this.
 
 ## LINKTYPE_LIN
 
@@ -2114,6 +2368,28 @@ the value `0x0017`.
 
 The payload is an IrDA frame beginning with the IrLAP header as
 defined by {{IrLAP-1.1}}.
+
+## LINKTYPE_LAPB_WITH_DIR
+
+### Packet structure
+
+    +------------+
+    | Direction  |
+    | (1 Octet)  |
+    +------------+
+    | LAPB frame |
+    .           .
+    .           .
+    .           .
+
+### Description
+
+The Direction field is zero if the frame was received by the host
+that captured the traffic and non-zero if the frame was sent by that
+host.
+
+The LAPB frame is as descrbed in section 2.2.7 "Frame structure" of
+{{X.25}}.  Frames MAY either be modulo 8 or modulo 128.
 
 ## LINKTYPE_LINUX_LAPD
 
@@ -2446,6 +2722,29 @@ that field are:
 All of the IPv6 values correspond to IPv6 packets; code reading files
 should check for all of them.
 
+## LINKTYPE_LORATAP
+
+### Description
+
+Packets contain a {{LoRaTap}} pseudo-header, followed by the payload,
+which is typically the PHYPayload as specified by section 4.1 PHY
+"Payload (PHYPayload)" of {{LoRaWAN-Link-Layer-1.0.4}}.
+
+## LINKTYPE_MDB
+
+### Description
+
+Packets are for the MDB (Multi-Drop Bus) protocol between a vending
+machine controller and peripherals inside the vending
+machine, as specified by {{MDB-PCAP}}.
+
+## LINKTYPE_MFR
+
+### Description
+
+Packets are {{FRF.16.1}} Multi-Link Frame Relay frames, beginning with
+an {{FRF.12}} Interface fragmentation format fragmentation header.
+
 ## LINKTYPE_MUX27010
 
 ### Packet structure
@@ -2664,12 +2963,10 @@ The bits in the flags field are:
 * `0x02`-`0x80` - Reserved
 
 The payload is an NFC Logical Link Control Protocol (LLCP) PDU, as
-specified by [the NFC Forum Logical Link Control Protocol Technical
-Specification](https://nfc-forum.org/build/specifications#core-specification),
-i.e. a byte containing the DSAP and upper two bits of the PTYPE,
-followed by a byte containing the lower two bits of the PTYPE and the
-SSAP, followed by the sequence byte if the frame has sequence numbers,
-followed by any additional bytes of payload.
+specified by {{LLCP-1.4}}, i.e.  a byte containing the DSAP and upper
+two bits of the PTYPE, followed by a byte containing the lower two bits
+of the PTYPE and the SSAP, followed by the sequence byte if the frame
+has sequence numbers, followed by any additional bytes of payload.
 
 ## LINKTYPE_NFLOG
 
@@ -3846,6 +4143,59 @@ giving the last component of the path name of the executable image
 running in some process, truncated to 20 characters.  It may be a
 null string if the executable image name is unknown.
 
+## LINKTYPE_PPI
+
+### Description
+
+Packets start with a Per-Packet Information header, as specified by
+{{PPI}}, followed by a packet in the format specified by the LINKTYPE_
+value in the `pph_dlt` field of that header.
+
+## LINKTYPE_PPP
+
+### Description
+
+PPP frames, as specified by {{Section 2 of ?RFC1661}}}.  If the first 2
+octets are 0xff and 0x03, it's PPP in HDLC-like framing, as specified by
+{{Section 3.1 of ?RFC1662}}, with the PPP header following those two
+octets, otherwise it's PPP without framing, and the packet begins with
+the PPP header.  The data in the frame is not octet-stuffed or
+bit-stuffed.
+
+## LINKTYPE_PPP_HDLC
+
+### Description
+
+PPP frames, as specified by {{Section 2 of ?RFC1661}}}.  The frames
+include the address and control fields as specified by {{Section 3.1 of
+?RFC1662}}.  The data in the frame is not octet-stuffed or bit-stuffed.
+
+## LINKTYPE_PPP_WITH_DIR
+
+### Packet structure
+
+    +-----------+
+    | Direction |
+    | (1 Octet) |
+    +-----------+
+    | PPP frame |
+    .           .
+    .           .
+    .           .
+
+### Description
+
+The Direction field is zero if the frame was received by the host
+that captured the traffic and non-zero if the frame was sent by that
+host.
+
+The PPP frame is as specified by {{Section 2 of ?RFC1661}}}.  If the
+first 2 octets are 0xff and 0x03, it's PPP in HDLC-like framing, as
+specified by {{Section 3.1 of ?RFC1662}}, with the PPP header following
+those two octets, otherwise it's PPP without framing, and the packet
+begins with the PPP header.  The data in the frame is not octet-stuffed
+or bit-stuffed.
+
 ## LINKTYPE_RDS
 
 ### Packet structure
@@ -4074,6 +4424,16 @@ The direction field contains a value that is one of:
 The payload is either an IP packet or a compressed packet as per
 {{?RFC1144}}, without framing and byte-stuffing.
 
+## LINKTYPE_STANAG_5066_D_PDU
+
+### Description
+
+Packets are D_PDUs as described by NATO standard {{STANAG-5066}},
+starting with the synchronization sequence, and including both header
+and data CRCs.  The current version of STANAG 5066 is
+backwards-compatible with the 1.0.2 version, although newer versions
+are classified.
+
 ## LINKTYPE_SUNATM
 
 ### Packet structure
@@ -4287,6 +4647,234 @@ For isochronous endpoints:
     frame headers, with the frame length set to the number of bytes to
     be transferred, the frame status field set to `0xe0000001`, and
     without any data following the header.
+
+## Linux USB common header
+
+There are two link-layer formats for Linux USB captures,
+`LINKTYPE_USB_LINUX` and `LINKTYPE_USB_LINUX_MMAPPED`. They have
+similar headers, with `LINKTYPE_USB_LINUX_MMAPPED` having additional
+fields at the end of its header.
+
+### Common header structure
+
+The common part of the header has the following fields:
+
+    +-------------------------------------------+
+    |                  URB ID                   |
+    |                (8 Octets)                 |
+    +-------------------------------------------+
+    |                 Event type                |
+    |                  (1 Octet)                |
+    +-------------------------------------------+
+    |                Transfer type              |
+    |                  (1 Octet)                |
+    +-------------------------------------------+
+    |   Endpoint number and transfer direction  |
+    |                  (1 Octet)                |
+    +-------------------------------------------+
+    |               Device address              |
+    |                  (1 Octet)                |
+    +-------------------------------------------+
+    |                 Bus number                |
+    |                 (2 Octets)                |
+    +-------------------------------------------+
+    |                 Setup flag                |
+    |                  (1 Octet)                |
+    +-------------------------------------------+
+    |                  Data flag                |
+    |                  (1 Octet)                |
+    +-------------------------------------------+
+    |             Timestamp, seconds            |
+    |                 (8 Octets)                |
+    +-------------------------------------------+
+    |          Timestamp, microseconds          |
+    |                 (4 Octets)                |
+    +-------------------------------------------+
+    |                   Status                  |
+    |                 (4 Octets)                |
+    +-------------------------------------------+
+    |                Data length                |
+    |                 (4 Octets)                |
+    +-------------------------------------------+
+    |             Delivered data length         |
+    |                 (4 Octets)                |
+    +-------------------------------------------+
+    |        Setup/isochronous information      |
+    |                 (8 Octets)                |
+    +-------------------------------------------+
+
+
+### Description
+
+A packet corresponds either to a URB submitted to the USB subsystem, a
+completion report for a URB, or an error report for a URB.
+All fields are in host byte order:
+
+* When performing a live capture, the host byte order is the byte order
+  of the machine on which the packets are being captured.
+* When reading a pcap file, the host byte order is the byte order for
+  the file, as specified by the file's magic number.
+* When reading a pcapng file, the host byte order is the byte order for
+  the section of the pcapng file in which the packet appears, as
+  specified by that section's Section Header Block.
+
+The URB ID field is a unique ID for the URB to which this packet refers.
+
+The event type field is an ASCII character that indicates type type of
+the event; it is:
+
+* 'S' (0x53), if the event is a submission of a URB;
+* 'C' (0x43), if the event is a completion report for a URB;
+* 'E' (0x45), if the event reports an error from a URB
+submission.
+
+The transfer type field has a value that is one of:
+
+* 0, if the transfer to which the URB applies is a isochronous
+transfer;
+* 1, if the transfer to which the URB applies is a interrupt
+transfer;
+* 2, if the transfer to which the URB applies is a control
+transfer;
+* 3, if the transfer to which the URB applies is a bulk transfer.
+
+The uppermost bit of the endpoint number and transfer direction field
+is 1 if the transfer is an input transfer and 0 if it is an output
+transfer. The lowr 7 bits of the field contain the endpoint number.
+
+The setup flag field is zero if the event is a submission of a URB for a
+control transfer and non-zero otherwise.
+
+The data flag field is zero if the event conains data and non-zero if it
+contains no data.
+
+The timestamp fields contain a time stamp for the event, in seconds and
+microseconds since 1970-01-01 00:00:00 UTC; this MUST be the same as
+the timestamp for the packet.
+
+The status field contains zero if no error is being reported by the
+event or the negative of a Linux errno value for the error being
+reported if an error is being reported by the event.
+
+If the setup flag is zero, the setup/isochronous infomration field
+contains the setup data for a setup packet, as specified in the USB
+standard.
+
+If the setup flag is non-zero, and the transfer is an isochronous
+transfer, the setup/isochronous information field contains:
+
+    +----------------------------------------+
+    |              Error count               |
+    |               (4 Octets)               |
+    +----------------------------------------+
+    |         Number of descriptors          |
+    |               (4 Octets)               |
+    +----------------------------------------+
+
+where the error count field is the number of errors in the isochronous
+transfer and the number of descriptors field is the number of
+isochronous descriptors for the transfer.
+
+If the setup flag is non-zero, and the transfer is not an isochronous
+transfer, the setup/isochronous information field does not contain any
+information and should be ignored.
+
+## LINKTYPE_USB_LINUX
+
+### Packet structure
+
+    +-------------------------+
+    | Linux USB common header |
+    |       (48 Octets)       |
+    +-------------------------+
+    |         Payload         |
+    .                         .
+    .                         .
+    .                         .
+
+The data, if any, for the event follows the common header.
+
+## LINKTYPE_USB_LINUX_MMAPPED
+
+### Packet structure
+
+    +-------------------------------------------+
+    |          Linux USB common header          |
+    |                (48 Octets)                |
+    +-------------------------------------------+
+    |                  Interval                 |
+    |                 (4 Octets)                |
+    +-------------------------------------------+
+    |                Start frame                |
+    |                 (4 Octets)                |
+    +-------------------------------------------+
+    |               Transfer flags              |
+    |                 (4 Octets)                |
+    +-------------------------------------------+
+    | Number of isochronous descriptors present |
+    |                 (4 Octets)                |
+    +-------------------------------------------+
+    |                   Payload                 |
+    .                                           .
+    .                                           .
+    .                                           .
+
+### Description
+
+For interrupt and isochronous transfers, the interval field is the
+polling interval, in units of frames (milliseconds) for full-speed and
+low-speed devices and microframes (.125 millisecond) for high-speed and
+SuperSpeed devices. For other types of transfers, it does not contain a
+meaningful value.
+
+For isochronous transfers, the start frame field contains the initial
+frame. For other types of transfers, it does not contain a meaningful
+value.
+
+For isochronous transfers, The number of isochronous descriptors present
+field indicates the number of isochronous descriptors in the event. Its
+value MUST be less than or equal to the value of the number of
+descriptors field; if it is less than that value, not all descriptors
+for the transfer are included in the event.
+
+For isochronous transfers, the payload begins with a set of isochronous
+descriptors of the form
+
+    +----------------------------------------+
+    |                 Status                 |
+    |               (4 Octets)               |
+    +----------------------------------------+
+    |                 Offset                 |
+    |               (4 Octets)               |
+    +----------------------------------------+
+    |                 Length                 |
+    |               (4 Octets)               |
+    +----------------------------------------+
+    |                 Padding                |
+    |               (4 Octets)               |
+    +----------------------------------------+
+
+The status field contains zero if no error occurred for that descriptor
+or the negative of a Linux errno value for the error being reported if
+an error occurred for that descriptor.
+
+The offset field is the offset, in bytes, of the data for the descriptor
+from the beginning of the data portion of the payload.
+
+The length field is the length, in bytes, of the data for the
+descriptor. This may be zero.
+
+The padding field does not contain any information.
+
+The number of isochronous descriptors present field specifies the number
+of descriptors present in the event.
+
+For all other types of transfer, there are no isochronous descriptors;
+the number of isochronous descriptors present field contains no
+meaningful data.
+
+The data, if any, for the event follows the isochronous descriptors, if
+any.
 
 ## LINKTYPE_VSOCK
 
@@ -4582,11 +5170,11 @@ section 3.2 of {{ZBOSS}}, so that the first two bytes of the payload are
 
 ### Description
 
-Z-Wave is defined by {{G.9959}}.  The MAC header format here is used
-by Type 1 devices with a supported data rate of 9.6 Kbps (R1) and Type 2
-devices with a supported data rate of 40 Kbps (R2); some fields have
-been moved from their locations in the MAC header for Channel
-Configurations 1 and 2, as specified by G.9959.
+The Z-Wave MAC header format here is used by Type 1 devices with a
+supported data rate of 9.6 Kbps (R1) and Type 2 devices with a supported
+data rate of 40 Kbps (R2); some fields have been moved from their
+locations in the MAC header for Channel Configurations 1 and 2, as
+specified by section 8.1.3 "MPDU format" of {{G.9959}}.
 
 ## LINKTYPE_ZWAVE_R3
 
@@ -4620,10 +5208,30 @@ Configurations 1 and 2, as specified by G.9959.
 
 ### Description
 
-Z-Wave is defined by {{G.9959}}.  The MAC header format here is used by
-Type 3 devices with a supported data rate of 100 Kbps (R3); some fields
-have been moved from their locations in the MAC header for Channel
-Configuration 3, as specified by G.9959.
+The Z-Wave MAC header format here is used by Type 3 devices with a
+supported data rate of 100 Kbps (R3); some fields have been moved from
+their locations in the MAC header for Channel Configuration 3, as
+specified by section 8.1.3 "MPDU format" of {{G.9959}}.
+
+## LINKTYPE_ZWAVE_TAP
+
+### Packet structure
+
+    +--------------------------+
+    | Exegin Z-Wave tap header |
+    |    (Variable Length)     |
+    +--------------------------+
+    |       Z-Wave MPDU        |
+    .                          .
+    .                          .
+    .                          .
+
+### Description
+
+The Z-Wave tap header is specified by {{Exegin-Z-Wave-G.9959-TAP}}.
+
+The Z-Wave MPDU is specified by section 8.1.3 "MPDU format" of
+{{G.9959}}.
 
 # Security Considerations
 
