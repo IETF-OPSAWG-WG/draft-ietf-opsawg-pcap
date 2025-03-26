@@ -740,7 +740,7 @@ corrected and uncorrectable bits.
 The Lower Address Part field is the 24-bit value recovered from the
 captured SYNC WORD as defined in Volume 2, Part B, Section 6.3.3 of
 {{Bluetooth-Core}}.  The most significant byte of this field is reserved
-and must be zero.
+and MUST be zero.
 
 The Reference LAP field corresponds to the Lower Address Part configured
 into the capture tool that led to the capture of this packet.
@@ -750,7 +750,7 @@ into the capture tool and corresponds to the Reference LAP.
 
 The BT Packet Header field is the 18-bit value recovered from the packet
 capture, and is defined in Volume 2, Part B, Section 6.4 of
-{{Bluetooth-Core}}.  The most significant 14 bits are reserved and must
+{{Bluetooth-Core}}.  The most significant 14 bits are reserved and MUST
 be zero.
 
 The Flags field represents packed bits defined as follows.
@@ -778,7 +778,7 @@ The Flags field represents packed bits defined as follows.
 * `0x2000` indicates the MIC portion of the decrypted BR or EDR Payload
   passed its check
 
-All other bit positions of the Flags field are reserved and must be zero.
+All other bit positions of the Flags field are reserved and MUST be zero.
 
 The decoded BR or EDR Payload optionally follows the previous fields,
 and is formatted as detailed in Volume 2, Part B, Section 6 of
@@ -1065,7 +1065,7 @@ This format supports CAN CC (Classical CAN), CAN FD, and CAN XL frames.
 The same header is used for CAN CC and CAN FD frames; a different header
 is used for CAN XL frames.
 
-Software that reads `LINKTYPE_CAN_SOCKETCAN` frames must
+Software that reads `LINKTYPE_CAN_SOCKETCAN` frames MUST
 determine the frame type in the following fashion.
 
 * If the original (un-sliced) packet length is less than 8, the
@@ -1076,18 +1076,18 @@ determine the frame type in the following fashion.
 
     * If the 5th octet of the frame has the `0x80` bit
       set, the frame is a CAN XL frame. The original (un-sliced) packet
-      length must be between 13 and 2060; all other CAN XL frames are
+      length MUST be between 13 and 2060; all other CAN XL frames are
       invalid.
 
     * Otherwise:
 
       * If the original packet length is 72 or the 6th octet of the
         frame has the `0x04` bit set, the frame is a CAN FD
-        frame. The frame length must be between 8 and 72; all other CAN
+        frame. The frame length MUST be between 8 and 72; all other CAN
         FD frames are invalid.
 
       * Otherwise, the frame is a CAN CC frame. The original packet
-        length must be between 8 and 16; all other CAN CC frames are
+        length MUST be between 8 and 16; all other CAN CC frames are
         invalid.
 
 ### CAN CC and CAN FD frames
@@ -1143,7 +1143,7 @@ this field is 0.  The bits are:
   data).
 * `CANFD_ESI` (`0x02`) - error state indicator of the transmitting node.
 * `CANFD_FDF` (`0x04`) - if set, the frame is a CAN FD frame; if not
-  set, the frame may be a CAN CC frame or a CAN FD frame.
+  set, the frame might be a CAN CC frame or a CAN FD frame.
 
 The Len 8 DLC value is described for CAN CC frames in section 8.4.2.4
 "DLC field" of ISO 11898-1:2015 and has a value range from 9 to 15.  The
@@ -1156,8 +1156,8 @@ frames:
 * Must set the "Payload length" field to a value from 0 to 8 (CAN CC) or
   0 to 64 (CAN FD).
 * In the "FD flags" field:
-  * in CAN CC frames, must clear all bits.
-  * in CAN FD frames, must set the `CANFD_FDF` bit, set
+  * in CAN CC frames, MUST clear all bits.
+  * in CAN FD frames, MUST set the `CANFD_FDF` bit, set
     or clear the `CANFD_BRS` and `CANFD_ESI`
     appropriately for the frame, and clear all other bits.
 * Must set the "Reserved/Padding" field to 0.
@@ -1255,8 +1255,8 @@ Software that generates `LINKTYPE_CAN_SOCKETCAN` CAN XL frames:
 
 * Must set the "Payload length" field to a value from 1 to 2048.
 * In the "XL Flags" field:
-  * must set the `CANXL_XLF` bit.
-  * must set the `CANFD_SEC` bit as appropriate for the frame and clear all other bits.
+  * MUST set the `CANXL_XLF` bit.
+  * MUST set the `CANFD_SEC` bit as appropriate for the frame and clear all other bits.
 * May strip trailing padding bytes to save disk space if all above statements are satisfied.
 
 The payload is the data field of the CAN XL packet.
@@ -1896,8 +1896,8 @@ Sequence error or a Byte Start Sequence error occurred;
 * 0x01 - TSS violation.
 
 The remainder of the FlexRay Frame is described by section 8 "Frame
-Format" of {{ISO-17458-2}}.  The frame CRC is not included. Frames may be
-truncated at an arbitrary point if an error occurs.
+Format" of {{ISO-17458-2}}.  The frame CRC is not included.  Frames
+might be truncated at an arbitrary point if an error occurs.
 
 The payload of a FlexRay Symbol packet has the structure
 
@@ -2087,7 +2087,7 @@ theory, it could have any value, but it is almost always, if not always,
 
 The Data field contains the value of the parameter.
 
-The representation of the values may differ between different network
+The representation of the values might differ between different network
 adapters. There is no official specification for the Prism header;
 {{Prism}} describes what one person found from examining some adapter
 drivers.
@@ -2256,16 +2256,16 @@ indicate this.
 
 ### Description
 
-The Message Format Revision field must always be set to 1.
+The Message Format Revision field MUST always be set to 1.
 
-The reserved fields must be zero.
+The reserved fields MUST be zero.
 
 The upper 4 bits of the Payload Length and Types field contain the
-number of bytes of payload. This value must be between 1 and 8 for a LIN
+number of bytes of payload. This value MUST be between 1 and 8 for a LIN
 frame.
 
 The next 2 bits of that field contain the message type, the value of
-which must be one of:
+which MUST be one of:
 
 * 0, if the payload is a LIN frame;
 * 3, if the a LIN event.
@@ -2273,7 +2273,7 @@ which must be one of:
 All other values are undefined.
 
 The bottom two fields of that field contain the checksum type, the value
-of which must be one of:
+of which MUST be one of:
 
 * 0, if the checksum is incorrect or an unknown checksum algorithm has
   been used;
@@ -2308,7 +2308,7 @@ in section 7.4 "Transport layer protocol data units" of {{ISO-17987-2}}
 
 If the message_type field is 3, the payload is a 4-octet value, in
 big-endian byte order, giving the type of LIN event; the checksum_type,
-PID, checksum, and errors fields are all 0 and must be ignored.
+PID, checksum, and errors fields are all 0 and MUST be ignored.
 
 The event type values are:
 
@@ -2363,7 +2363,7 @@ The link-layer address length field is unused.
 
 The link-layer address field is unused.
 
-The protocol type field is in network byte order; it should contain
+The protocol type field is in network byte order; it MUST contain
 the value `0x0017`.
 
 The payload is an IrDA frame beginning with the IrLAP header as
@@ -2436,7 +2436,7 @@ The link-layer address length field is unused.
 
 The link-layer address field is unused.
 
-The protocol type field is in network byte order; it should contain
+The protocol type field is in network byte order; it MUST contain
 the value `0x0030`.
 
 The payload is a
@@ -2569,7 +2569,7 @@ and the header is followed by the payload.
 For a CAN CC or CAN FD data frame, the payload is the data field of the
 packet.
 
-For a retransmission request, the length must be 0, so the payload is
+For a retransmission request, the length MUST be 0, so the payload is
 empty.
 
 For a CAN CC or CAN FD error message, the payload is always 8 bytes.
@@ -2720,7 +2720,7 @@ that field are:
 * `23` - payload is an IPX packet.
 
 All of the IPv6 values correspond to IPv6 packets; code reading files
-should check for all of them.
+MUST treat all of them as ndicating an IPv6 packet.
 
 ## LINKTYPE_LORATAP
 
@@ -2839,8 +2839,8 @@ The next bit, `0x00000100`, is set if the packet arrived on the GPIO
 port rather than the Ethernet port.
 
 The next bit, `0x00000200`, is set if the packet was received in
-transparent capture mode.  That should never be set for
-`LINKTYPE_NETANALYZER` and should always be set for
+transparent capture mode.  That SHOULD never be set for
+`LINKTYPE_NETANALYZER` and SHOULD always be set for
 `LINKTYPE_NETANALYZER_TRANSPARENT`.
 
 The next 4 bits, `0x00003C00`, are a bitfield giving the version of the
@@ -3569,8 +3569,8 @@ The RLC/MAC layer context information is of the form:
     +---------------------------+
 
 There are 64 RLC/MAC layer context information structures in sequence;
-the number of valid structures is specified by the channel count field&mdash;all
-structures following the last valid structure should be ignored.
+the number of valid structures is specified by the channel count field -
+all structures following the last valid structure SHOULD be ignored.
 
 The U-RNTI field is the UTRAN Radio Network Temporary Identifier
 for the user equipment.
@@ -3772,7 +3772,7 @@ which the capture was done.  The values for that field are:
 * `23` - payload is an IPX packet.
 
 All of the IPv6 values correspond to IPv6 packets; code reading files
-should check for all of them.
+MUST treat all of them as ndicating an IPv6 packet.
 
 Note that ``host byte order'' is the byte order of the machine on that
 the packets are captured; if a live capture is being done, ``host byte
@@ -3936,7 +3936,7 @@ all Apple machines that write this format being little-endian.
 ### In the PKTAP version 1 header:
 
 The length field indicates how long the PKTAP header is; this value
-includes the length of the length field itself.  It should be
+includes the length of the length field itself.  It SHOULD be
 at least 108; if it's larger, there is additional data in the header
 following the effective command name.
 
@@ -3967,27 +3967,27 @@ The flags field contains a set of flags for the packet:
 * `0x00080000` - this packet has a version 2 PKTAP header
 
 The flags field is at the same offset in the version 1 and version 2
-headers; it should be checked for the "version 2 PKTAP header" flag
+headers; it MUST be checked for the "version 2 PKTAP header" flag
 before any other fields, including the length, are interpreted.
 
-The protocol family field contains a value indicating the address
-family of the packet.  It may be 0 for "unknown", 2 for IPv4, or 30 for
-IPv6.  It may also be another macOS `AF_` value; note that those values do
-not necessarily correspond to the `AF_` value of the operating system on
-the host reading a capture.
+The protocol family field contains a value indicating the address family
+of the packet.  It MUST be 0 for "unknown", 2 for IPv4, or 30 for IPv6.
+It may also be another macOS `AF_` value; note that those values do not
+necessarily correspond to the `AF_` value of the operating system on the
+host reading a capture.
 
 The link-layer header length field appears to contain the length of the
-packet's link-layer header.  It may be 0.
+packet's link-layer header.  It might be 0.
 
 The link-layer trailer length field is assumed to contain the length of
-the packet's link-layer trailer.  It may be 0.
+the packet's link-layer trailer.  It might be 0.
 
 The process ID field contains the process ID of the process that sent
-the packet; it may be 0 if the process ID is unknown.
+the packet; it might be 0 if the process ID is unknown.
 
 The command name contains a null-padded ASCII string giving the last
 component of the path name of the executable image running in the
-process that sent the packet, truncated to 20 characters.  It may be
+process that sent the packet, truncated to 20 characters.  It might be
 a null string if the executable image name is unknown. *Do not*
 assume that there is a NUL character at the end of the name.
 
@@ -4014,11 +4014,11 @@ The "unit number of interface" field is assumed to contain the unit
 number of the interface.
 
 The effective process ID field is assumed to contain a process ID of
-some sort; it may be 0 if the process ID is unknown.
+some sort; it might be 0 if the process ID is unknown.
 
 The effective command name contains a null-padded ASCII string giving
 the last component of the path name of the executable image running in
-some process, truncated to 20 characters.  It may be a null string if
+some process, truncated to 20 characters.  It might  be a null string if
 the executable image name is unknown.  *Do not* assume that there
 is a NUL character at the end of the name.
 
@@ -4026,7 +4026,7 @@ The flow ID field contains a hash value computed for the flow to which
 the packet belongs; it is 0 if there is no flow ID.
 
 The IP protocol field contains a macOS `IPPROTO_` value for the packet; it
-may be `IPPROTO_RAW` if the packet was written to a raw socket.
+might be `IPPROTO_RAW` if the packet was written to a raw socket.
 
 All fields following the effective command name field are optional; the
 length field indicates how many fields are present.
@@ -4034,7 +4034,7 @@ length field indicates how many fields are present.
 ### In the PKTAP version 2 header:
 
 The length field indicates how long the PKTAP header is; this value
-includes the length of the length field itself.  It should be
+includes the length of the length field itself.  It SHOULD be
 at least 108; if it's larger, there is additional data in the header
 following the effective command name.
 
@@ -4070,20 +4070,20 @@ The `DLT_` value field contains a macOS `DLT_` value for the packet, such as
 `DLT_EN10MB` for an Ethernet packet.
 
 The link-layer header length field appears to contain the length of the
-packet's link-layer header.  It may be 0.
+packet's link-layer header.  It might be 0.
 
 The link-layer trailer length field is assumed to contain the length of
-the packet's link-layer trailer.  It may be 0.
+the packet's link-layer trailer.  It might be 0.
 
 The interface type field contains an SNMP `ifType` value for the
 interface.
 
 The IP protocol field contains a macOS `IPPROTO_` value for the packet; it
-may be `IPPROTO_RAW` if the packet was written to a raw socket.
+might be `IPPROTO_RAW` if the packet was written to a raw socket.
 
-The protocol family field contains a value indicating the address
-family of the packet.  It may be 0 for "unknown", 2 for IPv4, or 30 for
-IPv6.  It may also be another macOS `AF_` value; note that those values do
+The protocol family field contains a value indicating the address family
+of the packet.  It MUST be 0 for "unknown", 2 for IPv4, or 30 for IPv6.
+It might also be another macOS `AF_` value; note that those values do
 not necessarily correspond to the `AF_` value of the operating system on
 the host reading a capture.
 
@@ -4107,10 +4107,10 @@ The flow ID field contains a hash value computed for the flow to which
 the packet belongs; it is 0 if there is no flow ID.
 
 The process ID field contains the process ID of the process that sent
-the packet; it may be 0 if the process ID is unknown.
+the packet; it might be 0 if the process ID is unknown.
 
 The effective process ID field is assumed to contain a process ID of
-some sort; it may be 0 if the process ID is unknown.
+some sort; it might be 0 if the process ID is unknown.
 
 The flags field contains a set of flags for the packet:
 
@@ -4127,7 +4127,7 @@ The flags field contains a set of flags for the packet:
 * `0x00080000` - this packet has a version 2 PKTAP header
 
 The flags field is at the same offset in the version 1 and version 2
-headers; it should be checked for the "version 2 PKTAP header" flag
+headers; it MUST be checked for the "version 2 PKTAP header" flag
 before any other fields, including the length, are interpreted.
 
 The interface name contains a null-terminated ASCII string giving the name
@@ -4135,12 +4135,12 @@ of the interface on which the packet arrived.
 
 The command name contains a null-terminated ASCII string giving the last
 component of the path name of the executable image running in the
-process that sent the packet, truncated to 20 characters.  It may be
+process that sent the packet, truncated to 20 characters.  It might be
 a null string if the executable image name is unknown.
 
 The effective command name contains a null-terminated ASCII string
 giving the last component of the path name of the executable image
-running in some process, truncated to 20 characters.  It may be a
+running in some process, truncated to 20 characters.  It might be a
 null string if the executable image name is unknown.
 
 ## LINKTYPE_PPI
@@ -4309,7 +4309,7 @@ The Footer is reserved for future use.
 The payload is one of: {{DNP3}}, {{Modbus}}, {{IEEE-C37.118.1}}, or
 Schweitzer Engineering Laboratories Fast Message (SELFM) protocol.  The
 packet does not specify which it is; a program processing these packets
-must either have the payload type specified externally or must attempt
+MUST either have the payload type specified externally or MUST attempt
 to determine it heuristically.
 
 ## LINKTYPE_SITA
@@ -4526,7 +4526,7 @@ version number, and the next 4 bits giving the sub-minor version number.
 The current version is 1.0.0, so the value is `0x0100`.
 
 The length field indicates how long the header is; this value
-includes the length of the length field itself.  It should be
+includes the length of the length field itself.  It MUST be
 at least 32; if it's larger, there is additional data in the header
 following the endpoint type.
 
@@ -4619,7 +4619,7 @@ For isochronous endpoints:
         +----------------------------------------+
 
   The length field indicates how long the header is; this value
-  includes the length of the length field itself.  It should be
+  includes the length of the length field itself.  It MUST be
   at least 28; if it's larger, there is additional data in the header
   following the time in which the frame completed.
 
@@ -4777,7 +4777,7 @@ isochronous descriptors for the transfer.
 
 If the setup flag is non-zero, and the transfer is not an isochronous
 transfer, the setup/isochronous information field does not contain any
-information and should be ignored.
+information and SHOULD be ignored.
 
 ## LINKTYPE_USB_LINUX
 
@@ -4862,7 +4862,7 @@ The offset field is the offset, in bytes, of the data for the descriptor
 from the beginning of the data portion of the payload.
 
 The length field is the length, in bytes, of the data for the
-descriptor. This may be zero.
+descriptor. This might be zero.
 
 The padding field does not contain any information.
 
@@ -4937,8 +4937,8 @@ contains a value that is one of:
 
 The transport header length field is in little-endian byte order; it
 indicates how many bytes of transport header follow the length field.
-It may be non-zero even if the transport header type field has a value
-of 1; in that case, the bytes for the transport header should be
+It might be non-zero even if the transport header type field has a value
+of 1; in that case, the bytes for the transport header SHOULD be
 skipped.
 
 If the transport header type field has a value of 2, the transport
@@ -5069,7 +5069,7 @@ The Dongle Code field contains a value that is one of:
 The Packet Delay field contains an integer value that is the
 number of milliseconds since the previous packet, in network byte order.
 
-The Preamble 1 and Preamble 2 fields should each contain `0xAA`.
+The Preamble 1 and Preamble 2 fields MUST each contain `0xAA`.
 
 The Family/Address/IR field contains 3-bits of family code, 2-bits of
 address mode, 2-bits of IR (infrared) routing, and 1-bit unused.
