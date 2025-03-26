@@ -6229,14 +6229,14 @@ corrected and uncorrectable bits.<a href="#section-3.2.2-9" class="pilcrow">¶</
 <p id="section-3.2.2-10">The Lower Address Part field is the 24-bit value recovered from the
 captured SYNC WORD as defined in Volume 2, Part B, Section 6.3.3 of
 <span>[<a href="#Bluetooth-Core" class="cite xref">Bluetooth-Core</a>]</span>.  The most significant byte of this field is reserved
-and must be zero.<a href="#section-3.2.2-10" class="pilcrow">¶</a></p>
+and MUST be zero.<a href="#section-3.2.2-10" class="pilcrow">¶</a></p>
 <p id="section-3.2.2-11">The Reference LAP field corresponds to the Lower Address Part configured
 into the capture tool that led to the capture of this packet.<a href="#section-3.2.2-11" class="pilcrow">¶</a></p>
 <p id="section-3.2.2-12">The Reference UAP field corresponds to the Upper Address Part configured
 into the capture tool and corresponds to the Reference LAP.<a href="#section-3.2.2-12" class="pilcrow">¶</a></p>
 <p id="section-3.2.2-13">The BT Packet Header field is the 18-bit value recovered from the packet
 capture, and is defined in Volume 2, Part B, Section 6.4 of
-<span>[<a href="#Bluetooth-Core" class="cite xref">Bluetooth-Core</a>]</span>.  The most significant 14 bits are reserved and must
+<span>[<a href="#Bluetooth-Core" class="cite xref">Bluetooth-Core</a>]</span>.  The most significant 14 bits are reserved and MUST
 be zero.<a href="#section-3.2.2-13" class="pilcrow">¶</a></p>
 <p id="section-3.2.2-14">The Flags field represents packed bits defined as follows.<a href="#section-3.2.2-14" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -6291,7 +6291,7 @@ was checked<a href="#section-3.2.2-15.13.1" class="pilcrow">¶</a></p>
 passed its check<a href="#section-3.2.2-15.14.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-3.2.2-16">All other bit positions of the Flags field are reserved and must be zero.<a href="#section-3.2.2-16" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-16">All other bit positions of the Flags field are reserved and MUST be zero.<a href="#section-3.2.2-16" class="pilcrow">¶</a></p>
 <p id="section-3.2.2-17">The decoded BR or EDR Payload optionally follows the previous fields,
 and is formatted as detailed in Volume 2, Part B, Section 6 of
 <span>[<a href="#Bluetooth-Core" class="cite xref">Bluetooth-Core</a>]</span>.  The packet is decoded per Volume 2, Part B, Section
@@ -6752,7 +6752,7 @@ Packet" section of that document.<a href="#section-3.6.2.3-2.4.1" class="pilcrow
 <p id="section-3.7-1">This format supports CAN CC (Classical CAN), CAN FD, and CAN XL frames.
 The same header is used for CAN CC and CAN FD frames; a different header
 is used for CAN XL frames.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
-<p id="section-3.7-2">Software that reads <code>LINKTYPE_CAN_SOCKETCAN</code> frames must
+<p id="section-3.7-2">Software that reads <code>LINKTYPE_CAN_SOCKETCAN</code> frames MUST
 determine the frame type in the following fashion.<a href="#section-3.7-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.7-3.1">
@@ -6766,7 +6766,7 @@ invalid.<a href="#section-3.7-3.1.1" class="pilcrow">¶</a></p>
 <li class="normal" id="section-3.7-3.2.2.1">
                 <p id="section-3.7-3.2.2.1.1">If the 5th octet of the frame has the <code>0x80</code> bit
 set, the frame is a CAN XL frame. The original (un-sliced) packet
-length must be between 13 and 2060; all other CAN XL frames are
+length MUST be between 13 and 2060; all other CAN XL frames are
 invalid.<a href="#section-3.7-3.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.7-3.2.2.2">
@@ -6775,12 +6775,12 @@ invalid.<a href="#section-3.7-3.2.2.1.1" class="pilcrow">¶</a></p>
 <li class="normal" id="section-3.7-3.2.2.2.2.1">
                     <p id="section-3.7-3.2.2.2.2.1.1">If the original packet length is 72 or the 6th octet of the
 frame has the <code>0x04</code> bit set, the frame is a CAN FD
-frame. The frame length must be between 8 and 72; all other CAN
+frame. The frame length MUST be between 8 and 72; all other CAN
 FD frames are invalid.<a href="#section-3.7-3.2.2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="normal" id="section-3.7-3.2.2.2.2.2">
                     <p id="section-3.7-3.2.2.2.2.2.1">Otherwise, the frame is a CAN CC frame. The original packet
-length must be between 8 and 16; all other CAN CC frames are
+length MUST be between 8 and 16; all other CAN CC frames are
 invalid.<a href="#section-3.7-3.2.2.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
@@ -6865,7 +6865,7 @@ data).<a href="#section-3.7.1.2-5.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.7.1.2-5.3">
                 <p id="section-3.7.1.2-5.3.1"><code>CANFD_FDF</code> (<code>0x04</code>) - if set, the frame is a CAN FD frame; if not
-set, the frame may be a CAN CC frame or a CAN FD frame.<a href="#section-3.7.1.2-5.3.1" class="pilcrow">¶</a></p>
+set, the frame might be a CAN CC frame or a CAN FD frame.<a href="#section-3.7.1.2-5.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 <p id="section-3.7.1.2-6">The Len 8 DLC value is described for CAN CC frames in section 8.4.2.4
@@ -6883,10 +6883,10 @@ frames:<a href="#section-3.7.1.2-7" class="pilcrow">¶</a></p>
                 <p id="section-3.7.1.2-8.2.1">In the "FD flags" field:<a href="#section-3.7.1.2-8.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.7.1.2-8.2.2.1">
-                    <p id="section-3.7.1.2-8.2.2.1.1">in CAN CC frames, must clear all bits.<a href="#section-3.7.1.2-8.2.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-3.7.1.2-8.2.2.1.1">in CAN CC frames, MUST clear all bits.<a href="#section-3.7.1.2-8.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="normal" id="section-3.7.1.2-8.2.2.2">
-                    <p id="section-3.7.1.2-8.2.2.2.1">in CAN FD frames, must set the <code>CANFD_FDF</code> bit, set
+                    <p id="section-3.7.1.2-8.2.2.2.1">in CAN FD frames, MUST set the <code>CANFD_FDF</code> bit, set
 or clear the <code>CANFD_BRS</code> and <code>CANFD_ESI</code>
 appropriately for the frame, and clear all other bits.<a href="#section-3.7.1.2-8.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
@@ -7025,10 +7025,10 @@ padding.<a href="#section-3.7.2.2-6" class="pilcrow">¶</a></p>
                 <p id="section-3.7.2.2-9.2.1">In the "XL Flags" field:<a href="#section-3.7.2.2-9.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.7.2.2-9.2.2.1">
-                    <p id="section-3.7.2.2-9.2.2.1.1">must set the <code>CANXL_XLF</code> bit.<a href="#section-3.7.2.2-9.2.2.1.1" class="pilcrow">¶</a></p>
+                    <p id="section-3.7.2.2-9.2.2.1.1">MUST set the <code>CANXL_XLF</code> bit.<a href="#section-3.7.2.2-9.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="normal" id="section-3.7.2.2-9.2.2.2">
-                    <p id="section-3.7.2.2-9.2.2.2.1">must set the <code>CANFD_SEC</code> bit as appropriate for the frame and clear all other bits.<a href="#section-3.7.2.2-9.2.2.2.1" class="pilcrow">¶</a></p>
+                    <p id="section-3.7.2.2-9.2.2.2.1">MUST set the <code>CANFD_SEC</code> bit as appropriate for the frame and clear all other bits.<a href="#section-3.7.2.2-9.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
@@ -8003,8 +8003,8 @@ Sequence error or a Byte Start Sequence error occurred;<a href="#section-3.23.2-
 </li>
           </ul>
 <p id="section-3.23.2-10">The remainder of the FlexRay Frame is described by section 8 "Frame
-Format" of <span>[<a href="#ISO-17458-2" class="cite xref">ISO-17458-2</a>]</span>.  The frame CRC is not included. Frames may be
-truncated at an arbitrary point if an error occurs.<a href="#section-3.23.2-10" class="pilcrow">¶</a></p>
+Format" of <span>[<a href="#ISO-17458-2" class="cite xref">ISO-17458-2</a>]</span>.  The frame CRC is not included.  Frames
+might be truncated at an arbitrary point if an error occurs.<a href="#section-3.23.2-10" class="pilcrow">¶</a></p>
 <p id="section-3.23.2-11">The payload of a FlexRay Symbol packet has the structure<a href="#section-3.23.2-11" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3.23.2-12">
 <pre>
@@ -8322,7 +8322,7 @@ if it is not supplied.<a href="#section-3.27.2-10" class="pilcrow">¶</a></p>
 theory, it could have any value, but it is almost always, if not always,
 4.<a href="#section-3.27.2-11" class="pilcrow">¶</a></p>
 <p id="section-3.27.2-12">The Data field contains the value of the parameter.<a href="#section-3.27.2-12" class="pilcrow">¶</a></p>
-<p id="section-3.27.2-13">The representation of the values may differ between different network
+<p id="section-3.27.2-13">The representation of the values might differ between different network
 adapters. There is no official specification for the Prism header;
 <span>[<a href="#Prism" class="cite xref">Prism</a>]</span> describes what one person found from examining some adapter
 drivers.<a href="#section-3.27.2-13" class="pilcrow">¶</a></p>
@@ -8574,13 +8574,13 @@ indicate this.<a href="#section-3.34.1-1" class="pilcrow">¶</a></p>
           <h4 id="name-description-32">
 <a href="#section-3.35.2" class="section-number selfRef">3.35.2. </a><a href="#name-description-32" class="section-name selfRef">Description</a>
           </h4>
-<p id="section-3.35.2-1">The Message Format Revision field must always be set to 1.<a href="#section-3.35.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.35.2-2">The reserved fields must be zero.<a href="#section-3.35.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.35.2-1">The Message Format Revision field MUST always be set to 1.<a href="#section-3.35.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.35.2-2">The reserved fields MUST be zero.<a href="#section-3.35.2-2" class="pilcrow">¶</a></p>
 <p id="section-3.35.2-3">The upper 4 bits of the Payload Length and Types field contain the
-number of bytes of payload. This value must be between 1 and 8 for a LIN
+number of bytes of payload. This value MUST be between 1 and 8 for a LIN
 frame.<a href="#section-3.35.2-3" class="pilcrow">¶</a></p>
 <p id="section-3.35.2-4">The next 2 bits of that field contain the message type, the value of
-which must be one of:<a href="#section-3.35.2-4" class="pilcrow">¶</a></p>
+which MUST be one of:<a href="#section-3.35.2-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.35.2-5.1">
               <p id="section-3.35.2-5.1.1">0, if the payload is a LIN frame;<a href="#section-3.35.2-5.1.1" class="pilcrow">¶</a></p>
@@ -8591,7 +8591,7 @@ which must be one of:<a href="#section-3.35.2-4" class="pilcrow">¶</a></p>
           </ul>
 <p id="section-3.35.2-6">All other values are undefined.<a href="#section-3.35.2-6" class="pilcrow">¶</a></p>
 <p id="section-3.35.2-7">The bottom two fields of that field contain the checksum type, the value
-of which must be one of:<a href="#section-3.35.2-7" class="pilcrow">¶</a></p>
+of which MUST be one of:<a href="#section-3.35.2-7" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.35.2-8.1">
               <p id="section-3.35.2-8.1.1">0, if the checksum is incorrect or an unknown checksum algorithm has
@@ -8644,7 +8644,7 @@ part of the frame, as per section 4.2.2 "Frames" of <span>[<a href="#ISO-17987-3
 in section 7.4 "Transport layer protocol data units" of <span>[<a href="#ISO-17987-2" class="cite xref">ISO-17987-2</a>]</span><a href="#section-3.35.2-14" class="pilcrow">¶</a></p>
 <p id="section-3.35.2-15">If the message_type field is 3, the payload is a 4-octet value, in
 big-endian byte order, giving the type of LIN event; the checksum_type,
-PID, checksum, and errors fields are all 0 and must be ignored.<a href="#section-3.35.2-15" class="pilcrow">¶</a></p>
+PID, checksum, and errors fields are all 0 and MUST be ignored.<a href="#section-3.35.2-15" class="pilcrow">¶</a></p>
 <p id="section-3.35.2-16">The event type values are:<a href="#section-3.35.2-16" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.35.2-17.1">
@@ -8721,7 +8721,7 @@ indication that one or more messages have been missed and not captured.<a href="
 <p id="section-3.36.2-5">The <code>ARPHRD_</code> type field is unused.<a href="#section-3.36.2-5" class="pilcrow">¶</a></p>
 <p id="section-3.36.2-6">The link-layer address length field is unused.<a href="#section-3.36.2-6" class="pilcrow">¶</a></p>
 <p id="section-3.36.2-7">The link-layer address field is unused.<a href="#section-3.36.2-7" class="pilcrow">¶</a></p>
-<p id="section-3.36.2-8">The protocol type field is in network byte order; it should contain
+<p id="section-3.36.2-8">The protocol type field is in network byte order; it MUST contain
 the value <code>0x0017</code>.<a href="#section-3.36.2-8" class="pilcrow">¶</a></p>
 <p id="section-3.36.2-9">The payload is an IrDA frame beginning with the IrLAP header as
 defined by <span>[<a href="#IrLAP-1.1" class="cite xref">IrLAP-1.1</a>]</span>.<a href="#section-3.36.2-9" class="pilcrow">¶</a></p>
@@ -8828,7 +8828,7 @@ indication that one or more messages have been missed and not captured.<a href="
 <p id="section-3.38.2-4">The <code>ARPHRD_</code> type field is unused.<a href="#section-3.38.2-4" class="pilcrow">¶</a></p>
 <p id="section-3.38.2-5">The link-layer address length field is unused.<a href="#section-3.38.2-5" class="pilcrow">¶</a></p>
 <p id="section-3.38.2-6">The link-layer address field is unused.<a href="#section-3.38.2-6" class="pilcrow">¶</a></p>
-<p id="section-3.38.2-7">The protocol type field is in network byte order; it should contain
+<p id="section-3.38.2-7">The protocol type field is in network byte order; it MUST contain
 the value <code>0x0030</code>.<a href="#section-3.38.2-7" class="pilcrow">¶</a></p>
 <p id="section-3.38.2-8">The payload is a
 <a href="https://web.archive.org/web/20120911130602/http://www.visdn.org/">vISDN</a>
@@ -8997,7 +8997,7 @@ than a standard 11-bit frame.<a href="#section-3.39.1-19.1.1" class="pilcrow">¶
 <p id="section-3.39.1-22">and the header is followed by the payload.<a href="#section-3.39.1-22" class="pilcrow">¶</a></p>
 <p id="section-3.39.1-23">For a CAN CC or CAN FD data frame, the payload is the data field of the
 packet.<a href="#section-3.39.1-23" class="pilcrow">¶</a></p>
-<p id="section-3.39.1-24">For a retransmission request, the length must be 0, so the payload is
+<p id="section-3.39.1-24">For a retransmission request, the length MUST be 0, so the payload is
 empty.<a href="#section-3.39.1-24" class="pilcrow">¶</a></p>
 <p id="section-3.39.1-25">For a CAN CC or CAN FD error message, the payload is always 8 bytes.
 The lower bits of the CAN ID field contain an error class value, with
@@ -9219,7 +9219,7 @@ that field are:<a href="#section-3.42.2-1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-3.42.2-3">All of the IPv6 values correspond to IPv6 packets; code reading files
-should check for all of them.<a href="#section-3.42.2-3" class="pilcrow">¶</a></p>
+MUST treat all of them as ndicating an IPv6 packet.<a href="#section-3.42.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -9414,8 +9414,8 @@ means from GSM Modem to the Host; "1" means from Host to GSM Modem.<a href="#sec
 <p id="section-3.47.2-4">The next bit, <code>0x00000100</code>, is set if the packet arrived on the GPIO
 port rather than the Ethernet port.<a href="#section-3.47.2-4" class="pilcrow">¶</a></p>
 <p id="section-3.47.2-5">The next bit, <code>0x00000200</code>, is set if the packet was received in
-transparent capture mode.  That should never be set for
-<code>LINKTYPE_NETANALYZER</code> and should always be set for
+transparent capture mode.  That SHOULD never be set for
+<code>LINKTYPE_NETANALYZER</code> and SHOULD always be set for
 <code>LINKTYPE_NETANALYZER_TRANSPARENT</code>.<a href="#section-3.47.2-5" class="pilcrow">¶</a></p>
 <p id="section-3.47.2-6">The next 4 bits, <code>0x00003C00</code>, are a bitfield giving the version of the
 header field; the current version is 1.<a href="#section-3.47.2-6" class="pilcrow">¶</a></p>
@@ -10406,8 +10406,8 @@ field.  An E-DCH DDI information structure is of the form:<a href="#section-3.53
 </pre><a href="#section-3.53.2.2-27" class="pilcrow">¶</a>
 </div>
 <p id="section-3.53.2.2-28">There are 64 RLC/MAC layer context information structures in sequence;
-the number of valid structures is specified by the channel count field—all
-structures following the last valid structure should be ignored.<a href="#section-3.53.2.2-28" class="pilcrow">¶</a></p>
+the number of valid structures is specified by the channel count field -
+all structures following the last valid structure SHOULD be ignored.<a href="#section-3.53.2.2-28" class="pilcrow">¶</a></p>
 <p id="section-3.53.2.2-29">The U-RNTI field is the UTRAN Radio Network Temporary Identifier
 for the user equipment.<a href="#section-3.53.2.2-29" class="pilcrow">¶</a></p>
 <p id="section-3.53.2.2-30">The CTMUX field is 0 if the channel is not multiplexed and 1 if the
@@ -10687,7 +10687,7 @@ which the capture was done.  The values for that field are:<a href="#section-3.5
 </li>
           </ul>
 <p id="section-3.55.2-3">All of the IPv6 values correspond to IPv6 packets; code reading files
-should check for all of them.<a href="#section-3.55.2-3" class="pilcrow">¶</a></p>
+MUST treat all of them as ndicating an IPv6 packet.<a href="#section-3.55.2-3" class="pilcrow">¶</a></p>
 <p id="section-3.55.2-4">Note that <code>host byte order'' is the byte order of the machine on that
 the packets are captured; if a live capture is being done,</code>host byte
 order'' is the byte order of the machine capturing the packets, but if a
@@ -10879,7 +10879,7 @@ all Apple machines that write this format being little-endian.<a href="#section-
 <a href="#section-3.56.4" class="section-number selfRef">3.56.4. </a><a href="#name-in-the-pktap-version-1-head" class="section-name selfRef">In the PKTAP version 1 header:</a>
           </h4>
 <p id="section-3.56.4-1">The length field indicates how long the PKTAP header is; this value
-includes the length of the length field itself.  It should be
+includes the length of the length field itself.  It SHOULD be
 at least 108; if it's larger, there is additional data in the header
 following the effective command name.<a href="#section-3.56.4-1" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-2">The record type field contains a value that is one of:<a href="#section-3.56.4-2" class="pilcrow">¶</a></p>
@@ -10933,22 +10933,22 @@ that there is a NUL character at the end of the name.<a href="#section-3.56.4-5"
 </li>
           </ul>
 <p id="section-3.56.4-8">The flags field is at the same offset in the version 1 and version 2
-headers; it should be checked for the "version 2 PKTAP header" flag
+headers; it MUST be checked for the "version 2 PKTAP header" flag
 before any other fields, including the length, are interpreted.<a href="#section-3.56.4-8" class="pilcrow">¶</a></p>
-<p id="section-3.56.4-9">The protocol family field contains a value indicating the address
-family of the packet.  It may be 0 for "unknown", 2 for IPv4, or 30 for
-IPv6.  It may also be another macOS <code>AF_</code> value; note that those values do
-not necessarily correspond to the <code>AF_</code> value of the operating system on
-the host reading a capture.<a href="#section-3.56.4-9" class="pilcrow">¶</a></p>
+<p id="section-3.56.4-9">The protocol family field contains a value indicating the address family
+of the packet.  It MUST be 0 for "unknown", 2 for IPv4, or 30 for IPv6.
+It may also be another macOS <code>AF_</code> value; note that those values do not
+necessarily correspond to the <code>AF_</code> value of the operating system on the
+host reading a capture.<a href="#section-3.56.4-9" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-10">The link-layer header length field appears to contain the length of the
-packet's link-layer header.  It may be 0.<a href="#section-3.56.4-10" class="pilcrow">¶</a></p>
+packet's link-layer header.  It might be 0.<a href="#section-3.56.4-10" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-11">The link-layer trailer length field is assumed to contain the length of
-the packet's link-layer trailer.  It may be 0.<a href="#section-3.56.4-11" class="pilcrow">¶</a></p>
+the packet's link-layer trailer.  It might be 0.<a href="#section-3.56.4-11" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-12">The process ID field contains the process ID of the process that sent
-the packet; it may be 0 if the process ID is unknown.<a href="#section-3.56.4-12" class="pilcrow">¶</a></p>
+the packet; it might be 0 if the process ID is unknown.<a href="#section-3.56.4-12" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-13">The command name contains a null-padded ASCII string giving the last
 component of the path name of the executable image running in the
-process that sent the packet, truncated to 20 characters.  It may be
+process that sent the packet, truncated to 20 characters.  It might be
 a null string if the executable image name is unknown. <em>Do not</em>
 assume that there is a NUL character at the end of the name.<a href="#section-3.56.4-13" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-14">The service class field contains one of the following values:<a href="#section-3.56.4-14" class="pilcrow">¶</a></p>
@@ -10991,16 +10991,16 @@ interface.<a href="#section-3.56.4-17" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-18">The "unit number of interface" field is assumed to contain the unit
 number of the interface.<a href="#section-3.56.4-18" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-19">The effective process ID field is assumed to contain a process ID of
-some sort; it may be 0 if the process ID is unknown.<a href="#section-3.56.4-19" class="pilcrow">¶</a></p>
+some sort; it might be 0 if the process ID is unknown.<a href="#section-3.56.4-19" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-20">The effective command name contains a null-padded ASCII string giving
 the last component of the path name of the executable image running in
-some process, truncated to 20 characters.  It may be a null string if
+some process, truncated to 20 characters.  It might  be a null string if
 the executable image name is unknown.  <em>Do not</em> assume that there
 is a NUL character at the end of the name.<a href="#section-3.56.4-20" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-21">The flow ID field contains a hash value computed for the flow to which
 the packet belongs; it is 0 if there is no flow ID.<a href="#section-3.56.4-21" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-22">The IP protocol field contains a macOS <code>IPPROTO_</code> value for the packet; it
-may be <code>IPPROTO_RAW</code> if the packet was written to a raw socket.<a href="#section-3.56.4-22" class="pilcrow">¶</a></p>
+might be <code>IPPROTO_RAW</code> if the packet was written to a raw socket.<a href="#section-3.56.4-22" class="pilcrow">¶</a></p>
 <p id="section-3.56.4-23">All fields following the effective command name field are optional; the
 length field indicates how many fields are present.<a href="#section-3.56.4-23" class="pilcrow">¶</a></p>
 </section>
@@ -11011,7 +11011,7 @@ length field indicates how many fields are present.<a href="#section-3.56.4-23" 
 <a href="#section-3.56.5" class="section-number selfRef">3.56.5. </a><a href="#name-in-the-pktap-version-2-head" class="section-name selfRef">In the PKTAP version 2 header:</a>
           </h4>
 <p id="section-3.56.5-1">The length field indicates how long the PKTAP header is; this value
-includes the length of the length field itself.  It should be
+includes the length of the length field itself.  It SHOULD be
 at least 108; if it's larger, there is additional data in the header
 following the effective command name.<a href="#section-3.56.5-1" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-2">The "offset of UUID" field is 0 if the UUID field is not present;
@@ -11038,16 +11038,16 @@ beginning of the PKTAP header of the effective command name field.<a href="#sect
 <p id="section-3.56.5-9">The <code>DLT_</code> value field contains a macOS <code>DLT_</code> value for the packet, such as
 <code>DLT_EN10MB</code> for an Ethernet packet.<a href="#section-3.56.5-9" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-10">The link-layer header length field appears to contain the length of the
-packet's link-layer header.  It may be 0.<a href="#section-3.56.5-10" class="pilcrow">¶</a></p>
+packet's link-layer header.  It might be 0.<a href="#section-3.56.5-10" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-11">The link-layer trailer length field is assumed to contain the length of
-the packet's link-layer trailer.  It may be 0.<a href="#section-3.56.5-11" class="pilcrow">¶</a></p>
+the packet's link-layer trailer.  It might be 0.<a href="#section-3.56.5-11" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-12">The interface type field contains an SNMP <code>ifType</code> value for the
 interface.<a href="#section-3.56.5-12" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-13">The IP protocol field contains a macOS <code>IPPROTO_</code> value for the packet; it
-may be <code>IPPROTO_RAW</code> if the packet was written to a raw socket.<a href="#section-3.56.5-13" class="pilcrow">¶</a></p>
-<p id="section-3.56.5-14">The protocol family field contains a value indicating the address
-family of the packet.  It may be 0 for "unknown", 2 for IPv4, or 30 for
-IPv6.  It may also be another macOS <code>AF_</code> value; note that those values do
+might be <code>IPPROTO_RAW</code> if the packet was written to a raw socket.<a href="#section-3.56.5-13" class="pilcrow">¶</a></p>
+<p id="section-3.56.5-14">The protocol family field contains a value indicating the address family
+of the packet.  It MUST be 0 for "unknown", 2 for IPv4, or 30 for IPv6.
+It might also be another macOS <code>AF_</code> value; note that those values do
 not necessarily correspond to the <code>AF_</code> value of the operating system on
 the host reading a capture.<a href="#section-3.56.5-14" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-15">The service class field contains one of the following values:<a href="#section-3.56.5-15" class="pilcrow">¶</a></p>
@@ -11088,9 +11088,9 @@ have different delay tolerance, loss tolerance, etc. characteristics.<a href="#s
 <p id="section-3.56.5-18">The flow ID field contains a hash value computed for the flow to which
 the packet belongs; it is 0 if there is no flow ID.<a href="#section-3.56.5-18" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-19">The process ID field contains the process ID of the process that sent
-the packet; it may be 0 if the process ID is unknown.<a href="#section-3.56.5-19" class="pilcrow">¶</a></p>
+the packet; it might be 0 if the process ID is unknown.<a href="#section-3.56.5-19" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-20">The effective process ID field is assumed to contain a process ID of
-some sort; it may be 0 if the process ID is unknown.<a href="#section-3.56.5-20" class="pilcrow">¶</a></p>
+some sort; it might be 0 if the process ID is unknown.<a href="#section-3.56.5-20" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-21">The flags field contains a set of flags for the packet:<a href="#section-3.56.5-21" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.56.5-22.1">
@@ -11128,17 +11128,17 @@ some sort; it may be 0 if the process ID is unknown.<a href="#section-3.56.5-20"
 </li>
           </ul>
 <p id="section-3.56.5-23">The flags field is at the same offset in the version 1 and version 2
-headers; it should be checked for the "version 2 PKTAP header" flag
+headers; it MUST be checked for the "version 2 PKTAP header" flag
 before any other fields, including the length, are interpreted.<a href="#section-3.56.5-23" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-24">The interface name contains a null-terminated ASCII string giving the name
 of the interface on which the packet arrived.<a href="#section-3.56.5-24" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-25">The command name contains a null-terminated ASCII string giving the last
 component of the path name of the executable image running in the
-process that sent the packet, truncated to 20 characters.  It may be
+process that sent the packet, truncated to 20 characters.  It might be
 a null string if the executable image name is unknown.<a href="#section-3.56.5-25" class="pilcrow">¶</a></p>
 <p id="section-3.56.5-26">The effective command name contains a null-terminated ASCII string
 giving the last component of the path name of the executable image
-running in some process, truncated to 20 characters.  It may be a
+running in some process, truncated to 20 characters.  It might be a
 null string if the executable image name is unknown.<a href="#section-3.56.5-26" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -11431,7 +11431,7 @@ lines (asserted, de-asserted) at the time of the packet generation:<a href="#sec
 <p id="section-3.62.2-7">The payload is one of: <span>[<a href="#DNP3" class="cite xref">DNP3</a>]</span>, <span>[<a href="#Modbus" class="cite xref">Modbus</a>]</span>, <span>[<a href="#IEEE-C37.118.1" class="cite xref">IEEE-C37.118.1</a>]</span>, or
 Schweitzer Engineering Laboratories Fast Message (SELFM) protocol.  The
 packet does not specify which it is; a program processing these packets
-must either have the payload type specified externally or must attempt
+MUST either have the payload type specified externally or MUST attempt
 to determine it heuristically.<a href="#section-3.62.2-7" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -11815,7 +11815,7 @@ giving the major version number, the next 4 bits giving the minor
 version number, and the next 4 bits giving the sub-minor version number.
 The current version is 1.0.0, so the value is <code>0x0100</code>.<a href="#section-3.67.2-2" class="pilcrow">¶</a></p>
 <p id="section-3.67.2-3">The length field indicates how long the header is; this value
-includes the length of the length field itself.  It should be
+includes the length of the length field itself.  It MUST be
 at least 32; if it's larger, there is additional data in the header
 following the endpoint type.<a href="#section-3.67.2-3" class="pilcrow">¶</a></p>
 <p id="section-3.67.2-4">The request type field contains a value that is one of:<a href="#section-3.67.2-4" class="pilcrow">¶</a></p>
@@ -11930,7 +11930,7 @@ header of the form:<a href="#section-3.67.2-20.1.1" class="pilcrow">¶</a></p>
 </div>
 <p id="section-3.67.2-20.1.3">
 The length field indicates how long the header is; this value
-includes the length of the length field itself.  It should be
+includes the length of the length field itself.  It MUST be
 at least 28; if it's larger, there is additional data in the header
 following the time in which the frame completed.<a href="#section-3.67.2-20.1.3" class="pilcrow">¶</a></p>
 <p id="section-3.67.2-20.1.4">
@@ -12121,7 +12121,7 @@ transfer and the number of descriptors field is the number of
 isochronous descriptors for the transfer.<a href="#section-3.68.2-16" class="pilcrow">¶</a></p>
 <p id="section-3.68.2-17">If the setup flag is non-zero, and the transfer is not an isochronous
 transfer, the setup/isochronous information field does not contain any
-information and should be ignored.<a href="#section-3.68.2-17" class="pilcrow">¶</a></p>
+information and SHOULD be ignored.<a href="#section-3.68.2-17" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -12232,7 +12232,7 @@ an error occurred for that descriptor.<a href="#section-3.70.2-6" class="pilcrow
 <p id="section-3.70.2-7">The offset field is the offset, in bytes, of the data for the descriptor
 from the beginning of the data portion of the payload.<a href="#section-3.70.2-7" class="pilcrow">¶</a></p>
 <p id="section-3.70.2-8">The length field is the length, in bytes, of the data for the
-descriptor. This may be zero.<a href="#section-3.70.2-8" class="pilcrow">¶</a></p>
+descriptor. This might be zero.<a href="#section-3.70.2-8" class="pilcrow">¶</a></p>
 <p id="section-3.70.2-9">The padding field does not contain any information.<a href="#section-3.70.2-9" class="pilcrow">¶</a></p>
 <p id="section-3.70.2-10">The number of isochronous descriptors present field specifies the number
 of descriptors present in the event.<a href="#section-3.70.2-10" class="pilcrow">¶</a></p>
@@ -12330,8 +12330,8 @@ contains a value that is one of:<a href="#section-3.71.2-5" class="pilcrow">¶</
           </ul>
 <p id="section-3.71.2-7">The transport header length field is in little-endian byte order; it
 indicates how many bytes of transport header follow the length field.
-It may be non-zero even if the transport header type field has a value
-of 1; in that case, the bytes for the transport header should be
+It might be non-zero even if the transport header type field has a value
+of 1; in that case, the bytes for the transport header SHOULD be
 skipped.<a href="#section-3.71.2-7" class="pilcrow">¶</a></p>
 <p id="section-3.71.2-8">If the transport header type field has a value of 2, the transport
 header is a virtio transport header as described below.  High-level
@@ -12511,7 +12511,7 @@ and are used in the lighting control industry.<a href="#section-3.72.2-1" class=
           </ul>
 <p id="section-3.72.2-4">The Packet Delay field contains an integer value that is the
 number of milliseconds since the previous packet, in network byte order.<a href="#section-3.72.2-4" class="pilcrow">¶</a></p>
-<p id="section-3.72.2-5">The Preamble 1 and Preamble 2 fields should each contain <code>0xAA</code>.<a href="#section-3.72.2-5" class="pilcrow">¶</a></p>
+<p id="section-3.72.2-5">The Preamble 1 and Preamble 2 fields MUST each contain <code>0xAA</code>.<a href="#section-3.72.2-5" class="pilcrow">¶</a></p>
 <p id="section-3.72.2-6">The Family/Address/IR field contains 3-bits of family code, 2-bits of
 address mode, 2-bits of IR (infrared) routing, and 1-bit unused.
 The 8 Legrand NITOO families are<a href="#section-3.72.2-6" class="pilcrow">¶</a></p>
