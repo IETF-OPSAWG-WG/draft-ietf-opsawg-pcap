@@ -14,8 +14,8 @@ Expires: 27 September 2025                                     Sandelman
 
 Abstract
 
-   This document creates an IANA registry for the PCAP-related LINKTYPE
-   values.
+   This document describes a set of PCAP-related LINKTYPE values and
+   creates an IANA registry for those values.
 
 About This Document
 
@@ -303,18 +303,19 @@ Table of Contents
    operating systems, and to read and write network traces to a file was
    later put into a library named libpcap [LIBPCAP].
 
-   Other documents describe the original (legacy) format used by tcpdump
-   (PCAP, [I-D.ietf-opsawg-pcap]), as well as the revised format
-   [I-D.ietf-opsawg-pcapng], which are used by tcpdump and Wireshark
-   [Wireshark].
+   Other documents describe the original (legacy) file format used by
+   tcpdump (PCAP, [I-D.ietf-opsawg-pcap]), as well as a revised file
+   format [I-D.ietf-opsawg-pcapng], which are used by tcpdump and
+   Wireshark [Wireshark].
 
-   Within those formats each packet that is captured is described by a
-   LINKTYPE value.  The LINKTYPE value selects one of many hundred
+   Within those file formats each packet that is captured is indicated
+   by a LINKTYPE value.  The LINKTYPE value selects one of many hundred
    formats for metadata and Layer 2 encapsulation of the packet.
 
-   This document creates an IANA registry for the LINKTYPE format,
-   establishing the IANA Considerations by which other uses of the PCAP-
-   related formats may register new LINKTYPE values.
+   This document describes the metadata and Layer 2 encapsulation
+   formats for a set of LINKTYPE values and creates an IANA registry for
+   LINKTYPE values, establishing the IANA Considerations by which other
+   uses of the PCAP-related formats may register new LINKTYPE values.
 
 2.  Terminology
 

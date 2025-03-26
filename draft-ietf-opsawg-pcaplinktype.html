@@ -8,7 +8,8 @@
 <meta content="Guy Harris" name="author">
 <meta content="Michael C. Richardson" name="author">
 <meta content="
-       This document creates an IANA registry for the PCAP-related LINKTYPE values. 
+       This document describes a set of PCAP-related LINKTYPE values and
+creates an IANA registry for those values. 
     " name="description">
 <meta content="xml2rfc 3.28.0" name="generator">
 <meta content="draft-ietf-opsawg-pcaplinktype-latest" name="ietf.draft">
@@ -1083,7 +1084,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Link-Layer Types for PCAP-related Capture File Formats</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document creates an IANA registry for the PCAP-related LINKTYPE values.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document describes a set of PCAP-related LINKTYPE values and
+creates an IANA registry for those values.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -2005,15 +2007,17 @@ developed the tcpdump program to capture and dissect network traces.
 The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
 later put into a library named libpcap <span>[<a href="#LIBPCAP" class="cite xref">LIBPCAP</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">Other documents describe the original (legacy) format used by tcpdump
-(PCAP, <span>[<a href="#I-D.ietf-opsawg-pcap" class="cite xref">I-D.ietf-opsawg-pcap</a>]</span>), as well as the revised format
-<span>[<a href="#I-D.ietf-opsawg-pcapng" class="cite xref">I-D.ietf-opsawg-pcapng</a>]</span>, which are used by tcpdump and Wireshark
-<span>[<a href="#Wireshark" class="cite xref">Wireshark</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">Within those formats each packet that is captured is described by a LINKTYPE value.
-The LINKTYPE value selects one of many hundred formats for metadata and Layer 2 encapsulation of the packet.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">This document creates an IANA registry for the LINKTYPE format, establishing the IANA
-Considerations by which other uses of the PCAP-related formats may register new
-LINKTYPE values.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-2">Other documents describe the original (legacy) file format used by
+tcpdump (PCAP, <span>[<a href="#I-D.ietf-opsawg-pcap" class="cite xref">I-D.ietf-opsawg-pcap</a>]</span>), as well as a revised file
+format <span>[<a href="#I-D.ietf-opsawg-pcapng" class="cite xref">I-D.ietf-opsawg-pcapng</a>]</span>, which are used by tcpdump and
+Wireshark <span>[<a href="#Wireshark" class="cite xref">Wireshark</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">Within those file formats each packet that is captured is indicated by a
+LINKTYPE value.  The LINKTYPE value selects one of many hundred formats
+for metadata and Layer 2 encapsulation of the packet.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">This document describes the metadata and Layer 2 encapsulation formats
+for a set of LINKTYPE values and creates an IANA registry for LINKTYPE
+values, establishing the IANA Considerations by which other uses of the
+PCAP-related formats may register new LINKTYPE values.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="terminology">
