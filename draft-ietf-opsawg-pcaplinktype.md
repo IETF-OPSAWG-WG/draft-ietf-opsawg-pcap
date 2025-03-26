@@ -643,7 +643,7 @@ described here.
 
 The destination and source addresses are the EUI-64 IEEE 1394 addresses of
 the destination and source of the packet.  The packet type is an
-Ethernet type, in network byte order.
+Ethernet type, in big-endian byte order.
 
 ## LINKTYPE_BLUETOOTH_BREDR_BB
 
@@ -746,8 +746,8 @@ corrected and uncorrectable bits.
 
 The Lower Address Part field is the 24-bit value recovered from the
 captured SYNC WORD as defined in Volume 2, Part B, Section 6.3.3 of
-{{Bluetooth-Core}}.  The most significant byte of this field is reserved
-and MUST be zero.
+{{Bluetooth-Core}}.  The most significant octet of this field is
+reserved and MUST be zero.
 
 The Reference LAP field corresponds to the Lower Address Part configured
 into the capture tool that led to the capture of this packet.
@@ -835,10 +835,10 @@ value.
 
 ### Description
 
-The Direction field is a 4-octet direction field, in network byte order
-(big-endian), the low-order bit of which is set if the frame was sent
-from the host to the controller and clear if the frame was received by
-the host from the controller.
+The Direction field is a 4-octet direction field, in big-endian byte
+order, the low-order bit of which is set if the frame was sent from the
+host to the controller and clear if the frame was received by the host
+from the controller.
 
 The HCI packet indicator field contains a packet indicator value, as
 specified by Volume 4, Part A, Section 2 "Protocol" of
@@ -986,7 +986,7 @@ LE packet field.
 
 ### Description
 
-All fields are in network byte order (big-endian).
+All fields are in big-endian byte order.
 
 The adapter ID field identifies the interface to which the packet
 applies. On single-interface systems, this will typically be 0.
@@ -1129,7 +1129,7 @@ determine the frame type in the following fashion.
 
 #### Description
 
-The CAN ID and flags field is in network byte order (big-endian).
+The CAN ID and flags field is in big-endian byte order.
 The bottom 29 bits contain the CAN ID of the frame.
 The remaining bits are:
 
@@ -1140,8 +1140,9 @@ The remaining bits are:
 * `0x80000000` - set if the frame is an extended 29-bit frame rather
   than a standard 11-bit frame.
 
-The payload length indicates the number of bytes of payload following
-the header.  All packet bytes after those bytes of payload are padding.
+The payload length indicates the number of octets of payload following
+the header.  All packet octets after those octets of payload are
+padding.
 
 The FD flags field contains CAN FD specific flags; for CAN CC frames,
 this field is 0.  The bits are:
@@ -1169,7 +1170,7 @@ frames:
     appropriately for the frame, and clear all other bits.
 * Must set the "Reserved/Padding" field to 0.
 * May set a Len 8 DLC value for CAN CC frames or set this field to 0.
-* May strip trailing padding bytes to save disk space if all above
+* May strip trailing padding octets to save disk space if all above
   statements are satisfied.
 
 For a data frame, the payload is the data field of the CAN CC or CAN FD
@@ -1182,22 +1183,22 @@ stored in the payload length and optionally in the Len 8 DLC value.  A
 non-zero payload length does therefore not indicate the presence of
 payload data.
 
-For an error message, the payload is always 8 bytes.  The lower bits of
+For an error message, the payload is always 8 octets.  The lower bits of
 the CAN ID field contain an error class value, with bits specified by
-the first set of `CAN_ERR_` values in {{Linux-CAN-errors}}.  The bytes
+the first set of `CAN_ERR_` values in {{Linux-CAN-errors}}.  The octets
 in the payload are:
 
-* first byte - if arbitration was lost, the bit number in the bitstream in which it was lost;
-  otherwise 0.
-* second byte - the error status of the CAN controller, with bits
+* first octet - if arbitration was lost, the bit number in the bitstream
+  in which it was lost; otherwise 0.
+* second octet - the error status of the CAN controller, with bits
   specified by the `CAN_ERR_CTRL_` bits in {{Linux-CAN-errors}}.
-* third byte - flags indicating a CAN protocol error type, with bits
+* third octet - flags indicating a CAN protocol error type, with bits
   specified by the `CAN_ERR_PROT_` bits in {{Linux-CAN-errors}}.
-* fourth byte - flags indicating a CAN protocol error location, with
+* fourth octet - flags indicating a CAN protocol error location, with
   bits specified by the `CAN_ERR_LOC_` bits in {{Linux-CAN-errors}}.
-* fifth byte - the error status of the CAN transceiver, with values
+* fifth octet - the error status of the CAN transceiver, with values
   specified by the `CAN_ERR_TRX_` values in {{Linux-CAN-errors}}.
-* sixth, seventh, and eighth bytes - controller-specific additional
+* sixth, seventh, and eighth octets - controller-specific additional
   information.
 
 ### CAN XL frames
@@ -1251,10 +1252,9 @@ used by the payload.  The values of this field are specified by CAN in
 Automation (CiA) specification 611-1 "CAN XL higher-layer functions -
 Part 1: Definition of service data unit types (SDT)".
 
-The frame payload length is in little-endian byte order.
-It indicates the number of bytes of payload
-following the header.  All packet bytes after those bytes of payload are
-padding.
+The frame payload length is in little-endian byte order.  It indicates
+the number of octets of payload following the header.  All packet octets
+after those octets of payload are padding.
 
 The Acceptance Field is in little-endian byte order.
 
@@ -1264,7 +1264,7 @@ Software that generates `LINKTYPE_CAN_SOCKETCAN` CAN XL frames:
 * In the "XL Flags" field:
   * MUST set the `CANXL_XLF` bit.
   * MUST set the `CANFD_SEC` bit as appropriate for the frame and clear all other bits.
-* May strip trailing padding bytes to save disk space if all above statements are satisfied.
+* May strip trailing padding octets to save disk space if all above statements are satisfied.
 
 The payload is the data field of the CAN XL packet.
 
@@ -1311,9 +1311,9 @@ authentication handshake before the message sequence.
 Packets are DECT-2020 New Radio (NR) MAC layer frames, as per
 {{ETSI-TS-103-636-4}}.
 
-The Physical Header Field is always encoded using 80 bits (10 bytes).
-Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero
-bits (5 bytes).  When padding is used the Receiver Identity value 0x0000
+The Physical Header Field is always encoded using 80 bits (10 octets).
+Broadcast transmissions using 40 bits (5 octets) is padded with 40 zero
+bits (5 octets).  When padding is used the Receiver Identity value 0x0000
 (reserved address) is used to detect broadcast transmissions
 
 ## LINKTYPE_DISPLAYPORT_AUX
@@ -1344,7 +1344,7 @@ bits (5 bytes).  When padding is used the Receiver Identity value 0x0000
 
 This is the actual Data as specified by the AUX channel transaction
 syntax in the VESA DisplayPort (DP) Standard. It is preceded by a
-one-byte field indicating whether the Data was sent from the Sink (e.g.
+one-octet field indicating whether the Data was sent from the Sink (e.g.
 a display) or from the Source (e.g. a graphics card).
 
 ### Packet Type EVENT
@@ -1531,7 +1531,7 @@ device and port or trunk numbers. It is placed in the frame on top
 of the standard IEEE tag.
 
 The EDSA tag is 8 octets. It contains a programmable Ethernet type,
-two reserved bytes (always 0), and a standard DSA tag.
+two reserved octets (always 0), and a standard DSA tag.
 
          7   6   5   4   3   2   1   0
        .   .   .   .   .   .   .   .   .
@@ -1706,7 +1706,7 @@ Ethernet header before the Type/Length field.
     /                                                               /
     /                        EVENT_HEADER                           /
     /                                                               /
-    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ 80 bytes
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ 80 octets
     |                      ETW_BUFFER_CONTEXT                       |
     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     |                        UserDataLength                         |
@@ -1727,13 +1727,13 @@ Ethernet header before the Type/Length field.
 
 ### Description
 
-All multi-byte numerical fields are little-endian.  All primitive types
+All multi-octet numerical fields are little-endian.  All primitive types
 in this document are from Windows and their size can be found in
 [section 2.2 "Common Data
 Types"](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dtyp/efda8314-6e41-4837-8299-38ba0ee04b92)
 of {{MS-DTYP}}.
 
-`EVENT_HEADER` is 80 bytes long; its structure is described on
+`EVENT_HEADER` is 80 octets long; its structure is described on
 [Microsoft's page for the EVENT_HEADER
 structure](https://learn.microsoft.com/en-us/windows/win32/api/evntcons/ns-evntcons-event_header).
 
@@ -1754,18 +1754,18 @@ The bit values of EventProperty in EVENT_HEADER are:
     #define EVENT_HEADER_PROPERTY_FORWARDED_XML     0x0002
     #define EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG   0x0004
 
-`ETW_BUFFER_CONTEXT` is 4 bytes long; its structure is described on
+`ETW_BUFFER_CONTEXT` is 4 octets long; its structure is described on
 [Microsoft's page for the ETW_BUFFER_CONTEXT
 structure](https://learn.microsoft.com/en-us/windows/win32/api/relogger/ns-relogger-etw_buffer_context).
 
 `UserDataLength` is the length of `UserData`; it doesn't include the
-padding bytes of `UserData`.
+padding octets of `UserData`.
 
 `MessageLength` is the length of `Message`; it doesn't include the
-padding bytes of `Message`.
+padding octets of `Message`.
 
 `ProviderNameLength` is the length of `ProviderName`; it doesn't include
-the padding bytes of `ProviderName`.
+the padding octets of `ProviderName`.
 
 `UserData` is specific event data from the provider; its format is
 defined by the provider.
@@ -1970,9 +1970,8 @@ The lower 7 bits of the bus number + event flag field contain the bus
 number; the upper bit indicates whether the packet is an event or a
 regular packet - if it's set, the packet is an event.
 
-The flags are in network byte order (big-endian).  The interpretation of
+The flags are in big-endian byte order.  The interpretation of
 the flags depends on whether the packet is a regular packet or an event.
-
 
 If the packet is a regular packet, the flag bits are:
 
@@ -2198,7 +2197,7 @@ The version field is 2 for the current version of the pseudo-header.
 The family field is a Solaris `AF_` value, so it's 2 for IPv4 and 26 for
 IPv6.
 
-The hook type is in network byte order (big-endian); its value is:
+The hook type is in big-endian byte order; its value is:
 
 * 0 if the packet was received by the machine from another
   machine;
@@ -2207,16 +2206,16 @@ The hook type is in network byte order (big-endian); its value is:
 * 2 if the packet was sent from the machine to itself, possibly
   between zones.
 
-The packet length is in network byte order; its value is the number of
-bytes of packet data following the pseudo-header.
+The packet length is in big-endian byte order; its value is the number of
+octets of packet data following the pseudo-header.
 
-The interface index is in network byte order; it is the interface index
+The interface index is in big-endian byte order; it is the interface index
 of the interface on which the packet arrived.
 
-The group interface index is in network byte order; it is the group
+The group interface index is in big-endian byte order; it is the group
 interface index number, for IPMP interfaces.
 
-The zone identifiers are in network byte order.  A zone number of 0 is
+The zone identifiers are in big-endian byte order.  A zone number of 0 is
 the global zone; a zone number of `0xffffffff` means that the packet
 arrived from another host on the network, not from another zone on the
 same machine.
@@ -2268,7 +2267,7 @@ The Message Format Revision field MUST always be set to 1.
 The reserved fields MUST be zero.
 
 The upper 4 bits of the Payload Length and Types field contain the
-number of bytes of payload. This value MUST be between 1 and 8 for a LIN
+number of octets of payload. This value MUST be between 1 and 8 for a LIN
 frame.
 
 The next 2 bits of that field contain the message type, the value of
@@ -2352,16 +2351,16 @@ than 4 seconds;
 
 ### Description
 
-The packet type field is in network byte order (big-endian).  The upper
-byte of the field is the class of the packet; the value is one of:
+The packet type field is in big-endian byte order.  The upper
+octet of the field is the class of the packet; the value is one of:
 
 * 0, if the payload is an IrDA frame;
 * 1, if the payload is a log message.
 
-For IrDA frames, the lower byte of the field is 0 for incoming
+For IrDA frames, the lower octet of the field is 0 for incoming
 packets and 4 for outgoing packets.
 
-For log messages, if the lower byte of the field is 1, it's an
+For log messages, if the lower octet of the field is 1, it's an
 indication that one or more messages have been missed and not captured.
 
 The `ARPHRD_` type field is unused.
@@ -2370,7 +2369,7 @@ The link-layer address length field is unused.
 
 The link-layer address field is unused.
 
-The protocol type field is in network byte order; it MUST contain
+The protocol type field is in big-endian byte order; it MUST contain
 the value `0x0017`.
 
 The payload is an IrDA frame beginning with the IrLAP header as
@@ -2425,16 +2424,16 @@ The LAPB frame is as descrbed in section 2.2.7 "Frame structure" of
 
 ### Description
 
-The packet type field is in network byte order (big-endian); it contains
+The packet type field is in big-endian byte order; it contains
 a value that is one of:
 
 * 0, if the packet was sent to us by somebody else;
 * 3, if the packet was sent to somebody else by somebody else;
 * 4, if the packet was sent by us.
 
-For LAPD frames, the lower byte of the field is 0 for incoming
+For LAPD frames, the lower octet of the field is 0 for incoming
 packets and 4 for outgoing packets.
-For log messages, if the lower byte of the field is 1, it's an
+For log messages, if the lower octet of the field is 1, it's an
 indication that one or more messages have been missed and not captured.
 
 The `ARPHRD_` type field is unused.
@@ -2443,7 +2442,7 @@ The link-layer address length field is unused.
 
 The link-layer address field is unused.
 
-The protocol type field is in network byte order; it MUST contain
+The protocol type field is in big-endian byte order; it MUST contain
 the value `0x0030`.
 
 The payload is a
@@ -2461,7 +2460,7 @@ values.
 
 ### Description
 
-The packet type field is in network byte order (big-endian); it contains
+The packet type field is in big-endian byte order; it contains
 a value that is one of:
 
 * 0, if the packet was specifically sent to us by somebody else;
@@ -2471,7 +2470,7 @@ a value that is one of:
 * 3, if the packet was sent to somebody else by somebody else;
 * 4, if the packet was sent by us.
 
-The `ARPHRD_` type field is in network byte order; it contains a Linux
+The `ARPHRD_` type field is in big-endian byte order; it contains a Linux
 `ARPHRD_` value for the link-layer device type.
 
 If the `ARPHRD_` type is `ARPHRD_NETLINK` (824), the packet data,
@@ -2534,8 +2533,8 @@ are:
 * `0x80000000` - set if the frame is an extended 29-bit frame rather
   than a standard 11-bit frame;
 
-The payload length indicates the number of bytes of payload following
-the header.  All packet bytes after those bytes of payload are padding.
+The payload length indicates the number of octets of payload following
+the header.  All packet octets after those octets of payload are padding.
 
 The header is followed by the payload.
 
@@ -2579,22 +2578,22 @@ packet.
 For a retransmission request, the length MUST be 0, so the payload is
 empty.
 
-For a CAN CC or CAN FD error message, the payload is always 8 bytes.
+For a CAN CC or CAN FD error message, the payload is always 8 octets.
 The lower bits of the CAN ID field contain an error class value, with
 bits specified by the first set of `CAN_ERR_` values in
-{{Linux-CAN-errors}}.  The bytes in the payload are:
+{{Linux-CAN-errors}}.  The octets in the payload are:
 
-* first byte - if arbitration was lost, the bit number in the bitstream
+* first octet - if arbitration was lost, the bit number in the bitstream
   in which it was lost; otherwise 0.
-* second byte - the error status of the CAN controller, with bits
+* second octet - the error status of the CAN controller, with bits
   specified by the `CAN_ERR_CTRL_` bits in {{Linux-CAN-errors}}.
-* third byte - flags indicating a CAN protocol error type, with bits
+* third octet - flags indicating a CAN protocol error type, with bits
   specified by the `CAN_ERR_PROT_` bits in {{Linux-CAN-errors}}.
-* fourth byte - flags indicating a CAN protocol error location, with
+* fourth octet - flags indicating a CAN protocol error location, with
   bits specified by the `CAN_ERR_LOC_` bits in {{Linux-CAN-errors}}.
-* fifth byte - the error status of the CAN transceiver, with values
+* fifth octet - the error status of the CAN transceiver, with values
   specified by the `CAN_ERR_TRX_` values in {{Linux-CAN-errors}}.
-* sixth, seventh, and eighth bytes - controller-specific additional
+* sixth, seventh, and eighth octets - controller-specific additional
  information.
 
 In a `LINKTYPE_LINUX_SLL` or `LINKTYPE_LINUX_SLL2`, a CAN XL frame
@@ -2619,18 +2618,18 @@ begins with a header of the form:
 
 (byte order?)
 
-The link-layer address length field is in network byte order; it
+The link-layer address length field is in big-endian byte order; it
 contains the length of the link-layer address of the sender of the
 packet.  That length could be zero.
 
 The link-layer address field contains the link-layer address of the
-sender of the packet; the number of bytes of that field that are
+sender of the packet; the number of octets of that field that are
 meaningful is specified by the link-layer address length field.  If
-there are more than 8 bytes, only the first 8 bytes are present, and
-if there are fewer than 8 bytes, there are padding bytes after the
-address to pad the field to 8 bytes.
+there are more than 8 octets, only the first 8 octets are present, and
+if there are fewer than 8 octets, there are padding octets after the
+address to pad the field to 8 octets.
 
-The protocol type field is in network byte order.
+The protocol type field is in big-endian byte order.
 
 ## LINKTYPE_LINUX_SLL
 
@@ -2695,7 +2694,7 @@ All fields are as described above.
 ### Description
 
 
-The interface index field is a signed integer in network byte order and
+The interface index field is a signed integer in big-endian byte order and
 contains the 1-based index of the interface on which the packet was
 observed.
 
@@ -2803,8 +2802,8 @@ invalid.
 
 Start_Pos is the 1-origin index (from the octet after the Direction
 octet, so the index of the first Flag_Mux octet would be 1) of the first
-byte of the chunk, and End_Pos is the 1-origin index (from the octet
-after the Direction octet) of the last byte of the chunk.
+octet of the chunk, and End_Pos is the 1-origin index (from the octet
+after the Direction octet) of the last octet of the chunk.
 
 All the chunks of a given PPP packet have the same Msg_ID value.
 Freq_ID is a sequence number for the PPP chunks.  The first chunk
@@ -2838,9 +2837,9 @@ The low-order 8 bits are a set of error flags for the packet:
 * `0x00000004` - FCS error
 * `0x00000008` - frame too long
 * `0x00000010` - SFD error
-* `0x00000020` - frame shorter than 64 bytes
-* `0x00000040` - preamble shorter than 7 bytes
-* `0x00000080` - preamble longer than 7 bytes
+* `0x00000020` - frame shorter than 64 octets
+* `0x00000040` - preamble shorter than 7 octets
+* `0x00000080` - preamble longer than 7 octets
 
 The next bit, `0x00000100`, is set if the packet arrived on the GPIO
 port rather than the Ethernet port.
@@ -2856,7 +2855,7 @@ header field; the current version is 1.
 The next 2 bits, `0x0000C000`, are the capture port/GPIO number, from 0
 to 3.
 
-The next 12 bits, `0x0FFF0000`, are the frame length, in bytes.
+The next 12 bits, `0x0FFF0000`, are the frame length, in octets.
 
 The topmost 4 bits, `0xF0000000`, are reserved.
 
@@ -2931,10 +2930,10 @@ with the FCS.
 
 ### Description
 
-The `ARPHRD_` type field is in network byte order; it will be equal to
+The `ARPHRD_` type field is in big-endian byte order; it will be equal to
 the Linux `ARPHRD_` value `ARPHRD_NETLINK`.
 
-The protocol type field is in network byte order; it contains a
+The protocol type field is in big-endian byte order; it contains a
 Netlink protocol type, such as `NETLINK_ROUTE`,
 `NETLINK_NFLOG`, `NETLINK_AUDIT`, etc.
 
@@ -2970,10 +2969,10 @@ The bits in the flags field are:
 * `0x02`-`0x80` - Reserved
 
 The payload is an NFC Logical Link Control Protocol (LLCP) PDU, as
-specified by {{LLCP-1.4}}, i.e.  a byte containing the DSAP and upper
-two bits of the PTYPE, followed by a byte containing the lower two bits
-of the PTYPE and the SSAP, followed by the sequence byte if the frame
-has sequence numbers, followed by any additional bytes of payload.
+specified by {{LLCP-1.4}}, i.e. an octete containing the DSAP and upper
+two bits of the PTYPE, followed by an octet containing the lower two bits
+of the PTYPE and the SSAP, followed by the sequence octet if the frame
+has sequence numbers, followed by any additional octets of payload.
 
 ## LINKTYPE_NFLOG
 
@@ -3007,7 +3006,7 @@ IPv6.
 
 The version field is 0 for the current version of the pseudo-header.
 
-The resource ID is in network byte order (big-endian).  On one netlink
+The resource ID is in big-endian byte order.  On one netlink
 socket it's possible to listen to several nflog groups; the resource ID
 is the nflog group for the packet.
 
@@ -3084,8 +3083,8 @@ The hardware address structure is:
     | (8 Octets, including padding) |
     +-------------------------------+
 
-All 32-bit integral values, and all multi-byte integral values in
-structures listed above, are in big-endian (network) byte order.
+All 32-bit integral values, and all multi-octet integral values in
+structures listed above, are in big-endian byte order.
 
 ## LINKTYPE_NG40
 
@@ -3114,7 +3113,7 @@ structures listed above, are in big-endian (network) byte order.
 
 ### Description
 
-All multi-byte fields are in network byte order (big-endian).
+All multi-octet fields are in big-endian byte order.
 
 The type field contains a value that is one of:
 
@@ -3936,7 +3935,7 @@ the machine reading the capture file.
 
 ### Description
 
-All multi-byte fields currently appear to be little-endian, but Apple
+All multi-octet fields currently appear to be little-endian, but Apple
 haven't indicated whether this is by design or merely a consequence of
 all Apple machines that write this format being little-endian.
 
@@ -4256,19 +4255,19 @@ The offset words contain a value that is one of:
 
     +---------------------------+
     | Relative TimeStamp (Left) |
-    |          (4 Bytes)        |
+    |         (4 Octets)        |
     +---------------------------+
     | Relative TimeStamp (Right)|
-    |          (4 Bytes)        |
+    |         (4 Octets)        |
     +---------------------------+
     |     Serial Event Type     |
-    |          (1 Byte)         |
+    |         (1 Octet)         |
     +---------------------------+
     |  UART Control Line State  |
-    |          (1 Byte)         |
+    |         (1 Octet)         |
     +---------------------------+
     |          Footer           |
-    |         (2 Bytes)         |
+    |        (2 Octets)         |
     +---------------------------+
     |          Payload          |
     .                           .
@@ -4429,7 +4428,7 @@ The direction field contains a value that is one of:
 * 1, if the packet was sent by the machine.
 
 The payload is either an IP packet or a compressed packet as per
-{{?RFC1144}}, without framing and byte-stuffing.
+{{?RFC1144}}, without framing and octet-stuffing.
 
 ## LINKTYPE_STANAG_5066_D_PDU
 
@@ -4475,7 +4474,7 @@ The flag field contains a value that is one of:
 * 6, if the payload is Q.2931 traffic.
 
 The VPI and VCI fields contain the VPI and VCI values for the payload;
-the VCI field is in network byte order.
+the VCI field is in big-endian byte order.
 
 ## LINKTYPE_USB_DARWIN
 
@@ -4525,7 +4524,7 @@ the VCI field is in network byte order.
 
 ### Description
 
-All multi-byte fields are little-endian.
+All multi-octet fields are little-endian.
 
 The version number field is a 2-octet value with the upper 8 bits
 giving the major version number, the next 4 bits giving the minor
@@ -4604,8 +4603,8 @@ For isochronous endpoints:
 
 * If the packet indicates a completed request, the payload is a
   sequence of "number of isochronous frames following" isochronous
-  frames.  Each isochronous frame begins with 0&ndash;3 bytes of padding
-  to put the data following it on a 4-byte boundary.  After that is a
+  frames.  Each isochronous frame begins with 0-3 octets of padding
+  to put the data following it on a 4-octet boundary.  After that is a
   header of the form:
 
         +----------------------------------------+
@@ -4630,7 +4629,7 @@ For isochronous endpoints:
   at least 28; if it's larger, there is additional data in the header
   following the time in which the frame completed.
 
-  The frame length field indicates how many bytes of data are in the
+  The frame length field indicates how many octets of data are in the
   frame.
 
   The frame status field contains a status value for the frame.  It is in
@@ -4647,11 +4646,11 @@ For isochronous endpoints:
   performed is available.
 
   Following the header is the data for the frame; the frame length field
-  indicates how many bytes of data there are for that frame.
+  indicates how many octets of data there are for that frame.
 
   * If the packet indicates a submitted request, the payload is a
     sequence of "number of isochronous frames following" isochronous
-    frame headers, with the frame length set to the number of bytes to
+    frame headers, with the frame length set to the number of octets to
     be transferred, the frame status field set to `0xe0000001`, and
     without any data following the header.
 
@@ -4865,10 +4864,10 @@ The status field contains zero if no error occurred for that descriptor
 or the negative of a Linux errno value for the error being reported if
 an error occurred for that descriptor.
 
-The offset field is the offset, in bytes, of the data for the descriptor
+The offset field is the offset, in octets, of the data for the descriptor
 from the beginning of the data portion of the payload.
 
-The length field is the length, in bytes, of the data for the
+The length field is the length, in octets, of the data for the
 descriptor. This might be zero.
 
 The padding field does not contain any information.
@@ -4943,9 +4942,9 @@ contains a value that is one of:
 * 2, if there is a virtio transport header.
 
 The transport header length field is in little-endian byte order; it
-indicates how many bytes of transport header follow the length field.
+indicates how many octets of transport header follow the length field.
 It might be non-zero even if the transport header type field has a value
-of 1; in that case, the bytes for the transport header SHOULD be
+of 1; in that case, the octets for the transport header SHOULD be
 skipped.
 
 If the transport header type field has a value of 2, the transport
@@ -5002,7 +5001,7 @@ they identify a connection or datagram flow between the source and
 destination devices.
 
 The payload length field is in little-endian byte order; it indicates
-how many bytes of data comprise the payload.
+how many octets of data comprise the payload.
 
 The socket type field is in little-endian byte order; it contains a
 value that is one of:
@@ -5026,11 +5025,11 @@ then bit 0 indicates that no more data will be received and bit 1
 indicates that no more data will be sent.
 
 The available space field is in little-endian byte order; it indicates
-how many bytes of payload data can be received without risk of dropping
+how many octets of payload data can be received without risk of dropping
 packets.
 
 The receive counter field is in little-endian byte order; it indicates
-how many bytes of payload data have been received.
+how many octets of payload data have been received.
 
 ## LINKTYPE_WATTSTOPPER_DLM
 
@@ -5074,7 +5073,7 @@ The Dongle Code field contains a value that is one of:
 * 8="Other Family Error"
 
 The Packet Delay field contains an integer value that is the
-number of milliseconds since the previous packet, in network byte order.
+number of milliseconds since the previous packet, in big-endian byte order.
 
 The Preamble 1 and Preamble 2 fields MUST each contain `0xAA`.
 
@@ -5145,7 +5144,7 @@ The Type field is set to 6.
 #### Payload
 
 The payload begins with the "Low-level protocol" header, as described in
-section 3.2 of {{ZBOSS}}, so that the first two bytes of the payload are
+section 3.2 of {{ZBOSS}}, so that the first two octets of the payload are
 `0xde` `0xad`, in order.
 
 ## LINKTYPE_ZWAVE_R1_R2
