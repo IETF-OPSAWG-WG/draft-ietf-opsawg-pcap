@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 26 September 2025                                     Sandelman
-                                                           25 March 2025
+Expires: 27 September 2025                                     Sandelman
+                                                           26 March 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 September 2025.
+   This Internet-Draft will expire on 27 September 2025.
 
 Copyright Notice
 
@@ -78,147 +78,213 @@ Table of Contents
      3.2.  LINKTYPE_BLUETOOTH_BREDR_BB
        3.2.1.  Packet structure
        3.2.2.  Description
-     3.3.  LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
+     3.3.  LINKTYPE_BLUETOOTH_HCI_H4
        3.3.1.  Packet structure
        3.3.2.  Description
-     3.4.  LINKTYPE_BLUETOOTH_LINUX_MONITOR
+     3.4.  LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR
        3.4.1.  Packet structure
        3.4.2.  Description
-     3.5.  LINKTYPE_CAN_SOCKETCAN
-       3.5.1.  CAN CC and CAN FD frames
-       3.5.2.  CAN XL frames
-     3.6.  LINKTYPE_DISPLAYPORT_AUX
+     3.5.  LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
+       3.5.1.  Packet structure
+       3.5.2.  Description
+     3.6.  LINKTYPE_BLUETOOTH_LINUX_MONITOR
        3.6.1.  Packet structure
-       3.6.2.  Packet Type DATA
-       3.6.3.  Packet Type EVENT
-       3.6.4.  Packet Type START
-       3.6.5.  Packet Type STOP
-     3.7.  Broadcom switch tag
-       3.7.1.  Switch tag structure
-     3.8.  LINKTYPE_DSA_TAG_BRCM
-       3.8.1.  Packet structure
-       3.8.2.  Description
-     3.9.  LINKTYPE_DSA_TAG_BRCM_PREPEND
+       3.6.2.  Description
+     3.7.  LINKTYPE_CAN_SOCKETCAN
+       3.7.1.  CAN CC and CAN FD frames
+       3.7.2.  CAN XL frames
+     3.8.  LINKTYPE_C_HDLC
+       3.8.1.  Description
+     3.9.  LINKTYPE_C_HDLC_WITH_DIR
        3.9.1.  Packet structure
        3.9.2.  Description
-     3.10. Marvell switch tag
-       3.10.1.  Switch tag structure
-     3.11. LINKTYPE_DSA_TAG_DSA
-       3.11.1.  Packet structure
-       3.11.2.  Description
-     3.12. LINKTYPE_DSA_TAG_EDSA
+     3.10. LINKTYPE_DBUS
+       3.10.1.  Description
+     3.11. LINKTYPE_DECT_NR
+       3.11.1.  Description
+     3.12. LINKTYPE_DISPLAYPORT_AUX
        3.12.1.  Packet structure
-       3.12.2.  Description
-     3.13. LINKTYPE_ETW
-       3.13.1.  Packet structure
-       3.13.2.  Description
-     3.14. LINKTYPE_FIRA_UCI
-       3.14.1.  Packet format
+       3.12.2.  Packet Type DATA
+       3.12.3.  Packet Type EVENT
+       3.12.4.  Packet Type START
+       3.12.5.  Packet Type STOP
+     3.13. Broadcom switch tag
+       3.13.1.  Switch tag structure
+     3.14. LINKTYPE_DSA_TAG_BRCM
+       3.14.1.  Packet structure
        3.14.2.  Description
-     3.15. LINKTYPE_FLEXRAY
+     3.15. LINKTYPE_DSA_TAG_BRCM_PREPEND
        3.15.1.  Packet structure
        3.15.2.  Description
-     3.16. LINKTYPE_I2C_LINUX
-       3.16.1.  Packet structure
-       3.16.2.  Description
-     3.17. LINKTYPE_IEEE802_11_PRISM
+     3.16. Marvell switch tag
+       3.16.1.  Switch tag structure
+     3.17. LINKTYPE_DSA_TAG_DSA
        3.17.1.  Packet structure
        3.17.2.  Description
-     3.18. LINKTYPE_IPNET
+     3.18. LINKTYPE_DSA_TAG_EDSA
        3.18.1.  Packet structure
        3.18.2.  Description
-     3.19. LINKTYPE_LIN
+     3.19. LINKTYPE_ETW
        3.19.1.  Packet structure
        3.19.2.  Description
-     3.20. LINKTYPE_LINUX_IRDA
-       3.20.1.  Packet structure
-       3.20.2.  Description
-     3.21. LINKTYPE_LINUX_LAPD
-       3.21.1.  Packet structure
-       3.21.2.  Description
-     3.22. Linux SLL header fields
-       3.22.1.  Description
-     3.23. LINKTYPE_LINUX_SLL
+     3.20. LINKTYPE_FC_2
+       3.20.1.  Description
+     3.21. LINKTYPE_FC_2_WITH_FRAME_DELIMS
+       3.21.1.  Description
+     3.22. LINKTYPE_FIRA_UCI
+       3.22.1.  Packet format
+       3.22.2.  Description
+     3.23. LINKTYPE_FLEXRAY
        3.23.1.  Packet structure
        3.23.2.  Description
-     3.24. LINKTYPE_LINUX_SLL2
-       3.24.1.  Packet structure
-       3.24.2.  Description
-     3.25. LINKTYPE_LOOP
-       3.25.1.  Packet structure for BSD loopback encapsulation
+     3.24. LINKTYPE_FRELAY
+       3.24.1.  Description
+     3.25. LINKTYPE_FRELAY_WITH_DIR
+       3.25.1.  Packet structure
        3.25.2.  Description
-     3.26. LINKTYPE_MUX27010
+     3.26. LINKTYPE_I2C_LINUX
        3.26.1.  Packet structure
        3.26.2.  Description
-       3.26.3.  Description for the Msg_ID through Flag octets
-     3.27. Hilscher netANALYZER header
-       3.27.1.  Header structure
+     3.27. LINKTYPE_IEEE802_11_PRISM
+       3.27.1.  Packet structure
        3.27.2.  Description
-     3.28. LINKTYPE_NETANALYZER
-       3.28.1.  Packet structure
-       3.28.2.  Description
-     3.29. LINKTYPE_NETANALYZER_TRANSPARENT
-       3.29.1.  Packet structure
-       3.29.2.  Description
-     3.30. LINKTYPE_NETLINK
-       3.30.1.  Packet structure
-       3.30.2.  Description
-     3.31. LINKTYPE_NFC_LLCP
-       3.31.1.  Packet structure
-       3.31.2.  Description
-     3.32. LINKTYPE_NFLOG
-       3.32.1.  Packet structure
-       3.32.2.  Description
-     3.33. LINKTYPE_NG40
+     3.28. LINKTYPE_IEEE802_15_4_NOFCS
+       3.28.1.  Description
+     3.29. LINKTYPE_IEEE802_15_4_WITHFCS
+       3.29.1.  Description
+     3.30. LINKTYPE_IEEE802_15_4_NONASK_PHY
+     3.31. Packet structure
+       3.31.1.  Description
+     3.32. LINKTYPE_IP_OVER_FC
+       3.32.1.  Description
+     3.33. LINKTYPE_IPNET
        3.33.1.  Packet structure
        3.33.2.  Description
-     3.34. LINKTYPE_NORDIC_BLE
-       3.34.1.  Packet structure
-       3.34.2.  Description
-     3.35. LINKTYPE_NULL
-       3.35.1.  Packet structure for BSD loopback encapsulation
+     3.34. LINKTYPE_LAPD
+       3.34.1.  Description
+     3.35. LINKTYPE_LIN
+       3.35.1.  Packet structure
        3.35.2.  Description
-     3.36. LINKTYPE_PKTAP
-       3.36.1.  Packet structure (PKTAP version 1)
-       3.36.2.  Packet structure (PKTAP version 2)
-       3.36.3.  Description
-       3.36.4.  In the PKTAP version 1 header:
-       3.36.5.  In the PKTAP version 2 header:
-     3.37. LINKTYPE_RDS
+     3.36. LINKTYPE_LINUX_IRDA
+       3.36.1.  Packet structure
+       3.36.2.  Description
+     3.37. LINKTYPE_LAPB_WITH_DIR
        3.37.1.  Packet structure
        3.37.2.  Description
-     3.38. LINKTYPE_RTAC_SERIAL
+     3.38. LINKTYPE_LINUX_LAPD
        3.38.1.  Packet structure
        3.38.2.  Description
-     3.39. LINKTYPE_SITA
-       3.39.1.  Packet structure
-       3.39.2.  Description
-     3.40. LINKTYPE_SLIP
+     3.39. Linux SLL header fields
+       3.39.1.  Description
+     3.40. LINKTYPE_LINUX_SLL
        3.40.1.  Packet structure
        3.40.2.  Description
-     3.41. LINKTYPE_SUNATM
+     3.41. LINKTYPE_LINUX_SLL2
        3.41.1.  Packet structure
        3.41.2.  Description
-     3.42. LINKTYPE_USB_DARWIN
-       3.42.1.  Packet structure
+     3.42. LINKTYPE_LOOP
+       3.42.1.  Packet structure for BSD loopback encapsulation
        3.42.2.  Description
-     3.43. LINKTYPE_VSOCK
-       3.43.1.  Packet structure
-       3.43.2.  Description
-       3.43.3.  Virtio transport header structure
-       3.43.4.  Description
-     3.44. LINKTYPE_WATTSTOPPER_DLM
-       3.44.1.  Packet structure
-       3.44.2.  Description
-     3.45. LINKTYPE_ZBOSS_NCP
-       3.45.1.  Packet structure
-       3.45.2.  Description
-     3.46. LINKTYPE_ZWAVE_R1_R2
+     3.43. LINKTYPE_LORATAP
+       3.43.1.  Description
+     3.44. LINKTYPE_MDB
+       3.44.1.  Description
+     3.45. LINKTYPE_MFR
+       3.45.1.  Description
+     3.46. LINKTYPE_MUX27010
        3.46.1.  Packet structure
        3.46.2.  Description
-     3.47. LINKTYPE_ZWAVE_R3
-       3.47.1.  Packet structure
+       3.46.3.  Description for the Msg_ID through Flag octets
+     3.47. Hilscher netANALYZER header
+       3.47.1.  Header structure
        3.47.2.  Description
+     3.48. LINKTYPE_NETANALYZER
+       3.48.1.  Packet structure
+       3.48.2.  Description
+     3.49. LINKTYPE_NETANALYZER_TRANSPARENT
+       3.49.1.  Packet structure
+       3.49.2.  Description
+     3.50. LINKTYPE_NETLINK
+       3.50.1.  Packet structure
+       3.50.2.  Description
+     3.51. LINKTYPE_NFC_LLCP
+       3.51.1.  Packet structure
+       3.51.2.  Description
+     3.52. LINKTYPE_NFLOG
+       3.52.1.  Packet structure
+       3.52.2.  Description
+     3.53. LINKTYPE_NG40
+       3.53.1.  Packet structure
+       3.53.2.  Description
+     3.54. LINKTYPE_NORDIC_BLE
+       3.54.1.  Packet structure
+       3.54.2.  Description
+     3.55. LINKTYPE_NULL
+       3.55.1.  Packet structure for BSD loopback encapsulation
+       3.55.2.  Description
+     3.56. LINKTYPE_PKTAP
+       3.56.1.  Packet structure (PKTAP version 1)
+       3.56.2.  Packet structure (PKTAP version 2)
+       3.56.3.  Description
+       3.56.4.  In the PKTAP version 1 header:
+       3.56.5.  In the PKTAP version 2 header:
+     3.57. LINKTYPE_PPI
+       3.57.1.  Description
+     3.58. LINKTYPE_PPP
+       3.58.1.  Description
+     3.59. LINKTYPE_PPP_HDLC
+       3.59.1.  Description
+     3.60. LINKTYPE_PPP_WITH_DIR
+       3.60.1.  Packet structure
+       3.60.2.  Description
+     3.61. LINKTYPE_RDS
+       3.61.1.  Packet structure
+       3.61.2.  Description
+     3.62. LINKTYPE_RTAC_SERIAL
+       3.62.1.  Packet structure
+       3.62.2.  Description
+     3.63. LINKTYPE_SITA
+       3.63.1.  Packet structure
+       3.63.2.  Description
+     3.64. LINKTYPE_SLIP
+       3.64.1.  Packet structure
+       3.64.2.  Description
+     3.65. LINKTYPE_STANAG_5066_D_PDU
+       3.65.1.  Description
+     3.66. LINKTYPE_SUNATM
+       3.66.1.  Packet structure
+       3.66.2.  Description
+     3.67. LINKTYPE_USB_DARWIN
+       3.67.1.  Packet structure
+       3.67.2.  Description
+     3.68. Linux USB common header
+       3.68.1.  Common header structure
+       3.68.2.  Description
+     3.69. LINKTYPE_USB_LINUX
+       3.69.1.  Packet structure
+     3.70. LINKTYPE_USB_LINUX_MMAPPED
+       3.70.1.  Packet structure
+       3.70.2.  Description
+     3.71. LINKTYPE_VSOCK
+       3.71.1.  Packet structure
+       3.71.2.  Description
+       3.71.3.  Virtio transport header structure
+       3.71.4.  Description
+     3.72. LINKTYPE_WATTSTOPPER_DLM
+       3.72.1.  Packet structure
+       3.72.2.  Description
+     3.73. LINKTYPE_ZBOSS_NCP
+       3.73.1.  Packet structure
+       3.73.2.  Description
+     3.74. LINKTYPE_ZWAVE_R1_R2
+       3.74.1.  Packet structure
+       3.74.2.  Description
+     3.75. LINKTYPE_ZWAVE_R3
+       3.75.1.  Packet structure
+       3.75.2.  Description
+     3.76. LINKTYPE_ZWAVE_TAP
+       3.76.1.  Packet structure
+       3.76.2.  Description
    4.  Security Considerations
    5.  Contributors
    6.  Acknowledgments
@@ -422,7 +488,7 @@ Table of Contents
 
    Name  LINKTYPE_FRELAY
    Number  107
-   Description  Frame Relay LAPF frames
+   Description  Frame Relay LAPF
 
    Name  LINKTYPE_LOOP
    Number  108
@@ -482,7 +548,7 @@ Table of Contents
 
    Name  LINKTYPE_IP_OVER_FC
    Number  122
-   Description  IP-over-Fibre Channel, starting with the Network_Header
+   Description  IP-over-Fibre Channel
    Reference  [RFC2625]
 
    Name  LINKTYPE_SUNATM
@@ -739,9 +805,8 @@ Table of Contents
 
    Name  LINKTYPE_MFR
    Number  182
-   Description  FRF.16.1 Multi-Link Frame Relay frames, beginning with
-      an FRF.12 Interface fragmentation format fragmentation header
-   Reference  [FRF.16.1]
+   Description  FRF.16.1 Multi-Link Frame Relay frames
+   Reference  [FRF.16.1] [FRF.12]
 
    Name  LINKTYPE_JUNIPER_VP
    Number  183
@@ -762,13 +827,7 @@ Table of Contents
 
    Name  LINKTYPE_BLUETOOTH_HCI_H4
    Number  187
-   Description  Bluetooth HCI UART transport layer; the frame contains
-      an HCI packet indicator octet, as specified by the UART Transport
-      Layer portion of the most recent Bluetooth Core specification,
-      followed by an HCI packet of the specified packet type, as
-      specified by the Host Controller Interface Functional
-      Specification portion of the most recent Bluetooth Core
-      Specification
+   Description  Bluetooth HCI UART transport layer frames
 
    Name  LINKTYPE_IEEE802_16_MAC_CPS
    Number  188
@@ -776,17 +835,7 @@ Table of Contents
 
    Name  LINKTYPE_USB_LINUX
    Number  189
-   Description  USB packets, beginning with a Linux USB header, as
-      specified by the struct usbmon_packet in the Documentation/usb/
-      usbmon.txt file in the Linux source tree.  Only the first 48
-      octets of that header are present.  All fields in the header are
-      in host byte order.  When performing a live capture, the host byte
-      order is the byte order of the machine on which the packets are
-      captured.  When reading a PCAP file, the byte order is the byte
-      order for the file, as specified by the file's magic number; when
-      reading a PCAPNG file, the byte order is the byte order for the
-      section of the PCAPNG file, as specified by the Section Header
-      Block
+   Description  USB packets, beginning with a Linux USB header
 
    Name  LINKTYPE_CAN20B
    Number  190
@@ -795,15 +844,12 @@ Table of Contents
 
    Name  LINKTYPE_IEEE802_15_4_LINUX
    Number  191
-   Description  IEEE 802.15.4, with address fields padded, as is done by
-      Linux drivers
+   Description  Reserved for IEEE 802.15.4 with address fields padded by
+      Linux
 
    Name  LINKTYPE_PPI
    Number  192
-   Description  Per-Packet Information information, as specified by the
-      Per-Packet Information Header Specification , followed by a packet
-      with the LINKTYPE_ value specified by the pph_dlt field of that
-      header
+   Description  Per-Packet Information header preceding packet data
    Reference  [PPI]
 
    Name  LINKTYPE_IEEE802_16_MAC_CPS_RADIO
@@ -817,8 +863,7 @@ Table of Contents
 
    Name  LINKTYPE_IEEE802_15_4_WITHFCS
    Number  195
-   Description  IEEE 802.15.4 Low-Rate Wireless Networks, with each
-      packet having the FCS at the end of the frame
+   Description  IEEE 802.15.4 packets with FCS
 
    Name  LINKTYPE_SITA
    Number  196
@@ -844,16 +889,8 @@ Table of Contents
 
    Name  LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR
    Number  201
-   Description  Bluetooth HCI UART transport layer; the frame contains a
-      4-octet direction field, in network byte order (big-endian), the
-      low-order bit of which is set if the frame was sent from the host
-      to the controller and clear if the frame was received by the host
-      from the controller, followed by an HCI packet indicator octet, as
-      specified by the UART Transport Layer portion of the most recent
-      Bluetooth Core specification, followed by an HCI packet of the
-      specified packet type, as specified by the Host Controller
-      Interface Functional Specification portion of the most recent
-      Bluetooth Core Specification
+   Description  Bluetooth HCI UART transport frames with a direction
+      pseudo-header
 
    Name  LINKTYPE_AX25_KISS
    Number  202
@@ -862,43 +899,26 @@ Table of Contents
 
    Name  LINKTYPE_LAPD
    Number  203
-   Description  Link Access Procedures on the D Channel (LAPD) frames,
-      starting with the address field, with no pseudo-header
+   Description  Q.921 LAPD frames
    Reference  [Q.920] [Q.921]
 
    Name  LINKTYPE_PPP_WITH_DIR
    Number  204
-   Description  PPP, preceded with a one-octet pseudo-header with a zero
-      value meaning received by this host and a non-zero value meaning
-      sent by this host; if the first 2 octets are 0xff and 0x03, it's
-      PPP in HDLC-like framing, with the PPP header following those two
-      octets, otherwise it's PPP without framing, and the packet begins
-      with the PPP header.  The data in the frame is not octet-stuffed
-      or bit-stuffed
+   Description  PPP, with a direction header
    Reference  [RFC1661]/[RFC1662]
 
    Name  LINKTYPE_C_HDLC_WITH_DIR
    Number  205
-   Description  Cisco PPP with HDLC framing, preceded with a one-octet
-      pseudo-header with a zero value meaning received by this host and
-      a non-zero value meaning sent by this host
+   Description  Cisco PPP with HDLC framing, with a direction header
    Reference  Section 4.3.1 of [RFC1547]
 
    Name  LINKTYPE_FRELAY_WITH_DIR
    Number  206
-   Description  Frame Relay LAPF frames, beginning with a one-octet
-      pseudo-header with a zero value meaning received by this host
-      (DCE->DTE) and a non-zero value meaning sent by this host
-      (DTE->DCE), followed by an ITU-T Recommendation Q.922 LAPF header
-      starting with the address field, and without an FCS at the end of
-      the frame
+   Description  Frame Relay LAPF, with a direction header
 
    Name  LINKTYPE_LAPB_WITH_DIR
    Number  207
-   Description  Link Access Procedure, Balanced (LAPB), as specified by
-      ITU-T Recommendation X.25 , preceded with a one-octet pseudo-
-      header with a zero value meaning received by this host (DCE->DTE)
-      and a non-zero value meaning sent by this host (DTE->DCE)
+   Description  X.25 LAPB, with a direction header
 
    Name  Reserved
    Number  208
@@ -930,12 +950,7 @@ Table of Contents
 
    Name  LINKTYPE_IEEE802_15_4_NONASK_PHY
    Number  215
-   Description  IEEE 802.15.4 Low-Rate Wireless Networks, with each
-      packet having the FCS at the end of the frame, and with the PHY-
-      level data for the O-QPSK, BPSK, GFSK, MSK, and RCC DSS BPSK PHYs
-      (4 octets of 0 as preamble, one octet of SFD, one octet of frame
-      length + reserved bit) preceding the MAC-layer data (starting with
-      the frame control field)
+   Description  IEEE 802.15.4 with PHY header
 
    Name  LINKTYPE_LINUX_EVDEV
    Number  216
@@ -955,18 +970,7 @@ Table of Contents
 
    Name  LINKTYPE_USB_LINUX_MMAPPED
    Number  220
-   Description  USB packets, beginning with a Linux USB header, as
-      specified by the struct usbmon_packet in the Documentation/usb/
-      usbmon.txt file in the Linux source tree.  All 64 octets of the
-      header are present.  All fields in the header are in host byte
-      order.  When performing a live capture, the host byte order is the
-      byte order of the machine on which the packets are captured.  When
-      reading a PCAP file, the byte order is the byte order for the
-      file, as specified by the file's magic number; when reading a
-      PCAPNG file, the byte order is the byte order for the section of
-      the PCAPNG file, as specified by the Section Header Block.  For
-      isochronous transfers, the ndesc field specifies the number of
-      isochronous descriptors that follow
+   Description  USB packets, beginning with an extended Linux USB header
 
    Name  LINKTYPE_DECT
    Number  221
@@ -983,17 +987,11 @@ Table of Contents
 
    Name  LINKTYPE_FC_2
    Number  224
-   Description  Fibre Channel FC-2 frames, beginning with a Frame_Header
+   Description  Fibre Channel FC-2 frames
 
    Name  LINKTYPE_FC_2_WITH_FRAME_DELIMS
    Number  225
-   Description  Fibre Channel FC-2 frames, beginning an encoding of the
-      SOF, followed by a Frame_Header, and ending with an encoding of
-      the SOF.  The encodings represent the frame delimiters as 4-octet
-      sequences representing the corresponding ordered sets, with K28.5
-      represented as 0xBC, and the D symbols as the corresponding octet
-      values; for example, SOFi2, which is K28.5 - D21.5 - D1.2 - D21.2,
-      is represented as 0xBC 0xB5 0x55 0x55
+   Description  Fibre Channel FC-2 frames with SOF and EOF
 
    Name  LINKTYPE_IPNET
    Number  226
@@ -1013,14 +1011,11 @@ Table of Contents
 
    Name  LINKTYPE_IEEE802_15_4_NOFCS
    Number  230
-   Description  IEEE 802.15.4 Low-Rate Wireless Network, without the FCS
-      at the end of the frame
+   Description  IEEE 802.15.4 packets without FCS
 
    Name  LINKTYPE_DBUS
    Number  231
-   Description  Raw D-Bus messages , starting with the endianness flag,
-      followed by the message type, etc., but without the authentication
-      handshake before the message sequence
+   Description  Raw D-Bus messages
    Reference  [D-Bus]
 
    Name  LINKTYPE_JUNIPER_VS
@@ -1046,11 +1041,7 @@ Table of Contents
 
    Name  LINKTYPE_STANAG_5066_D_PDU
    Number  237
-   Description  D_PDUs as described by NATO standard STANAG 5066,
-      starting with the synchronization sequence, and including both
-      header and data CRCs.  The current version of STANAG 5066 is
-      backwards-compatible with the 1.0.2 version , although newer
-      versions are classified
+   Description  STANAG 5066 D_PDUs
    Reference  [STANAG-5066]
 
    Name  LINKTYPE_JUNIPER_ATM_CEMIC
@@ -1215,9 +1206,8 @@ Table of Contents
 
    Name  LINKTYPE_LORATAP
    Number  270
-   Description  LoRaTap pseudo-header , followed by the payload, which
-      is typically the PHYPayload from the LoRaWan specification
-   Reference  [LoRaTap][LoRaWAN]
+   Description  LoRaWan packets with a LoRaTap pseudo-header
+   Reference  [LoRaTap][LoRaWAN-Link-Layer-1.0.4]
 
    Name  LINKTYPE_VSOCK
    Number  271
@@ -1348,8 +1338,7 @@ Table of Contents
 
    Name  LINKTYPE_ZWAVE_TAP
    Number  297
-   Description  Z-Wave packets, as specified by ITU-T Recommendation
-      G.9959, with a meta-data header
+   Description  Z-Wave packets, with a meta-data header
    Reference  [Exegin-Z-Wave-G.9959-TAP][G.9959]
 
    Name  LINKTYPE_SILABS_DEBUG_CHANNEL
@@ -1363,18 +1352,12 @@ Table of Contents
 
    Name  LINKTYPE_MDB
    Number  300
-   Description  MDB (Multi-Drop Bus) protocol between a vending machine
-      controller and peripherals inside the vending machine
+   Description  MDB (Multi-Drop Bus) protocol vending machine protocol
    Reference  [MDB-PCAP]
 
    Name  LINKTYPE_DECT_NR
    Number  301
-   Description  DECT-2020 New Radio (NR) MAC layer; the Physical Header
-      Field is always encoded using 80 bits (10 octets).  Broadcast
-      transmissions using 40 bits (5 octets) is padded with 40 zero bits
-      (5 octets).  When padding is used the Receiver Identity value
-      0x0000 (reserved address) is used to detect broadcast
-      transmissions
+   Description  DECT-2020 New Radio (NR) MAC layer
    Reference  [ETSI-TS-103-636-4]
 
 2.2.2.  Guidance for Designated Experts
@@ -1488,19 +1471,20 @@ Table of Contents
    is set.
 
    The RF Channel field ranges 0 to 78.  It reflects the value described
-   in the Bluetooth specification Volume 2, Part A, Section 2.
+   in Volume 2, Part A, Section 2 "Frequency bands and channel
+   arrangement" of [Bluetooth-Core].
 
    The Signal Power and Noise Power fields are signed integers
    expressing values in dBm.
 
    The Access Code Offenses field is an unsigned integer indicating the
    number of deviations from the valid access code that led to the
-   packet capture.  Access codes are interpreted as described in
-   Bluetooth specification Volume 2, Part B, Section 6.3.
+   packet capture.  Access codes are interpreted as described in Volume
+   2, Part B, Section 6.3 "Access code" of [Bluetooth-Core].
 
-   The Payload Transport Rate field represents a column of Bluetooth
-   specification Volume 2, Part B, Section 6.5, Table 6.2, and is
-   interpreted as two nibbles as follows.
+   The Payload Transport Rate field represents a column in Volume 2,
+   Part B, Section 6.5 "Packet types", Table 6.2 of [Bluetooth-Core],
+   and is interpreted as two nibbles as follows.
 
    *  0x.0 indicates the BT payload was BR and captured with GFSK
       demodulation
@@ -1535,15 +1519,15 @@ Table of Contents
    number of errored and corrected bits in the captured BT payload.
    Interpretation of this field corresponds to the Payload Transport
    Rate.  The value ranges from 0 to 80 when the BT payload was captured
-   at R=1/3 as per Bluetooth specification Volume 2, Part B,
-   Section 7.4.  The value ranges from -360 to +180 when the BT payload
-   was captured at R=2/3 as per Bluetooth specification Volume 2, Part
-   B, Section 7.5.  A negative number indicates the field absolute value
-   is the sum of the number of corrected and uncorrectable bits.
+   at R=1/3 as per Volume 2, Part B, Section 7.4 of [Bluetooth-Core].
+   The value ranges from -360 to +180 when the BT payload was captured
+   at R=2/3 as per Volume 2, Part B, Section 7.5 of [Bluetooth-Core].  A
+   negative number indicates the field absolute value is the sum of the
+   number of corrected and uncorrectable bits.
 
    The Lower Address Part field is the 24-bit value recovered from the
-   captured SYNC WORD as defined in Bluetooth specification Volume 2,
-   Part B, Section 6.3.3.  The most significant byte of this field is
+   captured SYNC WORD as defined in Volume 2, Part B, Section 6.3.3 of
+   [Bluetooth-Core].  The most significant byte of this field is
    reserved and must be zero.
 
    The Reference LAP field corresponds to the Lower Address Part
@@ -1555,9 +1539,9 @@ Table of Contents
    LAP.
 
    The BT Packet Header field is the 18-bit value recovered from the
-   packet capture, and is defined in Bluetooth specification Volume 2,
-   Part B, Section 6.4.  The most significant 14 bits are reserved and
-   must be zero.
+   packet capture, and is defined in Volume 2, Part B, Section 6.4 of
+   [Bluetooth-Core].  The most significant 14 bits are reserved and must
+   be zero.
 
    The Flags field represents packed bits defined as follows.
 
@@ -1603,15 +1587,69 @@ Table of Contents
    zero.
 
    The decoded BR or EDR Payload optionally follows the previous fields,
-   and is formatted as detailed in Bluetooth specification Volume 2,
-   Part B, Section 6.  The packet is decoded per Bluetooth specification
-   Volume 2, Part B, Section 7.  All multi-octet values in the BR or EDR
-   Payload are always expressed in little-endian format, as is the
+   and is formatted as detailed in Volume 2, Part B, Section 6 of
+   [Bluetooth-Core].  The packet is decoded per Volume 2, Part B,
+   Section 7 of [Bluetooth-Core].  All multi-octet values in the BR or
+   EDR Payload are always expressed in little-endian format, as is the
    normal Bluetooth practice.
 
-3.3.  LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
+3.3.  LINKTYPE_BLUETOOTH_HCI_H4
 
 3.3.1.  Packet structure
+
+   +---------------------------+
+   |   HCI packet indicator    |
+   |         (1 Octet)         |
+   +---------------------------+
+   |          Payload          |
+   .                           .
+   .                           .
+   .                           .
+
+3.3.2.  Description
+
+   The HCI packet indicator field contains a packet indicator value, as
+   specified by Volume 4, Part A, Section 2 "Protocol" of
+   [Bluetooth-Core].
+
+   The payload is an HCI packet, as specified by Volume 4, Part E of
+   [Bluetooth-Core], of the packet type indicated by the packet
+   indicator value.
+
+3.4.  LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR
+
+3.4.1.  Packet structure
+
+   +---------------------------+
+   |         Direction         |
+   |         (4 Octets)        |
+   +---------------------------+
+   |   HCI packet indicator    |
+   |         (1 Octet)         |
+   +---------------------------+
+   |          Payload          |
+   .                           .
+   .                           .
+   .                           .
+
+3.4.2.  Description
+
+   The Direction field is a 4-octet direction field, in network byte
+   order (big-endian), the low-order bit of which is set if the frame
+   was sent from the host to the controller and clear if the frame was
+   received by the host from the controller.
+
+   The HCI packet indicator field contains a packet indicator value, as
+   specified by Volume 4, Part A, Section 2 "Protocol" of
+   [Bluetooth-Core].
+
+   The payload is an HCI packet, as specified by Volume 4, Part E of
+   [Bluetooth-Core], of the packet type indicated by the packet
+   indicator value.
+
+3.5.  LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
+
+3.5.1.  Packet structure
 
    +---------------------------+
    |         RF Channel        |
@@ -1637,15 +1675,14 @@ Table of Contents
    .                           .
    .                           .
 
-3.3.2.  Description
+3.5.2.  Description
 
    All multi-octet fields are expressed in little-endian format.  Fields
    with a corresponding Flags bit are only considered valid when the bit
    is set.
 
    The RF Channel field ranges 0 to 39.  It reflects the value described
-   in the Bluetooth Core Specification v5.2, Volume 6, Part A,
-   Section 2.
+   in Volume 6, Part A, Section 2 of [Bluetooth-Core].
 
    The Signal Power and Noise Power fields are signed integers
    expressing values in dBm.
@@ -1653,8 +1690,7 @@ Table of Contents
    The Access Address Offenses field is an unsigned integer indicating
    the number of deviations from the valid access address that led to
    the packet capture.  Access addresses are interpreted as described in
-   the Bluetooth Core Specification v5.2, Volume 6, Part B,
-   Section 2.1.2.
+   Volume 6, Part B, Section 2.1.2 of [Bluetooth-Core].
 
    The Reference Access Address field corresponds to the Access Address
    configured into the capture tool that led to the capture of this
@@ -1745,23 +1781,22 @@ Table of Contents
    as is the normal Bluetooth practice.
 
    For packets using the LE Uncoded PHYs (LE 1M PHY and LE 2M PHY) as
-   defined in the Bluetooth Core Specification v5.2, Volume 6, Part B,
-   Section 2.1, the LE Packet is represented as the four-octet access
-   address, immediately followed by the PDU and CRC; it does not include
-   the preamble.
+   defined in Volume 6, Part B, Section 2.1 of [Bluetooth-Core], the LE
+   Packet is represented as the four-octet access address, immediately
+   followed by the PDU and CRC; it does not include the preamble.
 
-   For packets using the LE Coded PHY as defined in the Bluetooth Core
-   Specification v5.2, Volume 6, Part B, Section 2.2, the LE Packet is
-   represented as the four-octet access address, followed by the Coding
-   Indicator (CI), stored in a one-octet field with the lower 2 bits
-   containing the CI value, immediately followed by the PDU and the CRC;
-   it does not include the preamble.  Packets using the LE Coded PHY are
-   represented in an uncoded form, so the TERM1 and TERM2 coding
-   terminators are not included in the LE packet field.
+   For packets using the LE Coded PHY as defined in Volume 6, Part B,
+   Section 2.2 of [Bluetooth-Core], the LE Packet is represented as the
+   four-octet access address, followed by the Coding Indicator (CI),
+   stored in a one-octet field with the lower 2 bits containing the CI
+   value, immediately followed by the PDU and the CRC; it does not
+   include the preamble.  Packets using the LE Coded PHY are represented
+   in an uncoded form, so the TERM1 and TERM2 coding terminators are not
+   included in the LE packet field.
 
-3.4.  LINKTYPE_BLUETOOTH_LINUX_MONITOR
+3.6.  LINKTYPE_BLUETOOTH_LINUX_MONITOR
 
-3.4.1.  Packet structure
+3.6.1.  Packet structure
 
    +---------------------------+
    |         Adapter ID        |
@@ -1775,7 +1810,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.4.2.  Description
+3.6.2.  Description
 
    All fields are in network byte order (big-endian).
 
@@ -1800,7 +1835,7 @@ Table of Contents
 
    *  0x07 - received HCI Synchronous Data Packet.
 
-3.4.2.1.  New Index Event
+3.6.2.1.  New Index Event
 
    A New Index Event is a message that indicates the appearance of a new
    interface, with the adapter ID field giving the ID of the new
@@ -1847,13 +1882,13 @@ Table of Contents
    The name contains the name of the interface (typically hci_N_, for
    example: hci0).
 
-3.4.2.2.  Delete Index Event
+3.6.2.2.  Delete Index Event
 
    A Delete Index Event is a message that indicates the disappearance of
    an existing interface, with the adapter ID field giving the ID of the
    interface that disappeared.  It has no payload.
 
-3.4.2.3.  HCI packets
+3.6.2.3.  HCI packets
 
    The remaining types are HCI packets as specified by the Host
    Controller Interface Functional Specification portion of the most
@@ -1871,7 +1906,7 @@ Table of Contents
    *  The payload of an HCI Command Packet is as specified by the "HCI
       Event Packet" section of that document.
 
-3.5.  LINKTYPE_CAN_SOCKETCAN
+3.7.  LINKTYPE_CAN_SOCKETCAN
 
    This format supports CAN CC (Classical CAN), CAN FD, and CAN XL
    frames.  The same header is used for CAN CC and CAN FD frames; a
@@ -1901,9 +1936,9 @@ Table of Contents
             length must be between 8 and 16; all other CAN CC frames are
             invalid.
 
-3.5.1.  CAN CC and CAN FD frames
+3.7.1.  CAN CC and CAN FD frames
 
-3.5.1.1.  Packet structure
+3.7.1.1.  Packet structure
 
    +---------------------------+
    |      CAN ID and flags     |
@@ -1931,7 +1966,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.5.1.2.  Description
+3.7.1.2.  Description
 
    The CAN ID and flags field is in network byte order (big-endian).
    The bottom 29 bits contain the CAN ID of the frame.  The remaining
@@ -2021,9 +2056,9 @@ Table of Contents
    *  sixth, seventh, and eighth bytes - controller-specific additional
       information.
 
-3.5.2.  CAN XL frames
+3.7.2.  CAN XL frames
 
-3.5.2.1.  Packet structure
+3.7.2.1.  Packet structure
 
    +---------------------------+
    |      Priority ID/VCID     |
@@ -2051,7 +2086,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.5.2.2.  Description
+3.7.2.2.  Description
 
    _The Priority ID/VCID field is big-endian, but the payload length and
    acceptance field are little-endian._
@@ -2095,9 +2130,58 @@ Table of Contents
 
    The payload is the data field of the CAN XL packet.
 
-3.6.  LINKTYPE_DISPLAYPORT_AUX
+3.8.  LINKTYPE_C_HDLC
 
-3.6.1.  Packet structure
+3.8.1.  Description
+
+   Packets are "Cisco HDLC" frames, as specified by Section 4.3.1 of
+   [RFC1547].
+
+3.9.  LINKTYPE_C_HDLC_WITH_DIR
+
+3.9.1.  Packet structure
+
+   +------------------+
+   |     Direction    |
+   |     (1 Octet)    |
+   +------------------+
+   | Cisco HDLC frame |
+   .                  .
+   .                  .
+   .                  .
+
+3.9.2.  Description
+
+   The Direction field is zero if the frame was received by the host
+   that captured the traffic and non-zero if the frame was sent by that
+   host.
+
+   The Cisco HDLC frame is as specified by Section 4.3.1 of [RFC1547].
+
+3.10.  LINKTYPE_DBUS
+
+3.10.1.  Description
+
+   Packets are Raw D-Bus messages, as specified by [D-Bus], starting
+   with the endianness flag, followed by the message type, etc., but
+   without the authentication handshake before the message sequence.
+
+3.11.  LINKTYPE_DECT_NR
+
+3.11.1.  Description
+
+   Packets are DECT-2020 New Radio (NR) MAC layer frames, as per
+   [ETSI-TS-103-636-4].
+
+   The Physical Header Field is always encoded using 80 bits (10 bytes).
+   Broadcast transmissions using 40 bits (5 bytes) is padded with 40
+   zero bits (5 bytes).  When padding is used the Receiver Identity
+   value 0x0000 (reserved address) is used to detect broadcast
+   transmissions
+
+3.12.  LINKTYPE_DISPLAYPORT_AUX
+
+3.12.1.  Packet structure
 
    (All fields are 8 bits wide.)
 
@@ -2109,7 +2193,7 @@ Table of Contents
    .                               .
    .                               .
 
-3.6.2.  Packet Type DATA
+3.12.2.  Packet Type DATA
 
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |        Type DATA(0x00)        |
@@ -2126,7 +2210,7 @@ Table of Contents
    one-byte field indicating whether the Data was sent from the Sink
    (e.g. a display) or from the Source (e.g. a graphics card).
 
-3.6.3.  Packet Type EVENT
+3.12.3.  Packet Type EVENT
 
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |        Type EVENT(0x02)       |
@@ -2142,7 +2226,7 @@ Table of Contents
 
    *  0x02-0x80 - Application specific
 
-3.6.4.  Packet Type START
+3.12.4.  Packet Type START
 
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |        Type START(0x03)       |
@@ -2153,7 +2237,7 @@ Table of Contents
    A monitor session was started.  Input status encoding as specified in
    the EVENT packet description.
 
-3.6.5.  Packet Type STOP
+3.12.5.  Packet Type STOP
 
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |        Type STOP(0x04)        |
@@ -2161,11 +2245,11 @@ Table of Contents
 
    A monitor session was stopped.
 
-3.7.  Broadcom switch tag
+3.13.  Broadcom switch tag
 
    This tag structure appears in some link-layer types.
 
-3.7.1.  Switch tag structure
+3.13.1.  Switch tag structure
 
    The switch tag is 4 octets long.  The first octet of the tag has the
    format:
@@ -2264,9 +2348,9 @@ Table of Contents
    The traffic class (TC) field values map to 802.1p/CoS traffic
    classes.
 
-3.8.  LINKTYPE_DSA_TAG_BRCM
+3.14.  LINKTYPE_DSA_TAG_BRCM
 
-3.8.1.  Packet structure
+3.14.1.  Packet structure
 
    +--------------------------------+
    | Destination Address (6 octets) |
@@ -2282,14 +2366,14 @@ Table of Contents
    .                                .
    .                                .
 
-3.8.2.  Description
+3.14.2.  Description
 
    A Broadcom switch tag, as described above, is inserted in the
    Ethernet header before the Type/Length field.
 
-3.9.  LINKTYPE_DSA_TAG_BRCM_PREPEND
+3.15.  LINKTYPE_DSA_TAG_BRCM_PREPEND
 
-3.9.1.  Packet structure
+3.15.1.  Packet structure
 
    +--------------------------------+
    | Broadcom switch tag (4 octets) |
@@ -2305,18 +2389,18 @@ Table of Contents
    .                                .
    .                                .
 
-3.9.2.  Description
+3.15.2.  Description
 
    A Broadcom switch tag, as described above, is prepended before the
    Ethernet header.
 
-3.10.  Marvell switch tag
+3.16.  Marvell switch tag
 
    The Marvell (Ethertyped or not) DSA tagged frames contain a
    proprietary tag inserted between the source address field and the
    type/length field in the Ethernet header.
 
-3.10.1.  Switch tag structure
+3.16.1.  Switch tag structure
 
    The DSA tag is 4 octets.  It contains the source (or target) switch
    device and port or trunk numbers.  It is placed in the frame on top
@@ -2343,7 +2427,7 @@ Table of Contents
       |           VID [7:0]           |  |  |
    +1 +---+---+---+---+---+---+---+---+  -- --
 
-3.10.1.1.  To_CPU frame mode (ingress)
+3.16.1.1.  To_CPU frame mode (ingress)
 
    The DSA tag mode 0x0 describes a To_CPU frame.
 
@@ -2377,7 +2461,7 @@ Table of Contents
    The VID bits define the VLAN identifier assigned to the frame when it
    entered the source device.
 
-3.10.1.2.  From_CPU frame mode (egress)
+3.16.1.2.  From_CPU frame mode (egress)
 
    The DSA tag mode 0x1 describes a From_CPU frame.
 
@@ -2397,7 +2481,7 @@ Table of Contents
    The VID bits define the IEEE VID of the frame if it egresses the
    target port tagged, otherwise they are ignored.
 
-3.10.1.3.  To_Sniffer frame mode (ingress)
+3.16.1.3.  To_Sniffer frame mode (ingress)
 
    The DSA tag mode 0x2 describes a To_Sniffer frame.
 
@@ -2419,7 +2503,7 @@ Table of Contents
    The VID bits define the VLAN identifier assigned to the frame when it
    entered the source device.
 
-3.10.1.4.  Forward DSA tag frame mode (egress)
+3.16.1.4.  Forward DSA tag frame mode (egress)
 
    The DSA tag mode 0x3 describes a Forward frame.
 
@@ -2430,7 +2514,7 @@ Table of Contents
 
    The VID bits are used as the IEEE VID of the frame.
 
-3.10.1.5.  Forward DSA tag frame mode (ingress)
+3.16.1.5.  Forward DSA tag frame mode (ingress)
 
    The DSA tag mode 0x3 describes a Forward frame.
 
@@ -2452,9 +2536,9 @@ Table of Contents
    The VID bits define the VLAN identifier assigned to the frame when it
    entered the source device.
 
-3.11.  LINKTYPE_DSA_TAG_DSA
+3.17.  LINKTYPE_DSA_TAG_DSA
 
-3.11.1.  Packet structure
+3.17.1.  Packet structure
 
    +-----------------------------------+
    |   Destination Address (6 octets)  |
@@ -2470,14 +2554,14 @@ Table of Contents
    .                                   .
    .                                   .
 
-3.11.2.  Description
+3.17.2.  Description
 
    A Marvell DSA switch tag, as described above, is inserted in the
    Ethernet header before the Type/Length field.
 
-3.12.  LINKTYPE_DSA_TAG_EDSA
+3.18.  LINKTYPE_DSA_TAG_EDSA
 
-3.12.1.  Packet structure
+3.18.1.  Packet structure
 
    +------------------------------------+
    |   Destination Address (6 octets)   |
@@ -2493,14 +2577,14 @@ Table of Contents
    .                                    .
    .                                    .
 
-3.12.2.  Description
+3.18.2.  Description
 
    A Marvell EDSA switch tag, as described above, is inserted in the
    Ethernet header before the Type/Length field.
 
-3.13.  LINKTYPE_ETW
+3.19.  LINKTYPE_ETW
 
-3.13.1.  Packet structure
+3.19.1.  Packet structure
 
                      1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -2527,7 +2611,7 @@ Table of Contents
 /              variable length, padded to 32 bits               /
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-3.13.2.  Description
+3.19.2.  Description
 
    All multi-byte numerical fields are little-endian.  All primitive
    types in this document are from Windows and their size can be found
@@ -2580,14 +2664,35 @@ Table of Contents
    Providername is a null-terminated UTF-16LE string that contains the
    event provider name string.
 
-3.14.  LINKTYPE_FIRA_UCI
+3.20.  LINKTYPE_FC_2
+
+3.20.1.  Description
+
+   Packets are Fibre Channel FC-2 frames, as specified in section 11
+   "Frame Transmission and Reception" of [FC-FS-5], with the SOF and EOF
+   omitted.
+
+3.21.  LINKTYPE_FC_2_WITH_FRAME_DELIMS
+
+3.21.1.  Description
+
+   Packets are Fibre Channel FC-2 frames, as specified in section 11
+   "Frame Transmission and Reception" of [FC-FS-5], beginning with an
+   encoding of the SOF and ending with an encoding of the EOF.  The
+   encodings represent the frame delimiters as 4-octet sequences
+   representing the corresponding ordered sets, with K28.5 represented
+   as 0xBC, and the D symbols as the corresponding octet values; for
+   example, SOFi2, which is K28.5 - D21.5 - D1.2 - D21.2, is represented
+   as 0xBC 0xB5 0x55 0x55.
+
+3.22.  LINKTYPE_FIRA_UCI
 
    The protocol description is available to members only on the FiRa
    consortium website: FiRa Consortium UWB Command Interface Generic
    Technical Specification
    (https://groups.firaconsortium.org/wg/members/document/1679).
 
-3.14.1.  Packet format
+3.22.1.  Packet format
 
    +---------------------------+
    |        Packet header      |
@@ -2604,7 +2709,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.14.2.  Description
+3.22.2.  Description
 
    Unless otherwise indicated, the byte ordering for UCI packets is
    little-endian.  The packet header contains the following fields,
@@ -2650,9 +2755,9 @@ Table of Contents
 
    *  Opcode Identifier (OID), 6 Bits
 
-3.15.  LINKTYPE_FLEXRAY
+3.23.  LINKTYPE_FLEXRAY
 
-3.15.1.  Packet structure
+3.23.1.  Packet structure
 
    +---------------------------
    |    Measurement Header    |
@@ -2663,7 +2768,7 @@ Table of Contents
    .                          .
    .                          .
 
-3.15.2.  Description
+3.23.2.  Description
 
    The Measurement Header has a Channel indicator in the uppermost bit
    and a Type Index in the remaining 7 bits.
@@ -2720,9 +2825,38 @@ Table of Contents
    The lower 7 bits of the Symbol Length indicate the length of the
    received symbol, in bits.
 
-3.16.  LINKTYPE_I2C_LINUX
+3.24.  LINKTYPE_FRELAY
 
-3.16.1.  Packet structure
+3.24.1.  Description
+
+   Packets are Frame Relay LAPF frames, as described in section 2 "Frame
+   structure for peer-to-peer communication" of [Q.922].
+
+3.25.  LINKTYPE_FRELAY_WITH_DIR
+
+3.25.1.  Packet structure
+
+   +------------+
+   | Direction  |
+   | (1 Octet)  |
+   +------------+
+   | LAPF frame |
+   .            .
+   .            .
+   .            .
+
+3.25.2.  Description
+
+   The Direction field is zero if the frame was received by the host
+   that captured the traffic and non-zero if the frame was sent by that
+   host.
+
+   The LAPF frame is as described in section 2 "Frame structure for
+   peer-to-peer communication" of [Q.922].
+
+3.26.  LINKTYPE_I2C_LINUX
+
+3.26.1.  Packet structure
 
    +-------------------------+
    |  Bus number+event flag  |
@@ -2739,7 +2873,7 @@ Table of Contents
    .                         .
    .                         .
 
-3.16.2.  Description
+3.26.2.  Description
 
    The lower 7 bits of the bus number + event flag field contain the bus
    number; the upper bit indicates whether the packet is an event or a
@@ -2802,9 +2936,9 @@ Table of Contents
 
    For regular packets, the payload is the data of an I2C message.
 
-3.17.  LINKTYPE_IEEE802_11_PRISM
+3.27.  LINKTYPE_IEEE802_11_PRISM
 
-3.17.1.  Packet structure
+3.27.1.  Packet structure
 
    +-------------------+
    |       Msgcode     |
@@ -2827,7 +2961,7 @@ Table of Contents
    .                   .
    .                   .
 
-3.17.2.  Description
+3.27.2.  Description
 
    All fields are in the host byte order of the machine on which the
    capture was done.  (In practice, this is likely to be little-endian,
@@ -2909,9 +3043,67 @@ Table of Contents
    [Prism] describes what one person found from examining some adapter
    drivers.
 
-3.18.  LINKTYPE_IPNET
+3.28.  LINKTYPE_IEEE802_15_4_NOFCS
 
-3.18.1.  Packet structure
+3.28.1.  Description
+
+   IEEE 802.15.4 frames, as described by section 7.2 "General MAC frame
+   format" of [IEEE-802.15.4], with the FCS omitted.
+
+3.29.  LINKTYPE_IEEE802_15_4_WITHFCS
+
+3.29.1.  Description
+
+   IEEE 802.15.4 frames, as described by section 7.2 "General MAC frame
+   format" of [IEEE-802.15.4], with each packet having the FCS at the
+   end of the frame.
+
+3.30.  LINKTYPE_IEEE802_15_4_NONASK_PHY
+
+3.31.  Packet structure
+
+   +---------------------------------------+
+   |                Preamble               |
+   |               (4 Octets)              |
+   +---------------------------------------+
+   |                   SFD                 |
+   |                (1 Octet)              |
+   +---------------------------------------+
+   |                   PHR                 |
+   |              (1-2 Octets)             |
+   +---------------------------------------+
+   |            802.15.4 MAC frame         |
+   .                                       .
+   .                                       .
+   .                                       .
+
+3.31.1.  Description
+
+   The packets are IEEE 802.15.4 O-QPSK, BPSK, GFSK, MSK, and RCC DSSS
+   BPSK PHY frames.
+
+   The Preamble field is as described in the clauses for the respective
+   PHYs in [IEEE-802.15.4].
+
+   The SFD is as described in the clauses for the respective PHYs in
+   [IEEE-802.15.4].
+
+   The PHR is as described in the clauses for the respective PHYs in
+   [IEEE-802.15.4].
+
+   THe 802.15.4 MAC frame is as described by section 7.2 "General MAC
+   frame format" of [IEEE-802.15.4].  (FCS?)
+
+3.32.  LINKTYPE_IP_OVER_FC
+
+3.32.1.  Description
+
+   IP-over-Fibre Channel, as described by [RFC2625].  The packet data
+   begins withwith the Network_Header.
+
+3.33.  LINKTYPE_IPNET
+
+3.33.1.  Packet structure
 
    +---------------------------------------+
    |                 Version               |
@@ -2943,7 +3135,7 @@ Table of Contents
    .                                       .
    .                                       .
 
-3.18.2.  Description
+3.33.2.  Description
 
    The version field is 2 for the current version of the pseudo-header.
 
@@ -2976,9 +3168,19 @@ Table of Contents
    The payload is an IPv4 or IPv6 datagram, beginning with the IP
    header; the family field indicates which it is.
 
-3.19.  LINKTYPE_LIN
+3.34.  LINKTYPE_LAPD
 
-3.19.1.  Packet structure
+3.34.1.  Description
+
+   Link Access Procedures on the D Channel (LAPD) frames, as specified
+   by section 2 "Frame structure for peer-to-peer communication" of
+   [Q.921].  The flags at the beginning and end of the frame are not
+   present.  If the FCS is present for a frame in a PCAP or PCAPNG file,
+   the file MUST indicate this.
+
+3.35.  LINKTYPE_LIN
+
+3.35.1.  Packet structure
 
    +---------------------------
    | Message Format Revision  |
@@ -3003,7 +3205,7 @@ Table of Contents
    |       (1-8 Octets)       |
    +--------------------------+
 
-3.19.2.  Description
+3.35.2.  Description
 
    The Message Format Revision field must always be set to 1.
 
@@ -3082,9 +3284,9 @@ Table of Contents
 
    *  0xb0b00004 - wake up event caused by a wake up signal.
 
-3.20.  LINKTYPE_LINUX_IRDA
+3.36.  LINKTYPE_LINUX_IRDA
 
-3.20.1.  Packet structure
+3.36.1.  Packet structure
 
    +---------------------------+
    |         Packet type       |
@@ -3107,7 +3309,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.20.2.  Description
+3.36.2.  Description
 
    The packet type field is in network byte order (big-endian).  The
    upper byte of the field is the class of the packet; the value is one
@@ -3136,9 +3338,31 @@ Table of Contents
    The payload is an IrDA frame beginning with the IrLAP header as
    defined by [IrLAP-1.1].
 
-3.21.  LINKTYPE_LINUX_LAPD
+3.37.  LINKTYPE_LAPB_WITH_DIR
 
-3.21.1.  Packet structure
+3.37.1.  Packet structure
+
+   +------------+
+   | Direction  |
+   | (1 Octet)  |
+   +------------+
+   | LAPB frame |
+   .           .
+   .           .
+   .           .
+
+3.37.2.  Description
+
+   The Direction field is zero if the frame was received by the host
+   that captured the traffic and non-zero if the frame was sent by that
+   host.
+
+   The LAPB frame is as descrbed in section 2.2.7 "Frame structure" of
+   [X.25].  Frames MAY either be modulo 8 or modulo 128.
+
+3.38.  LINKTYPE_LINUX_LAPD
+
+3.38.1.  Packet structure
 
    +---------------------------+
    |         Packet type       |
@@ -3161,7 +3385,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.21.2.  Description
+3.38.2.  Description
 
    The packet type field is in network byte order (big-endian); it
    contains a value that is one of:
@@ -3191,14 +3415,14 @@ Table of Contents
    frame, as described by [Q.921] section 2 "Frame structure for peer-
    to-peer communication", starting with the address field.
 
-3.22.  Linux SLL header fields
+3.39.  Linux SLL header fields
 
    LINKTYPE_LINUX_SLL and LINKTYPE_LINUX_SLL2 packets include some
    common fields in their headers.  Those fields are in different
    positions in the LINKTYPE_LINUX_SLL and LINKTYPE_LINUX_SLL2, but have
    the same values.
 
-3.22.1.  Description
+3.39.1.  Description
 
    The packet type field is in network byte order (big-endian); it
    contains a value that is one of:
@@ -3389,9 +3613,9 @@ Table of Contents
 
    The protocol type field is in network byte order.
 
-3.23.  LINKTYPE_LINUX_SLL
+3.40.  LINKTYPE_LINUX_SLL
 
-3.23.1.  Packet structure
+3.40.1.  Packet structure
 
    +---------------------------+
    |         Packet type       |
@@ -3414,13 +3638,13 @@ Table of Contents
    .                           .
    .                           .
 
-3.23.2.  Description
+3.40.2.  Description
 
    All fields are as described above.
 
-3.24.  LINKTYPE_LINUX_SLL2
+3.41.  LINKTYPE_LINUX_SLL2
 
-3.24.1.  Packet structure
+3.41.1.  Packet structure
 
    +---------------------------+
    |        Protocol type      |
@@ -3449,7 +3673,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.24.2.  Description
+3.41.2.  Description
 
    The interface index field is a signed integer in network byte order
    and contains the 1-based index of the interface on which the packet
@@ -3457,9 +3681,9 @@ Table of Contents
 
    All other fields are as described above.
 
-3.25.  LINKTYPE_LOOP
+3.42.  LINKTYPE_LOOP
 
-3.25.1.  Packet structure for BSD loopback encapsulation
+3.42.1.  Packet structure for BSD loopback encapsulation
 
    +---------------------------+
    |       Protocol type       |
@@ -3470,7 +3694,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.25.2.  Description
+3.42.2.  Description
 
    The protocol type field is in big-endian byte order.  The values for
    that field are:
@@ -3490,9 +3714,32 @@ Table of Contents
    All of the IPv6 values correspond to IPv6 packets; code reading files
    should check for all of them.
 
-3.26.  LINKTYPE_MUX27010
+3.43.  LINKTYPE_LORATAP
 
-3.26.1.  Packet structure
+3.43.1.  Description
+
+   Packets contain a [LoRaTap] pseudo-header, followed by the payload,
+   which is typically the PHYPayload as specified by section 4.1 PHY
+   "Payload (PHYPayload)" of [LoRaWAN-Link-Layer-1.0.4].
+
+3.44.  LINKTYPE_MDB
+
+3.44.1.  Description
+
+   Packets are for the MDB (Multi-Drop Bus) protocol between a vending
+   machine controller and peripherals inside the vending machine, as
+   specified by [MDB-PCAP].
+
+3.45.  LINKTYPE_MFR
+
+3.45.1.  Description
+
+   Packets are [FRF.16.1] Multi-Link Frame Relay frames, beginning with
+   an [FRF.12] Interface fragmentation format fragmentation header.
+
+3.46.  LINKTYPE_MUX27010
+
+3.46.1.  Packet structure
 
 +-------------+
 | Header_Size |
@@ -3515,7 +3762,7 @@ Table of Contents
 .                                                                                            .
 .                                                                                            .
 
-3.26.2.  Description
+3.46.2.  Description
 
    Parts of the packets (the Flag_Mux octets and the octets between
    them) of this link type frames are based on [_3GPP-TS-27.010], but
@@ -3526,7 +3773,7 @@ Table of Contents
    extra fields for PPP chunks and direction indication (the Msg_ID
    through Flag octets).
 
-3.26.3.  Description for the Msg_ID through Flag octets
+3.46.3.  Description for the Msg_ID through Flag octets
 
    If there are PPP chunks surrounded by Flag_Mux octets, they will be
    indicated by the {Msg_ID, Freg_ID, Start_Pos, End_Pos, Flag}
@@ -3553,12 +3800,12 @@ Table of Contents
    direction of the Mux frame: "0" means from GSM Modem to the Host; "1"
    means from Host to GSM Modem.
 
-3.27.  Hilscher netANALYZER header
+3.47.  Hilscher netANALYZER header
 
    The Hilscher netANALYZER header is used in LINKTYPE_NETANALYZER and
    LINKTYPE_NETANALYZER_TRANSPARENT packets.
 
-3.27.1.  Header structure
+3.47.1.  Header structure
 
     3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1
     1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0
@@ -3566,7 +3813,7 @@ Table of Contents
    | Rsvd  |      Frame length     |CP |  Vers |T|G| Error flags   |
    +-------+-----------------------+---+-------+-+-+---------------+
 
-3.27.2.  Description
+3.47.2.  Description
 
    The header field contains a 32-bit value in little-endian byte order.
 
@@ -3606,9 +3853,9 @@ Table of Contents
 
    The topmost 4 bits, 0xF0000000, are reserved.
 
-3.28.  LINKTYPE_NETANALYZER
+3.48.  LINKTYPE_NETANALYZER
 
-3.28.1.  Packet structure
+3.48.1.  Packet structure
 
    +-----------------------------+
    | Hilscher netANALYZER Header |
@@ -3623,16 +3870,16 @@ Table of Contents
    |          (4 Octets)         |
    +-----------------------------+
 
-3.28.2.  Description
+3.48.2.  Description
 
    The header field, as described above, contains packet metadata.
 
    The payload is an Ethernet frame, beginning with the MAC header and
    ending with the FCS.
 
-3.29.  LINKTYPE_NETANALYZER_TRANSPARENT
+3.49.  LINKTYPE_NETANALYZER_TRANSPARENT
 
-3.29.1.  Packet structure
+3.49.1.  Packet structure
 
    +-----------------------------+
    | Hilscher netANALYZER Header |
@@ -3646,16 +3893,16 @@ Table of Contents
    .                             .
    .                             .
 
-3.29.2.  Description
+3.49.2.  Description
 
    The header field, as described above, contains packet metadata.
 
    The payload is an Ethernet frame, beginning with the preamble and
    ending with the FCS.
 
-3.30.  LINKTYPE_NETLINK
+3.50.  LINKTYPE_NETLINK
 
-3.30.1.  Packet structure
+3.50.1.  Packet structure
 
    +---------------------------+
    |           Unused          |
@@ -3675,7 +3922,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.30.2.  Description
+3.50.2.  Description
 
    The ARPHRD_ type field is in network byte order; it will be equal to
    the Linux ARPHRD_ value ARPHRD_NETLINK.
@@ -3688,9 +3935,9 @@ Table of Contents
    2.3.2, "Netlink Message Header" (https://www.rfc-editor.org/rfc/
    rfc3549.html#section-2.3.2) of [RFC3549].
 
-3.31.  LINKTYPE_NFC_LLCP
+3.51.  LINKTYPE_NFC_LLCP
 
-3.31.1.  Packet structure
+3.51.1.  Packet structure
 
    +---------------------------+
    |       Adapter Number      |
@@ -3704,7 +3951,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.31.2.  Description
+3.51.2.  Description
 
    The adapter number field identifies the interface on which the frame
    was recorded.  On single-interface systems, this will typically be 0.
@@ -3716,16 +3963,15 @@ Table of Contents
    *  0x02-0x80 - Reserved
 
    The payload is an NFC Logical Link Control Protocol (LLCP) PDU, as
-   specified by the NFC Forum Logical Link Control Protocol Technical
-   Specification (https://nfc-forum.org/build/specifications#core-
-   specification), i.e. a byte containing the DSAP and upper two bits of
-   the PTYPE, followed by a byte containing the lower two bits of the
-   PTYPE and the SSAP, followed by the sequence byte if the frame has
-   sequence numbers, followed by any additional bytes of payload.
+   specified by [LLCP-1.4], i.e.  a byte containing the DSAP and upper
+   two bits of the PTYPE, followed by a byte containing the lower two
+   bits of the PTYPE and the SSAP, followed by the sequence byte if the
+   frame has sequence numbers, followed by any additional bytes of
+   payload.
 
-3.32.  LINKTYPE_NFLOG
+3.52.  LINKTYPE_NFLOG
 
-3.32.1.  Packet structure
+3.52.1.  Packet structure
 
    +---------------------------+
    |       Address family      |
@@ -3748,7 +3994,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.32.2.  Description
+3.52.2.  Description
 
    The address family is a Linux AF_ value, so it's 2 for IPv4 and 10
    for IPv6.
@@ -3853,9 +4099,9 @@ Table of Contents
    All 32-bit integral values, and all multi-byte integral values in
    structures listed above, are in big-endian (network) byte order.
 
-3.33.  LINKTYPE_NG40
+3.53.  LINKTYPE_NG40
 
-3.33.1.  Packet structure
+3.53.1.  Packet structure
 
    +---------------------------+
    |            Type           |
@@ -3878,7 +4124,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.33.2.  Description
+3.53.2.  Description
 
    All multi-byte fields are in network byte order (big-endian).
 
@@ -3916,7 +4162,7 @@ Table of Contents
    The form of the subheader following the header depends on the value
    in the type field.
 
-3.33.2.1.  Subheaders
+3.53.2.1.  Subheaders
 
    For ATM AAL2 traffic, the subheader is of the form:
 
@@ -4149,7 +4395,7 @@ Table of Contents
    The IPv6 addresses and SCTP ports identify the endpoints of the path;
    the SCTP stream ID identifies the SCTP stream of the path.
 
-3.33.2.2.  Payload
+3.53.2.2.  Payload
 
    For AAL2, UDP-over-IPv4, and UDP-over-IPv6 traffic, context
    information for the Frame Protocol and for the RLC/MAC layer is
@@ -4439,9 +4685,9 @@ Table of Contents
    For SCTP-over-IPv4 and SCTP-over-IPv6, an NBAP packet follows the
    subheader.
 
-3.34.  LINKTYPE_NORDIC_BLE
+3.54.  LINKTYPE_NORDIC_BLE
 
-3.34.1.  Packet structure
+3.54.1.  Packet structure
 
    +---------------------------+
    |           BoardID         |
@@ -4467,7 +4713,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.34.2.  Description
+3.54.2.  Description
 
    The board ID field indicates which Sniffer device the message is to
    or from.  Its value is opaque, with different values for different
@@ -4586,9 +4832,9 @@ Table of Contents
 
    Following the delta time field is a Bluetooth LE link-layer packet.
 
-3.35.  LINKTYPE_NULL
+3.55.  LINKTYPE_NULL
 
-3.35.1.  Packet structure for BSD loopback encapsulation
+3.55.1.  Packet structure for BSD loopback encapsulation
 
    +---------------------------+
    |       Protocol type       |
@@ -4599,7 +4845,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.35.2.  Description
+3.55.2.  Description
 
    The protocol type field is in the host byte order of the machine on
    which the capture was done.  The values for that field are:
@@ -4625,9 +4871,9 @@ Table of Contents
    if a ``savefile'' is being read, the byte order is not necessarily
    that of the machine reading the capture file.
 
-3.36.  LINKTYPE_PKTAP
+3.56.  LINKTYPE_PKTAP
 
-3.36.1.  Packet structure (PKTAP version 1)
+3.56.1.  Packet structure (PKTAP version 1)
 
    +---------------------------+
    |   Length of PKTAP header  |
@@ -4698,7 +4944,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.36.2.  Packet structure (PKTAP version 2)
+3.56.2.  Packet structure (PKTAP version 2)
 
    +----------------------------------------+
    |         Length of PKTAP header         |
@@ -4772,13 +5018,13 @@ Table of Contents
    .                                        .
    .                                        .
 
-3.36.3.  Description
+3.56.3.  Description
 
    All multi-byte fields currently appear to be little-endian, but Apple
    haven't indicated whether this is by design or merely a consequence
    of all Apple machines that write this format being little-endian.
 
-3.36.4.  In the PKTAP version 1 header:
+3.56.4.  In the PKTAP version 1 header:
 
    The length field indicates how long the PKTAP header is; this value
    includes the length of the length field itself.  It should be at
@@ -4896,7 +5142,7 @@ Table of Contents
    All fields following the effective command name field are optional;
    the length field indicates how many fields are present.
 
-3.36.5.  In the PKTAP version 2 header:
+3.56.5.  In the PKTAP version 2 header:
 
    The length field indicates how long the PKTAP header is; this value
    includes the length of the length field itself.  It should be at
@@ -5029,9 +5275,63 @@ Table of Contents
    running in some process, truncated to 20 characters.  It may be a
    null string if the executable image name is unknown.
 
-3.37.  LINKTYPE_RDS
+3.57.  LINKTYPE_PPI
 
-3.37.1.  Packet structure
+3.57.1.  Description
+
+   Packets start with a Per-Packet Information header, as specified by
+   [PPI], followed by a packet in the format specified by the LINKTYPE_
+   value in the pph_dlt field of that header.
+
+3.58.  LINKTYPE_PPP
+
+3.58.1.  Description
+
+   PPP frames, as specified by Section 2 of [RFC1661]}.  If the first 2
+   octets are 0xff and 0x03, it's PPP in HDLC-like framing, as specified
+   by Section 3.1 of [RFC1662], with the PPP header following those two
+   octets, otherwise it's PPP without framing, and the packet begins
+   with the PPP header.  The data in the frame is not octet-stuffed or
+   bit-stuffed.
+
+3.59.  LINKTYPE_PPP_HDLC
+
+3.59.1.  Description
+
+   PPP frames, as specified by Section 2 of [RFC1661]}.  The frames
+   include the address and control fields as specified by Section 3.1 of
+   [RFC1662].  The data in the frame is not octet-stuffed or bit-
+   stuffed.
+
+3.60.  LINKTYPE_PPP_WITH_DIR
+
+3.60.1.  Packet structure
+
+   +-----------+
+   | Direction |
+   | (1 Octet) |
+   +-----------+
+   | PPP frame |
+   .           .
+   .           .
+   .           .
+
+3.60.2.  Description
+
+   The Direction field is zero if the frame was received by the host
+   that captured the traffic and non-zero if the frame was sent by that
+   host.
+
+   The PPP frame is as specified by Section 2 of [RFC1661]}.  If the
+   first 2 octets are 0xff and 0x03, it's PPP in HDLC-like framing, as
+   specified by Section 3.1 of [RFC1662], with the PPP header following
+   those two octets, otherwise it's PPP without framing, and the packet
+   begins with the PPP header.  The data in the frame is not octet-
+   stuffed or bit-stuffed.
+
+3.61.  LINKTYPE_RDS
+
+3.61.1.  Packet structure
 
    +---------------------------+
    |  RDS Information Word 1   |
@@ -5059,7 +5359,7 @@ Table of Contents
    |         (1 Octet)         |
    +---------------------------+
 
-3.37.2.  Description
+3.61.2.  Description
 
    Each frame corresponds to a group, as described in section 5
    "Baseband coding" of [IEC-62106-1].  The information words from the
@@ -5083,9 +5383,9 @@ Table of Contents
 
    *  255, if the offset word has an invalid value.
 
-3.38.  LINKTYPE_RTAC_SERIAL
+3.62.  LINKTYPE_RTAC_SERIAL
 
-3.38.1.  Packet structure
+3.62.1.  Packet structure
 
    +---------------------------+
    | Relative TimeStamp (Left) |
@@ -5108,7 +5408,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.38.2.  Description
+3.62.2.  Description
 
    The Relative TimeStamp Left field gives the time stamp, in seconds
    since January 1, 1970, 00:00:00, of the packet, and the Right field
@@ -5168,9 +5468,9 @@ Table of Contents
    packets must either have the payload type specified externally or
    must attempt to determine it heuristically.
 
-3.39.  LINKTYPE_SITA
+3.63.  LINKTYPE_SITA
 
-3.39.1.  Packet structure
+3.63.1.  Packet structure
 
    +---------------------------+
    |            Flags          |
@@ -5193,7 +5493,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.39.2.  Description
+3.63.2.  Description
 
    The bits in the Flags field are:
 
@@ -5289,9 +5589,9 @@ Table of Contents
 
    *  18 - Frame Relay.
 
-3.40.  LINKTYPE_SLIP
+3.64.  LINKTYPE_SLIP
 
-3.40.1.  Packet structure
+3.64.1.  Packet structure
 
    +-------------------------+
    |        Direction        |
@@ -5302,7 +5602,7 @@ Table of Contents
    .                         .
    .                         .
 
-3.40.2.  Description
+3.64.2.  Description
 
    The direction field contains a value that is one of:
 
@@ -5313,9 +5613,19 @@ Table of Contents
    The payload is either an IP packet or a compressed packet as per
    [RFC1144], without framing and byte-stuffing.
 
-3.41.  LINKTYPE_SUNATM
+3.65.  LINKTYPE_STANAG_5066_D_PDU
 
-3.41.1.  Packet structure
+3.65.1.  Description
+
+   Packets are D_PDUs as described by NATO standard [STANAG-5066],
+   starting with the synchronization sequence, and including both header
+   and data CRCs.  The current version of STANAG 5066 is backwards-
+   compatible with the 1.0.2 version, although newer versions are
+   classified.
+
+3.66.  LINKTYPE_SUNATM
+
+3.66.1.  Packet structure
 
    +---------------------------+
    |             Flag          |
@@ -5332,7 +5642,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.41.2.  Description
+3.66.2.  Description
 
    The flag field contains a value that is one of:
 
@@ -5354,9 +5664,9 @@ Table of Contents
    The VPI and VCI fields contain the VPI and VCI values for the
    payload; the VCI field is in network byte order.
 
-3.42.  LINKTYPE_USB_DARWIN
+3.67.  LINKTYPE_USB_DARWIN
 
-3.42.1.  Packet structure
+3.67.1.  Packet structure
 
    +----------------------------------------+
    |            Version of header           |
@@ -5400,7 +5710,7 @@ Table of Contents
    .                                        .
    .                                        .
 
-3.42.2.  Description
+3.67.2.  Description
 
    All multi-byte fields are little-endian.
 
@@ -5543,9 +5853,242 @@ Table of Contents
          number of bytes to be transferred, the frame status field set
          to 0xe0000001, and without any data following the header.
 
-3.43.  LINKTYPE_VSOCK
+3.68.  Linux USB common header
 
-3.43.1.  Packet structure
+   There are two link-layer formats for Linux USB captures,
+   LINKTYPE_USB_LINUX and LINKTYPE_USB_LINUX_MMAPPED.  They have similar
+   headers, with LINKTYPE_USB_LINUX_MMAPPED having additional fields at
+   the end of its header.
+
+3.68.1.  Common header structure
+
+   The common part of the header has the following fields:
+
+   +-------------------------------------------+
+   |                  URB ID                   |
+   |                (8 Octets)                 |
+   +-------------------------------------------+
+   |                 Event type                |
+   |                  (1 Octet)                |
+   +-------------------------------------------+
+   |                Transfer type              |
+   |                  (1 Octet)                |
+   +-------------------------------------------+
+   |   Endpoint number and transfer direction  |
+   |                  (1 Octet)                |
+   +-------------------------------------------+
+   |               Device address              |
+   |                  (1 Octet)                |
+   +-------------------------------------------+
+   |                 Bus number                |
+   |                 (2 Octets)                |
+   +-------------------------------------------+
+   |                 Setup flag                |
+   |                  (1 Octet)                |
+   +-------------------------------------------+
+   |                  Data flag                |
+   |                  (1 Octet)                |
+   +-------------------------------------------+
+   |             Timestamp, seconds            |
+   |                 (8 Octets)                |
+   +-------------------------------------------+
+   |          Timestamp, microseconds          |
+   |                 (4 Octets)                |
+   +-------------------------------------------+
+   |                   Status                  |
+   |                 (4 Octets)                |
+   +-------------------------------------------+
+   |                Data length                |
+   |                 (4 Octets)                |
+   +-------------------------------------------+
+   |             Delivered data length         |
+   |                 (4 Octets)                |
+   +-------------------------------------------+
+   |        Setup/isochronous information      |
+   |                 (8 Octets)                |
+   +-------------------------------------------+
+
+3.68.2.  Description
+
+   A packet corresponds either to a URB submitted to the USB subsystem,
+   a completion report for a URB, or an error report for a URB.  All
+   fields are in host byte order:
+
+   *  When performing a live capture, the host byte order is the byte
+      order of the machine on which the packets are being captured.
+
+   *  When reading a pcap file, the host byte order is the byte order
+      for the file, as specified by the file's magic number.
+
+   *  When reading a pcapng file, the host byte order is the byte order
+      for the section of the pcapng file in which the packet appears, as
+      specified by that section's Section Header Block.
+
+   The URB ID field is a unique ID for the URB to which this packet
+   refers.
+
+   The event type field is an ASCII character that indicates type type
+   of the event; it is:
+
+   *  'S' (0x53), if the event is a submission of a URB;
+
+   *  'C' (0x43), if the event is a completion report for a URB;
+
+   *  'E' (0x45), if the event reports an error from a URB submission.
+
+   The transfer type field has a value that is one of:
+
+   *  0, if the transfer to which the URB applies is a isochronous
+      transfer;
+
+   *  1, if the transfer to which the URB applies is a interrupt
+      transfer;
+
+   *  2, if the transfer to which the URB applies is a control transfer;
+
+   *  3, if the transfer to which the URB applies is a bulk transfer.
+
+   The uppermost bit of the endpoint number and transfer direction field
+   is 1 if the transfer is an input transfer and 0 if it is an output
+   transfer.  The lowr 7 bits of the field contain the endpoint number.
+
+   The setup flag field is zero if the event is a submission of a URB
+   for a control transfer and non-zero otherwise.
+
+   The data flag field is zero if the event conains data and non-zero if
+   it contains no data.
+
+   The timestamp fields contain a time stamp for the event, in seconds
+   and microseconds since 1970-01-01 00:00:00 UTC; this MUST be the same
+   as the timestamp for the packet.
+
+   The status field contains zero if no error is being reported by the
+   event or the negative of a Linux errno value for the error being
+   reported if an error is being reported by the event.
+
+   If the setup flag is zero, the setup/isochronous infomration field
+   contains the setup data for a setup packet, as specified in the USB
+   standard.
+
+   If the setup flag is non-zero, and the transfer is an isochronous
+   transfer, the setup/isochronous information field contains:
+
+   +----------------------------------------+
+   |              Error count               |
+   |               (4 Octets)               |
+   +----------------------------------------+
+   |         Number of descriptors          |
+   |               (4 Octets)               |
+   +----------------------------------------+
+
+   where the error count field is the number of errors in the
+   isochronous transfer and the number of descriptors field is the
+   number of isochronous descriptors for the transfer.
+
+   If the setup flag is non-zero, and the transfer is not an isochronous
+   transfer, the setup/isochronous information field does not contain
+   any information and should be ignored.
+
+3.69.  LINKTYPE_USB_LINUX
+
+3.69.1.  Packet structure
+
+   +-------------------------+
+   | Linux USB common header |
+   |       (48 Octets)       |
+   +-------------------------+
+   |         Payload         |
+   .                         .
+   .                         .
+   .                         .
+
+   The data, if any, for the event follows the common header.
+
+3.70.  LINKTYPE_USB_LINUX_MMAPPED
+
+3.70.1.  Packet structure
+
+   +-------------------------------------------+
+   |          Linux USB common header          |
+   |                (48 Octets)                |
+   +-------------------------------------------+
+   |                  Interval                 |
+   |                 (4 Octets)                |
+   +-------------------------------------------+
+   |                Start frame                |
+   |                 (4 Octets)                |
+   +-------------------------------------------+
+   |               Transfer flags              |
+   |                 (4 Octets)                |
+   +-------------------------------------------+
+   | Number of isochronous descriptors present |
+   |                 (4 Octets)                |
+   +-------------------------------------------+
+   |                   Payload                 |
+   .                                           .
+   .                                           .
+   .                                           .
+
+3.70.2.  Description
+
+   For interrupt and isochronous transfers, the interval field is the
+   polling interval, in units of frames (milliseconds) for full-speed
+   and low-speed devices and microframes (.125 millisecond) for high-
+   speed and SuperSpeed devices.  For other types of transfers, it does
+   not contain a meaningful value.
+
+   For isochronous transfers, the start frame field contains the initial
+   frame.  For other types of transfers, it does not contain a
+   meaningful value.
+
+   For isochronous transfers, The number of isochronous descriptors
+   present field indicates the number of isochronous descriptors in the
+   event.  Its value MUST be less than or equal to the value of the
+   number of descriptors field; if it is less than that value, not all
+   descriptors for the transfer are included in the event.
+
+   For isochronous transfers, the payload begins with a set of
+   isochronous descriptors of the form
+
+   +----------------------------------------+
+   |                 Status                 |
+   |               (4 Octets)               |
+   +----------------------------------------+
+   |                 Offset                 |
+   |               (4 Octets)               |
+   +----------------------------------------+
+   |                 Length                 |
+   |               (4 Octets)               |
+   +----------------------------------------+
+   |                 Padding                |
+   |               (4 Octets)               |
+   +----------------------------------------+
+
+   The status field contains zero if no error occurred for that
+   descriptor or the negative of a Linux errno value for the error being
+   reported if an error occurred for that descriptor.
+
+   The offset field is the offset, in bytes, of the data for the
+   descriptor from the beginning of the data portion of the payload.
+
+   The length field is the length, in bytes, of the data for the
+   descriptor.  This may be zero.
+
+   The padding field does not contain any information.
+
+   The number of isochronous descriptors present field specifies the
+   number of descriptors present in the event.
+
+   For all other types of transfer, there are no isochronous
+   descriptors; the number of isochronous descriptors present field
+   contains no meaningful data.
+
+   The data, if any, for the event follows the isochronous descriptors,
+   if any.
+
+3.71.  LINKTYPE_VSOCK
+
+3.71.1.  Packet structure
 
    +---------------------------+
    |         Source CID        |
@@ -5579,7 +6122,7 @@ Table of Contents
    .                           .
    .                           .
 
-3.43.2.  Description
+3.71.2.  Description
 
    The source and destination CID fields are in little-endian byte
    order; they identify the source and destination vsock devices.
@@ -5622,7 +6165,7 @@ Table of Contents
    For packets with an operation field with a value of 4, the payload
    follows the transport header.
 
-3.43.3.  Virtio transport header structure
+3.71.3.  Virtio transport header structure
 
    +---------------------------+
    |         Source CID        |
@@ -5656,7 +6199,7 @@ Table of Contents
    |         (4 Octets)        |
    +---------------------------+
 
-3.43.4.  Description
+3.71.4.  Description
 
    The source and destination CID fields are in little-endian byte
    order; they identify the source and destination vsock devices.
@@ -5702,9 +6245,9 @@ Table of Contents
    The receive counter field is in little-endian byte order; it
    indicates how many bytes of payload data have been received.
 
-3.44.  LINKTYPE_WATTSTOPPER_DLM
+3.72.  LINKTYPE_WATTSTOPPER_DLM
 
-3.44.1.  Packet structure
+3.72.1.  Packet structure
 
    +-------------------------+
    |        Dongle Code      |
@@ -5729,7 +6272,7 @@ Table of Contents
    |        (N Octets)       |
    +-------------------------+
 
-3.44.2.  Description
+3.72.2.  Description
 
    The WattStopper Digital Lighting Management (DLM) and Legrand Nitoo
    Open protocol share common packet structure, and are used in the
@@ -5786,9 +6329,9 @@ Table of Contents
 
    The Payload varies depending on the Family.
 
-3.45.  LINKTYPE_ZBOSS_NCP
+3.73.  LINKTYPE_ZBOSS_NCP
 
-3.45.1.  Packet structure
+3.73.1.  Packet structure
 
    +---------------------------+
    |         Signature         |
@@ -5807,7 +6350,7 @@ Table of Contents
    |     (Variable length)     |
    +---------------------------+
 
-3.45.2.  Description
+3.73.2.  Description
 
    The Signature field contains ASCII string "ZBNCP".
 
@@ -5815,7 +6358,7 @@ Table of Contents
 
    The Type field is set to 6.
 
-3.45.2.1.  Options bitfield
+3.73.2.1.  Options bitfield
 
         7   6   5   4   3   2   1   0
       .   .   .   .   .   .   .   .   .
@@ -5831,15 +6374,15 @@ Table of Contents
 
    *  b03–b07 are reserved for future use
 
-3.45.2.2.  Payload
+3.73.2.2.  Payload
 
    The payload begins with the "Low-level protocol" header, as described
    in section 3.2 of [ZBOSS], so that the first two bytes of the payload
    are 0xde 0xad, in order.
 
-3.46.  LINKTYPE_ZWAVE_R1_R2
+3.74.  LINKTYPE_ZWAVE_R1_R2
 
-3.46.1.  Packet structure
+3.74.1.  Packet structure
 
    +---------------------+
    |       Home ID       |
@@ -5864,17 +6407,17 @@ Table of Contents
    |     (1 Octet)       |
    +---------------------+
 
-3.46.2.  Description
+3.74.2.  Description
 
-   Z-Wave is defined by [G.9959].  The MAC header format here is used by
-   Type 1 devices with a supported data rate of 9.6 Kbps (R1) and Type 2
-   devices with a supported data rate of 40 Kbps (R2); some fields have
-   been moved from their locations in the MAC header for Channel
-   Configurations 1 and 2, as specified by G.9959.
+   The Z-Wave MAC header format here is used by Type 1 devices with a
+   supported data rate of 9.6 Kbps (R1) and Type 2 devices with a
+   supported data rate of 40 Kbps (R2); some fields have been moved from
+   their locations in the MAC header for Channel Configurations 1 and 2,
+   as specified by section 8.1.3 "MPDU format" of [G.9959].
 
-3.47.  LINKTYPE_ZWAVE_R3
+3.75.  LINKTYPE_ZWAVE_R3
 
-3.47.1.  Packet structure
+3.75.1.  Packet structure
 
    +---------------------+
    |       Home ID       |
@@ -5902,12 +6445,32 @@ Table of Contents
    |     (2 Octes)       |
    +---------------------+
 
-3.47.2.  Description
+3.75.2.  Description
 
-   Z-Wave is defined by [G.9959].  The MAC header format here is used by
-   Type 3 devices with a supported data rate of 100 Kbps (R3); some
-   fields have been moved from their locations in the MAC header for
-   Channel Configuration 3, as specified by G.9959.
+   The Z-Wave MAC header format here is used by Type 3 devices with a
+   supported data rate of 100 Kbps (R3); some fields have been moved
+   from their locations in the MAC header for Channel Configuration 3,
+   as specified by section 8.1.3 "MPDU format" of [G.9959].
+
+3.76.  LINKTYPE_ZWAVE_TAP
+
+3.76.1.  Packet structure
+
+   +--------------------------+
+   | Exegin Z-Wave tap header |
+   |    (Variable Length)     |
+   +--------------------------+
+   |       Z-Wave MPDU        |
+   .                          .
+   .                          .
+   .                          .
+
+3.76.2.  Description
+
+   The Z-Wave tap header is specified by [Exegin-Z-Wave-G.9959-TAP].
+
+   The Z-Wave MPDU is specified by section 8.1.3 "MPDU format" of
+   [G.9959].
 
 4.  Security Considerations
 
@@ -6020,6 +6583,9 @@ Table of Contents
               Access Protocol for Amateur Packet Radio Version 2.2",
               July 1998, <https://www.ax25.net/AX25.2.2-Jul%2098-2.pdf>.
 
+   [Bluetooth-Core]
+              "Bluetooth Core Specification", n.d..
+
    [D-Bus]    Pennington, H., Carlsson, A., Larsson, A., Herzberg, S.,
               McVittie, S., and D. Zeuthen, "D-Bus Specification",
               <https://dbus.freedesktop.org/doc/dbus-
@@ -6071,10 +6637,19 @@ Table of Contents
               Brandson, C., "Z-Wave G.9959 TAP Link Type Specificatino",
               <https://gitlab.com/exegin/zwave-g9959-tap>.
 
+   [FC-FS-5]  "Fibre Channel - Framing and Signaling - 5", INCITS
+              545-2019, April 2019.
+
    [FD.io-VPP]
               "VNET (VPP Network Stack)", <https://fdio-
               vpp.readthedocs.io/en/latest/gettingstarted/developers/
               vnet.html>.
+
+   [FRF.12]   "Frame Relay Fragmentation Implementation Agreement -
+              FRF.12", December 1997,
+              <https://web.archive.org/web/20160426183112/
+              https://www.broadband-forum.org/technical/download/FRF.12/
+              frf12.pdf>.
 
    [FRF.16.1] "Multilink Frame Relay UNI/NNI Implementation Agreement
               FRF.16.1", May 2002,
@@ -6100,6 +6675,10 @@ Table of Contents
               the frequency range from 64,0 MHz to 108,0 MHz - Part 1:
               Modulation characteristics and baseband coding", IEC
               62106-1, n.d..
+
+   [IEEE-802.15.4]
+              "IEEE Standard for Low-Rate Wireless Networks", IEEE Std
+              802.15.4, n.d..
 
    [IEEE-C37.118.1]
               "IEEE Standard for Synchrophasor Measurements for Power
@@ -6134,11 +6713,17 @@ Table of Contents
               thub.com/torvalds/linux/blob/master/include/uapi/linux/
               can/error.h>.
 
+   [LLCP-1.4] NFC Forum, "Logical Link Control Protocol Technical
+              Specification Version 1.4", December 2022,
+              <https://nfc-forum.org/build/specifications>.
+
    [LoRaTap]  "LoRaTap",
               <https://github.com/eriknl/LoRaTap/blob/master/README.md>.
 
-   [LoRaWAN]  "About the LoRaWAN Standards",
-              <https://lora-alliance.org/lorawan-for-developers/>.
+   [LoRaWAN-Link-Layer-1.0.4]
+              "LoRaWAN L2 1.0.4 Specification", October 2020,
+              <https://lora-alliance.org/resource_hub/lorawan-104-
+              specification-package/>.
 
    [MDB-PCAP] Kaiser, M., "PCAP format for MDB", August 2023,
               <https://www.kaiser.cx/posts/pcap-mdb/>.
@@ -6236,6 +6821,12 @@ Table of Contents
 
    [USBPcap]  "USBPcap Capture format specification",
               <https://desowin.org/usbpcap/captureformat.html>.
+
+   [X.25]     "Interface between Data Terminal Equipment (DTE) and Data
+              Circuit-terminating Equipment (DCE) for terminals
+              operating in the packet mode and connected to public data
+              networks by dedicated circuit", ITU-T Recommendation X.25,
+              n.d., <https://www.itu.int/rec/T-REC-X.25/en/>.
 
    [ZBOSS]    "ZBOSS NCP Serial Protocol", May 2023,
               <https://web.archive.org/web/20240823121741/
