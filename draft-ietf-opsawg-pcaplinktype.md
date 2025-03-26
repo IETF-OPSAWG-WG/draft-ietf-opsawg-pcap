@@ -534,7 +534,7 @@ later put into a library named libpcap {{LIBPCAP}}.
 
 Other documents describe the original (legacy) format used by tcpdump
 (PCAP, {{?I-D.ietf-opsawg-pcap}}), as well as the revised format
-{{?I-D.ietf-opsawg-pcapng}} which is used by tcpdump and Wireshark
+{{?I-D.ietf-opsawg-pcapng}}, which are used by tcpdump and Wireshark
 {{Wireshark}}.
 
 Within those formats each packet that is captured is described by a LINKTYPE value.
