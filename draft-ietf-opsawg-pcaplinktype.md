@@ -620,6 +620,24 @@ The minimal requirement is to provide a contact person for that link type.
 Link layer formats for which there are no external reference are
 described here.
 
+Some formats include fields that are in ``host byte order''.
+
+When performing a live capture, host byte order is the byte order of
+the machine on which the packets are being captured.
+
+When reading a capture file, host byte order is not necessarily the byte
+order of the machine on which the file is being read.  Both file formats
+that use LINKTYPE values include an indication of the byte order in
+which packets are written.  If that byte order is not the same as the
+byte order of the machine on which the file is being read, fields that
+are in host byte order will not be in the byte order of the machine on
+which the file is being read, so the code that reads the file MUST
+convert those fields into the byte order of that machine.
+
+If the code is in a library such as libpcap, the library should convert
+the fields, so code that use the library to read capture files does not
+need to do so itself.
+
 ## LINKTYPE_APPLE_IP_OVER_IEEE1394
 
 ### Packet structure
@@ -2037,9 +2055,7 @@ For regular packets, the payload is the data of an I2C message.
 
 ### Description
 
-All fields are in the host byte order of the machine on which the
-capture was done.  (In practice, this is likely to be little-endian, but
-that's not guaranteed.)
+All fields are in host byte order.
 
 The msgcode field either has the value `0x00000041` or the value
 `0x00000044`.  The msglen field is the length of the entire Prism header.
@@ -3011,9 +3027,7 @@ socket it's possible to listen to several nflog groups; the resource ID
 is the nflog group for the packet.
 
 Following the resource ID is a sequence of zero or more TLVs, running to
-the end of the packet; the length and type are in the host byte order
-for the pcap file, as specified by the file's magic number, or for the
-section of the pcap-ng file, as specified by the Section Header Block.
+the end of the packet; the length and type are in host byte order.
 
 The type values are, as per the Linux
 `linux/netfilter/nfnetlink_log.h` header:
@@ -3767,8 +3781,8 @@ Following the delta time field is a Bluetooth LE link-layer packet.
 
 ### Description
 
-The protocol type field is in the host byte order of the machine on
-which the capture was done.  The values for that field are:
+The protocol type field is in host byte order.  The values for that
+field are:
 
 * `2` - payload is an IPv4 packet;
 * `24` - payload is an IPv6 packet;
@@ -3779,12 +3793,6 @@ which the capture was done.  The values for that field are:
 
 All of the IPv6 values correspond to IPv6 packets; code reading files
 MUST treat all of them as ndicating an IPv6 packet.
-
-Note that ``host byte order'' is the byte order of the machine on that
-the packets are captured; if a live capture is being done, ``host byte
-order'' is the byte order of the machine capturing the packets, but if a
-``savefile'' is being read, the byte order is not necessarily that of
-the machine reading the capture file.
 
 ## LINKTYPE_PKTAP
 
@@ -4714,15 +4722,8 @@ The common part of the header has the following fields:
 
 A packet corresponds either to a URB submitted to the USB subsystem, a
 completion report for a URB, or an error report for a URB.
-All fields are in host byte order:
 
-* When performing a live capture, the host byte order is the byte order
-  of the machine on which the packets are being captured.
-* When reading a pcap file, the host byte order is the byte order for
-  the file, as specified by the file's magic number.
-* When reading a pcapng file, the host byte order is the byte order for
-  the section of the pcapng file in which the packet appears, as
-  specified by that section's Section Header Block.
+All fields are in host byte order:
 
 The URB ID field is a unique ID for the URB to which this packet refers.
 
