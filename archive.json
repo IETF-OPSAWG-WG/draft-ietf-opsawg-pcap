@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-25T01:44:15.424308+00:00",
+  "timestamp": "2025-03-27T01:43:11.150498+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9638,24 +9638,26 @@
       "id": "PR_kwDOAU54e86P1HFJ",
       "title": "Speak of \"octets\" rather than \"bytes\"",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/182",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "fxlb",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-03-24T08:49:28Z",
-      "updatedAt": "2025-03-24T08:49:28Z",
+      "updatedAt": "2025-03-25T12:50:09Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "73d74f434cff7f4bec55286cf41e0f9c75e109f5",
       "headRepository": "fxlb/pcapng",
       "headRefName": "linktypes",
       "headRefOid": "d75ce295c46f7d69926be5980f5c7ee0d329dabd",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-03-25T12:50:09Z",
+      "mergedAt": "2025-03-25T12:50:09Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "7794b8a16029fc92dfe02767edad0f9529332fb3"
+      },
       "comments": [],
       "reviews": []
     }
