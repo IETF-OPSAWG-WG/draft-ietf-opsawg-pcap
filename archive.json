@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-27T01:43:11.150498+00:00",
+  "timestamp": "2025-03-30T01:50:56.857996+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9660,6 +9660,95 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 183,
+      "id": "PR_kwDOAU54e86Qm_b0",
+      "title": "Capture Information Block (CIB) addition",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/183",
+      "state": "OPEN",
+      "author": "antoniovazquezblanco",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Following https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/51, this is simply a rebase of the original PR.",
+      "createdAt": "2025-03-28T20:09:52Z",
+      "updatedAt": "2025-03-29T21:53:50Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "6a672d043d8a63cbd188a349cd09a14a4f68f610",
+      "headRepository": "antoniovazquezblanco/draft-ietf-opsawg-pcap",
+      "headRefName": "cib",
+      "headRefOid": "d1fd80626e71870866fb1fe3a0d1beb593c2d49f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Presumably multiple CIBs can be provided for the same interface if the interface is in motion.",
+          "createdAt": "2025-03-28T23:09:23Z",
+          "updatedAt": "2025-03-28T23:09:23Z"
+        },
+        {
+          "author": "antoniovazquezblanco",
+          "authorAssociation": "NONE",
+          "body": "> Presumably multiple CIBs can be provided for the same interface if the interface is in motion.\r\n\r\nYes. Two paragraphs relevant to this:\r\n\r\n1. Each CIB is associated with a specific interface and applied to all packets received on this interface following the CIB until superseded by a new CIB on the same interface.\r\n\r\n2. Note that issuing a new CIB will clear all existing CIB options on an interface, for example, the CIBs for a non-moving but rotating interface with a known position must all contain both location and orientation data.\r\n\r\nThe second paragraph is a bit conflicting for me. I understand this may be done because updating location and not updating positioning error it may be very common but this may also cause errors...\r\n\r\nWhat do you think?",
+          "createdAt": "2025-03-29T21:11:33Z",
+          "updatedAt": "2025-03-29T21:11:33Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> 2. Note that issuing a new CIB will clear all existing CIB options on an interface, for example, the CIBs for a non-moving but rotating interface with a known position must all contain both location and orientation data.\r\n\r\nPresumably the options are cleared because in case an update *removes* an option, as a CIB just has a list of options, not a list of changes to the options including \"add\", \"change\", and \"remove\".\r\n\r\nIDBs could also use a mechanism to allow options to be added, removed, or changed options might be useful.\r\n\r\n> The second paragraph is a bit conflicting for me. I understand this may be done because updating location and not updating positioning error it may be very common but this may also cause errors...\r\n\r\nErrors as in \"a second CIB might forget to include options that *aren't* getting changed\"?",
+          "createdAt": "2025-03-29T21:53:49Z",
+          "updatedAt": "2025-03-29T21:53:49Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOAU54e86iite3",
+          "commit": {
+            "abbreviatedOid": "23e739f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-28T23:07:06Z",
+          "updatedAt": "2025-03-28T23:07:06Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "\"arbitrary plane\".",
+              "createdAt": "2025-03-28T23:07:06Z",
+              "updatedAt": "2025-03-28T23:07:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86ii6TA",
+          "commit": {
+            "abbreviatedOid": "23e739f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-28T23:39:05Z",
+          "updatedAt": "2025-03-28T23:39:05Z",
+          "comments": [
+            {
+              "originalPosition": 164,
+              "body": "The zero frame for global location is presumably the frame whose origin is at the intersection of the [IERS Reference Meridian](https://en.wikipedia.org/wiki/IERS_Reference_Meridian) and the Equator, at an altitude that's relative to some reference point at that location ([mean sea level](https://en.wikipedia.org/wiki/Sea_level), which would make it [height above mean sea level](https://en.wikipedia.org/wiki/Height_above_mean_sea_level)?).\r\n\r\nThe plane for local location is presumably a plane tangent to the Earth's surface at some point; is that a fixed point, or could it move relative to the origin of the zero frame for global location?",
+              "createdAt": "2025-03-28T23:39:05Z",
+              "updatedAt": "2025-03-28T23:39:05Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
