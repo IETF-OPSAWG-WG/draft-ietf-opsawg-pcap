@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-30T01:50:56.857996+00:00",
+  "timestamp": "2025-04-01T01:55:32.799852+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9673,7 +9673,7 @@
       "labels": [],
       "body": "Following https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/51, this is simply a rebase of the original PR.",
       "createdAt": "2025-03-28T20:09:52Z",
-      "updatedAt": "2025-03-29T21:53:50Z",
+      "updatedAt": "2025-03-30T18:56:01Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "6a672d043d8a63cbd188a349cd09a14a4f68f610",
@@ -9705,6 +9705,13 @@
           "body": "> 2. Note that issuing a new CIB will clear all existing CIB options on an interface, for example, the CIBs for a non-moving but rotating interface with a known position must all contain both location and orientation data.\r\n\r\nPresumably the options are cleared because in case an update *removes* an option, as a CIB just has a list of options, not a list of changes to the options including \"add\", \"change\", and \"remove\".\r\n\r\nIDBs could also use a mechanism to allow options to be added, removed, or changed options might be useful.\r\n\r\n> The second paragraph is a bit conflicting for me. I understand this may be done because updating location and not updating positioning error it may be very common but this may also cause errors...\r\n\r\nErrors as in \"a second CIB might forget to include options that *aren't* getting changed\"?",
           "createdAt": "2025-03-29T21:53:49Z",
           "updatedAt": "2025-03-29T21:53:49Z"
+        },
+        {
+          "author": "antoniovazquezblanco",
+          "authorAssociation": "NONE",
+          "body": "> IDBs could also use a mechanism to allow options to be added, removed, or changed options might be useful.\r\n\r\nAgree although for my particular usecase both options would fit.\r\n\r\n> Errors as in \"a second CIB might forget to include options that aren't getting changed\"?\r\n\r\nYes, I was thinking about that. Maybe today, after rethinking about it, it seems not that important.\r\n\r\nDo we agree on keeping the existing mechanism and not changing it to a an \"add\", \"change\" or \"remove\" one?",
+          "createdAt": "2025-03-30T18:56:00Z",
+          "updatedAt": "2025-03-30T18:56:00Z"
         }
       ],
       "reviews": [
