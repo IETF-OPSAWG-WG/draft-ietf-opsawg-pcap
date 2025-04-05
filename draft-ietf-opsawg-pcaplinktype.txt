@@ -211,7 +211,7 @@ Table of Contents
 
    Name  LINKTYPE_SLIP
    Number  8
-   Description  SLIP
+   Description  SLIP, with a direction header
    Reference  [LINKTYPE_SLIP]
 
    Name  LINKTYPE_PPP
@@ -735,8 +735,7 @@ Table of Contents
 
    Name  LINKTYPE_FLEXRAY
    Number  210
-   Description  FlexRay automotive bus frames or symbols, with a pseudo-
-      header
+   Description  FlexRay frames or symbols, with a pseudo-header
    Reference  [LINKTYPE_FLEXRAY]
 
    Name  LINKTYPE_MOST
@@ -832,7 +831,7 @@ Table of Contents
 
    Name  LINKTYPE_DBUS
    Number  231
-   Description  Raw D-Bus messages
+   Description  D-Bus messages
    Reference  [LINKTYPE_DBUS]
 
    Name  LINKTYPE_JUNIPER_VS
@@ -962,6 +961,7 @@ Table of Contents
    Name  LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
    Number  256
    Description  Bluetooth Low Energy link-layer packets
+   Reference  [LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR]
 
    Name  LINKTYPE_PROFIBUS_DL
    Number  257
@@ -996,6 +996,7 @@ Table of Contents
    Name  LINKTYPE_ZWAVE_R3
    Number  262
    Description  Z-Wave RF profile R3 packets
+   Reference  [LINKTYPE_ZWAVE_R3]
 
    Name  LINKTYPE_WATTSTOPPER_DLM
    Number  263
