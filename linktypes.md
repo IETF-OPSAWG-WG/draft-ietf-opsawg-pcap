@@ -1658,7 +1658,7 @@ Number
 : 210
 
 Description
-: FlexRay automotive bus frames or symbols, with a pseudo-header
+: FlexRay frames or symbols, with a pseudo-header
 
 Reference
 : {{LINKTYPE_FLEXRAY}}
@@ -1937,7 +1937,7 @@ Number
 : 231
 
 Description
-: Raw D-Bus messages
+: D-Bus messages
 
 Reference
 : {{LINKTYPE_DBUS}}
@@ -2289,6 +2289,9 @@ Number
 
 Description
 : Bluetooth Low Energy link-layer packets
+
+Reference
+: {{LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR}}
 {: spacing="compact"}
 
 
@@ -2367,6 +2370,9 @@ Number
 
 Description
 : Z-Wave RF profile R3 packets
+
+Reference
+: {{LINKTYPE_ZWAVE_R3}}
 {: spacing="compact"}
 
 
