@@ -6,6 +6,9 @@ Number
 
 Description
 : BSD loopback encapsulation
+
+Reference
+: {{LINKTYPE_NULL}}
 {: spacing="compact"}
 
 
@@ -114,6 +117,9 @@ Number
 
 Description
 : SLIP
+
+Reference
+: {{LINKTYPE_SLIP}}
 {: spacing="compact"}
 
 
@@ -128,7 +134,7 @@ Description
 : PPP
 
 Reference
-: {{?RFC1661}}/{{?RFC1662}}
+: {{LINKTYPE_PPP}}
 {: spacing="compact"}
 
 
@@ -167,7 +173,7 @@ Description
 : PPP in HDLC-like framing
 
 Reference
-: {{?RFC1662}}
+: {{LINKTYPE_PPP_HDLC}}
 {: spacing="compact"}
 
 
@@ -272,7 +278,7 @@ Description
 : Cisco PPP with HDLC framing
 
 Reference
-: {{Section 4.3.1 of ?RFC1547}}
+: {{LINKTYPE_C_HDLC}}
 {: spacing="compact"}
 
 
@@ -309,6 +315,9 @@ Number
 
 Description
 : Frame Relay LAPF
+
+Reference
+: {{LINKTYPE_FRELAY}}
 {: spacing="compact"}
 
 
@@ -321,6 +330,9 @@ Number
 
 Description
 : OpenBSD loopback encapsulation
+
+Reference
+: {{LINKTYPE_LOOP}}
 {: spacing="compact"}
 
 
@@ -381,6 +393,9 @@ Number
 
 Description
 : Linux "cooked" capture encapsulation
+
+Reference
+: {{LINKTYPE_LINUX_SLL}}
 {: spacing="compact"}
 
 
@@ -453,6 +468,9 @@ Number
 
 Description
 : Prism monitor mode
+
+Reference
+: {{LINKTYPE_IEEE802_11_PRISM}}
 {: spacing="compact"}
 
 
@@ -488,10 +506,10 @@ Number
 : 122
 
 Description
-: IP-over-Fibre Channel
+: IP and ATM over Fibre Channel
 
 Reference
-: {{?RFC2625}}
+: {{LINKTYPE_IP_OVER_FC}}
 {: spacing="compact"}
 
 
@@ -504,6 +522,9 @@ Number
 
 Description
 : ATM traffic captured from a SunATM device
+
+Reference
+: {{LINKTYPE_SUNATM}}
 {: spacing="compact"}
 
 
@@ -690,6 +711,9 @@ Number
 
 Description
 : Apple IP-over-IEEE 1394 cooked header
+
+Reference
+: {{LINKTYPE_APPLE_IP_OVER_IEEE1394}}
 {: spacing="compact"}
 
 
@@ -777,6 +801,9 @@ Number
 
 Description
 : Linux-IrDA packets
+
+Reference
+: {{LINKTYPE_LINUX_IRDA}}
 {: spacing="compact"}
 
 
@@ -1188,6 +1215,9 @@ Number
 
 Description
 : Linux vISDN LAPD frames
+
+Reference
+: {{LINKTYPE_LINUX_LAPD}}
 {: spacing="compact"}
 
 
@@ -1250,7 +1280,7 @@ Description
 : FRF.16.1 Multi-Link Frame Relay frames
 
 Reference
-: {{FRF.16.1}} {{FRF.12}}
+: {{LINKTYPE_MFR}}
 {: spacing="compact"}
 
 
@@ -1310,7 +1340,10 @@ Number
 : 187
 
 Description
-: Bluetooth HCI UART transport layer frames
+: Bluetooth HCI UART Transport Layer packets
+
+Reference
+: {{LINKTYPE_BLUETOOTH_HCI_H4}}
 {: spacing="compact"}
 
 
@@ -1335,6 +1368,9 @@ Number
 
 Description
 : USB packets, beginning with a Linux USB header
+
+Reference
+: {{LINKTYPE_USB_LINUX}}
 {: spacing="compact"}
 
 
@@ -1373,7 +1409,7 @@ Description
 : Per-Packet Information header preceding packet data
 
 Reference
-: {{PPI}}
+: {{LINKTYPE_PPI}}
 {: spacing="compact"}
 
 
@@ -1410,6 +1446,9 @@ Number
 
 Description
 : IEEE 802.15.4 packets with FCS
+
+Reference
+: {{LINKTYPE_IEEE802_15_4_WITHFCS}}
 {: spacing="compact"}
 
 
@@ -1422,6 +1461,9 @@ Number
 
 Description
 : Various link-layer types, with a pseudo-header
+
+Reference
+: {{LINKTYPE_SITA}}
 {: spacing="compact"}
 
 
@@ -1484,7 +1526,10 @@ Number
 : 201
 
 Description
-: Bluetooth HCI UART transport frames with a direction pseudo-header
+: Bluetooth HCI UART Transport Layer packets with a direction pseudo-header
+
+Reference
+: {{LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR}}
 {: spacing="compact"}
 
 
@@ -1514,7 +1559,7 @@ Description
 : Q.921 LAPD frames
 
 Reference
-: {{Q.920}} {{Q.921}}
+: {{LINKTYPE_LAPD}}
 {: spacing="compact"}
 
 
@@ -1529,7 +1574,7 @@ Description
 : PPP, with a direction header
 
 Reference
-: {{?RFC1661}}/{{?RFC1662}}
+: {{LINKTYPE_PPP_WITH_DIR}}
 {: spacing="compact"}
 
 
@@ -1544,7 +1589,7 @@ Description
 : Cisco PPP with HDLC framing, with a direction header
 
 Reference
-: {{Section 4.3.1 of ?RFC1547}}
+: {{LINKTYPE_C_HDLC_WITH_DIR}}
 {: spacing="compact"}
 
 
@@ -1557,6 +1602,9 @@ Number
 
 Description
 : Frame Relay LAPF, with a direction header
+
+Reference
+: {{LINKTYPE_FRELAY_WITH_DIR}}
 {: spacing="compact"}
 
 
@@ -1569,6 +1617,9 @@ Number
 
 Description
 : X.25 LAPB, with a direction header
+
+Reference
+: {{LINKTYPE_LAPB_WITH_DIR}}
 {: spacing="compact"}
 
 
@@ -1593,6 +1644,9 @@ Number
 
 Description
 : Linux I2C packets
+
+Reference
+: {{LINKTYPE_I2C_LINUX}}
 {: spacing="compact"}
 
 
@@ -1604,7 +1658,10 @@ Number
 : 210
 
 Description
-: FlexRay frames or symbols, with a pseudo-header
+: FlexRay automotive bus frames or symbols, with a pseudo-header
+
+Reference
+: {{LINKTYPE_FLEXRAY}}
 {: spacing="compact"}
 
 
@@ -1628,7 +1685,10 @@ Number
 : 212
 
 Description
-: Local Interconnect Network (LIN) automotive bus
+: Local Interconnect Network (LIN) automotive bus, with a metadata header
+
+Reference
+: {{LINKTYPE_LIN}}
 {: spacing="compact"}
 
 
@@ -1665,6 +1725,9 @@ Number
 
 Description
 : IEEE 802.15.4 with PHY header
+
+Reference
+: {{LINKTYPE_IEEE802_15_4_NONASK_PHY}}
 {: spacing="compact"}
 
 
@@ -1725,6 +1788,9 @@ Number
 
 Description
 : USB packets, beginning with an extended Linux USB header
+
+Reference
+: {{LINKTYPE_USB_LINUX_MMAPPED}}
 {: spacing="compact"}
 
 
@@ -1773,6 +1839,9 @@ Number
 
 Description
 : Fibre Channel FC-2 frames
+
+Reference
+: {{LINKTYPE_FC_2}}
 {: spacing="compact"}
 
 
@@ -1785,6 +1854,9 @@ Number
 
 Description
 : Fibre Channel FC-2 frames with SOF and EOF
+
+Reference
+: {{LINKTYPE_FC_2_WITH_FRAME_DELIMS}}
 {: spacing="compact"}
 
 
@@ -1797,6 +1869,9 @@ Number
 
 Description
 : Solaris ipnet
+
+Reference
+: {{LINKTYPE_IPNET}}
 {: spacing="compact"}
 
 
@@ -1808,7 +1883,10 @@ Number
 : 227
 
 Description
-: Controller Area Network frames
+: Controller Area Network (CAN) frames, with a metadata header
+
+Reference
+: {{LINKTYPE_CAN_SOCKETCAN}}
 {: spacing="compact"}
 
 
@@ -1845,6 +1923,9 @@ Number
 
 Description
 : IEEE 802.15.4 packets without FCS
+
+Reference
+: {{LINKTYPE_IEEE802_15_4_NOFCS}}
 {: spacing="compact"}
 
 
@@ -1859,7 +1940,7 @@ Description
 : Raw D-Bus messages
 
 Reference
-: {{D-Bus}}
+: {{LINKTYPE_DBUS}}
 {: spacing="compact"}
 
 
@@ -1923,6 +2004,9 @@ Number
 
 Description
 : Variant of 3GPP TS 27.010 multiplexing protocol
+
+Reference
+: {{LINKTYPE_MUX27010}}
 {: spacing="compact"}
 
 
@@ -1937,7 +2021,7 @@ Description
 : STANAG 5066 D_PDUs
 
 Reference
-: {{STANAG-5066}}
+: {{LINKTYPE_STANAG_5066_D_PDU}}
 {: spacing="compact"}
 
 
@@ -1962,6 +2046,9 @@ Number
 
 Description
 : Linux netlink NETLINK NFLOG socket log messages
+
+Reference
+: {{LINKTYPE_NFLOG}}
 {: spacing="compact"}
 
 
@@ -1974,6 +2061,9 @@ Number
 
 Description
 : Ethernet frames with netANALYZER pseudo-header
+
+Reference
+: {{LINKTYPE_NETANALYZER}}
 {: spacing="compact"}
 
 
@@ -1986,6 +2076,9 @@ Number
 
 Description
 : Ethernet frames with netANALYZER pseudo-header, preamble, and SFD
+
+Reference
+: {{LINKTYPE_NETANALYZER_TRANSPARENT}}
 {: spacing="compact"}
 
 
@@ -2028,6 +2121,9 @@ Number
 
 Description
 : Frames from ng4T GmbH's ng40 protocol tester
+
+Reference
+: {{LINKTYPE_NG40}}
 {: spacing="compact"}
 
 
@@ -2040,6 +2136,9 @@ Number
 
 Description
 : NFC Logical Link Control Protocol frames, with a pseudo-header
+
+Reference
+: {{LINKTYPE_NFC_LLCP}}
 {: spacing="compact"}
 
 
@@ -2106,6 +2205,9 @@ Number
 
 Description
 : Serial-line packet from the Schweitzer Engineering Laboratories RTAC product
+
+Reference
+: {{LINKTYPE_RTAC_SERIAL}}
 {: spacing="compact"}
 
 
@@ -2144,7 +2246,7 @@ Description
 : Linux Netlink capture encapsulation
 
 Reference
-: {{?RFC3549}}
+: {{LINKTYPE_NETLINK}}
 {: spacing="compact"}
 
 
@@ -2157,6 +2259,9 @@ Number
 
 Description
 : Bluetooth Linux Monitor
+
+Reference
+: {{LINKTYPE_BLUETOOTH_LINUX_MONITOR}}
 {: spacing="compact"}
 
 
@@ -2169,6 +2274,9 @@ Number
 
 Description
 : Bluetooth Basic Rate and Enhanced Data Rate baseband packets
+
+Reference
+: {{LINKTYPE_BLUETOOTH_BREDR_BB}}
 {: spacing="compact"}
 
 
@@ -2205,6 +2313,9 @@ Number
 
 Description
 : Apple PKTAP capture encapsulation
+
+Reference
+: {{LINKTYPE_PKTAP}}
 {: spacing="compact"}
 
 
@@ -2241,6 +2352,9 @@ Number
 
 Description
 : Z-Wave RF profile R1 and R2 packets
+
+Reference
+: {{LINKTYPE_ZWAVE_R1_R2}}
 {: spacing="compact"}
 
 
@@ -2265,6 +2379,9 @@ Number
 
 Description
 : WattStopper Digital Lighting Management (DLM) and Legrand Nitoo Open protocol packets
+
+Reference
+: {{LINKTYPE_WATTSTOPPER_DLM}}
 {: spacing="compact"}
 
 
@@ -2292,6 +2409,9 @@ Number
 
 Description
 : IEC 62106 Radio data system (RDS) groups
+
+Reference
+: {{LINKTYPE_RDS}}
 {: spacing="compact"}
 
 
@@ -2304,6 +2424,9 @@ Number
 
 Description
 : USB packets captured on a Darwin-based operating system (macOS, etc.)
+
+Reference
+: {{LINKTYPE_USB_DARWIN}}
 {: spacing="compact"}
 
 
@@ -2354,7 +2477,7 @@ Description
 : LoRaWan packets with a LoRaTap pseudo-header
 
 Reference
-: {{LoRaTap}}{{LoRaWAN-Link-Layer-1.0.4}}
+: {{LINKTYPE_LORATAP}}
 {: spacing="compact"}
 
 
@@ -2367,6 +2490,9 @@ Number
 
 Description
 : Protocol for communication between host and guest machines in VMware and KVM hypervisors
+
+Reference
+: {{LINKTYPE_VSOCK}}
 {: spacing="compact"}
 
 
@@ -2379,6 +2505,9 @@ Number
 
 Description
 : Messages to and from a Nordic Semiconductor nRF Sniffer for Bluetooth LE packets
+
+Reference
+: {{LINKTYPE_NORDIC_BLE}}
 {: spacing="compact"}
 
 
@@ -2418,6 +2547,9 @@ Number
 
 Description
 : DisplayPort AUX channel monitoring messages
+
+Reference
+: {{LINKTYPE_DISPLAYPORT_AUX}}
 {: spacing="compact"}
 
 
@@ -2430,6 +2562,9 @@ Number
 
 Description
 : Linux cooked capture encapsulation v2
+
+Reference
+: {{LINKTYPE_LINUX_SLL2}}
 {: spacing="compact"}
 
 
@@ -2499,6 +2634,9 @@ Number
 
 Description
 : Ethernet frames, with a Broadcom switch tag inserted
+
+Reference
+: {{LINKTYPE_DSA_TAG_BRCM}}
 {: spacing="compact"}
 
 
@@ -2511,6 +2649,9 @@ Number
 
 Description
 : Ethernet frames, with a Broadcom switch tag prepended
+
+Reference
+: {{LINKTYPE_DSA_TAG_BRCM_PREPEND}}
 {: spacing="compact"}
 
 
@@ -2522,7 +2663,7 @@ Number
 : 283
 
 Description
-: IEEE 802.15.4 Low-Rate Wireless Networks, with a tap header preceding the 802.15.4 header
+: IEEE 802.15.4 packets, with a tap header preceding the 802.15.4 header
 
 Reference
 : {{Exegin-802.15.4-TAP}}
@@ -2538,6 +2679,9 @@ Number
 
 Description
 : Ethernet frames, with a Marvell DSA switch tag inserted
+
+Reference
+: {{LINKTYPE_DSA_TAG_DSA}}
 {: spacing="compact"}
 
 
@@ -2550,6 +2694,9 @@ Number
 
 Description
 : Ethernet frames, with a Marvell EDSA switch tag inserted
+
+Reference
+: {{LINKTYPE_DSA_TAG_EDSA}}
 {: spacing="compact"}
 
 
@@ -2613,6 +2760,9 @@ Number
 
 Description
 : Event Tracing for Windows messages
+
+Reference
+: {{LINKTYPE_ETW}}
 {: spacing="compact"}
 
 
@@ -2637,6 +2787,9 @@ Number
 
 Description
 : ZBOSS NCP Serial Protocol, with a pseudo-header
+
+Reference
+: {{LINKTYPE_ZBOSS_NCP}}
 {: spacing="compact"}
 
 
@@ -2696,10 +2849,10 @@ Number
 : 297
 
 Description
-: Z-Wave packets, with a meta-data header
+: Z-Wave packets, with a metadata header
 
 Reference
-: {{Exegin-Z-Wave-G.9959-TAP}}{{G.9959}}
+: {{LINKTYPE_ZWAVE_TAP}}
 {: spacing="compact"}
 
 
@@ -2727,6 +2880,9 @@ Number
 
 Description
 : Ultra-wideband (UWB) controller interface protocol (UCI)
+
+Reference
+: {{LINKTYPE_FIRA_UCI}}
 {: spacing="compact"}
 
 
@@ -2738,10 +2894,10 @@ Number
 : 300
 
 Description
-: MDB (Multi-Drop Bus) protocol vending machine protocol
+: MDB (Multi-Drop Bus) vending machine protocol
 
 Reference
-: {{MDB-PCAP}}
+: {{LINKTYPE_MDB}}
 {: spacing="compact"}
 
 
@@ -2756,7 +2912,7 @@ Description
 : DECT-2020 New Radio (NR) MAC layer
 
 Reference
-: {{ETSI-TS-103-636-4}}
+: {{LINKTYPE_DECT_NR}}
 {: spacing="compact"}
 
 
