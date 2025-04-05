@@ -116,7 +116,7 @@ Number
 : 8
 
 Description
-: SLIP
+: SLIP, with a direction header
 
 Reference
 : {{LINKTYPE_SLIP}}

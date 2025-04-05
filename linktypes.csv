@@ -6,7 +6,7 @@
 |LINKTYPE_CHAOS|5|Reserved for MIT Chaosnet|{{AIM-628}}
 |LINKTYPE_IEEE802_5|6|IEEE 802.5 Token Ring|
 |LINKTYPE_ARCNET_BSD|7|Reserved for ARCNET Data Packets with BSD encapsulation|{{ATA-878.1-1999}}{{Draft-ATA-878.2}}{{?RFC1051}}{{?RFC1201}}
-|LINKTYPE_SLIP|8|SLIP|{{LINKTYPE_SLIP}}
+|LINKTYPE_SLIP|8|SLIP, with a direction header|{{LINKTYPE_SLIP}}
 |LINKTYPE_PPP|9|PPP|{{LINKTYPE_PPP}}
 |LINKTYPE_FDDI|10|FDDI: per ANSI INCITS 239-1994|
 |not to be used|11-49|Do not use these values|
