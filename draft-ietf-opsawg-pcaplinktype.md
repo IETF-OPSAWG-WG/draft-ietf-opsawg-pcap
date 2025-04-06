@@ -720,7 +720,7 @@ This is the initial table for the registry:
 ### Guidance for Designated Experts {#sec-de}
 
 When processing a request for a Specification Required allocation the Designated Experts are expected to be able to find the relevant specification at a clearly stable URL.
-It is noted that many enterprise web sites do not maintain URLs over a long period of time, and a documented in a "wp-uploaded" section is highly likely to disappear.
+It is noted that many enterprise web sites do not maintain URLs over a long period of time, and a document in a "wp-uploaded" section is highly likely to disappear.
 In addition specifications that require a reader to click through any kind of marketing or legal agreement are not considered public.
 
 The specification needs to be clearly written, and when the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.
