@@ -887,8 +887,7 @@ Table of Contents
    Name  LINKTYPE_MPEG_2_TS
    Number  243
    Description  MPEG-2 Transport Stream transport packets
-   Reference  Table 2-2 of section 2.4.3.2 Transport Stream packet layer
-      of [H.222.0]
+   Reference  [LINKTYPE_MPEG_2_TS]
 
    Name  LINKTYPE_NG40
    Number  244
@@ -1358,11 +1357,6 @@ Table of Contents
    [G.7041]   "Generic Framing Procedure", ITU-T Recommendation G.7041/
               Y.1303, <https://www.itu.int/rec/T-REC-G.7041/en>.
 
-   [H.222.0]  "Information technology - Generic coding of moving
-              pictures and associated audio information: Systems", ITU-T
-              Recommendation H.222.0,
-              <https://www.itu.int/rec/T-REC-H.222.0>.
-
    [ISO-14443-PCAP]
               Kaiser, M., "PCAP format for ISO14443", January 2021,
               <https://www.kaiser.cx/posts/pcap-iso14443/>.
@@ -1558,6 +1552,10 @@ Table of Contents
    [LINKTYPE_MFR]
               "LINKTYPE_MFR",
               <https://www.tcpdump.org/linktypes/LINKTYPE_MFR.html>.
+
+   [LINKTYPE_MPEG_2_TS]
+              "LINKTYPE_MPEG_2_TS", <https://www.tcpdump.org/linktypes/
+              LINKTYPE_MPEG_2_TS.html>.
 
    [LINKTYPE_MTP2]
               "LINKTYPE_MTP2",
