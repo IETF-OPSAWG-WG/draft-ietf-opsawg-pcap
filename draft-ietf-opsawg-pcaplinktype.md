@@ -319,6 +319,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IP_OVER_FC.html
 
+  LINKTYPE_INFINIBAND:
+    title: LINKTYPE_INFINIBAND
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_INFINIBAND.html
+
   LINKTYPE_IPNET:
     title: LINKTYPE_IPNET
     date: false

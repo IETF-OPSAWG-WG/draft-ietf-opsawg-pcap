@@ -161,7 +161,7 @@
 |LINKTYPE_NG40|244|Frames from ng4T GmbH's ng40 protocol tester|{{LINKTYPE_NG40}}
 |LINKTYPE_NFC_LLCP|245|NFC Logical Link Control Protocol frames, with a pseudo-header|{{LINKTYPE_NFC_LLCP}}
 |LINKTYPE_PFSYNC|246|Reserved for pfsync output|
-|LINKTYPE_INFINIBAND|247|Raw InfiniBand frames, starting with the Local Routing Header, as specified in Chapter 5 Data packet format of InfiniBand™ Architectural Specification Release 1.2.1 Volume 1 - General Specifications|
+|LINKTYPE_INFINIBAND|247|InfiniBand data packets|{{LINKTYPE_INFINIBAND}}
 |LINKTYPE_SCTP|248|SCTP packets, with no lower-level protocols such as IPv4 or IPv6|{{?RFC4960}}
 |LINKTYPE_USBPCAP|249|USB packets, beginning with a USBPcap header|{{USBPcap}}
 |LINKTYPE_RTAC_SERIAL|250|Serial-line packet from the Schweitzer Engineering Laboratories RTAC product|{{LINKTYPE_RTAC_SERIAL}}

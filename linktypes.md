@@ -2162,7 +2162,10 @@ Number
 : 247
 
 Description
-: Raw InfiniBand frames, starting with the Local Routing Header, as specified in Chapter 5 Data packet format of InfiniBand™ Architectural Specification Release 1.2.1 Volume 1 - General Specifications
+: InfiniBand data packets
+
+Reference
+: {{LINKTYPE_INFINIBAND}}
 {: spacing="compact"}
 
 
