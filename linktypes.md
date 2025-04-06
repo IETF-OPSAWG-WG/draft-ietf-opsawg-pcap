@@ -725,10 +725,10 @@ Number
 : 139
 
 Description
-: Signaling System 7 (SS7) Message Transfer Part (MTP) Level 2
+: SS7 MTP2 frames, with a pseudo-header
 
 Reference
-: {{Q.703}}
+: {{LINKTYPE_MTP2_WITH_PHDR}}
 {: spacing="compact"}
 
 
@@ -740,10 +740,10 @@ Number
 : 140
 
 Description
-: SS7 MTP Level 2
+: SS7 MTP2 frames
 
 Reference
-: {{Q.703}}
+: {{LINKTYPE_MTP2}}
 {: spacing="compact"}
 
 

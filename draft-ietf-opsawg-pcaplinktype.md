@@ -387,6 +387,16 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_MFR.html
 
+  LINKTYPE_MTP2:
+    title: LINKTYPE_MTP2
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_MTP2.html
+
+  LINKTYPE_MTP2_WITH_PHDR:
+    title: LINKTYPE_MTP2_WITH_PHDR
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_MTP2_WITH_PHDR.html
+
   LINKTYPE_MUX27010:
     title: LINKTYPE_MUX27010
     date: false
@@ -546,14 +556,6 @@ informative:
     - fullname: Edward A. Taft
       org: Xerox Palo Alto Research Center
     target: http://bitsavers.org/pdf/xerox/ethernet_3mb/Practical_Considerations_in_Ethernet_Local_Network_Design_Feb1980.pdf
-
-  Q.703:
-    title: >
-      Specifications of Signalling System No. 7
-      Signalling Link
-    refcontent: ITU-T Recommendation Q.703
-    date: false
-    target: https://www.itu.int/rec/T-REC-Q.703/en/
 
   Q.704:
     title: >
