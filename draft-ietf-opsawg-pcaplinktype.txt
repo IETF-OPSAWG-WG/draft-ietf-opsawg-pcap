@@ -906,10 +906,8 @@ Table of Contents
 
    Name  LINKTYPE_INFINIBAND
    Number  247
-   Description  Raw InfiniBand frames, starting with the Local Routing
-      Header, as specified in Chapter 5 Data packet format of
-      InfiniBand™ Architectural Specification Release 1.2.1 Volume 1 -
-      General Specifications
+   Description  InfiniBand data packets
+   Reference  [LINKTYPE_INFINIBAND]
 
    Name  LINKTYPE_SCTP
    Number  248
@@ -1503,6 +1501,10 @@ Table of Contents
    [LINKTYPE_IP_OVER_FC]
               "LINKTYPE_IP_OVER_FC", <https://www.tcpdump.org/linktypes/
               LINKTYPE_IP_OVER_FC.html>.
+
+   [LINKTYPE_INFINIBAND]
+              "LINKTYPE_INFINIBAND", <https://www.tcpdump.org/linktypes/
+              LINKTYPE_INFINIBAND.html>.
 
    [LINKTYPE_IPNET]
               "LINKTYPE_IPNET",
