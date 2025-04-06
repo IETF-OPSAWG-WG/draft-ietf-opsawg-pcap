@@ -659,14 +659,12 @@ tcpdump (PCAP, {{?I-D.ietf-opsawg-pcap}}), as well as a revised file
 format {{?I-D.ietf-opsawg-pcapng}}, both of which are used by tcpdump
 and Wireshark {{Wireshark}}.
 
-Within those file formats each packet that is captured is indicated by a
-LINKTYPE value.  The LINKTYPE value selects one of many hundred formats
-for metadata and Layer 2 encapsulation of the packet.
+Within those file formats each packet that is captured is indicated by a LINKTYPE value.
+The LINKTYPE value selects one of many hundred formats for metadata and Layer 2 encapsulation of the packet.
 
-This document describes the metadata and Layer 2 encapsulation formats
-for a set of LINKTYPE values and creates an IANA registry for LINKTYPE
-values, establishing the IANA Considerations by which other uses of the
-PCAP-related formats may register new LINKTYPE values.
+This document creates an IANA registry for LINKTYPE values, establishing the IANA
+Considerations by which other uses of the PCAP-related formats may register new
+LINKTYPE values.
 
 #  IANA Considerations
 
