@@ -414,14 +414,13 @@ Table of Contents
 
    Name  LINKTYPE_MTP2_WITH_PHDR
    Number  139
-   Description  Signaling System 7 (SS7) Message Transfer Part (MTP)
-      Level 2
-   Reference  [Q.703]
+   Description  SS7 MTP2 frames, with a pseudo-header
+   Reference  [LINKTYPE_MTP2_WITH_PHDR]
 
    Name  LINKTYPE_MTP2
    Number  140
-   Description  SS7 MTP Level 2
-   Reference  [Q.703]
+   Description  SS7 MTP2 frames
+   Reference  [LINKTYPE_MTP2]
 
    Name  LINKTYPE_MTP3
    Number  141
@@ -1560,6 +1559,15 @@ Table of Contents
               "LINKTYPE_MFR",
               <https://www.tcpdump.org/linktypes/LINKTYPE_MFR.html>.
 
+   [LINKTYPE_MTP2]
+              "LINKTYPE_MTP2",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_MTP2.html>.
+
+   [LINKTYPE_MTP2_WITH_PHDR]
+              "LINKTYPE_MTP2_WITH_PHDR",
+              <https://www.tcpdump.org/linktypes/
+              LINKTYPE_MTP2_WITH_PHDR.html>.
+
    [LINKTYPE_MUX27010]
               "LINKTYPE_MUX27010", <https://www.tcpdump.org/linktypes/
               LINKTYPE_MUX27010.html>.
@@ -1694,10 +1702,6 @@ Table of Contents
               Ethernet Local Network Design", February 1980,
               <http://bitsavers.org/pdf/xerox/ethernet_3mb/Practical_Con
               siderations_in_Ethernet_Local_Network_Design_Feb1980.pdf>.
-
-   [Q.703]    "Specifications of Signalling System No. 7 Signalling
-              Link", ITU-T Recommendation Q.703,
-              <https://www.itu.int/rec/T-REC-Q.703/en/>.
 
    [Q.704]    "Specifications of Signalling System No. 7 Signalling
               Network Functions And Messages", ITU-T Recommendation
