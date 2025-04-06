@@ -1,7 +1,7 @@
 |LINKTYPE_NULL|0|BSD loopback encapsulation|{{LINKTYPE_NULL}}
 |LINKTYPE_ETHERNET|1|IEEE 802.3 Ethernet|
 |LINKTYPE_EXP_ETHERNET|2|Xerox experimental 3Mb Ethernet|{{PracConsEthDesign}}
-|LINKTYPE_AX25|3|AX.25 layer 2 packets|{{AX.25}}
+|LINKTYPE_AX25|3|AX.25 layer 2 packets|{{LINKTYPE_AX25}}
 |LINKTYPE_PRONET|4|Reserved for Proteon PRONet Token Ring|
 |LINKTYPE_CHAOS|5|Reserved for MIT Chaosnet|{{AIM-628}}
 |LINKTYPE_IEEE802_5|6|IEEE 802.5 Token Ring|
@@ -116,7 +116,7 @@
 |LINKTYPE_IPMB_KONTRON|199|Reserved for IPMB packet for IPMI, with a 2-octet header|
 |LINKTYPE_JUNIPER_ST|200|Reserved for Juniper Networks|
 |LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR|201|Bluetooth HCI UART Transport Layer packets with a direction pseudo-header|{{LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR}}
-|LINKTYPE_AX25_KISS|202|AX.25 packet, with a KISS header|{{KISS}} {{AX.25}}
+|LINKTYPE_AX25_KISS|202|KISS frames between a host and an AX.25 TNC|{{LINKTYPE_AX25_KISS}}
 |LINKTYPE_LAPD|203|Q.921 LAPD frames|{{LINKTYPE_LAPD}}
 |LINKTYPE_PPP_WITH_DIR|204|PPP, with a direction header|{{LINKTYPE_PPP_WITH_DIR}}
 |LINKTYPE_C_HDLC_WITH_DIR|205|Cisco PPP with HDLC framing, with a direction header|{{LINKTYPE_C_HDLC_WITH_DIR}}

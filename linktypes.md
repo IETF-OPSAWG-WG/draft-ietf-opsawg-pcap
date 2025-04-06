@@ -50,7 +50,7 @@ Description
 : AX.25 layer 2 packets
 
 Reference
-: {{AX.25}}
+: {{LINKTYPE_AX25}}
 {: spacing="compact"}
 
 
@@ -1541,10 +1541,10 @@ Number
 : 202
 
 Description
-: AX.25 packet, with a KISS header
+: KISS frames between a host and an AX.25 TNC
 
 Reference
-: {{KISS}} {{AX.25}}
+: {{LINKTYPE_AX25_KISS}}
 {: spacing="compact"}
 
 

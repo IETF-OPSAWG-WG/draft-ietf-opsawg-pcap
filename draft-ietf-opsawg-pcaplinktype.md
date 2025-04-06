@@ -96,21 +96,6 @@ informative:
     date: false
     target: http://web.archive.org/web/20040803232023/http://www.shaftnet.org/~pizza/software/capturefrm.txt
 
-  AX.25:
-    author:
-    - fullname: William A. Beech
-      ins: W. A. Beech
-      org: ""
-    - fullname: Douglas E. Nielsen
-      ins: D. E. Nielsen
-      org: ""
-    - fullname: Jack Taylor
-      ins: J. Taylor
-      org: ""
-    title: AX.25 Link Access Protocol for Amateur Packet Radio Version 2.2
-    date: July 1998
-    target: https://www.ax25.net/AX25.2.2-Jul%2098-2.pdf
-
   DOCSIS-4.0-MULP:
     title: DOCSIS 4.0 MAC and Upper Layer Protocols Interface Specification
     date: false
@@ -187,15 +172,20 @@ informative:
     date: January 2, 2021
     target: https://www.kaiser.cx/posts/pcap-iso14443/
 
-  KISS:
-    title: The KISS TNC - A simple Host-to-TNC communications protocol
-    date: false
-    target: https://www.ax25.net/kiss.aspx
-
   LINKTYPE_APPLE_IP_OVER_IEEE1394:
     title: LINKTYPE_APPLE_IP_OVER_IEEE1394
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_APPLE_IP_OVER_IEEE1394.html
+
+  LINKTYPE_AX25:
+    title: LINKTYPE_AX25
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_AX25.html
+
+  LINKTYPE_AX25_KISS:
+    title: LINKTYPE_AX25_KISS
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_AX25_KISS.html
 
   LINKTYPE_BLUETOOTH_BREDR_BB:
     title: LINKTYPE_BLUETOOTH_BREDR_BB
