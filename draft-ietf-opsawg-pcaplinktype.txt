@@ -188,7 +188,7 @@ Table of Contents
    Name  LINKTYPE_AX25
    Number  3
    Description  AX.25 layer 2 packets
-   Reference  [AX.25]
+   Reference  [LINKTYPE_AX25]
 
    Name  LINKTYPE_PRONET
    Number  4
@@ -695,8 +695,8 @@ Table of Contents
 
    Name  LINKTYPE_AX25_KISS
    Number  202
-   Description  AX.25 packet, with a KISS header
-   Reference  [KISS] [AX.25]
+   Description  KISS frames between a host and an AX.25 TNC
+   Reference  [LINKTYPE_AX25_KISS]
 
    Name  LINKTYPE_LAPD
    Number  203
@@ -1316,10 +1316,6 @@ Table of Contents
               <http://web.archive.org/web/20040803232023/
               http://www.shaftnet.org/~pizza/software/capturefrm.txt>.
 
-   [AX.25]    Beech, W. A., Nielsen, D. E., and J. Taylor, "AX.25 Link
-              Access Protocol for Amateur Packet Radio Version 2.2",
-              July 1998, <https://www.ax25.net/AX25.2.2-Jul%2098-2.pdf>.
-
    [DOCSIS-4.0-MULP]
               "DOCSIS 4.0 MAC and Upper Layer Protocols Interface
               Specification", <https://www.cablelabs.com/specifications/
@@ -1372,13 +1368,18 @@ Table of Contents
               Kaiser, M., "PCAP format for ISO14443", January 2021,
               <https://www.kaiser.cx/posts/pcap-iso14443/>.
 
-   [KISS]     "The KISS TNC - A simple Host-to-TNC communications
-              protocol", <https://www.ax25.net/kiss.aspx>.
-
    [LINKTYPE_APPLE_IP_OVER_IEEE1394]
               "LINKTYPE_APPLE_IP_OVER_IEEE1394",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_APPLE_IP_OVER_IEEE1394.html>.
+
+   [LINKTYPE_AX25]
+              "LINKTYPE_AX25",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_AX25.html>.
+
+   [LINKTYPE_AX25_KISS]
+              "LINKTYPE_AX25_KISS", <https://www.tcpdump.org/linktypes/
+              LINKTYPE_AX25_KISS.html>.
 
    [LINKTYPE_BLUETOOTH_BREDR_BB]
               "LINKTYPE_BLUETOOTH_BREDR_BB",
