@@ -2108,7 +2108,7 @@ Description
 : MPEG-2 Transport Stream transport packets
 
 Reference
-: Table 2-2 of section 2.4.3.2 Transport Stream packet layer of {{H.222.0}}
+: {{LINKTYPE_MPEG_2_TS}}
 {: spacing="compact"}
 
 

@@ -155,14 +155,6 @@ informative:
     refcontent: ITU-T Recommendation G.7041/Y.1303
     target: https://www.itu.int/rec/T-REC-G.7041/en
 
-  H.222.0:
-    title: >
-      Information technology - Generic coding of moving pictures and
-      associated audio information: Systems
-    refcontent: ITU-T Recommendation H.222.0
-    date: false
-    target: https://www.itu.int/rec/T-REC-H.222.0
-
   ISO-14443-PCAP:
     title: PCAP format for ISO14443
     author:
@@ -386,6 +378,11 @@ informative:
     title: LINKTYPE_MFR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_MFR.html
+
+  LINKTYPE_MPEG_2_TS:
+    title: LINKTYPE_MPEG_2_TS
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_MPEG_2_TS.html
 
   LINKTYPE_MTP2:
     title: LINKTYPE_MTP2

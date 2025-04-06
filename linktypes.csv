@@ -157,7 +157,7 @@
 |LINKTYPE_NETANALYZER|240|Ethernet frames with netANALYZER pseudo-header|{{LINKTYPE_NETANALYZER}}
 |LINKTYPE_NETANALYZER_TRANSPARENT|241|Ethernet frames with netANALYZER pseudo-header, preamble, and SFD|{{LINKTYPE_NETANALYZER_TRANSPARENT}}
 |LINKTYPE_IPOIB|242|IP-over-InfiniBand|{{Section 6 of ?RFC4391}}
-|LINKTYPE_MPEG_2_TS|243|MPEG-2 Transport Stream transport packets|Table 2-2 of section 2.4.3.2 Transport Stream packet layer of {{H.222.0}}
+|LINKTYPE_MPEG_2_TS|243|MPEG-2 Transport Stream transport packets|{{LINKTYPE_MPEG_2_TS}}
 |LINKTYPE_NG40|244|Frames from ng4T GmbH's ng40 protocol tester|{{LINKTYPE_NG40}}
 |LINKTYPE_NFC_LLCP|245|NFC Logical Link Control Protocol frames, with a pseudo-header|{{LINKTYPE_NFC_LLCP}}
 |LINKTYPE_PFSYNC|246|Reserved for pfsync output|
