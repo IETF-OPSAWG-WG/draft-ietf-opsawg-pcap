@@ -2354,7 +2354,10 @@ Number
 : 260
 
 Description
-: IPMI trace packets, as specified by Table 3-20 Trace Data Block Format in the PICMG HPM.2 specification The timestamps for packets in this format must match the timestamps in the Trace Data Blocks
+: IPMI HPM.2 trace packets
+
+Reference
+: {{LINKTYPE_IPMI_HPM_2}}
 {: spacing="compact"}
 
 

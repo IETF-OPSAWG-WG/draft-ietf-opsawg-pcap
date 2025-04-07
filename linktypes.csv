@@ -174,7 +174,7 @@
 |LINKTYPE_PROFIBUS_DL|257|PROFIBUS data link layer packets|{{LINKTYPE_PROFIBUS_DL}}
 |LINKTYPE_PKTAP|258|Apple PKTAP capture encapsulation|{{LINKTYPE_PKTAP}}
 |LINKTYPE_EPON|259|Ethernet-over-passive-optical-network packets, including preamble octets|{{LINKTYPE_EPON}}
-|LINKTYPE_IPMI_HPM_2|260|IPMI trace packets, as specified by Table 3-20 Trace Data Block Format in the PICMG HPM.2 specification The timestamps for packets in this format must match the timestamps in the Trace Data Blocks|
+|LINKTYPE_IPMI_HPM_2|260|IPMI HPM.2 trace packets|{{LINKTYPE_IPMI_HPM_2}}
 |LINKTYPE_ZWAVE_R1_R2|261|Z-Wave RF profile R1 and R2 packets|{{LINKTYPE_ZWAVE_R1_R2}}
 |LINKTYPE_ZWAVE_R3|262|Z-Wave RF profile R3 packets|{{LINKTYPE_ZWAVE_R3}}
 |LINKTYPE_WATTSTOPPER_DLM|263|WattStopper Digital Lighting Management (DLM) and Legrand Nitoo Open protocol packets|{{LINKTYPE_WATTSTOPPER_DLM}}

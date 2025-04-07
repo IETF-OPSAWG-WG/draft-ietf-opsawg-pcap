@@ -334,6 +334,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_INFINIBAND.html
 
+  LINKTYPE_IPMI_HPM_2:
+    title: LINKTYPE_IPMI_HPM_2
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_IPMI_HPM_2.html
+
   LINKTYPE_IPNET:
     title: LINKTYPE_IPNET
     date: false
