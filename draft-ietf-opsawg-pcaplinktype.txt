@@ -1106,10 +1106,7 @@ Table of Contents
 
    Name  LINKTYPE_ELEE
    Number  286
-   Description  Payload of lawful intercept packets using the ELEE
-      protocol The packet begins with the ELEE header; it does not
-      include any transport-layer or lower-layer headers for protocols
-      used to transport ELEE packets
+   Description  Reserved for ELEE lawful intercept protocol
 
    Name  LINKTYPE_Z_WAVE_SERIAL
    Number  287
