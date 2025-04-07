@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 8 October 2025                                        Sandelman
-                                                            6 April 2025
+Expires: 9 October 2025                                        Sandelman
+                                                            7 April 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 October 2025.
+   This Internet-Draft will expire on 9 October 2025.
 
 Copyright Notice
 
@@ -928,10 +928,8 @@ Table of Contents
 
    Name  LINKTYPE_BLUETOOTH_LE_LL
    Number  251
-   Description  Bluetooth Low Energy air interface Link Layer packets,
-      in the format described in Section 2.1 (PACKET FORMAT) of volume 6
-      of the Bluetooth Specification Version 4.0 (see PDF page 2200),
-      but without the Preamble
+   Description  Bluetooth Low Energy link-layer packets
+   Reference  [LINKTYPE_BLUETOOTH_LE_LL]
 
    Name  LINKTYPE_WIRESHARK_UPPER_PDU
    Number  252
@@ -960,9 +958,8 @@ Table of Contents
 
    Name  LINKTYPE_PROFIBUS_DL
    Number  257
-   Description  PROFIBUS data link layer packets, as specified by IEC
-      standard 61158-4-3, beginning with the start delimiter, ending
-      with the end delimiter, and including all octets between them
+   Description  PROFIBUS data link layer packets
+   Reference  [LINKTYPE_PROFIBUS_DL]
 
    Name  LINKTYPE_PKTAP
    Number  258
@@ -1387,6 +1384,11 @@ Table of Contents
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR.html>.
 
+   [LINKTYPE_BLUETOOTH_LE_LL]
+              "LINKTYPE_BLUETOOTH_LE_LL",
+              <https://www.tcpdump.org/linktypes/
+              LINKTYPE_BLUETOOTH_LE_LL.html>.
+
    [LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR]
               "LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR",
               <https://www.tcpdump.org/linktypes/
@@ -1626,6 +1628,11 @@ Table of Contents
               "LINKTYPE_PPP_WITH_DIR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_WITH_DIR.html>.
+
+   [LINKTYPE_PROFIBUS_DL]
+              "LINKTYPE_PROFIBUS_DL",
+              <https://www.tcpdump.org/linktypes/
+              LINKTYPE_PROFIBUS_DL.html>.
 
    [LINKTYPE_RDS]
               "LINKTYPE_RDS",
