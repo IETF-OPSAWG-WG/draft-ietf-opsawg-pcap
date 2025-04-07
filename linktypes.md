@@ -2339,7 +2339,10 @@ Number
 : 259
 
 Description
-: Ethernet-over-passive-optical-network packets, starting with the last 6 octets of the modified preamble as specified by 65.1.3.2 Transmit in Clause 65 of Section 5 of IEEE 802.3, followed immediately by an Ethernet frame
+: Ethernet-over-passive-optical-network packets, including preamble octets
+
+Reference
+: {{LINKTYPE_EPON}}
 {: spacing="compact"}
 
 

@@ -259,6 +259,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_EDSA.html
 
+  LINKTYPE_EPON:
+    title: LINKTYPE_EPON
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_EPON.html
+
   LINKTYPE_ETW:
     title: LINKTYPE_ETW
     date: false
