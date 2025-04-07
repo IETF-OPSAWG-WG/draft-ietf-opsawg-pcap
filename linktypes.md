@@ -2735,7 +2735,7 @@ Number
 : 286
 
 Description
-: Payload of lawful intercept packets using the ELEE protocol The packet begins with the ELEE header; it does not include any transport-layer or lower-layer headers for protocols used to transport ELEE packets
+: Reserved for ELEE lawful intercept protocol
 {: spacing="compact"}
 
 

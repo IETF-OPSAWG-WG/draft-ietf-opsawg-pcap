@@ -200,7 +200,7 @@
 |LINKTYPE_IEEE802_15_4_TAP|283|IEEE 802.15.4 packets, with a tap header preceding the 802.15.4 header|{{Exegin-802.15.4-TAP}}
 |LINKTYPE_DSA_TAG_DSA|284|Ethernet frames, with a Marvell DSA switch tag inserted|{{LINKTYPE_DSA_TAG_DSA}}
 |LINKTYPE_DSA_TAG_EDSA|285|Ethernet frames, with a Marvell EDSA switch tag inserted|{{LINKTYPE_DSA_TAG_EDSA}}
-|LINKTYPE_ELEE|286|Payload of lawful intercept packets using the ELEE protocol The packet begins with the ELEE header; it does not include any transport-layer or lower-layer headers for protocols used to transport ELEE packets|
+|LINKTYPE_ELEE|286|Reserved for ELEE lawful intercept protocol|
 |LINKTYPE_Z_WAVE_SERIAL|287|Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection|{{Z_WAVE_SERIAL}} section 5
 |LINKTYPE_USB_2_0|288|USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the the Universal Serial Bus Specification Revision 2.0|
 |LINKTYPE_ATSC_ALP|289|ATSC Link-Layer Protocol frames, as described in section 5 of the {{A/330}} Link-Layer Protocol specification, beginning with a Base Header|
