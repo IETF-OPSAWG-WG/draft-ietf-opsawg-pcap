@@ -269,6 +269,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html
 
+  LINKTYPE_ETHERNET_MPACKET:
+    title: LINKTYPE_ETHERNET_MPACKET
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_ETHERNET_MPACKET.html
+
   LINKTYPE_FC_2:
     title: LINKTYPE_FC_2
     date: false
@@ -498,6 +503,11 @@ informative:
     title: LINKTYPE_RTAC_SERIAL
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_RTAC_SERIAL.html
+
+  LINKTYPE_SDLC:
+    title: LINKTYPE_SDLC
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_SDLC.html
 
   LINKTYPE_SITA:
     title: LINKTYPE_SITA

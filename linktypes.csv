@@ -182,13 +182,13 @@
 |LINKTYPE_RDS|265|IEC 62106 Radio data system (RDS) groups|{{LINKTYPE_RDS}}
 |LINKTYPE_USB_DARWIN|266|USB packets captured on a Darwin-based operating system (macOS, etc.)|{{LINKTYPE_USB_DARWIN}}
 |LINKTYPE_OPENFLOW|267|Reserved for OpenBSD DLT_OPENFLOW|
-|LINKTYPE_SDLC|268|SDLC packets, as specified by Chapter 1, DLC Links, section Synchronous Data Link Control (SDLC) of Systems Network Architecture Formats, GA27-3136-20 , without the flag fields, zero-bit insertion, or Frame Check Sequence field, containing SNA path information units (PIUs) as the payload|
+|LINKTYPE_SDLC|268|SNA SDLC packets|{{LINKTYPE_SDLC}}
 |LINKTYPE_TI_LLN_SNIFFER|269|Reserved for Texas Instruments protocol sniffer|
 |LINKTYPE_LORATAP|270|LoRaWan packets with a LoRaTap pseudo-header|{{LINKTYPE_LORATAP}}
 |LINKTYPE_VSOCK|271|Protocol for communication between host and guest machines in VMware and KVM hypervisors|{{LINKTYPE_VSOCK}}
 |LINKTYPE_NORDIC_BLE|272|Messages to and from a Nordic Semiconductor nRF Sniffer for Bluetooth LE packets|{{LINKTYPE_NORDIC_BLE}}
 |LINKTYPE_DOCSIS31_XRA31|273|DOCSIS packets and bursts, preceded by a pseudo-header|{{DOCSIS-XRA}} {{DOCSIS-4.0-MULP}}
-|LINKTYPE_ETHERNET_MPACKET|274|mPackets, as specified by IEEE 802.3br Figure 99-4, starting with the preamble and always ending with a CRC field|
+|LINKTYPE_ETHERNET_MPACKET|274|IEEE 802.3 mPackets|{{LINKTYPE_ETHERNET_MPACKET}}
 |LINKTYPE_DISPLAYPORT_AUX|275|DisplayPort AUX channel monitoring messages|{{LINKTYPE_DISPLAYPORT_AUX}}
 |LINKTYPE_LINUX_SLL2|276|Linux cooked capture encapsulation v2|{{LINKTYPE_LINUX_SLL2}}
 |LINKTYPE_SERCOS_MONITOR|277|Reserved for Sercos Monitor|

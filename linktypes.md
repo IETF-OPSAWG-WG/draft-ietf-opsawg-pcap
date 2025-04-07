@@ -2471,7 +2471,10 @@ Number
 : 268
 
 Description
-: SDLC packets, as specified by Chapter 1, DLC Links, section Synchronous Data Link Control (SDLC) of Systems Network Architecture Formats, GA27-3136-20 , without the flag fields, zero-bit insertion, or Frame Check Sequence field, containing SNA path information units (PIUs) as the payload
+: SNA SDLC packets
+
+Reference
+: {{LINKTYPE_SDLC}}
 {: spacing="compact"}
 
 
@@ -2555,7 +2558,10 @@ Number
 : 274
 
 Description
-: mPackets, as specified by IEEE 802.3br Figure 99-4, starting with the preamble and always ending with a CRC field
+: IEEE 802.3 mPackets
+
+Reference
+: {{LINKTYPE_ETHERNET_MPACKET}}
 {: spacing="compact"}
 
 
