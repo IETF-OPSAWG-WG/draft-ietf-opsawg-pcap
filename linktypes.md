@@ -2222,7 +2222,10 @@ Number
 : 251
 
 Description
-: Bluetooth Low Energy air interface Link Layer packets, in the format described in Section 2.1 (PACKET FORMAT) of volume 6 of the Bluetooth Specification Version 4.0 (see PDF page 2200), but without the Preamble
+: Bluetooth Low Energy link-layer packets
+
+Reference
+: {{LINKTYPE_BLUETOOTH_LE_LL}}
 {: spacing="compact"}
 
 
@@ -2306,7 +2309,10 @@ Number
 : 257
 
 Description
-: PROFIBUS data link layer packets, as specified by IEC standard 61158-4-3, beginning with the start delimiter, ending with the end delimiter, and including all octets between them
+: PROFIBUS data link layer packets
+
+Reference
+: {{LINKTYPE_PROFIBUS_DL}}
 {: spacing="compact"}
 
 

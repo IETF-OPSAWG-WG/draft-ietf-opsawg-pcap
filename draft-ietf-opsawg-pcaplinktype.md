@@ -194,6 +194,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR.html
 
+  LINKTYPE_BLUETOOTH_LE_LL:
+    title: LINKTYPE_BLUETOOTH_LE_LL
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_LE_LL.html
+
   LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR:
     title: LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
     date: false
@@ -468,6 +473,11 @@ informative:
     title: LINKTYPE_PPP_WITH_DIR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PPP_WITH_DIR.html
+
+  LINKTYPE_PROFIBUS_DL:
+    title: LINKTYPE_PROFIBUS_DL
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_PROFIBUS_DL.html
 
   LINKTYPE_RDS:
     title: LINKTYPE_RDS

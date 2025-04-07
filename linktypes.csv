@@ -165,13 +165,13 @@
 |LINKTYPE_SCTP|248|SCTP packets, with no lower-level protocols such as IPv4 or IPv6|{{?RFC4960}}
 |LINKTYPE_USBPCAP|249|USB packets, beginning with a USBPcap header|{{USBPcap}}
 |LINKTYPE_RTAC_SERIAL|250|Serial-line packet from the Schweitzer Engineering Laboratories RTAC product|{{LINKTYPE_RTAC_SERIAL}}
-|LINKTYPE_BLUETOOTH_LE_LL|251|Bluetooth Low Energy air interface Link Layer packets, in the format described in Section 2.1 (PACKET FORMAT) of volume 6 of the Bluetooth Specification Version 4.0 (see PDF page 2200), but without the Preamble|
+|LINKTYPE_BLUETOOTH_LE_LL|251|Bluetooth Low Energy link-layer packets|{{LINKTYPE_BLUETOOTH_LE_LL}}
 |LINKTYPE_WIRESHARK_UPPER_PDU|252|Reserved for Wireshark|
 |LINKTYPE_NETLINK|253|Linux Netlink capture encapsulation|{{LINKTYPE_NETLINK}}
 |LINKTYPE_BLUETOOTH_LINUX_MONITOR|254|Bluetooth Linux Monitor|{{LINKTYPE_BLUETOOTH_LINUX_MONITOR}}
 |LINKTYPE_BLUETOOTH_BREDR_BB|255|Bluetooth Basic Rate and Enhanced Data Rate baseband packets|{{LINKTYPE_BLUETOOTH_BREDR_BB}}
 |LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR|256|Bluetooth Low Energy link-layer packets|{{LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR}}
-|LINKTYPE_PROFIBUS_DL|257|PROFIBUS data link layer packets, as specified by IEC standard 61158-4-3, beginning with the start delimiter, ending with the end delimiter, and including all octets between them|
+|LINKTYPE_PROFIBUS_DL|257|PROFIBUS data link layer packets|{{LINKTYPE_PROFIBUS_DL}}
 |LINKTYPE_PKTAP|258|Apple PKTAP capture encapsulation|{{LINKTYPE_PKTAP}}
 |LINKTYPE_EPON|259|Ethernet-over-passive-optical-network packets, starting with the last 6 octets of the modified preamble as specified by 65.1.3.2 Transmit in Clause 65 of Section 5 of IEEE 802.3, followed immediately by an Ethernet frame|
 |LINKTYPE_IPMI_HPM_2|260|IPMI trace packets, as specified by Table 3-20 Trace Data Block Format in the PICMG HPM.2 specification The timestamps for packets in this format must match the timestamps in the Trace Data Blocks|
