@@ -1015,11 +1015,8 @@ Table of Contents
 
    Name  LINKTYPE_SDLC
    Number  268
-   Description  SDLC packets, as specified by Chapter 1, DLC Links,
-      section Synchronous Data Link Control (SDLC) of Systems Network
-      Architecture Formats, GA27-3136-20 , without the flag fields,
-      zero-bit insertion, or Frame Check Sequence field, containing SNA
-      path information units (PIUs) as the payload
+   Description  SNA SDLC packets
+   Reference  [LINKTYPE_SDLC]
 
    Name  LINKTYPE_TI_LLN_SNIFFER
    Number  269
@@ -1049,8 +1046,8 @@ Table of Contents
 
    Name  LINKTYPE_ETHERNET_MPACKET
    Number  274
-   Description  mPackets, as specified by IEEE 802.3br Figure 99-4,
-      starting with the preamble and always ending with a CRC field
+   Description  IEEE 802.3 mPackets
+   Reference  [LINKTYPE_ETHERNET_MPACKET]
 
    Name  LINKTYPE_DISPLAYPORT_AUX
    Number  275
@@ -1451,6 +1448,11 @@ Table of Contents
               "LINKTYPE_ETW",
               <https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html>.
 
+   [LINKTYPE_ETHERNET_MPACKET]
+              "LINKTYPE_ETHERNET_MPACKET",
+              <https://www.tcpdump.org/linktypes/
+              LINKTYPE_ETHERNET_MPACKET.html>.
+
    [LINKTYPE_FC_2]
               "LINKTYPE_FC_2",
               <https://www.tcpdump.org/linktypes/LINKTYPE_FC_2.html>.
@@ -1647,6 +1649,10 @@ Table of Contents
               "LINKTYPE_RTAC_SERIAL",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_RTAC_SERIAL.html>.
+
+   [LINKTYPE_SDLC]
+              "LINKTYPE_SDLC",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_SDLC.html>.
 
    [LINKTYPE_SITA]
               "LINKTYPE_SITA",
