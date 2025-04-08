@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-01T01:55:32.799852+00:00",
+  "timestamp": "2025-04-08T01:45:00.313789+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9673,7 +9673,7 @@
       "labels": [],
       "body": "Following https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/51, this is simply a rebase of the original PR.",
       "createdAt": "2025-03-28T20:09:52Z",
-      "updatedAt": "2025-03-30T18:56:01Z",
+      "updatedAt": "2025-04-06T21:24:06Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "6a672d043d8a63cbd188a349cd09a14a4f68f610",
@@ -9712,6 +9712,13 @@
           "body": "> IDBs could also use a mechanism to allow options to be added, removed, or changed options might be useful.\r\n\r\nAgree although for my particular usecase both options would fit.\r\n\r\n> Errors as in \"a second CIB might forget to include options that aren't getting changed\"?\r\n\r\nYes, I was thinking about that. Maybe today, after rethinking about it, it seems not that important.\r\n\r\nDo we agree on keeping the existing mechanism and not changing it to a an \"add\", \"change\" or \"remove\" one?",
           "createdAt": "2025-03-30T18:56:00Z",
           "updatedAt": "2025-03-30T18:56:00Z"
+        },
+        {
+          "author": "antoniovazquezblanco",
+          "authorAssociation": "NONE",
+          "body": "> Do we agree on keeping the existing mechanism and not changing it to a an \"add\", \"change\" or \"remove\" one?\r\n\r\nGiven that this was a doubt I raised myself and that you did not show support for it, I guess we have an agreement for the time being and I will keep on going with the next comments/questions. Thanks!",
+          "createdAt": "2025-04-06T15:52:50Z",
+          "updatedAt": "2025-04-06T15:52:50Z"
         }
       ],
       "reviews": [
@@ -9752,6 +9759,46 @@
               "body": "The zero frame for global location is presumably the frame whose origin is at the intersection of the [IERS Reference Meridian](https://en.wikipedia.org/wiki/IERS_Reference_Meridian) and the Equator, at an altitude that's relative to some reference point at that location ([mean sea level](https://en.wikipedia.org/wiki/Sea_level), which would make it [height above mean sea level](https://en.wikipedia.org/wiki/Height_above_mean_sea_level)?).\r\n\r\nThe plane for local location is presumably a plane tangent to the Earth's surface at some point; is that a fixed point, or could it move relative to the origin of the zero frame for global location?",
               "createdAt": "2025-03-28T23:39:05Z",
               "updatedAt": "2025-03-28T23:39:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86joHYm",
+          "commit": {
+            "abbreviatedOid": "d1fd806"
+          },
+          "author": "antoniovazquezblanco",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-06T17:41:46Z",
+          "updatedAt": "2025-04-06T17:41:51Z",
+          "comments": [
+            {
+              "originalPosition": 87,
+              "body": "I would like some imput regarding this one. If both Global and Local location information is used in the same pcap files it should result in the removal of all position information: Would it make sense to include a global location information to tag the specific pcap in a global position and then start using local coordinates referencing this origin? Does this make sense for any usecase? Thanks",
+              "createdAt": "2025-04-06T17:41:46Z",
+              "updatedAt": "2025-04-06T17:41:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86joahI",
+          "commit": {
+            "abbreviatedOid": "d1fd806"
+          },
+          "author": "antoniovazquezblanco",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-06T21:24:06Z",
+          "updatedAt": "2025-04-06T21:24:06Z",
+          "comments": [
+            {
+              "originalPosition": 87,
+              "body": "Would it make sense to use global + local positioning in a case where you are performing a capture in a reference frame that is moving on which you would like to have local measurements of high precission? Example: Performing captures on a train where local frame would map the interior of the train but global one would position the train globally? \ud83e\udd14 ",
+              "createdAt": "2025-04-06T21:24:06Z",
+              "updatedAt": "2025-04-06T21:24:07Z"
             }
           ]
         }
