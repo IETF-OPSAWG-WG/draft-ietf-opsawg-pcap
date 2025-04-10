@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 9 October 2025                                        Sandelman
-                                                            7 April 2025
+Expires: 12 October 2025                                       Sandelman
+                                                           10 April 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 October 2025.
+   This Internet-Draft will expire on 12 October 2025.
 
 Copyright Notice
 
@@ -247,7 +247,7 @@ Table of Contents
    Name  LINKTYPE_ATM_RFC1483
    Number  100
    Description  LLC/SNAP-encapsulated ATM
-   Reference  [RFC1483]
+   Reference  [LINKTYPE_ATM_RFC1483]
 
    Name  LINKTYPE_RAW
    Number  101
@@ -1352,6 +1352,11 @@ Table of Contents
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_APPLE_IP_OVER_IEEE1394.html>.
 
+   [LINKTYPE_ATM_RFC1483]
+              "LINKTYPE_ATM_RFC1483",
+              <https://www.tcpdump.org/linktypes/
+              LINKTYPE_ATM_RFC1483.html>.
+
    [LINKTYPE_AX25]
               "LINKTYPE_AX25",
               <https://www.tcpdump.org/linktypes/LINKTYPE_AX25.html>.
@@ -1795,10 +1800,6 @@ Table of Contents
               and R. Wheeler, "A Method for Transmitting PPP Over
               Ethernet (PPPoE)", RFC 2516, DOI 10.17487/RFC2516,
               February 1999, <https://www.rfc-editor.org/rfc/rfc2516>.
-
-   [RFC1483]  Heinanen, J., "Multiprotocol Encapsulation over ATM
-              Adaptation Layer 5", RFC 1483, DOI 10.17487/RFC1483, July
-              1993, <https://www.rfc-editor.org/rfc/rfc1483>.
 
    [RFC4391]  Chu, J. and V. Kashyap, "Transmission of IP over
               InfiniBand (IPoIB)", RFC 4391, DOI 10.17487/RFC4391, April
