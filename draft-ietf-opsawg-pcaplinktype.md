@@ -399,6 +399,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LORATAP.html
 
+  LINKTYPE_LTALK:
+    title: LINKTYPE_LTALK
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_LTALK.html
+
   LINKTYPE_MDB:
     title: LINKTYPE_MDB
     date: false

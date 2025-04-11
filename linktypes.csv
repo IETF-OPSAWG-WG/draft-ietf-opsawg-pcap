@@ -28,7 +28,7 @@
 |LINKTYPE_HIPPI|111|Reserved for NetBSD HIPPI|
 |LINKTYPE_HDLC|112|Reserved for NetBSD HDLC framing|
 |LINKTYPE_LINUX_SLL|113|"Linux ""cooked"" capture encapsulation"|{{LINKTYPE_LINUX_SLL}}
-|LINKTYPE_LTALK|114|Apple LocalTalk|
+|LINKTYPE_LTALK|114|Apple LocalTalk|{{LINKTYPE_LTALK}}
 |LINKTYPE_ECONET|115|Reserved for Acorn Econet|
 |LINKTYPE_IPFILTER|116|Reserved for OpenBSD ipfilter|
 |LINKTYPE_PFLOG|117|"OpenBSD pflog; ""struct pfloghdr"" structure"|

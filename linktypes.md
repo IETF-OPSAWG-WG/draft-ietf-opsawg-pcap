@@ -408,6 +408,9 @@ Number
 
 Description
 : Apple LocalTalk
+
+Reference
+: {{LINKTYPE_LTALK}}
 {: spacing="compact"}
 
 
