@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 12 October 2025                                       Sandelman
-                                                           10 April 2025
+Expires: 13 October 2025                                       Sandelman
+                                                           11 April 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 October 2025.
+   This Internet-Draft will expire on 13 October 2025.
 
 Copyright Notice
 
@@ -308,6 +308,7 @@ Table of Contents
    Name  LINKTYPE_LTALK
    Number  114
    Description  Apple LocalTalk
+   Reference  [LINKTYPE_LTALK]
 
    Name  LINKTYPE_ECONET
    Number  115
@@ -1557,6 +1558,10 @@ Table of Contents
    [LINKTYPE_LORATAP]
               "LINKTYPE_LORATAP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LORATAP.html>.
+
+   [LINKTYPE_LTALK]
+              "LINKTYPE_LTALK",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_LTALK.html>.
 
    [LINKTYPE_MDB]
               "LINKTYPE_MDB",
