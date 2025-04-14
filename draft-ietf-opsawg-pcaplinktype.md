@@ -396,11 +396,6 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LTALK.html
 
-  LINKTYPE_MDB:
-    title: LINKTYPE_MDB
-    date: false
-    target: https://www.tcpdump.org/linktypes/LINKTYPE_MDB.html
-
   LINKTYPE_MFR:
     title: LINKTYPE_MFR
     date: false
@@ -600,6 +595,15 @@ informative:
     title: LINKTYPE_ZWAVE_TAP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ZWAVE_TAP.html
+
+  MDB-PCAP:
+    title: PCAP format for MDB
+    author:
+    - fullname: Martin Kaiser
+      ins: M. Kaiser
+      org: ""
+    date: August 7, 2023
+    target: https://www.kaiser.cx/posts/pcap-mdb/
 
   OpenVizsla:
     title: OpenVizsla protocol description

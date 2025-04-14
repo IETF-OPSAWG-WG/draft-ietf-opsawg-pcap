@@ -2951,10 +2951,10 @@ Number
 : 300
 
 Description
-: MDB (Multi-Drop Bus) vending machine protocol
+: MDB (Multi-Drop Bus) protocol
 
 Reference
-: {{LINKTYPE_MDB}}
+: {{MDB-PCAP}}
 {: spacing="compact"}
 
 

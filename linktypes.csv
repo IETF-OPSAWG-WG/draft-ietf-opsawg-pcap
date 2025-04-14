@@ -214,5 +214,5 @@
 |LINKTYPE_ZWAVE_TAP|297|Z-Wave packets, with a metadata header|{{LINKTYPE_ZWAVE_TAP}}
 |LINKTYPE_SILABS_DEBUG_CHANNEL|298|Silicon Labs debug channel protocol|{{Silabs-Debug-Channel}}
 |LINKTYPE_FIRA_UCI|299|Ultra-wideband (UWB) controller interface protocol (UCI)|{{LINKTYPE_FIRA_UCI}}
-|LINKTYPE_MDB|300|MDB (Multi-Drop Bus) vending machine protocol|{{LINKTYPE_MDB}}
+|LINKTYPE_MDB|300|MDB (Multi-Drop Bus) protocol|{{MDB-PCAP}}
 |LINKTYPE_DECT_NR|301|DECT-2020 New Radio (NR) MAC layer|{{LINKTYPE_DECT_NR}}
