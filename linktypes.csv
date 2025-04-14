@@ -89,8 +89,8 @@
 |LINKTYPE_GCOM_T1E1|172|Reserved for Gcom T1/E1 line monitoring equipment|
 |LINKTYPE_GCOM_SERIAL|173|Reserved for Gcom T1/E1 line monitoring equipment|
 |LINKTYPE_JUNIPER_PIC_PEER|174|Reserved for Juniper Networks|
-|LINKTYPE_ERF_ETH|175|Endace ERF header followed by 802.3 Ethernet|
-|LINKTYPE_ERF_POS|176|Endace ERF header followed by Packet-over-SONET|
+|LINKTYPE_ERF_ETH|175|Endace TYPE_ETH ERF records|{{LINKTYPE_ERF}}
+|LINKTYPE_ERF_POS|176|Endace TYPE_POS_HDLC ERF records|{{LINKTYPE_ERF}}
 |LINKTYPE_LINUX_LAPD|177|Linux vISDN LAPD frames|{{LINKTYPE_LINUX_LAPD}}
 |LINKTYPE_JUNIPER_ETHER|178|Reserved for Juniper Networks|
 |LINKTYPE_JUNIPER_PPP|179|Reserved for Juniper Networks|
@@ -111,7 +111,7 @@
 |LINKTYPE_JUNIPER_ISM|194|Reserved for Juniper Networks|
 |LINKTYPE_IEEE802_15_4_WITHFCS|195|IEEE 802.15.4 packets with FCS|{{LINKTYPE_IEEE802_15_4_WITHFCS}}
 |LINKTYPE_SITA|196|Various link-layer types, with a pseudo-header|{{LINKTYPE_SITA}}
-|LINKTYPE_ERF|197|Endace ERF records|{{ERF}}
+|LINKTYPE_ERF|197|Endace ERF records|{{LINKTYPE_ERF}}
 |LINKTYPE_RAIF1|198|Reserved for Ethernet packets captured from a u10 Networks board|
 |LINKTYPE_IPMB_KONTRON|199|Reserved for IPMB packet for IPMI, with a 2-octet header|
 |LINKTYPE_JUNIPER_ST|200|Reserved for Juniper Networks|

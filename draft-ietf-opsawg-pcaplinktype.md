@@ -127,11 +127,6 @@ informative:
     date: false
     target: http://www.elektrobit.com/ebhscr
 
-  ERF:
-    title: ERF Types Reference Guide
-    date: false
-    target: https://www.endace.com/erf-extensible-record-format-types.pdf
-
   Exegin-802.15.4-TAP:
     title: IEEE 802.15.4 TAP Link Type Specification
     date: false
@@ -267,6 +262,11 @@ informative:
     title: LINKTYPE_EPON
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_EPON.html
+
+  LINKTYPE_ERF:
+    title: LINKTYPE_ERF
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_ERF.html
 
   LINKTYPE_ETW:
     title: LINKTYPE_ETW

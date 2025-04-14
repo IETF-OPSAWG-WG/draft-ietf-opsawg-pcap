@@ -1196,7 +1196,10 @@ Number
 : 175
 
 Description
-: Endace ERF header followed by 802.3 Ethernet
+: Endace TYPE_ETH ERF records
+
+Reference
+: {{LINKTYPE_ERF}}
 {: spacing="compact"}
 
 
@@ -1208,7 +1211,10 @@ Number
 : 176
 
 Description
-: Endace ERF header followed by Packet-over-SONET
+: Endace TYPE_POS_HDLC ERF records
+
+Reference
+: {{LINKTYPE_ERF}}
 {: spacing="compact"}
 
 
@@ -1484,7 +1490,7 @@ Description
 : Endace ERF records
 
 Reference
-: {{ERF}}
+: {{LINKTYPE_ERF}}
 {: spacing="compact"}
 
 
