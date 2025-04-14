@@ -320,7 +320,7 @@ Table of Contents
 
    Name  LINKTYPE_PFLOG
    Number  117
-   Description  OpenBSD pflog; "struct pfloghdr" structure
+   Description  Reserved for PF packet filter logging
 
    Name  LINKTYPE_CISCO_IOS
    Number  118
