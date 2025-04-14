@@ -1180,8 +1180,8 @@ Table of Contents
 
    Name  LINKTYPE_MDB
    Number  300
-   Description  MDB (Multi-Drop Bus) vending machine protocol
-   Reference  [LINKTYPE_MDB]
+   Description  MDB (Multi-Drop Bus) protocol
+   Reference  [MDB-PCAP]
 
    Name  LINKTYPE_DECT_NR
    Number  301
@@ -1560,10 +1560,6 @@ Table of Contents
               "LINKTYPE_LTALK",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LTALK.html>.
 
-   [LINKTYPE_MDB]
-              "LINKTYPE_MDB",
-              <https://www.tcpdump.org/linktypes/LINKTYPE_MDB.html>.
-
    [LINKTYPE_MFR]
               "LINKTYPE_MFR",
               <https://www.tcpdump.org/linktypes/LINKTYPE_MFR.html>.
@@ -1736,6 +1732,9 @@ Table of Contents
    [LINKTYPE_ZWAVE_TAP]
               "LINKTYPE_ZWAVE_TAP", <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZWAVE_TAP.html>.
+
+   [MDB-PCAP] Kaiser, M., "PCAP format for MDB", August 2023,
+              <https://www.kaiser.cx/posts/pcap-mdb/>.
 
    [OpenVizsla]
               "OpenVizsla protocol description", August 2018,
