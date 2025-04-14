@@ -1123,9 +1123,8 @@ Table of Contents
 
    Name  LINKTYPE_ATSC_ALP
    Number  289
-   Description  ATSC Link-Layer Protocol frames, as described in section
-      5 of the [A_330] Link-Layer Protocol specification, beginning with
-      a Base Header
+   Description  ATSC Link-Layer Protocol frames
+   Reference  [LINKTYPE_ATSC_ALP]
 
    Name  LINKTYPE_ETW
    Number  290
@@ -1275,9 +1274,6 @@ Table of Contents
               Serving GPRS Support Node (MS-SGSN) Logical Link Control
               (LLC) layer specification", 3GPP TS 04.64.
 
-   [A_330]    "ATSC 3.0 System", ATSC Standard A/300, n.d.,
-              <https://www.atsc.org/atsc-documents/type/3-0-standards/>.
-
    [AIM-628]  Moon, D. A., "Chaosnet", MIT A.I. Memo No. 628, June 1981,
               <http://www.bitsavers.org/pdf/mit/ai/AIM-
               628_chaosnet.pdf>.
@@ -1357,6 +1353,10 @@ Table of Contents
               "LINKTYPE_ATM_RFC1483",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_ATM_RFC1483.html>.
+
+   [LINKTYPE_ATSC_ALP]
+              "LINKTYPE_ATSC_ALP", <https://www.tcpdump.org/linktypes/
+              LINKTYPE_ATSC_ALP.html>.
 
    [LINKTYPE_AX25]
               "LINKTYPE_AX25",
