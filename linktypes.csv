@@ -202,14 +202,14 @@
 |LINKTYPE_DSA_TAG_EDSA|285|Ethernet frames, with a Marvell EDSA switch tag inserted|{{LINKTYPE_DSA_TAG_EDSA}}
 |LINKTYPE_ELEE|286|Reserved for ELEE lawful intercept protocol|
 |LINKTYPE_Z_WAVE_SERIAL|287|Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection|{{Z_WAVE_SERIAL}} section 5
-|LINKTYPE_USB_2_0|288|USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the the Universal Serial Bus Specification Revision 2.0|
+|LINKTYPE_USB_2_0|288|USB 2.0, 1.1, or 1.0 packets|{{LINKTYPE_USB_2_0}}
 |LINKTYPE_ATSC_ALP|289|ATSC Link-Layer Protocol frames|{{LINKTYPE_ATSC_ALP}}
 |LINKTYPE_ETW|290|Event Tracing for Windows messages|{{LINKTYPE_ETW}}
 |LINKTYPE_NETANALYZER_NG|291|Reserved for Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software|
 |LINKTYPE_ZBOSS_NCP|292|ZBOSS NCP Serial Protocol, with a pseudo-header|{{LINKTYPE_ZBOSS_NCP}}
-|LINKTYPE_USB_2_0_LOW_SPEED|293|"Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 ""Protocol Layer"" of {{USB-2.0}}"|
-|LINKTYPE_USB_2_0_FULL_SPEED|294|"Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 ""Protocol Layer"" of {{USB-2.0}}"|
-|LINKTYPE_USB_2_0_HIGH_SPEED|295|"High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 ""Protocol Layer"" of {{USB-2.0}}"|
+|LINKTYPE_USB_2_0_LOW_SPEED|293|Low-Speed USB 2.0, 1.1, or 1.0 packets|{{LINKTYPE_USB_2_0_LOW_SPEED}}
+|LINKTYPE_USB_2_0_FULL_SPEED|294|Full-Speed USB 2.0, 1.1, or 1.0 packets|{{LINKTYPE_USB_2_0_FULL_SPEED}}
+|LINKTYPE_USB_2_0_HIGH_SPEED|295|High-Speed USB 2.0 packets|{{LINKTYPE_USB_2_0_HIGH_SPEED}}
 |LINKTYPE_AUERSWALD_LOG|296|Auerswald Logger Protocol|{{Auerswald-Logger}}
 |LINKTYPE_ZWAVE_TAP|297|Z-Wave packets, with a metadata header|{{LINKTYPE_ZWAVE_TAP}}
 |LINKTYPE_SILABS_DEBUG_CHANNEL|298|Silicon Labs debug channel protocol|{{Silabs-Debug-Channel}}

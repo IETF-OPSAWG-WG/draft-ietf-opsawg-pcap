@@ -2765,7 +2765,10 @@ Number
 : 288
 
 Description
-: USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the the Universal Serial Bus Specification Revision 2.0
+: USB 2.0, 1.1, or 1.0 packets
+
+Reference
+: {{LINKTYPE_USB_2_0}}
 {: spacing="compact"}
 
 
@@ -2834,7 +2837,10 @@ Number
 : 293
 
 Description
-: Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of {{USB-2.0}}
+: Low-Speed USB 2.0, 1.1, or 1.0 packets
+
+Reference
+: {{LINKTYPE_USB_2_0_LOW_SPEED}}
 {: spacing="compact"}
 
 
@@ -2846,7 +2852,10 @@ Number
 : 294
 
 Description
-: Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of {{USB-2.0}}
+: Full-Speed USB 2.0, 1.1, or 1.0 packets
+
+Reference
+: {{LINKTYPE_USB_2_0_FULL_SPEED}}
 {: spacing="compact"}
 
 
@@ -2858,7 +2867,10 @@ Number
 : 295
 
 Description
-: High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of {{USB-2.0}}
+: High-Speed USB 2.0 packets
+
+Reference
+: {{LINKTYPE_USB_2_0_HIGH_SPEED}}
 {: spacing="compact"}
 
 

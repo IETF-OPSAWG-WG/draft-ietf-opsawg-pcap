@@ -538,6 +538,26 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_SUNATM.html
 
+  LINKTYPE_USB_2_0:
+    title: LINKTYPE_USB_2_0
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0.html
+
+  LINKTYPE_USB_2_0_FULL_SPEED:
+    title: LINKTYPE_USB_2_0_FULL_SPEED
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0_FULL_SPEED.html
+
+  LINKTYPE_USB_2_0_HIGH_SPEED:
+    title: LINKTYPE_USB_2_0_HIGH_SPEED
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0_HIGH_SPEED.html
+
+  LINKTYPE_USB_2_0_LOW_SPEED:
+    title: LINKTYPE_USB_2_0_LOW_SPEED
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0_LOW_SPEED.html
+
   LINKTYPE_USB_DARWIN:
     title: LINKTYPE_USB_DARWIN
     date: false
@@ -655,11 +675,6 @@ informative:
     refcontent: STANAG 5066
     date: false
     target: https://web.archive.org/web/20051004082010/http://www.armymars.net/ArmyMARS/HF-Email/resources/stanag5066.pdf
-
-  USB-2.0:
-    title: Universal Serial Bus Specification Revision 2.0
-    date: April 27, 2000
-    target: https://www.usb.org/document-library/usb-20-specification
 
   USBPcap:
     title: USBPcap Capture format specification
