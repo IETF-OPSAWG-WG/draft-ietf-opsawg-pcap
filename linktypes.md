@@ -2000,10 +2000,10 @@ Number
 : 235
 
 Description
-: DVB-CI messages
+: DVB-CI messages, with a pseudo-header
 
 Reference
-: {{DVB-CI-PCAP}}{{DVB-CI}}
+: {{LINKTYPE_DVB_CI}}
 {: spacing="compact"}
 
 
