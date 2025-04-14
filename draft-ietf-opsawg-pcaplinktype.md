@@ -120,7 +120,7 @@ informative:
       ins: M. Kaiser
       org: ""
     date: January 2, 2021
-    target: https://www.kaiser.cx/pcap-dvbci/
+    target: https://www.kaiser.cx/posts/pcap-dvbci/
 
   EBHSCR:
     title: Documentation EBHSCR
