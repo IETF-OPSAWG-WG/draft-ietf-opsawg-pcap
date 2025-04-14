@@ -1322,7 +1322,7 @@ Table of Contents
 
    [DVB-CI-PCAP]
               Kaiser, M., "PCAP format for DVB-CI", January 2021,
-              <https://www.kaiser.cx/pcap-dvbci/>.
+              <https://www.kaiser.cx/posts/pcap-dvbci/>.
 
    [EBHSCR]   "Documentation EBHSCR",
               <http://www.elektrobit.com/ebhscr>.
