@@ -851,7 +851,7 @@ Table of Contents
    Name  LINKTYPE_DVB_CI
    Number  235
    Description  DVB-CI messages, with a pseudo-header
-   Reference  [LINKTYPE_DVB_CI]
+   Reference  [DVB-CI-PCAP]
 
    Name  LINKTYPE_MUX27010
    Number  236
@@ -1314,6 +1314,10 @@ Table of Contents
               878.2, 1992, <https://web.archive.org/web/20100414154914/
               http://www.arcnet.com/resources/ata8782.pdf>.
 
+   [DVB-CI-PCAP]
+              Kaiser, M., "PCAP format for DVB-CI", January 2021,
+              <https://www.kaiser.cx/posts/pcap-dvbci/>.
+
    [EBHSCR]   "Documentation EBHSCR",
               <http://www.elektrobit.com/ebhscr>.
 
@@ -1431,10 +1435,6 @@ Table of Contents
               "LINKTYPE_DSA_TAG_EDSA",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_EDSA.html>.
-
-   [LINKTYPE_DVB_CI]
-              "LINKTYPE_DVB_CI",
-              <https://www.tcpdump.org/linktypes/LINKTYPE_DVB_CI.html>.
 
    [LINKTYPE_EPON]
               "LINKTYPE_EPON",
