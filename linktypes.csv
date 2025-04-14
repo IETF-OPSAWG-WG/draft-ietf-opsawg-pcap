@@ -210,7 +210,7 @@
 |LINKTYPE_USB_2_0_LOW_SPEED|293|"Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 ""Protocol Layer"" of {{USB-2.0}}"|
 |LINKTYPE_USB_2_0_FULL_SPEED|294|"Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 ""Protocol Layer"" of {{USB-2.0}}"|
 |LINKTYPE_USB_2_0_HIGH_SPEED|295|"High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 ""Protocol Layer"" of {{USB-2.0}}"|
-|LINKTYPE_AUERSWALD_LOG|296|Auerswald Logger Protocol, as described in {{Auerswald-Logger}}|
+|LINKTYPE_AUERSWALD_LOG|296|Auerswald Logger Protocol|{{Auerswald-Logger}}
 |LINKTYPE_ZWAVE_TAP|297|Z-Wave packets, with a metadata header|{{LINKTYPE_ZWAVE_TAP}}
 |LINKTYPE_SILABS_DEBUG_CHANNEL|298|Silicon Labs debug channel protocol|{{Silabs-Debug-Channel}}
 |LINKTYPE_FIRA_UCI|299|Ultra-wideband (UWB) controller interface protocol (UCI)|{{LINKTYPE_FIRA_UCI}}

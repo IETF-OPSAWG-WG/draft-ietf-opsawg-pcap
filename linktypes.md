@@ -2867,7 +2867,10 @@ Number
 : 296
 
 Description
-: Auerswald Logger Protocol, as described in {{Auerswald-Logger}}
+: Auerswald Logger Protocol
+
+Reference
+: {{Auerswald-Logger}}
 {: spacing="compact"}
 
 
