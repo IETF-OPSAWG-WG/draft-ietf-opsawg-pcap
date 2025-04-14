@@ -531,8 +531,9 @@ Table of Contents
 
    Name  LINKTYPE_PPP_PPPD
    Number  166
-   Description  PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC,
-      different stuffing
+   Description  PPP preceded by a direction octet and an HDLC-like
+      control field
+   Reference  [LINKTYPE_PPP_PPPD]
 
    Name  LINKTYPE_JUNIPER_PPPOE
    Number  167
@@ -1636,6 +1637,10 @@ Table of Contents
    [LINKTYPE_PPP_HDLC]
               "LINKTYPE_PPP_HDLC", <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_HDLC.html>.
+
+   [LINKTYPE_PPP_PPPD]
+              "LINKTYPE_PPP_PPPD", <https://www.tcpdump.org/linktypes/
+              LINKTYPE_PPP_PPPD.html>.
 
    [LINKTYPE_PPP_WITH_DIR]
               "LINKTYPE_PPP_WITH_DIR",
