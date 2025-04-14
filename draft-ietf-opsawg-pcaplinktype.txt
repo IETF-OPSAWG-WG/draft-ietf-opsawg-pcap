@@ -573,11 +573,13 @@ Table of Contents
 
    Name  LINKTYPE_ERF_ETH
    Number  175
-   Description  Endace ERF header followed by 802.3 Ethernet
+   Description  Endace TYPE_ETH ERF records
+   Reference  [LINKTYPE_ERF]
 
    Name  LINKTYPE_ERF_POS
    Number  176
-   Description  Endace ERF header followed by Packet-over-SONET
+   Description  Endace TYPE_POS_HDLC ERF records
+   Reference  [LINKTYPE_ERF]
 
    Name  LINKTYPE_LINUX_LAPD
    Number  177
@@ -673,7 +675,7 @@ Table of Contents
    Name  LINKTYPE_ERF
    Number  197
    Description  Endace ERF records
-   Reference  [ERF]
+   Reference  [LINKTYPE_ERF]
 
    Name  LINKTYPE_RAIF1
    Number  198
@@ -1325,9 +1327,6 @@ Table of Contents
    [EBHSCR]   "Documentation EBHSCR",
               <http://www.elektrobit.com/ebhscr>.
 
-   [ERF]      "ERF Types Reference Guide", <https://www.endace.com/erf-
-              extensible-record-format-types.pdf>.
-
    [Exegin-802.15.4-TAP]
               "IEEE 802.15.4 TAP Link Type Specification",
               <https://gitlab.com/exegin/ieee802-15-4-tap>.
@@ -1446,6 +1445,10 @@ Table of Contents
    [LINKTYPE_EPON]
               "LINKTYPE_EPON",
               <https://www.tcpdump.org/linktypes/LINKTYPE_EPON.html>.
+
+   [LINKTYPE_ERF]
+              "LINKTYPE_ERF",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_ERF.html>.
 
    [LINKTYPE_ETW]
               "LINKTYPE_ETW",
