@@ -2003,7 +2003,7 @@ Description
 : DVB-CI messages, with a pseudo-header
 
 Reference
-: {{LINKTYPE_DVB_CI}}
+: {{DVB-CI-PCAP}}
 {: spacing="compact"}
 
 

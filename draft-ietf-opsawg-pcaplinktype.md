@@ -106,6 +106,15 @@ informative:
     refcontent: ARCNET Trade Association draft standard 878.2
     target: https://web.archive.org/web/20100414154914/http://www.arcnet.com/resources/ata8782.pdf
 
+  DVB-CI-PCAP:
+    title: PCAP format for DVB-CI
+    author:
+    - fullname: Martin Kaiser
+      ins: M. Kaiser
+      org: ""
+    date: January 2, 2021
+    target: https://www.kaiser.cx/posts/pcap-dvbci/
+
   EBHSCR:
     title: Documentation EBHSCR
     date: false
@@ -241,11 +250,6 @@ informative:
     title: LINKTYPE_DSA_TAG_EDSA
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_EDSA.html
-
-  LINKTYPE_DVB_CI:
-    title: LINKTYPE_DVB_CI
-    date: false
-    target: https://www.tcpdump.org/linktypes/LINKTYPE_DVB_CI.html
 
   LINKTYPE_EPON:
     title: LINKTYPE_EPON
