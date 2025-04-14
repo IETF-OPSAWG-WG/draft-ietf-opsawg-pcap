@@ -31,7 +31,7 @@
 |LINKTYPE_LTALK|114|Apple LocalTalk|{{LINKTYPE_LTALK}}
 |LINKTYPE_ECONET|115|Reserved for Acorn Econet|
 |LINKTYPE_IPFILTER|116|Reserved for OpenBSD ipfilter|
-|LINKTYPE_PFLOG|117|"OpenBSD pflog; ""struct pfloghdr"" structure"|
+|LINKTYPE_PFLOG|117|Reserved for PF packet filter logging|
 |LINKTYPE_CISCO_IOS|118|Reserved for Cisco-internal use|
 |LINKTYPE_IEEE802_11_PRISM|119|Prism monitor mode|{{LINKTYPE_IEEE802_11_PRISM}}
 |LINKTYPE_IEEE802_11_AIRONET|120|Reserved for 802.11 + FreeBSD Aironet radio metadata|

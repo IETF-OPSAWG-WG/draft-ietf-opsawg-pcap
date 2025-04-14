@@ -446,7 +446,7 @@ Number
 : 117
 
 Description
-: OpenBSD pflog; "struct pfloghdr" structure
+: Reserved for PF packet filter logging
 {: spacing="compact"}
 
 
