@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 13 October 2025                                       Sandelman
-                                                           11 April 2025
+Expires: 16 October 2025                                       Sandelman
+                                                           14 April 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 October 2025.
+   This Internet-Draft will expire on 16 October 2025.
 
 Copyright Notice
 
@@ -1159,8 +1159,8 @@ Table of Contents
 
    Name  LINKTYPE_AUERSWALD_LOG
    Number  296
-   Description  Auerswald Logger Protocol, as described in
-      [Auerswald-Logger]
+   Description  Auerswald Logger Protocol
+   Reference  [Auerswald-Logger]
 
    Name  LINKTYPE_ZWAVE_TAP
    Number  297

@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 13 October 2025                           Politecnico di Torino
+Expires: 16 October 2025                           Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 13 October 2025                           Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                           11 April 2025
+                                                           14 April 2025
 
 
            PCAP Next Generation (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 October 2025.
+   This Internet-Draft will expire on 16 October 2025.
 
 Copyright Notice
 
@@ -2521,9 +2521,9 @@ Table of Contents
    [I-D.ietf-tls-keylogfile]
               Thomson, M., Rosomakho, Y., and H. Tschofenig, "The
               SSLKEYLOGFILE Format for TLS", Work in Progress, Internet-
-              Draft, draft-ietf-tls-keylogfile-03, 4 February 2025,
+              Draft, draft-ietf-tls-keylogfile-04, 11 April 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              keylogfile-03>.
+              keylogfile-04>.
 
 Appendix A.  Packet Block (obsolete!)
 
