@@ -1076,7 +1076,10 @@ Number
 : 166
 
 Description
-: PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC, different stuffing
+: PPP preceded by a direction octet and an HDLC-like control field
+
+Reference
+: {{LINKTYPE_PPP_PPPD}}
 {: spacing="compact"}
 
 

@@ -493,6 +493,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PPP_HDLC.html
 
+  LINKTYPE_PPP_PPPD:
+    title: LINKTYPE_PPP_PPPD
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_PPP_PPPD.html
+
   LINKTYPE_PPP_WITH_DIR:
     title: LINKTYPE_PPP_WITH_DIR
     date: false

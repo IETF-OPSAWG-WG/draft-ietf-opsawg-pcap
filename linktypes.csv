@@ -80,7 +80,7 @@
 |LINKTYPE_IEEE802_11_AVS|163|AVS header, followed by an 802.11 header|{{AVS}}
 |LINKTYPE_JUNIPER_MONITOR|164|Reserved for Juniper Networks|
 |LINKTYPE_BACNET_MS_TP|165|BACnet MS/TP frames|Section 9.3 MS/TP Frame Format of {{ASHRAE-135}}
-|LINKTYPE_PPP_PPPD|166|PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC, different stuffing|
+|LINKTYPE_PPP_PPPD|166|PPP preceded by a direction octet and an HDLC-like control field|{{LINKTYPE_PPP_PPPD}}
 |LINKTYPE_JUNIPER_PPPOE|167|Reserved for Juniper Networks|
 |LINKTYPE_JUNIPER_PPPOE_ATM|168|Reserved for Juniper Networks|
 |LINKTYPE_GPRS_LLC|169|General Packet Radio Service Logical Link Control, as per 3GPP TS 04.64|{{_3GPP-TS-04.64}}
