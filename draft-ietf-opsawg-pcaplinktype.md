@@ -57,12 +57,6 @@ informative:
     date: false
     refcontent: 3GPP TS 04.64
 
-  A/330:
-    title: >
-      ATSC 3.0 System
-    refcontent: ATSC Standard A/300
-    target: https://www.atsc.org/atsc-documents/type/3-0-standards/
-
   AIM-628:
     author:
     - fullname: David A. Moon
@@ -173,6 +167,11 @@ informative:
     title: LINKTYPE_ATM_RFC1483
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ATM_RFC1483.html
+
+  LINKTYPE_ATSC_ALP:
+    title: LINKTYPE_ATSC_ALP
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_ATSC_ALP.html
 
   LINKTYPE_AX25:
     title: LINKTYPE_AX25

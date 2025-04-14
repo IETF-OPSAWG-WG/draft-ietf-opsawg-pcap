@@ -2777,7 +2777,10 @@ Number
 : 289
 
 Description
-: ATSC Link-Layer Protocol frames, as described in section 5 of the {{A/330}} Link-Layer Protocol specification, beginning with a Base Header
+: ATSC Link-Layer Protocol frames
+
+Reference
+: {{LINKTYPE_ATSC_ALP}}
 {: spacing="compact"}
 
 
