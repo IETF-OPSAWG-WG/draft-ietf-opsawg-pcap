@@ -1117,9 +1117,8 @@ Table of Contents
 
    Name  LINKTYPE_USB_2_0
    Number  288
-   Description  USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as
-      described by Chapter 8 Protocol Layer of the the Universal Serial
-      Bus Specification Revision 2.0
+   Description  USB 2.0, 1.1, or 1.0 packets
+   Reference  [LINKTYPE_USB_2_0]
 
    Name  LINKTYPE_ATSC_ALP
    Number  289
@@ -1143,18 +1142,18 @@ Table of Contents
 
    Name  LINKTYPE_USB_2_0_LOW_SPEED
    Number  293
-   Description  Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a
-      PID, as described by Chapter 8 "Protocol Layer" of [USB-2.0]
+   Description  Low-Speed USB 2.0, 1.1, or 1.0 packets
+   Reference  [LINKTYPE_USB_2_0_LOW_SPEED]
 
    Name  LINKTYPE_USB_2_0_FULL_SPEED
    Number  294
-   Description  Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a
-      PID, as described by Chapter 8 "Protocol Layer" of [USB-2.0]
+   Description  Full-Speed USB 2.0, 1.1, or 1.0 packets
+   Reference  [LINKTYPE_USB_2_0_FULL_SPEED]
 
    Name  LINKTYPE_USB_2_0_HIGH_SPEED
    Number  295
-   Description  High-Speed USB 2.0 packet, beginning with a PID, as
-      described by Chapter 8 "Protocol Layer" of [USB-2.0]
+   Description  High-Speed USB 2.0 packets
+   Reference  [LINKTYPE_USB_2_0_HIGH_SPEED]
 
    Name  LINKTYPE_AUERSWALD_LOG
    Number  296
@@ -1678,6 +1677,25 @@ Table of Contents
               "LINKTYPE_SUNATM",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SUNATM.html>.
 
+   [LINKTYPE_USB_2_0]
+              "LINKTYPE_USB_2_0",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0.html>.
+
+   [LINKTYPE_USB_2_0_FULL_SPEED]
+              "LINKTYPE_USB_2_0_FULL_SPEED",
+              <https://www.tcpdump.org/linktypes/
+              LINKTYPE_USB_2_0_FULL_SPEED.html>.
+
+   [LINKTYPE_USB_2_0_HIGH_SPEED]
+              "LINKTYPE_USB_2_0_HIGH_SPEED",
+              <https://www.tcpdump.org/linktypes/
+              LINKTYPE_USB_2_0_HIGH_SPEED.html>.
+
+   [LINKTYPE_USB_2_0_LOW_SPEED]
+              "LINKTYPE_USB_2_0_LOW_SPEED",
+              <https://www.tcpdump.org/linktypes/
+              LINKTYPE_USB_2_0_LOW_SPEED.html>.
+
    [LINKTYPE_USB_DARWIN]
               "LINKTYPE_USB_DARWIN", <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_DARWIN.html>.
@@ -1765,10 +1783,6 @@ Table of Contents
               <https://web.archive.org/web/20051004082010/
               http://www.armymars.net/ArmyMARS/HF-Email/resources/
               stanag5066.pdf>.
-
-   [USB-2.0]  "Universal Serial Bus Specification Revision 2.0", April
-              2000, <https://www.usb.org/document-library/usb-
-              20-specification>.
 
    [USBPcap]  "USBPcap Capture format specification",
               <https://desowin.org/usbpcap/captureformat.html>.
