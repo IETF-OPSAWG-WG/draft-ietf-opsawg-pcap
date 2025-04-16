@@ -527,7 +527,7 @@ Table of Contents
    Name  LINKTYPE_BACNET_MS_TP
    Number  165
    Description  BACnet MS/TP frames
-   Reference  Section 9.3 MS/TP Frame Format of [ASHRAE-135]
+   Reference  [LINKTYPE_BACNET_MS_TP]
 
    Name  LINKTYPE_PPP_PPPD
    Number  166
@@ -1280,11 +1280,6 @@ Table of Contents
               <http://www.bitsavers.org/pdf/mit/ai/AIM-
               628_chaosnet.pdf>.
 
-   [ASHRAE-135]
-              "BACnet(TM): A Data Communication Protocol for Building
-              Automation and Control Networks", ANSI/ASHRAE Standard
-              135.
-
    [ATA-878.1-1999]
               "ATA 878.1 - 1999 Local Area Network - Token Bus", ARCNET
               Trade Association standard 878.1-1999, 1999,
@@ -1358,6 +1353,11 @@ Table of Contents
    [LINKTYPE_AX25_KISS]
               "LINKTYPE_AX25_KISS", <https://www.tcpdump.org/linktypes/
               LINKTYPE_AX25_KISS.html>.
+
+   [LINKTYPE_BACNET_MS_TP]
+              "LINKTYPE_BACNET_MS_TP",
+              <https://www.tcpdump.org/linktypes/
+              LINKTYPE_BACNET_MS_TP.html>.
 
    [LINKTYPE_BLUETOOTH_BREDR_BB]
               "LINKTYPE_BLUETOOTH_BREDR_BB",
