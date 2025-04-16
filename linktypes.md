@@ -185,10 +185,10 @@ Number
 : 51
 
 Description
-: PPPoE
+: PPPoE session packets
 
 Reference
-: {{Section 4 of ?RFC2516}}
+: {{LINKTYPE_PPP_ETHER}}
 {: spacing="compact"}
 
 

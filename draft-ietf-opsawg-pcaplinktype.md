@@ -474,6 +474,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PPP.html
 
+  LINKTYPE_PPP_ETHER:
+    title: LINKTYPE_PPP_ETHER
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_PPP_ETHER.html
+
   LINKTYPE_PPP_HDLC:
     title: LINKTYPE_PPP_HDLC
     date: false
