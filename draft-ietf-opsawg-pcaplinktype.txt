@@ -233,8 +233,8 @@ Table of Contents
 
    Name  LINKTYPE_PPP_ETHER
    Number  51
-   Description  PPPoE
-   Reference  Section 4 of [RFC2516]
+   Description  PPPoE session packets
+   Reference  [LINKTYPE_PPP_ETHER]
 
    Name  Reserved
    Number  52-98
@@ -1627,6 +1627,10 @@ Table of Contents
               "LINKTYPE_PPP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_PPP.html>.
 
+   [LINKTYPE_PPP_ETHER]
+              "LINKTYPE_PPP_ETHER", <https://www.tcpdump.org/linktypes/
+              LINKTYPE_PPP_ETHER.html>.
+
    [LINKTYPE_PPP_HDLC]
               "LINKTYPE_PPP_HDLC", <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_HDLC.html>.
@@ -1815,11 +1819,6 @@ Table of Contents
    [RFC1201]  Provan, D., "Transmitting IP traffic over ARCNET
               networks", STD 46, RFC 1201, DOI 10.17487/RFC1201,
               February 1991, <https://www.rfc-editor.org/rfc/rfc1201>.
-
-   [RFC2516]  Mamakos, L., Lidl, K., Evarts, J., Carrel, D., Simone, D.,
-              and R. Wheeler, "A Method for Transmitting PPP Over
-              Ethernet (PPPoE)", RFC 2516, DOI 10.17487/RFC2516,
-              February 1999, <https://www.rfc-editor.org/rfc/rfc2516>.
 
    [RFC4391]  Chu, J. and V. Kashyap, "Transmission of IP over
               InfiniBand (IPoIB)", RFC 4391, DOI 10.17487/RFC4391, April
