@@ -1064,7 +1064,7 @@ Description
 : BACnet MS/TP frames
 
 Reference
-: Section 9.3 MS/TP Frame Format of {{ASHRAE-135}}
+: {{LINKTYPE_BACNET_MS_TP}}
 {: spacing="compact"}
 
 

@@ -66,13 +66,6 @@ informative:
     refcontent: MIT A.I. Memo No. 628
     target: http://www.bitsavers.org/pdf/mit/ai/AIM-628_chaosnet.pdf
 
-  ASHRAE-135:
-    title: >
-      BACnet(TM): A Data Communication Protocol for Building Automation
-      and Control Networks
-    date: false
-    refcontent: ANSI/ASHRAE Standard 135
-
   ATA-878.1-1999:
     title: ATA 878.1 - 1999 Local Area Network - Token Bus
     date: 1999
@@ -170,6 +163,11 @@ informative:
     title: LINKTYPE_AX25_KISS
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_AX25_KISS.html
+
+  LINKTYPE_BACNET_MS_TP:
+    title: LINKTYPE_BACNET_MS_TP
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_BACNET_MS_TP.html
 
   LINKTYPE_BLUETOOTH_BREDR_BB:
     title: LINKTYPE_BLUETOOTH_BREDR_BB
