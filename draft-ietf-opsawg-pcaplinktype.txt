@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 16 October 2025                                       Sandelman
-                                                           14 April 2025
+Expires: 18 October 2025                                       Sandelman
+                                                           16 April 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 October 2025.
+   This Internet-Draft will expire on 18 October 2025.
 
 Copyright Notice
 
@@ -622,7 +622,7 @@ Table of Contents
 
    Name  LINKTYPE_USB_FREEBSD
    Number  186
-   Description  USB packets, beginning with a FreeBSD USB header
+   Description  Reserved for USB traffic captured on FreeBSD
 
    Name  LINKTYPE_BLUETOOTH_HCI_H4
    Number  187
