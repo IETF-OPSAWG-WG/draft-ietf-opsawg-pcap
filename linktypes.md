@@ -2105,7 +2105,7 @@ Description
 : IP-over-InfiniBand
 
 Reference
-: {{Section 6 of ?RFC4391}}
+: {{LINKTYPE_IPOIB}}
 {: spacing="compact"}
 
 

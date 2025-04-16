@@ -324,6 +324,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IEEE802_15_4_WITHFCS.html
 
+  LINKTYPE_IPOIB:
+    title: LINKTYPE_IPOIB
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_IPOIB.html
+
   LINKTYPE_IP_OVER_FC:
     title: LINKTYPE_IP_OVER_FC
     date: false

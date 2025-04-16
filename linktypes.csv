@@ -156,7 +156,7 @@
 |LINKTYPE_NFLOG|239|Linux netlink NETLINK NFLOG socket log messages|{{LINKTYPE_NFLOG}}
 |LINKTYPE_NETANALYZER|240|Ethernet frames with netANALYZER pseudo-header|{{LINKTYPE_NETANALYZER}}
 |LINKTYPE_NETANALYZER_TRANSPARENT|241|Ethernet frames with netANALYZER pseudo-header, preamble, and SFD|{{LINKTYPE_NETANALYZER_TRANSPARENT}}
-|LINKTYPE_IPOIB|242|IP-over-InfiniBand|{{Section 6 of ?RFC4391}}
+|LINKTYPE_IPOIB|242|IP-over-InfiniBand|{{LINKTYPE_IPOIB}}
 |LINKTYPE_MPEG_2_TS|243|MPEG-2 Transport Stream transport packets|{{LINKTYPE_MPEG_2_TS}}
 |LINKTYPE_NG40|244|Frames from ng4T GmbH's ng40 protocol tester|{{LINKTYPE_NG40}}
 |LINKTYPE_NFC_LLCP|245|NFC Logical Link Control Protocol frames, with a pseudo-header|{{LINKTYPE_NFC_LLCP}}
