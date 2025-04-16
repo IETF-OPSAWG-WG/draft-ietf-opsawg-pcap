@@ -886,7 +886,7 @@ Table of Contents
    Name  LINKTYPE_IPOIB
    Number  242
    Description  IP-over-InfiniBand
-   Reference  Section 6 of [RFC4391]
+   Reference  [LINKTYPE_IPOIB]
 
    Name  LINKTYPE_MPEG_2_TS
    Number  243
@@ -1503,6 +1503,10 @@ Table of Contents
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_15_4_WITHFCS.html>.
 
+   [LINKTYPE_IPOIB]
+              "LINKTYPE_IPOIB",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_IPOIB.html>.
+
    [LINKTYPE_IP_OVER_FC]
               "LINKTYPE_IP_OVER_FC", <https://www.tcpdump.org/linktypes/
               LINKTYPE_IP_OVER_FC.html>.
@@ -1819,10 +1823,6 @@ Table of Contents
    [RFC1201]  Provan, D., "Transmitting IP traffic over ARCNET
               networks", STD 46, RFC 1201, DOI 10.17487/RFC1201,
               February 1991, <https://www.rfc-editor.org/rfc/rfc1201>.
-
-   [RFC4391]  Chu, J. and V. Kashyap, "Transmission of IP over
-              InfiniBand (IPoIB)", RFC 4391, DOI 10.17487/RFC4391, April
-              2006, <https://www.rfc-editor.org/rfc/rfc4391>.
 
    [RFC4960]  Stewart, R., Ed., "Stream Control Transmission Protocol",
               RFC 4960, DOI 10.17487/RFC4960, September 2007,
