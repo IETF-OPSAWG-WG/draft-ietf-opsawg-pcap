@@ -1340,7 +1340,7 @@ Number
 : 186
 
 Description
-: USB packets, beginning with a FreeBSD USB header
+: Reserved for USB traffic captured on FreeBSD
 {: spacing="compact"}
 
 

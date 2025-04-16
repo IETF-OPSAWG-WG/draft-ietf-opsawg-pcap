@@ -100,7 +100,7 @@
 |LINKTYPE_JUNIPER_VP|183|Reserved for Juniper Networks|
 |LINKTYPE_A429|184|Reserved for ARINC 429 frames|
 |LINKTYPE_A653_ICM|185|Reserved for Arinc 653 Interpartition Communication messages|
-|LINKTYPE_USB_FREEBSD|186|USB packets, beginning with a FreeBSD USB header|
+|LINKTYPE_USB_FREEBSD|186|Reserved for USB traffic captured on FreeBSD|
 |LINKTYPE_BLUETOOTH_HCI_H4|187|Bluetooth HCI UART Transport Layer packets|{{LINKTYPE_BLUETOOTH_HCI_H4}}
 |LINKTYPE_IEEE802_16_MAC_CPS|188|Reserved for IEEE 802.16 MAC Common Part Sublayer|
 |LINKTYPE_USB_LINUX|189|USB packets, beginning with a Linux USB header|{{LINKTYPE_USB_LINUX}}
