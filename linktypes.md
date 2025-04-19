@@ -2192,7 +2192,7 @@ Description
 : SCTP packets, with no lower-level protocols such as IPv4 or IPv6
 
 Reference
-: {{?RFC4960}}
+: {{?RFC9260}}
 {: spacing="compact"}
 
 

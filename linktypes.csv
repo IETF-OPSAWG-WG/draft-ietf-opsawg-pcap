@@ -162,7 +162,7 @@
 |LINKTYPE_NFC_LLCP|245|NFC Logical Link Control Protocol frames, with a pseudo-header|{{LINKTYPE_NFC_LLCP}}
 |LINKTYPE_PFSYNC|246|Reserved for pfsync output|
 |LINKTYPE_INFINIBAND|247|InfiniBand data packets|{{LINKTYPE_INFINIBAND}}
-|LINKTYPE_SCTP|248|SCTP packets, with no lower-level protocols such as IPv4 or IPv6|{{?RFC4960}}
+|LINKTYPE_SCTP|248|SCTP packets, with no lower-level protocols such as IPv4 or IPv6|{{?RFC9260}}
 |LINKTYPE_USBPCAP|249|USB packets, beginning with a USBPcap header|{{USBPcap}}
 |LINKTYPE_RTAC_SERIAL|250|Serial-line packet from the Schweitzer Engineering Laboratories RTAC product|{{LINKTYPE_RTAC_SERIAL}}
 |LINKTYPE_BLUETOOTH_LE_LL|251|Bluetooth Low Energy link-layer packets|{{LINKTYPE_BLUETOOTH_LE_LL}}
