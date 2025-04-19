@@ -419,6 +419,16 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_MTP2_WITH_PHDR.html
 
+  LINKTYPE_MTP3:
+    title: LINKTYPE_MTP3
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_MTP3.html
+
+  LINKTYPE_SCCP:
+    title: LINKTYPE_SCCP
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_SCCP.html
+
   LINKTYPE_MUX27010:
     title: LINKTYPE_MUX27010
     date: false
@@ -627,46 +637,6 @@ informative:
     - fullname: Edward A. Taft
       org: Xerox Palo Alto Research Center
     target: http://bitsavers.org/pdf/xerox/ethernet_3mb/Practical_Considerations_in_Ethernet_Local_Network_Design_Feb1980.pdf
-
-  Q.704:
-    title: >
-      Specifications of Signalling System No. 7
-      Signalling Network Functions And Messages
-    refcontent: ITU-T Recommendation Q.704
-    date: false
-    target: https://www.itu.int/rec/T-REC-Q.704/en/
-
-  Q.711:
-    title: >
-      Specifications of Signalling System No. 7
-      Functional description of the signalling connection control part
-    refcontent: ITU-T Recommendation Q.711
-    date: false
-    target: https://www.itu.int/rec/T-REC-Q.711/en/
-
-  Q.712:
-    title: >
-      Specifications of Signalling System No. 7
-      Definition and function of signalling connection control part messages
-    refcontent: ITU-T Recommendation Q.712
-    date: false
-    target: https://www.itu.int/rec/T-REC-Q.712/en/
-
-  Q.713:
-    title: >
-      Specifications of Signalling System No. 7
-      Signalling connection control part functions and codes
-    refcontent: ITU-T Recommendation Q.713
-    date: false
-    target: https://www.itu.int/rec/T-REC-Q.713/en/
-
-  Q.714:
-    title: >
-      Specifications of Signalling System No. 7
-      Signalling connection control part procedures
-    refcontent: ITU-T Recommendation Q.714
-    date: false
-    target: https://www.itu.int/rec/T-REC-Q.714/en/
 
   Radiotap:
     author:

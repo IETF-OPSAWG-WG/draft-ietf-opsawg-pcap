@@ -743,7 +743,7 @@ Number
 : 140
 
 Description
-: SS7 MTP2 frames
+: SS7 MTP2 packets
 
 Reference
 : {{LINKTYPE_MTP2}}
@@ -758,10 +758,10 @@ Number
 : 141
 
 Description
-: SS7 MTP Level 3, with no MTP2 header
+: SS7 MTP3 packets
 
 Reference
-: {{Q.704}}
+: {{LINKTYPE_MTP3}}
 {: spacing="compact"}
 
 
@@ -773,10 +773,10 @@ Number
 : 142
 
 Description
-: SS7 Control Part, with no MTP3 or MTP2 header
+: SS7 SCCP packets
 
 Reference
-: {{Q.711}} {{Q.712}} {{Q.713}} {{Q.714}}
+: {{LINKTYPE_SCCP}
 {: spacing="compact"}
 
 
