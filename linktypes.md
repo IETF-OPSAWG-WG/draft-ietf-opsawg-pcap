@@ -470,7 +470,7 @@ Number
 : 119
 
 Description
-: Prism monitor mode
+: IEEE 802.11 wireless LAN, preceded by a Prism monitor mode header
 
 Reference
 : {{LINKTYPE_IEEE802_11_PRISM}}
@@ -575,7 +575,7 @@ Number
 : 127
 
 Description
-: Radiotap header, followed by an 802.11 header
+: IEEE 802.11 wireless LAN, preceded by a Radiotap header
 
 Reference
 : {{Radiotap}}
@@ -776,7 +776,7 @@ Description
 : SS7 SCCP packets
 
 Reference
-: {{LINKTYPE_SCCP}
+: {{LINKTYPE_SCCP}}
 {: spacing="compact"}
 
 
@@ -1034,7 +1034,7 @@ Number
 : 163
 
 Description
-: AVS header, followed by an 802.11 header
+: IEEE 802.11 wireless LAN, preceded by an AVS header
 
 Reference
 : {{AVS}}
@@ -1457,7 +1457,7 @@ Number
 : 195
 
 Description
-: IEEE 802.15.4 packets with FCS
+: IEEE 802.15.4 with FCS
 
 Reference
 : {{LINKTYPE_IEEE802_15_4_WITHFCS}}
@@ -1934,7 +1934,7 @@ Number
 : 230
 
 Description
-: IEEE 802.15.4 packets without FCS
+: IEEE 802.15.4 without FCS
 
 Reference
 : {{LINKTYPE_IEEE802_15_4_NOFCS}}
@@ -2702,7 +2702,7 @@ Number
 : 283
 
 Description
-: IEEE 802.15.4 packets, with a tap header preceding the 802.15.4 header
+: IEEE 802.15.4 with a tap header preceding it
 
 Reference
 : {{Exegin-802.15.4-TAP}}
