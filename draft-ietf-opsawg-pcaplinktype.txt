@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 18 October 2025                                       Sandelman
-                                                           16 April 2025
+Expires: 21 October 2025                                       Sandelman
+                                                           19 April 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 October 2025.
+   This Internet-Draft will expire on 21 October 2025.
 
 Copyright Notice
 
@@ -420,18 +420,18 @@ Table of Contents
 
    Name  LINKTYPE_MTP2
    Number  140
-   Description  SS7 MTP2 frames
+   Description  SS7 MTP2 packets
    Reference  [LINKTYPE_MTP2]
 
    Name  LINKTYPE_MTP3
    Number  141
-   Description  SS7 MTP Level 3, with no MTP2 header
-   Reference  [Q.704]
+   Description  SS7 MTP3 packets
+   Reference  [LINKTYPE_MTP3]
 
    Name  LINKTYPE_SCCP
    Number  142
-   Description  SS7 Control Part, with no MTP3 or MTP2 header
-   Reference  [Q.711] [Q.712] [Q.713] [Q.714]
+   Description  SS7 SCCP packets
+   Reference  [LINKTYPE_SCCP]
 
    Name  LINKTYPE_DOCSIS
    Number  143
@@ -1581,6 +1581,14 @@ Table of Contents
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_MTP2_WITH_PHDR.html>.
 
+   [LINKTYPE_MTP3]
+              "LINKTYPE_MTP3",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_MTP3.html>.
+
+   [LINKTYPE_SCCP]
+              "LINKTYPE_SCCP",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_SCCP.html>.
+
    [LINKTYPE_MUX27010]
               "LINKTYPE_MUX27010", <https://www.tcpdump.org/linktypes/
               LINKTYPE_MUX27010.html>.
@@ -1754,29 +1762,6 @@ Table of Contents
               Ethernet Local Network Design", February 1980,
               <http://bitsavers.org/pdf/xerox/ethernet_3mb/Practical_Con
               siderations_in_Ethernet_Local_Network_Design_Feb1980.pdf>.
-
-   [Q.704]    "Specifications of Signalling System No. 7 Signalling
-              Network Functions And Messages", ITU-T Recommendation
-              Q.704, <https://www.itu.int/rec/T-REC-Q.704/en/>.
-
-   [Q.711]    "Specifications of Signalling System No. 7 Functional
-              description of the signalling connection control part",
-              ITU-T Recommendation Q.711,
-              <https://www.itu.int/rec/T-REC-Q.711/en/>.
-
-   [Q.712]    "Specifications of Signalling System No. 7 Definition and
-              function of signalling connection control part messages",
-              ITU-T Recommendation Q.712,
-              <https://www.itu.int/rec/T-REC-Q.712/en/>.
-
-   [Q.713]    "Specifications of Signalling System No. 7 Signalling
-              connection control part functions and codes", ITU-T
-              Recommendation Q.713,
-              <https://www.itu.int/rec/T-REC-Q.713/en/>.
-
-   [Q.714]    "Specifications of Signalling System No. 7 Signalling
-              connection control part procedures", ITU-T Recommendation
-              Q.714, <https://www.itu.int/rec/T-REC-Q.714/en/>.
 
    [Radiotap] radiotap.org, "Radiotap Web site",
               <https://www.radiotap.org>.
