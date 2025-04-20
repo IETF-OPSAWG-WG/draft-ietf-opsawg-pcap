@@ -649,13 +649,6 @@ informative:
     title: Silabs Debug Channel Format
     target: https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/debug-channel.md
 
-  STANAG-5066:
-    title: >
-      Profile for Maritime High Frequency (HF) Radio Data Communications
-    refcontent: STANAG 5066
-    date: false
-    target: https://web.archive.org/web/20051004082010/http://www.armymars.net/ArmyMARS/HF-Email/resources/stanag5066.pdf
-
   USBPcap:
     title: USBPcap Capture format specification
     date: false
