@@ -222,7 +222,7 @@ Table of Contents
    Number  10
    Description  FDDI: per ANSI INCITS 239-1994
 
-   Name  (Not to be used)
+   Name  not to be used
    Number  11-49
    Description  Do not use these values
 
