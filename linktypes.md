@@ -152,7 +152,7 @@ Description
 
 
 Name
-: (Not to be used)
+: not to be used
 
 Number
 : 11-49

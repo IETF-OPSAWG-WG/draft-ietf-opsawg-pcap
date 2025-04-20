@@ -9,7 +9,7 @@
 |LINKTYPE_SLIP|8|SLIP, with a direction header|{{LINKTYPE_SLIP}}
 |LINKTYPE_PPP|9|PPP|{{LINKTYPE_PPP}}
 |LINKTYPE_FDDI|10|FDDI: per ANSI INCITS 239-1994|
-|(Not to be used)|11-49|Do not use these values|
+|not to be used|11-49|Do not use these values|
 |LINKTYPE_PPP_HDLC|50|PPP in HDLC-like framing|{{LINKTYPE_PPP_HDLC}}
 |LINKTYPE_PPP_ETHER|51|PPPoE session packets|{{LINKTYPE_PPP_ETHER}}
 |Reserved|52-98|Do not use these values|
