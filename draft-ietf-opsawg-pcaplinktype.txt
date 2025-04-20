@@ -222,7 +222,7 @@ Table of Contents
    Number  10
    Description  FDDI: per ANSI INCITS 239-1994
 
-   Name  not to be used
+   Name  (Not to be used)
    Number  11-49
    Description  Do not use these values
 
@@ -1770,13 +1770,6 @@ Table of Contents
               "Silabs Debug Channel Format", n.d., <https://github.com/S
               iliconLabs/java_packet_trace_library/blob/master/doc/
               debug-channel.md>.
-
-   [STANAG-5066]
-              "Profile for Maritime High Frequency (HF) Radio Data
-              Communications", STANAG 5066,
-              <https://web.archive.org/web/20051004082010/
-              http://www.armymars.net/ArmyMARS/HF-Email/resources/
-              stanag5066.pdf>.
 
    [USBPcap]  "USBPcap Capture format specification",
               <https://desowin.org/usbpcap/captureformat.html>.
