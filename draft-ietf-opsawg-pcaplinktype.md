@@ -66,12 +66,6 @@ informative:
     refcontent: MIT A.I. Memo No. 628
     target: http://www.bitsavers.org/pdf/mit/ai/AIM-628_chaosnet.pdf
 
-  ATA-878.1-1999:
-    title: ATA 878.1 - 1999 Local Area Network - Token Bus
-    date: 1999
-    refcontent: ARCNET Trade Association standard 878.1-1999
-    target: https://web.archive.org/web/20100414154838/http://www.arcnet.com/resources/ata8781.pdf
-
   Auerswald-Logger:
     title: Packet structure
     target: https://github.com/Auerswald-GmbH/auerlog/blob/master/auerlog.txt
@@ -92,12 +86,6 @@ informative:
     title: Excentis XRA Header Definition
     date: false
     target: https://support.excentis.com/knowledge/article/45
-
-  Draft-ATA-878.2:
-    title: Draft ATA 878.2 ARCNET Packet Fragmentation Standard Version 1.4
-    date: 1992
-    refcontent: ARCNET Trade Association draft standard 878.2
-    target: https://web.archive.org/web/20100414154914/http://www.arcnet.com/resources/ata8782.pdf
 
   DVB-CI-PCAP:
     title: PCAP format for DVB-CI
