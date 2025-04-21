@@ -104,7 +104,7 @@ Description
 : Reserved for ARCNET Data Packets with BSD encapsulation
 
 Reference
-: {{ATA-878.1-1999}}{{Draft-ATA-878.2}}{{?RFC1051}}{{?RFC1201}}
+: {{ATA-878.1-1999}}{{Draft-ATA-878.2}}{{?RFC1201}}
 {: spacing="compact"}
 
 
