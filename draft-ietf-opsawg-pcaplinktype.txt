@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 22 October 2025                                       Sandelman
-                                                           20 April 2025
+Expires: 23 October 2025                                       Sandelman
+                                                           21 April 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 October 2025.
+   This Internet-Draft will expire on 23 October 2025.
 
 Copyright Notice
 
@@ -206,7 +206,7 @@ Table of Contents
    Name  LINKTYPE_ARCNET_BSD
    Number  7
    Description  Reserved for ARCNET Data Packets with BSD encapsulation
-   Reference  [ATA-878.1-1999][Draft-ATA-878.2][RFC1051][RFC1201]
+   Reference  [ATA-878.1-1999][Draft-ATA-878.2][RFC1201]
 
    Name  LINKTYPE_SLIP
    Number  8
@@ -1793,14 +1793,14 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
               pcapng-03>.
 
+   [RFC1201]  Provan, D., "Transmitting IP traffic over ARCNET
+              networks", STD 46, RFC 1201, DOI 10.17487/RFC1201,
+              February 1991, <https://www.rfc-editor.org/rfc/rfc1201>.
+
    [RFC1051]  Prindeville, P., "Standard for the transmission of IP
               datagrams and ARP packets over ARCNET networks", RFC 1051,
               DOI 10.17487/RFC1051, March 1988,
               <https://www.rfc-editor.org/rfc/rfc1051>.
-
-   [RFC1201]  Provan, D., "Transmitting IP traffic over ARCNET
-              networks", STD 46, RFC 1201, DOI 10.17487/RFC1201,
-              February 1991, <https://www.rfc-editor.org/rfc/rfc1201>.
 
    [RFC9260]  Stewart, R., Tüxen, M., and K. Nielsen, "Stream Control
               Transmission Protocol", RFC 9260, DOI 10.17487/RFC9260,
