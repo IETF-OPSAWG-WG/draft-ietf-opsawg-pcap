@@ -649,7 +649,7 @@ informative:
 
 --- abstract
 
-This document describes a set of PCAP-related LINKTYPE values and
+This document describes a set of PCAP-related LinkType values and
 creates an IANA registry for those values.
 
 --- middle
@@ -668,12 +668,12 @@ tcpdump (PCAP, {{?I-D.ietf-opsawg-pcap}}), as well as a revised file
 format {{?I-D.ietf-opsawg-pcapng}}, both of which are used by tcpdump
 and Wireshark {{Wireshark}}.
 
-Within those file formats each packet that is captured is indicated by a LINKTYPE value.
-The LINKTYPE value selects one of many hundred formats for metadata and Layer 2 encapsulation of the packet.
+Within those file formats each packet that is captured is indicated by a LinkType value.
+The LinkType value selects one of many hundred formats for metadata and Layer 2 encapsulation of the packet.
 
-This document creates an IANA registry for LINKTYPE values, establishing the IANA
+This document creates an IANA registry for LinkType values, establishing the IANA
 Considerations by which other uses of the PCAP-related formats may register new
-LINKTYPE values.
+LinkType values.
 
 #  IANA Considerations
 
@@ -687,8 +687,8 @@ IANA is also requested to create a registry entitled "PCAP-related LinkType List
 
 The registry has the following structure:
 
-* LINKTYPE Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).
-* LINKTYPE Value: Indicates the 16-bit unsigned integer assigned for this LinkType.
+* LinkType Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).
+* LinkType Value: Indicates the 16-bit unsigned integer assigned for this LinkType.
 * Description: Provides a very short description.
 * Reference: Indicates an authoritative document reference for the LinkType or a requester reference.
 
@@ -735,18 +735,18 @@ The specification needs to be clearly written, and when the contents of the link
 Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.
 For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.
 
-Linktypes may be allocated for specifications not publicly available may be made within the FCFS range.
+LinkTypes may be allocated for specifications not publicly available may be made within the FCFS range.
 This includes specifications that might be classified.
 The minimal requirement is to provide a contact person for that link type.
 
 # Security Considerations
 
-This document describes the IANA registration rules for the LINKTYPE encapsulations.
+This document describes the IANA registration rules for the LinkType encapsulations.
 PCAP-related packet file formats use this value to determine what kind of headers precede network packet captures.
 Many of these formats can contain IPv4 and IPv6 packets.
 A system reading PCAP-related format captures can be subject to arbitrary inputs that may be controlled by malicious entities, so utmost caution is required.
 
-Many LINKTYPE formats include a "snapshot" length, which may be smaller than the actual packet.  It is therefore very likely that trailing parts of a packet capture may be omitted, yet internal length fields in the packets will claim the packet is bigger than the capture.
+Many LinkType formats include a "snapshot" length, which may be smaller than the actual packet.  It is therefore very likely that trailing parts of a packet capture may be omitted, yet internal length fields in the packets will claim the packet is bigger than the capture.
 This leads to trivial buffer overreads, and systems interpreting the packets need to carefully scrutinize all attempts to read data from a capture.
 
 
