@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 23 October 2025                                       Sandelman
-                                                           21 April 2025
+Expires: 27 October 2025                                       Sandelman
+                                                           25 April 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -14,7 +14,7 @@ Expires: 23 October 2025                                       Sandelman
 
 Abstract
 
-   This document describes a set of PCAP-related LINKTYPE values and
+   This document describes a set of PCAP-related LinkType values and
    creates an IANA registry for those values.
 
 About This Document
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 October 2025.
+   This Internet-Draft will expire on 27 October 2025.
 
 Copyright Notice
 
@@ -94,12 +94,12 @@ Table of Contents
    and Wireshark [Wireshark].
 
    Within those file formats each packet that is captured is indicated
-   by a LINKTYPE value.  The LINKTYPE value selects one of many hundred
+   by a LinkType value.  The LinkType value selects one of many hundred
    formats for metadata and Layer 2 encapsulation of the packet.
 
-   This document creates an IANA registry for LINKTYPE values,
+   This document creates an IANA registry for LinkType values,
    establishing the IANA Considerations by which other uses of the PCAP-
-   related formats may register new LINKTYPE values.
+   related formats may register new LinkType values.
 
 2.  IANA Considerations
 
@@ -115,10 +115,10 @@ Table of Contents
 
    The registry has the following structure:
 
-   *  LINKTYPE Name: Indicates the symbolic name for this LinkType.  The
+   *  LinkType Name: Indicates the symbolic name for this LinkType.  The
       name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).
 
-   *  LINKTYPE Value: Indicates the 16-bit unsigned integer assigned for
+   *  LinkType Value: Indicates the 16-bit unsigned integer assigned for
       this LinkType.
 
    *  Description: Provides a very short description.
@@ -1209,14 +1209,14 @@ Table of Contents
    Designated Expert will need use their judgement, or consult the
    OPSAWG or an Area Director.
 
-   Linktypes may be allocated for specifications not publicly available
+   LinkTypes may be allocated for specifications not publicly available
    may be made within the FCFS range.  This includes specifications that
    might be classified.  The minimal requirement is to provide a contact
    person for that link type.
 
 3.  Security Considerations
 
-   This document describes the IANA registration rules for the LINKTYPE
+   This document describes the IANA registration rules for the LinkType
    encapsulations.  PCAP-related packet file formats use this value to
    determine what kind of headers precede network packet captures.  Many
    of these formats can contain IPv4 and IPv6 packets.  A system reading
@@ -1224,7 +1224,7 @@ Table of Contents
    may be controlled by malicious entities, so utmost caution is
    required.
 
-   Many LINKTYPE formats include a "snapshot" length, which may be
+   Many LinkType formats include a "snapshot" length, which may be
    smaller than the actual packet.  It is therefore very likely that
    trailing parts of a packet capture may be omitted, yet internal
    length fields in the packets will claim the packet is bigger than the
