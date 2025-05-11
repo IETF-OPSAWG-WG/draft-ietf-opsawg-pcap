@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-08T01:45:00.313789+00:00",
+  "timestamp": "2025-05-11T01:56:24.024184+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2220,7 +2220,7 @@
       "labels": [],
       "body": "Hi, \r\n\r\nI wrote a simple ntar reader in C++, and how to directly get the length of custom data when parsing the Custom Block?\r\n\r\nMy repo: [ntar-reader](https://github.com/winking324/ntar-reader) and this part of the parsing code is in `ntar-reader/src/block_custom.cpp`.",
       "createdAt": "2022-11-25T02:27:22Z",
-      "updatedAt": "2022-11-25T22:11:28Z",
+      "updatedAt": "2025-05-10T20:34:22Z",
       "closedAt": null,
       "comments": [
         {
@@ -2250,6 +2250,20 @@
           "body": "Guy Harris ***@***.***> wrote:\n    > If we insist that \"Custom Blocks Done Right Blocks\" pick a standard\n    > byte order for multi-byte integral and floating-point fields, and go\n\nSounds good to me.\n\n",
           "createdAt": "2022-11-25T22:11:28Z",
           "updatedAt": "2022-11-25T22:11:28Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> If we insist that \"Custom Blocks Done Right Blocks\" pick a standard byte order for multi-byte integral and floating-point fields,\n\n[Section 5.4 \"Endianness Issues\"](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng-03#name-endianness-issues) of the current version of the I-D says:\n\n> Therefore, the vendor should either encode the Custom Data of their Custom Blocks and Custom Options, the Option Type and Option Length fields of options in Custom Blocks, and the PEN field of Custom Options in Custom Blocks in a consistent manner, such as always in big-endian or always in little-endian format, regardless of the host platform's endianness, or should encode some flag in the Custom Data payload to indicate in which endianness the rest of the payload is written.\n\nThis is currently just a recommendation, not a requirement, but it's a recommendation that any *particular* custom block either pick a standard byte order or include a byte-order magic number or something such as that, which is sufficient to allow a program ignorant of a particular Custom Block's format to blindly pass that block through, even if that program is running on a host with a byte order different from the byte order of the file that it's reading, and have it readable by a program that *does* understand that Custom Block's format.\n\nPerhaps it should be made into a requirement by replacing \"should\" with \"MUST\".\n",
+          "createdAt": "2025-05-10T18:59:38Z",
+          "updatedAt": "2025-05-10T18:59:38Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "As for the length of the Custom Data field, if, for a given PEN, the Custom Block with that PEN can contain options, the Custom Data field needs to contain information from which can be derived the total length of that field. This is not necessarily a \"length of the Custom Data\" field; see, for example, the [Enhanced Packet Block](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng-03#name-enhanced-packet-block), which has a Captured Packet Length field.  The value of that field, plus 20 for the fields that precede the Packet Data subfield (and then rounded up to a multiple of 4), is the length of the block payload that precedes the option.\n\nI.e., that doesn't require a \"length of Custom Data\" field, just something from which that length can be derived.\n\nThe question is whether, for some piece of pcapng-reading code, that code needs to be able to parse the options of a Custom Block the format of whose Custom Data it *doesn't* understand.\n\nIn the case of Wireshark, which is a single project containing both a capture-file-reading library and a capture-file-record-dissecting application (two of them, in fact, Wireshark and the command-line TShark), it's sufficient that the project *as a whole* - or for a third-party plugin for that project - understand the Custom Block format for a given PEN in order to do anything useful with those Custom Blocks. The Wireshark project working on a way to allow a plugin (or a set of related plugins) to fully handle Custom Blocks for a given PEN.\n\nIf, instead, you have a pcapng-reading *library*, atop which pcapng-reading *programs* can be built, there's now a question of how the work of handling Custom Blocks should be split up (well, that issue is even in Wireshark, but it's not split up between *projects*).\n\nFor example, in a future libpcap that supports pcapng, and a future tcpdump that supports the libpcap APIs that support pcapng, how much of the work should libpcap do, and how should it do that?\n\nIf tcpdump didn't support, say, some particular organization's Custom Block, any parsing libpcap does of that Custom Block, even if it's only whatever option parsing it can do without knowledge of the structure of any Custom Options in that block, wouldn't be of much use.\n\nIf it *did* support it, it might want to provide its own code to parse the block, in which case it would know how to find the options (so that it doesn't parse past the end of the Custom Data), and could call a libpcap routine to parse those options, providing to libpcap a routine or routines to handle any Custom Options it cares about.\n\nIn such a scheme, libpcap itself wouldn't have to know how to find the options for an arbitrary Custom Block. Even if libpcap were to support plugins for handling Custom Blocks and Options, the Custom Block handler, not the core libpcap code, would be responsible for finding the options in a Custom Block.",
+          "createdAt": "2025-05-10T20:34:20Z",
+          "updatedAt": "2025-05-10T20:34:20Z"
         }
       ]
     },
