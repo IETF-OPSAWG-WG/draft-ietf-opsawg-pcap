@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-11T01:56:24.024184+00:00",
+  "timestamp": "2025-05-13T01:52:11.405544+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2211,7 +2211,7 @@
     {
       "number": 125,
       "id": "I_kwDOAU54e85XQkcz",
-      "title": "The length of Custom Block's Custom Data?",
+      "title": "Improved Custom Block version with, for example, a payload length?",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/125",
       "state": "OPEN",
       "author": "winking324",
@@ -2220,7 +2220,7 @@
       "labels": [],
       "body": "Hi, \r\n\r\nI wrote a simple ntar reader in C++, and how to directly get the length of custom data when parsing the Custom Block?\r\n\r\nMy repo: [ntar-reader](https://github.com/winking324/ntar-reader) and this part of the parsing code is in `ntar-reader/src/block_custom.cpp`.",
       "createdAt": "2022-11-25T02:27:22Z",
-      "updatedAt": "2025-05-10T20:34:22Z",
+      "updatedAt": "2025-05-11T03:15:57Z",
       "closedAt": null,
       "comments": [
         {
@@ -2264,6 +2264,13 @@
           "body": "As for the length of the Custom Data field, if, for a given PEN, the Custom Block with that PEN can contain options, the Custom Data field needs to contain information from which can be derived the total length of that field. This is not necessarily a \"length of the Custom Data\" field; see, for example, the [Enhanced Packet Block](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng-03#name-enhanced-packet-block), which has a Captured Packet Length field.  The value of that field, plus 20 for the fields that precede the Packet Data subfield (and then rounded up to a multiple of 4), is the length of the block payload that precedes the option.\n\nI.e., that doesn't require a \"length of Custom Data\" field, just something from which that length can be derived.\n\nThe question is whether, for some piece of pcapng-reading code, that code needs to be able to parse the options of a Custom Block the format of whose Custom Data it *doesn't* understand.\n\nIn the case of Wireshark, which is a single project containing both a capture-file-reading library and a capture-file-record-dissecting application (two of them, in fact, Wireshark and the command-line TShark), it's sufficient that the project *as a whole* - or for a third-party plugin for that project - understand the Custom Block format for a given PEN in order to do anything useful with those Custom Blocks. The Wireshark project working on a way to allow a plugin (or a set of related plugins) to fully handle Custom Blocks for a given PEN.\n\nIf, instead, you have a pcapng-reading *library*, atop which pcapng-reading *programs* can be built, there's now a question of how the work of handling Custom Blocks should be split up (well, that issue is even in Wireshark, but it's not split up between *projects*).\n\nFor example, in a future libpcap that supports pcapng, and a future tcpdump that supports the libpcap APIs that support pcapng, how much of the work should libpcap do, and how should it do that?\n\nIf tcpdump didn't support, say, some particular organization's Custom Block, any parsing libpcap does of that Custom Block, even if it's only whatever option parsing it can do without knowledge of the structure of any Custom Options in that block, wouldn't be of much use.\n\nIf it *did* support it, it might want to provide its own code to parse the block, in which case it would know how to find the options (so that it doesn't parse past the end of the Custom Data), and could call a libpcap routine to parse those options, providing to libpcap a routine or routines to handle any Custom Options it cares about.\n\nIn such a scheme, libpcap itself wouldn't have to know how to find the options for an arbitrary Custom Block. Even if libpcap were to support plugins for handling Custom Blocks and Options, the Custom Block handler, not the core libpcap code, would be responsible for finding the options in a Custom Block.",
           "createdAt": "2025-05-10T20:34:20Z",
           "updatedAt": "2025-05-10T20:34:20Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "As noted in [this Wireshark issue comment](https://gitlab.com/wireshark/wireshark/-/issues/20511#note_2497116658), [this reply](https://gitlab.com/wireshark/wireshark/-/issues/20511#note_2497129474), and [this reply to that reply](https://gitlab.com/wireshark/wireshark/-/issues/20511#note_2497136097), it could be useful to allow a pcapng reader that doesn't understand the format of some particular Custom Block to at least parse the options of that block to report comments, so, if we had a payload length field after the PEN field, that would be possible.\n\nIt *might* also be useful to specify a 4-byte \"subtype\" field, in cases where more than one type of block is used by the organization who owns the PEN.",
+          "createdAt": "2025-05-11T03:15:56Z",
+          "updatedAt": "2025-05-11T03:15:56Z"
         }
       ]
     },
