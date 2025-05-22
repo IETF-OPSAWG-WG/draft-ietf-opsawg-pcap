@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-13T01:52:11.405544+00:00",
+  "timestamp": "2025-05-22T01:51:57.176234+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -807,9 +807,17 @@
       ],
       "body": "**4.4. Simple Packet Block**\r\n\r\nPlease deprecate the SPB. Adding a simple block type does not make implementing the spec easier, it just adds an extra piece of code that must also be implemented. Additionally, I haven't seen any sniffer that actually writes packets in the SPB format.",
       "createdAt": "2016-11-22T11:35:35Z",
-      "updatedAt": "2024-08-12T12:25:38Z",
+      "updatedAt": "2025-05-20T13:37:30Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "johnthacker",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "An issue with the Simple Packet Block is that it lacks both interface and timestamp information, which makes it difficult to merge two different files if one (or especially both) contains SPBs. (Merging can include simultaneously capturing on multiple interface that provide pcapng source and producing one output stream.) After merging, there might be a block that is not on the first interface, so it cannot be a SPB, but also does not have a timestamp, so it cannot be a EPB.\n\nOne option could be adding an EPB flag indicating that the the timestamp is not valid and should be ignored.",
+          "createdAt": "2025-05-20T13:37:29Z",
+          "updatedAt": "2025-05-20T13:37:29Z"
+        }
+      ]
     },
     {
       "number": 46,
