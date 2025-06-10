@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 30 October 2025                           Politecnico di Torino
+Expires: 12 December 2025                          Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 30 October 2025                           Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                           28 April 2025
+                                                            10 June 2025
 
 
            PCAP Next Generation (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 October 2025.
+   This Internet-Draft will expire on 12 December 2025.
 
 Copyright Notice
 
@@ -1514,9 +1514,12 @@ Table of Contents
    there are applications that do not require it; e.g. an Intrusion
    Detection System is interested in packets, not in their timestamp.
 
-   A Simple Packet Block cannot be present in a Section that has more
-   than one interface because of the impossibility to refer to the
-   correct one (it does not contain any Interface ID field).
+   As a Simple Packet Block does not contain an Interface ID field, in a
+   Section that has more than one interface, only packets received or
+   transmitted on the interface described by the first Interface
+   Description Block can be contained in a Simple Packet Block; packets
+   received or transmitted on any other interface MUST be contained in
+   an Enhanced Packet Block.
 
    The Simple Packet Block is very efficient in term of disk space: a
    snapshot whose length is 100 octets requires only 16 octets of
@@ -2521,9 +2524,9 @@ Table of Contents
    [I-D.ietf-tls-keylogfile]
               Thomson, M., Rosomakho, Y., and H. Tschofenig, "The
               SSLKEYLOGFILE Format for TLS", Work in Progress, Internet-
-              Draft, draft-ietf-tls-keylogfile-04, 11 April 2025,
+              Draft, draft-ietf-tls-keylogfile-05, 9 June 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              keylogfile-04>.
+              keylogfile-05>.
 
 Appendix A.  Packet Block (obsolete!)
 
