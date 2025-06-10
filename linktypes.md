@@ -149,7 +149,7 @@ Description
 
 
 Name
-: not to be used
+: Not available for assignment
 
 Number
 : 11-49
@@ -191,7 +191,7 @@ Reference
 
 
 Name
-: Reserved
+: Not available for assignment
 
 Number
 : 52-98

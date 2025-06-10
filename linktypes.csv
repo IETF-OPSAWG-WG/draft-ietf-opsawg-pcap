@@ -9,10 +9,10 @@
 |LINKTYPE_SLIP|8|SLIP, with a direction header|{{LINKTYPE_SLIP}}
 |LINKTYPE_PPP|9|PPP|{{LINKTYPE_PPP}}
 |LINKTYPE_FDDI|10|FDDI: per ANSI INCITS 239-1994|
-|not to be used|11-49|Do not use these values|
+|Not available for assignment|11-49|Do not use these values|
 |LINKTYPE_PPP_HDLC|50|PPP in HDLC-like framing|{{LINKTYPE_PPP_HDLC}}
 |LINKTYPE_PPP_ETHER|51|PPPoE session packets|{{LINKTYPE_PPP_ETHER}}
-|Reserved|52-98|Do not use these values|
+|Not available for assignment|52-98|Do not use these values|
 |LINKTYPE_SYMANTEC_FIREWALL|99|Reserved for Symantec Enterprise Firewall|
 |LINKTYPE_ATM_RFC1483|100|LLC/SNAP-encapsulated ATM|{{LINKTYPE_ATM_RFC1483}}
 |LINKTYPE_RAW|101|Raw IP; begins with an IPv4 or IPv6 header|

@@ -696,7 +696,10 @@ The policy allocation for the LinkType values is as follows:
 
 * Values from 32768 to 65000 must be allocated via Specification Required ({{Section 4.6 of !RFC8126}}). Guidance for Designated Experts is provided in {{sec-de}}.
 
-* Values from 0 to 32767 are allocated following a First-Come First-Served policy ({{Section 4.4 of !RFC8126}}).  Note that this category includes the historical allocations which have an uneven level of definition.
+* Values from 0 to 32767 are allocated following a First-Come
+  First-Served policy (Section 4.4 of [RFC8126]). Values in the ranges
+  0-10, 50-51, and 98-301 are already assigned; values in the ranges
+  11-49 and 52-97 MUST not be assigned.
 
 * Values from 65001 to 65535 are reserved for Private Use ({{Section 4.1 of !RFC8126}}).
 
