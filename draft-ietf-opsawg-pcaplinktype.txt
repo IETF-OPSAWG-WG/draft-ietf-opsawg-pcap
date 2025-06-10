@@ -81,7 +81,7 @@ Table of Contents
 
 1.  Introduction
 
-   In the late 1980's, Van Jacobson, Steve McCanne, and others at the
+   In the late 1980s, Van Jacobson, Steve McCanne, and others at the
    Network Research Group at Lawrence Berkeley National Laboratory
    developed the tcpdump program to capture and dissect network traces.
    The code to capture traffic, using low-level mechanisms in various
@@ -145,8 +145,8 @@ Table of Contents
    number to be assigned to this document, which is not repeated each
    time.
 
-   The initial contents of the table are based upon the Link type list
-   maintained by libpcap, and published on [TCPDUMP].
+   The initial contents of the table are based upon the link-layer
+   header type list maintained by libpcap, and published on [TCPDUMP].
 
    Note that historically, values were assigned incrementally following
    First Come First Served (FCFS) policy, with a preference for a public
@@ -163,9 +163,9 @@ Table of Contents
 
       There is often an associated Data Link Type (DLT) value which is
       often identical in value, but not universally so.  DLT values are
-      associated with specific operation system captures, and are
-      operating system specific, and are thus not subject to
-      standardization.
+      associated with specific operating systems, and the numerical
+      values for some of them are operating system specific, and are
+      thus not subject to standardization.
 
 2.2.1.  Initial Values
 

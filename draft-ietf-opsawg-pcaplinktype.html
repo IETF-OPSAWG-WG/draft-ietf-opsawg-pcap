@@ -1204,7 +1204,7 @@ creates an IANA registry for those values.<a href="#section-abstract-1" class="p
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">In the late 1980's, Van Jacobson, Steve McCanne, and others at the
+<p id="section-1-1">In the late 1980s, Van Jacobson, Steve McCanne, and others at the
 Network Research Group at Lawrence Berkeley National Laboratory
 developed the tcpdump program to capture and dissect network traces.
 The code to capture traffic, using low-level mechanisms in various
@@ -1270,8 +1270,8 @@ LinkType values.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-2.2-6">The initial version of the registry is provided in <a href="#sec-initial" class="auto internal xref">Section 2.2.1</a>.  In each
 case here, the reference should be set to
 <span>[<a href="#TCPDUMP" class="cite xref">TCPDUMP</a>]</span> and the RFC number to be assigned to this document, which is not repeated each time.<a href="#section-2.2-6" class="pilcrow">¶</a></p>
-<p id="section-2.2-7">The initial contents of the table are based upon the Link type list maintained by
-libpcap, and published on <span>[<a href="#TCPDUMP" class="cite xref">TCPDUMP</a>]</span>.<a href="#section-2.2-7" class="pilcrow">¶</a></p>
+<p id="section-2.2-7">The initial contents of the table are based upon the link-layer header
+type list maintained by libpcap, and published on <span>[<a href="#TCPDUMP" class="cite xref">TCPDUMP</a>]</span>.<a href="#section-2.2-7" class="pilcrow">¶</a></p>
 <p id="section-2.2-8">Note that historically, values were assigned incrementally following First Come First Served (FCFS) policy, with a preference for a public specification, but with no mandate.
 Some historical values may have less specification than desired.<a href="#section-2.2-8" class="pilcrow">¶</a></p>
 <p id="section-2.2-9">LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally reserved for Private Use. Their use is Deprecated in favour of the values in the 65001-65535 range.<a href="#section-2.2-9" class="pilcrow">¶</a></p>
@@ -1279,7 +1279,11 @@ Some historical values may have less specification than desired.<a href="#sectio
 As the FCFS range is large and easily obtained, official values are recommended.<a href="#section-2.2-10" class="pilcrow">¶</a></p>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="section-2.2-11.1">
-            <p id="section-2.2-11.1.1">There is often an associated Data Link Type (DLT) value which is often identical in value, but not universally so. DLT values are associated with specific operation system captures, and are operating system specific, and are thus not subject to standardization.<a href="#section-2.2-11.1.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-11.1.1">There is often an associated Data Link Type (DLT) value which is often
+identical in value, but not universally so.  DLT values are associated
+with specific operating systems, and the numerical values for some of
+them are operating system specific, and are thus not subject to
+standardization.<a href="#section-2.2-11.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <div id="sec-initial">
