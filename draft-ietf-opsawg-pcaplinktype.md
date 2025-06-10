@@ -656,7 +656,7 @@ creates an IANA registry for those values.
 
 # Introduction
 
-In the late 1980's, Van Jacobson, Steve McCanne, and others at the
+In the late 1980s, Van Jacobson, Steve McCanne, and others at the
 Network Research Group at Lawrence Berkeley National Laboratory
 developed the tcpdump program to capture and dissect network traces.
 The code to capture traffic, using low-level mechanisms in various
@@ -704,8 +704,8 @@ The initial version of the registry is provided in {{sec-initial}}.  In each
 case here, the reference should be set to
 {{TCPDUMP}} and the RFC number to be assigned to this document, which is not repeated each time.
 
-The initial contents of the table are based upon the Link type list maintained by
-libpcap, and published on {{TCPDUMP}}.
+The initial contents of the table are based upon the link-layer header
+type list maintained by libpcap, and published on {{TCPDUMP}}.
 
 Note that historically, values were assigned incrementally following First Come First Served (FCFS) policy, with a preference for a public specification, but with no mandate.
 Some historical values may have less specification than desired.
@@ -715,7 +715,11 @@ LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved
 In general, Private Use values should never leak out of the entity that uses it.
 As the FCFS range is large and easily obtained, official values are recommended.
 
-> There is often an associated Data Link Type (DLT) value which is often identical in value, but not universally so. DLT values are associated with specific operation system captures, and are operating system specific, and are thus not subject to standardization.
+> There is often an associated Data Link Type (DLT) value which is often
+> identical in value, but not universally so.  DLT values are associated
+> with specific operating systems, and the numerical values for some of
+> them are operating system specific, and are thus not subject to
+> standardization.
 
 ### Initial Values {#sec-initial}
 
