@@ -1586,9 +1586,12 @@ is often one of the most costly operations on PCs. Additionally, there
 are applications that do not require it; e.g. an Intrusion Detection
 System is interested in packets, not in their timestamp.
 
-A Simple Packet Block cannot be present in a Section that has more
-than one interface because of the impossibility to refer to the
-correct one (it does not contain any Interface ID field).
+As a Simple Packet Block does not contain an Interface ID field, in a
+Section that has more than one interface, only packets received or
+transmitted on the interface described by the first Interface
+Description Block can be contained in a Simple Packet Block; packets
+received or transmitted on any other interface MUST be contained in an
+Enhanced Packet Block.
 
 The Simple Packet Block is very efficient in term of disk space: a
 snapshot whose length is 100 octets requires only 16 octets of overhead,
