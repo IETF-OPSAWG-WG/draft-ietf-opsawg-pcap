@@ -341,7 +341,7 @@ Number
 : 109
 
 Description
-: Reserved for OpenBSD IPSEC encapsulation
+: Reserved for OpenBSD IPsec encapsulation
 {: spacing="compact"}
 
 

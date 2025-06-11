@@ -23,7 +23,7 @@
 |LINKTYPE_ATM_CLIP|106|ATM Classical IP, with no header preceding IP|
 |LINKTYPE_FRELAY|107|Frame Relay LAPF|{{LINKTYPE_FRELAY}}
 |LINKTYPE_LOOP|108|OpenBSD loopback encapsulation|{{LINKTYPE_LOOP}}
-|LINKTYPE_ENC|109|Reserved for OpenBSD IPSEC encapsulation|
+|LINKTYPE_ENC|109|Reserved for OpenBSD IPsec encapsulation|
 |LINKTYPE_LANE8023|110|Reserved for ATM LANE + 802.3|
 |LINKTYPE_HIPPI|111|Reserved for NetBSD HIPPI|
 |LINKTYPE_HDLC|112|Reserved for NetBSD HDLC framing|
