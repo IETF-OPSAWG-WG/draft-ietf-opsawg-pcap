@@ -2223,6 +2223,53 @@ The following is a list of Secrets Types.
 {: #format_zigbee_aps title='ZigBee APS Key Data Format' artwork-align="center"}
 
 
+{: indent='8'}
+0x45535053:
+: ESP Security Association keys.
+  This is in CSV format ([RFC 4180]), with each record containing fields that
+  describe an ESP security association. Each line has the following columns:
+  "Protocol","Src IP","Dest IP","SPI","Encryption","Encryption Key",
+  "Authentication","Authentication Key","SN","ESN High Bits".
+  All columns must be filled in the order specified here with a value and the header line is ignored if present.
+  If a column contains an unknown value, the line should be skipped.
+  If the line contains more columns than what is expected by the reader, the extra ones should be ignored.
+  If the line contains fewer columns than what is expected by the reader, it should either apply a default
+  value (if possible) or the line should be skipped.
+
+  * Protocol: Protocol used. Can be either "IPv4", "IPv6" or "Any".
+
+  * Src IP: Source IP address. String containing the address, wildcard (*) character is supported.
+
+  * Dest IP: Destination IP address. String containing the address, wildcard (*) character is supported.
+
+  * SPI: Security Parameter Index. String of a 32 bits integer in hexadecimal format (starting with 0x).
+
+  * Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC [RFC2451]", "AES-CBC [RFC3602]",
+  "AES-CTR [RFC3686]", "DES-CBC [RFC2405]", "CAST5-CBC [RFC2144]", "BLOWFISH-CBC [RFC2451]", "TWOFISH-CBC",
+  "AES-GCM [RFC4106]", "AES-GCM with 8 octet ICV [RFC4106]", "AES-GCM with 12 octet ICV [RFC4106]",
+  "AES-GCM with 16 octet ICV [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 & RFC8750]",
+  "ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20 with Poly1305 and IIV [RFC7634 & RFC8750]".
+  New algorithms might be aded in the future.
+
+  * Encryption Key: Encryption key. String containing the key in heaxadecimal format (starting with 0x).
+
+  * Authentication: Authentication algorithm. Can be "NULL", "HMAC-SHA-1-96 [RFC2404]",
+  "HMAC-SHA-256-96 [draft-ietf-ipsec-ciph-sha-256-00]", "HMAC-SHA-256-128 [RFC4868]",
+  "HMAC-SHA-384-192 [RFC4868]", "HMAC-SHA-512-256 [RFC4868]", "HMAC-MD5-96 [RFC2403]",
+  "MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication [no checking]",
+  "ANY 96 bit authentication [no checking]", "ANY 128 bit authentication [no checking]",
+  "ANY 192 bit authentication [no checking]" or "ANY 256 bit authentication [no checking]".
+  New algorithms might be aded in the future.
+
+  * Authentication Key:  Authentication key. String containing the key in heaxadecimal format (starting with 0x).
+
+  * SN: Sequence number length. Can be "32-bit" or "64-bit".
+
+  * ESN High Bits: Extended Sequence Number upper 32 bits. String of a 32 bits integer in hexadecimal
+  format (starting with 0x).
+{: vspace='0'}
+
+
 ## Custom Block {#section_custom_block}
 
 A Custom Block (CB) is the container for storing custom data that
