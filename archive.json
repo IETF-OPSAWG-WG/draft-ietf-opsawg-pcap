@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-22T01:51:57.176234+00:00",
+  "timestamp": "2025-06-19T01:55:56.242991+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9832,6 +9832,75 @@
           ]
         }
       ]
+    },
+    {
+      "number": 184,
+      "id": "PR_kwDOAU54e86bFuk0",
+      "title": "Add ESP SAs UAT DSB secret type",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/184",
+      "state": "OPEN",
+      "author": "pquantin",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Its implementation can be found here:\r\nhttps://gitlab.com/wireshark/wireshark/-/merge_requests/20256",
+      "createdAt": "2025-06-18T14:31:15Z",
+      "updatedAt": "2025-06-18T18:04:28Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "740dc6777658afea743aa1b29fa0e53df53f8edd",
+      "headRepository": "pquantin/draft-ietf-opsawg-pcap",
+      "headRefName": "esp_dsb",
+      "headRefOid": "c4b8c6fbc6980ca8dba159681e4004116a5d4ef5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Somebody might have to read the Wireshark documentation or code to know what \"Wireshark UAT file esp_sa content found in your Wireshark profile\" means.\r\n\r\nThis should just describe it as a CSV list, with the current column titles and full descriptions of what the corresponding columns are. That would also require that none of those columns be removed from the UAT in Wireshark (but removing columns would break Wireshark with existing UAT files as well, so that shouldn't be done). It might also cause problems if fields are added.",
+          "createdAt": "2025-06-18T16:42:22Z",
+          "updatedAt": "2025-06-18T16:42:22Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "body": "Hi Guy,\r\n\r\nThanks for the feedback. I changed the description to provide more details, let me know if this is OK for you.",
+          "createdAt": "2025-06-18T17:43:46Z",
+          "updatedAt": "2025-06-18T17:43:46Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Can a column's value be empty? If so, what is the default value for each of the columns?",
+          "createdAt": "2025-06-18T17:49:22Z",
+          "updatedAt": "2025-06-18T17:49:22Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "body": "The only columns that might be eventually empty are the last two ones (\"SN\" with a default value set to \"32-bit\" and \"ESN High Bits\" with a default value set to \"0\") as they were added later on in the Wireshark UAT table and ue the forward compatibility code that provides default values. I would prefer not to mention that they can be missing as they are already part fo the existing UAT but can add a note if you wish.",
+          "createdAt": "2025-06-18T17:55:23Z",
+          "updatedAt": "2025-06-18T17:55:23Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I would prefer not to mention that they can be missing\r\n\r\nEither the spec should state that no fields can be missing, or should state what value will be used if they are missing; the interpretation of this type of secret in a DSB should not depend on what the code in any particular pcapng file reader does.",
+          "createdAt": "2025-06-18T18:00:33Z",
+          "updatedAt": "2025-06-18T18:00:33Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "body": "> Either the spec should state that no fields can be missing, or should state what value will be used if they are missing; the interpretation of this type of secret in a DSB should not depend on what the code in any particular pcapng file reader does.\r\n\r\nOK, I added a sentence stating that all columns must be filled with a value.",
+          "createdAt": "2025-06-18T18:04:28Z",
+          "updatedAt": "2025-06-18T18:04:28Z"
+        }
+      ],
+      "reviews": []
     }
   ]
 }
