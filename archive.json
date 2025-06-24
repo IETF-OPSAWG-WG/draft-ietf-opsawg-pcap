@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-22T02:04:17.983256+00:00",
+  "timestamp": "2025-06-24T01:56:31.840545+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9845,7 +9845,7 @@
       "labels": [],
       "body": "Its implementation can be found here:\r\nhttps://gitlab.com/wireshark/wireshark/-/merge_requests/20256",
       "createdAt": "2025-06-18T14:31:15Z",
-      "updatedAt": "2025-06-19T15:25:54Z",
+      "updatedAt": "2025-06-23T12:15:38Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "740dc6777658afea743aa1b29fa0e53df53f8edd",
@@ -9898,6 +9898,13 @@
           "body": "> Either the spec should state that no fields can be missing, or should state what value will be used if they are missing; the interpretation of this type of secret in a DSB should not depend on what the code in any particular pcapng file reader does.\r\n\r\nOK, I added a sentence stating that all columns must be filled with a value.",
           "createdAt": "2025-06-18T18:04:28Z",
           "updatedAt": "2025-06-18T18:04:28Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "body": "@guyharris let me know if you are OK with the current wording of if further clarification is required.\r\n\r\nThanks,\r\nPascal.",
+          "createdAt": "2025-06-23T12:15:38Z",
+          "updatedAt": "2025-06-23T12:15:38Z"
         }
       ],
       "reviews": []
