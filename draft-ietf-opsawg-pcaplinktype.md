@@ -732,17 +732,16 @@ This is the initial table for the registry:
 
 ### Guidance for Designated Experts {#sec-de}
 
-When processing a request for a Specification Required allocation the Designated Experts are expected to be able to find the relevant specification at a clearly stable URL.
-It is noted that many enterprise web sites do not maintain URLs over a long period of time, and a document in a "wp-uploaded" section is highly likely to disappear.
-In addition, specifications that require a reader to click through any kind of marketing or legal agreement are not considered public.
+When processing a request for an allocation, the Designated Experts will encourage the requester to provide a specification at a stable URL.
+There is no requirement for a specification, but often review of the specification allowes the Designated Expert to determine if the allocation actually is a duplicate of another specification.
 
-The specification needs to be clearly written, and when the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.
+When the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be clear.
 
 Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.
 For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.
 
 LinkTypes may be allocated for specifications not publicly available may be made within the FCFS range.
-This includes specifications that might be classified.
+This includes specifications that might be subject to a security classification.
 The minimal requirement is to provide a contact person for that link type.
 
 # Security Considerations
