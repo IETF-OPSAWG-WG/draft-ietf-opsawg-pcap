@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-26T01:55:34.910670+00:00",
+  "timestamp": "2025-06-29T02:06:39.080462+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9845,7 +9845,7 @@
       "labels": [],
       "body": "Its implementation can be found here:\r\nhttps://gitlab.com/wireshark/wireshark/-/merge_requests/20256",
       "createdAt": "2025-06-18T14:31:15Z",
-      "updatedAt": "2025-06-23T12:15:38Z",
+      "updatedAt": "2025-06-28T23:39:34Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "740dc6777658afea743aa1b29fa0e53df53f8edd",
@@ -9907,7 +9907,128 @@
           "updatedAt": "2025-06-23T12:15:38Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOAU54e86w96Ge",
+          "commit": {
+            "abbreviatedOid": "b925a91"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-28T22:32:34Z",
+          "updatedAt": "2025-06-28T22:32:34Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "\"ESP\" is short for \"ncapsulating Security Payload\"; readers will probably know what that means.\r\n\r\n\"SAs\" is \"Security Associations\"; readers will probably know what that means.\r\n\r\n\"UAT\" is Wireshark-speak, and shouldn't be used.  \"ESP Security Associations\" is probably better.",
+              "createdAt": "2025-06-28T22:32:34Z",
+              "updatedAt": "2025-06-28T22:32:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86w96Si",
+          "commit": {
+            "abbreviatedOid": "b925a91"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-28T22:37:41Z",
+          "updatedAt": "2025-06-28T22:37:42Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "I'd say \"uses CSV format ([RFC4180])\", as it's not a film by itself, it's a block in a pcapng file; that also adds a reference to RFC 4180 \"Common Format and MIME Type for Comma-Separated Values (CSV) Files\" (yes, it says \"Files\", but the \"Common Format\" can also be used for embedded CSV text).",
+              "createdAt": "2025-06-28T22:37:41Z",
+              "updatedAt": "2025-06-28T22:37:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86w98eS",
+          "commit": {
+            "abbreviatedOid": "b925a91"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-28T22:57:44Z",
+          "updatedAt": "2025-06-28T22:57:44Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "> \"UAT\" is Wireshark-speak, and shouldn't be used. \"ESP Security Associations\" is probably better.\r\n\r\n\"ESP Security Associations\", with no mention of UATs, that is.\r\n\r\n",
+              "createdAt": "2025-06-28T22:57:44Z",
+              "updatedAt": "2025-06-28T22:57:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86w9-KD",
+          "commit": {
+            "abbreviatedOid": "b925a91"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-28T23:31:53Z",
+          "updatedAt": "2025-06-28T23:31:53Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "Or perhaps \"ESP Security Association keys\".",
+              "createdAt": "2025-06-28T23:31:53Z",
+              "updatedAt": "2025-06-28T23:31:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86w9-LN",
+          "commit": {
+            "abbreviatedOid": "b925a91"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-28T23:32:43Z",
+          "updatedAt": "2025-06-28T23:32:43Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "Although that's \"this format uses CSV format\", which seems a bit awkward.",
+              "createdAt": "2025-06-28T23:32:43Z",
+              "updatedAt": "2025-06-28T23:32:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86w9-sE",
+          "commit": {
+            "abbreviatedOid": "b925a91"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-28T23:39:34Z",
+          "updatedAt": "2025-06-28T23:39:34Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "Maybe \"this is in CSV format ([RFC 4180]), with each record containing fields that describe an ESP security association\".\r\n\r\n[RFC 4180](https://datatracker.ietf.org/doc/html/rfc4180) says that the header line, with column names, is optional; is it optional or required here?",
+              "createdAt": "2025-06-28T23:39:34Z",
+              "updatedAt": "2025-06-28T23:39:34Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 185,
