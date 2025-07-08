@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-01T02:09:07.430733+00:00",
+  "timestamp": "2025-07-08T01:56:55.355113+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2924,6 +2924,51 @@
           "body": "Done.",
           "createdAt": "2025-01-13T10:44:36Z",
           "updatedAt": "2025-01-13T10:44:36Z"
+        }
+      ]
+    },
+    {
+      "number": 186,
+      "id": "I_kwDOAU54e86_IvA1",
+      "title": "SHB block identification",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/186",
+      "state": "CLOSED",
+      "author": "signalogic",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "can a field or option within SHBs be assigned as an \"SHB Id\" or SHB count ?  Without this a pcapng reader cannot report which SHB it's reading, unless some persistent state information is given to it (or maintained itself)",
+      "createdAt": "2025-07-06T16:11:01Z",
+      "updatedAt": "2025-07-06T19:50:34Z",
+      "closedAt": "2025-07-06T19:50:34Z",
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We cannot add a field without going to a new version of pcapng, which would mean that your new version would not be readable by current versions of libpcap/Wireshark/etc. until they're updated, which could take a while.\n\nWe could add an option, but options are, as the name implies, *optional*, so any pcapng-reading code would have to deal with files that don't have it - *especially* given that no *existing* pcapng file has it, as it hasn't been defined.\n\nSo the benefits of this would be limited, just as the benefits of the section length field are limited, as it can have a value of -1 meaning \"unknown\", and I think few if any pcapng files have a value other than -1 (it will be -1 in any file written by a program that writes it in one pass and doesn't know beforehand how big the section will be).",
+          "createdAt": "2025-07-06T16:48:31Z",
+          "updatedAt": "2025-07-06T16:48:31Z"
+        },
+        {
+          "author": "signalogic",
+          "authorAssociation": "NONE",
+          "body": "Thanks for the fast reply Guy. Understood, I wanted to make sure there is not a way before I say that in our source code comments. Only thing I can think of is to use the last couple of bytes of section length, which would still be very large negative values. But I suppose too many readers are checking only for == -1, not < 0. -Jeff",
+          "createdAt": "2025-07-06T17:09:06Z",
+          "updatedAt": "2025-07-06T17:09:06Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Only thing I can think of is to use the last couple of bytes of section length\n\nWhat if the section length is *not* -1? You're then stealing bytes that contain information.\n\n> But I suppose too many readers are checking only for == -1, not < 0. \n\nGIven that the specification says -1, not \"any negative number\", that's what they *should* do.\n\n(And I'm not sure why the length field is marked as signed, rather than \"unsigned ut with 0xFFFFFFFFFFFFFFFF meaning 'unknown'\"?)",
+          "createdAt": "2025-07-06T18:07:14Z",
+          "updatedAt": "2025-07-06T18:07:14Z"
+        },
+        {
+          "author": "signalogic",
+          "authorAssociation": "NONE",
+          "body": "Thanks again ... yea not workable",
+          "createdAt": "2025-07-06T18:17:11Z",
+          "updatedAt": "2025-07-06T18:17:11Z"
         }
       ]
     }
