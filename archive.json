@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-08T01:56:55.355113+00:00",
+  "timestamp": "2025-07-10T01:58:29.568294+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9890,13 +9890,13 @@
       "labels": [],
       "body": "Its implementation can be found here:\r\nhttps://gitlab.com/wireshark/wireshark/-/merge_requests/20256",
       "createdAt": "2025-06-18T14:31:15Z",
-      "updatedAt": "2025-06-29T10:06:42Z",
+      "updatedAt": "2025-07-09T07:34:52Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "740dc6777658afea743aa1b29fa0e53df53f8edd",
       "headRepository": "pquantin/draft-ietf-opsawg-pcap",
       "headRefName": "esp_dsb",
-      "headRefOid": "7c605dd623cdf88fbf1788820ce36c892f81eb9a",
+      "headRefOid": "5b2d17f6261ca5ec55d76b899c349abd86ec8609",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -9957,6 +9957,13 @@
           "body": "@guyharris thanks for your valuable feedback, changes done.",
           "createdAt": "2025-06-29T10:06:28Z",
           "updatedAt": "2025-06-29T10:06:28Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "body": "@guyharris let me know when you can if this is ok for you now.\r\n\r\nThanks,\r\nPascal.",
+          "createdAt": "2025-07-08T18:37:04Z",
+          "updatedAt": "2025-07-08T18:37:04Z"
         }
       ],
       "reviews": [
@@ -10077,6 +10084,106 @@
               "body": "Maybe \"this is in CSV format ([RFC 4180]), with each record containing fields that describe an ESP security association\".\r\n\r\n[RFC 4180](https://datatracker.ietf.org/doc/html/rfc4180) says that the header line, with column names, is optional; is it optional or required here?",
               "createdAt": "2025-06-28T23:39:34Z",
               "updatedAt": "2025-06-28T23:39:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86yxB7J",
+          "commit": {
+            "abbreviatedOid": "7c605dd"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-08T21:58:37Z",
+          "updatedAt": "2025-07-08T21:58:37Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "Meaning \"if it's there, it's ignored\", or meaning \"if it's there, it's used to indicate the order of the columns\"?",
+              "createdAt": "2025-07-08T21:58:37Z",
+              "updatedAt": "2025-07-08T21:58:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86yxDJR",
+          "commit": {
+            "abbreviatedOid": "7c605dd"
+          },
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-08T22:02:00Z",
+          "updatedAt": "2025-07-08T22:02:00Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "It means \"if it's there, it's ignored\". I will rephrase it tomorrow to state \"All columns must be filled with a value and the header line is ignored if present.\"",
+              "createdAt": "2025-07-08T22:02:00Z",
+              "updatedAt": "2025-07-08T22:02:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86y1QdG",
+          "commit": {
+            "abbreviatedOid": "7c605dd"
+          },
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-09T07:05:12Z",
+          "updatedAt": "2025-07-09T07:05:12Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "@guyharris done.",
+              "createdAt": "2025-07-09T07:05:12Z",
+              "updatedAt": "2025-07-09T07:05:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86y1lQv",
+          "commit": {
+            "abbreviatedOid": "52da7b6"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-09T07:32:25Z",
+          "updatedAt": "2025-07-09T07:32:25Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "Typo - \"...and *t*he header line is ignored if present.\"",
+              "createdAt": "2025-07-09T07:32:25Z",
+              "updatedAt": "2025-07-09T07:32:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e86y1nE6",
+          "commit": {
+            "abbreviatedOid": "52da7b6"
+          },
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-09T07:34:51Z",
+          "updatedAt": "2025-07-09T07:34:52Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "Doh, sorry about that... fixed.",
+              "createdAt": "2025-07-09T07:34:51Z",
+              "updatedAt": "2025-07-09T07:34:52Z"
             }
           ]
         }
