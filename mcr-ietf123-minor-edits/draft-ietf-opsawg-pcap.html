@@ -1167,7 +1167,7 @@ files in that format, include tcpdump.<a href="#section-abstract-1" class="pilcr
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-file-header" class="internal xref">File Header</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-file-endian-information" class="internal xref">File Endian information</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-file-endian-information" class="internal xref">File Endian Information</a></p>
 </li>
             </ul>
 </li>
@@ -1228,7 +1228,7 @@ developed the tcpdump program to capture and dissect network traces.
 The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
 later put into a library named libpcap.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">This document describes the format used by tcpdump, wireshark, and many other
+<p id="section-1-2">This document describes the format historically used by tcpdump, wireshark, and many other
 programs that are libpcap, or another library, to read and write network traces.<a href="#section-1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1438,7 +1438,7 @@ length value of 2, corresponding to a 4-octet FCS.<a href="#section-4-9.10.1" cl
 <div id="file-endian-information">
 <section id="section-4.1">
         <h3 id="name-file-endian-information">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-file-endian-information" class="section-name selfRef">File Endian information</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-file-endian-information" class="section-name selfRef">File Endian Information</a>
         </h3>
 <p id="section-4.1-1">The magic number is stored in native endian format, so all the byte sequences below are magic numbers.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -1586,12 +1586,12 @@ to use .pcap as the name extension for files following this
 specification.<a href="#section-6-2" class="pilcrow">¶</a></p>
 <p id="section-6-3">Please note: To avoid confusion (such as the current usage of .cap for a
 plethora of different capture file formats) file name extensions other
-than .pcap should be avoided.<a href="#section-6-3" class="pilcrow">¶</a></p>
-<p id="section-6-4">A PCAP Next Generation capture file format (pcapng, see <span>[<a href="#I-D.ietf-opsawg-pcapng" class="cite xref">I-D.ietf-opsawg-pcapng</a>]</span>) now exists.
+than <code>.pcap</code> should be avoided.<a href="#section-6-3" class="pilcrow">¶</a></p>
+<p id="section-6-4">A new format that supersedes the present PCAP format is specified in <span>[<a href="#I-D.ietf-opsawg-pcapng" class="cite xref">I-D.ietf-opsawg-pcapng</a>]</span> (referred to as "new PCAP format").
 The new file format is not compatible with this specification, but many programs read  both transparently.
 Version numbers in the two file formats are not related.
-A distinct Magic Number exists in the pcapng format so readers can transparently determine what format is used.
-It is not uncommon for the same extension, .pcap to be used for both.<a href="#section-6-4" class="pilcrow">¶</a></p>
+A distinct Magic Number exists in the new PCAP format so that readers can transparently determine what format is used.
+It is not uncommon for the same extension, <code>.pcap</code> to be used for both.<a href="#section-6-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
@@ -1602,7 +1602,7 @@ It is not uncommon for the same extension, .pcap to be used for both.<a href="#s
 <p id="section-7-1">A pcap file reader MUST do validate the file header and file packet header, and also the contained headers for the packet capture.
 A reader can receive as input not only valid headers or packets, but any arbitrary
 random sequence of octets:
-Headers or packets originally may be intenationally malformed by a sender, and capture files from outside sources may also contain intentionally malformed contents.<a href="#section-7-1" class="pilcrow">¶</a></p>
+Headers or packets originally may be intentionally malformed by a sender. Also, capture files from outside sources may contain intentionally malformed contents.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">See also:
 https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap<a href="#section-7-2" class="pilcrow">¶</a></p>
 </section>
