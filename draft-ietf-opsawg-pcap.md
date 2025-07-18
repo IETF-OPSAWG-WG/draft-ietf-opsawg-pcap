@@ -55,7 +55,7 @@ The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
 later put into a library named libpcap.
 
-This document describes the format used by tcpdump, wireshark, and many other
+This document describes the format historically used by tcpdump, wireshark, and many other
 programs that are libpcap, or another library, to read and write network traces.
 
 # Terminology
@@ -206,7 +206,7 @@ type value, the FCS length is unknown.  The valid values of the FCS len
 field are between 0 and 15; Ethernet, for example, would have an FCS
 length value of 2, corresponding to a 4-octet FCS.
 
-## File Endian information
+## File Endian Information
 
 The magic number is stored in native endian format, so all the byte sequences below are magic numbers.
 
@@ -310,20 +310,20 @@ specification.
 
 Please note: To avoid confusion (such as the current usage of .cap for a
 plethora of different capture file formats) file name extensions other
-than .pcap should be avoided.
+than `.pcap` should be avoided.
 
-A PCAP Next Generation capture file format (pcapng, see {{I-D.ietf-opsawg-pcapng}}) now exists.
+A new format that supersedes the present PCAP format is specified in {{I-D.ietf-opsawg-pcapng}} (referred to as "new PCAP format").
 The new file format is not compatible with this specification, but many programs read  both transparently.
 Version numbers in the two file formats are not related.
-A distinct Magic Number exists in the pcapng format so readers can transparently determine what format is used.
-It is not uncommon for the same extension, .pcap to be used for both.
+A distinct Magic Number exists in the new PCAP format so that readers can transparently determine what format is used.
+It is not uncommon for the same extension, `.pcap` to be used for both.
 
 #  Security Considerations
 
 A pcap file reader MUST do validate the file header and file packet header, and also the contained headers for the packet capture.
 A reader can receive as input not only valid headers or packets, but any arbitrary
 random sequence of octets:
-Headers or packets originally may be intenationally malformed by a sender, and capture files from outside sources may also contain intentionally malformed contents.
+Headers or packets originally may be intentionally malformed by a sender. Also, capture files from outside sources may contain intentionally malformed contents.
 
 See also:
 https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap
