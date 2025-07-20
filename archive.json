@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-17T02:02:37.432150+00:00",
+  "timestamp": "2025-07-20T02:11:47.294737+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -10242,6 +10242,288 @@
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 187,
+      "id": "PR_kwDOAU54e86fiwka",
+      "title": "Mcr ietf123 minor edits",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/187",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I did a last minute review, and moved a few words around, and introduced a new section on Magic Number.\r\n",
+      "createdAt": "2025-07-18T09:40:25Z",
+      "updatedAt": "2025-07-18T18:04:16Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "740dc6777658afea743aa1b29fa0e53df53f8edd",
+      "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "headRefName": "mcr-ietf123-minor-edits",
+      "headRefOid": "151a04f3b1a04bce6027963ab598eb28954bd935",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOAU54e8601npG",
+          "commit": {
+            "abbreviatedOid": "107bb23"
+          },
+          "author": "boucadair",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Some quick comments. I think that we can avoid freezing \"pcapng\" here and leave it the new spec to pick a name other that with \"ng\" thing.",
+          "createdAt": "2025-07-18T15:21:15Z",
+          "updatedAt": "2025-07-18T15:27:16Z",
+          "comments": [
+            {
+              "originalPosition": 82,
+              "body": "```suggestion\r\nA new format that supersedes the present PCAP format is specified in {{I-D.ietf-opsawg-pcapng}} (referred to as \"new PCAP format\").\r\n```",
+              "createdAt": "2025-07-18T15:21:15Z",
+              "updatedAt": "2025-07-18T15:27:16Z"
+            },
+            {
+              "originalPosition": 85,
+              "body": "```suggestion\r\nA distinct Magic Number exists in the new PCAP format so that readers can transparently determine what format is used.\r\n```",
+              "createdAt": "2025-07-18T15:21:24Z",
+              "updatedAt": "2025-07-18T15:27:16Z"
+            },
+            {
+              "originalPosition": 86,
+              "body": "```suggestion\r\nIt is not uncommon for the same extension, `.pcap` to be used for both.\r\n```",
+              "createdAt": "2025-07-18T15:21:43Z",
+              "updatedAt": "2025-07-18T15:27:16Z"
+            },
+            {
+              "originalPosition": 97,
+              "body": "```suggestion\r\nHeaders or packets originally may be intentionally malformed by a sender. Also, capture files from outside sources may contain intentionally malformed contents.\r\n```",
+              "createdAt": "2025-07-18T15:22:53Z",
+              "updatedAt": "2025-07-18T15:27:16Z"
+            },
+            {
+              "originalPosition": 54,
+              "body": "```suggestion\r\n## File Endian Information\r\n```",
+              "createdAt": "2025-07-18T15:23:27Z",
+              "updatedAt": "2025-07-18T15:27:16Z"
+            },
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\r\nThis document describes the format historically used by tcpdump, wireshark, and many other\r\n```",
+              "createdAt": "2025-07-18T15:23:48Z",
+              "updatedAt": "2025-07-18T15:27:16Z"
+            },
+            {
+              "originalPosition": 64,
+              "body": "The sentence seems truncated. ",
+              "createdAt": "2025-07-18T15:25:16Z",
+              "updatedAt": "2025-07-18T15:27:16Z"
+            },
+            {
+              "originalPosition": 72,
+              "body": "```suggestion\r\nthan `.pcap` should be avoided.\r\n```",
+              "createdAt": "2025-07-18T15:25:40Z",
+              "updatedAt": "2025-07-18T15:27:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e8601zzp",
+          "commit": {
+            "abbreviatedOid": "107bb23"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "accepted suggestions from MED",
+          "createdAt": "2025-07-18T15:37:03Z",
+          "updatedAt": "2025-07-18T15:37:03Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOAU54e86011fq",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-18T15:39:55Z",
+          "updatedAt": "2025-07-18T15:39:55Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "```suggestion\r\n\r\n```",
+              "createdAt": "2025-07-18T15:39:55Z",
+              "updatedAt": "2025-07-18T15:39:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e860111M",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-18T15:40:28Z",
+          "updatedAt": "2025-07-18T15:40:28Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "I think it's a copy and paste error, and I should have removed this copies sentence.\r\n",
+              "createdAt": "2025-07-18T15:40:28Z",
+              "updatedAt": "2025-07-18T15:40:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e8603Kk3",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-18T17:53:10Z",
+          "updatedAt": "2025-07-18T17:53:10Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "libpcap is a library, not a program; presumably mean \"many other programs that *use* libpcap, or another library\".",
+              "createdAt": "2025-07-18T17:53:10Z",
+              "updatedAt": "2025-07-18T17:53:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e8603MsA",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-18T17:56:07Z",
+          "updatedAt": "2025-07-18T17:56:07Z",
+          "comments": [
+            {
+              "originalPosition": 35,
+              "body": "Do you mean \"and *no* newer formats exist\", i.e. nobody's introduced (official) newer versions of the pcap format. (Data General did, and libpcap has code to handle it, but that's not official.)",
+              "createdAt": "2025-07-18T17:56:07Z",
+              "updatedAt": "2025-07-18T17:56:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e8603NUn",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-18T17:57:10Z",
+          "updatedAt": "2025-07-18T17:57:10Z",
+          "comments": [
+            {
+              "originalPosition": 45,
+              "body": "Again, do you mean and *no* newer formats exist\"? pcapng/ecap isn't a newer version of pcap, it's an entirely new and different format.",
+              "createdAt": "2025-07-18T17:57:10Z",
+              "updatedAt": "2025-07-18T17:57:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e8603Oo_",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-18T17:59:49Z",
+          "updatedAt": "2025-07-18T17:59:50Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "Is that \"should\", ordinary English style, or \"SHOULD\", BCP 14-style?",
+              "createdAt": "2025-07-18T17:59:49Z",
+              "updatedAt": "2025-07-18T17:59:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e8603Pav",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-18T18:01:23Z",
+          "updatedAt": "2025-07-18T18:01:24Z",
+          "comments": [
+            {
+              "originalPosition": 95,
+              "body": "\"MUST validate the file header...\", not \"MUST do validate the file header...\".",
+              "createdAt": "2025-07-18T18:01:24Z",
+              "updatedAt": "2025-07-18T18:01:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e8603Qiz",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-18T18:03:10Z",
+          "updatedAt": "2025-07-18T18:03:11Z",
+          "comments": [
+            {
+              "originalPosition": 100,
+              "body": "\"Headers or packets may be intentionally malformed\", not \"Headers or packets *originally* may be intentionally malformed\".\r\n\r\nI might rephrase that as \"Headers or packets may be intentionally malformed by a sender, and capture files from outside sources may contain intentionally malformed contents.\"",
+              "createdAt": "2025-07-18T18:03:10Z",
+              "updatedAt": "2025-07-18T18:03:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e8603RKz",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-18T18:04:16Z",
+          "updatedAt": "2025-07-18T18:04:16Z",
+          "comments": [
+            {
+              "originalPosition": 100,
+              "body": "Should it also note that the malformation might be *maliciously* intended?",
+              "createdAt": "2025-07-18T18:04:16Z",
+              "updatedAt": "2025-07-18T18:04:16Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
