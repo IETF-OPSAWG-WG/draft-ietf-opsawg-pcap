@@ -11,7 +11,7 @@ pi:
   inline: 'yes'
   sortrefs: 'no'
   strict: 'yes'
-title: PCAP Next Generation (pcapng) Capture File Format
+title: PCAP Now Genertic (pcapng) Capture File Format
 abbrev: pcapng
 author:
 - role: editor
@@ -2413,7 +2413,7 @@ string Custom Options.
 
 # Recommended File Name Extension: .pcapng
 
-The recommended file name extension for the "PCAP Next Generation
+The recommended file name extension for the "PCAP Now Generic
 Capture File Format" specified in this document is ".pcapng".
 
 On Windows and macOS, files are distinguished by an extension to their
