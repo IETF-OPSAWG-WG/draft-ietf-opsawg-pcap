@@ -11,11 +11,11 @@
        This document describes a set of PCAP-related LinkType values and
 creates an IANA registry for those values. 
     " name="description">
-<meta content="xml2rfc 3.28.1" name="generator">
+<meta content="xml2rfc 3.30.0" name="generator">
 <meta content="draft-ietf-opsawg-pcaplinktype-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.28.1
-    Python 3.12.10
+  xml2rfc 3.30.0
+    Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -24,7 +24,7 @@ creates an IANA registry for those values.
     platformdirs 4.3.8
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.3
+    requests 2.32.4
     setuptools 80.9.0
     wcwidth 0.2.13
 -->
@@ -1045,11 +1045,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">pcaplinktype</td>
-<td class="right">June 2025</td>
+<td class="right">July 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Harris &amp; Richardson</td>
-<td class="center">Expires 13 December 2025</td>
+<td class="center">Expires 22 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1062,12 +1062,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-opsawg-pcaplinktype-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-06-11" class="published">11 June 2025</time>
+<time datetime="2025-07-21" class="published">21 July 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-12-13">13 December 2025</time></dd>
+<dd class="expires"><time datetime="2026-01-22">22 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1121,7 +1121,7 @@ creates an IANA registry for those values.<a href="#section-abstract-1" class="p
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 13 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1258,16 +1258,13 @@ LinkType values.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-2.2-4">The policy allocation for the LinkType values is as follows:<a href="#section-2.2-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2.2-5.1">
-            <p id="section-2.2-5.1.1">Values from 32768 to 65000 must be allocated via Specification Required (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.6" class="relref">Section 4.6</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>). Guidance for Designated Experts is provided in <a href="#sec-de" class="auto internal xref">Section 2.2.2</a>.<a href="#section-2.2-5.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-2.2-5.2">
-            <p id="section-2.2-5.2.1">Values from 0 to 32767 are allocated following a First-Come
+            <p id="section-2.2-5.1.1">Values from 0 to 65000 are allocated following a First-Come
 First-Served policy (Section 4.4 of <span>[<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>). Values in the ranges
 0-10, 50-51, and 98-301 are already assigned; values in the ranges
-11-49 and 52-97 MUST not be assigned.<a href="#section-2.2-5.2.1" class="pilcrow">¶</a></p>
+11-49 and 52-97 MUST not be assigned.<a href="#section-2.2-5.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-2.2-5.3">
-            <p id="section-2.2-5.3.1">Values from 65001 to 65535 are reserved for Private Use (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.1" class="relref">Section 4.1</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>).<a href="#section-2.2-5.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-2.2-5.2">
+            <p id="section-2.2-5.2.1">Values from 65001 to 65535 are reserved for Experimental Use (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.2" class="relref">Section 4.2</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>).<a href="#section-2.2-5.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-2.2-6">The initial version of the registry is provided in <a href="#sec-initial" class="auto internal xref">Section 2.2.1</a>.  In each
@@ -1275,10 +1272,11 @@ case here, the reference should be set to
 <span>[<a href="#TCPDUMP" class="cite xref">TCPDUMP</a>]</span> and the RFC number to be assigned to this document, which is not repeated each time.<a href="#section-2.2-6" class="pilcrow">¶</a></p>
 <p id="section-2.2-7">The initial contents of the table are based upon the link-layer header
 type list maintained by libpcap, and published on <span>[<a href="#TCPDUMP" class="cite xref">TCPDUMP</a>]</span>.<a href="#section-2.2-7" class="pilcrow">¶</a></p>
-<p id="section-2.2-8">Note that historically, values were assigned incrementally following First Come First Served (FCFS) policy, with a preference for a public specification, but with no mandate.
+<p id="section-2.2-8">Note that historically, values were assigned incrementally following First Come First Served (FCFS) policy.
+A preference was made to have a public specification, but with no mandate to enforce this.
 Some historical values may have less specification than desired.<a href="#section-2.2-8" class="pilcrow">¶</a></p>
-<p id="section-2.2-9">LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally reserved for Private Use. Their use is Deprecated in favour of the values in the 65001-65535 range.<a href="#section-2.2-9" class="pilcrow">¶</a></p>
-<p id="section-2.2-10">In general, Private Use values should never leak out of the entity that uses it.
+<p id="section-2.2-9">LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally reserved for Experimental/Private Use. Their use is Deprecated in favour of the values in the 65001-65535 range.<a href="#section-2.2-9" class="pilcrow">¶</a></p>
+<p id="section-2.2-10">In general, Experimental Use values should never leak out of the entity that uses it.
 As the FCFS range is large and easily obtained, official values are recommended.<a href="#section-2.2-10" class="pilcrow">¶</a></p>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="section-2.2-11.1">
@@ -5598,14 +5596,13 @@ standardization.<a href="#section-2.2-11.1.1" class="pilcrow">¶</a></p>
           <h4 id="name-guidance-for-designated-exp">
 <a href="#section-2.2.2" class="section-number selfRef">2.2.2. </a><a href="#name-guidance-for-designated-exp" class="section-name selfRef">Guidance for Designated Experts</a>
           </h4>
-<p id="section-2.2.2-1">When processing a request for a Specification Required allocation the Designated Experts are expected to be able to find the relevant specification at a clearly stable URL.
-It is noted that many enterprise web sites do not maintain URLs over a long period of time, and a document in a "wp-uploaded" section is highly likely to disappear.
-In addition, specifications that require a reader to click through any kind of marketing or legal agreement are not considered public.<a href="#section-2.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.2.2-2">The specification needs to be clearly written, and when the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.<a href="#section-2.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-1">When processing a request for an allocation, the Designated Experts will encourage the requester to provide a specification at a stable URL.
+There is no requirement for a specification, but often review of the specification allowes the Designated Expert to determine if the allocation actually is a duplicate of another specification.<a href="#section-2.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-2">When the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be clear.<a href="#section-2.2.2-2" class="pilcrow">¶</a></p>
 <p id="section-2.2.2-3">Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.
 For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.<a href="#section-2.2.2-3" class="pilcrow">¶</a></p>
 <p id="section-2.2.2-4">LinkTypes may be allocated for specifications not publicly available may be made within the FCFS range.
-This includes specifications that might be classified.
+This includes specifications that might be subject to a security classification.
 The minimal requirement is to provide a contact person for that link type.<a href="#section-2.2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
