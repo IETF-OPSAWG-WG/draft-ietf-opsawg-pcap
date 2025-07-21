@@ -19,7 +19,7 @@ Expires: 22 January 2026                           Politecnico di Torino
                                                             21 July 2025
 
 
-             PCAP Now Genertic (pcapng) Capture File Format
+             PCAP Now Generic (pcapng) Capture File Format
                     draft-ietf-opsawg-pcapng-latest
 
 Abstract
