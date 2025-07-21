@@ -694,14 +694,12 @@ The registry has the following structure:
 
 The policy allocation for the LinkType values is as follows:
 
-* Values from 32768 to 65000 must be allocated via Specification Required ({{Section 4.6 of !RFC8126}}). Guidance for Designated Experts is provided in {{sec-de}}.
-
-* Values from 0 to 32767 are allocated following a First-Come
+* Values from 0 to 65000 are allocated following a First-Come
   First-Served policy (Section 4.4 of [RFC8126]). Values in the ranges
   0-10, 50-51, and 98-301 are already assigned; values in the ranges
   11-49 and 52-97 MUST not be assigned.
 
-* Values from 65001 to 65535 are reserved for Private Use ({{Section 4.1 of !RFC8126}}).
+* Values from 65001 to 65535 are reserved for Experimental Use ({{Section 4.2 of !RFC8126}}).
 
 The initial version of the registry is provided in {{sec-initial}}.  In each
 case here, the reference should be set to
@@ -710,12 +708,13 @@ case here, the reference should be set to
 The initial contents of the table are based upon the link-layer header
 type list maintained by libpcap, and published on {{TCPDUMP}}.
 
-Note that historically, values were assigned incrementally following First Come First Served (FCFS) policy, with a preference for a public specification, but with no mandate.
+Note that historically, values were assigned incrementally following First Come First Served (FCFS) policy.
+A preference was made to have a public specification, but with no mandate to enforce this.
 Some historical values may have less specification than desired.
 
-LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved for Private Use. Their use is Deprecated in favour of the values in the 65001-65535 range.
+LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved for Experimental/Private Use. Their use is Deprecated in favour of the values in the 65001-65535 range.
 
-In general, Private Use values should never leak out of the entity that uses it.
+In general, Experimental Use values should never leak out of the entity that uses it.
 As the FCFS range is large and easily obtained, official values are recommended.
 
 > There is often an associated Data Link Type (DLT) value which is often
@@ -733,17 +732,16 @@ This is the initial table for the registry:
 
 ### Guidance for Designated Experts {#sec-de}
 
-When processing a request for a Specification Required allocation the Designated Experts are expected to be able to find the relevant specification at a clearly stable URL.
-It is noted that many enterprise web sites do not maintain URLs over a long period of time, and a document in a "wp-uploaded" section is highly likely to disappear.
-In addition, specifications that require a reader to click through any kind of marketing or legal agreement are not considered public.
+When processing a request for an allocation, the Designated Experts will encourage the requester to provide a specification at a stable URL.
+There is no requirement for a specification, but often review of the specification allowes the Designated Expert to determine if the allocation actually is a duplicate of another specification.
 
-The specification needs to be clearly written, and when the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be very clearly specified in that document.
+When the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be clear.
 
 Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.
 For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.
 
 LinkTypes may be allocated for specifications not publicly available may be made within the FCFS range.
-This includes specifications that might be classified.
+This includes specifications that might be subject to a security classification.
 The minimal requirement is to provide a contact person for that link type.
 
 # Security Considerations
