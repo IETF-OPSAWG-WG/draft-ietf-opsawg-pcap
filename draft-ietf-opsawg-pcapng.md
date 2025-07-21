@@ -11,7 +11,7 @@ pi:
   inline: 'yes'
   sortrefs: 'no'
   strict: 'yes'
-title: PCAP Now Genertic (pcapng) Capture File Format
+title: PCAP Now Generic (pcapng) Capture File Format
 abbrev: pcapng
 author:
 - role: editor
