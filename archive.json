@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-20T02:11:47.294737+00:00",
+  "timestamp": "2025-07-22T02:03:17.564445+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9890,13 +9890,13 @@
       "labels": [],
       "body": "Its implementation can be found here:\r\nhttps://gitlab.com/wireshark/wireshark/-/merge_requests/20256",
       "createdAt": "2025-06-18T14:31:15Z",
-      "updatedAt": "2025-07-15T20:25:37Z",
+      "updatedAt": "2025-07-21T15:20:48Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
-      "baseRefOid": "740dc6777658afea743aa1b29fa0e53df53f8edd",
+      "baseRefOid": "a24ab7cbdb3d9564c55d77e79c7201a682912fe9",
       "headRepository": "pquantin/draft-ietf-opsawg-pcap",
       "headRefName": "esp_dsb",
-      "headRefOid": "b73e9fbbea42b2424c15761d34410c09fb63709d",
+      "headRefOid": "cee969baba64119dd4e46b06063d6d090f950cde",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -9992,6 +9992,34 @@
           "body": "> Sorry I missed this part. Hopefully the new wording make it clearer now.\r\n\r\nYes. I've added a note to indicate that it should specify how readers should deal with added fields (in case the spec is update in the future to add new fields) and with missing fields (in case code that understands those new fields reads an old value that doesn't have them).",
           "createdAt": "2025-07-15T20:25:37Z",
           "updatedAt": "2025-07-15T20:25:37Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "body": "Hi Guy,\r\n\r\nlet me know if something else is required on my side.\r\n\r\nThanks,\r\nPascal.",
+          "createdAt": "2025-07-21T06:40:30Z",
+          "updatedAt": "2025-07-21T06:40:30Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> let me know if something else is required on my side.\r\n\r\nAn indication of how readers should deal with added fields and missing fields, as per https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/184#issuecomment-3075439561.",
+          "createdAt": "2025-07-21T06:59:10Z",
+          "updatedAt": "2025-07-21T06:59:10Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "body": "> > let me know if something else is required on my side.\r\n> \r\n> An indication of how readers should deal with added fields and missing fields, as per [#184 (comment)](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/184#issuecomment-3075439561).\r\n\r\nWhen you wrote \"I've added a note to...\" I understood that you had done it, not that I had to do it. Sorry for that.",
+          "createdAt": "2025-07-21T07:05:28Z",
+          "updatedAt": "2025-07-21T07:05:28Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "body": "I amended my change.",
+          "createdAt": "2025-07-21T15:20:39Z",
+          "updatedAt": "2025-07-21T15:20:48Z"
         }
       ],
       "reviews": [
@@ -10222,24 +10250,26 @@
       "id": "PR_kwDOAU54e86b6x61",
       "title": "All fcfs",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/185",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This makes the entire 0-65000 to be First Come First Served.",
       "createdAt": "2025-06-24T18:46:25Z",
-      "updatedAt": "2025-06-24T18:46:25Z",
+      "updatedAt": "2025-07-21T10:35:31Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "740dc6777658afea743aa1b29fa0e53df53f8edd",
       "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "headRefName": "all-fcfs",
       "headRefOid": "d5d57b83b3f5ec68a7f2bc0e5b5f3fc0d0435421",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-21T10:35:30Z",
+      "mergedAt": "2025-07-21T10:35:30Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "a24ab7cbdb3d9564c55d77e79c7201a682912fe9"
+      },
       "comments": [],
       "reviews": []
     },
@@ -10255,13 +10285,13 @@
       "labels": [],
       "body": "I did a last minute review, and moved a few words around, and introduced a new section on Magic Number.\r\n",
       "createdAt": "2025-07-18T09:40:25Z",
-      "updatedAt": "2025-07-18T18:04:16Z",
+      "updatedAt": "2025-07-21T20:50:26Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "740dc6777658afea743aa1b29fa0e53df53f8edd",
       "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "headRefName": "mcr-ietf123-minor-edits",
-      "headRefOid": "151a04f3b1a04bce6027963ab598eb28954bd935",
+      "headRefOid": "ac2a59008bf78936119afea3024b4c112cdf2a34",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -10520,6 +10550,353 @@
               "body": "Should it also note that the malformation might be *maliciously* intended?",
               "createdAt": "2025-07-18T18:04:16Z",
               "updatedAt": "2025-07-18T18:04:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861C6Ru",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T10:24:44Z",
+          "updatedAt": "2025-07-21T10:24:45Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "```suggestion\r\nThis document describes the format historically used by tcpdump, wireshark, and many other\r\nprograms that use libpcap, or another library, to read and write network traces.\r\n```",
+              "createdAt": "2025-07-21T10:24:44Z",
+              "updatedAt": "2025-07-21T10:24:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861C6_1",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T10:25:55Z",
+          "updatedAt": "2025-07-21T10:25:55Z",
+          "comments": [
+            {
+              "originalPosition": 36,
+              "body": "```suggestion\r\nnot read the new format.  As this document is historical, and no newer formats were publicly released,\r\nthis value will not change again.\r\n```",
+              "createdAt": "2025-07-21T10:25:55Z",
+              "updatedAt": "2025-07-21T10:25:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861C7h1",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T10:26:48Z",
+          "updatedAt": "2025-07-21T10:26:48Z",
+          "comments": [
+            {
+              "originalPosition": 45,
+              "body": "```suggestion\r\nfiles in the new format. As this document is historical, and no newer formats exist,\r\n```",
+              "createdAt": "2025-07-21T10:26:48Z",
+              "updatedAt": "2025-07-21T10:26:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861C7_9",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T10:27:33Z",
+          "updatedAt": "2025-07-21T10:27:33Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "I don't think there is an interoperability issue here, so I don't feel SHOULD matters, but I do not object to SHOULD.",
+              "createdAt": "2025-07-21T10:27:33Z",
+              "updatedAt": "2025-07-21T10:27:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861C8gW",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T10:28:16Z",
+          "updatedAt": "2025-07-21T10:28:17Z",
+          "comments": [
+            {
+              "originalPosition": 95,
+              "body": "```suggestion\r\nA pcap file reader MUST validate the file header and file packet header, and also the contained headers for the packet capture.\r\n```",
+              "createdAt": "2025-07-21T10:28:17Z",
+              "updatedAt": "2025-07-21T10:28:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861C9YT",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T10:29:28Z",
+          "updatedAt": "2025-07-21T10:29:28Z",
+          "comments": [
+            {
+              "originalPosition": 100,
+              "body": "```suggestion\r\nHeaders or packets may be intentionally malformed by a sender, and capture files from outside sources may contain intentionally malformed contents, for malicious reasons.\r\n```",
+              "createdAt": "2025-07-21T10:29:28Z",
+              "updatedAt": "2025-07-21T20:48:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861Kpgg",
+          "commit": {
+            "abbreviatedOid": "a2b2dd4"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T19:33:44Z",
+          "updatedAt": "2025-07-21T19:33:44Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "Yes. That partial text is redundant, as you're enumerating all four possible octet sequences for the magic number and giving their meanings.",
+              "createdAt": "2025-07-21T19:33:44Z",
+              "updatedAt": "2025-07-21T19:33:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861Kq-P",
+          "commit": {
+            "abbreviatedOid": "a2b2dd4"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T19:35:08Z",
+          "updatedAt": "2025-07-21T19:35:08Z",
+          "comments": [
+            {
+              "originalPosition": 61,
+              "body": "```suggestion\r\n* 0xA1,0xB2,0xC3,0xD4: little endian file, with timestamps in seconds/microseconds.\r\n* 0x1A,0x2B,0x3C,0x4D: little endian file, with timestamps in seconds/nanoseconds.\r\n* 0xD4,0xC3,0xB2,0xA1: big endian file, with timestamps in seconds/microseconds.\r\n* 0x4D,0x3C,0x2B,0x1A: big endian file, with timestamps in seconds/nanoseconds.\r\n```",
+              "createdAt": "2025-07-21T19:35:08Z",
+              "updatedAt": "2025-07-21T19:35:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861KwRc",
+          "commit": {
+            "abbreviatedOid": "a2b2dd4"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T19:40:29Z",
+          "updatedAt": "2025-07-21T19:40:29Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "One issue is that if, for example, you have Whoopie! Packet Sniffer 3.06 installed, and it has its own format for which it uses `.cap`, and you have a pcap file named `from.cap`, double-clicking on that file in your file manager might cause Whoopie! Packet Sniffer 3.06, which does *not* support reading pcap files, to try to read it, which will cause it to fail (hopefully with \"sorry, that file isn't in a format that I recognize\" rather than something more catastrophic such as crashing).",
+              "createdAt": "2025-07-21T19:40:29Z",
+              "updatedAt": "2025-07-21T19:40:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861K1Kk",
+          "commit": {
+            "abbreviatedOid": "a2b2dd4"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T19:44:56Z",
+          "updatedAt": "2025-07-21T19:44:56Z",
+          "comments": [
+            {
+              "originalPosition": 100,
+              "body": "Remove the \".\" in the new version after \"sender\" and before \",\".",
+              "createdAt": "2025-07-21T19:44:56Z",
+              "updatedAt": "2025-07-21T19:44:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861Lzd3",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T20:48:14Z",
+          "updatedAt": "2025-07-21T20:48:15Z",
+          "comments": [
+            {
+              "originalPosition": 100,
+              "body": "> Remove the \".\" in the new version after \"sender\" and before \",\".\r\n\r\nYou ought to be able to hit edit on my suggestion, but I'll do that.",
+              "createdAt": "2025-07-21T20:48:14Z",
+              "updatedAt": "2025-07-21T20:48:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861L2J3",
+          "commit": {
+            "abbreviatedOid": "ac2a590"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T20:50:26Z",
+          "updatedAt": "2025-07-21T20:50:26Z",
+          "comments": [
+            {
+              "originalPosition": 95,
+              "body": "```suggestion\r\nA pcap file reader MUST validate the file header and file packet header, and also the contained headers for the packet capture.\r\n```",
+              "createdAt": "2025-07-21T20:50:26Z",
+              "updatedAt": "2025-07-21T20:50:26Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 188,
+      "id": "PR_kwDOAU54e86f0qPQ",
+      "title": "Pcapng now generic",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/188",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Change name from \"Next Generation\" to \"Now Generic\"",
+      "createdAt": "2025-07-21T10:23:24Z",
+      "updatedAt": "2025-07-21T19:06:10Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "mcr-ietf123-minor-edits",
+      "baseRefOid": "151a04f3b1a04bce6027963ab598eb28954bd935",
+      "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "headRefName": "pcapng-now-generic",
+      "headRefOid": "1460e5d7cc81bf2a6cdfe06caaaa7abaf21d1647",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOAU54e861C-ao",
+          "commit": {
+            "abbreviatedOid": "93cbeb6"
+          },
+          "author": "alagoutte",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T10:30:43Z",
+          "updatedAt": "2025-07-21T10:30:43Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "typo ?",
+              "createdAt": "2025-07-21T10:30:43Z",
+              "updatedAt": "2025-07-21T10:30:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861DPES",
+          "commit": {
+            "abbreviatedOid": "93cbeb6"
+          },
+          "author": "tuexen",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T10:50:09Z",
+          "updatedAt": "2025-07-21T10:50:09Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Yes. It should be Now Generic",
+              "createdAt": "2025-07-21T10:50:09Z",
+              "updatedAt": "2025-07-21T10:50:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861HmXa",
+          "commit": {
+            "abbreviatedOid": "93cbeb6"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T15:34:47Z",
+          "updatedAt": "2025-07-21T15:34:47Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\ntitle: PCAP Now Generic (pcapng) Capture File Format\r\n```",
+              "createdAt": "2025-07-21T15:34:47Z",
+              "updatedAt": "2025-07-21T15:34:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e861KMwR",
+          "commit": {
+            "abbreviatedOid": "93cbeb6"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T19:06:10Z",
+          "updatedAt": "2025-07-21T19:06:10Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "And it now is.",
+              "createdAt": "2025-07-21T19:06:10Z",
+              "updatedAt": "2025-07-21T19:06:10Z"
             }
           ]
         }
