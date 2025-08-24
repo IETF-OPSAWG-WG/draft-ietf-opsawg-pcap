@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-27T02:18:51.676489+00:00",
+  "timestamp": "2025-08-24T01:59:15.430078+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9890,7 +9890,7 @@
       "labels": [],
       "body": "Its implementation can be found here:\r\nhttps://gitlab.com/wireshark/wireshark/-/merge_requests/20256",
       "createdAt": "2025-06-18T14:31:15Z",
-      "updatedAt": "2025-07-25T14:19:30Z",
+      "updatedAt": "2025-08-23T17:04:19Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "a24ab7cbdb3d9564c55d77e79c7201a682912fe9",
@@ -10027,6 +10027,13 @@
           "body": "Hi Guy,\r\n\r\nlet me know if this is OK for you.\r\n\r\nThanks,\r\nPascal.",
           "createdAt": "2025-07-25T14:19:30Z",
           "updatedAt": "2025-07-25T14:19:30Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "body": "@guyharris let me know if you want further changes.\r\n\r\nThanks,\r\nPascal.",
+          "createdAt": "2025-08-23T17:04:19Z",
+          "updatedAt": "2025-08-23T17:04:19Z"
         }
       ],
       "reviews": [
