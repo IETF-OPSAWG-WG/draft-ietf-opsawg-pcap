@@ -1210,10 +1210,11 @@ Table of Contents
    Designated Expert will need use their judgement, or consult the
    OPSAWG or an Area Director.
 
-   LinkTypes may be allocated for specifications not publicly available
-   may be made within the FCFS range.  This includes specifications that
-   might be subject to a security classification.  The minimal
-   requirement is to provide a contact person for that link type.
+   LinkTypes for which specifications are not publicly available may
+   have values allocated within the FCFS range.  This includes
+   specifications that might be subject to a security classification.
+   The minimal requirement is to provide a contact person for that link
+   type.
 
 4.  Security Considerations
 
