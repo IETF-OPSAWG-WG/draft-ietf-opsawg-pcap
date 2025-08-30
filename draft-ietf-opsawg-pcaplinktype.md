@@ -744,7 +744,7 @@ When the contents of the link type can contain an IPv4 or IPv6 header, then the 
 Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.
 For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.
 
-LinkTypes may be allocated for specifications not publicly available may be made within the FCFS range.
+LinkTypes for which specifications are not publicly available may have values allocated within the FCFS range.
 This includes specifications that might be subject to a security classification.
 The minimal requirement is to provide a contact person for that link type.
 
