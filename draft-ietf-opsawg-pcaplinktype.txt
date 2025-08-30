@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 22 January 2026                                       Sandelman
-                                                            21 July 2025
+Expires: 3 March 2026                                          Sandelman
+                                                          30 August 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 January 2026.
+   This Internet-Draft will expire on 3 March 2026.
 
 Copyright Notice
 
@@ -131,7 +131,7 @@ Table of Contents
    *  Values from 0 to 65000 are allocated following a First-Come First-
       Served policy (Section 4.4 of [RFC8126]).  Values in the ranges
       0-10, 50-51, and 98-301 are already assigned; values in the ranges
-      11-49 and 52-97 MUST not be assigned.
+      11-49 and 52-97 MUST NOT be assigned.
 
    *  Values from 65001 to 65535 are reserved for Experimental Use
       (Section 4.2 of [RFC8126]).
@@ -1765,11 +1765,11 @@ Table of Contents
 
    [I-D.ietf-opsawg-pcapng]
               Tüxen, M., Risso, F., Bongertz, J., Combs, G., Harris, G.,
-              Chaudron, E., and M. Richardson, "PCAP Next Generation
+              Chaudron, E., and M. Richardson, "PCAP Now Generic
               (pcapng) Capture File Format", Work in Progress, Internet-
-              Draft, draft-ietf-opsawg-pcapng-03, 3 March 2025,
+              Draft, draft-ietf-opsawg-pcapng-04, 30 August 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
-              pcapng-03>.
+              pcapng-04>.
 
    [RFC9260]  Stewart, R., Tüxen, M., and K. Nielsen, "Stream Control
               Transmission Protocol", RFC 9260, DOI 10.17487/RFC9260,
