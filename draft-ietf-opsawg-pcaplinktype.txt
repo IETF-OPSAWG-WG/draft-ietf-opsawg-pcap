@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 3 March 2026                                          Sandelman
-                                                          30 August 2025
+Expires: 4 March 2026                                          Sandelman
+                                                          31 August 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 March 2026.
+   This Internet-Draft will expire on 4 March 2026.
 
 Copyright Notice
 

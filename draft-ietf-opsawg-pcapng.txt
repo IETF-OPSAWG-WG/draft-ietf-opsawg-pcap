@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 3 March 2026                              Politecnico di Torino
+Expires: 4 March 2026                              Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,10 +16,10 @@ Expires: 3 March 2026                              Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                          30 August 2025
+                                                          31 August 2025
 
 
-           PCAP Next Generation (pcapng) Capture File Format
+             PCAP Now Generic (pcapng) Capture File Format
                     draft-ietf-opsawg-pcapng-latest
 
 Abstract
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 March 2026.
+   This Internet-Draft will expire on 4 March 2026.
 
 Copyright Notice
 
@@ -2287,8 +2287,8 @@ Table of Contents
 
 6.  Recommended File Name Extension: .pcapng
 
-   The recommended file name extension for the "PCAP Next Generation
-   Capture File Format" specified in this document is ".pcapng".
+   The recommended file name extension for the "PCAP Now Generic Capture
+   File Format" specified in this document is ".pcapng".
 
    On Windows and macOS, files are distinguished by an extension to
    their filename.  Such an extension is technically not actually
