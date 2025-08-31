@@ -8,7 +8,7 @@ This is the working area for individual Internet-Drafts.
 * [Individual Draft](https://tools.ietf.org/html/draft-ietf-opsawg-pcap)
 * [Compare Editor's Copy to Individual Draft](https://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/#go.draft-ietf-opsawg-pcap.diff)
 
-## PCAP Next Generation (pcapng) Capture File Format
+## PCAP Now Generic (pcapng) Capture File Format
 
 * [Editor's Copy](https://ietf-opsawg-wg.github.io/draft-ietf-opsawg-pcap/#go.draft-ietf-opsawg-pcapng.html)
 * [Individual Draft](https://tools.ietf.org/html/draft-ietf-opsawg-pcapng)

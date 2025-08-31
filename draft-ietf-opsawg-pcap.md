@@ -294,7 +294,7 @@ Please note: To avoid confusion (such as the current usage of .cap for a
 plethora of different capture file formats) file name extensions other
 than .pcap should be avoided.
 
-There is new work to create the PCAP Next Generation capture File Format
+There is new work to create the PCAP Now Generic capture File Format
 (see {{I-D.ietf-opsawg-pcapng}}).  The new file format is not
 compatible with this specification, but many programs read both
 transparently.  Files of that type will start with a Section
