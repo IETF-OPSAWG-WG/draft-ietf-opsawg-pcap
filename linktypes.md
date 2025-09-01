@@ -239,7 +239,7 @@ Description
 : IP without link-layer headers
 
 Reference
-: {{LINKTYPE_RAW}}
+: {{LINKTYPE_RAW}} {{?RFC791}} {{?RFC8200}}
 {: spacing="compact"}
 
 
@@ -1910,7 +1910,7 @@ Description
 : IPv4 without link-layer headers
 
 Reference
-: {{LINKTYPE_IPV4}}
+: {{LINKTYPE_IPV4}} {{?RFC791}}
 {: spacing="compact"}
 
 
@@ -1925,7 +1925,7 @@ Description
 : IPv6 without link-layer headers
 
 Reference
-: {{LINKTYPE_IPV6}}
+: {{LINKTYPE_IPV6}} {{?RFC8200}}
 {: spacing="compact"}
 
 

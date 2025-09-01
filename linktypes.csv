@@ -15,7 +15,7 @@
 |Not available for assignment|52-98|Do not use these values|
 |LINKTYPE_SYMANTEC_FIREWALL|99|Reserved for Symantec Enterprise Firewall|
 |LINKTYPE_ATM_RFC1483|100|LLC/SNAP-encapsulated ATM|{{LINKTYPE_ATM_RFC1483}}
-|LINKTYPE_RAW|101|IP without link-layer headers|{{LINKTYPE_RAW}}
+|LINKTYPE_RAW|101|IP without link-layer headers|{{LINKTYPE_RAW}} {{?RFC791}} {{?RFC8200}}
 |LINKTYPE_SLIP_BSDOS|102|Reserved for BSD/OS SLIP BPF header|
 |LINKTYPE_PPP_BSDOS|103|Reserved for BSD/OS PPP BPF header|
 |LINKTYPE_C_HDLC|104|Cisco PPP with HDLC framing|{{LINKTYPE_C_HDLC}}
@@ -142,8 +142,8 @@
 |LINKTYPE_FC_2_WITH_FRAME_DELIMS|225|Fibre Channel FC-2 frames with SOF and EOF|{{LINKTYPE_FC_2_WITH_FRAME_DELIMS}}
 |LINKTYPE_IPNET|226|Solaris ipnet|{{LINKTYPE_IPNET}}
 |LINKTYPE_CAN_SOCKETCAN|227|Controller Area Network (CAN) frames, with a metadata header|{{LINKTYPE_CAN_SOCKETCAN}}
-|LINKTYPE_IPV4|228|IPv4 without link-layer headers|{{LINKTYPE_IPV4}}
-|LINKTYPE_IPV6|229|IPv6 without link-layer headers|{{LINKTYPE_IPV6}}
+|LINKTYPE_IPV4|228|IPv4 without link-layer headers|{{LINKTYPE_IPV4}} {{?RFC791}}
+|LINKTYPE_IPV6|229|IPv6 without link-layer headers|{{LINKTYPE_IPV6}} {{?RFC8200}}
 |LINKTYPE_IEEE802_15_4_NOFCS|230|IEEE 802.15.4 without FCS|{{LINKTYPE_IEEE802_15_4_NOFCS}}
 |LINKTYPE_DBUS|231|D-Bus messages|{{LINKTYPE_DBUS}}
 |LINKTYPE_JUNIPER_VS|232|Reserved for Juniper Networks|
