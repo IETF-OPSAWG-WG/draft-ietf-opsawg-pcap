@@ -256,7 +256,7 @@ Table of Contents
    Name  LINKTYPE_RAW
    Number  101
    Description  IP without link-layer headers
-   Reference  [LINKTYPE_RAW]
+   Reference  [LINKTYPE_RAW] [RFC791] [RFC8200]
 
    Name  LINKTYPE_SLIP_BSDOS
    Number  102
@@ -826,12 +826,12 @@ Table of Contents
    Name  LINKTYPE_IPV4
    Number  228
    Description  IPv4 without link-layer headers
-   Reference  [LINKTYPE_IPV4]
+   Reference  [LINKTYPE_IPV4] [RFC791]
 
    Name  LINKTYPE_IPV6
    Number  229
    Description  IPv6 without link-layer headers
-   Reference  [LINKTYPE_IPV6]
+   Reference  [LINKTYPE_IPV6] [RFC8200]
 
    Name  LINKTYPE_IEEE802_15_4_NOFCS
    Number  230
@@ -1804,6 +1804,15 @@ Table of Contents
               Draft, draft-ietf-opsawg-pcapng-04, 30 August 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
               pcapng-04>.
+
+   [RFC791]   Postel, J., "Internet Protocol", STD 5, RFC 791,
+              DOI 10.17487/RFC0791, September 1981,
+              <https://www.rfc-editor.org/rfc/rfc791>.
+
+   [RFC8200]  Deering, S. and R. Hinden, "Internet Protocol, Version 6
+              (IPv6) Specification", STD 86, RFC 8200,
+              DOI 10.17487/RFC8200, July 2017,
+              <https://www.rfc-editor.org/rfc/rfc8200>.
 
    [RFC9260]  Stewart, R., Tüxen, M., and K. Nielsen, "Stream Control
               Transmission Protocol", RFC 9260, DOI 10.17487/RFC9260,
