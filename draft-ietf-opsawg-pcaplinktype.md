@@ -312,6 +312,16 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IEEE802_15_4_WITHFCS.html
 
+  LINKTYPE_IPV4:
+    title: LINKTYPE_IPV4
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_IPV4.html
+
+  LINKTYPE_IPV6:
+    title: LINKTYPE_IPV6
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_IPV6.html
+
   LINKTYPE_IPOIB:
     title: LINKTYPE_IPOIB
     date: false
@@ -501,6 +511,11 @@ informative:
     title: LINKTYPE_PROFIBUS_DL
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PROFIBUS_DL.html
+
+  LINKTYPE_RAW:
+    title: LINKTYPE_RAW
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_RAW.html
 
   LINKTYPE_RDS:
     title: LINKTYPE_RDS
