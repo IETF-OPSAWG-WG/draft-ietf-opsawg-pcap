@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 4 March 2026                                          Sandelman
-                                                          31 August 2025
+Expires: 5 March 2026                                          Sandelman
+                                                        1 September 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 March 2026.
+   This Internet-Draft will expire on 5 March 2026.
 
 Copyright Notice
 
@@ -255,7 +255,8 @@ Table of Contents
 
    Name  LINKTYPE_RAW
    Number  101
-   Description  Raw IP; begins with an IPv4 or IPv6 header
+   Description  IP without link-layer headers
+   Reference  [LINKTYPE_RAW]
 
    Name  LINKTYPE_SLIP_BSDOS
    Number  102
@@ -824,11 +825,13 @@ Table of Contents
 
    Name  LINKTYPE_IPV4
    Number  228
-   Description  Raw IPv4; the packet begins with an IPv4 header
+   Description  IPv4 without link-layer headers
+   Reference  [LINKTYPE_IPV4]
 
    Name  LINKTYPE_IPV6
    Number  229
-   Description  Raw IPv6; the packet begins with an IPv6 header
+   Description  IPv6 without link-layer headers
+   Reference  [LINKTYPE_IPV6]
 
    Name  LINKTYPE_IEEE802_15_4_NOFCS
    Number  230
@@ -1500,6 +1503,14 @@ Table of Contents
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_15_4_WITHFCS.html>.
 
+   [LINKTYPE_IPV4]
+              "LINKTYPE_IPV4",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_IPV4.html>.
+
+   [LINKTYPE_IPV6]
+              "LINKTYPE_IPV6",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_IPV6.html>.
+
    [LINKTYPE_IPOIB]
               "LINKTYPE_IPOIB",
               <https://www.tcpdump.org/linktypes/LINKTYPE_IPOIB.html>.
@@ -1657,6 +1668,10 @@ Table of Contents
               "LINKTYPE_PROFIBUS_DL",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_PROFIBUS_DL.html>.
+
+   [LINKTYPE_RAW]
+              "LINKTYPE_RAW",
+              <https://www.tcpdump.org/linktypes/LINKTYPE_RAW.html>.
 
    [LINKTYPE_RDS]
               "LINKTYPE_RDS",
