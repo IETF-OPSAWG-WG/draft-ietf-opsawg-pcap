@@ -138,7 +138,7 @@ the format.  The value for the current version of the format is 4
 This value should change if the format changes in such a way that code
 that reads the new format could read the old format without checking the
 version number but code that reads the old format could not read all
-files in the new format. As this document is historical, and newer formats exist,
+files in the new format. As this document is historical, and no newer formats exist,
 this value will not change again.
 
 Reserved1 (32 bits):
