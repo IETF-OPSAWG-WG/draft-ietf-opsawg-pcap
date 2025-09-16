@@ -175,8 +175,8 @@ Table of Contents
       not read the old format (i.e., code to read both formats would
       have to check the version number and use different code paths for
       the two formats) and code that reads the old format could not read
-      the new format.  As this document is historical, and newer formats
-      exist, this value will not change again.
+      the new format.  As this document is historical, and no newer
+      formats were publicly released, this value will not change again.
 
    Minor Version (16 bits):  an unsigned integer, giving the number of
       the current minor version of the format.  The value for the
