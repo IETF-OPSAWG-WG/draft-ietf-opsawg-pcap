@@ -378,7 +378,7 @@ Table of Contents
 
 7.  Security Considerations
 
-   A pcap file reader MUST do validate the file header and file packet
+   A pcap file reader MUST validate the file header and file packet
    header, and also the contained headers for the packet capture.  A
    reader can receive as input not only valid headers or packets, but
    any arbitrary random sequence of octets: Headers or packets
