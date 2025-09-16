@@ -185,8 +185,8 @@ Table of Contents
       changes in such a way that code that reads the new format could
       read the old format without checking the version number but code
       that reads the old format could not read all files in the new
-      format.  As this document is historical, and newer formats exist,
-      this value will not change again.
+      format.  As this document is historical, and no newer formats
+      exist, this value will not change again.
 
    Reserved1 (32 bits):  not used - SHOULD be filled with 0 by pcap file
       writers, and MUST be ignored by pcap file readers.  This value was
