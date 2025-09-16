@@ -56,7 +56,7 @@ operating systems, and to read and write network traces to a file was
 later put into a library named libpcap.
 
 This document describes the format historically used by tcpdump, wireshark, and many other
-programs that are libpcap, or another library, to read and write network traces.
+programs that use libpcap, or another library, to read and write network traces.
 
 # Terminology
 
