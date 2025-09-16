@@ -320,7 +320,7 @@ It is not uncommon for the same extension, `.pcap` to be used for both.
 
 #  Security Considerations
 
-A pcap file reader MUST do validate the file header and file packet header, and also the contained headers for the packet capture.
+A pcap file reader MUST validate the file header and file packet header, and also the contained headers for the packet capture.
 A reader can receive as input not only valid headers or packets, but any arbitrary
 random sequence of octets:
 Headers or packets originally may be intentionally malformed by a sender. Also, capture files from outside sources may contain intentionally malformed contents.
