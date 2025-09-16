@@ -95,7 +95,7 @@ Table of Contents
    later put into a library named libpcap.
 
    This document describes the format historically used by tcpdump,
-   wireshark, and many other programs that are libpcap, or another
+   wireshark, and many other programs that use libpcap, or another
    library, to read and write network traces.
 
 2.  Terminology
