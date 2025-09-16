@@ -215,9 +215,6 @@ The magic number is stored in native endian format, so all the byte sequences be
 * 0xD4,0xC3,0xB2,0xA1: big endian file, with timestamps in seconds/microseconds.
 * 0x4D,0x3C,0x2B,0x1A: big endian file, with timestamps in seconds/nanoseconds.
 
-: If the value is 0xA1B2C3D4, timestamps in Packet Records (see Figure
-3) are in seconds and microseconds; if it is 0xA1B23C4D, timestamps in
-
 
 # Packet Record
 
