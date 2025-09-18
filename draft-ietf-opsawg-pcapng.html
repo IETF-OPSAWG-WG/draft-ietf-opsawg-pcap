@@ -17,20 +17,20 @@
 file. This format is extensible; Wireshark can currently read and write
 it, and libpcap can currently read some pcapng files. 
     " name="description">
-<meta content="xml2rfc 3.30.0" name="generator">
+<meta content="xml2rfc 3.30.2" name="generator">
 <meta content="draft-ietf-opsawg-pcapng-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.0
+  xml2rfc 3.30.2
     Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
     lxml 5.3.1
-    platformdirs 4.3.8
+    platformdirs 4.4.0
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.4
+    requests 2.32.5
     setuptools 80.9.0
     wcwidth 0.2.13
 -->
@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Tuexen, et al.</td>
-<td class="center">Expires 5 March 2026</td>
+<td class="center">Expires 22 March 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-opsawg-pcapng-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-09-01" class="published">1 September 2025</time>
+<time datetime="2025-09-18" class="published">18 September 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-03-05">5 March 2026</time></dd>
+<dd class="expires"><time datetime="2026-03-22">22 March 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1148,7 +1148,7 @@ it, and libpcap can currently read some pcapng files.<a href="#section-abstract-
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 5 March 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 March 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -4015,6 +4015,66 @@ contained in a new DSB with the new APS Key.<a href="#section-4.7-13.2.1" class=
 <a href="#name-zigbee-aps-key-data-format" class="selfRef">ZigBee APS Key Data Format</a>
           </figcaption></figure>
 </div>
+<span class="break"></span><dl class="dlNewline" id="section-4.7-16">
+          <dt id="section-4.7-16.1">0x45535053:</dt>
+          <dd style="margin-left: 4.0em" id="section-4.7-16.2">
+            <p id="section-4.7-16.2.1">ESP Security Association keys.
+This is in CSV format ([RFC 4180]), with each record containing fields that
+describe an ESP security association. Each line has the following columns:
+"Protocol","Src IP","Dest IP","SPI","Encryption","Encryption Key",
+"Authentication","Authentication Key","SN","ESN High Bits".
+All columns must be filled in the order specified here with a value and the header line is ignored if present.
+If a column contains an unknown value, the line should be skipped.
+If the line contains more columns than what is expected by the reader, the extra ones should be ignored.
+If the line contains fewer columns than what is expected by the reader, it should either apply a default
+value (if possible) or the line should be skipped.<a href="#section-4.7-16.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.7-16.2.2.1">
+                <p id="section-4.7-16.2.2.1.1">Protocol: Protocol used. Can be either "IPv4", "IPv6" or "Any".<a href="#section-4.7-16.2.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.7-16.2.2.2">
+                <p id="section-4.7-16.2.2.2.1">Src IP: Source IP address. String containing the address, wildcard (*) character is supported.<a href="#section-4.7-16.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.7-16.2.2.3">
+                <p id="section-4.7-16.2.2.3.1">Dest IP: Destination IP address. String containing the address, wildcard (*) character is supported.<a href="#section-4.7-16.2.2.3.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.7-16.2.2.4">
+                <p id="section-4.7-16.2.2.4.1">SPI: Security Parameter Index. String of a 32 bits integer in hexadecimal format (starting with 0x).<a href="#section-4.7-16.2.2.4.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.7-16.2.2.5">
+                <p id="section-4.7-16.2.2.5.1">Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC [RFC2451]", "AES-CBC [RFC3602]",
+"AES-CTR [RFC3686]", "DES-CBC [RFC2405]", "CAST5-CBC [RFC2144]", "BLOWFISH-CBC [RFC2451]", "TWOFISH-CBC",
+"AES-GCM [RFC4106]", "AES-GCM with 8 octet ICV [RFC4106]", "AES-GCM with 12 octet ICV [RFC4106]",
+"AES-GCM with 16 octet ICV [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 &amp; RFC8750]",
+"ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20 with Poly1305 and IIV [RFC7634 &amp; RFC8750]".
+New algorithms might be aded in the future.<a href="#section-4.7-16.2.2.5.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.7-16.2.2.6">
+                <p id="section-4.7-16.2.2.6.1">Encryption Key: Encryption key. String containing the key in heaxadecimal format (starting with 0x).<a href="#section-4.7-16.2.2.6.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.7-16.2.2.7">
+                <p id="section-4.7-16.2.2.7.1">Authentication: Authentication algorithm. Can be "NULL", "HMAC-SHA-1-96 [RFC2404]",
+"HMAC-SHA-256-96 [draft-ietf-ipsec-ciph-sha-256-00]", "HMAC-SHA-256-128 [RFC4868]",
+"HMAC-SHA-384-192 [RFC4868]", "HMAC-SHA-512-256 [RFC4868]", "HMAC-MD5-96 [RFC2403]",
+"MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication [no checking]",
+"ANY 96 bit authentication [no checking]", "ANY 128 bit authentication [no checking]",
+"ANY 192 bit authentication [no checking]" or "ANY 256 bit authentication [no checking]".
+New algorithms might be aded in the future.<a href="#section-4.7-16.2.2.7.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.7-16.2.2.8">
+                <p id="section-4.7-16.2.2.8.1">Authentication Key:  Authentication key. String containing the key in heaxadecimal format (starting with 0x).<a href="#section-4.7-16.2.2.8.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.7-16.2.2.9">
+                <p id="section-4.7-16.2.2.9.1">SN: Sequence number length. Can be "32-bit" or "64-bit".<a href="#section-4.7-16.2.2.9.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-4.7-16.2.2.10">
+                <p id="section-4.7-16.2.2.10.1">ESN High Bits: Extended Sequence Number upper 32 bits. String of a 32 bits integer in hexadecimal
+format (starting with 0x).<a href="#section-4.7-16.2.2.10.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</dd>
+        <dd class="break"></dd>
+</dl>
 </section>
 </div>
 <div id="section_custom_block">
