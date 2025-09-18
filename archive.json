@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-24T01:59:15.430078+00:00",
+  "timestamp": "2025-09-18T01:40:59.185164+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9144,7 +9144,7 @@
       "labels": [],
       "body": "add text to introduction.",
       "createdAt": "2024-08-12T12:18:18Z",
-      "updatedAt": "2024-08-12T12:18:18Z",
+      "updatedAt": "2025-09-16T18:13:00Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "53eb9409e58589795aa9bed7a84335e01b12b559",
@@ -9156,7 +9156,28 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOAU54e87Al4b4",
+          "commit": {
+            "abbreviatedOid": "e386597"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-16T18:13:00Z",
+          "updatedAt": "2025-09-16T18:13:00Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "Right now, the plan seems to be the continue to call it \"pcapng\" and change what \"ng\" stands for, so should \"originally\" in \"originally called 'pcapng'\" be removed?",
+              "createdAt": "2025-09-16T18:13:00Z",
+              "updatedAt": "2025-09-16T18:13:00Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 163,
@@ -9890,7 +9911,7 @@
       "labels": [],
       "body": "Its implementation can be found here:\r\nhttps://gitlab.com/wireshark/wireshark/-/merge_requests/20256",
       "createdAt": "2025-06-18T14:31:15Z",
-      "updatedAt": "2025-08-23T17:04:19Z",
+      "updatedAt": "2025-09-16T07:47:10Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "a24ab7cbdb3d9564c55d77e79c7201a682912fe9",
@@ -10034,6 +10055,27 @@
           "body": "@guyharris let me know if you want further changes.\r\n\r\nThanks,\r\nPascal.",
           "createdAt": "2025-08-23T17:04:19Z",
           "updatedAt": "2025-08-23T17:04:19Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @guyharris let me know if you want further changes.\r\n> \r\n> Thanks, Pascal.\r\n\r\nSee the conversations to which I added \"Ping...\".",
+          "createdAt": "2025-09-16T07:19:40Z",
+          "updatedAt": "2025-09-16T07:19:40Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "NONE",
+          "body": "Sorry I did not fing any ping in the history of the messages. I'm not familiar with GitHub UI so I might be missing something.",
+          "createdAt": "2025-09-16T07:25:26Z",
+          "updatedAt": "2025-09-16T07:25:26Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Sorry I did not fing any ping in the history of the messages. I'm not familiar with GitHub UI so I might be missing something.\r\n\r\nGitHub is being extraordinarily uncooperative for some reason, so:\r\n\r\n1. I commented on line 2230 - \"As of today, each line has the following\" - with\r\n   \r\n   > \"As of today\" implies that it could change; do you foresee additional fields being added, in which case there should probably be a way to describe how code should be able to deal with additional fields (presumably by ignoring them) and with fields not present (presumably by assigning them a default value).\r\n   \r\n   In any case, \"as of today\" shouldn't be there.\r\n\r\n2. I provided a suggested change to line 2236, replacing \"less\" with \"fewer\".",
+          "createdAt": "2025-09-16T07:47:10Z",
+          "updatedAt": "2025-09-16T07:47:10Z"
         }
       ],
       "reviews": [
@@ -10299,18 +10341,26 @@
       "labels": [],
       "body": "I did a last minute review, and moved a few words around, and introduced a new section on Magic Number.\r\n",
       "createdAt": "2025-07-18T09:40:25Z",
-      "updatedAt": "2025-07-21T20:50:26Z",
+      "updatedAt": "2025-09-16T20:16:33Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "740dc6777658afea743aa1b29fa0e53df53f8edd",
       "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "headRefName": "mcr-ietf123-minor-edits",
-      "headRefOid": "ac2a59008bf78936119afea3024b4c112cdf2a34",
+      "headRefOid": "a45d8e1678e9264407196b5d4af006a86b3faeba",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mcr, there's a merge conflict; see [the conflict report](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/187/conflicts) showing a conflict starting at line 312.",
+          "createdAt": "2025-09-16T20:16:33Z",
+          "updatedAt": "2025-09-16T20:16:33Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOAU54e8601npG",
@@ -10806,6 +10856,126 @@
               "updatedAt": "2025-07-21T20:50:26Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOAU54e87Al84F",
+          "commit": {
+            "abbreviatedOid": "6690ea6"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-16T18:19:26Z",
+          "updatedAt": "2025-09-16T18:19:26Z",
+          "comments": [
+            {
+              "originalPosition": 35,
+              "body": "Or does \"newer formats\" refer to, for example, pcapng, rather than to newer versions of pcap (i.e., a file format with a pcap magic number but a different major version number)?",
+              "createdAt": "2025-09-16T18:19:26Z",
+              "updatedAt": "2025-09-16T18:19:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e87Al9Pz",
+          "commit": {
+            "abbreviatedOid": "6690ea6"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-16T18:19:53Z",
+          "updatedAt": "2025-09-16T18:19:54Z",
+          "comments": [
+            {
+              "originalPosition": 35,
+              "body": "OK, saw the suggested change.",
+              "createdAt": "2025-09-16T18:19:54Z",
+              "updatedAt": "2025-09-16T18:19:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e87AnXMJ",
+          "commit": {
+            "abbreviatedOid": "a45d8e1"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-16T20:11:01Z",
+          "updatedAt": "2025-09-16T20:11:01Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "Not sure. Let's leave it as \"should\" for now.",
+              "createdAt": "2025-09-16T20:11:01Z",
+              "updatedAt": "2025-09-16T20:11:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e87AnYsB",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-16T20:13:20Z",
+          "updatedAt": "2025-09-16T20:13:20Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "That was fixed.",
+              "createdAt": "2025-09-16T20:13:20Z",
+              "updatedAt": "2025-09-16T20:13:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e87AnY3m",
+          "commit": {
+            "abbreviatedOid": "151a04f"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-16T20:13:38Z",
+          "updatedAt": "2025-09-16T20:13:38Z",
+          "comments": [
+            {
+              "originalPosition": 95,
+              "body": "That's been fixed.",
+              "createdAt": "2025-09-16T20:13:38Z",
+              "updatedAt": "2025-09-16T20:13:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e87AnZHm",
+          "commit": {
+            "abbreviatedOid": "ac2a590"
+          },
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-16T20:14:02Z",
+          "updatedAt": "2025-09-16T20:14:02Z",
+          "comments": [
+            {
+              "originalPosition": 95,
+              "body": "That's been fixed.",
+              "createdAt": "2025-09-16T20:14:02Z",
+              "updatedAt": "2025-09-16T20:14:02Z"
+            }
+          ]
         }
       ]
     },
@@ -10814,24 +10984,26 @@
       "id": "PR_kwDOAU54e86f0qPQ",
       "title": "Pcapng now generic",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/188",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Change name from \"Next Generation\" to \"Now Generic\"",
       "createdAt": "2025-07-21T10:23:24Z",
-      "updatedAt": "2025-07-21T19:06:10Z",
+      "updatedAt": "2025-09-16T06:48:06Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "mcr-ietf123-minor-edits",
       "baseRefOid": "151a04f3b1a04bce6027963ab598eb28954bd935",
       "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "headRefName": "pcapng-now-generic",
       "headRefOid": "1460e5d7cc81bf2a6cdfe06caaaa7abaf21d1647",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-09-16T06:48:06Z",
+      "mergedAt": "2025-09-16T06:48:06Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "0b9bdf8a83eab4d6edee6379e8e65e6c3ac26a59"
+      },
       "comments": [],
       "reviews": [
         {
