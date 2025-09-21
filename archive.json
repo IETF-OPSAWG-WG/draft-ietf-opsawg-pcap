@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-18T01:40:59.185164+00:00",
+  "timestamp": "2025-09-21T01:51:01.141850+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9904,24 +9904,26 @@
       "id": "PR_kwDOAU54e86bFuk0",
       "title": "Add ESP SA Key DSB secret type",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/184",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "pquantin",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Its implementation can be found here:\r\nhttps://gitlab.com/wireshark/wireshark/-/merge_requests/20256",
       "createdAt": "2025-06-18T14:31:15Z",
-      "updatedAt": "2025-09-16T07:47:10Z",
+      "updatedAt": "2025-09-18T15:48:37Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
-      "baseRefOid": "a24ab7cbdb3d9564c55d77e79c7201a682912fe9",
-      "headRepository": "pquantin/draft-ietf-opsawg-pcap",
+      "baseRefOid": "091ea4537c156a4b6599992bdbc68f31fc0c4734",
+      "headRepository": null,
       "headRefName": "esp_dsb",
-      "headRefOid": "cee969baba64119dd4e46b06063d6d090f950cde",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "828b2d53127192154273b1f781c7bca119c9fe91",
+      "closedAt": "2025-09-18T15:48:37Z",
+      "mergedAt": "2025-09-18T15:48:37Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "5a771c2079078b881f2cda24ac78d7459a41d599"
+      },
       "comments": [
         {
           "author": "guyharris",
@@ -9932,7 +9934,7 @@
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Hi Guy,\r\n\r\nThanks for the feedback. I changed the description to provide more details, let me know if this is OK for you.",
           "createdAt": "2025-06-18T17:43:46Z",
           "updatedAt": "2025-06-18T17:43:46Z"
@@ -9946,7 +9948,7 @@
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "The only columns that might be eventually empty are the last two ones (\"SN\" with a default value set to \"32-bit\" and \"ESN High Bits\" with a default value set to \"0\") as they were added later on in the Wireshark UAT table and ue the forward compatibility code that provides default values. I would prefer not to mention that they can be missing as they are already part fo the existing UAT but can add a note if you wish.",
           "createdAt": "2025-06-18T17:55:23Z",
           "updatedAt": "2025-06-18T17:55:23Z"
@@ -9960,35 +9962,35 @@
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> Either the spec should state that no fields can be missing, or should state what value will be used if they are missing; the interpretation of this type of secret in a DSB should not depend on what the code in any particular pcapng file reader does.\r\n\r\nOK, I added a sentence stating that all columns must be filled with a value.",
           "createdAt": "2025-06-18T18:04:28Z",
           "updatedAt": "2025-06-18T18:04:28Z"
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "@guyharris let me know if you are OK with the current wording of if further clarification is required.\r\n\r\nThanks,\r\nPascal.",
           "createdAt": "2025-06-23T12:15:38Z",
           "updatedAt": "2025-06-23T12:15:38Z"
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "@guyharris thanks for your valuable feedback, changes done.",
           "createdAt": "2025-06-29T10:06:28Z",
           "updatedAt": "2025-06-29T10:06:28Z"
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "@guyharris let me know when you can if this is ok for you now.\r\n\r\nThanks,\r\nPascal.",
           "createdAt": "2025-07-08T18:37:04Z",
           "updatedAt": "2025-07-08T18:37:04Z"
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "@guyharris let me know if another change is required.\r\nthanks,\r\nPascal.",
           "createdAt": "2025-07-15T18:19:50Z",
           "updatedAt": "2025-07-15T18:19:50Z"
@@ -10002,7 +10004,7 @@
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> > @guyharris let me know if another change is required. thanks, Pascal.\r\n> \r\n> See my most recent comment - do the columns always appear in the specified order?\r\n\r\nSorry I missed this part. Hopefully the new wording make it clearer now.",
           "createdAt": "2025-07-15T19:47:08Z",
           "updatedAt": "2025-07-15T19:47:08Z"
@@ -10016,7 +10018,7 @@
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Hi Guy,\r\n\r\nlet me know if something else is required on my side.\r\n\r\nThanks,\r\nPascal.",
           "createdAt": "2025-07-21T06:40:30Z",
           "updatedAt": "2025-07-21T06:40:30Z"
@@ -10030,28 +10032,28 @@
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> > let me know if something else is required on my side.\r\n> \r\n> An indication of how readers should deal with added fields and missing fields, as per [#184 (comment)](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/184#issuecomment-3075439561).\r\n\r\nWhen you wrote \"I've added a note to...\" I understood that you had done it, not that I had to do it. Sorry for that.",
           "createdAt": "2025-07-21T07:05:28Z",
           "updatedAt": "2025-07-21T07:05:28Z"
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "I amended my change.",
           "createdAt": "2025-07-21T15:20:39Z",
           "updatedAt": "2025-07-21T15:20:48Z"
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Hi Guy,\r\n\r\nlet me know if this is OK for you.\r\n\r\nThanks,\r\nPascal.",
           "createdAt": "2025-07-25T14:19:30Z",
           "updatedAt": "2025-07-25T14:19:30Z"
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "@guyharris let me know if you want further changes.\r\n\r\nThanks,\r\nPascal.",
           "createdAt": "2025-08-23T17:04:19Z",
           "updatedAt": "2025-08-23T17:04:19Z"
@@ -10065,7 +10067,7 @@
         },
         {
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Sorry I did not fing any ping in the history of the messages. I'm not familiar with GitHub UI so I might be missing something.",
           "createdAt": "2025-09-16T07:25:26Z",
           "updatedAt": "2025-09-16T07:25:26Z"
@@ -10076,6 +10078,13 @@
           "body": "> Sorry I did not fing any ping in the history of the messages. I'm not familiar with GitHub UI so I might be missing something.\r\n\r\nGitHub is being extraordinarily uncooperative for some reason, so:\r\n\r\n1. I commented on line 2230 - \"As of today, each line has the following\" - with\r\n   \r\n   > \"As of today\" implies that it could change; do you foresee additional fields being added, in which case there should probably be a way to describe how code should be able to deal with additional fields (presumably by ignoring them) and with fields not present (presumably by assigning them a default value).\r\n   \r\n   In any case, \"as of today\" shouldn't be there.\r\n\r\n2. I provided a suggested change to line 2236, replacing \"less\" with \"fewer\".",
           "createdAt": "2025-09-16T07:47:10Z",
           "updatedAt": "2025-09-16T07:47:10Z"
+        },
+        {
+          "author": "pquantin",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> > Sorry I did not fing any ping in the history of the messages. I'm not familiar with GitHub UI so I might be missing something.\r\n> \r\n> GitHub is being extraordinarily uncooperative for some reason, so:\r\n> \r\n>     1. I commented on line 2230 - \"As of today, each line has the following\" - with\r\n>        > \"As of today\" implies that it could change; do you foresee additional fields being added, in which case there should probably be a way to describe how code should be able to deal with additional fields (presumably by ignoring them) and with fields not present (presumably by assigning them a default value).\r\n>        \r\n>        \r\n>        In any case, \"as of today\" shouldn't be there.\r\n> \r\n>     2. I provided a suggested change to line 2236, replacing \"less\" with \"fewer\".\r\n\r\nThanks a lot for the details, I still cannot find them in the GitHub UI :(\r\nI just push a new version.",
+          "createdAt": "2025-09-18T13:44:15Z",
+          "updatedAt": "2025-09-18T13:44:15Z"
         }
       ],
       "reviews": [
@@ -10225,7 +10234,7 @@
             "abbreviatedOid": "7c605dd"
           },
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-07-08T22:02:00Z",
@@ -10245,7 +10254,7 @@
             "abbreviatedOid": "7c605dd"
           },
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-07-09T07:05:12Z",
@@ -10285,7 +10294,7 @@
             "abbreviatedOid": "52da7b6"
           },
           "author": "pquantin",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-07-09T07:34:51Z",
