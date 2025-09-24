@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 22 March 2026                             Politecnico di Torino
+Expires: 28 March 2026                             Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 22 March 2026                             Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                       18 September 2025
+                                                       24 September 2025
 
 
              PCAP Now Generic (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 March 2026.
+   This Internet-Draft will expire on 28 March 2026.
 
 Copyright Notice
 
@@ -2139,7 +2139,7 @@ Table of Contents
               [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 &
               RFC8750]", "ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20
               with Poly1305 and IIV [RFC7634 & RFC8750]".  New
-              algorithms might be aded in the future.
+              algorithms might be added in the future.
 
            *  Encryption Key: Encryption key.  String containing the key
               in heaxadecimal format (starting with 0x).
@@ -2153,7 +2153,7 @@ Table of Contents
               "ANY 96 bit authentication [no checking]", "ANY 128 bit
               authentication [no checking]", "ANY 192 bit authentication
               [no checking]" or "ANY 256 bit authentication [no
-              checking]".  New algorithms might be aded in the future.
+              checking]".  New algorithms might be added in the future.
 
            *  Authentication Key: Authentication key.  String containing
               the key in heaxadecimal format (starting with 0x).

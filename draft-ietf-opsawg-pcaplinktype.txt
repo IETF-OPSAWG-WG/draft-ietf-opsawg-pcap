@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 22 March 2026                                         Sandelman
-                                                       18 September 2025
+Expires: 28 March 2026                                         Sandelman
+                                                       24 September 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 March 2026.
+   This Internet-Draft will expire on 28 March 2026.
 
 Copyright Notice
 
@@ -1199,8 +1199,8 @@ Table of Contents
    When processing a request for an allocation, the Designated Experts
    will encourage the requester to provide a specification at a stable
    URL.  There is no requirement for a specification, but often review
-   of the specification allowes the Designated Expert to determine if
-   the allocation actually is a duplicate of another specification.
+   of the specification allows the Designated Expert to determine if the
+   allocation actually is a duplicate of another specification.
 
    When the contents of the link type can contain an IPv4 or IPv6
    header, then the octets between the beginning of the link type and
