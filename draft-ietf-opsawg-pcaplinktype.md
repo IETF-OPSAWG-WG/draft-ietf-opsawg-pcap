@@ -752,7 +752,7 @@ This is the initial table for the registry:
 ### Guidance for Designated Experts {#sec-de}
 
 When processing a request for an allocation, the Designated Experts will encourage the requester to provide a specification at a stable URL.
-There is no requirement for a specification, but often review of the specification allowes the Designated Expert to determine if the allocation actually is a duplicate of another specification.
+There is no requirement for a specification, but often review of the specification allows the Designated Expert to determine if the allocation actually is a duplicate of another specification.
 
 When the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be clear.
 
