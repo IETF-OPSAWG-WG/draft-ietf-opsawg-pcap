@@ -2249,7 +2249,7 @@ The following is a list of Secrets Types.
   "AES-GCM [RFC4106]", "AES-GCM with 8 octet ICV [RFC4106]", "AES-GCM with 12 octet ICV [RFC4106]",
   "AES-GCM with 16 octet ICV [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 & RFC8750]",
   "ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20 with Poly1305 and IIV [RFC7634 & RFC8750]".
-  New algorithms might be aded in the future.
+  New algorithms might be added in the future.
 
   * Encryption Key: Encryption key. String containing the key in heaxadecimal format (starting with 0x).
 
@@ -2259,7 +2259,7 @@ The following is a list of Secrets Types.
   "MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication [no checking]",
   "ANY 96 bit authentication [no checking]", "ANY 128 bit authentication [no checking]",
   "ANY 192 bit authentication [no checking]" or "ANY 256 bit authentication [no checking]".
-  New algorithms might be aded in the future.
+  New algorithms might be added in the future.
 
   * Authentication Key:  Authentication key. String containing the key in heaxadecimal format (starting with 0x).
 
