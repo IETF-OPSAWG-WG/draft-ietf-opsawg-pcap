@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-21T01:51:01.141850+00:00",
+  "timestamp": "2025-09-25T01:43:48.269894+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -11096,6 +11096,34 @@
           ]
         }
       ]
+    },
+    {
+      "number": 189,
+      "id": "PR_kwDOAU54e86qVHq-",
+      "title": "Fix some typoes",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/189",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-09-24T17:02:03Z",
+      "updatedAt": "2025-09-24T18:41:58Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "5a771c2079078b881f2cda24ac78d7459a41d599",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "typoes",
+      "headRefOid": "4ce0d5bd85f83bd6b8b56d24b3cf6cec2de7e74f",
+      "closedAt": "2025-09-24T18:41:58Z",
+      "mergedAt": "2025-09-24T18:41:58Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "916742516347e80046d53f2446f4b9acbe6fc7cf"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
