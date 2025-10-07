@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-25T01:43:48.269894+00:00",
+  "timestamp": "2025-10-07T01:41:47.429414+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2327,7 +2327,7 @@
       "id": "I_kwDOAU54e85spty1",
       "title": "re-synchronize linktypes and document at WGLC",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/135",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -2336,8 +2336,8 @@
       "labels": [],
       "body": "1. move any additional linktypes into IETF document at WGLC.\r\n2. mark linktypes.html proceedure as deprecated at start of WGLC.\r\n\r\n",
       "createdAt": "2023-07-26T17:39:44Z",
-      "updatedAt": "2023-07-26T17:39:44Z",
-      "closedAt": null,
+      "updatedAt": "2025-10-07T01:13:02Z",
+      "closedAt": "2025-10-07T01:13:02Z",
       "comments": []
     },
     {
@@ -2345,15 +2345,15 @@
       "id": "I_kwDOAU54e85spui-",
       "title": "write designated expert guidance for linktypes",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/136",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "\r\n1. FCFS might need only a review that it is not a duplicate.\r\n2. Specification Required just needs some clarify in the document.\r\n\r\n",
       "createdAt": "2023-07-26T17:42:20Z",
-      "updatedAt": "2024-04-25T18:50:03Z",
-      "closedAt": null,
+      "updatedAt": "2025-10-07T01:12:56Z",
+      "closedAt": "2025-10-07T01:12:56Z",
       "comments": [
         {
           "author": "guyharris",
@@ -9137,24 +9137,26 @@
       "id": "PR_kwDOAU54e854GWHb",
       "title": "added text explaining relationship between documents",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/162",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "add text to introduction.",
       "createdAt": "2024-08-12T12:18:18Z",
-      "updatedAt": "2025-09-16T18:13:00Z",
+      "updatedAt": "2025-10-07T01:15:51Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
-      "baseRefOid": "53eb9409e58589795aa9bed7a84335e01b12b559",
+      "baseRefOid": "6d161ac3930f838467dd4c6d1680cadd9b8aacee",
       "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "headRefName": "historical-status-introduction",
-      "headRefOid": "e386597bc7dff2982deadbc53c6a7d0d2b8e9921",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "3ef9f2f06d93827f07029094688010795ec68521",
+      "closedAt": "2025-10-07T01:15:49Z",
+      "mergedAt": "2025-10-07T01:15:49Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "d429ea2c82d54ce52c96c650da5ec1db2b5e5fbc"
+      },
       "comments": [],
       "reviews": [
         {
@@ -9174,6 +9176,26 @@
               "body": "Right now, the plan seems to be the continue to call it \"pcapng\" and change what \"ng\" stands for, so should \"originally\" in \"originally called 'pcapng'\" be removed?",
               "createdAt": "2025-09-16T18:13:00Z",
               "updatedAt": "2025-09-16T18:13:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e87FK8HF",
+          "commit": {
+            "abbreviatedOid": "e386597"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-07T01:14:11Z",
+          "updatedAt": "2025-10-07T01:14:12Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nThis document is published as historical, as there has existed for some time, an updated format called \"pcapng\", that replaces this file format.  See {{?I-D.ietf-opsawg-pcapng}}\r\n```",
+              "createdAt": "2025-10-07T01:14:11Z",
+              "updatedAt": "2025-10-07T01:14:12Z"
             }
           ]
         }
@@ -10343,24 +10365,26 @@
       "id": "PR_kwDOAU54e86fiwka",
       "title": "Mcr ietf123 minor edits",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/187",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "I did a last minute review, and moved a few words around, and introduced a new section on Magic Number.\r\n",
       "createdAt": "2025-07-18T09:40:25Z",
-      "updatedAt": "2025-09-16T20:16:33Z",
+      "updatedAt": "2025-10-07T01:12:34Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
-      "baseRefOid": "740dc6777658afea743aa1b29fa0e53df53f8edd",
+      "baseRefOid": "916742516347e80046d53f2446f4b9acbe6fc7cf",
       "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "headRefName": "mcr-ietf123-minor-edits",
-      "headRefOid": "a45d8e1678e9264407196b5d4af006a86b3faeba",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "8d5b2f401ce0ffe03584bfe227fc1df7ee54339d",
+      "closedAt": "2025-10-07T01:12:32Z",
+      "mergedAt": "2025-10-07T01:12:32Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "6d161ac3930f838467dd4c6d1680cadd9b8aacee"
+      },
       "comments": [
         {
           "author": "guyharris",
