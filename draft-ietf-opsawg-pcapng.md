@@ -77,7 +77,7 @@ venue:
   github: IETF-OPSAWG-WG/pcapng
 
 normative:
-  I-D.richardson-opsawg-pcaplinktype:
+  I-D.ietf-opsawg-pcaplinktype:
 
 informative:
   I-D.richardson-opsawg-pcapng-extras:
@@ -947,7 +947,7 @@ The meaning of the fields is:
 
 * LinkType (16 bits): an unsigned integer that defines the
   link layer type of this interface.  The list of Standardized
-  Link Layer Type codes is available in {{I-D.richardson-opsawg-pcaplinktype}}.
+  Link Layer Type codes is available in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 * Reserved (16 bits): not used - MUST be filled with 0 by
   pcapng file writers, and MUST be ignored by pcapng file
@@ -1343,7 +1343,7 @@ The Enhanced Packet Block has the following fields:
   boundary. The format of the link-layer headers depends on
   the LinkType field specified in the Interface Description
   Block (see {{section_idb}}) and it is specified
-  in the entry for that format in {{I-D.richardson-opsawg-pcaplinktype}}.
+  in the entry for that format in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 * Options: optionally, a list of options (formatted according to
   the rules defined in {{section_opt}}) can be present.
@@ -1578,7 +1578,7 @@ The Simple Packet Block has the following fields:
   of the data within this Packet Data field depends on the
   LinkType field specified in the Interface Description Block
   (see {{section_idb}}) and it is specified in
-  the entry for that format in {{I-D.richardson-opsawg-pcaplinktype}}.
+  the entry for that format in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 
 The Simple Packet Block does not contain the timestamp because this
@@ -2676,7 +2676,7 @@ The Packet Block has the following fields:
   boundary. The format of the link-layer headers depends on
   the LinkType field specified in the Interface Description
   Block (see {{section_idb}}) and it is specified
-  in the entry for that format in {{I-D.richardson-opsawg-pcaplinktype}}.
+  in the entry for that format in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 * Options: optionally, a list of options (formatted according to
   the rules defined in {{section_opt}}) can be present.
