@@ -28,7 +28,7 @@ files in that format, include tcpdump.
     PyYAML 6.0.2
     requests 2.32.5
     setuptools 80.9.0
-    wcwidth 0.2.13
+    wcwidth 0.2.14
 -->
 <link href="draft-ietf-opsawg-pcap.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1047,11 +1047,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">pcap</td>
-<td class="right">September 2025</td>
+<td class="right">October 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Harris &amp; Richardson</td>
-<td class="center">Expires 28 March 2026</td>
+<td class="center">Expires 10 April 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1064,12 +1064,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-opsawg-pcap-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-09-24" class="published">24 September 2025</time>
+<time datetime="2025-10-07" class="published">7 October 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
-<dd class="intended-status">Informational</dd>
+<dd class="intended-status">Historic</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-03-28">28 March 2026</time></dd>
+<dd class="expires"><time datetime="2026-04-10">10 April 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1125,7 +1125,7 @@ files in that format, include tcpdump.<a href="#section-abstract-1" class="pilcr
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 28 March 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1165,6 +1165,11 @@ files in that format, include tcpdump.<a href="#section-abstract-1" class="pilcr
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-file-header" class="internal xref">File Header</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-file-endian-information" class="internal xref">File Endian Information</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-packet-record" class="internal xref">Packet Record</a></p>
@@ -1223,8 +1228,8 @@ developed the tcpdump program to capture and dissect network traces.
 The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
 later put into a library named libpcap.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">This document describes the format used by tcpdump, and other
-programs using libpcap, to read and write network traces.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-2">This document describes the format historically used by tcpdump, wireshark, and many other
+programs that use libpcap, or another library, to read and write network traces.<a href="#section-1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="terminology">
@@ -1256,6 +1261,8 @@ writing the file is more efficient because it avoids translation of data
 when writing the file or reading the file on the host that wrote the
 file, which is the most common case when generating or processing
 capture captures.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-4">When hosts with a different native endian format read a file, they must swap bytes as appropriate.
+This is less efficient, but less common, and if repeated access to the files are important, then files can be translated and saved.<a href="#section-3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="file-header">
@@ -1322,7 +1329,8 @@ value should change if the format changes in such a way that code that
 reads the new format could not read the old format (i.e., code to read
 both formats would have to check the version number and use different
 code paths for the two formats) and code that reads the old format could
-not read the new format.<a href="#section-4-5.8.1" class="pilcrow">¶</a></p>
+not read the new format.  As this document is historical, and no newer formats were publicly released,
+this value will not change again.<a href="#section-4-5.8.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-4-5.9">Minor Version (16 bits):</dt>
@@ -1333,7 +1341,8 @@ the format.  The value for the current version of the format is 4
 This value should change if the format changes in such a way that code
 that reads the new format could read the old format without checking the
 version number but code that reads the old format could not read all
-files in the new format.<a href="#section-4-5.10.1" class="pilcrow">¶</a></p>
+files in the new format. As this document is historical, and no newer formats exist,
+this value will not change again.<a href="#section-4-5.10.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-4-5.11">Reserved1 (32 bits):</dt>
@@ -1426,6 +1435,28 @@ length value of 2, corresponding to a 4-octet FCS.<a href="#section-4-9.10.1" cl
 </dd>
       <dd class="break"></dd>
 </dl>
+<div id="file-endian-information">
+<section id="section-4.1">
+        <h3 id="name-file-endian-information">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-file-endian-information" class="section-name selfRef">File Endian Information</a>
+        </h3>
+<p id="section-4.1-1">The magic number is stored in native endian format, so all the byte sequences below are magic numbers.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-2.1">
+            <p id="section-4.1-2.1.1">0xA1,0xB2,0xC3,0xD4: little endian file, with timestamps in seconds/microseconds.<a href="#section-4.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.1-2.2">
+            <p id="section-4.1-2.2.1">0x1A,0x2B,0x3C,0x4D: little endian file, with timestamps in seconds/nanoseconds.<a href="#section-4.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.1-2.3">
+            <p id="section-4.1-2.3.1">0xD4,0xC3,0xB2,0xA1: big endian file, with timestamps in seconds/microseconds.<a href="#section-4.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.1-2.4">
+            <p id="section-4.1-2.4.1">0x4D,0x3C,0x2B,0x1A: big endian file, with timestamps in seconds/nanoseconds.<a href="#section-4.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
 </section>
 </div>
 <div id="packet-record">
@@ -1553,7 +1584,7 @@ to use .pcap as the name extension for files following this
 specification.<a href="#section-6-2" class="pilcrow">¶</a></p>
 <p id="section-6-3">Please note: To avoid confusion (such as the current usage of .cap for a
 plethora of different capture file formats) file name extensions other
-than .pcap should be avoided.<a href="#section-6-3" class="pilcrow">¶</a></p>
+than <code>.pcap</code> should be avoided.<a href="#section-6-3" class="pilcrow">¶</a></p>
 <p id="section-6-4">There is new work to create the PCAP Now Generic capture File Format
 (see <span>[<a href="#I-D.ietf-opsawg-pcapng" class="cite xref">I-D.ietf-opsawg-pcapng</a>]</span>).  The new file format is not
 compatible with this specification, but many programs read both
@@ -1569,11 +1600,10 @@ format of a file.<a href="#section-6-4" class="pilcrow">¶</a></p>
       <h2 id="name-security-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">A pcap file reader MUST do invalid header and packet checks.
-It can receive as input not only valid headers or packets, but any arbitrary
+<p id="section-7-1">A pcap file reader MUST validate the file header and file packet header, and also the contained headers for the packet capture.
+A reader can receive as input not only valid headers or packets, but any arbitrary
 random sequence of octets:
-Headers or packets originally malformed by the sender or by a fuzz tester,
-corrupted in transit or for some other reason.<a href="#section-7-1" class="pilcrow">¶</a></p>
+Headers or packets may be intentionally malformed by a sender, and capture files from outside sources may contain intentionally malformed contents, for malicious reasons.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">See also:
 https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap<a href="#section-7-2" class="pilcrow">¶</a></p>
 </section>
