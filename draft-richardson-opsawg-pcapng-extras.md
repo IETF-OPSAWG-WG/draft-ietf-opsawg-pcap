@@ -11,7 +11,7 @@ pi:
   inline: 'yes'
   sortrefs: 'no'
   strict: 'yes'
-title: Additional block types for PCAP Next Generation (pcapng) Capture File Format
+title: Additional block types for PCAP Now Generic (pcapng) Capture File Format
 abbrev: pcapng-extras
 author:
 - role: editor

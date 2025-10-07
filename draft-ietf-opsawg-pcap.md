@@ -309,11 +309,14 @@ Please note: To avoid confusion (such as the current usage of .cap for a
 plethora of different capture file formats) file name extensions other
 than `.pcap` should be avoided.
 
-A new format that supersedes the present PCAP format is specified in {{I-D.ietf-opsawg-pcapng}}.
-The new file format is not compatible with this specification, but many programs read  both transparently.
-Version numbers in the two file formats are not related.
-A distinct Magic Number exists in the new PCAP format so that readers can transparently determine what format is used.
-It is not uncommon for the same extension, `.pcap` to be used for both.
+There is new work to create the PCAP Now Generic capture File Format
+(see {{I-D.ietf-opsawg-pcapng}}).  The new file format is not
+compatible with this specification, but many programs read both
+transparently.  Files of that type will start with a Section
+Header Block, the first four octets of which are 0x0A 0x0D 0x0D 0x0A,
+which does not match any of the Magic Number values in a pcap File
+Header, allowing code that reads both file formats to determine the
+format of a file.
 
 #  Security Considerations
 

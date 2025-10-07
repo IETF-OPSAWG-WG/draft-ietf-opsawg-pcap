@@ -236,7 +236,10 @@ Number
 : 101
 
 Description
-: Raw IP; begins with an IPv4 or IPv6 header
+: IP without link-layer headers
+
+Reference
+: {{LINKTYPE_RAW}} {{?RFC791}} {{?RFC8200}}
 {: spacing="compact"}
 
 
@@ -1904,7 +1907,10 @@ Number
 : 228
 
 Description
-: Raw IPv4; the packet begins with an IPv4 header
+: IPv4 without link-layer headers
+
+Reference
+: {{LINKTYPE_IPV4}} {{?RFC791}}
 {: spacing="compact"}
 
 
@@ -1916,7 +1922,10 @@ Number
 : 229
 
 Description
-: Raw IPv6; the packet begins with an IPv6 header
+: IPv6 without link-layer headers
+
+Reference
+: {{LINKTYPE_IPV6}} {{?RFC8200}}
 {: spacing="compact"}
 
 

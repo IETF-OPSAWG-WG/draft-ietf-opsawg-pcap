@@ -312,6 +312,16 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IEEE802_15_4_WITHFCS.html
 
+  LINKTYPE_IPV4:
+    title: LINKTYPE_IPV4
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_IPV4.html
+
+  LINKTYPE_IPV6:
+    title: LINKTYPE_IPV6
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_IPV6.html
+
   LINKTYPE_IPOIB:
     title: LINKTYPE_IPOIB
     date: false
@@ -502,6 +512,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PROFIBUS_DL.html
 
+  LINKTYPE_RAW:
+    title: LINKTYPE_RAW
+    date: false
+    target: https://www.tcpdump.org/linktypes/LINKTYPE_RAW.html
+
   LINKTYPE_RDS:
     title: LINKTYPE_RDS
     date: false
@@ -675,6 +690,10 @@ This document creates an IANA registry for LinkType values, establishing the IAN
 Considerations by which other uses of the PCAP-related formats may register new
 LinkType values.
 
+# Terminology
+
+{::boilerplate bcp14}
+
 #  IANA Considerations
 
 ## PCAP Registry {#pcapreg}
@@ -697,7 +716,7 @@ The policy allocation for the LinkType values is as follows:
 * Values from 0 to 65000 are allocated following a First-Come
   First-Served policy (Section 4.4 of [RFC8126]). Values in the ranges
   0-10, 50-51, and 98-301 are already assigned; values in the ranges
-  11-49 and 52-97 MUST not be assigned.
+  11-49 and 52-97 MUST NOT be assigned.
 
 * Values from 65001 to 65535 are reserved for Experimental Use ({{Section 4.2 of !RFC8126}}).
 
@@ -733,14 +752,14 @@ This is the initial table for the registry:
 ### Guidance for Designated Experts {#sec-de}
 
 When processing a request for an allocation, the Designated Experts will encourage the requester to provide a specification at a stable URL.
-There is no requirement for a specification, but often review of the specification allowes the Designated Expert to determine if the allocation actually is a duplicate of another specification.
+There is no requirement for a specification, but often review of the specification allows the Designated Expert to determine if the allocation actually is a duplicate of another specification.
 
 When the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be clear.
 
 Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.
 For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.
 
-LinkTypes may be allocated for specifications not publicly available may be made within the FCFS range.
+LinkTypes for which specifications are not publicly available may have values allocated within the FCFS range.
 This includes specifications that might be subject to a security classification.
 The minimal requirement is to provide a contact person for that link type.
 
