@@ -165,7 +165,7 @@ implementations as "accuracy of timestamps".  Some older pcap file
 writers stored non-zero values in this field.
 
 SnapLen (32 bits):
-: an unsigned integer indicating the maximum number of octets captured
+: an unsigned integer that indicates the maximum number of octets captured
 from each packet.  The portion of each packet that exceeds this value
 will not be stored in the file.  This value MUST NOT be zero; if no
 limit was specified, the value SHOULD be a number greater than or equal
@@ -191,7 +191,7 @@ or writing the file, with bit 0 being the most-significant bit of the
 field and bit 31 being the least-significant bit of the field.
 
 LinkType (16 bits):
-: an unsigned integer indicating the link layer type for packets in the file;
+: an unsigned integer that indicates the link layer type for packets in the file;
 it is a value as defined in the PCAP-related LinkType List registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 Reserved3 (10 bits):
@@ -210,7 +210,7 @@ interpreted by pcap readers; a reader SHOULD treat a non-zero value as
 an error.
 
 FCS len (4 bits):
-: an unsigned integer indicating the number of 16-bit (2-octet) words
+: an unsigned integer that indicates the number of 16-bit (2-octet) words
 of FCS that are appended to each packet, if the P bit is set; if the P
 bit is not set, and the FCS length is not indicated by the link-layer
 type value, the FCS length is unknown.  The valid values of the FCS len
