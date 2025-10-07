@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Historic                                  M. Richardson
-Expires: 20 March 2026                                         Sandelman
-                                                       16 September 2025
+Expires: 10 April 2026                                         Sandelman
+                                                          7 October 2025
 
 
                         PCAP Capture File Format
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 March 2026.
+   This Internet-Draft will expire on 10 April 2026.
 
 Copyright Notice
 
@@ -364,13 +364,14 @@ Table of Contents
    for a plethora of different capture file formats) file name
    extensions other than .pcap should be avoided.
 
-   A new format that supersedes the present PCAP format is specified in
-   [I-D.ietf-opsawg-pcapng].  The new file format is not compatible with
-   this specification, but many programs read both transparently.
-   Version numbers in the two file formats are not related.  A distinct
-   Magic Number exists in the new PCAP format so that readers can
-   transparently determine what format is used.  It is not uncommon for
-   the same extension, .pcap to be used for both.
+   There is new work to create the PCAP Now Generic capture File Format
+   (see [I-D.ietf-opsawg-pcapng]).  The new file format is not
+   compatible with this specification, but many programs read both
+   transparently.  Files of that type will start with a Section Header
+   Block, the first four octets of which are 0x0A 0x0D 0x0D 0x0A, which
+   does not match any of the Magic Number values in a pcap File Header,
+   allowing code that reads both file formats to determine the format of
+   a file.
 
 7.  Security Considerations
 
