@@ -953,7 +953,7 @@ The meaning of the fields is:
   pcapng file writers, and MUST be ignored by pcapng file
   readers.
 
-* SnapLen (32 bits): an unsigned integer indicating the
+* SnapLen (32 bits): an unsigned integer that indicates the
   maximum number of octets captured from each packet.  The
   portion of each packet that exceeds this value will not be
   stored in the file. A value of zero indicates no limit.
@@ -1065,7 +1065,7 @@ Example: '02 34 56 FF FE 78 9A BC'.
 {: indent='8'}
 if_speed:
 : The if_speed
-  option is a 64-bit unsigned integer indicating the interface
+  option is a 64-bit unsigned integer that indicates the interface
   speed, in bits per second.
 {: vspace='0'}
 
@@ -1179,7 +1179,7 @@ Micro Adapter".
 if_txspeed:
 : The
   if_txspeed option is a 64-bit unsigned integer
-  indicating the interface transmit speed in bits per
+  that indicates the interface transmit speed in bits per
   second.
 {: vspace='0'}
 
@@ -1191,7 +1191,7 @@ Example: the 64-bit decimal number 1024000 for
 if_rxspeed:
 : The
   if_rxspeed option is a 64-bit unsigned integer
-  indicating the interface receive speed, in bits per
+  that indicates the interface receive speed, in bits per
   second.
 {: vspace='0'}
 
@@ -1560,7 +1560,7 @@ The Simple Packet Block has the following fields:
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
 * Original Packet Length (32 bits): an unsigned integer
-  indicating the actual length of the packet when it was
+  that indicates the actual length of the packet when it was
   transmitted on the network. It can be different from length
   of the Packet Data field's length if the packet has been
   truncated by the capture process, in which case the SnapLen
