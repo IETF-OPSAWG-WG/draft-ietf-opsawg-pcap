@@ -2,7 +2,7 @@
 stand_alone: true
 ipr: trust200902
 docname: draft-ietf-opsawg-pcap-latest
-cat: info
+cat: historic
 pi:
   symrefs: 'yes'
   toc: 'yes'
@@ -55,8 +55,8 @@ The code to capture traffic, using low-level mechanisms in various
 operating systems, and to read and write network traces to a file was
 later put into a library named libpcap.
 
-This document describes the format used by tcpdump, and other
-programs using libpcap, to read and write network traces.
+This document describes the format historically used by tcpdump, wireshark, and many other
+programs that use libpcap, or another library, to read and write network traces.
 
 # Terminology
 
@@ -78,6 +78,9 @@ writing the file is more efficient because it avoids translation of data
 when writing the file or reading the file on the host that wrote the
 file, which is the most common case when generating or processing
 capture captures.
+
+When hosts with a different native endian format read a file, they must swap bytes as appropriate.
+This is less efficient, but less common, and if repeated access to the files are important, then files can be translated and saved.
 
 # File Header
 
@@ -125,7 +128,8 @@ value should change if the format changes in such a way that code that
 reads the new format could not read the old format (i.e., code to read
 both formats would have to check the version number and use different
 code paths for the two formats) and code that reads the old format could
-not read the new format.
+not read the new format.  As this document is historical, and no newer formats were publicly released,
+this value will not change again.
 
 Minor Version (16 bits):
 : an unsigned integer, giving the number of the current minor version of
@@ -134,7 +138,8 @@ the format.  The value for the current version of the format is 4
 This value should change if the format changes in such a way that code
 that reads the new format could read the old format without checking the
 version number but code that reads the old format could not read all
-files in the new format.
+files in the new format. As this document is historical, and no newer formats exist,
+this value will not change again.
 
 Reserved1 (32 bits):
 : not used - SHOULD be filled with 0 by pcap file writers, and MUST be
@@ -200,6 +205,16 @@ bit is not set, and the FCS length is not indicated by the link-layer
 type value, the FCS length is unknown.  The valid values of the FCS len
 field are between 0 and 15; Ethernet, for example, would have an FCS
 length value of 2, corresponding to a 4-octet FCS.
+
+## File Endian Information
+
+The magic number is stored in native endian format, so all the byte sequences below are magic numbers.
+
+* 0xA1,0xB2,0xC3,0xD4: little endian file, with timestamps in seconds/microseconds.
+* 0x1A,0x2B,0x3C,0x4D: little endian file, with timestamps in seconds/nanoseconds.
+* 0xD4,0xC3,0xB2,0xA1: big endian file, with timestamps in seconds/microseconds.
+* 0x4D,0x3C,0x2B,0x1A: big endian file, with timestamps in seconds/nanoseconds.
+
 
 # Packet Record
 
@@ -292,7 +307,7 @@ specification.
 
 Please note: To avoid confusion (such as the current usage of .cap for a
 plethora of different capture file formats) file name extensions other
-than .pcap should be avoided.
+than `.pcap` should be avoided.
 
 There is new work to create the PCAP Now Generic capture File Format
 (see {{I-D.ietf-opsawg-pcapng}}).  The new file format is not
@@ -305,11 +320,10 @@ format of a file.
 
 #  Security Considerations
 
-A pcap file reader MUST do invalid header and packet checks.
-It can receive as input not only valid headers or packets, but any arbitrary
+A pcap file reader MUST validate the file header and file packet header, and also the contained headers for the packet capture.
+A reader can receive as input not only valid headers or packets, but any arbitrary
 random sequence of octets:
-Headers or packets originally malformed by the sender or by a fuzz tester,
-corrupted in transit or for some other reason.
+Headers or packets may be intentionally malformed by a sender, and capture files from outside sources may contain intentionally malformed contents, for malicious reasons.
 
 See also:
 https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap
