@@ -945,9 +945,9 @@ The meaning of the fields is:
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
-* LinkType (16 bits): an unsigned integer that defines the
-  link layer type of this interface.  The list of Standardized
-  Link Layer Type codes is available in {{I-D.ietf-opsawg-pcaplinktype}}.
+* LinkType (16 bits): an unsigned integer that indicates the link layer
+  type of this interface; it is a value as defined in the PCAP-related
+  LinkType List registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 * Reserved (16 bits): not used - MUST be filled with 0 by
   pcapng file writers, and MUST be ignored by pcapng file
