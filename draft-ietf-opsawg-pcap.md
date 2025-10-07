@@ -331,7 +331,8 @@ format of a file.
 
 #  Security Considerations
 
-A pcap file reader MUST validate the file header and file packet header, and also the contained headers for the packet capture.
+A pcap file reader MUST validate the File Header and Packet Record headers.
+If it analyzes the Packet Data according to the LINKTYPE for the packets, it must also validate all of that data.
 A reader can receive as input not only valid headers or packets, but any arbitrary
 random sequence of octets:
 Headers or packets may be intentionally malformed by a sender, and capture files from outside sources may contain intentionally malformed contents, for malicious reasons.
