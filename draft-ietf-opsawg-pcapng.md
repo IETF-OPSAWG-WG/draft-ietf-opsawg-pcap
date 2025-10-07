@@ -11,7 +11,7 @@ pi:
   inline: 'yes'
   sortrefs: 'no'
   strict: 'yes'
-title: PCAP Next Generation (pcapng) Capture File Format
+title: PCAP Now Generic (pcapng) Capture File Format
 abbrev: pcapng
 author:
 - role: editor
@@ -188,14 +188,14 @@ is shown in {{formatblock}}.
 
 The fields have the following meaning:
 
-* Block Type (32 bits): a unique unsigned value that
+* Block Type (32 bits): a unique unsigned integer that
   identifies the block. Values whose Most Significant Bit
   (MSB) is equal to 1 are reserved for local use. They can be
   used to make extensions to the file format to save private
   data to the file. The list of currently defined types can
   be found in {{section_block_code_registry}}.
 
-* Block Total Length (32 bits): an unsigned value giving
+* Block Total Length (32 bits): an unsigned integer giving
   the total size of this block, in octets. For instance, the
   length of a block that does not have a body is 12 octets: 4
   octets for the Block Type, 4 octets for the initial Block
@@ -419,7 +419,7 @@ fields remain, and to skip all the optional fields at once.
 Options are a list of Type - Length - Value fields, each one
 containing a single value:
 
-* Option Type (16 bits): an unsigned value that contains
+* Option Type (16 bits): an unsigned integer that contains
   the code that specifies the type of the current TLV record.
   Option types whose Most Significant Bit is equal to one are
   reserved for local use; therefore, there is no guarantee
@@ -429,7 +429,7 @@ containing a single value:
   vendor-specific extensions, the Custom Option MUST be used
   instead, as defined in {{section_custom_option}}).
 
-* Option Length (16 bits): an unsigned value that contains
+* Option Length (16 bits): an unsigned integer that contains
   the actual length of the following 'Option Value' field
   without the padding octets.
 
@@ -635,7 +635,7 @@ The Custom Option has the following fields:
 ### Endianness
 
 Data contained in each section will always be saved according to
-the characteristics (little endian / big endian) of the capturing
+the characteristics (little-endian / big-endian) of the capturing
 machine. This refers to all the fields that are saved as numbers and
 that span over two or more octets.
 
@@ -743,15 +743,16 @@ The meaning of the fields is:
   big-endian machines, and to heuristically identify pcapng
   files.
 
-* Major Version (16 bits): an unsigned value, giving the
+* Major Version (16 bits): an unsigned integer, giving the
   number of the current major version of the format. The
-  value for the current version of the format is 1.
+  value for the current version of the format is 1
+  (big-endian 0x00 0x01 or little-endian 0x01 0x00).
 
-* Minor Version (16 bits): an unsigned value, giving the
+* Minor Version (16 bits): an unsigned integer, giving the
   number of the current minor version of the format. The
   value for the current version of the format is 0.
 
-* Section Length (64 bits): a signed value specifying the
+* Section Length (64 bits): a signed integer specifying the
   length in octets of the following section, excluding the
   Section Header Block itself.  This field can be used to skip
   the section, for faster navigation inside large files. If
@@ -885,7 +886,7 @@ information describing an interface on which packet data is
 captured.
 
 Tools that write / read the capture file associate an incrementing
-unsigned 32-bit number (starting from '0') to each Interface
+32-bit unsigned integer (starting from '0') to each Interface
 Definition Block, called the Interface ID for the interface in
 question. This number is unique within each Section and
 identifies the interface to which the IDB refers; it is only
@@ -944,7 +945,7 @@ The meaning of the fields is:
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
-* LinkType (16 bits): an unsigned value that defines the
+* LinkType (16 bits): an unsigned integer that defines the
   link layer type of this interface.  The list of Standardized
   Link Layer Type codes is available in {{I-D.richardson-opsawg-pcaplinktype}}.
 
@@ -952,7 +953,7 @@ The meaning of the fields is:
   pcapng file writers, and MUST be ignored by pcapng file
   readers.
 
-* SnapLen (32 bits): an unsigned value indicating the
+* SnapLen (32 bits): an unsigned integer indicating the
   maximum number of octets captured from each packet.  The
   portion of each packet that exceeds this value will not be
   stored in the file. A value of zero indicates no limit.
@@ -1064,7 +1065,7 @@ Example: '02 34 56 FF FE 78 9A BC'.
 {: indent='8'}
 if_speed:
 : The if_speed
-  option is a 64-bit unsigned value indicating the interface
+  option is a 64-bit unsigned integer indicating the interface
   speed, in bits per second.
 {: vspace='0'}
 
@@ -1135,7 +1136,7 @@ Examples: "Windows XP SP2", "openSUSE 10.2".
 {: indent='8'}
 if_fcslen:
 : The if_fcslen
-  option is an 8-bit unsigned integer value that specifies the
+  option is an 8-bit unsigned integer that specifies the
   length of the Frame Check Sequence (in bits) for this interface.
   For link layers whose FCS length can change during time, the
   Enhanced Packet Block epb_flags Option can be used in each
@@ -1148,7 +1149,7 @@ Example: '4'.
 {: indent='8'}
 if_tsoffset:
 : The
-  if_tsoffset option is a 64-bit signed integer value that
+  if_tsoffset option is a 64-bit signed integer that
   specifies an offset (in seconds) that must be added to the
   timestamp of each packet to obtain the absolute timestamp of
   a packet. If the option is not present, an offset of 0 is assumed
@@ -1177,7 +1178,7 @@ Micro Adapter".
 {: indent='8'}
 if_txspeed:
 : The
-  if_txspeed option is a 64-bit unsigned value
+  if_txspeed option is a 64-bit unsigned integer
   indicating the interface transmit speed in bits per
   second.
 {: vspace='0'}
@@ -1189,7 +1190,7 @@ Example: the 64-bit decimal number 1024000 for
 {: indent='8'}
 if_rxspeed:
 : The
-  if_rxspeed option is a 64-bit unsigned value
+  if_rxspeed option is a 64-bit unsigned integer
   indicating the interface receive speed, in bits per
   second.
 {: vspace='0'}
@@ -1230,7 +1231,7 @@ format of an Enhanced Packet Block is shown in {{format_epb}}.
 The Enhanced Packet Block is an improvement over the original, now
 obsolete, [Packet Block](#appendix_pb):
 
-* it stores the Interface Identifier as a 32-bit integer value.
+* it stores the Interface Identifier as a 32-bit unsigned integer.
   This is a requirement when a capture stores packets coming from a
   large number of interfaces;
 
@@ -1279,7 +1280,7 @@ The Enhanced Packet Block has the following fields:
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
-* Interface ID (32 bits): an unsigned value that specifies the
+* Interface ID (32 bits): an unsigned integer that specifies the
   interface on which this packet was received or transmitted;
   the correct interface will be the one whose Interface
   Description Block (within the current Section of the file) is
@@ -1287,7 +1288,7 @@ The Enhanced Packet Block has the following fields:
   of this field. The interface ID MUST be valid, which means that an
   matching interface description block MUST exist.
 
-* Timestamp (64 bits): two 32-bit unsigned values, representing a single
+* Timestamp (64 bits): two 32-bit unsigned integers, representing a single
   64-bit unsigned integer, with the first value being the upper 32 bits
   of that integer and the second value being the lower 32 bits of that
   integer.  The 64-bit unsigned integer is a count of units of time.
@@ -1307,7 +1308,7 @@ The Enhanced Packet Block has the following fields:
   Packet Blocks are saved as two 32-bit words that represent
   the upper and lower 32 bits of a single 64-bit quantity.
 
-* Captured Packet Length (32 bits): an unsigned value that
+* Captured Packet Length (32 bits): an unsigned integer that
   indicates the number of octets captured from the packet
   (i.e., the length of the Packet Data field). It will be the
   minimum value among the Original Packet Length and the
@@ -1316,7 +1317,7 @@ The Enhanced Packet Block has the following fields:
   octets added at the end of the Packet Data field to align the Packet
   Data field to a 32-bit boundary.
 
-* Original Packet Length (32 bits): an unsigned value that indicates the
+* Original Packet Length (32 bits): an unsigned integer that indicates the
   number of octets of packet data that would have been provided had the
   packet not been truncated to the snapshot length for the interface or
   to a length limit imposed by the capture mechanism.  If no truncation
@@ -1398,7 +1399,7 @@ Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2 9A 3D
 {: indent='8'}
 epb_dropcount:
 : The
-  epb_dropcount option is a 64-bit unsigned integer value
+  epb_dropcount option is a 64-bit unsigned integer
   specifying the number of packets lost (by the interface and
   the operating system) between this packet and the preceding
   one for the same interface or, for the first packet for an
@@ -1475,10 +1476,10 @@ thread.
 
 ### Enhanced Packet Block Flags Word {#section_epb_flags}
 
-The Enhanced Packet Block Flags Word is a 32-bit value that
-contains link-layer information about the packet.
+The Enhanced Packet Block Flags Word contains link-layer information about
+the packet.
 
-The word is encoded as an unsigned 32-bit integer, using the
+The word is encoded as a 32-bit unsigned integer, using the
 endianness of the Section Header Block scope it is in. In the
 following table, the bits are numbered with 0 being the
 least-significant bit and 31 being the most-significant bit of
@@ -1558,7 +1559,7 @@ The Simple Packet Block has the following fields:
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
-* Original Packet Length (32 bits): an unsigned value
+* Original Packet Length (32 bits): an unsigned integer
   indicating the actual length of the packet when it was
   transmitted on the network. It can be different from length
   of the Packet Data field's length if the packet has been
@@ -1585,9 +1586,12 @@ is often one of the most costly operations on PCs. Additionally, there
 are applications that do not require it; e.g. an Intrusion Detection
 System is interested in packets, not in their timestamp.
 
-A Simple Packet Block cannot be present in a Section that has more
-than one interface because of the impossibility to refer to the
-correct one (it does not contain any Interface ID field).
+As a Simple Packet Block does not contain an Interface ID field, in a
+Section that has more than one interface, only packets received or
+transmitted on the interface described by the first Interface
+Description Block can be contained in a Simple Packet Block; packets
+received or transmitted on any other interface MUST be contained in an
+Enhanced Packet Block.
 
 The Simple Packet Block is very efficient in term of disk space: a
 snapshot whose length is 100 octets requires only 16 octets of overhead,
@@ -1841,7 +1845,7 @@ The fields have the following meaning:
 
 * Block Total Length: total size of this block, as described in {{section_block}}.
 
-* Interface ID (32 bits): an unsigned value that specifies the
+* Interface ID (32 bits): an unsigned integer that specifies the
   interface to which these statistics refer; the correct interface
   will be the one whose Interface Description Block (within the current
   Section of the file) is identified by the same number (see {{section_idb}})
@@ -1849,7 +1853,7 @@ The fields have the following meaning:
   matching interface description block MUST exist.
 
 * Timestamp (64 bits): the time at which the statistics values were
-  taken; two 32-bit unsigned values, in the same format as defined
+  taken; two 32-bit unsigned integers, in the same format as defined
   for timestamps in the Enhanced Packet Block ({{section_epb}}),
   using the 'if_tsresol' and 'if_tsoffset' values from the Interface
   Description Block specified by the Interface ID.
@@ -1879,7 +1883,7 @@ the following options are valid within this block:
 isb_starttime:
 : The isb_starttime
   option specifies the time that traffic capture started on this
-  interface, consisting of two unsigned 32-bit values, in the same
+  interface, consisting of two 32-bit unsigned integers, in the same
   format as defined for timestamps in the Enhanced Packet Block
   ({{section_epb}}), using the 'if_tsresol' and 'if_tsoffset' values
   from the Interface Description Block specified by the Interface ID.
@@ -1893,7 +1897,7 @@ to 2012-06-29 06:17:00.834163 UTC.
 isb_endtime:
 : The isb_endtime
   option specifies the time that traffic capture ended on this
-  interface, consisting of two unsigned 32-bit values, in the same
+  interface, consisting of two 32-bit unsigned integers, in the same
   format as defined for timestamps in the Enhanced Packet Block
   ({{section_epb}}), using the 'if_tsresol' and 'if_tsoffset' values
   from the Interface Description Block specified by the Interface ID.
@@ -2040,7 +2044,7 @@ The following is a list of Secrets Types.
 0x5353484b:
 : SSH Key Log.
   Every line consists of a cookie, key type, and key separated by one space.
-  The cookie is the hex-encoded (client or server) 16 bytes cookie
+  The cookie is the hex-encoded (client or server) 16 octets cookie
   (32 characters) found in the SSH\_MSG\_KEXINIT sent during
   [algorithm negotiation](https://datatracker.ietf.org/doc/html/rfc4253#section-7.1)
   by the endpoint whose private random is disclosed.
@@ -2090,7 +2094,7 @@ The following is a list of Secrets Types.
 
   * Token ID: Encoded as decimal value.
 
-  The *value* contains the key data encoded as hexadecimal string with upper
+  The value contains the key data encoded as hexadecimal string with upper
   case letters.  To create a valid keyset, four entries for one combination of
   secure channel ID and token ID are required. These entries include 'iv' and
   'key' for both 'server' and 'client'.
@@ -2138,7 +2142,7 @@ The following is a list of Secrets Types.
   the [ZigBee Specification](https://zigbeealliance.org/) 05-3473-21 (R21) section 4.2.2.
   The NWK Key is a 16 octet binary AES-128 key used to secure NWK Level frames
   within a single PAN. The NWK key is immediately followed by the
-  2-octet (16-bit) network PANID in little endian format. If and when
+  2-octet (16-bit) network PANID in little-endian format. If and when
   the NWK Key changes a new DSB will contain the new NWK Key.
 {: vspace='0'}
 
@@ -2149,8 +2153,8 @@ The following is a list of Secrets Types.
   Application Support Link Key as described in the [ZigBee Specification](https://zigbeealliance.org/) 05-3473-21 (R21) section 4.4. Each 16 octet binary AES-128 key secures
   frames exchanged between a pair of network nodes. The APS Key is
   immediately followed by the 2-octet (16-bit) network PANID in
-  little endian format. The PANID is followed by the 2-octet (16-bit)
-  short addresses, in little endian format, of the nodes to which
+  little-endian format. The PANID is followed by the 2-octet (16-bit)
+  short addresses, in little-endian format, of the nodes to which
   the APS Key applies. The numerically lower short address shall come
   first. There is an APS Key DSB for each node pair for which the
   Link Key is known. As new links are formed, new DSBs contain the
@@ -2172,7 +2176,7 @@ The following is a list of Secrets Types.
 12 |                         Secrets Length                        |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 16 |                            AES-128                            |
-   |                            NKW Key                            |
+   |                            NWK Key                            |
    |                          (16 octets)                          |
    |                           (128 bits)                          |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -2217,6 +2221,53 @@ The following is a list of Secrets Types.
    +---------------------------------------------------------------+
 ~~~~
 {: #format_zigbee_aps title='ZigBee APS Key Data Format' artwork-align="center"}
+
+
+{: indent='8'}
+0x45535053:
+: ESP Security Association keys.
+  This is in CSV format ([RFC 4180]), with each record containing fields that
+  describe an ESP security association. Each line has the following columns:
+  "Protocol","Src IP","Dest IP","SPI","Encryption","Encryption Key",
+  "Authentication","Authentication Key","SN","ESN High Bits".
+  All columns must be filled in the order specified here with a value and the header line is ignored if present.
+  If a column contains an unknown value, the line should be skipped.
+  If the line contains more columns than what is expected by the reader, the extra ones should be ignored.
+  If the line contains fewer columns than what is expected by the reader, it should either apply a default
+  value (if possible) or the line should be skipped.
+
+  * Protocol: Protocol used. Can be either "IPv4", "IPv6" or "Any".
+
+  * Src IP: Source IP address. String containing the address, wildcard (*) character is supported.
+
+  * Dest IP: Destination IP address. String containing the address, wildcard (*) character is supported.
+
+  * SPI: Security Parameter Index. String of a 32 bits integer in hexadecimal format (starting with 0x).
+
+  * Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC [RFC2451]", "AES-CBC [RFC3602]",
+  "AES-CTR [RFC3686]", "DES-CBC [RFC2405]", "CAST5-CBC [RFC2144]", "BLOWFISH-CBC [RFC2451]", "TWOFISH-CBC",
+  "AES-GCM [RFC4106]", "AES-GCM with 8 octet ICV [RFC4106]", "AES-GCM with 12 octet ICV [RFC4106]",
+  "AES-GCM with 16 octet ICV [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 & RFC8750]",
+  "ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20 with Poly1305 and IIV [RFC7634 & RFC8750]".
+  New algorithms might be added in the future.
+
+  * Encryption Key: Encryption key. String containing the key in heaxadecimal format (starting with 0x).
+
+  * Authentication: Authentication algorithm. Can be "NULL", "HMAC-SHA-1-96 [RFC2404]",
+  "HMAC-SHA-256-96 [draft-ietf-ipsec-ciph-sha-256-00]", "HMAC-SHA-256-128 [RFC4868]",
+  "HMAC-SHA-384-192 [RFC4868]", "HMAC-SHA-512-256 [RFC4868]", "HMAC-MD5-96 [RFC2403]",
+  "MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication [no checking]",
+  "ANY 96 bit authentication [no checking]", "ANY 128 bit authentication [no checking]",
+  "ANY 192 bit authentication [no checking]" or "ANY 256 bit authentication [no checking]".
+  New algorithms might be added in the future.
+
+  * Authentication Key:  Authentication key. String containing the key in heaxadecimal format (starting with 0x).
+
+  * SN: Sequence number length. Can be "32-bit" or "64-bit".
+
+  * ESN High Bits: Extended Sequence Number upper 32 bits. String of a 32 bits integer in hexadecimal
+  format (starting with 0x).
+{: vspace='0'}
 
 
 ## Custom Block {#section_custom_block}
@@ -2409,7 +2460,7 @@ string Custom Options.
 
 # Recommended File Name Extension: .pcapng
 
-The recommended file name extension for the "PCAP Next Generation
+The recommended file name extension for the "PCAP Now Generic
 Capture File Format" specified in this document is ".pcapng".
 
 On Windows and macOS, files are distinguished by an extension to their
@@ -2462,7 +2513,7 @@ for each should be (see RFC 5226)]
 
 ## Standardized Block Type Codes {#section_block_code_registry}
 
-Every Block is uniquely identified by a 32-bit integer value, stored
+Every Block is uniquely identified by a 32-bit unsigned integer, stored
 in the Block Header.
 
 As pointed out in {{section_block}}, Block Type
@@ -2478,7 +2529,9 @@ or secret type to {{section_block_definition}}. The pull request
 description should contain a clear request for a new type code
 assignment.
 
-The following is a list of the Standardized Block Type Codes:
+The following is a list of the Standardized Block Type Codes; XX, in an
+item in the list means that the item refers to all possible values in
+which the "XX" is from 00 to FF:
 
 | Block Type Code | Description |
 | 0x00000000 | Reserved ??? |
@@ -2510,10 +2563,10 @@ The following is a list of the Standardized Block Type Codes:
 | 0x00000BAD |  [Custom Block that rewriters can copy into new files](#section_custom_block)  |
 | 0x40000BAD |  [Custom Block that rewriters should not copy into new files](#section_custom_block)  |
 | 0x0A0D0D0A |  [Section Header Block](#section_shb)  |
-| 0x0A0D0A00-0x0A0D0AFF | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
-| 0x000A0D0A-0xFF0A0D0A | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
-| 0x000A0D0D-0xFF0A0D0D | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
-| 0x0D0D0A00-0x0D0D0AFF | Reserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode. |
+| 0x0A0D0AXX | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
+| 0xXX0A0D0A | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
+| 0xXX0A0D0D | Reserved. Used to detect trace files corrupted because of file transfers using the HTTP protocol in text mode. |
+| 0x0D0D0AXX | Reserved. Used to detect trace files corrupted because of file transfers using the FTP protocol in text mode. |
 | 0x80000000-0xFFFFFFFF | Reserved for local use. |
 {: #blockcodes title='Standardized Block Type Codes'}
 
@@ -2600,7 +2653,7 @@ The Packet Block has the following fields:
   is reserved for those systems in which this information is not
   available.
 
-* Timestamp (64 bits): two 32-bit unsigned values, in the same format
+* Timestamp (64 bits): two 32-bit unsigned integers, in the same format
   as defined for timestamps in the Enhanced Packet Block ({{section_epb}}),
   using the 'if_tsresol' and 'if_tsoffset' values from the Interface
   Description Block specified by the Interface ID.

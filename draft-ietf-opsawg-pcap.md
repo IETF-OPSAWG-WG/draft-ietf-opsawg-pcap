@@ -2,7 +2,7 @@
 stand_alone: true
 ipr: trust200902
 docname: draft-ietf-opsawg-pcap-latest
-cat: info
+cat: historic
 pi:
   symrefs: 'yes'
   toc: 'yes'
@@ -79,7 +79,7 @@ A capture file begins with a File Header, followed by zero or more
 Packet Records, one per packet.
 
 All fields in the File Header and in the headers of Packet Records will
-always be written according to the characteristics (little endian / big
+always be written according to the characteristics (little-endian / big-
 endian) of the machine that is writing the file.  This refers to all the
 fields that are written as numbers and that span over two or more
 octets.
@@ -90,18 +90,21 @@ when writing the file or reading the file on the host that wrote the
 file, which is the most common case when generating or processing
 capture captures.
 
+When hosts with a different native endian format read a file, they must swap bytes as appropriate.
+This is less efficient, but less common, and if repeated access to the files are important, then files can be translated and saved.
+
 # File Header
 
 The File Header has the following format, with the octet offset of
 fields shown to the left of the field:
 
 ~~~~
+                           1                   2                   3
+       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     0 |                          Magic Number                         |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    4 |          Major Version        |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    6 |          Minor Version        |
+    4 |         Major Version         |         Minor Version         |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     8 |                           Reserved1                           |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -129,21 +132,25 @@ written on little-endian machines from the ones written on big-endian
 machines, and to heuristically identify pcap files.
 
 Major Version (16 bits):
-: an unsigned value, giving the number of the current major version of
-the format.  The value for the current version of the format is 2.  This
+: an unsigned integer, giving the number of the current major version of
+the format.  The value for the current version of the format is 2
+(big-endian 0x00 0x02 or little-endian 0x02 0x00).  This
 value should change if the format changes in such a way that code that
 reads the new format could not read the old format (i.e., code to read
 both formats would have to check the version number and use different
 code paths for the two formats) and code that reads the old format could
-not read the new format.
+not read the new format.  As this document is historical, and no newer formats were publicly released,
+this value will not change again.
 
 Minor Version (16 bits):
-: an unsigned value, giving the number of the current minor version of
-the format.  The value is for the current version of the format is 4.
+: an unsigned integer, giving the number of the current minor version of
+the format.  The value for the current version of the format is 4
+(big-endian 0x00 0x04 or little-endian 0x04 0x00).
 This value should change if the format changes in such a way that code
 that reads the new format could read the old format without checking the
 version number but code that reads the old format could not read all
-files in the new format.
+files in the new format. As this document is historical, and no newer formats exist,
+this value will not change again.
 
 Reserved1 (32 bits):
 : not used - SHOULD be filled with 0 by pcap file writers, and MUST be
@@ -158,14 +165,14 @@ implementations as "accuracy of timestamps".  Some older pcap file
 writers stored non-zero values in this field.
 
 SnapLen (32 bits):
-: an unsigned value indicating the maximum number of octets captured
+: an unsigned integer indicating the maximum number of octets captured
 from each packet.  The portion of each packet that exceeds this value
 will not be stored in the file.  This value MUST NOT be zero; if no
 limit was specified, the value SHOULD be a number greater than or equal
 to the largest packet length in the file.
 
 LinkType and additional information (32 bits):
-: a 32-bit unsigned value that contains the link-layer type of packets
+: an unsigned integer that contains the link-layer type of packets
 in the file and may contain additional information.
 
 The LinkType and additional information field is in the form
@@ -184,7 +191,7 @@ or writing the file, with bit 0 being the most-significant bit of the
 field and bit 31 being the least-significant bit of the field.
 
 Link-layer type (16 bits):
-: a 16-bit value indicating link-layer type for packets in the file;
+: an unsigned integer indicating link-layer type for packets in the file;
 it is a value as defined in the PCAP LinkType list registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 Reserved3 (10 bits):
@@ -203,12 +210,22 @@ interpreted by pcap readers; a reader SHOULD treat a non-zero value as
 an error.
 
 FCS len (4 bits):
-: a 4-bit unsigned value indicating the number of 16-bit (2-octet) words
+: an unsigned integer indicating the number of 16-bit (2-octet) words
 of FCS that are appended to each packet, if the P bit is set; if the P
 bit is not set, and the FCS length is not indicated by the link-layer
 type value, the FCS length is unknown.  The valid values of the FCS len
 field are between 0 and 15; Ethernet, for example, would have an FCS
 length value of 2, corresponding to a 4-octet FCS.
+
+## File Endian Information
+
+The magic number is stored in native endian format, so all the byte sequences below are magic numbers.
+
+* 0xA1,0xB2,0xC3,0xD4: little endian file, with timestamps in seconds/microseconds.
+* 0x1A,0x2B,0x3C,0x4D: little endian file, with timestamps in seconds/nanoseconds.
+* 0xD4,0xC3,0xB2,0xA1: big endian file, with timestamps in seconds/microseconds.
+* 0x4D,0x3C,0x2B,0x1A: big endian file, with timestamps in seconds/nanoseconds.
+
 
 # Packet Record
 
@@ -241,7 +258,7 @@ Timestamp (Seconds) and Timestamp (Microseconds or nanoseconds):
 : seconds and fraction of a seconds values of a timestamp.
 : The seconds value is a 32-bit unsigned integer that represents the
 number of seconds that have elapsed since 1970-01-01 00:00:00 UTC, and
-the microseconds or nanoseconds value is a 32-bit unsigned value that
+the microseconds or nanoseconds value is a 32-bit unsigned integer that
 represents the number of microseconds or nanoseconds that have elapsed
 since that seconds.
 : The Magic Number field in the File Header of a file indicates
@@ -249,13 +266,13 @@ whether the values of the Timestamp (Microseconds or nanoseconds) fields
 of packets in that file are in units of microseconds or nanoseconds.
 
 Captured Packet Length (32 bits):
-: an unsigned value that indicates the number of octets captured from
+: an unsigned integer that indicates the number of octets captured from
 the packet (i.e., the length of the Packet Data field).  It will be the
 minimum value among the Original Packet Length and the snapshot length
 for the interface (SnapLen, defined in Figure 1).
 
 Original Packet Length (32 bits):
-: an unsigned value that indicates the number of octets of packet data
+: an unsigned integer that indicates the number of octets of packet data
 that would have been provided had the packet not been truncated to the
 snapshot length for the interface or to a length limit imposed by the
 capture mechanism. If no truncation was done, it will be the same as
@@ -301,9 +318,9 @@ specification.
 
 Please note: To avoid confusion (such as the current usage of .cap for a
 plethora of different capture file formats) file name extensions other
-than .pcap should be avoided.
+than `.pcap` should be avoided.
 
-There is new work to create the PCAP Next Generation capture File Format
+There is new work to create the PCAP Now Generic capture File Format
 (see {{I-D.ietf-opsawg-pcapng}}).  The new file format is not
 compatible with this specification, but many programs read both
 transparently.  Files of that type will start with a Section
@@ -314,11 +331,10 @@ format of a file.
 
 #  Security Considerations
 
-A pcap file reader MUST do invalid header and packet checks.
-It can receive as input not only valid headers or packets, but any arbitrary
+A pcap file reader MUST validate the file header and file packet header, and also the contained headers for the packet capture.
+A reader can receive as input not only valid headers or packets, but any arbitrary
 random sequence of octets:
-Headers or packets originally malformed by the sender or by a fuzz tester,
-corrupted in transit or for some other reason.
+Headers or packets may be intentionally malformed by a sender, and capture files from outside sources may contain intentionally malformed contents, for malicious reasons.
 
 See also:
 https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap

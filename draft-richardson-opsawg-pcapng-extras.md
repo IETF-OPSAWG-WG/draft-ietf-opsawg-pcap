@@ -11,7 +11,7 @@ pi:
   inline: 'yes'
   sortrefs: 'no'
   strict: 'yes'
-title: Additional block types for PCAP Next Generation (pcapng) Capture File Format
+title: Additional block types for PCAP Now Generic (pcapng) Capture File Format
 abbrev: pcapng-extras
 author:
 - role: editor
@@ -203,7 +203,7 @@ The fields have the following meaning:
 
 * Block Total Length: total size of this block, as described in {{I-D.tuexen-opsawg-pcapng}}, section "Section Blocks".
 
-* Compression Type (8 bits): an unsigned value that
+* Compression Type (8 bits): an unsigned integer that
   specifies the compression algorithm.  Possible values for
   this field are 0 (uncompressed), 1 (Lempel-Ziv), 2 (Gzip),
   other?? Probably some kind of dumb and fast compression
@@ -250,7 +250,7 @@ The fields have the following meaning:
 
 * Block Total Length: total size of this block, as described in {{I-D.tuexen-opsawg-pcapng}}, section "Section Blocks".
 
-* Encryption Type (8 bits): an unsigned value that
+* Encryption Type (8 bits): an unsigned integer that
   specifies the encryption algorithm.  Possible values for
   this field are ??? (TODO) NOTE: this block should probably
   contain other fields, depending on the encryption algorithm.
@@ -302,7 +302,7 @@ The fields have the following meaning:
 
 * Block Total Length: total size of this block, as described in {{I-D.tuexen-opsawg-pcapng}}, section "Section Blocks".
 
-* Cell size (16 bits): an unsigned value that indicates the
+* Cell size (16 bits): an unsigned integer that indicates the
   size of the blocks contained in the data field.
 
 * Fixed Size Data: data of this block.

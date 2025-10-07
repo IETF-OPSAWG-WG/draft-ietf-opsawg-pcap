@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: "Checkout"
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     # See https://github.com/actions/checkout/issues/290
     - name: "Get Tag Annotations"
@@ -21,11 +21,11 @@ jobs:
       id: cache-setup
       run: |
         mkdir -p "$HOME"/.cache/xml2rfc
-        echo "::set-output name=path::$HOME/.cache/xml2rfc"
-        date -u "+::set-output name=date::%FT%T"
+        echo "path=HOME/.cache/xml2rfc" >> $GITHUB_OUTPUT
+        date -u "+date=%FT%T" >> $GITHUB_OUTPUT
 
     - name: "Cache References"
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: ${{ steps.cache-setup.outputs.path }}
         key: refcache-${{ steps.date.outputs.date }}

@@ -9,3 +9,7 @@ else
 	git clone -q --depth 10 $(CLONE_ARGS) \
 	    -b main https://github.com/martinthomson/i-d-template $(LIBDIR)
 endif
+
+linktypes.md: linktypes.csv
+	/usr/bin/perl linktype2stanza >linktypes.md
+
