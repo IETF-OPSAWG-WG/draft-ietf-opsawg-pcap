@@ -181,7 +181,7 @@ The LinkType and additional information field is in the form
                            1                   2                   3
        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-      |FCS len|R|P|     Reserved3     |        Link-layer type        |
+      |FCS len|R|P|     Reserved3     |            LinkType           |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ~~~~
 {: #fig-linktype title='LinkType and additional information' align="left"}
@@ -190,9 +190,9 @@ The field is shown as if it were in the byte order of the host reading
 or writing the file, with bit 0 being the most-significant bit of the
 field and bit 31 being the least-significant bit of the field.
 
-Link-layer type (16 bits):
-: an unsigned integer indicating link-layer type for packets in the file;
-it is a value as defined in the PCAP LinkType list registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
+LinkType (16 bits):
+: an unsigned integer indicating the link layer type for packets in the file;
+it is a value as defined in the PCAP-related LinkType List registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
 
 Reserved3 (10 bits):
 : not used - MUST be set to zero by pcap writers, and MUST NOT be
