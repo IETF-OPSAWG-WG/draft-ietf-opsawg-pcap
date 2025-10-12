@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-09T01:42:55.053227+00:00",
+  "timestamp": "2025-10-12T01:46:58.224292+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2969,6 +2969,37 @@
           "body": "Thanks again ... yea not workable",
           "createdAt": "2025-07-06T18:17:11Z",
           "updatedAt": "2025-07-06T18:17:11Z"
+        }
+      ]
+    },
+    {
+      "number": 190,
+      "id": "I_kwDOAU54e87Qh7Qz",
+      "title": "TLS nonce as an option to packet blocks in the pcapng specification",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/190",
+      "state": "OPEN",
+      "author": "sergey-safarov",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "To troubleshoot WebRTC calls via WebSocket, we need to decrypt TLS connections from the start.\nFor long-running WebSocket connections on a server with a high volume of traffic, I need to filter numerous PCAP files to collect all packets for a single WebSocket connection from the time the connection was established. \nThis is not easy to do.\n\nIt will be fine to record in a PCAP file the `TLS nonce`. In this case, TLS messages will be possible to decrypt from the middle of the TLS connection.\nMore discussion you can find at\nhttps://gitlab.com/wireshark/wireshark/-/issues/20512\n\nCould you extend the pcapng format to add a field to store the TLS nonce? ",
+      "createdAt": "2025-10-09T10:24:47Z",
+      "updatedAt": "2025-10-09T15:19:13Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> It will be fine to record in a PCAP ... Could you extend the pcapng format to add a field to store the TLS nonce?\n\n[The PCAP capture file format](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcap) has no provision for storing that, and is not extensible.\n\n[The PCAP Now Generic file format](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng), also known as \"pcapng\", has, for example, [Decryption Secrets Blocks](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng#name-decryption-secrets-block), which can store any of a number of types of secrets used to decrypt packets, and can have new secret types added, if none of the existing secret types can be used.\n\n[Please submit a pull request](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pulls) for [the pcapng specification](https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/master/draft-ietf-opsawg-pcapng.md) to add a TLS nonce type if none of the existing types can store it.",
+          "createdAt": "2025-10-09T15:12:51Z",
+          "updatedAt": "2025-10-09T15:12:51Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "[The discussion in Wireshark issue #20512](https://gitlab.com/wireshark/wireshark/-/issues/20512) indicates that the nonce would be per-*frame*, so, instead of storing it in a Decryption Secrets Block, it would have to be stored as an [option](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng#name-options) for the [Enhanced Packet Block](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng#name-enhanced-packet-block).\n\nGiven that, the pull request would have to add a new \"TLS nonce\" option for the Enhanced Packet Block.",
+          "createdAt": "2025-10-09T15:19:13Z",
+          "updatedAt": "2025-10-09T15:19:13Z"
         }
       ]
     }
