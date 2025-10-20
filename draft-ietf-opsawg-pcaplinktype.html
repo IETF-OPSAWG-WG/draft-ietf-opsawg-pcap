@@ -1170,7 +1170,7 @@ These values are used by the PCAP and PCAP-Now-Generic specifications.<a href="#
                     <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-initial-values" class="internal xref">Initial Values</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
-                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-guidance-for-designated-exp" class="internal xref">Guidance for Designated Experts</a></p>
+                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-guidance-for-registration" class="internal xref">Guidance for Registration</a></p>
 </li>
                 </ul>
 </li>
@@ -1291,7 +1291,8 @@ type list maintained by libpcap, and published on <span>[<a href="#TCPDUMP" clas
 <p id="section-3.2-8">Note that historically, values were assigned incrementally following First Come First Served (FCFS) policy with Expert Review.
 A preference was made to have a public specification, but with no mandate to enforce this.
 Some historical values may have less specification than desired.<a href="#section-3.2-8" class="pilcrow">¶</a></p>
-<p id="section-3.2-9">LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally reserved for Experimental/Private Use. Their use is Deprecated in favour of the values in the 65001-65535 range.<a href="#section-3.2-9" class="pilcrow">¶</a></p>
+<p id="section-3.2-9">LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally reserved for Experimental/Private Use, and that use continues to be supported.
+However, new private use cases should use the values in the 65001-65535 range.<a href="#section-3.2-9" class="pilcrow">¶</a></p>
 <p id="section-3.2-10">In general, Experimental Use values should never leak out of the entity that uses it.
 As the FCFS range is large and easily obtained, official values are recommended.<a href="#section-3.2-10" class="pilcrow">¶</a></p>
 <ul class="normal ulEmpty">
@@ -1345,6 +1346,11 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
 <dt id="section-3.2.1-3.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-3.6">
               <p id="section-3.2.1-3.6.1">IEEE 802.3 Ethernet<a href="#section-3.2.1-3.6.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-3.2.1-3.7">Reference:</dt>
+            <dd style="margin-left: 1.5em" id="section-3.2.1-3.8">
+              <p id="section-3.2.1-3.8.1"><span>[<a href="#LINKTYPE_ETHERNET" class="cite xref">LINKTYPE_ETHERNET</a>]</span><a href="#section-3.2.1-3.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1405,7 +1411,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-6.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-6.6">
-              <p id="section-3.2.1-6.6.1">Reserved for Proteon PRONet Token Ring<a href="#section-3.2.1-6.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-6.6.1">Proteon PRONet Token Ring<a href="#section-3.2.1-6.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1422,7 +1428,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-7.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-7.6">
-              <p id="section-3.2.1-7.6.1">Reserved for MIT Chaosnet<a href="#section-3.2.1-7.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-7.6.1">MIT Chaosnet<a href="#section-3.2.1-7.6.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 <dt id="section-3.2.1-7.7">Reference</dt>
@@ -1461,7 +1467,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-9.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-9.6">
-              <p id="section-3.2.1-9.6.1">Reserved for ARCNET Data Packets with BSD encapsulation<a href="#section-3.2.1-9.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-9.6.1">ARCNET Data Packets with BSD encapsulation<a href="#section-3.2.1-9.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1600,7 +1606,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-16.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-16.6">
-              <p id="section-3.2.1-16.6.1">Do not use these values<a href="#section-3.2.1-16.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-16.6.1">Used historically by NetBSD<a href="#section-3.2.1-16.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1617,7 +1623,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-17.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-17.6">
-              <p id="section-3.2.1-17.6.1">Reserved for Symantec Enterprise Firewall<a href="#section-3.2.1-17.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-17.6.1">Symantec Enterprise Firewall<a href="#section-3.2.1-17.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1678,7 +1684,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-20.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-20.6">
-              <p id="section-3.2.1-20.6.1">Reserved for BSD/OS SLIP BPF header<a href="#section-3.2.1-20.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-20.6.1">BSD/OS SLIP BPF header<a href="#section-3.2.1-20.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1695,7 +1701,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-21.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-21.6">
-              <p id="section-3.2.1-21.6.1">Reserved for BSD/OS PPP BPF header<a href="#section-3.2.1-21.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-21.6.1">BSD/OS PPP BPF header<a href="#section-3.2.1-21.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1812,7 +1818,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-27.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-27.6">
-              <p id="section-3.2.1-27.6.1">Reserved for OpenBSD IPsec encapsulation<a href="#section-3.2.1-27.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-27.6.1">OpenBSD IPsec encapsulation<a href="#section-3.2.1-27.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1829,7 +1835,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-28.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-28.6">
-              <p id="section-3.2.1-28.6.1">Reserved for ATM LANE + 802.3<a href="#section-3.2.1-28.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-28.6.1">ATM LANE + 802.3<a href="#section-3.2.1-28.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1846,7 +1852,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-29.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-29.6">
-              <p id="section-3.2.1-29.6.1">Reserved for NetBSD HIPPI<a href="#section-3.2.1-29.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-29.6.1">NetBSD HIPPI<a href="#section-3.2.1-29.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1863,7 +1869,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-30.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-30.6">
-              <p id="section-3.2.1-30.6.1">Reserved for NetBSD HDLC framing<a href="#section-3.2.1-30.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-30.6.1">NetBSD HDLC framing<a href="#section-3.2.1-30.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1924,7 +1930,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-33.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-33.6">
-              <p id="section-3.2.1-33.6.1">Reserved for Acorn Econet<a href="#section-3.2.1-33.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-33.6.1">Acorn Econet<a href="#section-3.2.1-33.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1941,7 +1947,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-34.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-34.6">
-              <p id="section-3.2.1-34.6.1">Reserved for OpenBSD ipfilter<a href="#section-3.2.1-34.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-34.6.1">OpenBSD ipfilter<a href="#section-3.2.1-34.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1958,7 +1964,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-35.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-35.6">
-              <p id="section-3.2.1-35.6.1">Reserved for PF packet filter logging<a href="#section-3.2.1-35.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-35.6.1">PF packet filter logging<a href="#section-3.2.1-35.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1975,7 +1981,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-36.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-36.6">
-              <p id="section-3.2.1-36.6.1">Reserved for Cisco-internal use<a href="#section-3.2.1-36.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-36.6.1">Cisco-internal use<a href="#section-3.2.1-36.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2014,7 +2020,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-38.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-38.6">
-              <p id="section-3.2.1-38.6.1">Reserved for 802.11 + FreeBSD Aironet radio metadata<a href="#section-3.2.1-38.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-38.6.1">802.11 + FreeBSD Aironet radio metadata<a href="#section-3.2.1-38.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2031,7 +2037,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-39.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-39.6">
-              <p id="section-3.2.1-39.6.1">Reserved for Siemens HiPath HDLC<a href="#section-3.2.1-39.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-39.6.1">Siemens HiPath HDLC<a href="#section-3.2.1-39.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2092,7 +2098,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-42.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-42.6">
-              <p id="section-3.2.1-42.6.1">Reserved for RapidIO<a href="#section-3.2.1-42.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-42.6.1">RapidIO<a href="#section-3.2.1-42.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2109,7 +2115,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-43.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-43.6">
-              <p id="section-3.2.1-43.6.1">Reserved for PCI Express<a href="#section-3.2.1-43.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-43.6.1">PCI Express<a href="#section-3.2.1-43.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2126,7 +2132,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-44.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-44.6">
-              <p id="section-3.2.1-44.6.1">Reserved for Xilinx Aurora link layer<a href="#section-3.2.1-44.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-44.6.1">Xilinx Aurora link layer<a href="#section-3.2.1-44.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2165,7 +2171,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-46.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-46.6">
-              <p id="section-3.2.1-46.6.1">Reserved for Tazmen Sniffer Protocol<a href="#section-3.2.1-46.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-46.6.1">Tazmen Sniffer Protocol<a href="#section-3.2.1-46.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2182,7 +2188,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-47.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-47.6">
-              <p id="section-3.2.1-47.6.1">Reserved for ARCNET Data Packets with Linux encapsulation<a href="#section-3.2.1-47.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-47.6.1">ARCNET Data Packets with Linux encapsulation<a href="#section-3.2.1-47.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2199,7 +2205,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-48.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-48.6">
-              <p id="section-3.2.1-48.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-48.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-48.6.1">Juniper Networks<a href="#section-3.2.1-48.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2216,7 +2222,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-49.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-49.6">
-              <p id="section-3.2.1-49.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-49.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-49.6.1">Juniper Networks<a href="#section-3.2.1-49.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2233,7 +2239,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-50.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-50.6">
-              <p id="section-3.2.1-50.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-50.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-50.6.1">Juniper Networks<a href="#section-3.2.1-50.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2250,7 +2256,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-51.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-51.6">
-              <p id="section-3.2.1-51.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-51.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-51.6.1">Juniper Networks<a href="#section-3.2.1-51.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2267,7 +2273,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-52.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-52.6">
-              <p id="section-3.2.1-52.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-52.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-52.6.1">Juniper Networks<a href="#section-3.2.1-52.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2284,7 +2290,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-53.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-53.6">
-              <p id="section-3.2.1-53.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-53.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-53.6.1">Juniper Networks<a href="#section-3.2.1-53.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2301,7 +2307,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-54.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-54.6">
-              <p id="section-3.2.1-54.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-54.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-54.6.1">Juniper Networks<a href="#section-3.2.1-54.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2318,7 +2324,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-55.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-55.6">
-              <p id="section-3.2.1-55.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-55.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-55.6.1">Juniper Networks<a href="#section-3.2.1-55.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2489,7 +2495,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-63.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-63.6">
-              <p id="section-3.2.1-63.6.1">Reserved for IBM SP switch<a href="#section-3.2.1-63.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-63.6.1">IBM SP switch<a href="#section-3.2.1-63.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2506,7 +2512,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-64.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-64.6">
-              <p id="section-3.2.1-64.6.1">Reserved for IBM Next Federation switch<a href="#section-3.2.1-64.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-64.6.1">IBM Next Federation switch<a href="#section-3.2.1-64.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2817,7 +2823,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-82.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-82.6">
-              <p id="section-3.2.1-82.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-82.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-82.6.1">Juniper Networks<a href="#section-3.2.1-82.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2878,7 +2884,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-85.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-85.6">
-              <p id="section-3.2.1-85.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-85.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-85.6.1">Juniper Networks<a href="#section-3.2.1-85.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2895,7 +2901,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-86.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-86.6">
-              <p id="section-3.2.1-86.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-86.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-86.6.1">Juniper Networks<a href="#section-3.2.1-86.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2978,7 +2984,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-90.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-90.6">
-              <p id="section-3.2.1-90.6.1">Reserved for Gcom T1/E1 line monitoring equipment<a href="#section-3.2.1-90.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-90.6.1">Gcom T1/E1 line monitoring equipment<a href="#section-3.2.1-90.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2995,7 +3001,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-91.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-91.6">
-              <p id="section-3.2.1-91.6.1">Reserved for Gcom T1/E1 line monitoring equipment<a href="#section-3.2.1-91.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-91.6.1">Gcom T1/E1 line monitoring equipment<a href="#section-3.2.1-91.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3012,7 +3018,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-92.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-92.6">
-              <p id="section-3.2.1-92.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-92.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-92.6.1">Juniper Networks<a href="#section-3.2.1-92.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3095,7 +3101,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-96.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-96.6">
-              <p id="section-3.2.1-96.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-96.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-96.6.1">Juniper Networks<a href="#section-3.2.1-96.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3112,7 +3118,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-97.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-97.6">
-              <p id="section-3.2.1-97.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-97.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-97.6.1">Juniper Networks<a href="#section-3.2.1-97.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3129,7 +3135,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-98.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-98.6">
-              <p id="section-3.2.1-98.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-98.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-98.6.1">Juniper Networks<a href="#section-3.2.1-98.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3146,7 +3152,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-99.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-99.6">
-              <p id="section-3.2.1-99.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-99.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-99.6.1">Juniper Networks<a href="#section-3.2.1-99.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3185,7 +3191,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-101.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-101.6">
-              <p id="section-3.2.1-101.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-101.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-101.6.1">Juniper Networks<a href="#section-3.2.1-101.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3202,7 +3208,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-102.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-102.6">
-              <p id="section-3.2.1-102.6.1">Reserved for ARINC 429 frames<a href="#section-3.2.1-102.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-102.6.1">ARINC 429 frames<a href="#section-3.2.1-102.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3219,7 +3225,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-103.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-103.6">
-              <p id="section-3.2.1-103.6.1">Reserved for Arinc 653 Interpartition Communication messages<a href="#section-3.2.1-103.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-103.6.1">Arinc 653 Interpartition Communication messages<a href="#section-3.2.1-103.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3236,7 +3242,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-104.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-104.6">
-              <p id="section-3.2.1-104.6.1">Reserved for USB traffic captured on FreeBSD<a href="#section-3.2.1-104.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-104.6.1">USB traffic captured on FreeBSD<a href="#section-3.2.1-104.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3275,7 +3281,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-106.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-106.6">
-              <p id="section-3.2.1-106.6.1">Reserved for IEEE 802.16 MAC Common Part Sublayer<a href="#section-3.2.1-106.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-106.6.1">IEEE 802.16 MAC Common Part Sublayer<a href="#section-3.2.1-106.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3314,7 +3320,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-108.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-108.6">
-              <p id="section-3.2.1-108.6.1">Reserved for Controller Area Network (CAN) v. 2.0B packets<a href="#section-3.2.1-108.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-108.6.1">Controller Area Network (CAN) v. 2.0B packets<a href="#section-3.2.1-108.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3331,7 +3337,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-109.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-109.6">
-              <p id="section-3.2.1-109.6.1">Reserved for IEEE 802.15.4 with address fields padded by Linux<a href="#section-3.2.1-109.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-109.6.1">IEEE 802.15.4 with address fields padded by Linux<a href="#section-3.2.1-109.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3370,7 +3376,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-111.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-111.6">
-              <p id="section-3.2.1-111.6.1">Reserved for 802.16 MAC Common Part Sublayer plus radio header<a href="#section-3.2.1-111.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-111.6.1">802.16 MAC Common Part Sublayer plus radio header<a href="#section-3.2.1-111.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3387,7 +3393,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-112.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-112.6">
-              <p id="section-3.2.1-112.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-112.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-112.6.1">Juniper Networks<a href="#section-3.2.1-112.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3470,7 +3476,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-116.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-116.6">
-              <p id="section-3.2.1-116.6.1">Reserved for Ethernet packets captured from a u10 Networks board<a href="#section-3.2.1-116.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-116.6.1">Ethernet packets captured from a u10 Networks board<a href="#section-3.2.1-116.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3487,7 +3493,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-117.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-117.6">
-              <p id="section-3.2.1-117.6.1">Reserved for IPMB packet for IPMI, with a 2-octet header<a href="#section-3.2.1-117.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-117.6.1">IPMB packet for IPMI, with a 2-octet header<a href="#section-3.2.1-117.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3504,7 +3510,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-118.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-118.6">
-              <p id="section-3.2.1-118.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-118.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-118.6.1">Juniper Networks<a href="#section-3.2.1-118.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3665,7 +3671,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlCompact dlParallel" id="section-3.2.1-126">
             <dt id="section-3.2.1-126.1">Name</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-126.2">
-              <p id="section-3.2.1-126.2.1">Reserved<a href="#section-3.2.1-126.2.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-126.2.1">WillBarker-Proprietary<a href="#section-3.2.1-126.2.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 <dt id="section-3.2.1-126.3">Number</dt>
@@ -3675,7 +3681,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-126.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-126.6">
-              <p id="section-3.2.1-126.6.1">Reserved for an unspecified link-layer type<a href="#section-3.2.1-126.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-126.6.1">Proprietary Link-Layer type<a href="#section-3.2.1-126.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3736,7 +3742,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-129.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-129.6">
-              <p id="section-3.2.1-129.6.1">Reserved for Media Oriented Systems Transport (MOST) bus<a href="#section-3.2.1-129.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-129.6.1">Media Oriented Systems Transport (MOST) bus<a href="#section-3.2.1-129.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3775,7 +3781,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-131.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-131.6">
-              <p id="section-3.2.1-131.6.1">Reserved for X2E serial line captures<a href="#section-3.2.1-131.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-131.6.1">X2E serial line captures<a href="#section-3.2.1-131.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3792,7 +3798,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-132.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-132.6">
-              <p id="section-3.2.1-132.6.1">Reserved for X2E Xoraya data loggers<a href="#section-3.2.1-132.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-132.6.1">X2E Xoraya data loggers<a href="#section-3.2.1-132.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3831,7 +3837,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-134.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-134.6">
-              <p id="section-3.2.1-134.6.1">Reserved for Linux evdev messages<a href="#section-3.2.1-134.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-134.6.1">Linux evdev messages<a href="#section-3.2.1-134.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3848,7 +3854,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-135.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-135.6">
-              <p id="section-3.2.1-135.6.1">Reserved for GSM Um interface, with gsmtap header<a href="#section-3.2.1-135.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-135.6.1">GSM Um interface, with gsmtap header<a href="#section-3.2.1-135.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3865,7 +3871,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-136.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-136.6">
-              <p id="section-3.2.1-136.6.1">Reserved for GSM Abis interface, with gsmtap header<a href="#section-3.2.1-136.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-136.6.1">GSM Abis interface, with gsmtap header<a href="#section-3.2.1-136.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3921,7 +3927,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-139.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-139.6">
-              <p id="section-3.2.1-139.6.1">Reserved for DECT packets, with a pseudo-header<a href="#section-3.2.1-139.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-139.6.1">DECT packets, with a pseudo-header<a href="#section-3.2.1-139.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3938,7 +3944,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-140.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-140.6">
-              <p id="section-3.2.1-140.6.1">Reserved for OS Space Data Link Protocol<a href="#section-3.2.1-140.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-140.6.1">OS Space Data Link Protocol<a href="#section-3.2.1-140.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -3955,7 +3961,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-141.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-141.6">
-              <p id="section-3.2.1-141.6.1">Reserved for Wireless HART (Highway Addressable Remote Transducer)<a href="#section-3.2.1-141.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-141.6.1">Wireless HART (Highway Addressable Remote Transducer)<a href="#section-3.2.1-141.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -4148,7 +4154,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-150.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-150.6">
-              <p id="section-3.2.1-150.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-150.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-150.6.1">Juniper Networks<a href="#section-3.2.1-150.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -4165,7 +4171,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-151.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-151.6">
-              <p id="section-3.2.1-151.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-151.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-151.6.1">Juniper Networks<a href="#section-3.2.1-151.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -4182,7 +4188,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-152.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-152.6">
-              <p id="section-3.2.1-152.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-152.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-152.6.1">Juniper Networks<a href="#section-3.2.1-152.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -4265,7 +4271,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-156.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-156.6">
-              <p id="section-3.2.1-156.6.1">Reserved for Juniper Networks<a href="#section-3.2.1-156.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-156.6.1">Juniper Networks<a href="#section-3.2.1-156.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -4436,7 +4442,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-164.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-164.6">
-              <p id="section-3.2.1-164.6.1">Reserved for pfsync output<a href="#section-3.2.1-164.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-164.6.1">pfsync output<a href="#section-3.2.1-164.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -4563,7 +4569,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-170.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-170.6">
-              <p id="section-3.2.1-170.6.1">Reserved for Wireshark<a href="#section-3.2.1-170.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-170.6.1">Wireshark<a href="#section-3.2.1-170.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -4888,7 +4894,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-185.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-185.6">
-              <p id="section-3.2.1-185.6.1">Reserved for OpenBSD DLT_OPENFLOW<a href="#section-3.2.1-185.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-185.6.1">OpenBSD DLT_OPENFLOW<a href="#section-3.2.1-185.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -4927,7 +4933,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-187.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-187.6">
-              <p id="section-3.2.1-187.6.1">Reserved for Texas Instruments protocol sniffer<a href="#section-3.2.1-187.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-187.6.1">Texas Instruments protocol sniffer<a href="#section-3.2.1-187.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5098,7 +5104,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-195.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-195.6">
-              <p id="section-3.2.1-195.6.1">Reserved for Sercos Monitor<a href="#section-3.2.1-195.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-195.6.1">Sercos Monitor<a href="#section-3.2.1-195.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5291,7 +5297,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-204.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-204.6">
-              <p id="section-3.2.1-204.6.1">Reserved for ELEE lawful intercept protocol<a href="#section-3.2.1-204.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-204.6.1">ELEE lawful intercept protocol<a href="#section-3.2.1-204.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5396,7 +5402,7 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
             <dd class="break"></dd>
 <dt id="section-3.2.1-209.5">Description</dt>
             <dd style="margin-left: 1.5em" id="section-3.2.1-209.6">
-              <p id="section-3.2.1-209.6.1">Reserved for Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software<a href="#section-3.2.1-209.6.1" class="pilcrow">¶</a></p>
+              <p id="section-3.2.1-209.6.1">Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software<a href="#section-3.2.1-209.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -5622,17 +5628,16 @@ standardization.<a href="#section-3.2-11.1.1" class="pilcrow">¶</a></p>
 </dl>
 </section>
 </div>
-<div id="sec-de">
+<div id="guidance-for-registration">
 <section id="section-3.2.2">
-          <h4 id="name-guidance-for-designated-exp">
-<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-guidance-for-designated-exp" class="section-name selfRef">Guidance for Designated Experts</a>
+          <h4 id="name-guidance-for-registration">
+<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-guidance-for-registration" class="section-name selfRef">Guidance for Registration</a>
           </h4>
-<p id="section-3.2.2-1">When processing a request for an allocation, the Designated Experts will encourage the requester to provide a specification at a stable URL.
-There is no requirement for a specification, but often review of the specification allows the Designated Expert to determine if the allocation actually is a duplicate of another specification.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-1">When processing a request for an allocation, the requester will be asked to provide a specification at a stable URL.
+There is no requirement for a specification.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
 <p id="section-3.2.2-2">When the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be clearly specified.<a href="#section-3.2.2-2" class="pilcrow">¶</a></p>
-<p id="section-3.2.2-3">Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.
-For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.<a href="#section-3.2.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.2.2-4">LinkTypes for which specifications are not publicly available may have values allocated within the FCFS range.
+<p id="section-3.2.2-3">Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.<a href="#section-3.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-4">It is acceptable to register LinkTypes for which specifications are not publicly available.
 This includes specifications that might be subject to a security classification.
 The minimal requirement is to provide a contact person for that link type.<a href="#section-3.2.2-4" class="pilcrow">¶</a></p>
 </section>
@@ -5863,6 +5868,10 @@ and Jun-ichiro itojun Hagino.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <dt id="LINKTYPE_DSA_TAG_EDSA">[LINKTYPE_DSA_TAG_EDSA]</dt>
         <dd>
 <span class="refTitle">"LINKTYPE_DSA_TAG_EDSA"</span>, <span>&lt;<a href="https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_EDSA.html">https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_EDSA.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LINKTYPE_ETHERNET">[LINKTYPE_ETHERNET]</dt>
+        <dd>
+<span class="refTitle">"IEEE 802.3 Ethernet"</span>, <span>&lt;<a href="https://ieeexplore.ieee.org/document/9844436">https://ieeexplore.ieee.org/document/9844436</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="LINKTYPE_EPON">[LINKTYPE_EPON]</dt>
         <dd>
