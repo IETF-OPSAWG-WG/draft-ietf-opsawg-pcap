@@ -21,8 +21,10 @@ Number
 
 Description
 : IEEE 802.3 Ethernet
-{: spacing="compact"}
 
+Reference:
+: {{LINKTYPE_ETHERNET}}
+{: spacing="compact"}
 
 
 Name
@@ -62,7 +64,7 @@ Number
 : 4
 
 Description
-: Reserved for Proteon PRONet Token Ring
+: Proteon PRONet Token Ring
 {: spacing="compact"}
 
 
@@ -74,7 +76,7 @@ Number
 : 5
 
 Description
-: Reserved for MIT Chaosnet
+:  MIT Chaosnet
 
 Reference
 : {{AIM-628}}
@@ -101,7 +103,7 @@ Number
 : 7
 
 Description
-: Reserved for ARCNET Data Packets with BSD encapsulation
+:  ARCNET Data Packets with BSD encapsulation
 {: spacing="compact"}
 
 
@@ -197,7 +199,7 @@ Number
 : 52-98
 
 Description
-: Do not use these values
+: Used historically by NetBSD
 {: spacing="compact"}
 
 
@@ -209,7 +211,7 @@ Number
 : 99
 
 Description
-: Reserved for Symantec Enterprise Firewall
+:  Symantec Enterprise Firewall
 {: spacing="compact"}
 
 
@@ -251,7 +253,7 @@ Number
 : 102
 
 Description
-: Reserved for BSD/OS SLIP BPF header
+:  BSD/OS SLIP BPF header
 {: spacing="compact"}
 
 
@@ -263,7 +265,7 @@ Number
 : 103
 
 Description
-: Reserved for BSD/OS PPP BPF header
+:  BSD/OS PPP BPF header
 {: spacing="compact"}
 
 
@@ -344,7 +346,7 @@ Number
 : 109
 
 Description
-: Reserved for OpenBSD IPsec encapsulation
+:  OpenBSD IPsec encapsulation
 {: spacing="compact"}
 
 
@@ -356,7 +358,7 @@ Number
 : 110
 
 Description
-: Reserved for ATM LANE + 802.3
+:  ATM LANE + 802.3
 {: spacing="compact"}
 
 
@@ -368,7 +370,7 @@ Number
 : 111
 
 Description
-: Reserved for NetBSD HIPPI
+:  NetBSD HIPPI
 {: spacing="compact"}
 
 
@@ -380,7 +382,7 @@ Number
 : 112
 
 Description
-: Reserved for NetBSD HDLC framing
+:  NetBSD HDLC framing
 {: spacing="compact"}
 
 
@@ -422,7 +424,7 @@ Number
 : 115
 
 Description
-: Reserved for Acorn Econet
+:  Acorn Econet
 {: spacing="compact"}
 
 
@@ -434,7 +436,7 @@ Number
 : 116
 
 Description
-: Reserved for OpenBSD ipfilter
+:  OpenBSD ipfilter
 {: spacing="compact"}
 
 
@@ -446,7 +448,7 @@ Number
 : 117
 
 Description
-: Reserved for PF packet filter logging
+:  PF packet filter logging
 {: spacing="compact"}
 
 
@@ -458,7 +460,7 @@ Number
 : 118
 
 Description
-: Reserved for Cisco-internal use
+:  Cisco-internal use
 {: spacing="compact"}
 
 
@@ -485,7 +487,7 @@ Number
 : 120
 
 Description
-: Reserved for 802.11 + FreeBSD Aironet radio metadata
+:  802.11 + FreeBSD Aironet radio metadata
 {: spacing="compact"}
 
 
@@ -497,7 +499,7 @@ Number
 : 121
 
 Description
-: Reserved for Siemens HiPath HDLC
+:  Siemens HiPath HDLC
 {: spacing="compact"}
 
 
@@ -539,7 +541,7 @@ Number
 : 124
 
 Description
-: Reserved for RapidIO
+:  RapidIO
 {: spacing="compact"}
 
 
@@ -551,7 +553,7 @@ Number
 : 125
 
 Description
-: Reserved for PCI Express
+:  PCI Express
 {: spacing="compact"}
 
 
@@ -563,7 +565,7 @@ Number
 : 126
 
 Description
-: Reserved for Xilinx Aurora link layer
+:  Xilinx Aurora link layer
 {: spacing="compact"}
 
 
@@ -590,7 +592,7 @@ Number
 : 128
 
 Description
-: Reserved for Tazmen Sniffer Protocol
+:  Tazmen Sniffer Protocol
 {: spacing="compact"}
 
 
@@ -602,7 +604,7 @@ Number
 : 129
 
 Description
-: Reserved for ARCNET Data Packets with Linux encapsulation
+:  ARCNET Data Packets with Linux encapsulation
 {: spacing="compact"}
 
 
@@ -614,7 +616,7 @@ Number
 : 130
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -626,7 +628,7 @@ Number
 : 131
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -638,7 +640,7 @@ Number
 : 132
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -650,7 +652,7 @@ Number
 : 133
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -662,7 +664,7 @@ Number
 : 134
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -674,7 +676,7 @@ Number
 : 135
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -686,7 +688,7 @@ Number
 : 136
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -698,7 +700,7 @@ Number
 : 137
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -815,7 +817,7 @@ Number
 : 145
 
 Description
-: Reserved for IBM SP switch
+:  IBM SP switch
 {: spacing="compact"}
 
 
@@ -827,7 +829,7 @@ Number
 : 146
 
 Description
-: Reserved for IBM Next Federation switch
+:  IBM Next Federation switch
 {: spacing="compact"}
 
 
@@ -1046,7 +1048,7 @@ Number
 : 164
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1088,7 +1090,7 @@ Number
 : 167
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1100,7 +1102,7 @@ Number
 : 168
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1157,7 +1159,7 @@ Number
 : 172
 
 Description
-: Reserved for Gcom T1/E1 line monitoring equipment
+:  Gcom T1/E1 line monitoring equipment
 {: spacing="compact"}
 
 
@@ -1169,7 +1171,7 @@ Number
 : 173
 
 Description
-: Reserved for Gcom T1/E1 line monitoring equipment
+:  Gcom T1/E1 line monitoring equipment
 {: spacing="compact"}
 
 
@@ -1181,7 +1183,7 @@ Number
 : 174
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1238,7 +1240,7 @@ Number
 : 178
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1250,7 +1252,7 @@ Number
 : 179
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1262,7 +1264,7 @@ Number
 : 180
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1274,7 +1276,7 @@ Number
 : 181
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1301,7 +1303,7 @@ Number
 : 183
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1313,7 +1315,7 @@ Number
 : 184
 
 Description
-: Reserved for ARINC 429 frames
+:  ARINC 429 frames
 {: spacing="compact"}
 
 
@@ -1325,7 +1327,7 @@ Number
 : 185
 
 Description
-: Reserved for Arinc 653 Interpartition Communication messages
+:  Arinc 653 Interpartition Communication messages
 {: spacing="compact"}
 
 
@@ -1337,7 +1339,7 @@ Number
 : 186
 
 Description
-: Reserved for USB traffic captured on FreeBSD
+:  USB traffic captured on FreeBSD
 {: spacing="compact"}
 
 
@@ -1364,7 +1366,7 @@ Number
 : 188
 
 Description
-: Reserved for IEEE 802.16 MAC Common Part Sublayer
+:  IEEE 802.16 MAC Common Part Sublayer
 {: spacing="compact"}
 
 
@@ -1391,7 +1393,7 @@ Number
 : 190
 
 Description
-: Reserved for Controller Area Network (CAN) v. 2.0B packets
+:  Controller Area Network (CAN) v. 2.0B packets
 {: spacing="compact"}
 
 
@@ -1403,7 +1405,7 @@ Number
 : 191
 
 Description
-: Reserved for IEEE 802.15.4 with address fields padded by Linux
+:  IEEE 802.15.4 with address fields padded by Linux
 {: spacing="compact"}
 
 
@@ -1430,7 +1432,7 @@ Number
 : 193
 
 Description
-: Reserved for 802.16 MAC Common Part Sublayer plus radio header
+:  802.16 MAC Common Part Sublayer plus radio header
 {: spacing="compact"}
 
 
@@ -1442,7 +1444,7 @@ Number
 : 194
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1499,7 +1501,7 @@ Number
 : 198
 
 Description
-: Reserved for Ethernet packets captured from a u10 Networks board
+:  Ethernet packets captured from a u10 Networks board
 {: spacing="compact"}
 
 
@@ -1511,7 +1513,7 @@ Number
 : 199
 
 Description
-: Reserved for IPMB packet for IPMI, with a 2-octet header
+:  IPMB packet for IPMI, with a 2-octet header
 {: spacing="compact"}
 
 
@@ -1523,7 +1525,7 @@ Number
 : 200
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1634,13 +1636,13 @@ Reference
 
 
 Name
-: Reserved
+: WillBarker-Proprietary
 
 Number
 : 208
 
 Description
-: Reserved for an unspecified link-layer type
+: Proprietary Link-Layer type
 {: spacing="compact"}
 
 
@@ -1682,7 +1684,7 @@ Number
 : 211
 
 Description
-: Reserved for Media Oriented Systems Transport (MOST) bus
+:  Media Oriented Systems Transport (MOST) bus
 {: spacing="compact"}
 
 
@@ -1709,7 +1711,7 @@ Number
 : 213
 
 Description
-: Reserved for X2E serial line captures
+:  X2E serial line captures
 {: spacing="compact"}
 
 
@@ -1721,7 +1723,7 @@ Number
 : 214
 
 Description
-: Reserved for X2E Xoraya data loggers
+:  X2E Xoraya data loggers
 {: spacing="compact"}
 
 
@@ -1748,7 +1750,7 @@ Number
 : 216
 
 Description
-: Reserved for Linux evdev messages
+:  Linux evdev messages
 {: spacing="compact"}
 
 
@@ -1760,7 +1762,7 @@ Number
 : 217
 
 Description
-: Reserved for GSM Um interface, with gsmtap header
+:  GSM Um interface, with gsmtap header
 {: spacing="compact"}
 
 
@@ -1772,7 +1774,7 @@ Number
 : 218
 
 Description
-: Reserved for GSM Abis interface, with gsmtap header
+:  GSM Abis interface, with gsmtap header
 {: spacing="compact"}
 
 
@@ -1811,7 +1813,7 @@ Number
 : 221
 
 Description
-: Reserved for DECT packets, with a pseudo-header
+:  DECT packets, with a pseudo-header
 {: spacing="compact"}
 
 
@@ -1823,7 +1825,7 @@ Number
 : 222
 
 Description
-: Reserved for OS Space Data Link Protocol
+:  OS Space Data Link Protocol
 {: spacing="compact"}
 
 
@@ -1835,7 +1837,7 @@ Number
 : 223
 
 Description
-: Reserved for Wireless HART (Highway Addressable Remote Transducer)
+:  Wireless HART (Highway Addressable Remote Transducer)
 {: spacing="compact"}
 
 
@@ -1967,7 +1969,7 @@ Number
 : 232
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1979,7 +1981,7 @@ Number
 : 233
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -1991,7 +1993,7 @@ Number
 : 234
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -2048,7 +2050,7 @@ Number
 : 238
 
 Description
-: Reserved for Juniper Networks
+:  Juniper Networks
 {: spacing="compact"}
 
 
@@ -2165,7 +2167,7 @@ Number
 : 246
 
 Description
-: Reserved for pfsync output
+:  pfsync output
 {: spacing="compact"}
 
 
@@ -2252,7 +2254,7 @@ Number
 : 252
 
 Description
-: Reserved for Wireshark
+:  Wireshark
 {: spacing="compact"}
 
 
@@ -2474,7 +2476,7 @@ Number
 : 267
 
 Description
-: Reserved for OpenBSD DLT_OPENFLOW
+:  OpenBSD DLT_OPENFLOW
 {: spacing="compact"}
 
 
@@ -2501,7 +2503,7 @@ Number
 : 269
 
 Description
-: Reserved for Texas Instruments protocol sniffer
+:  Texas Instruments protocol sniffer
 {: spacing="compact"}
 
 
@@ -2618,7 +2620,7 @@ Number
 : 277
 
 Description
-: Reserved for Sercos Monitor
+:  Sercos Monitor
 {: spacing="compact"}
 
 
@@ -2750,7 +2752,7 @@ Number
 : 286
 
 Description
-: Reserved for ELEE lawful intercept protocol
+:  ELEE lawful intercept protocol
 {: spacing="compact"}
 
 
@@ -2822,7 +2824,7 @@ Number
 : 291
 
 Description
-: Reserved for Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software
+:  Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software
 {: spacing="compact"}
 
 

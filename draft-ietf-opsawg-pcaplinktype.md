@@ -237,6 +237,11 @@ informative:
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_EDSA.html
 
+  LINKTYPE_ETHERNET:
+    title: IEEE 802.3 Ethernet
+    date: false
+    target: https://ieeexplore.ieee.org/document/9844436
+
   LINKTYPE_EPON:
     title: LINKTYPE_EPON
     date: false
@@ -732,7 +737,8 @@ Note that historically, values were assigned incrementally following First Come 
 A preference was made to have a public specification, but with no mandate to enforce this.
 Some historical values may have less specification than desired.
 
-LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved for Experimental/Private Use. Their use is Deprecated in favour of the values in the 65001-65535 range.
+LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved for Experimental/Private Use, and that use continues to be supported.
+However, new private use cases should use the values in the 65001-65535 range.
 
 In general, Experimental Use values should never leak out of the entity that uses it.
 As the FCFS range is large and easily obtained, official values are recommended.
@@ -750,17 +756,16 @@ This is the initial table for the registry:
 {::include linktypes.md}
 
 
-### Guidance for Designated Experts {#sec-de}
+### Guidance for Registration
 
-When processing a request for an allocation, the Designated Experts will encourage the requester to provide a specification at a stable URL.
-There is no requirement for a specification, but often review of the specification allows the Designated Expert to determine if the allocation actually is a duplicate of another specification.
+When processing a request for an allocation, the requester will be asked to provide a specification at a stable URL.
+There is no requirement for a specification.
 
 When the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be clearly specified.
 
 Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.
-For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.
 
-LinkTypes for which specifications are not publicly available may have values allocated within the FCFS range.
+It is acceptable to register LinkTypes for which specifications are not publicly available.
 This includes specifications that might be subject to a security classification.
 The minimal requirement is to provide a contact person for that link type.
 
