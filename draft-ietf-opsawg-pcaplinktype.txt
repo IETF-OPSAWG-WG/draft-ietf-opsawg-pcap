@@ -4,7 +4,7 @@
 
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
-Intended status: Standards Track                           M. Richardson
+Intended status: Informational                             M. Richardson
 Expires: 25 April 2026                                         Sandelman
                                                          22 October 2025
 
@@ -144,12 +144,6 @@ Table of Contents
 
    The initial contents of the table are based upon the link-layer
    header type list maintained by libpcap, and published on [TCPDUMP].
-
-   Note that historically, values were assigned incrementally following
-   First Come First Served (FCFS) policy with Expert Review.  A
-   preference was made to have a public specification, but with no
-   mandate to enforce this.  Some historical values may have less
-   specification than desired.
 
    LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally
    reserved for Experimental/Private Use, and that use continues to be
