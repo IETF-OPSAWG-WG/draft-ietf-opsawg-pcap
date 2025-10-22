@@ -2,7 +2,7 @@
 stand_alone: true
 ipr: trust200902
 docname: draft-ietf-opsawg-pcaplinktype-latest
-cat: std
+cat: info
 stream: IETF
 pi:
   symrefs: 'yes'
@@ -729,10 +729,6 @@ case here, the reference should be set to
 
 The initial contents of the table are based upon the link-layer header
 type list maintained by libpcap, and published on {{TCPDUMP}}.
-
-Note that historically, values were assigned incrementally following First Come First Served (FCFS) policy with Expert Review.
-A preference was made to have a public specification, but with no mandate to enforce this.
-Some historical values may have less specification than desired.
 
 LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved for Experimental/Private Use, and that use continues to be supported.
 However, new private use cases should use the values in the 65001-65535 range.
