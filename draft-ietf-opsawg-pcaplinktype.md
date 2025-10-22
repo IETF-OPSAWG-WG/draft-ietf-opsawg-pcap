@@ -696,10 +696,6 @@ This document creates an IANA registry for LinkType values, establishing the IAN
 Considerations by which other uses of the PCAP-related formats may register new
 LinkType values.
 
-# Terminology
-
-{::boilerplate bcp14}
-
 #  IANA Considerations
 
 ## PCAP Registry {#pcapreg}
@@ -709,6 +705,7 @@ IANA is requested to create a new registry group entitled "The PCAP Registry".
 ## LinkType Registry {#linktype}
 
 IANA is also requested to create a registry entitled "PCAP-related LinkType List" under The PCAP registry group ({{pcapreg}}).
+
 
 The registry has the following structure:
 
