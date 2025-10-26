@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-12T01:46:58.224292+00:00",
+  "timestamp": "2025-10-26T01:52:29.731258+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -3000,6 +3000,37 @@
           "body": "[The discussion in Wireshark issue #20512](https://gitlab.com/wireshark/wireshark/-/issues/20512) indicates that the nonce would be per-*frame*, so, instead of storing it in a Decryption Secrets Block, it would have to be stored as an [option](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng#name-options) for the [Enhanced Packet Block](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng#name-enhanced-packet-block).\n\nGiven that, the pull request would have to add a new \"TLS nonce\" option for the Enhanced Packet Block.",
           "createdAt": "2025-10-09T15:19:13Z",
           "updatedAt": "2025-10-09T15:19:13Z"
+        }
+      ]
+    },
+    {
+      "number": 191,
+      "id": "I_kwDOAU54e87Tk4sc",
+      "title": "Documentation: file name vs filename?",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/191",
+      "state": "OPEN",
+      "author": "bubbasnmp",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/46e94febf290b6d60a41ca4f12e57f6ae976c5c5/draft-ietf-opsawg-pcapng.md?plain=1#L2467\n\n> # Recommended File Name Extension: .pcapng\n\n> The recommended file name extension for the \"PCAP Now Generic Capture File Format\" specified in this document is \".pcapng\".\n\n> On Windows and macOS, files are distinguished by an extension to their filename.\n\nConsistent spelling to make searching easier - would not need to try both to look for results.",
+      "createdAt": "2025-10-24T14:02:34Z",
+      "updatedAt": "2025-10-24T18:38:58Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "[It's that question again.](https://en.wikipedia.org/wiki/Talk:Filename#%22File_name%22_vs_%22Filename%22)",
+          "createdAt": "2025-10-24T17:15:33Z",
+          "updatedAt": "2025-10-24T17:15:33Z"
+        },
+        {
+          "author": "bubbasnmp",
+          "authorAssociation": "NONE",
+          "body": "> I've seen it both ways.  \n\nIf reading documentation and RFCs for fun, following a style guide makes the text more enjoyable.  \nWhen trying to answer a question [(11316: Lua: should have a way to get current capture filename/path in Lua)](https://gitlab.com/wireshark/wireshark/-/issues/11316) being able to quickly search and see that the filename is not stored the pcapng file then moving on to another solution is quicker. ",
+          "createdAt": "2025-10-24T18:38:57Z",
+          "updatedAt": "2025-10-24T18:38:57Z"
         }
       ]
     }
