@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 10 April 2026                                         Sandelman
-                                                          7 October 2025
+Expires: 24 May 2026                                           Sandelman
+                                                        20 November 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -14,8 +14,9 @@ Expires: 10 April 2026                                         Sandelman
 
 Abstract
 
-   This document describes a set of PCAP-related LinkType values and
-   creates an IANA registry for those values.
+   This document describes a set of Packet CAPture (PCAP)-related
+   LinkType values and creates an IANA registry for those values.  These
+   values are used by the PCAP and PCAP-Now-Generic specifications.
 
 About This Document
 
@@ -47,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 April 2026.
+   This Internet-Draft will expire on 24 May 2026.
 
 Copyright Notice
 
@@ -66,18 +67,17 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  Terminology
-   3.  IANA Considerations
-     3.1.  PCAP Registry
-     3.2.  LinkType Registry
-       3.2.1.  Initial Values
-       3.2.2.  Guidance for Designated Experts
-   4.  Security Considerations
-   5.  Contributors
-   6.  Acknowledgments
-   7.  References
-     7.1.  Normative References
-     7.2.  Informative References
+   2.  IANA Considerations
+     2.1.  PCAP Registry
+     2.2.  LinkType Registry
+       2.2.1.  Initial Values
+       2.2.2.  Guidance for Designated Experts
+   3.  Security Considerations
+   4.  Contributors
+   5.  Acknowledgments
+   6.  References
+     6.1.  Normative References
+     6.2.  Informative References
    Authors' Addresses
 
 1.  Introduction
@@ -102,25 +102,17 @@ Table of Contents
    establishing the IANA Considerations by which other uses of the PCAP-
    related formats may register new LinkType values.
 
-2.  Terminology
+2.  IANA Considerations
 
-   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
-   "OPTIONAL" in this document are to be interpreted as described in
-   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
-   capitals, as shown here.
-
-3.  IANA Considerations
-
-3.1.  PCAP Registry
+2.1.  PCAP Registry
 
    IANA is requested to create a new registry group entitled "The PCAP
    Registry".
 
-3.2.  LinkType Registry
+2.2.  LinkType Registry
 
    IANA is also requested to create a registry entitled "PCAP-related
-   LinkType List" under The PCAP registry group (Section 3.1).
+   LinkType List" under The PCAP registry group (Section 2.1).
 
    The registry has the following structure:
 
@@ -137,30 +129,27 @@ Table of Contents
 
    The policy allocation for the LinkType values is as follows:
 
-   *  Values from 0 to 65000 are allocated following a First-Come First-
-      Served policy (Section 4.4 of [RFC8126]).  Values in the ranges
-      0-10, 50-51, and 98-301 are already assigned; values in the ranges
-      11-49 and 52-97 MUST NOT be assigned.
+   *  Values from 0 to 65000 are allocated following an Expert Review
+      policy (Section 4.5 of [RFC8126]).  Values in the ranges 0-10,
+      50-51, and 98-301 are already assigned; values in the ranges 11-49
+      and 52-97 are reserved and must not be assigned.
 
    *  Values from 65001 to 65535 are reserved for Experimental Use
       (Section 4.2 of [RFC8126]).
 
-   The initial version of the registry is provided in Section 3.2.1.  In
+   The initial version of the registry is provided in Section 2.2.1.  In
    each case here, the reference should be set to [TCPDUMP] and the RFC
    number to be assigned to this document, which is not repeated each
-   time.
+   time.  The change controller for all entries is the IESG, via
+   appointed Designated Experts.
 
    The initial contents of the table are based upon the link-layer
    header type list maintained by libpcap, and published on [TCPDUMP].
 
-   Note that historically, values were assigned incrementally following
-   First Come First Served (FCFS) policy.  A preference was made to have
-   a public specification, but with no mandate to enforce this.  Some
-   historical values may have less specification than desired.
-
    LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally
-   reserved for Experimental/Private Use. Their use is Deprecated in
-   favour of the values in the 65001-65535 range.
+   reserved for Experimental/Private Use, and that use continues to be
+   supported.  However, new private use cases should use the values in
+   the 65001-65535 range.
 
    In general, Experimental Use values should never leak out of the
    entity that uses it.  As the FCFS range is large and easily obtained,
@@ -172,7 +161,7 @@ Table of Contents
       values for some of them are operating system specific, and are
       thus not subject to standardization.
 
-3.2.1.  Initial Values
+2.2.1.  Initial Values
 
    This is the initial table for the registry:
 
@@ -184,6 +173,7 @@ Table of Contents
    Name  LINKTYPE_ETHERNET
    Number  1
    Description  IEEE 802.3 Ethernet
+   Reference:  [LINKTYPE_ETHERNET]
 
    Name  LINKTYPE_EXP_ETHERNET
    Number  2
@@ -197,11 +187,11 @@ Table of Contents
 
    Name  LINKTYPE_PRONET
    Number  4
-   Description  Reserved for Proteon PRONet Token Ring
+   Description  Proteon PRONet Token Ring
 
    Name  LINKTYPE_CHAOS
    Number  5
-   Description  Reserved for MIT Chaosnet
+   Description  MIT Chaosnet
    Reference  [AIM-628]
 
    Name  LINKTYPE_IEEE802_5
@@ -210,7 +200,7 @@ Table of Contents
 
    Name  LINKTYPE_ARCNET_BSD
    Number  7
-   Description  Reserved for ARCNET Data Packets with BSD encapsulation
+   Description  ARCNET Data Packets with BSD encapsulation
 
    Name  LINKTYPE_SLIP
    Number  8
@@ -242,11 +232,11 @@ Table of Contents
 
    Name  Not available for assignment
    Number  52-98
-   Description  Do not use these values
+   Description  Used historically by NetBSD
 
    Name  LINKTYPE_SYMANTEC_FIREWALL
    Number  99
-   Description  Reserved for Symantec Enterprise Firewall
+   Description  Symantec Enterprise Firewall
 
    Name  LINKTYPE_ATM_RFC1483
    Number  100
@@ -260,11 +250,11 @@ Table of Contents
 
    Name  LINKTYPE_SLIP_BSDOS
    Number  102
-   Description  Reserved for BSD/OS SLIP BPF header
+   Description  BSD/OS SLIP BPF header
 
    Name  LINKTYPE_PPP_BSDOS
    Number  103
-   Description  Reserved for BSD/OS PPP BPF header
+   Description  BSD/OS PPP BPF header
 
    Name  LINKTYPE_C_HDLC
    Number  104
@@ -291,19 +281,19 @@ Table of Contents
 
    Name  LINKTYPE_ENC
    Number  109
-   Description  Reserved for OpenBSD IPsec encapsulation
+   Description  OpenBSD IPsec encapsulation
 
    Name  LINKTYPE_LANE8023
    Number  110
-   Description  Reserved for ATM LANE + 802.3
+   Description  ATM LANE + 802.3
 
    Name  LINKTYPE_HIPPI
    Number  111
-   Description  Reserved for NetBSD HIPPI
+   Description  NetBSD HIPPI
 
    Name  LINKTYPE_HDLC
    Number  112
-   Description  Reserved for NetBSD HDLC framing
+   Description  NetBSD HDLC framing
 
    Name  LINKTYPE_LINUX_SLL
    Number  113
@@ -317,19 +307,19 @@ Table of Contents
 
    Name  LINKTYPE_ECONET
    Number  115
-   Description  Reserved for Acorn Econet
+   Description  Acorn Econet
 
    Name  LINKTYPE_IPFILTER
    Number  116
-   Description  Reserved for OpenBSD ipfilter
+   Description  OpenBSD ipfilter
 
    Name  LINKTYPE_PFLOG
    Number  117
-   Description  Reserved for PF packet filter logging
+   Description  PF packet filter logging
 
    Name  LINKTYPE_CISCO_IOS
    Number  118
-   Description  Reserved for Cisco-internal use
+   Description  Cisco-internal use
 
    Name  LINKTYPE_IEEE802_11_PRISM
    Number  119
@@ -339,11 +329,11 @@ Table of Contents
 
    Name  LINKTYPE_IEEE802_11_AIRONET
    Number  120
-   Description  Reserved for 802.11 + FreeBSD Aironet radio metadata
+   Description  802.11 + FreeBSD Aironet radio metadata
 
    Name  LINKTYPE_HHDLC
    Number  121
-   Description  Reserved for Siemens HiPath HDLC
+   Description  Siemens HiPath HDLC
 
    Name  LINKTYPE_IP_OVER_FC
    Number  122
@@ -357,15 +347,15 @@ Table of Contents
 
    Name  LINKTYPE_RIO
    Number  124
-   Description  Reserved for RapidIO
+   Description  RapidIO
 
    Name  LINKTYPE_PCI_EXP
    Number  125
-   Description  Reserved for PCI Express
+   Description  PCI Express
 
    Name  LINKTYPE_AURORA
    Number  126
-   Description  Reserved for Xilinx Aurora link layer
+   Description  Xilinx Aurora link layer
 
    Name  LINKTYPE_IEEE802_11_RADIOTAP
    Number  127
@@ -374,44 +364,43 @@ Table of Contents
 
    Name  LINKTYPE_TZSP
    Number  128
-   Description  Reserved for Tazmen Sniffer Protocol
+   Description  Tazmen Sniffer Protocol
 
    Name  LINKTYPE_ARCNET_LINUX
    Number  129
-   Description  Reserved for ARCNET Data Packets with Linux
-      encapsulation
+   Description  ARCNET Data Packets with Linux encapsulation
 
    Name  LINKTYPE_JUNIPER_MLPPP
    Number  130
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_MLFR
    Number  131
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_ES
    Number  132
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_GGSN
    Number  133
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_MFR
    Number  134
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_ATM2
    Number  135
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_SERVICES
    Number  136
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_ATM1
    Number  137
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_APPLE_IP_OVER_IEEE1394
    Number  138
@@ -450,11 +439,11 @@ Table of Contents
 
    Name  LINKTYPE_IBM_SP
    Number  145
-   Description  Reserved for IBM SP switch
+   Description  IBM SP switch
 
    Name  LINKTYPE_IBM_SN
    Number  146
-   Description  Reserved for IBM Next Federation switch
+   Description  IBM Next Federation switch
 
    Name  LINKTYPE_RESERVED_01
    Number  147
@@ -527,7 +516,7 @@ Table of Contents
 
    Name  LINKTYPE_JUNIPER_MONITOR
    Number  164
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_BACNET_MS_TP
    Number  165
@@ -542,11 +531,11 @@ Table of Contents
 
    Name  LINKTYPE_JUNIPER_PPPOE
    Number  167
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_PPPOE_ATM
    Number  168
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_GPRS_LLC
    Number  169
@@ -566,15 +555,15 @@ Table of Contents
 
    Name  LINKTYPE_GCOM_T1E1
    Number  172
-   Description  Reserved for Gcom T1/E1 line monitoring equipment
+   Description  Gcom T1/E1 line monitoring equipment
 
    Name  LINKTYPE_GCOM_SERIAL
    Number  173
-   Description  Reserved for Gcom T1/E1 line monitoring equipment
+   Description  Gcom T1/E1 line monitoring equipment
 
    Name  LINKTYPE_JUNIPER_PIC_PEER
    Number  174
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_ERF_ETH
    Number  175
@@ -593,19 +582,19 @@ Table of Contents
 
    Name  LINKTYPE_JUNIPER_ETHER
    Number  178
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_PPP
    Number  179
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_FRELAY
    Number  180
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_CHDLC
    Number  181
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_MFR
    Number  182
@@ -614,20 +603,19 @@ Table of Contents
 
    Name  LINKTYPE_JUNIPER_VP
    Number  183
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_A429
    Number  184
-   Description  Reserved for ARINC 429 frames
+   Description  ARINC 429 frames
 
    Name  LINKTYPE_A653_ICM
    Number  185
-   Description  Reserved for Arinc 653 Interpartition Communication
-      messages
+   Description  Arinc 653 Interpartition Communication messages
 
    Name  LINKTYPE_USB_FREEBSD
    Number  186
-   Description  Reserved for USB traffic captured on FreeBSD
+   Description  USB traffic captured on FreeBSD
 
    Name  LINKTYPE_BLUETOOTH_HCI_H4
    Number  187
@@ -636,7 +624,7 @@ Table of Contents
 
    Name  LINKTYPE_IEEE802_16_MAC_CPS
    Number  188
-   Description  Reserved for IEEE 802.16 MAC Common Part Sublayer
+   Description  IEEE 802.16 MAC Common Part Sublayer
 
    Name  LINKTYPE_USB_LINUX
    Number  189
@@ -645,13 +633,11 @@ Table of Contents
 
    Name  LINKTYPE_CAN20B
    Number  190
-   Description  Reserved for Controller Area Network (CAN) v. 2.0B
-      packets
+   Description  Controller Area Network (CAN) v. 2.0B packets
 
    Name  LINKTYPE_IEEE802_15_4_LINUX
    Number  191
-   Description  Reserved for IEEE 802.15.4 with address fields padded by
-      Linux
+   Description  IEEE 802.15.4 with address fields padded by Linux
 
    Name  LINKTYPE_PPI
    Number  192
@@ -660,12 +646,11 @@ Table of Contents
 
    Name  LINKTYPE_IEEE802_16_MAC_CPS_RADIO
    Number  193
-   Description  Reserved for 802.16 MAC Common Part Sublayer plus radio
-      header
+   Description  802.16 MAC Common Part Sublayer plus radio header
 
    Name  LINKTYPE_JUNIPER_ISM
    Number  194
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_IEEE802_15_4_WITHFCS
    Number  195
@@ -684,16 +669,15 @@ Table of Contents
 
    Name  LINKTYPE_RAIF1
    Number  198
-   Description  Reserved for Ethernet packets captured from a u10
-      Networks board
+   Description  Ethernet packets captured from a u10 Networks board
 
    Name  LINKTYPE_IPMB_KONTRON
    Number  199
-   Description  Reserved for IPMB packet for IPMI, with a 2-octet header
+   Description  IPMB packet for IPMI, with a 2-octet header
 
    Name  LINKTYPE_JUNIPER_ST
    Number  200
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR
    Number  201
@@ -731,9 +715,9 @@ Table of Contents
    Description  X.25 LAPB, with a direction header
    Reference  [LINKTYPE_LAPB_WITH_DIR]
 
-   Name  Reserved
+   Name  WillBarker-Proprietary
    Number  208
-   Description  Reserved for an unspecified link-layer type
+   Description  Proprietary Link-Layer type
 
    Name  LINKTYPE_I2C_LINUX
    Number  209
@@ -747,7 +731,7 @@ Table of Contents
 
    Name  LINKTYPE_MOST
    Number  211
-   Description  Reserved for Media Oriented Systems Transport (MOST) bus
+   Description  Media Oriented Systems Transport (MOST) bus
 
    Name  LINKTYPE_LIN
    Number  212
@@ -757,11 +741,11 @@ Table of Contents
 
    Name  LINKTYPE_X2E_SERIAL
    Number  213
-   Description  Reserved for X2E serial line captures
+   Description  X2E serial line captures
 
    Name  LINKTYPE_X2E_XORAYA
    Number  214
-   Description  Reserved for X2E Xoraya data loggers
+   Description  X2E Xoraya data loggers
 
    Name  LINKTYPE_IEEE802_15_4_NONASK_PHY
    Number  215
@@ -770,15 +754,15 @@ Table of Contents
 
    Name  LINKTYPE_LINUX_EVDEV
    Number  216
-   Description  Reserved for Linux evdev messages
+   Description  Linux evdev messages
 
    Name  LINKTYPE_GSMTAP_UM
    Number  217
-   Description  Reserved for GSM Um interface, with gsmtap header
+   Description  GSM Um interface, with gsmtap header
 
    Name  LINKTYPE_GSMTAP_ABIS
    Number  218
-   Description  Reserved for GSM Abis interface, with gsmtap header
+   Description  GSM Abis interface, with gsmtap header
 
    Name  LINKTYPE_MPLS
    Number  219
@@ -791,16 +775,15 @@ Table of Contents
 
    Name  LINKTYPE_DECT
    Number  221
-   Description  Reserved for DECT packets, with a pseudo-header
+   Description  DECT packets, with a pseudo-header
 
    Name  LINKTYPE_AOS
    Number  222
-   Description  Reserved for OS Space Data Link Protocol
+   Description  OS Space Data Link Protocol
 
    Name  LINKTYPE_WIHART
    Number  223
-   Description  Reserved for Wireless HART (Highway Addressable Remote
-      Transducer)
+   Description  Wireless HART (Highway Addressable Remote Transducer)
 
    Name  LINKTYPE_FC_2
    Number  224
@@ -845,15 +828,15 @@ Table of Contents
 
    Name  LINKTYPE_JUNIPER_VS
    Number  232
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_SRX_E2E
    Number  233
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_JUNIPER_FIBRECHANNEL
    Number  234
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_DVB_CI
    Number  235
@@ -872,7 +855,7 @@ Table of Contents
 
    Name  LINKTYPE_JUNIPER_ATM_CEMIC
    Number  238
-   Description  Reserved for Juniper Networks
+   Description  Juniper Networks
 
    Name  LINKTYPE_NFLOG
    Number  239
@@ -913,7 +896,7 @@ Table of Contents
 
    Name  LINKTYPE_PFSYNC
    Number  246
-   Description  Reserved for pfsync output
+   Description  pfsync output
 
    Name  LINKTYPE_INFINIBAND
    Number  247
@@ -944,7 +927,7 @@ Table of Contents
 
    Name  LINKTYPE_WIRESHARK_UPPER_PDU
    Number  252
-   Description  Reserved for Wireshark
+   Description  Wireshark
 
    Name  LINKTYPE_NETLINK
    Number  253
@@ -1022,7 +1005,7 @@ Table of Contents
 
    Name  LINKTYPE_OPENFLOW
    Number  267
-   Description  Reserved for OpenBSD DLT_OPENFLOW
+   Description  OpenBSD DLT_OPENFLOW
 
    Name  LINKTYPE_SDLC
    Number  268
@@ -1031,7 +1014,7 @@ Table of Contents
 
    Name  LINKTYPE_TI_LLN_SNIFFER
    Number  269
-   Description  Reserved for Texas Instruments protocol sniffer
+   Description  Texas Instruments protocol sniffer
 
    Name  LINKTYPE_LORATAP
    Number  270
@@ -1072,7 +1055,7 @@ Table of Contents
 
    Name  LINKTYPE_SERCOS_MONITOR
    Number  277
-   Description  Reserved for Sercos Monitor
+   Description  Sercos Monitor
 
    Name  LINKTYPE_OPENVIZSLA
    Number  278
@@ -1116,7 +1099,7 @@ Table of Contents
 
    Name  LINKTYPE_ELEE
    Number  286
-   Description  Reserved for ELEE lawful intercept protocol
+   Description  ELEE lawful intercept protocol
 
    Name  LINKTYPE_Z_WAVE_SERIAL
    Number  287
@@ -1141,8 +1124,8 @@ Table of Contents
 
    Name  LINKTYPE_NETANALYZER_NG
    Number  291
-   Description  Reserved for Hilscher Gesellschaft fuer Systemautomation
-      mbH netANALYZER NG hardware and software
+   Description  Hilscher Gesellschaft fuer Systemautomation mbH
+      netANALYZER NG hardware and software
 
    Name  LINKTYPE_ZBOSS_NCP
    Number  292
@@ -1194,32 +1177,32 @@ Table of Contents
    Description  DECT-2020 New Radio (NR) MAC layer
    Reference  [LINKTYPE_DECT_NR]
 
-3.2.2.  Guidance for Designated Experts
+2.2.2.  Guidance for Designated Experts
 
    When processing a request for an allocation, the Designated Experts
    will encourage the requester to provide a specification at a stable
-   URL.  There is no requirement for a specification, but often review
-   of the specification allows the Designated Expert to determine if the
+   URL.
+
+   There is no requirement for a specification, but often review of the
+   specification allows the Designated Expert to determine if the
    allocation actually is a duplicate of another specification.
 
    When the contents of the link type can contain an IPv4 or IPv6
    header, then the octets between the beginning of the link type and
-   the IP header needs to be clear.
+   the IP header needs to be clearly specified.
 
    Specifications that are not publicly available, but which may be
-   obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.)
-   are acceptable particularly if the specification document will be
-   public eventually, but are discouraged.  For other documents, the
-   Designated Expert will need use their judgement, or consult the
-   OPSAWG or an Area Director.
+   obtained via liaison agreements (such as to ITU-T, 3GPP drafts, IEEE,
+   etc.) are acceptable particularly if the specification document will
+   be public eventually.  This includes specifications that might be
+   subject to a security classification for which no public document
+   will ever be made.  The minimal requirement is to provide a contact
+   person for that link type.
 
-   LinkTypes for which specifications are not publicly available may
-   have values allocated within the FCFS range.  This includes
-   specifications that might be subject to a security classification.
-   The minimal requirement is to provide a contact person for that link
-   type.
+   For other documents, the Designated Expert will need use their
+   judgement, or consult the OPSAWG or an Area Director.
 
-4.  Security Considerations
+3.  Security Considerations
 
    This document describes the IANA registration rules for the LinkType
    encapsulations.  PCAP-related packet file formats use this value to
@@ -1237,7 +1220,7 @@ Table of Contents
    interpreting the packets need to carefully scrutinize all attempts to
    read data from a capture.
 
-5.  Contributors
+4.  Contributors
 
    PCAP has been developed over three and half decades by a variety of
    developers, including: Bill Fenner, Denis Ovsienko, Francois-Xavier
@@ -1248,31 +1231,22 @@ Table of Contents
    PCAP was originally created at LBL by Steve McCanne, Craig Leres, and
    Van Jacobson.
 
-6.  Acknowledgments
+5.  Acknowledgments
 
    The authors wish to thank: Michael Tuexen, Mohamed Boucadair, Carsten
    Bormann, Henk Birkholtz, and Robert Wilton their invaluable comments
    and encouragement.
 
-7.  References
+6.  References
 
-7.1.  Normative References
-
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/rfc/rfc2119>.
-
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+6.1.  Normative References
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
               <https://www.rfc-editor.org/rfc/rfc8126>.
 
-7.2.  Informative References
+6.2.  Informative References
 
    [TCPDUMP]  "LINK-LAYER HEADER TYPES",
               <https://www.tcpdump.org/linktypes.html>.
@@ -1435,6 +1409,10 @@ Table of Contents
               "LINKTYPE_DSA_TAG_EDSA",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_EDSA.html>.
+
+   [LINKTYPE_ETHERNET]
+              "IEEE 802.3 Ethernet",
+              <https://ieeexplore.ieee.org/document/9844436>.
 
    [LINKTYPE_EPON]
               "LINKTYPE_EPON",

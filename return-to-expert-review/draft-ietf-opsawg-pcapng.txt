@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 10 April 2026                             Politecnico di Torino
+Expires: 24 May 2026                               Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 10 April 2026                             Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                          7 October 2025
+                                                        20 November 2025
 
 
              PCAP Now Generic (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 April 2026.
+   This Internet-Draft will expire on 24 May 2026.
 
 Copyright Notice
 
@@ -899,14 +899,15 @@ Table of Contents
    *  Block Total Length: total size of this block, as described in
       Section 3.1.
 
-   *  LinkType (16 bits): an unsigned integer that defines the link
-      layer type of this interface.  The list of Standardized Link Layer
-      Type codes is available in [I-D.richardson-opsawg-pcaplinktype].
+   *  LinkType (16 bits): an unsigned integer that indicates the link
+      layer type of this interface; it is a value as defined in the
+      PCAP-related LinkType List registry, as defined in
+      [I-D.ietf-opsawg-pcaplinktype].
 
    *  Reserved (16 bits): not used - MUST be filled with 0 by pcapng
       file writers, and MUST be ignored by pcapng file readers.
 
-   *  SnapLen (32 bits): an unsigned integer indicating the maximum
+   *  SnapLen (32 bits): an unsigned integer that indicates the maximum
       number of octets captured from each packet.  The portion of each
       packet that exceeds this value will not be stored in the file.  A
       value of zero indicates no limit.
@@ -1011,8 +1012,8 @@ Table of Contents
    Example: '02 34 56 FF FE 78 9A BC'.
 
    if_speed:
-           The if_speed option is a 64-bit unsigned integer indicating
-           the interface speed, in bits per second.
+           The if_speed option is a 64-bit unsigned integer that
+           indicates the interface speed, in bits per second.
 
    Example: the 64-bit decimal number 100000000 for 100Mbps.
 
@@ -1096,14 +1097,14 @@ Table of Contents
    Connection", "NETGEAR WNA1000Mv2 N150 Wireless USB Micro Adapter".
 
    if_txspeed:
-           The if_txspeed option is a 64-bit unsigned integer indicating
-           the interface transmit speed in bits per second.
+           The if_txspeed option is a 64-bit unsigned integer that
+           indicates the interface transmit speed in bits per second.
 
    Example: the 64-bit decimal number 1024000 for 1024Kbps.
 
    if_rxspeed:
-           The if_rxspeed option is a 64-bit unsigned integer indicating
-           the interface receive speed, in bits per second.
+           The if_rxspeed option is a 64-bit unsigned integer that
+           indicates the interface receive speed, in bits per second.
 
    Example: the 64-bit decimal number 8192000 for 8192Kbps.
 
@@ -1245,8 +1246,7 @@ Table of Contents
       Length plus the padding to a 32-bit boundary.  The format of the
       link-layer headers depends on the LinkType field specified in the
       Interface Description Block (see Section 4.2) and it is specified
-      in the entry for that format in
-      [I-D.richardson-opsawg-pcaplinktype].
+      in the entry for that format in [I-D.ietf-opsawg-pcaplinktype].
 
    *  Options: optionally, a list of options (formatted according to the
       rules defined in Section 3.5) can be present.
@@ -1490,14 +1490,14 @@ Table of Contents
    *  Block Total Length: total size of this block, as described in
       Section 3.1.
 
-   *  Original Packet Length (32 bits): an unsigned integer indicating
-      the actual length of the packet when it was transmitted on the
-      network.  It can be different from length of the Packet Data
-      field's length if the packet has been truncated by the capture
-      process, in which case the SnapLen value in Section 4.2 will be
-      less than this Original Packet Length value, and the SnapLen value
-      MUST be used to determine the size of the Packet Data field
-      length.
+   *  Original Packet Length (32 bits): an unsigned integer that
+      indicates the actual length of the packet when it was transmitted
+      on the network.  It can be different from length of the Packet
+      Data field's length if the packet has been truncated by the
+      capture process, in which case the SnapLen value in Section 4.2
+      will be less than this Original Packet Length value, and the
+      SnapLen value MUST be used to determine the size of the Packet
+      Data field length.
 
    *  Packet Data: the data coming from the network, including link-
       layer headers.  The length of this field can be derived from the
@@ -1507,7 +1507,7 @@ Table of Contents
       header).  The format of the data within this Packet Data field
       depends on the LinkType field specified in the Interface
       Description Block (see Section 4.2) and it is specified in the
-      entry for that format in [I-D.richardson-opsawg-pcaplinktype].
+      entry for that format in [I-D.ietf-opsawg-pcaplinktype].
 
    The Simple Packet Block does not contain the timestamp because this
    is often one of the most costly operations on PCs.  Additionally,
@@ -2556,12 +2556,12 @@ Table of Contents
 
 13.1.  Normative References
 
-   [I-D.richardson-opsawg-pcaplinktype]
-              Harris, G. and M. Richardson, "PCAP and PCAPNG LINKTYPE
-              Registry", Work in Progress, Internet-Draft, draft-
-              richardson-opsawg-pcaplinktype-01, 6 November 2022,
-              <https://datatracker.ietf.org/doc/html/draft-richardson-
-              opsawg-pcaplinktype-01>.
+   [I-D.ietf-opsawg-pcaplinktype]
+              Harris, G. and M. Richardson, "Link-Layer Types for PCAP-
+              related Capture File Formats", Work in Progress, Internet-
+              Draft, draft-ietf-opsawg-pcaplinktype-13, 21 October 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
+              pcaplinktype-13>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -2674,8 +2674,7 @@ Appendix A.  Packet Block (obsolete!)
       Length plus the padding to a 32-bit boundary.  The format of the
       link-layer headers depends on the LinkType field specified in the
       Interface Description Block (see Section 4.2) and it is specified
-      in the entry for that format in
-      [I-D.richardson-opsawg-pcaplinktype].
+      in the entry for that format in [I-D.ietf-opsawg-pcaplinktype].
 
    *  Options: optionally, a list of options (formatted according to the
       rules defined in Section 3.5) can be present.

@@ -4,33 +4,34 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>PCAP Capture File Format</title>
+<title>Additional block types for PCAP Now Generic (pcapng) Capture File Format</title>
+<meta content="Michael Tuexen" name="author">
+<meta content="Fulvio Risso" name="author">
+<meta content="Jasper Bongertz" name="author">
+<meta content="Gerald Combs" name="author">
 <meta content="Guy Harris" name="author">
+<meta content="Eelco Chaudron" name="author">
 <meta content="Michael C. Richardson" name="author">
 <meta content="
-       This document describes the format used by the libpcap library to
-record captured packets to a file.  Programs using the libpcap
-library to read and write those files, and thus reading and writing
-files in that format, include tcpdump. 
+       This document contains a number of extensions to the PCAPng file format which are outside of the IETF networking mandate. 
     " name="description">
-<meta content="xml2rfc 3.30.2" name="generator">
-<meta content="draft-ietf-opsawg-pcap-latest" name="ietf.draft">
+<meta content="xml2rfc 3.31.0" name="generator">
+<meta content="draft-richardson-opsawg-pcapng-extras-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.2
-    Python 3.12.11
+  xml2rfc 3.31.0
+    Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
     lxml 5.3.1
-    platformdirs 4.4.0
+    platformdirs 4.5.0
     pycountry 24.6.1
     PyYAML 6.0.2
     requests 2.32.5
-    setuptools 80.9.0
     wcwidth 0.2.14
 -->
-<link href="draft-ietf-opsawg-pcap.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-richardson-opsawg-pcapng-extras.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -1046,12 +1047,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">pcap</td>
-<td class="right">October 2025</td>
+<td class="center">pcapng-extras</td>
+<td class="right">November 2025</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Harris &amp; Richardson</td>
-<td class="center">Expires 10 April 2026</td>
+<td class="left">Tuexen, et al.</td>
+<td class="center">Expires 24 May 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1061,20 +1062,40 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-ietf-opsawg-pcap-latest</dd>
+<dd class="internet-draft">draft-richardson-opsawg-pcapng-extras-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-10-07" class="published">7 October 2025</time>
+<time datetime="2025-11-20" class="published">20 November 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-04-10">10 April 2026</time></dd>
+<dd class="expires"><time datetime="2026-05-24">24 May 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">G. Harris, <span class="editor">Ed.</span>
+      <div class="author-name">M. Tuexen, <span class="editor">Ed.</span>
 </div>
+<div class="org">Muenster Univ. of Appl. Sciences</div>
+</div>
+<div class="author">
+      <div class="author-name">F. Risso</div>
+<div class="org">Politecnico di Torino</div>
+</div>
+<div class="author">
+      <div class="author-name">J. Bongertz</div>
+<div class="org">Airbus DS CyberSecurity</div>
+</div>
+<div class="author">
+      <div class="author-name">G. Combs</div>
+<div class="org">Wireshark</div>
+</div>
+<div class="author">
+      <div class="author-name">G. Harris</div>
+</div>
+<div class="author">
+      <div class="author-name">E. Chaudron</div>
+<div class="org">Red Hat</div>
 </div>
 <div class="author">
       <div class="author-name">M. Richardson</div>
@@ -1083,28 +1104,21 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">PCAP Capture File Format</h1>
+<h1 id="title">Additional block types for PCAP Now Generic (pcapng) Capture File Format</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document describes the format used by the libpcap library to
-record captured packets to a file.  Programs using the libpcap
-library to read and write those files, and thus reading and writing
-files in that format, include tcpdump.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document contains a number of extensions to the PCAPng file format which are outside of the IETF networking mandate.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
-      <h2 id="name-about-this-document">
-<a href="#name-about-this-document" class="section-name selfRef">About This Document</a>
+      <h2 id="name-discussion-venues">
+<a href="#name-discussion-venues" class="section-name selfRef">Discussion Venues</a>
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
-<p id="section-note.1-2">
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-ietf-opsawg-pcap/">https://datatracker.ietf.org/doc/draft-ietf-opsawg-pcap/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
-<p id="section-note.1-3">
-        Discussion of this document takes place on the
-        opsawg Working Group mailing list (<span><a href="mailto:opsawg@ietf.org">mailto:opsawg@ietf.org</a></span>),
-        which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/opsawg/">https://mailarchive.ietf.org/arch/browse/opsawg/</a></span>.
-        Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/opsawg/">https://www.ietf.org/mailman/listinfo/opsawg/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
-<p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/IETF-OPSAWG-WG/pcapng">https://github.com/IETF-OPSAWG-WG/pcapng</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">Discussion of this document takes place on the
+  OPSAWG Working Group mailing list (opsawg@ietf.org),
+  which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/opsawg/">https://mailarchive.ietf.org/arch/browse/opsawg/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Source for this draft and an issue tracker can be found at
+  <span><a href="https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap">https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1125,7 +1139,7 @@ files in that format, include tcpdump.<a href="#section-abstract-1" class="pilcr
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 10 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 24 May 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1155,76 +1169,76 @@ files in that format, include tcpdump.<a href="#section-abstract-1" class="pilcr
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction-to-additional-" class="internal xref">Introduction to Additional Block Types</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-general-file-structure" class="internal xref">General File Structure</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-additional-block-types" class="internal xref">Additional Block Types</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-systemd-journal-export-bloc" class="internal xref">systemd Journal Export Block</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-alternative-packet-blocks-e" class="internal xref">Alternative Packet Blocks (experimental)</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-compression-block-experimen" class="internal xref">Compression Block (experimental)</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-encryption-block-experiment" class="internal xref">Encryption Block (experimental)</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-fixed-length-block-experime" class="internal xref">Fixed Length Block (experimental)</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.6">
+                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-directory-block-experimenta" class="internal xref">Directory Block (experimental)</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.7">
+                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-traffic-statistics-and-moni" class="internal xref">Traffic Statistics and Monitoring Blocks (experimental)</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.8">
+                <p id="section-toc.1-1.3.2.8.1"><a href="#section-3.8" class="auto internal xref">3.8</a>.  <a href="#name-event-security-block-experi" class="internal xref">Event/Security Block (experimental)</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-file-header" class="internal xref">File Header</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-packet-record" class="internal xref">Packet Record</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-recommended-file-name-exten" class="internal xref">Recommended File Name Extension: .pcap</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-contributors" class="internal xref">Contributors</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-media-type-registry" class="internal xref">Media-Type Registry</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1.2.1">
-                    <p id="section-toc.1-1.8.2.1.2.1.1"><a href="#section-8.1.1" class="auto internal xref">8.1.1</a>.  <a href="#name-application-pcap" class="internal xref">application/pcap</a></p>
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
-                </ul>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-contributors" class="internal xref">Contributors</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-references" class="internal xref">References</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1">
-                <p id="section-toc.1-1.11.2.1.1"><a href="#section-11.1" class="auto internal xref">11.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.2">
-                <p id="section-toc.1-1.11.2.2.1"><a href="#section-11.2" class="auto internal xref">11.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
-</li>
-            </ul>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
 </section>
 </div>
-<div id="introduction">
+<div id="introduction-to-additional-block-types">
 <section id="section-1">
-      <h2 id="name-introduction">
-<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      <h2 id="name-introduction-to-additional-">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction-to-additional-" class="section-name selfRef">Introduction to Additional Block Types</a>
       </h2>
-<p id="section-1-1">In the late 1980's, Van Jacobson, Steve McCanne, and others at the
-Network Research Group at Lawrence Berkeley National Laboratory
-developed the tcpdump program to capture and dissect network traces.
-The code to capture traffic, using low-level mechanisms in various
-operating systems, and to read and write network traces to a file was
-later put into a library named libpcap.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">This document describes the format used by tcpdump, and other
-programs using libpcap, to read and write network traces.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-1">TBD<a href="#section-1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="terminology">
@@ -1239,424 +1253,383 @@ described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</s
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="general-file-structure">
+<div id="additional-block-types">
 <section id="section-3">
-      <h2 id="name-general-file-structure">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-general-file-structure" class="section-name selfRef">General File Structure</a>
+      <h2 id="name-additional-block-types">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-additional-block-types" class="section-name selfRef">Additional Block Types</a>
       </h2>
-<p id="section-3-1">A capture file begins with a File Header, followed by zero or more
-Packet Records, one per packet.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">All fields in the File Header and in the headers of Packet Records will
-always be written according to the characteristics (little-endian / big-
-endian) of the machine that is writing the file.  This refers to all the
-fields that are written as numbers and that span over two or more
-octets.<a href="#section-3-2" class="pilcrow">¶</a></p>
-<p id="section-3-3">The approach of having the file written in the native format of the host
-writing the file is more efficient because it avoids translation of data
-when writing the file or reading the file on the host that wrote the
-file, which is the most common case when generating or processing
-capture captures.<a href="#section-3-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="file-header">
-<section id="section-4">
-      <h2 id="name-file-header">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-file-header" class="section-name selfRef">File Header</a>
-      </h2>
-<p id="section-4-1">The File Header has the following format, with the octet offset of
-fields shown to the left of the field:<a href="#section-4-1" class="pilcrow">¶</a></p>
-<span id="name-file-header-2"></span><div id="fig-header">
+<div id="section_sdj_export">
+<section id="section-3.1">
+        <h3 id="name-systemd-journal-export-bloc">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-systemd-journal-export-bloc" class="section-name selfRef">systemd Journal Export Block</a>
+        </h3>
+<p id="section-3.1-1">The <a href="https://systemd.io/">systemd</a>  <a href="https://systemd.io/JOURNAL_EXPORT_FORMATS/">Journal Export Block</a> is a lightweight container for systemd
+Journal Export Format entry data.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">One of the primary components of the systemd System and
+Service Manager is the "Journal", a message logging system that
+uses arrays of key-value pairs. Journal entries are stored in a
+database-like file on disk but can be serialized to easily
+parseable "Journal Export Format" data or to a JSON object. The
+block described here is limited to Journal Export Format data
+only.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1-3">A systemd Journal Export Block contains a single systemd
+Journal Export Format entry. Each entry MUST contain a
+__REALTIME_TIMESTAMP= field. If a timestamp for the block is
+required it can be derived from this field. Each entry MUST be
+zero-padded to 32 bits. Although the primary use of this block
+is intended for importing data from systemd, it could
+potentially be used to include arbitrary key-value data in a
+capture file.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.1-4"><a href="#format_sdj_export" class="auto internal xref">Figure 1</a> shows the format of the
+Journal Export Block.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
+<span id="name-systemd-journal-export-block"></span><div id="format_sdj_export">
 <figure id="figure-1">
-        <div class="alignLeft art-text artwork" id="section-4-2.1">
+          <div class="alignCenter art-text artwork" id="section-3.1-5.1">
 <pre>
-                           1                   2                   3
-       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    0 |                          Magic Number                         |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    4 |         Major Version         |         Minor Version         |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    8 |                           Reserved1                           |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   12 |                           Reserved2                           |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   16 |                            SnapLen                            |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   20 |               LinkType and additional information             |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                    Block Type = 0x00000009                    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 /                                                               /
+   /                         Journal Entry                         /
+   /              variable length, padded to 32 bits               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </pre>
 </div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
-<a href="#name-file-header-2" class="selfRef">File Header</a>
-        </figcaption></figure>
+<a href="#name-systemd-journal-export-block" class="selfRef">systemd Journal Export Block Format</a>
+          </figcaption></figure>
 </div>
-<p id="section-4-3">The File Header length is 24 octets.<a href="#section-4-3" class="pilcrow">¶</a></p>
-<p id="section-4-4">The meaning of the fields in the File Header is:<a href="#section-4-4" class="pilcrow">¶</a></p>
-<span class="break"></span><dl class="dlParallel" id="section-4-5">
-        <dt id="section-4-5.1">Magic Number (32 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-5.2">
-          <p id="section-4-5.2.1">an unsigned magic number, whose value is either the hexadecimal number
-0xA1B2C3D4 or the hexadecimal number 0xA1B23C4D.<a href="#section-4-5.2.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-5.3"></dt>
-        <dd style="margin-left: 1.5em" id="section-4-5.4">
-          <p id="section-4-5.4.1">If the value is 0xA1B2C3D4, timestamps in Packet Records (see Figure
-3) are in seconds and microseconds; if it is 0xA1B23C4D, timestamps in
-Packet Records are in seconds and nanoseconds.<a href="#section-4-5.4.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-5.5"></dt>
-        <dd style="margin-left: 1.5em" id="section-4-5.6">
-          <p id="section-4-5.6.1">These numbers can be used to distinguish sessions that have been
-written on little-endian machines from the ones written on big-endian
-machines, and to heuristically identify pcap files.<a href="#section-4-5.6.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-5.7">Major Version (16 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-5.8">
-          <p id="section-4-5.8.1">an unsigned integer, giving the number of the current major version of
-the format.  The value for the current version of the format is 2
-(big-endian 0x00 0x02 or little-endian 0x02 0x00).  This
-value should change if the format changes in such a way that code that
-reads the new format could not read the old format (i.e., code to read
-both formats would have to check the version number and use different
-code paths for the two formats) and code that reads the old format could
-not read the new format.<a href="#section-4-5.8.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-5.9">Minor Version (16 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-5.10">
-          <p id="section-4-5.10.1">an unsigned integer, giving the number of the current minor version of
-the format.  The value for the current version of the format is 4
-(big-endian 0x00 0x04 or little-endian 0x04 0x00).
-This value should change if the format changes in such a way that code
-that reads the new format could read the old format without checking the
-version number but code that reads the old format could not read all
-files in the new format.<a href="#section-4-5.10.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-5.11">Reserved1 (32 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-5.12">
-          <p id="section-4-5.12.1">not used - SHOULD be filled with 0 by pcap file writers, and MUST be
-ignored by pcap file readers.  This value was documented by some older
-implementations as "gmt to local correction" or "time zone offset".
-Some older pcap file writers stored non-zero values in this field.<a href="#section-4-5.12.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-5.13">Reserved2 (32 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-5.14">
-          <p id="section-4-5.14.1">not used - SHOULD be filled with 0 by pcap file writers, and MUST be
-ignored by pcap file readers.  This value was documented by some older
-implementations as "accuracy of timestamps".  Some older pcap file
-writers stored non-zero values in this field.<a href="#section-4-5.14.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-5.15">SnapLen (32 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-5.16">
-          <p id="section-4-5.16.1">an unsigned integer indicating the maximum number of octets captured
-from each packet.  The portion of each packet that exceeds this value
-will not be stored in the file.  This value MUST NOT be zero; if no
-limit was specified, the value SHOULD be a number greater than or equal
-to the largest packet length in the file.<a href="#section-4-5.16.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-5.17">LinkType and additional information (32 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-5.18">
-          <p id="section-4-5.18.1">an unsigned integer that contains the link-layer type of packets
-in the file and may contain additional information.<a href="#section-4-5.18.1" class="pilcrow">¶</a></p>
-</dd>
-      <dd class="break"></dd>
-</dl>
-<p id="section-4-6">The LinkType and additional information field is in the form<a href="#section-4-6" class="pilcrow">¶</a></p>
-<span id="name-linktype-and-additional-inf"></span><div id="fig-linktype">
+<p id="section-3.1-6">The systemd Journal Export Block has the following fields:<a href="#section-3.1-6" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.1-7.1">
+            <p id="section-3.1-7.1.1">Block Type: The block type of the Journal Export Block is 9.<a href="#section-3.1-7.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.1-7.2">
+            <p id="section-3.1-7.2.1">Block Total Length: total size of this block, as described in <span>[<a href="#I-D.tuexen-opsawg-pcapng" class="cite xref">I-D.tuexen-opsawg-pcapng</a>]</span>, section "Section Blocks".<a href="#section-3.1-7.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.1-7.3">
+            <p id="section-3.1-7.3.1">Journal Entry: A journal entry as described in the <a href="https://systemd.io/JOURNAL_EXPORT_FORMATS/">Journal Export Format</a> documentation. Entries consist of a
+series of field names followed by text or binary field data.
+Common field names can be found in the <a href="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html">systemd.journal-fields</a> documentation. The __REALTIME_TIMESTAMP= field MUST be
+present and valid as described above. Entries are not
+guaranteed to be a multiple of four octets and must be
+zero-padded. This allows the length of the entry to be
+determined by finding the last non-zero octet in the Journal
+Entry data. An entry may contain an entry separator
+(trailing newline) as described in the Journal Export Format
+specification<a href="#section-3.1-7.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+<div id="alternative-packet-blocks-experimental">
+<section id="section-3.2">
+        <h3 id="name-alternative-packet-blocks-e">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-alternative-packet-blocks-e" class="section-name selfRef">Alternative Packet Blocks (experimental)</a>
+        </h3>
+<p id="section-3.2-1">Can some other packet blocks (besides the ones described in the
+previous paragraphs) be useful?<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="compression-block-experimental">
+<section id="section-3.3">
+        <h3 id="name-compression-block-experimen">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-compression-block-experimen" class="section-name selfRef">Compression Block (experimental)</a>
+        </h3>
+<p id="section-3.3-1">The Compression Block is optional. A file can contain an arbitrary
+number of these blocks. A Compression Block, as the name says, is used
+to store compressed data. Its format is shown in <a href="#formatcb" class="auto internal xref">Figure 2</a>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<span id="name-compression-block-format"></span><div id="formatcb">
 <figure id="figure-2">
-        <div class="alignLeft art-text artwork" id="section-4-7.1">
+          <div class="alignLeft art-text artwork" id="section-3.3-2.1">
 <pre>
-                           1                   2                   3
-       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-      |FCS len|R|P|     Reserved3     |        Link-layer type        |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                        Block Type = ?                         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |  Compr. Type  |                                               /
+   +-+-+-+-+-+-+-+-+                                               /
+   /                                                               /
+   /                       Compressed Data                         /
+   /                                                               /
+   /  variable length, octet-aligned and padded to end on a 32-bit /
+   /                         boundary                              /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </pre>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
-<a href="#name-linktype-and-additional-inf" class="selfRef">LinkType and additional information</a>
-        </figcaption></figure>
+<a href="#name-compression-block-format" class="selfRef">Compression Block Format</a>
+          </figcaption></figure>
 </div>
-<p id="section-4-8">The field is shown as if it were in the byte order of the host reading
-or writing the file, with bit 0 being the most-significant bit of the
-field and bit 31 being the least-significant bit of the field.<a href="#section-4-8" class="pilcrow">¶</a></p>
-<span class="break"></span><dl class="dlParallel" id="section-4-9">
-        <dt id="section-4-9.1">Link-layer type (16 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-9.2">
-          <p id="section-4-9.2.1">an unsigned integer indicating link-layer type for packets in the file;
-it is a value as defined in the PCAP LinkType list registry, as defined in <span>[<a href="#I-D.ietf-opsawg-pcaplinktype" class="cite xref">I-D.ietf-opsawg-pcaplinktype</a>]</span>.<a href="#section-4-9.2.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-9.3">Reserved3 (10 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-9.4">
-          <p id="section-4-9.4.1">not used - MUST be set to zero by pcap writers, and MUST NOT be
-interpreted by pcap readers; a reader SHOULD treat a non-zero value as
-an error.<a href="#section-4-9.4.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-9.5">P (1 bit):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-9.6">
-          <p id="section-4-9.6.1">a bit that, if set, indicates that the Frame Check Sequence (FCS)
-length value is present and, if not set, indicates that the FCS value is
-not present.<a href="#section-4-9.6.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-9.7">R (1 bit):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-9.8">
-          <p id="section-4-9.8.1">not used - MUST be set to zero by pcap writers, and MUST NOT be
-interpreted by pcap readers; a reader SHOULD treat a non-zero value as
-an error.<a href="#section-4-9.8.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-4-9.9">FCS len (4 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-4-9.10">
-          <p id="section-4-9.10.1">an unsigned integer indicating the number of 16-bit (2-octet) words
-of FCS that are appended to each packet, if the P bit is set; if the P
-bit is not set, and the FCS length is not indicated by the link-layer
-type value, the FCS length is unknown.  The valid values of the FCS len
-field are between 0 and 15; Ethernet, for example, would have an FCS
-length value of 2, corresponding to a 4-octet FCS.<a href="#section-4-9.10.1" class="pilcrow">¶</a></p>
-</dd>
-      <dd class="break"></dd>
-</dl>
+<p id="section-3.3-3">The fields have the following meaning:<a href="#section-3.3-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3-4.1">
+            <p id="section-3.3-4.1.1">Block Type: The block type of the Compression Block is not yet
+assigned.<a href="#section-3.3-4.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-4.2">
+            <p id="section-3.3-4.2.1">Block Total Length: total size of this block, as described in <span>[<a href="#I-D.tuexen-opsawg-pcapng" class="cite xref">I-D.tuexen-opsawg-pcapng</a>]</span>, section "Section Blocks".<a href="#section-3.3-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-4.3">
+            <p id="section-3.3-4.3.1">Compression Type (8 bits): an unsigned integer that
+specifies the compression algorithm.  Possible values for
+this field are 0 (uncompressed), 1 (Lempel-Ziv), 2 (Gzip),
+other?? Probably some kind of dumb and fast compression
+algorithm could be effective with some types of traffic (for
+example web), but which?<a href="#section-3.3-4.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-4.4">
+            <p id="section-3.3-4.4.1">Compressed Data: data of this block. Once decompressed, it is
+made of other blocks.<a href="#section-3.3-4.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 </section>
 </div>
-<div id="packet-record">
-<section id="section-5">
-      <h2 id="name-packet-record">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-packet-record" class="section-name selfRef">Packet Record</a>
-      </h2>
-<p id="section-5-1">A Packet Record is the standard container for storing the packets
-coming from the network.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<span id="name-packet-record-2"></span><div id="fig-record">
+<div id="encryption-block-experimental">
+<section id="section-3.4">
+        <h3 id="name-encryption-block-experiment">
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-encryption-block-experiment" class="section-name selfRef">Encryption Block (experimental)</a>
+        </h3>
+<p id="section-3.4-1">The Encryption Block is optional. A file can contain an arbitrary
+number of these blocks. An Encryption Block is used to store encrypted
+data. Its format is shown in <a href="#formateb" class="auto internal xref">Figure 3</a>.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<span id="name-encryption-block-format"></span><div id="formateb">
 <figure id="figure-3">
-        <div class="alignLeft art-text artwork" id="section-5-2.1">
+          <div class="alignLeft art-text artwork" id="section-3.4-2.1">
 <pre>
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    0 |                      Timestamp (Seconds)                      |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    4 |            Timestamp (Microseconds or nanoseconds)            |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    8 |                    Captured Packet Length                     |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   12 |                    Original Packet Length                     |
-      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   16 /                                                               /
-      /                          Packet Data                          /
-      /                  variable length, not padded                  /
-      /                                                               /
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                        Block Type = ?                         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |   Encr. Type  |                                               /
+   +-+-+-+-+-+-+-+-+                                               /
+   /                                                               /
+   /                       Encrypted Data                          /
+   /                                                               /
+   /                 variable length, octet-aligned                /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </pre>
 </div>
 <figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
-<a href="#name-packet-record-2" class="selfRef">Packet Record</a>
-        </figcaption></figure>
+<a href="#name-encryption-block-format" class="selfRef">Encryption Block Format</a>
+          </figcaption></figure>
 </div>
-<p id="section-5-3">The Packet Record begins with a 16-octet header, followed by data from
-the packet.<a href="#section-5-3" class="pilcrow">¶</a></p>
-<p id="section-5-4">The meaning of the fields in the Packet Record is:<a href="#section-5-4" class="pilcrow">¶</a></p>
-<span class="break"></span><dl class="dlParallel" id="section-5-5">
-        <dt id="section-5-5.1">Timestamp (Seconds) and Timestamp (Microseconds or nanoseconds):</dt>
-        <dd style="margin-left: 1.5em" id="section-5-5.2">
-          <p id="section-5-5.2.1">seconds and fraction of a seconds values of a timestamp.<a href="#section-5-5.2.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-5.3"></dt>
-        <dd style="margin-left: 1.5em" id="section-5-5.4">
-          <p id="section-5-5.4.1">The seconds value is a 32-bit unsigned integer that represents the
-number of seconds that have elapsed since 1970-01-01 00:00:00 UTC, and
-the microseconds or nanoseconds value is a 32-bit unsigned integer that
-represents the number of microseconds or nanoseconds that have elapsed
-since that seconds.<a href="#section-5-5.4.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-5.5"></dt>
-        <dd style="margin-left: 1.5em" id="section-5-5.6">
-          <p id="section-5-5.6.1">The Magic Number field in the File Header of a file indicates
-whether the values of the Timestamp (Microseconds or nanoseconds) fields
-of packets in that file are in units of microseconds or nanoseconds.<a href="#section-5-5.6.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-5.7">Captured Packet Length (32 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-5-5.8">
-          <p id="section-5-5.8.1">an unsigned integer that indicates the number of octets captured from
-the packet (i.e., the length of the Packet Data field).  It will be the
-minimum value among the Original Packet Length and the snapshot length
-for the interface (SnapLen, defined in Figure 1).<a href="#section-5-5.8.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-5.9">Original Packet Length (32 bits):</dt>
-        <dd style="margin-left: 1.5em" id="section-5-5.10">
-          <p id="section-5-5.10.1">an unsigned integer that indicates the number of octets of packet data
-that would have been provided had the packet not been truncated to the
-snapshot length for the interface or to a length limit imposed by the
-capture mechanism. If no truncation was done, it will be the same as
-the Captured Packet Length, but it will be different from the Captured
-Packet Length if the packet has been truncated by the capture process.
-It SHOULD NOT be less than the Captured Packet Length.<a href="#section-5-5.10.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-5.11"></dt>
-        <dd style="margin-left: 1.5em" id="section-5-5.12">
-          <p id="section-5-5.12.1">A pcap file writer MAY write an Original Packet Length that is less
-than the Captured Packet Length if both the Captured Packet Length and
-the Original Packet length came from a file in which a packet had an
-Original Packet Length less than the Captured Packet Length; otherwise,
-it MUST write an Original Packet Length that is greater than or equal to
-the Captured Packet Length.<a href="#section-5-5.12.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-5.13"></dt>
-        <dd style="margin-left: 1.5em" id="section-5-5.14">
-          <p id="section-5-5.14.1">A pcap file reader MAY convert an Original Packet Length that is less
-than the Captured Packet Length to a value that is greater than or equal
-to the Captured Packet Length.<a href="#section-5-5.14.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-5-5.15">Packet Data:</dt>
-        <dd style="margin-left: 1.5em" id="section-5-5.16">
-          <p id="section-5-5.16.1">the data coming from the network, including link-layer headers. The
-actual length of this field is the Captured Packet Length. The format
-of the link-layer headers depends on the LinkType field specified in the
-file header (see Figure 1) and it is specified in
-<span>[<a href="#I-D.ietf-opsawg-pcaplinktype" class="cite xref">I-D.ietf-opsawg-pcaplinktype</a>]</span>.<a href="#section-5-5.16.1" class="pilcrow">¶</a></p>
-</dd>
-      <dd class="break"></dd>
-</dl>
-<p id="section-5-6">Packet Records are not padded to a 4-octet boundary; if the number of
-octets of packet data is not a multiple of 4, there are no padding
-octets following it, so Packet Records are not guaranteed to begin on a
-4-octet boundary within a file.<a href="#section-5-6" class="pilcrow">¶</a></p>
+<p id="section-3.4-3">The fields have the following meaning:<a href="#section-3.4-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.4-4.1">
+            <p id="section-3.4-4.1.1">Block Type: The block type of the Encryption Block is not yet
+assigned.<a href="#section-3.4-4.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.4-4.2">
+            <p id="section-3.4-4.2.1">Block Total Length: total size of this block, as described in <span>[<a href="#I-D.tuexen-opsawg-pcapng" class="cite xref">I-D.tuexen-opsawg-pcapng</a>]</span>, section "Section Blocks".<a href="#section-3.4-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.4-4.3">
+            <p id="section-3.4-4.3.1">Encryption Type (8 bits): an unsigned integer that
+specifies the encryption algorithm.  Possible values for
+this field are ??? (TODO) NOTE: this block should probably
+contain other fields, depending on the encryption algorithm.
+To be defined precisely.<a href="#section-3.4-4.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.4-4.4">
+            <p id="section-3.4-4.4.1">Encrypted Data: data of this block. Once decrypted, it
+originates other blocks.<a href="#section-3.4-4.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 </section>
 </div>
-<div id="recommended-file-name-extension-pcap">
-<section id="section-6">
-      <h2 id="name-recommended-file-name-exten">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-recommended-file-name-exten" class="section-name selfRef">Recommended File Name Extension: .pcap</a>
-      </h2>
-<p id="section-6-1">The recommended file name extension for the "PCAP Capture File Format"
-specified in this document is ".pcap".<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">On Windows and macOS, files are distinguished by an extension to their
-filename. Such an extension is technically not actually required, as
-applications should be able to automatically detect the pcap file format
-through the Magic Number field in the File Header, as some desktop
-environments other than those of Windows and macOS do. However, using
-name extensions makes it easier to work with files (e.g. visually
-distinguish file formats) so it is recommended - though not required -
-to use .pcap as the name extension for files following this
-specification.<a href="#section-6-2" class="pilcrow">¶</a></p>
-<p id="section-6-3">Please note: To avoid confusion (such as the current usage of .cap for a
-plethora of different capture file formats) file name extensions other
-than .pcap should be avoided.<a href="#section-6-3" class="pilcrow">¶</a></p>
-<p id="section-6-4">There is new work to create the PCAP Now Generic capture File Format
-(see <span>[<a href="#I-D.ietf-opsawg-pcapng" class="cite xref">I-D.ietf-opsawg-pcapng</a>]</span>).  The new file format is not
-compatible with this specification, but many programs read both
-transparently.  Files of that type will start with a Section
-Header Block, the first four octets of which are 0x0A 0x0D 0x0D 0x0A,
-which does not match any of the Magic Number values in a pcap File
-Header, allowing code that reads both file formats to determine the
-format of a file.<a href="#section-6-4" class="pilcrow">¶</a></p>
+<div id="fixed-length-block-experimental">
+<section id="section-3.5">
+        <h3 id="name-fixed-length-block-experime">
+<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-fixed-length-block-experime" class="section-name selfRef">Fixed Length Block (experimental)</a>
+        </h3>
+<p id="section-3.5-1">The Fixed Length Block is optional. A file can contain an arbitrary
+number of these blocks. A Fixed Length Block can be used to optimize
+the access to the file. Its format is shown in <a href="#formatflm" class="auto internal xref">Figure 4</a>. A Fixed Length Block stores records with
+constant size. It contains a set of Blocks (normally Enhanced Packet
+Blocks or Simple Packet Blocks), of which it specifies the size.
+Knowing this size a priori helps to scan the file and to load some
+portions of it without truncating a block, and is particularly useful
+with cell-based networks like ATM.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
+<span id="name-fixed-length-block-format"></span><div id="formatflm">
+<figure id="figure-4">
+          <div class="alignLeft art-text artwork" id="section-3.5-2.1">
+<pre>
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                        Block Type = ?                         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |          Cell Size            |                               |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+                               /
+   /                                                               /
+   /                        Fixed Size Data                        /
+   /                                                               /
+   /                 variable length, octet-aligned                /
+   /                                                               /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</pre>
+</div>
+<figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
+<a href="#name-fixed-length-block-format" class="selfRef">Fixed Length Block Format</a>
+          </figcaption></figure>
+</div>
+<p id="section-3.5-3">The fields have the following meaning:<a href="#section-3.5-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.5-4.1">
+            <p id="section-3.5-4.1.1">Block Type: The block type of the Fixed Length Block is not yet
+assigned.<a href="#section-3.5-4.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.5-4.2">
+            <p id="section-3.5-4.2.1">Block Total Length: total size of this block, as described in <span>[<a href="#I-D.tuexen-opsawg-pcapng" class="cite xref">I-D.tuexen-opsawg-pcapng</a>]</span>, section "Section Blocks".<a href="#section-3.5-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.5-4.3">
+            <p id="section-3.5-4.3.1">Cell size (16 bits): an unsigned integer that indicates the
+size of the blocks contained in the data field.<a href="#section-3.5-4.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.5-4.4">
+            <p id="section-3.5-4.4.1">Fixed Size Data: data of this block.<a href="#section-3.5-4.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+<div id="directory-block-experimental">
+<section id="section-3.6">
+        <h3 id="name-directory-block-experimenta">
+<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-directory-block-experimenta" class="section-name selfRef">Directory Block (experimental)</a>
+        </h3>
+<p id="section-3.6-1">If present, this block contains the following information:<a href="#section-3.6-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.6-2.1">
+            <p id="section-3.6-2.1.1">number of indexed packets (N)<a href="#section-3.6-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.6-2.2">
+            <p id="section-3.6-2.2.1">table with position and length of any indexed packet (N
+entries)<a href="#section-3.6-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.6-3">A directory block MUST be followed by at least N packets, otherwise
+it MUST be considered invalid. It can be used to efficiently load
+portions of the file to memory and to support operations on memory
+mapped files. This block can be added by tools like network analyzers
+as a consequence of file processing.<a href="#section-3.6-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="traffic-statistics-and-monitoring-blocks-experimental">
+<section id="section-3.7">
+        <h3 id="name-traffic-statistics-and-moni">
+<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-traffic-statistics-and-moni" class="section-name selfRef">Traffic Statistics and Monitoring Blocks (experimental)</a>
+        </h3>
+<p id="section-3.7-1">One or more blocks could be defined to contain network statistics
+or traffic monitoring information. They could be use to store data
+collected from RMON or Netflow probes, or from other network
+monitoring tools.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="eventsecurity-block-experimental">
+<section id="section-3.8">
+        <h3 id="name-event-security-block-experi">
+<a href="#section-3.8" class="section-number selfRef">3.8. </a><a href="#name-event-security-block-experi" class="section-name selfRef">Event/Security Block (experimental)</a>
+        </h3>
+<p id="section-3.8-1">This block could be used to store events. Events could contain
+generic information (for example network load over 50%, server
+down...) or security alerts. An event could be:<a href="#section-3.8-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.8-2.1">
+            <p id="section-3.8-2.1.1">skipped, if the application doesn't know how to do with it<a href="#section-3.8-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.8-2.2">
+            <p id="section-3.8-2.2.1">processed independently by the packets. In other words, the
+applications skips the packets and processes only the alerts<a href="#section-3.8-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.8-2.3">
+            <p id="section-3.8-2.3.1">processed in relation to packets: for example, a security tool
+could load only the packets of the file that are near a security
+alert; a monitoring tool could skip the packets captured while the
+server was down.<a href="#section-3.8-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-7">
+<section id="section-4">
       <h2 id="name-security-considerations">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">A pcap file reader MUST do invalid header and packet checks.
-It can receive as input not only valid headers or packets, but any arbitrary
-random sequence of octets:
-Headers or packets originally malformed by the sender or by a fuzz tester,
-corrupted in transit or for some other reason.<a href="#section-7-1" class="pilcrow">¶</a></p>
-<p id="section-7-2">See also:
-https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap<a href="#section-7-2" class="pilcrow">¶</a></p>
+<p id="section-4-1">TBD.<a href="#section-4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-8">
+<section id="section-5">
       <h2 id="name-iana-considerations">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-8-1">This document requires the following IANA actions:<a href="#section-8-1" class="pilcrow">¶</a></p>
-<div id="media-type-registry">
-<section id="section-8.1">
-        <h3 id="name-media-type-registry">
-<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-media-type-registry" class="section-name selfRef">Media-Type Registry</a>
-        </h3>
-<p id="section-8.1-1">This section registers the 'application/pcap' in the "Media Types"
-registry.  These media types are used to indicate that the content is
-packet capture as described in this document.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
-<div id="applicationpcap">
-<section id="section-8.1.1">
-          <h4 id="name-application-pcap">
-<a href="#section-8.1.1" class="section-number selfRef">8.1.1. </a><a href="#name-application-pcap" class="section-name selfRef">application/pcap</a>
-          </h4>
-<div class="alignLeft art-text artwork" id="section-8.1.1-1">
-<pre>
-    Type name:  application
-    Subtype name:  pcap
-    Required parameters:  none
-    Optional parameters:  none
-    Encoding considerations:  PCAP files contain network packets
-    Security considerations:  See Security Considerations, Section
-    Interoperability considerations:  The format is designed to be broadly interoperable.
-    Published specification:  THIS RFC.
-    Applications that use this media type: tcpdump, wireshark, others.
-    Additional information:
-      Magic number(s): 0xA1B2C3D4, and 0xA1B23C4D in both endian orders
-      File extension(s):  .pcap
-      Macintosh file type code(s):  none
-    Person &amp; email address to contact for further information: The Tcpdump Group, www.tcpdump.org
-    Intended usage:  LIMITED
-    Restrictions on usage:  NONE
-    Author:  Guy Harris and Michael Richardson
-    Change controller:  The Tcpdump Group
-    Provisional registration? (standards tree only):  NO
-</pre><a href="#section-8.1.1-1" class="pilcrow">¶</a>
-</div>
-</section>
-</div>
-</section>
-</div>
+<p id="section-5-1">TBD.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">[Open issue: decide whether the block types, option types, NRB Record
+types, etc. should be IANA registries. And if so, what the IANA policy
+for each should be (see RFC 5226)]<a href="#section-5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="contributors">
-<section id="section-9">
+<section id="section-6">
       <h2 id="name-contributors">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-contributors" class="section-name selfRef">Contributors</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-contributors" class="section-name selfRef">Contributors</a>
       </h2>
-<p id="section-9-1">Insert pcap developers etc. here<a href="#section-9-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">Loris Degioanni and Gianluca Varenni were coauthoring this document
+before it was submitted to the IETF.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="acknowledgments">
-<section id="section-10">
+<section id="section-7">
       <h2 id="name-acknowledgments">
-<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="section-10-1">The authors wish to thank (many reviewers) and many others for
-their invaluable comments.<a href="#section-10-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">The authors wish to thank
+Anders Broman,
+Ulf Lamping,
+Richard Sharpe
+and many others for their invaluable comments.<a href="#section-7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
-<section id="section-11">
+<section id="section-8">
       <h2 id="name-references">
-<a href="#section-11" class="section-number selfRef">11. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-11.1">
+<section id="section-8.1">
         <h3 id="name-normative-references">
-<a href="#section-11.1" class="section-number selfRef">11.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
-<dt id="I-D.ietf-opsawg-pcaplinktype">[I-D.ietf-opsawg-pcaplinktype]</dt>
+<dt id="I-D.tuexen-opsawg-pcapng">[I-D.tuexen-opsawg-pcapng]</dt>
         <dd>
-<span class="refAuthor">Harris, G.</span> and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"Link-Layer Types for PCAP-related Capture File Formats"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-opsawg-pcaplinktype-11</span>, <time datetime="2025-08-30" class="refDate">30 August 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcaplinktype-11">https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcaplinktype-11</a>&gt;</span>. </dd>
+<span class="refAuthor">Tüxen, M.</span>, <span class="refAuthor">Risso, F.</span>, <span class="refAuthor">Bongertz, J.</span>, <span class="refAuthor">Combs, G.</span>, <span class="refAuthor">Harris, G.</span>, <span class="refAuthor">Chaudron, E.</span>, and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"PCAP Next Generation (pcapng) Capture File Format"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-tuexen-opsawg-pcapng-05</span>, <time datetime="2022-07-29" class="refDate">29 July 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-tuexen-opsawg-pcapng-05">https://datatracker.ietf.org/doc/html/draft-tuexen-opsawg-pcapng-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
@@ -1670,14 +1643,14 @@ their invaluable comments.<a href="#section-10-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-11.2">
+<section id="section-8.2">
         <h3 id="name-informative-references">
-<a href="#section-11.2" class="section-number selfRef">11.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="I-D.ietf-opsawg-pcapng">[I-D.ietf-opsawg-pcapng]</dt>
+<dt id="LINKTYPES">[LINKTYPES]</dt>
       <dd>
-<span class="refAuthor">Tüxen, M.</span>, <span class="refAuthor">Risso, F.</span>, <span class="refAuthor">Bongertz, J.</span>, <span class="refAuthor">Combs, G.</span>, <span class="refAuthor">Harris, G.</span>, <span class="refAuthor">Chaudron, E.</span>, and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"PCAP Now Generic (pcapng) Capture File Format"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-opsawg-pcapng-04</span>, <time datetime="2025-08-30" class="refDate">30 August 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng-04">https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng-04</a>&gt;</span>. </dd>
+<span class="refAuthor">The Tcpdump Group</span>, <span class="refTitle">"the tcpdump.org link-layer header types registry"</span>, <span>&lt;<a href="http://www.tcpdump.org/linktypes.html">http://www.tcpdump.org/linktypes.html</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1690,15 +1663,79 @@ their invaluable comments.<a href="#section-10-1" class="pilcrow">¶</a></p>
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Guy Harris (<span class="role">editor</span>)</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Michael Tuexen (<span class="role">editor</span>)</span></div>
+<div dir="auto" class="left"><span class="org">Muenster University of Applied Sciences</span></div>
+<div dir="auto" class="left"><span class="street-address">Stegerwaldstrasse 39</span></div>
+<div dir="auto" class="left">
+<span class="postal-code">48565</span> <span class="locality">Steinfurt</span>
+</div>
+<div dir="auto" class="left"><span class="country-name">Germany</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:tuexen@fh-muenster.de" class="email">tuexen@fh-muenster.de</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Fulvio Risso</span></div>
+<div dir="auto" class="left"><span class="org">Politecnico di Torino</span></div>
+<div dir="auto" class="left"><span class="street-address">Corso Duca degli Abruzzi, 24</span></div>
+<div dir="auto" class="left">
+<span class="postal-code">10129</span> <span class="locality">Torino</span> </div>
+<div dir="auto" class="left"><span class="country-name">Italy</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:fulvio.risso@polito.it" class="email">fulvio.risso@polito.it</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jasper Bongertz</span></div>
+<div dir="auto" class="left"><span class="org">Airbus Defence and Space CyberSecurity</span></div>
+<div dir="auto" class="left"><span class="street-address">Kanzlei 63c</span></div>
+<div dir="auto" class="left">
+<span class="postal-code">40667</span> <span class="locality">Meerbusch</span>
+</div>
+<div dir="auto" class="left"><span class="country-name">Germany</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jasper@packet-foo.com" class="email">jasper@packet-foo.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Gerald Combs</span></div>
+<div dir="auto" class="left"><span class="org">Wireshark Foundation</span></div>
+<div dir="auto" class="left"><span class="street-address">339 Madson Pl</span></div>
+<div dir="auto" class="left">
+<span class="locality">Davis</span>, <span class="region">CA</span> <span class="postal-code">95618</span>
+</div>
+<div dir="auto" class="left"><span class="country-name">United States of America</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:gerald@wireshark.org" class="email">gerald@wireshark.org</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Guy Harris</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:gharris@sonic.net" class="email">gharris@sonic.net</a>
 </div>
 </address>
 <address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Eelco Chaudron</span></div>
+<div dir="auto" class="left"><span class="org">Red Hat</span></div>
+<div dir="auto" class="left"><span class="street-address">De Entree 238</span></div>
+<div dir="auto" class="left">
+<span class="postal-code">1101 EE</span> <span class="locality">Amsterdam</span>
+</div>
+<div dir="auto" class="left"><span class="country-name">Netherlands</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:eelco@redhat.com" class="email">eelco@redhat.com</a>
+</div>
+</address>
+<address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Michael C. Richardson</span></div>
-<div dir="auto" class="left"><span class="org">Sandelman Software Works Inc</span></div>
+<div dir="auto" class="left"><span class="org">Sandelman Software Works</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:mcr+ietf@sandelman.ca" class="email">mcr+ietf@sandelman.ca</a>
