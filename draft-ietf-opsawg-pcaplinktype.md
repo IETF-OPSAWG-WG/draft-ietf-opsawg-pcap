@@ -755,7 +755,7 @@ When processing a request for an allocation, the Designated Experts will encoura
 
 There is no requirement for a specification, but often review of the specification allows the Designated Expert to determine if the allocation actually is a duplicate of another specification.
 
-When the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be clearly specified.
+When the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header should be well defined, as many users really want to be able to get to the layer-3 information.
 
 Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP drafts, IEEE, etc.) are acceptable particularly if the specification document will be public eventually.
 This includes specifications that might be subject to a security classification for which no public document will ever be made.
