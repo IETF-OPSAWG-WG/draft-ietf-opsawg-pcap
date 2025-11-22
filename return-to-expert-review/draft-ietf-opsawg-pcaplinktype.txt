@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 24 May 2026                                           Sandelman
-                                                        20 November 2025
+Expires: 26 May 2026                                           Sandelman
+                                                        22 November 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 May 2026.
+   This Internet-Draft will expire on 26 May 2026.
 
 Copyright Notice
 
@@ -1189,7 +1189,8 @@ Table of Contents
 
    When the contents of the link type can contain an IPv4 or IPv6
    header, then the octets between the beginning of the link type and
-   the IP header needs to be clearly specified.
+   the IP header should be well defined, as many users really want to be
+   able to get to the layer-3 information.
 
    Specifications that are not publicly available, but which may be
    obtained via liaison agreements (such as to ITU-T, 3GPP drafts, IEEE,
