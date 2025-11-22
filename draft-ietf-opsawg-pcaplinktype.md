@@ -716,8 +716,8 @@ The registry has the following structure:
 
 The policy allocation for the LinkType values is as follows:
 
-* Values from 0 to 65000 are allocated following a First-Come
-  First-Served policy (Section 4.4 of [RFC8126]). Values in the ranges
+* Values from 0 to 65000 are allocated following an Expert Review
+  policy (Section 4.5 of [RFC8126]). Values in the ranges
   0-10, 50-51, and 98-301 are already assigned; values in the ranges
   11-49 and 52-97 are reserved and must not be assigned.
 
@@ -726,6 +726,7 @@ The policy allocation for the LinkType values is as follows:
 The initial version of the registry is provided in {{sec-initial}}.  In each
 case here, the reference should be set to
 {{TCPDUMP}} and the RFC number to be assigned to this document, which is not repeated each time.
+The change controller for all entries is the IESG, via appointed Designated Experts.
 
 The initial contents of the table are based upon the link-layer header
 type list maintained by libpcap, and published on {{TCPDUMP}}.
@@ -748,19 +749,20 @@ This is the initial table for the registry:
 
 {::include linktypes.md}
 
+### Guidance for Designated Experts {#sec-de}
 
-### Guidance for Registration
+When processing a request for an allocation, the Designated Experts will encourage the requester to provide a specification at a stable URL.
 
-When processing a request for an allocation, the requester will be asked to provide a specification at a stable URL.
-There is no requirement for a specification.
+There is no requirement for a specification, but often review of the specification allows the Designated Expert to determine if the allocation actually is a duplicate of another specification.
 
 When the contents of the link type can contain an IPv4 or IPv6 header, then the octets between the beginning of the link type and the IP header needs to be clearly specified.
 
-Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP, IEEE, etc.) are acceptable particularly if the specification document will be public eventually, but are discouraged.
-
-It is acceptable to register LinkTypes for which specifications are not publicly available.
-This includes specifications that might be subject to a security classification.
+Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T, 3GPP drafts, IEEE, etc.) are acceptable particularly if the specification document will be public eventually.
+This includes specifications that might be subject to a security classification for which no public document will ever be made.
 The minimal requirement is to provide a contact person for that link type.
+
+For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.
+
 
 # Security Considerations
 
