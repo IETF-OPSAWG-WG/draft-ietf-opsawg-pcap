@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-26T01:52:29.731258+00:00",
+  "timestamp": "2025-11-23T02:04:38.737946+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -11227,6 +11227,103 @@
       "mergedBy": "guyharris",
       "mergeCommit": {
         "oid": "916742516347e80046d53f2446f4b9acbe6fc7cf"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 192,
+      "id": "PR_kwDOAU54e860okk7",
+      "title": "feat: turn back to Expert Review",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/192",
+      "state": "MERGED",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "adjust back to Expert Review.\r\n",
+      "createdAt": "2025-11-20T16:23:14Z",
+      "updatedAt": "2025-11-22T22:47:06Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "46e94febf290b6d60a41ca4f12e57f6ae976c5c5",
+      "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "headRefName": "return-to-expert-review",
+      "headRefOid": "e19faf16dbc6d348dc56aa9cb3549eb66d92b0f7",
+      "closedAt": "2025-11-22T22:47:06Z",
+      "mergedAt": "2025-11-22T22:47:06Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "8369d4b9dda1c438124ca052bee2fe281b3ab934"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOAU54e87P_-3l",
+          "commit": {
+            "abbreviatedOid": "e19faf1"
+          },
+          "author": "mjethanandani",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-20T19:47:05Z",
+          "updatedAt": "2025-11-20T19:50:40Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "I believe there was a DISCUSS comment from Ketan on this statement for better clarification on what it means. ",
+              "createdAt": "2025-11-20T19:47:05Z",
+              "updatedAt": "2025-11-20T19:50:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOAU54e87QAShH",
+          "commit": {
+            "abbreviatedOid": "e19faf1"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-20T20:08:52Z",
+          "updatedAt": "2025-11-20T20:08:52Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "I'm not really sure I know what is lacking, but here is a an attempt: #193 ",
+              "createdAt": "2025-11-20T20:08:52Z",
+              "updatedAt": "2025-11-20T20:08:53Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 193,
+      "id": "PR_kwDOAU54e860rcaE",
+      "title": "attempt to clarify how layer-2 to layer-3 information should work",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/193",
+      "state": "MERGED",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-11-20T20:08:07Z",
+      "updatedAt": "2025-11-22T22:47:21Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "return-to-expert-review",
+      "baseRefOid": "e19faf16dbc6d348dc56aa9cb3549eb66d92b0f7",
+      "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "headRefName": "layer-2-details",
+      "headRefOid": "87a46831a941669d77f780d4c040f12f1f8a7fa5",
+      "closedAt": "2025-11-22T22:47:21Z",
+      "mergedAt": "2025-11-22T22:47:21Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "42c7b1c4144427e6eb7c3d78950851e2096f6dac"
       },
       "comments": [],
       "reviews": []
