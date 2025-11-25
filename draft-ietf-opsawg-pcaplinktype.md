@@ -709,8 +709,9 @@ IANA is also requested to create a registry entitled "PCAP-related LinkType List
 
 The registry has the following structure:
 
-* LinkType Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).
 * LinkType Value: Indicates the 16-bit unsigned integer assigned for this LinkType.
+* LinkType Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).
+* Change Controller: who to accept changes from
 * Description: Provides a very short description.
 * Reference: Indicates an authoritative document reference for the LinkType or a requester reference.
 
@@ -726,7 +727,7 @@ The policy allocation for the LinkType values is as follows:
 The initial version of the registry is provided in {{sec-initial}}.  In each
 case here, the reference should be set to
 {{TCPDUMP}} and the RFC number to be assigned to this document, which is not repeated each time.
-The change controller for all entries is the IESG, via appointed Designated Experts.
+The Change Controller for all existing entries is the IESG, via appointed Designated Experts.
 
 The initial contents of the table are based upon the link-layer header
 type list maintained by libpcap, and published on {{TCPDUMP}}.
