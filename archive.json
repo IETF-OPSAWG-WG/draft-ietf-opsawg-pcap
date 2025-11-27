@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-23T02:04:38.737946+00:00",
+  "timestamp": "2025-11-27T01:50:09.852359+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -11325,6 +11325,32 @@
       "mergeCommit": {
         "oid": "42c7b1c4144427e6eb7c3d78950851e2096f6dac"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 194,
+      "id": "PR_kwDOAU54e861e6Qf",
+      "title": "add change controller column",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/194",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "add explicit change controller column\r\n",
+      "createdAt": "2025-11-25T19:23:40Z",
+      "updatedAt": "2025-11-25T19:23:40Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "8369d4b9dda1c438124ca052bee2fe281b3ab934",
+      "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "headRefName": "add-change-controller",
+      "headRefOid": "085382ace67076248850e32669c8ec6ed45bac38",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
