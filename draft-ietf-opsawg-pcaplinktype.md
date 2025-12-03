@@ -726,7 +726,7 @@ The policy allocation for the LinkType values is as follows:
 The initial version of the registry is provided in {{sec-initial}}.  In each
 case here, the reference should be set to
 {{TCPDUMP}} and the RFC number to be assigned to this document, which is not repeated each time.
-The change controller for all entries is the IESG, via appointed Designated Experts.
+The change controller for all legacy is linktype@tcpdump.org.
 
 The initial contents of the table are based upon the link-layer header
 type list maintained by libpcap, and published on {{TCPDUMP}}.
