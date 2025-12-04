@@ -2226,7 +2226,7 @@ The following is a list of Secrets Types.
 {: indent='8'}
 0x45535053:
 : ESP Security Association keys.
-  This is in CSV format ([RFC 4180]), with each record containing fields that
+  This is in CSV format ({{RFC4180}}), with each record containing fields that
   describe an ESP security association. Each line has the following columns:
   "Protocol","Src IP","Dest IP","SPI","Encryption","Encryption Key",
   "Authentication","Authentication Key","SN","ESN High Bits".
@@ -2244,11 +2244,11 @@ The following is a list of Secrets Types.
 
   * SPI: Security Parameter Index. String of a 32 bits integer in hexadecimal format (starting with 0x).
 
-  * Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC [RFC2451]", "AES-CBC [RFC3602]",
-  "AES-CTR [RFC3686]", "DES-CBC [RFC2405]", "CAST5-CBC [RFC2144]", "BLOWFISH-CBC [RFC2451]", "TWOFISH-CBC",
-  "AES-GCM [RFC4106]", "AES-GCM with 8 octet ICV [RFC4106]", "AES-GCM with 12 octet ICV [RFC4106]",
-  "AES-GCM with 16 octet ICV [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 & RFC8750]",
-  "ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20 with Poly1305 and IIV [RFC7634 & RFC8750]".
+  * Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC" {{RFC2451}}, "AES-CBC" {{RFC3602}},
+  "AES-CTR" {{RFC3686}}, "DES-CBC" {{RFC2405}}, "CAST5-CBC" {{RFC2144}}, "BLOWFISH-CBC" {{RFC2451}}, "TWOFISH-CBC",
+  "AES-GCM" {{RFC4106}}, "AES-GCM with 8 octet ICV" {{RFC4106}}, "AES-GCM with 12 octet ICV" {{RFC4106}},
+  "AES-GCM with 16 octet ICV" {{RFC4106}}, "AES-GCM with IIV and 16 octet ICV" {{RFC4106}} and {{RFC8750}},
+  "ChaCha20 with Poly1305" {{RFC7634}} or "ChaCha20 with Poly1305 and IIV" {{RFC7634}} and {{RFC8750}}.
   New algorithms might be added in the future.
 
   * Encryption Key: Encryption key. String containing the key in heaxadecimal format (starting with 0x).
