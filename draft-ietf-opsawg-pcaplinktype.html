@@ -1244,16 +1244,19 @@ LinkType values.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-2.2-2">The registry has the following structure:<a href="#section-2.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2.2-3.1">
-            <p id="section-2.2-3.1.1">LinkType Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).<a href="#section-2.2-3.1.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-3.1.1">LinkType Value: Indicates the 16-bit unsigned integer assigned for this LinkType.<a href="#section-2.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-2.2-3.2">
-            <p id="section-2.2-3.2.1">LinkType Value: Indicates the 16-bit unsigned integer assigned for this LinkType.<a href="#section-2.2-3.2.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-3.2.1">LinkType Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).<a href="#section-2.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-2.2-3.3">
-            <p id="section-2.2-3.3.1">Description: Provides a very short description.<a href="#section-2.2-3.3.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-3.3.1">Change Controller: who to accept changes from<a href="#section-2.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-2.2-3.4">
-            <p id="section-2.2-3.4.1">Reference: Indicates an authoritative document reference for the LinkType or a requester reference.<a href="#section-2.2-3.4.1" class="pilcrow">¶</a></p>
+            <p id="section-2.2-3.4.1">Description: Provides a very short description.<a href="#section-2.2-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.2-3.5">
+            <p id="section-2.2-3.5.1">Reference: Indicates an authoritative document reference for the LinkType or a requester reference.<a href="#section-2.2-3.5.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-2.2-4">The policy allocation for the LinkType values is as follows:<a href="#section-2.2-4" class="pilcrow">¶</a></p>
@@ -1273,7 +1276,7 @@ case here, the reference should be set to
 <span>[<a href="#TCPDUMP" class="cite xref">TCPDUMP</a>]</span> and the RFC number to be assigned to this document, which is not repeated each time.<a href="#section-2.2-6" class="pilcrow">¶</a></p>
 <p id="section-2.2-7">The initial contents of the table are based upon the link-layer header
 type list maintained by libpcap, and published on <span>[<a href="#TCPDUMP" class="cite xref">TCPDUMP</a>]</span>.
-The change controller for all these initial entries that have no other reference is linktype@tcpdump.org.<a href="#section-2.2-7" class="pilcrow">¶</a></p>
+The change controller for all initial entries that have no other reference is linktype@tcpdump.org.<a href="#section-2.2-7" class="pilcrow">¶</a></p>
 <p id="section-2.2-8">LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally reserved for Experimental/Private Use, and that use continues to be supported.
 However, new private use cases should use the values in the 65001-65535 range.<a href="#section-2.2-8" class="pilcrow">¶</a></p>
 <p id="section-2.2-9">In general, Experimental Use values should never leak out of the entity that uses it.
