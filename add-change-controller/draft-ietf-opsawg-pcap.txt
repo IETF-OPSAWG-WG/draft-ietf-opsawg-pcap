@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Historic                                  M. Richardson
-Expires: 29 May 2026                                           Sandelman
-                                                        25 November 2025
+Expires: 7 June 2026                                           Sandelman
+                                                         4 December 2025
 
 
                         PCAP Capture File Format
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 May 2026.
+   This Internet-Draft will expire on 7 June 2026.
 
 Copyright Notice
 
@@ -453,9 +453,9 @@ Table of Contents
    [I-D.ietf-opsawg-pcaplinktype]
               Harris, G. and M. Richardson, "Link-Layer Types for PCAP-
               related Capture File Formats", Work in Progress, Internet-
-              Draft, draft-ietf-opsawg-pcaplinktype-14, 22 November
-              2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              opsawg-pcaplinktype-14>.
+              Draft, draft-ietf-opsawg-pcaplinktype-15, 3 December 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
+              pcaplinktype-15>.
 
    [I-D.ietf.opsawg-pcaplinktype]
               "*** BROKEN REFERENCE ***".
