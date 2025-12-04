@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 26 May 2026                                           Sandelman
-                                                        22 November 2025
+Expires: 7 June 2026                                           Sandelman
+                                                         4 December 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 May 2026.
+   This Internet-Draft will expire on 7 June 2026.
 
 Copyright Notice
 
@@ -140,11 +140,12 @@ Table of Contents
    The initial version of the registry is provided in Section 2.2.1.  In
    each case here, the reference should be set to [TCPDUMP] and the RFC
    number to be assigned to this document, which is not repeated each
-   time.  The change controller for all entries is the IESG, via
-   appointed Designated Experts.
+   time.
 
    The initial contents of the table are based upon the link-layer
    header type list maintained by libpcap, and published on [TCPDUMP].
+   The change controller for all these initial entries that have no
+   other reference is linktype@tcpdump.org.
 
    LinkType values 147 to 162 named LINKTYPE_RESERVED_xx were originally
    reserved for Experimental/Private Use, and that use continues to be
@@ -1192,7 +1193,7 @@ Table of Contents
    the IP header needs to be clearly specified.
 
    Specifications that are not publicly available, but which may be
-   obtained via liaison agreements (such as to ITU-T, 3GPP drafts, IEEE,
+   obtained via liaison agreements (such as to ITU-T, drafts, IEEE,
    etc.) are acceptable particularly if the specification document will
    be public eventually.  This includes specifications that might be
    subject to a security classification for which no public document
