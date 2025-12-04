@@ -726,10 +726,10 @@ The policy allocation for the LinkType values is as follows:
 The initial version of the registry is provided in {{sec-initial}}.  In each
 case here, the reference should be set to
 {{TCPDUMP}} and the RFC number to be assigned to this document, which is not repeated each time.
-The change controller for all legacy is linktype@tcpdump.org.
 
 The initial contents of the table are based upon the link-layer header
 type list maintained by libpcap, and published on {{TCPDUMP}}.
+The change controller for all these initial entries that have no other reference is linktype@tcpdump.org.
 
 LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved for Experimental/Private Use, and that use continues to be supported.
 However, new private use cases should use the values in the 65001-65535 range.
