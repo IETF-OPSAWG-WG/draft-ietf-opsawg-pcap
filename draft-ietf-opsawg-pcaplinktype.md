@@ -710,7 +710,7 @@ IANA is also requested to create a registry entitled "PCAP-related LinkType List
 The registry has the following structure:
 
 * LinkType Value: Indicates the 16-bit unsigned integer assigned for this LinkType.
-* LinkType Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).
+* LinkType Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE\_something).
 * Change Controller: who to accept changes from
 * Description: Provides a very short description.
 * Reference: Indicates an authoritative document reference for the LinkType or a requester reference.

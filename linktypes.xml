@@ -1,5 +1,5 @@
 LinkType Name
-: LINKTYPE\_NULL
+: LINKTYPE_NULL
 
 LinkType Value
 : 0
@@ -14,78 +14,70 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_ETHERNET
+: LINKTYPE_ETHERNET
 
 LinkType Value
 : 1
 
 Description
 : IEEE 802.3 Ethernet
-
-Reference:
-: {{LINKTYPE_ETHERNET}}
 {: spacing="compact"}
 
 
+
 LinkType Name
-: LINKTYPE\_EXP\_ETHERNET
+: LINKTYPE_EXP_ETHERNET
 
 LinkType Value
 : 2
 
 Description
 : Xerox experimental 3Mb Ethernet
-
-Reference
-: {{PracConsEthDesign}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_AX25
+: LINKTYPE_AX25
 
 LinkType Value
 : 3
 
 Description
-: AX.25 layer 2 packets
+: AX.25 packet
 
 Reference
-: {{LINKTYPE_AX25}}
+: {{AX.25}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_PRONET
+: LINKTYPE_PRONET
 
 LinkType Value
 : 4
 
 Description
-: Proteon PRONet Token Ring
+: Reserved for PRONET
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_CHAOS
+: LINKTYPE_CHAOS
 
 LinkType Value
 : 5
 
 Description
-:  MIT Chaosnet
-
-Reference
-: {{AIM-628}}
+: Reserved for MIT CHAOSNET
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_5
+: LINKTYPE_IEEE802_5
 
 LinkType Value
 : 6
@@ -97,25 +89,25 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_ARCNET\_BSD
+: LINKTYPE_ARCNET_BSD
 
 LinkType Value
 : 7
 
 Description
-:  ARCNET Data Packets with BSD encapsulation
+: ARCNET Data Packets with BSD encapsulation
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_SLIP
+: LINKTYPE_SLIP
 
 LinkType Value
 : 8
 
 Description
-: SLIP, with a direction header
+: SLIP
 
 Reference
 : {{LINKTYPE_SLIP}}
@@ -124,7 +116,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_PPP
+: LINKTYPE_PPP
 
 LinkType Value
 : 9
@@ -133,13 +125,13 @@ Description
 : PPP
 
 Reference
-: {{LINKTYPE_PPP}}
+: {{?RFC1661}}/{{?RFC1662}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_FDDI
+: LINKTYPE_FDDI
 
 LinkType Value
 : 10
@@ -151,7 +143,7 @@ Description
 
 
 LinkType Name
-: Not available for assignment
+: not to be used
 
 LinkType Value
 : 11-49
@@ -163,7 +155,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_PPP\_HDLC
+: LINKTYPE_PPP_HDLC
 
 LinkType Value
 : 50
@@ -172,52 +164,52 @@ Description
 : PPP in HDLC-like framing
 
 Reference
-: {{LINKTYPE_PPP_HDLC}}
+: {{?RFC1662}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_PPP\_ETHER
+: LINKTYPE_PPP_ETHER
 
 LinkType Value
 : 51
 
 Description
-: PPPoE session packets
+: PPPoE
 
 Reference
-: {{LINKTYPE_PPP_ETHER}}
+: {{Section 4 of ?RFC2516}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: Not available for assignment
+: Reserved
 
 LinkType Value
 : 52-98
 
 Description
-: Used historically by NetBSD
+: Do not use these values
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_SYMANTEC\_FIREWALL
+: LINKTYPE_SYMANTEC_FIREWALL
 
 LinkType Value
 : 99
 
 Description
-:  Symantec Enterprise Firewall
+: Reserved for Symantec Enterprise Firewall
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_ATM\_RFC1483
+: LINKTYPE_ATM_RFC1483
 
 LinkType Value
 : 100
@@ -226,52 +218,49 @@ Description
 : LLC/SNAP-encapsulated ATM
 
 Reference
-: {{LINKTYPE_ATM_RFC1483}}
+: {{?RFC1483}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_RAW
+: LINKTYPE_RAW
 
 LinkType Value
 : 101
 
 Description
-: IP without link-layer headers
-
-Reference
-: {{LINKTYPE_RAW}} {{?RFC791}} {{?RFC8200}}
+: Raw IP; begins with an IPv4 or IPv6 header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_SLIP\_BSDOS
+: LINKTYPE_SLIP_BSDOS
 
 LinkType Value
 : 102
 
 Description
-:  BSD/OS SLIP BPF header
+: Reserved for BSD/OS SLIP BPF header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_PPP\_BSDOS
+: LINKTYPE_PPP_BSDOS
 
 LinkType Value
 : 103
 
 Description
-:  BSD/OS PPP BPF header
+: Reserved for BSD/OS PPP BPF header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_C\_HDLC
+: LINKTYPE_C_HDLC
 
 LinkType Value
 : 104
@@ -280,13 +269,13 @@ Description
 : Cisco PPP with HDLC framing
 
 Reference
-: {{LINKTYPE_C_HDLC}}
+: {{Section 4.3.1 of ?RFC1547}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_11
+: LINKTYPE_IEEE802_11
 
 LinkType Value
 : 105
@@ -298,7 +287,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_ATM\_CLIP
+: LINKTYPE_ATM_CLIP
 
 LinkType Value
 : 106
@@ -310,22 +299,19 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_FRELAY
+: LINKTYPE_FRELAY
 
 LinkType Value
 : 107
 
 Description
-: Frame Relay LAPF
-
-Reference
-: {{LINKTYPE_FRELAY}}
+: Frame Relay LAPF frames
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_LOOP
+: LINKTYPE_LOOP
 
 LinkType Value
 : 108
@@ -340,55 +326,55 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_ENC
+: LINKTYPE_ENC
 
 LinkType Value
 : 109
 
 Description
-:  OpenBSD IPsec encapsulation
+: Reserved for OpenBSD IPSEC encapsulation
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_LANE8023
+: LINKTYPE_LANE8023
 
 LinkType Value
 : 110
 
 Description
-:  ATM LANE + 802.3
+: Reserved for ATM LANE + 802.3
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_HIPPI
+: LINKTYPE_HIPPI
 
 LinkType Value
 : 111
 
 Description
-:  NetBSD HIPPI
+: Reserved for NetBSD HIPPI
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_HDLC
+: LINKTYPE_HDLC
 
 LinkType Value
 : 112
 
 Description
-:  NetBSD HDLC framing
+: Reserved for NetBSD HDLC framing
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_LINUX\_SLL
+: LINKTYPE_LINUX_SLL
 
 LinkType Value
 : 113
@@ -403,76 +389,73 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_LTALK
+: LINKTYPE_LTALK
 
 LinkType Value
 : 114
 
 Description
 : Apple LocalTalk
-
-Reference
-: {{LINKTYPE_LTALK}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_ECONET
+: LINKTYPE_ECONET
 
 LinkType Value
 : 115
 
 Description
-:  Acorn Econet
+: Reserved for Acorn Econet
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IPFILTER
+: LINKTYPE_IPFILTER
 
 LinkType Value
 : 116
 
 Description
-:  OpenBSD ipfilter
+: Reserved for OpenBSD ipfilter
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_PFLOG
+: LINKTYPE_PFLOG
 
 LinkType Value
 : 117
 
 Description
-:  PF packet filter logging
+: OpenBSD pflog; "struct pfloghdr" structure
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_CISCO\_IOS
+: LINKTYPE_CISCO_IOS
 
 LinkType Value
 : 118
 
 Description
-:  Cisco-internal use
+: Reserved for Cisco-internal use
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_11\_PRISM
+: LINKTYPE_IEEE802_11_PRISM
 
 LinkType Value
 : 119
 
 Description
-: IEEE 802.11 wireless LAN, preceded by a Prism monitor mode header
+: Prism monitor mode
 
 Reference
 : {{LINKTYPE_IEEE802_11_PRISM}}
@@ -481,46 +464,46 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_11\_AIRONET
+: LINKTYPE_IEEE802_11_AIRONET
 
 LinkType Value
 : 120
 
 Description
-:  802.11 + FreeBSD Aironet radio metadata
+: Reserved for 802.11 + FreeFreeBSD Aironet radio metadata
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_HHDLC
+: LINKTYPE_HHDLC
 
 LinkType Value
 : 121
 
 Description
-:  Siemens HiPath HDLC
+: Reserved for Siemens HiPath HDLC
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IP\_OVER\_FC
+: LINKTYPE_IP_OVER_FC
 
 LinkType Value
 : 122
 
 Description
-: IP and ATM over Fibre Channel
+: IP-over-Fibre Channel, starting with the Network_Header
 
 Reference
-: {{LINKTYPE_IP_OVER_FC}}
+: {{?RFC2625}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_SUNATM
+: LINKTYPE_SUNATM
 
 LinkType Value
 : 123
@@ -535,49 +518,49 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_RIO
+: LINKTYPE_RIO
 
 LinkType Value
 : 124
 
 Description
-:  RapidIO
+: Reserved for RapidIO
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_PCI\_EXP
+: LINKTYPE_PCI_EXP
 
 LinkType Value
 : 125
 
 Description
-:  PCI Express
+: Reserved for PCI Express
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_AURORA
+: LINKTYPE_AURORA
 
 LinkType Value
 : 126
 
 Description
-:  Xilinx Aurora link layer
+: Reserved for Xilinx Aurora link layer
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_11\_RADIOTAP
+: LINKTYPE_IEEE802_11_RADIOTAP
 
 LinkType Value
 : 127
 
 Description
-: IEEE 802.11 wireless LAN, preceded by a Radiotap header
+: Radiotap header, followed by an 802.11 header
 
 Reference
 : {{Radiotap}}
@@ -586,127 +569,127 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_TZSP
+: LINKTYPE_TZSP
 
 LinkType Value
 : 128
 
 Description
-:  Tazmen Sniffer Protocol
+: Reserved for Tazmen Sniffer Protocol
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_ARCNET\_LINUX
+: LINKTYPE_ARCNET_LINUX
 
 LinkType Value
 : 129
 
 Description
-:  ARCNET Data Packets with Linux encapsulation
+: ARCNET Data Packets, per RFC 1051 frames w/variations
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_MLPPP
+: LINKTYPE_JUNIPER_MLPPP
 
 LinkType Value
 : 130
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_MLFR
+: LINKTYPE_JUNIPER_MLFR
 
 LinkType Value
 : 131
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_ES
+: LINKTYPE_JUNIPER_ES
 
 LinkType Value
 : 132
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_GGSN
+: LINKTYPE_JUNIPER_GGSN
 
 LinkType Value
 : 133
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_MFR
+: LINKTYPE_JUNIPER_MFR
 
 LinkType Value
 : 134
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_ATM2
+: LINKTYPE_JUNIPER_ATM2
 
 LinkType Value
 : 135
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_SERVICES
+: LINKTYPE_JUNIPER_SERVICES
 
 LinkType Value
 : 136
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_ATM1
+: LINKTYPE_JUNIPER_ATM1
 
 LinkType Value
 : 137
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_APPLE\_IP\_OVER\_IEEE1394
+: LINKTYPE_APPLE_IP_OVER_IEEE1394
 
 LinkType Value
 : 138
@@ -721,67 +704,67 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_MTP2\_WITH\_PHDR
+: LINKTYPE_MTP2_WITH_PHDR
 
 LinkType Value
 : 139
 
 Description
-: SS7 MTP2 frames, with a pseudo-header
+: Signaling System 7 (SS7) Message Transfer Part Level
 
 Reference
-: {{LINKTYPE_MTP2_WITH_PHDR}}
+: {{Q.703}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_MTP2
+: LINKTYPE_MTP2
 
 LinkType Value
 : 140
 
 Description
-: SS7 MTP2 packets
+: SS7 Level 2
 
 Reference
-: {{LINKTYPE_MTP2}}
+: {{Q.703}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_MTP3
+: LINKTYPE_MTP3
 
 LinkType Value
 : 141
 
 Description
-: SS7 MTP3 packets
+: SS7 Level 3, with no MTP2 header
 
 Reference
-: {{LINKTYPE_MTP3}}
+: {{Q.704}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_SCCP
+: LINKTYPE_SCCP
 
 LinkType Value
 : 142
 
 Description
-: SS7 SCCP packets
+: SS7 Control Part, with no MTP3 or MTP2 header
 
 Reference
-: {{LINKTYPE_SCCP}}
+: {{Q.711}} {{Q.712}} {{Q.713}} {{Q.714}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_DOCSIS
+: LINKTYPE_DOCSIS
 
 LinkType Value
 : 143
@@ -796,7 +779,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_LINUX\_IRDA
+: LINKTYPE_LINUX_IRDA
 
 LinkType Value
 : 144
@@ -811,31 +794,31 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_IBM\_SP
+: LINKTYPE_IBM_SP
 
 LinkType Value
 : 145
 
 Description
-:  IBM SP switch
+: Reserved for IBM SP switch
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IBM\_SN
+: LINKTYPE_IBM_SN
 
 LinkType Value
 : 146
 
 Description
-:  IBM Next Federation switch
+: Reserved for IBM Next Federation switch
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_01
+: LINKTYPE_RESERVED_01
 
 LinkType Value
 : 147
@@ -847,7 +830,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_02
+: LINKTYPE_RESERVED_02
 
 LinkType Value
 : 148
@@ -859,7 +842,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_03
+: LINKTYPE_RESERVED_03
 
 LinkType Value
 : 149
@@ -871,7 +854,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_04
+: LINKTYPE_RESERVED_04
 
 LinkType Value
 : 150
@@ -883,7 +866,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_05
+: LINKTYPE_RESERVED_05
 
 LinkType Value
 : 151
@@ -895,7 +878,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_06
+: LINKTYPE_RESERVED_06
 
 LinkType Value
 : 152
@@ -907,7 +890,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_07
+: LINKTYPE_RESERVED_07
 
 LinkType Value
 : 153
@@ -919,7 +902,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_08
+: LINKTYPE_RESERVED_08
 
 LinkType Value
 : 154
@@ -931,7 +914,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_09
+: LINKTYPE_RESERVED_09
 
 LinkType Value
 : 155
@@ -943,7 +926,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_10
+: LINKTYPE_RESERVED_10
 
 LinkType Value
 : 156
@@ -955,7 +938,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_11
+: LINKTYPE_RESERVED_11
 
 LinkType Value
 : 157
@@ -967,7 +950,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_12
+: LINKTYPE_RESERVED_12
 
 LinkType Value
 : 158
@@ -979,7 +962,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_13
+: LINKTYPE_RESERVED_13
 
 LinkType Value
 : 159
@@ -991,7 +974,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_14
+: LINKTYPE_RESERVED_14
 
 LinkType Value
 : 160
@@ -1003,7 +986,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_15
+: LINKTYPE_RESERVED_15
 
 LinkType Value
 : 161
@@ -1015,7 +998,7 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_RESERVED\_16
+: LINKTYPE_RESERVED_16
 
 LinkType Value
 : 162
@@ -1027,13 +1010,13 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_11\_AVS
+: LINKTYPE_IEEE802_11_AVS
 
 LinkType Value
 : 163
 
 Description
-: IEEE 802.11 wireless LAN, preceded by an AVS header
+: AVS header, followed by an 802.11 header
 
 Reference
 : {{AVS}}
@@ -1042,19 +1025,19 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_MONITOR
+: LINKTYPE_JUNIPER_MONITOR
 
 LinkType Value
 : 164
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_BACNET\_MS\_TP
+: LINKTYPE_BACNET_MS_TP
 
 LinkType Value
 : 165
@@ -1063,52 +1046,49 @@ Description
 : BACnet MS/TP frames
 
 Reference
-: {{LINKTYPE_BACNET_MS_TP}}
+: Section 9.3 MS/TP Frame Format of {{ASHRAE-135}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_PPP\_PPPD
+: LINKTYPE_PPP_PPPD
 
 LinkType Value
 : 166
 
 Description
-: PPP preceded by a direction octet and an HDLC-like control field
-
-Reference
-: {{LINKTYPE_PPP_PPPD}}
+: PPP in HDLC-like encapsulation, like LINKTYPE_PPP_HDLC, different stuffing
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_PPPOE
+: LINKTYPE_JUNIPER_PPPOE
 
 LinkType Value
 : 167
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_PPPOE\_ATM
+: LINKTYPE_JUNIPER_PPPOE_ATM
 
 LinkType Value
 : 168
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_GPRS\_LLC
+: LINKTYPE_GPRS_LLC
 
 LinkType Value
 : 169
@@ -1123,7 +1103,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_GPF\_T
+: LINKTYPE_GPF_T
 
 LinkType Value
 : 170
@@ -1138,7 +1118,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_GPF\_F
+: LINKTYPE_GPF_F
 
 LinkType Value
 : 171
@@ -1153,73 +1133,67 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_GCOM\_T1E1
+: LINKTYPE_GCOM_T1E1
 
 LinkType Value
 : 172
 
 Description
-:  Gcom T1/E1 line monitoring equipment
+: Reserved for Gcom T1/E1 line monitoring equipment
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_GCOM\_SERIAL
+: LINKTYPE_GCOM_SERIAL
 
 LinkType Value
 : 173
 
 Description
-:  Gcom T1/E1 line monitoring equipment
+: Reserved for Gcom T1/E1 line monitoring equipment
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_PIC\_PEER
+: LINKTYPE_JUNIPER_PIC_PEER
 
 LinkType Value
 : 174
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_ERF\_ETH
+: LINKTYPE_ERF_ETH
 
 LinkType Value
 : 175
 
 Description
-: Endace TYPE\_ETH ERF records
-
-Reference
-: {{LINKTYPE_ERF}}
+: Endace ERF header followed by 802.3 Ethernet
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_ERF\_POS
+: LINKTYPE_ERF_POS
 
 LinkType Value
 : 176
 
 Description
-: Endace TYPE\_POS\_HDLC ERF records
-
-Reference
-: {{LINKTYPE_ERF}}
+: Endace ERF header followed by Packet-over-SONET
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_LINUX\_LAPD
+: LINKTYPE_LINUX_LAPD
 
 LinkType Value
 : 177
@@ -1234,238 +1208,229 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_ETHER
+: LINKTYPE_JUNIPER_ETHER
 
 LinkType Value
 : 178
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_PPP
+: LINKTYPE_JUNIPER_PPP
 
 LinkType Value
 : 179
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_FRELAY
+: LINKTYPE_JUNIPER_FRELAY
 
 LinkType Value
 : 180
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_CHDLC
+: LINKTYPE_JUNIPER_CHDLC
 
 LinkType Value
 : 181
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_MFR
+: LINKTYPE_MFR
 
 LinkType Value
 : 182
 
 Description
-: FRF.16.1 Multi-Link Frame Relay frames
+: FRF.16.1 Multi-Link Frame Relay frames, beginning with an FRF.12 Interface fragmentation format fragmentation header
 
 Reference
-: {{LINKTYPE_MFR}}
+: {{FRF.16.1}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_VP
+: LINKTYPE_JUNIPER_VP
 
 LinkType Value
 : 183
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_A429
+: LINKTYPE_A429
 
 LinkType Value
 : 184
 
 Description
-:  ARINC 429 frames
+: Reserved for ARINC 429 frames
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_A653\_ICM
+: LINKTYPE_A653_ICM
 
 LinkType Value
 : 185
 
 Description
-:  Arinc 653 Interpartition Communication messages
+: Reserved for Arinc 653 Interpartition Communication messages
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_USB\_FREEBSD
+: LINKTYPE_USB_FREEBSD
 
 LinkType Value
 : 186
 
 Description
-:  USB traffic captured on FreeBSD
+: USB packets, beginning with a FreeBSD USB header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_BLUETOOTH\_HCI\_H4
+: LINKTYPE_BLUETOOTH_HCI_H4
 
 LinkType Value
 : 187
 
 Description
-: Bluetooth HCI UART Transport Layer packets
-
-Reference
-: {{LINKTYPE_BLUETOOTH_HCI_H4}}
+: Bluetooth HCI UART transport layer; the frame contains an HCI packet indicator octet, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification, followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_16\_MAC\_CPS
+: LINKTYPE_IEEE802_16_MAC_CPS
 
 LinkType Value
 : 188
 
 Description
-:  IEEE 802.16 MAC Common Part Sublayer
+: Reserved for IEEE 802.16 MAC Common Part Sublayer
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_USB\_LINUX
+: LINKTYPE_USB_LINUX
 
 LinkType Value
 : 189
 
 Description
-: USB packets, beginning with a Linux USB header
-
-Reference
-: {{LINKTYPE_USB_LINUX}}
+: USB packets, beginning with a Linux USB header, as specified by the struct usbmon_packet in the Documentation/usb/usbmon.txt file in the Linux source tree. Only the first 48 octets of that header are present. All fields in the header are in host byte order. When performing a live capture, the host byte order is the byte order of the machine on which the packets are captured. When reading a pcap file, the byte order is the byte order for the file, as specified by the file's magic number; when reading a pcapng file, the byte order is the byte order for the section of the pcapng file, as specified by the Section Header Block
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_CAN20B
+: LINKTYPE_CAN20B
 
 LinkType Value
 : 190
 
 Description
-:  Controller Area Network (CAN) v. 2.0B packets
+: Reserved for Controller Area Network (CAN) v. 2.0B packets
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_15\_4\_LINUX
+: LINKTYPE_IEEE802_15_4_LINUX
 
 LinkType Value
 : 191
 
 Description
-:  IEEE 802.15.4 with address fields padded by Linux
+: IEEE 802.15.4, with address fields padded, as is done by Linux drivers
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_PPI
+: LINKTYPE_PPI
 
 LinkType Value
 : 192
 
 Description
-: Per-Packet Information header preceding packet data
+: Per-Packet Information information, as specified by the Per-Packet Information Header Specification , followed by a packet with the LINKTYPE_ value specified by the pph_dlt field of that header
 
 Reference
-: {{LINKTYPE_PPI}}
+: {{PPI}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_16\_MAC\_CPS\_RADIO
+: LINKTYPE_IEEE802_16_MAC_CPS_RADIO
 
 LinkType Value
 : 193
 
 Description
-:  802.16 MAC Common Part Sublayer plus radio header
+: Reserved for 802.16 MAC Common Part Sublayer plus radio header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_ISM
+: LINKTYPE_JUNIPER_ISM
 
 LinkType Value
 : 194
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_15\_4\_WITHFCS
+: LINKTYPE_IEEE802_15_4_WITHFCS
 
 LinkType Value
 : 195
 
 Description
-: IEEE 802.15.4 with FCS
-
-Reference
-: {{LINKTYPE_IEEE802_15_4_WITHFCS}}
+: IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_SITA
+: LINKTYPE_SITA
 
 LinkType Value
 : 196
@@ -1480,7 +1445,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_ERF
+: LINKTYPE_ERF
 
 LinkType Value
 : 197
@@ -1489,166 +1454,154 @@ Description
 : Endace ERF records
 
 Reference
-: {{LINKTYPE_ERF}}
+: {{ERF}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_RAIF1
+: LINKTYPE_RAIF1
 
 LinkType Value
 : 198
 
 Description
-:  Ethernet packets captured from a u10 Networks board
+: Reserved for Ethernet packets captured from a u10 Networks board
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IPMB\_KONTRON
+: LINKTYPE_IPMB_KONTRON
 
 LinkType Value
 : 199
 
 Description
-:  IPMB packet for IPMI, with a 2-octet header
+: Reserved for IPMB packet for IPMI, with a 2-octet header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_ST
+: LINKTYPE_JUNIPER_ST
 
 LinkType Value
 : 200
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_BLUETOOTH\_HCI\_H4\_WITH\_PHDR
+: LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR
 
 LinkType Value
 : 201
 
 Description
-: Bluetooth HCI UART Transport Layer packets with a direction pseudo-header
-
-Reference
-: {{LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR}}
+: Bluetooth HCI UART transport layer; the frame contains a 4-octet direction field, in network byte order (big-endian), the low-order bit of which is set if the frame was sent from the host to the controller and clear if the frame was received by the host from the controller, followed by an HCI packet indicator octet, as specified by the UART Transport Layer portion of the most recent Bluetooth Core specification, followed by an HCI packet of the specified packet type, as specified by the Host Controller Interface Functional Specification portion of the most recent Bluetooth Core Specification
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_AX25\_KISS
+: LINKTYPE_AX25_KISS
 
 LinkType Value
 : 202
 
 Description
-: KISS frames between a host and an AX.25 TNC
+: AX.25 packet, with a KISS header
 
 Reference
-: {{LINKTYPE_AX25_KISS}}
+: {{KISS}} {{AX.25}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_LAPD
+: LINKTYPE_LAPD
 
 LinkType Value
 : 203
 
 Description
-: Q.921 LAPD frames
+: Link Access Procedures on the D Channel (LAPD) frames, starting with the address field, with no pseudo-header
 
 Reference
-: {{LINKTYPE_LAPD}}
+: {{Q.920}} {{Q.921}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_PPP\_WITH\_DIR
+: LINKTYPE_PPP_WITH_DIR
 
 LinkType Value
 : 204
 
 Description
-: PPP, with a direction header
-
-Reference
-: {{LINKTYPE_PPP_WITH_DIR}}
+: PPP, as per RFC 1661 and RFC 1662 , preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host; if the first 2 octets are 0xff and 0x03, it's PPP in HDLC-like framing, with the PPP header following those two octets, otherwise it's PPP without framing, and the packet begins with the PPP header. The data in the frame is not octet-stuffed or bit-stuffed
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_C\_HDLC\_WITH\_DIR
+: LINKTYPE_C_HDLC_WITH_DIR
 
 LinkType Value
 : 205
 
 Description
-: Cisco PPP with HDLC framing, with a direction header
+: Cisco PPP with HDLC framing, preceded with a one-octet pseudo-header with a zero value meaning received by this host and a non-zero value meaning sent by this host
 
 Reference
-: {{LINKTYPE_C_HDLC_WITH_DIR}}
+: {{Section 4.3.1 of ?RFC1547}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_FRELAY\_WITH\_DIR
+: LINKTYPE_FRELAY_WITH_DIR
 
 LinkType Value
 : 206
 
 Description
-: Frame Relay LAPF, with a direction header
-
-Reference
-: {{LINKTYPE_FRELAY_WITH_DIR}}
+: Frame Relay LAPF frames, beginning with a one-octet pseudo-header with a zero value meaning received by this host (DCE->DTE) and a non-zero value meaning sent by this host (DTE->DCE), followed by an ITU-T Recommendation Q.922 LAPF header starting with the address field, and without an FCS at the end of the frame
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_LAPB\_WITH\_DIR
+: LINKTYPE_LAPB_WITH_DIR
 
 LinkType Value
 : 207
 
 Description
-: X.25 LAPB, with a direction header
-
-Reference
-: {{LINKTYPE_LAPB_WITH_DIR}}
+: Link Access Procedure, Balanced (LAPB), as specified by ITU-T Recommendation X.25 , preceded with a one-octet pseudo-header with a zero value meaning received by this host (DCE->DTE) and a non-zero value meaning sent by this host (DTE->DCE)
 {: spacing="compact"}
 
 
 
 LinkType Name
-: WillBarker-Proprietary
+: Reserved
 
 LinkType Value
 : 208
 
 Description
-: Proprietary Link-Layer type
+: Reserved for an unspecified link-layer type
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_I2C\_LINUX
+: LINKTYPE_I2C_LINUX
 
 LinkType Value
 : 209
@@ -1663,7 +1616,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_FLEXRAY
+: LINKTYPE_FLEXRAY
 
 LinkType Value
 : 210
@@ -1678,25 +1631,25 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_MOST
+: LINKTYPE_MOST
 
 LinkType Value
 : 211
 
 Description
-:  Media Oriented Systems Transport (MOST) bus
+: Reserved for Media Oriented Systems Transport (MOST) bus
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_LIN
+: LINKTYPE_LIN
 
 LinkType Value
 : 212
 
 Description
-: Local Interconnect Network (LIN) automotive bus, with a metadata header
+: Local Interconnect Network (LIN) automotive bus
 
 Reference
 : {{LINKTYPE_LIN}}
@@ -1705,82 +1658,79 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_X2E\_SERIAL
+: LINKTYPE_X2E_SERIAL
 
 LinkType Value
 : 213
 
 Description
-:  X2E serial line captures
+: Reserved for X2E serial line captures
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_X2E\_XORAYA
+: LINKTYPE_X2E_XORAYA
 
 LinkType Value
 : 214
 
 Description
-:  X2E Xoraya data loggers
+: Reserved for X2E Xoraya data loggers
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_15\_4\_NONASK\_PHY
+: LINKTYPE_IEEE802_15_4_NONASK_PHY
 
 LinkType Value
 : 215
 
 Description
-: IEEE 802.15.4 with PHY header
-
-Reference
-: {{LINKTYPE_IEEE802_15_4_NONASK_PHY}}
+: IEEE 802.15.4 Low-Rate Wireless Networks, with each packet having the FCS at the end of the frame, and with the PHY-level data for the O-QPSK, BPSK, GFSK, MSK, and RCC DSS BPSK PHYs (4 octets of 0 as preamble, one octet of SFD, one octet of frame length + reserved bit) preceding the MAC-layer data (starting with the frame control field)
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_LINUX\_EVDEV
+: LINKTYPE_LINUX_EVDEV
 
 LinkType Value
 : 216
 
 Description
-:  Linux evdev messages
+: Reserved for Linux evdev messages
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_GSMTAP\_UM
+: LINKTYPE_GSMTAP_UM
 
 LinkType Value
 : 217
 
 Description
-:  GSM Um interface, with gsmtap header
+: Reserved for GSM Um interface, with gsmtap header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_GSMTAP\_ABIS
+: LINKTYPE_GSMTAP_ABIS
 
 LinkType Value
 : 218
 
 Description
-:  GSM Abis interface, with gsmtap header
+: Reserved for GSM Abis interface, with gsmtap header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_MPLS
+: LINKTYPE_MPLS
 
 LinkType Value
 : 219
@@ -1792,67 +1742,61 @@ Description
 
 
 LinkType Name
-: LINKTYPE\_USB\_LINUX\_MMAPPED
+: LINKTYPE_USB_LINUX_MMAPPED
 
 LinkType Value
 : 220
 
 Description
-: USB packets, beginning with an extended Linux USB header
-
-Reference
-: {{LINKTYPE_USB_LINUX_MMAPPED}}
+: USB packets, beginning with a Linux USB header, as specified by the struct usbmon_packet in the Documentation/usb/usbmon.txt file in the Linux source tree. All 64 octets of the header are present. All fields in the header are in host byte order. When performing a live capture, the host byte order is the byte order of the machine on which the packets are captured. When reading a pcap file, the byte order is the byte order for the file, as specified by the file's magic number; when reading a pcapng file, the byte order is the byte order for the section of the pcapng file, as specified by the Section Header Block. For isochronous transfers, the ndesc field specifies the number of isochronous descriptors that follow
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_DECT
+: LINKTYPE_DECT
 
 LinkType Value
 : 221
 
 Description
-:  DECT packets, with a pseudo-header
+: Reserved for DECT packets, with a pseudo-header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_AOS
+: LINKTYPE_AOS
 
 LinkType Value
 : 222
 
 Description
-:  OS Space Data Link Protocol
+: Reserved for OS Space Data Link Protocol
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_WIHART
+: LINKTYPE_WIHART
 
 LinkType Value
 : 223
 
 Description
-:  Wireless HART (Highway Addressable Remote Transducer)
+: Reserved for Wireless HART (Highway Addressable Remote Transducer)
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_FC\_2
+: LINKTYPE_FC_2
 
 LinkType Value
 : 224
 
 Description
-: Fibre Channel FC-2 frames
-
-Reference
-: {{LINKTYPE_FC_2}}
+: Fibre Channel FC-2 frames, beginning with a Frame_Header
 {: spacing="compact"}
 
 
@@ -1864,16 +1808,13 @@ LinkType Value
 : 225
 
 Description
-: Fibre Channel FC-2 frames with SOF and EOF
-
-Reference
-: {{LINKTYPE_FC_2_WITH_FRAME_DELIMS}}
+: Fibre Channel FC-2 frames, beginning an encoding of the SOF, followed by a Frame_Header, and ending with an encoding of the SOF. The encodings represent the frame delimiters as 4-octet sequences representing the corresponding ordered sets, with K28.5 represented as 0xBC, and the D symbols as the corresponding octet values; for example, SOFi2, which is K28.5 - D21.5 - D1.2 - D21.2, is represented as 0xBC 0xB5 0x55 0x55
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IPNET
+: LINKTYPE_IPNET
 
 LinkType Value
 : 226
@@ -1888,13 +1829,13 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_CAN\_SOCKETCAN
+: LINKTYPE_CAN_SOCKETCAN
 
 LinkType Value
 : 227
 
 Description
-: Controller Area Network (CAN) frames, with a metadata header
+: Controller Area Network frames
 
 Reference
 : {{LINKTYPE_CAN_SOCKETCAN}}
@@ -1903,31 +1844,25 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_IPV4
+: LINKTYPE_IPV4
 
 LinkType Value
 : 228
 
 Description
-: IPv4 without link-layer headers
-
-Reference
-: {{LINKTYPE_IPV4}} {{?RFC791}}
+: Raw IPv4; the packet begins with an IPv4 header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IPV6
+: LINKTYPE_IPV6
 
 LinkType Value
 : 229
 
 Description
-: IPv6 without link-layer headers
-
-Reference
-: {{LINKTYPE_IPV6}} {{?RFC8200}}
+: Raw IPv6; the packet begins with an IPv6 header
 {: spacing="compact"}
 
 
@@ -1939,82 +1874,79 @@ LinkType Value
 : 230
 
 Description
-: IEEE 802.15.4 without FCS
-
-Reference
-: {{LINKTYPE_IEEE802_15_4_NOFCS}}
+: IEEE 802.15.4 Low-Rate Wireless Network, without the FCS at the end of the frame
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_DBUS
+: LINKTYPE_DBUS
 
 LinkType Value
 : 231
 
 Description
-: D-Bus messages
+: Raw D-Bus messages , starting with the endianness flag, followed by the message type, etc., but without the authentication handshake before the message sequence
 
 Reference
-: {{LINKTYPE_DBUS}}
+: {{D-Bus}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_VS
+: LINKTYPE_JUNIPER_VS
 
 LinkType Value
 : 232
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_SRX\_E2E
+: LINKTYPE_JUNIPER_SRX_E2E
 
 LinkType Value
 : 233
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_FIBRECHANNEL
+: LINKTYPE_JUNIPER_FIBRECHANNEL
 
 LinkType Value
 : 234
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_DVB\_CI
+: LINKTYPE_DVB_CI
 
 LinkType Value
 : 235
 
 Description
-: DVB-CI messages, with a pseudo-header
+: DVB-CI messages
 
 Reference
-: {{DVB-CI-PCAP}}
+: {{DVB-CI-PCAP}}{{DVB-CI}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_MUX27010
+: LINKTYPE_MUX27010
 
 LinkType Value
 : 236
@@ -2029,34 +1961,34 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_STANAG\_5066\_D\_PDU
+: LINKTYPE_STANAG_5066_D_PDU
 
 LinkType Value
 : 237
 
 Description
-: STANAG 5066 D\_PDUs
+: D_PDUs as described by NATO standard STANAG 5066, starting with the synchronization sequence, and including both header and data CRCs. The current version of STANAG 5066 is backwards-compatible with the 1.0.2 version , although newer versions are classified
 
 Reference
-: {{LINKTYPE_STANAG_5066_D_PDU}}
+: {{STANAG-5066}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_JUNIPER\_ATM\_CEMIC
+: LINKTYPE_JUNIPER_ATM_CEMIC
 
 LinkType Value
 : 238
 
 Description
-:  Juniper Networks
+: Reserved for Juniper Networks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_NFLOG
+: LINKTYPE_NFLOG
 
 LinkType Value
 : 239
@@ -2071,7 +2003,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_NETANALYZER
+: LINKTYPE_NETANALYZER
 
 LinkType Value
 : 240
@@ -2086,7 +2018,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_NETANALYZER\_TRANSPARENT
+: LINKTYPE_NETANALYZER_TRANSPARENT
 
 LinkType Value
 : 241
@@ -2101,7 +2033,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_IPOIB
+: LINKTYPE_IPOIB
 
 LinkType Value
 : 242
@@ -2110,13 +2042,13 @@ Description
 : IP-over-InfiniBand
 
 Reference
-: {{LINKTYPE_IPOIB}}
+: {{Section 6 of ?RFC4391}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_MPEG\_2\_TS
+: LINKTYPE_MPEG_2_TS
 
 LinkType Value
 : 243
@@ -2125,13 +2057,13 @@ Description
 : MPEG-2 Transport Stream transport packets
 
 Reference
-: {{LINKTYPE_MPEG_2_TS}}
+: Table 2-2 of section 2.4.3.2 Transport Stream packet layer of {{H.222.0}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_NG40
+: LINKTYPE_NG40
 
 LinkType Value
 : 244
@@ -2146,7 +2078,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_NFC\_LLCP
+: LINKTYPE_NFC_LLCP
 
 LinkType Value
 : 245
@@ -2161,49 +2093,43 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_PFSYNC
+: LINKTYPE_PFSYNC
 
 LinkType Value
 : 246
 
 Description
-:  pfsync output
+: Reserved for pfsync output
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_INFINIBAND
+: LINKTYPE_INFINIBAND
 
 LinkType Value
 : 247
 
 Description
-: InfiniBand data packets
-
-Reference
-: {{LINKTYPE_INFINIBAND}}
+: Raw InfiniBand frames, starting with the Local Routing Header, as specified in Chapter 5 Data packet format of InfiniBand™ Architectural Specification Release 1.2.1 Volume 1 - General Specifications
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_SCTP
+: LINKTYPE_SCTP
 
 LinkType Value
 : 248
 
 Description
-: SCTP packets, with no lower-level protocols such as IPv4 or IPv6
-
-Reference
-: {{?RFC9260}}
+: SCTP packets, as defined by RFC 4960 , with no lower-level protocols such as IPv4 or IPv6
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_USBPCAP
+: LINKTYPE_USBPCAP
 
 LinkType Value
 : 249
@@ -2218,7 +2144,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_RTAC\_SERIAL
+: LINKTYPE_RTAC_SERIAL
 
 LinkType Value
 : 250
@@ -2233,34 +2159,31 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_BLUETOOTH\_LE\_LL
+: LINKTYPE_BLUETOOTH_LE_LL
 
 LinkType Value
 : 251
 
 Description
-: Bluetooth Low Energy link-layer packets
-
-Reference
-: {{LINKTYPE_BLUETOOTH_LE_LL}}
+: Bluetooth Low Energy air interface Link Layer packets, in the format described in Section 2.1 (PACKET FORMAT) of volume 6 of the Bluetooth Specification Version 4.0 (see PDF page 2200), but without the Preamble
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_WIRESHARK\_UPPER\_PDU
+: LINKTYPE_WIRESHARK_UPPER_PDU
 
 LinkType Value
 : 252
 
 Description
-:  Wireshark
+: Reserved for Wireshark
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_NETLINK
+: LINKTYPE_NETLINK
 
 LinkType Value
 : 253
@@ -2269,13 +2192,13 @@ Description
 : Linux Netlink capture encapsulation
 
 Reference
-: {{LINKTYPE_NETLINK}}
+: {{LINKTYPE_NETLINK}} {{?RFC3549}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_BLUETOOTH\_LINUX\_MONITOR
+: LINKTYPE_BLUETOOTH_LINUX_MONITOR
 
 LinkType Value
 : 254
@@ -2290,7 +2213,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_BLUETOOTH\_BREDR\_BB
+: LINKTYPE_BLUETOOTH_BREDR_BB
 
 LinkType Value
 : 255
@@ -2305,7 +2228,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_BLUETOOTH\_LE\_LL\_WITH\_PHDR
+: LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
 
 LinkType Value
 : 256
@@ -2320,22 +2243,19 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_PROFIBUS\_DL
+: LINKTYPE_PROFIBUS_DL
 
 LinkType Value
 : 257
 
 Description
-: PROFIBUS data link layer packets
-
-Reference
-: {{LINKTYPE_PROFIBUS_DL}}
+: PROFIBUS data link layer packets, as specified by IEC standard 61158-4-3, beginning with the start delimiter, ending with the end delimiter, and including all octets between them
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_PKTAP
+: LINKTYPE_PKTAP
 
 LinkType Value
 : 258
@@ -2350,37 +2270,31 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_EPON
+: LINKTYPE_EPON
 
 LinkType Value
 : 259
 
 Description
-: Ethernet-over-passive-optical-network packets, including preamble octets
-
-Reference
-: {{LINKTYPE_EPON}}
+: Ethernet-over-passive-optical-network packets, starting with the last 6 octets of the modified preamble as specified by 65.1.3.2 Transmit in Clause 65 of Section 5 of IEEE 802.3, followed immediately by an Ethernet frame
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_IPMI\_HPM\_2
+: LINKTYPE_IPMI_HPM_2
 
 LinkType Value
 : 260
 
 Description
-: IPMI HPM.2 trace packets
-
-Reference
-: {{LINKTYPE_IPMI_HPM_2}}
+: IPMI trace packets, as specified by Table 3-20 Trace Data Block Format in the PICMG HPM.2 specification The timestamps for packets in this format must match the timestamps in the Trace Data Blocks
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_ZWAVE\_R1\_R2
+: LINKTYPE_ZWAVE_R1_R2
 
 LinkType Value
 : 261
@@ -2395,7 +2309,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_ZWAVE\_R3
+: LINKTYPE_ZWAVE_R3
 
 LinkType Value
 : 262
@@ -2410,7 +2324,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_WATTSTOPPER\_DLM
+: LINKTYPE_WATTSTOPPER_DLM
 
 LinkType Value
 : 263
@@ -2425,7 +2339,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_ISO\_14443
+: LINKTYPE_ISO_14443
 
 LinkType Value
 : 264
@@ -2440,7 +2354,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_RDS
+: LINKTYPE_RDS
 
 LinkType Value
 : 265
@@ -2455,7 +2369,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_USB\_DARWIN
+: LINKTYPE_USB_DARWIN
 
 LinkType Value
 : 266
@@ -2470,61 +2384,58 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_OPENFLOW
+: LINKTYPE_OPENFLOW
 
 LinkType Value
 : 267
 
 Description
-:  OpenBSD DLT\_OPENFLOW
+: Reserved for OpenBSD DLT_OPENFLOW
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_SDLC
+: LINKTYPE_SDLC
 
 LinkType Value
 : 268
 
 Description
-: SNA SDLC packets
-
-Reference
-: {{LINKTYPE_SDLC}}
+: SDLC packets, as specified by Chapter 1, DLC Links, section Synchronous Data Link Control (SDLC) of Systems Network Architecture Formats, GA27-3136-20 , without the flag fields, zero-bit insertion, or Frame Check Sequence field, containing SNA path information units (PIUs) as the payload
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_TI\_LLN\_SNIFFER
+: LINKTYPE_TI_LLN_SNIFFER
 
 LinkType Value
 : 269
 
 Description
-:  Texas Instruments protocol sniffer
+: Reserved for Texas Instruments protocol sniffer
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_LORATAP
+: LINKTYPE_LORATAP
 
 LinkType Value
 : 270
 
 Description
-: LoRaWan packets with a LoRaTap pseudo-header
+: LoRaTap pseudo-header , followed by the payload, which is typically the PHYPayload from the LoRaWan specification
 
 Reference
-: {{LINKTYPE_LORATAP}}
+: {{LoRaTap}}{{LoRaWAN}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_VSOCK
+: LINKTYPE_VSOCK
 
 LinkType Value
 : 271
@@ -2539,7 +2450,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_NORDIC\_BLE
+: LINKTYPE_NORDIC_BLE
 
 LinkType Value
 : 272
@@ -2554,7 +2465,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_DOCSIS31\_XRA31
+: LINKTYPE_DOCSIS31_XRA31
 
 LinkType Value
 : 273
@@ -2569,22 +2480,19 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_ETHERNET\_MPACKET
+: LINKTYPE_ETHERNET_MPACKET
 
 LinkType Value
 : 274
 
 Description
-: IEEE 802.3 mPackets
-
-Reference
-: {{LINKTYPE_ETHERNET_MPACKET}}
+: mPackets, as specified by IEEE 802.3br Figure 99-4, starting with the preamble and always ending with a CRC field
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_DISPLAYPORT\_AUX
+: LINKTYPE_DISPLAYPORT_AUX
 
 LinkType Value
 : 275
@@ -2599,7 +2507,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_LINUX\_SLL2
+: LINKTYPE_LINUX_SLL2
 
 LinkType Value
 : 276
@@ -2614,19 +2522,19 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_SERCOS\_MONITOR
+: LINKTYPE_SERCOS_MONITOR
 
 LinkType Value
 : 277
 
 Description
-:  Sercos Monitor
+: Reserved for Sercos Monitor
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_OPENVIZSLA
+: LINKTYPE_OPENVIZSLA
 
 LinkType Value
 : 278
@@ -2641,7 +2549,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_EBHSCR
+: LINKTYPE_EBHSCR
 
 LinkType Value
 : 279
@@ -2671,7 +2579,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_DSA\_TAG\_BRCM
+: LINKTYPE_DSA_TAG_BRCM
 
 LinkType Value
 : 281
@@ -2686,7 +2594,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_DSA\_TAG\_BRCM\_PREPEND
+: LINKTYPE_DSA_TAG_BRCM_PREPEND
 
 LinkType Value
 : 282
@@ -2701,22 +2609,19 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_IEEE802\_15\_4\_TAP
+: LINKTYPE_IEEE802_15_4_TAP
 
 LinkType Value
 : 283
 
 Description
-: IEEE 802.15.4 with a tap header preceding it
-
-Reference
-: {{Exegin-802.15.4-TAP}}
+: IEEE 802.15.4 Low-Rate Wireless Networks, with a pseudo-header containing TLVs with metadata preceding the 802.15.4 header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_DSA\_TAG\_DSA
+: LINKTYPE_DSA_TAG_DSA
 
 LinkType Value
 : 284
@@ -2731,7 +2636,7 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_DSA\_TAG\_EDSA
+: LINKTYPE_DSA_TAG_EDSA
 
 LinkType Value
 : 285
@@ -2746,19 +2651,19 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_ELEE
+: LINKTYPE_ELEE
 
 LinkType Value
 : 286
 
 Description
-:  ELEE lawful intercept protocol
+: Payload of lawful intercept packets using the ELEE protocol The packet begins with the ELEE header; it does not include any transport-layer or lower-layer headers for protocols used to transport ELEE packets
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_Z\_WAVE\_SERIAL
+: LINKTYPE_Z_WAVE_SERIAL
 
 LinkType Value
 : 287
@@ -2773,37 +2678,31 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_USB\_2\_0
+: LINKTYPE_USB_2_0
 
 LinkType Value
 : 288
 
 Description
-: USB 2.0, 1.1, or 1.0 packets
-
-Reference
-: {{LINKTYPE_USB_2_0}}
+: USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the the Universal Serial Bus Specification Revision 2.0
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_ATSC\_ALP
+: LINKTYPE_ATSC_ALP
 
 LinkType Value
 : 289
 
 Description
-: ATSC Link-Layer Protocol frames
-
-Reference
-: {{LINKTYPE_ATSC_ALP}}
+: ATSC Link-Layer Protocol frames, as described in section 5 of the A/330 Link-Layer Protocol specification, found at https://www.atsc.org/atsc-documents/type/3-0-standards/, beginning with a Base Header
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_ETW
+: LINKTYPE_ETW
 
 LinkType Value
 : 290
@@ -2818,19 +2717,19 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_NETANALYZER\_NG
+: LINKTYPE_NETANALYZER_NG
 
 LinkType Value
 : 291
 
 Description
-:  Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software
+: Reserved for Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_ZBOSS\_NCP
+: LINKTYPE_ZBOSS_NCP
 
 LinkType Value
 : 292
@@ -2845,97 +2744,82 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_USB\_2\_0\_LOW\_SPEED
+: LINKTYPE_USB_2_0_LOW_SPEED
 
 LinkType Value
 : 293
 
 Description
-: Low-Speed USB 2.0, 1.1, or 1.0 packets
-
-Reference
-: {{LINKTYPE_USB_2_0_LOW_SPEED}}
+: Low-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_USB\_2\_0\_FULL\_SPEED
+: LINKTYPE_USB_2_0_FULL_SPEED
 
 LinkType Value
 : 294
 
 Description
-: Full-Speed USB 2.0, 1.1, or 1.0 packets
-
-Reference
-: {{LINKTYPE_USB_2_0_FULL_SPEED}}
+: Full-Speed USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_USB\_2\_0\_HIGH\_SPEED
+: LINKTYPE_USB_2_0_HIGH_SPEED
 
 LinkType Value
 : 295
 
 Description
-: High-Speed USB 2.0 packets
-
-Reference
-: {{LINKTYPE_USB_2_0_HIGH_SPEED}}
+: High-Speed USB 2.0 packet, beginning with a PID, as described by Chapter 8 "Protocol Layer" of the https://www.usb.org/document-library/usb-20-specification the Universal Serial Bus Specification Revision 2.0
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_AUERSWALD\_LOG
+: LINKTYPE_AUERSWALD_LOG
 
 LinkType Value
 : 296
 
 Description
-: Auerswald Logger Protocol
-
-Reference
-: {{Auerswald-Logger}}
+: Auerswald Logger Protocol, as described in https://github.com/Auerswald-GmbH/auerlog/blob/master/auerlog.txt
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_ZWAVE\_TAP
+: LINKTYPE_ZWAVE_TAP
 
 LinkType Value
 : 297
 
 Description
-: Z-Wave packets, with a metadata header
+: Z-Wave packets, as specified by ITU-T Recommendation G.9959, with a https://gitlab.com/exegin/zwave-g9959-tap TAP meta-data header
 
 Reference
-: {{LINKTYPE_ZWAVE_TAP}}
+: {{Exegin-TAP-Link}}{{G.9959}}
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_SILABS\_DEBUG\_CHANNEL
+: LINKTYPE_SILABS_DEBUG_CHANNEL
 
 LinkType Value
 : 298
 
 Description
-: Silicon Labs debug channel protocol
-
-Reference
-: {{Silabs-Debug-Channel}}
+: Silicon Labs debug channel protocol, as described in https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/debug-channel.md
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_FIRA\_UCI
+: LINKTYPE_FIRA_UCI
 
 LinkType Value
 : 299
@@ -2950,31 +2834,25 @@ Reference
 
 
 LinkType Name
-: LINKTYPE\_MDB
+: LINKTYPE_MDB
 
 LinkType Value
 : 300
 
 Description
-: MDB (Multi-Drop Bus) protocol
-
-Reference
-: {{MDB-PCAP}}
+: MDB (Multi-Drop Bus) protocol between a vending machine controller and peripherals inside the vending machine, with the message format specified by https://www.kaiser.cx/pcap-mdb.html the PCAP format for MDB specification
 {: spacing="compact"}
 
 
 
 LinkType Name
-: LINKTYPE\_DECT\_NR
+: LINKTYPE_DECT_NR
 
 LinkType Value
 : 301
 
 Description
-: DECT-2020 New Radio (NR) MAC layer
-
-Reference
-: {{LINKTYPE_DECT_NR}}
+: DECT-2020 New Radio (NR) MAC layer specified in https://www.etsi.org/committee/1394-dect ETSI TS 103 636-4. The Physical Header Field is always encoded using 80 bits (10 bytes). Broadcast transmissions using 40 bits (5 bytes) is padded with 40 zero bits (5 bytes). When padding is used the Receiver Identity value 0x0000 (reserved address) is used to detect broadcast transmissions
 {: spacing="compact"}
 
 
