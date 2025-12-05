@@ -711,7 +711,7 @@ The registry has the following structure:
 
 * LinkType Value: Indicates the 16-bit unsigned integer assigned for this LinkType.
 * LinkType Name: Indicates the symbolic name for this LinkType. The name is prefixed with "LINKTYPE_" (i.e., LINKTYPE\_something).
-* Change Controller: who to accept changes from
+* Change Controller: as per {{RFC8126, Section 2.3}}
 * Description: Provides a very short description.
 * Reference: Indicates an authoritative document reference for the LinkType or a requester reference.
 
@@ -760,7 +760,7 @@ When the contents of the link type can contain an IPv4 or IPv6 header, then the 
 
 Specifications that are not publicly available, but which may be obtained via liaison agreements (such as to ITU-T,  drafts, IEEE, etc.) are acceptable particularly if the specification document will be public eventually.
 This includes specifications that might be subject to a security classification for which no public document will ever be made.
-The minimal requirement is to provide a contact person for that link type.
+The minimal requirement is to provide a contact for that link type.
 
 For other documents, the Designated Expert will need use their judgement, or consult the OPSAWG or an Area Director.
 
