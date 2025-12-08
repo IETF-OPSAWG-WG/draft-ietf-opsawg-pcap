@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 # Object interface
+use local::lib;
 use Text::CSV;
 
 my @rows;
@@ -13,15 +14,19 @@ my $csv = Text::CSV->new ({ auto_diag => 1, sep_char => "|", decode_utf8 => 1, e
 open my $fh, "<:encoding(utf8)", "linktypes.csv" or die "linktypes.csv: $!";
 
 while (my $row = $csv->getline ($fh)) {
-    print "Name\n: ".$row->[1]."\n\n";
-    print "Number\n: ".$row->[2]."\n\n";
+    my $name = $row->[1];
+    $name =~ s/_/\\_/;
+
+    print "LinkType Value\n: ".$row->[2]."\n\n";
+    print "LinkType Name\n: ".$name."\n\n";
     print "Description\n: ".$row->[3]."\n";
     my $ref = $row->[4];
-    if(defined($ref)) {
+    if(defined($row->[4])) {
         $ref =~ s/\s*$//;
         my $reflen = length($ref);
         if($reflen > 0) {
-            print "\nReference\n: ".$row->[4]."\n";
+            $ref =~ s/_/\\_/;
+            print "\nReference\n: ".$ref."\n";
         }
     }
     print "{: spacing=\"compact\"}\n\n\n\n";
