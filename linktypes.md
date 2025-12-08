@@ -22,7 +22,7 @@ Number
 Description
 : IEEE 802.3 Ethernet
 
-Reference:
+Reference
 : {{LINKTYPE_ETHERNET}}
 {: spacing="compact"}
 
