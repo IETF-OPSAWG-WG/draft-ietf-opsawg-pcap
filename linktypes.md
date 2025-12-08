@@ -1,6 +1,3 @@
-LinkType Name
-: LINKTYPE\_NULL
-
 LinkType Value
 : 0
 
