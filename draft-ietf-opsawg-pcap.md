@@ -60,7 +60,7 @@ programs using libpcap, to read and write network traces.
 This document describes version 2 of the pcap format.
 
 This document is published as historical, as there has existed for some time, an updated format called "pcapng", that replaces this file format.  See {{?I-D.ietf-opsawg-pcapng}}
-No new extensions for this format are expected, although new LINKLAYER types that are registed using {{!I-D.ietf.opsawg-pcaplinktype}} can be included in pcap files.
+No new extensions for this format are expected, although new LINKLAYER types that are registered using {{!I-D.ietf.opsawg-pcaplinktype}} can be included in pcap files.
 
 A major limitation of the pcap v2 format described here is that files consist of a header which is different than the other blocks in the file.
 This prevents pcap v2 files from being simply concatenated for processing.
