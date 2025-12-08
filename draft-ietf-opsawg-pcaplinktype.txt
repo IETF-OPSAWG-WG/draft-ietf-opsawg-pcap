@@ -176,7 +176,7 @@ Table of Contents
    Name  LINKTYPE_ETHERNET
    Number  1
    Description  IEEE 802.3 Ethernet
-   Reference:  [LINKTYPE_ETHERNET]
+   Reference  [LINKTYPE_ETHERNET]
 
    Name  LINKTYPE_EXP_ETHERNET
    Number  2
