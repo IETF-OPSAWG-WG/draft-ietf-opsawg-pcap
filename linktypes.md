@@ -76,7 +76,7 @@ Number
 : 5
 
 Description
-:  MIT Chaosnet
+: MIT Chaosnet
 
 Reference
 : {{AIM-628}}
@@ -103,7 +103,7 @@ Number
 : 7
 
 Description
-:  ARCNET Data Packets with BSD encapsulation
+: ARCNET Data Packets with BSD encapsulation
 {: spacing="compact"}
 
 
@@ -211,7 +211,7 @@ Number
 : 99
 
 Description
-:  Symantec Enterprise Firewall
+: Symantec Enterprise Firewall
 {: spacing="compact"}
 
 
@@ -253,7 +253,7 @@ Number
 : 102
 
 Description
-:  BSD/OS SLIP BPF header
+: BSD/OS SLIP BPF header
 {: spacing="compact"}
 
 
@@ -265,7 +265,7 @@ Number
 : 103
 
 Description
-:  BSD/OS PPP BPF header
+: BSD/OS PPP BPF header
 {: spacing="compact"}
 
 
@@ -346,7 +346,7 @@ Number
 : 109
 
 Description
-:  OpenBSD IPsec encapsulation
+: OpenBSD IPsec encapsulation
 {: spacing="compact"}
 
 
@@ -358,7 +358,7 @@ Number
 : 110
 
 Description
-:  ATM LANE + 802.3
+: ATM LANE + 802.3
 {: spacing="compact"}
 
 
@@ -370,7 +370,7 @@ Number
 : 111
 
 Description
-:  NetBSD HIPPI
+: NetBSD HIPPI
 {: spacing="compact"}
 
 
@@ -382,7 +382,7 @@ Number
 : 112
 
 Description
-:  NetBSD HDLC framing
+: NetBSD HDLC framing
 {: spacing="compact"}
 
 
@@ -424,7 +424,7 @@ Number
 : 115
 
 Description
-:  Acorn Econet
+: Acorn Econet
 {: spacing="compact"}
 
 
@@ -436,7 +436,7 @@ Number
 : 116
 
 Description
-:  OpenBSD ipfilter
+: OpenBSD ipfilter
 {: spacing="compact"}
 
 
@@ -448,7 +448,7 @@ Number
 : 117
 
 Description
-:  PF packet filter logging
+: PF packet filter logging
 {: spacing="compact"}
 
 
@@ -460,7 +460,7 @@ Number
 : 118
 
 Description
-:  Cisco-internal use
+: Cisco-internal use
 {: spacing="compact"}
 
 
@@ -487,7 +487,7 @@ Number
 : 120
 
 Description
-:  802.11 + FreeBSD Aironet radio metadata
+: 802.11 + FreeBSD Aironet radio metadata
 {: spacing="compact"}
 
 
@@ -499,7 +499,7 @@ Number
 : 121
 
 Description
-:  Siemens HiPath HDLC
+: Siemens HiPath HDLC
 {: spacing="compact"}
 
 
@@ -541,7 +541,7 @@ Number
 : 124
 
 Description
-:  RapidIO
+: RapidIO
 {: spacing="compact"}
 
 
@@ -553,7 +553,7 @@ Number
 : 125
 
 Description
-:  PCI Express
+: PCI Express
 {: spacing="compact"}
 
 
@@ -565,7 +565,7 @@ Number
 : 126
 
 Description
-:  Xilinx Aurora link layer
+: Xilinx Aurora link layer
 {: spacing="compact"}
 
 
@@ -592,7 +592,7 @@ Number
 : 128
 
 Description
-:  Tazmen Sniffer Protocol
+: Tazmen Sniffer Protocol
 {: spacing="compact"}
 
 
@@ -604,7 +604,7 @@ Number
 : 129
 
 Description
-:  ARCNET Data Packets with Linux encapsulation
+: ARCNET Data Packets with Linux encapsulation
 {: spacing="compact"}
 
 
@@ -616,7 +616,7 @@ Number
 : 130
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -628,7 +628,7 @@ Number
 : 131
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -640,7 +640,7 @@ Number
 : 132
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -652,7 +652,7 @@ Number
 : 133
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -664,7 +664,7 @@ Number
 : 134
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -676,7 +676,7 @@ Number
 : 135
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -688,7 +688,7 @@ Number
 : 136
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -700,7 +700,7 @@ Number
 : 137
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -817,7 +817,7 @@ Number
 : 145
 
 Description
-:  IBM SP switch
+: IBM SP switch
 {: spacing="compact"}
 
 
@@ -829,7 +829,7 @@ Number
 : 146
 
 Description
-:  IBM Next Federation switch
+: IBM Next Federation switch
 {: spacing="compact"}
 
 
@@ -1048,7 +1048,7 @@ Number
 : 164
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1090,7 +1090,7 @@ Number
 : 167
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1102,7 +1102,7 @@ Number
 : 168
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1159,7 +1159,7 @@ Number
 : 172
 
 Description
-:  Gcom T1/E1 line monitoring equipment
+: Gcom T1/E1 line monitoring equipment
 {: spacing="compact"}
 
 
@@ -1171,7 +1171,7 @@ Number
 : 173
 
 Description
-:  Gcom T1/E1 line monitoring equipment
+: Gcom T1/E1 line monitoring equipment
 {: spacing="compact"}
 
 
@@ -1183,7 +1183,7 @@ Number
 : 174
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1240,7 +1240,7 @@ Number
 : 178
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1252,7 +1252,7 @@ Number
 : 179
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1264,7 +1264,7 @@ Number
 : 180
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1276,7 +1276,7 @@ Number
 : 181
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1303,7 +1303,7 @@ Number
 : 183
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1315,7 +1315,7 @@ Number
 : 184
 
 Description
-:  ARINC 429 frames
+: ARINC 429 frames
 {: spacing="compact"}
 
 
@@ -1327,7 +1327,7 @@ Number
 : 185
 
 Description
-:  Arinc 653 Interpartition Communication messages
+: Arinc 653 Interpartition Communication messages
 {: spacing="compact"}
 
 
@@ -1339,7 +1339,7 @@ Number
 : 186
 
 Description
-:  USB traffic captured on FreeBSD
+: USB traffic captured on FreeBSD
 {: spacing="compact"}
 
 
@@ -1366,7 +1366,7 @@ Number
 : 188
 
 Description
-:  IEEE 802.16 MAC Common Part Sublayer
+: IEEE 802.16 MAC Common Part Sublayer
 {: spacing="compact"}
 
 
@@ -1393,7 +1393,7 @@ Number
 : 190
 
 Description
-:  Controller Area Network (CAN) v. 2.0B packets
+: Controller Area Network (CAN) v. 2.0B packets
 {: spacing="compact"}
 
 
@@ -1405,7 +1405,7 @@ Number
 : 191
 
 Description
-:  IEEE 802.15.4 with address fields padded by Linux
+: IEEE 802.15.4 with address fields padded by Linux
 {: spacing="compact"}
 
 
@@ -1432,7 +1432,7 @@ Number
 : 193
 
 Description
-:  802.16 MAC Common Part Sublayer plus radio header
+: 802.16 MAC Common Part Sublayer plus radio header
 {: spacing="compact"}
 
 
@@ -1444,7 +1444,7 @@ Number
 : 194
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1501,7 +1501,7 @@ Number
 : 198
 
 Description
-:  Ethernet packets captured from a u10 Networks board
+: Ethernet packets captured from a u10 Networks board
 {: spacing="compact"}
 
 
@@ -1513,7 +1513,7 @@ Number
 : 199
 
 Description
-:  IPMB packet for IPMI, with a 2-octet header
+: IPMB packet for IPMI, with a 2-octet header
 {: spacing="compact"}
 
 
@@ -1525,7 +1525,7 @@ Number
 : 200
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1684,7 +1684,7 @@ Number
 : 211
 
 Description
-:  Media Oriented Systems Transport (MOST) bus
+: Media Oriented Systems Transport (MOST) bus
 {: spacing="compact"}
 
 
@@ -1711,7 +1711,7 @@ Number
 : 213
 
 Description
-:  X2E serial line captures
+: X2E serial line captures
 {: spacing="compact"}
 
 
@@ -1723,7 +1723,7 @@ Number
 : 214
 
 Description
-:  X2E Xoraya data loggers
+: X2E Xoraya data loggers
 {: spacing="compact"}
 
 
@@ -1750,7 +1750,7 @@ Number
 : 216
 
 Description
-:  Linux evdev messages
+: Linux evdev messages
 {: spacing="compact"}
 
 
@@ -1762,7 +1762,7 @@ Number
 : 217
 
 Description
-:  GSM Um interface, with gsmtap header
+: GSM Um interface, with gsmtap header
 {: spacing="compact"}
 
 
@@ -1774,7 +1774,7 @@ Number
 : 218
 
 Description
-:  GSM Abis interface, with gsmtap header
+: GSM Abis interface, with gsmtap header
 {: spacing="compact"}
 
 
@@ -1813,7 +1813,7 @@ Number
 : 221
 
 Description
-:  DECT packets, with a pseudo-header
+: DECT packets, with a pseudo-header
 {: spacing="compact"}
 
 
@@ -1825,7 +1825,7 @@ Number
 : 222
 
 Description
-:  OS Space Data Link Protocol
+: OS Space Data Link Protocol
 {: spacing="compact"}
 
 
@@ -1837,7 +1837,7 @@ Number
 : 223
 
 Description
-:  Wireless HART (Highway Addressable Remote Transducer)
+: Wireless HART (Highway Addressable Remote Transducer)
 {: spacing="compact"}
 
 
@@ -1969,7 +1969,7 @@ Number
 : 232
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1981,7 +1981,7 @@ Number
 : 233
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -1993,7 +1993,7 @@ Number
 : 234
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -2050,7 +2050,7 @@ Number
 : 238
 
 Description
-:  Juniper Networks
+: Juniper Networks
 {: spacing="compact"}
 
 
@@ -2167,7 +2167,7 @@ Number
 : 246
 
 Description
-:  pfsync output
+: pfsync output
 {: spacing="compact"}
 
 
@@ -2254,7 +2254,7 @@ Number
 : 252
 
 Description
-:  Wireshark
+: Wireshark
 {: spacing="compact"}
 
 
@@ -2476,7 +2476,7 @@ Number
 : 267
 
 Description
-:  OpenBSD DLT_OPENFLOW
+: OpenBSD DLT_OPENFLOW
 {: spacing="compact"}
 
 
@@ -2503,7 +2503,7 @@ Number
 : 269
 
 Description
-:  Texas Instruments protocol sniffer
+: Texas Instruments protocol sniffer
 {: spacing="compact"}
 
 
@@ -2620,7 +2620,7 @@ Number
 : 277
 
 Description
-:  Sercos Monitor
+: Sercos Monitor
 {: spacing="compact"}
 
 
@@ -2752,7 +2752,7 @@ Number
 : 286
 
 Description
-:  ELEE lawful intercept protocol
+: ELEE lawful intercept protocol
 {: spacing="compact"}
 
 
@@ -2824,7 +2824,7 @@ Number
 : 291
 
 Description
-:  Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software
+: Hilscher Gesellschaft fuer Systemautomation mbH netANALYZER NG hardware and software
 {: spacing="compact"}
 
 
