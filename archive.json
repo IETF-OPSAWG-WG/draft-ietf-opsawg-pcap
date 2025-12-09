@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-07T02:04:16.021387+00:00",
+  "timestamp": "2025-12-09T01:55:23.893864+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -9788,7 +9788,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-01-13T07:40:20Z",
-      "updatedAt": "2025-01-13T07:50:57Z",
+      "updatedAt": "2025-12-08T20:12:04Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "c9fe57a1d303d7ab37c4214b2aadca02ed1c1bc8",
@@ -9816,7 +9816,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-01-13T08:10:04Z",
-      "updatedAt": "2025-01-13T08:56:32Z",
+      "updatedAt": "2025-12-08T20:11:34Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "41e7a688dca285bf41340b84ec4354925b33f511",
@@ -9844,7 +9844,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-03-24T08:49:28Z",
-      "updatedAt": "2025-03-25T12:50:09Z",
+      "updatedAt": "2025-12-08T20:11:23Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "73d74f434cff7f4bec55286cf41e0f9c75e109f5",
@@ -11215,7 +11215,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-09-24T17:02:03Z",
-      "updatedAt": "2025-09-24T18:41:58Z",
+      "updatedAt": "2025-12-08T19:27:13Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "5a771c2079078b881f2cda24ac78d7459a41d599",
@@ -11380,6 +11380,82 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 196,
+      "id": "PR_kwDOAU54e863wGX5",
+      "title": "pcap: Fix a typo",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/196",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-12-08T19:28:09Z",
+      "updatedAt": "2025-12-08T20:08:27Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "2a7cf43c29fb38de57dc4412664bba5cff986f02",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "typoes",
+      "headRefOid": "12c48bc76ecfab7ad88fb65f9da5ff0747cc1973",
+      "closedAt": "2025-12-08T19:49:54Z",
+      "mergedAt": "2025-12-08T19:49:54Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "abedeb975119373666df3d81a57402142f7fcd77"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 197,
+      "id": "PR_kwDOAU54e863wyVg",
+      "title": "linktypes_old.csv: Fix two typos",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/197",
+      "state": "CLOSED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-12-08T20:36:28Z",
+      "updatedAt": "2025-12-08T22:41:50Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "abedeb975119373666df3d81a57402142f7fcd77",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "typoes",
+      "headRefOid": "32131d31b24ce325267e8cfdbc734aab780ec32b",
+      "closedAt": "2025-12-08T22:33:54Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "That's an old file that's not used to generate linktypes.md; linktypes.csv is what's being used.\r\n\r\nIt was created - as a vertical-bar-separated file - in\r\n\r\n```\r\ncommit 08d79c3bbf16b14e6e35214a9730351bb510a5f5\r\nAuthor: Michael Richardson <mcr+ietf@sandelman.ca>\r\nDate:   Mon Dec 21 20:30:51 2020 -0500\r\n    \r\n    create table for initial registry\r\n```\r\n\r\nas linktypes.txt. linkypes.csv - also a vertical-bar-separated file, the \"csv\" extension notwithstanding - was created in\r\n\r\n```\r\ncommit b030a5a709fa5a0e5306a128bd52960405ca6842\r\nAuthor: Michael Richardson <mcr+ietf@sandelman.ca>\r\nDate:   Wed Jun 23 21:23:48 2021 -0400\r\n    \r\n    maybe keep csv file of link types\r\n```\r\n\r\nI renamed linktypes.txt to linktypes_old.csv in\r\n\r\n```\r\ncommit 513b311a0cd401c83efd8e09242e6a02cf0e38c0\r\nAuthor: Guy Harris <gharris@sonic.net>\r\nDate:   Mon Nov 25 17:53:22 2024 -0800\r\n\r\n    Rename linktypes.txt to linktypes_old.csv.\r\n\r\n    It's similar to linktypes.csv, but the process of uploading build\r\n    artifacts tries to upload all .txt files, and that gets an error.\r\n    Rename it to avoid the error.\r\n```\r\n\r\n@mcr, @infrastation, @fxlb - is there any reason to keep linktypes_old.csv?",
+          "createdAt": "2025-12-08T22:05:21Z",
+          "updatedAt": "2025-12-08T22:05:21Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "No reason to keep that file.\r\nI'm fixing the perl script.\r\nthe edits are old, and no longer relevant.\r\n",
+          "createdAt": "2025-12-08T22:33:54Z",
+          "updatedAt": "2025-12-08T22:33:54Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> No reason to keep that file.\r\n\r\nShall we delete it from the repository?\r\n\r\n> I'm fixing the perl script.\r\n\r\nI've put your changes to the descriptions and references into linktypes.csv, so the Perl script will generate the right descriptions.",
+          "createdAt": "2025-12-08T22:41:50Z",
+          "updatedAt": "2025-12-08T22:41:50Z"
+        }
+      ],
       "reviews": []
     }
   ]
