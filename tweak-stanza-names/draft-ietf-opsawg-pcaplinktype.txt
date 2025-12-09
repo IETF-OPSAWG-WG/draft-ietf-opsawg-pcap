@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 8 June 2026                                           Sandelman
-                                                         5 December 2025
+Expires: 12 June 2026                                          Sandelman
+                                                         9 December 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 June 2026.
+   This Internet-Draft will expire on 12 June 2026.
 
 Copyright Notice
 
@@ -168,7 +168,6 @@ Table of Contents
 
    This is the initial table for the registry:
 
-   LinkType Name  LINKTYPE_NULL
    LinkType Value  0
    Description  BSD loopback encapsulation
    Reference  [LINKTYPE_NULL]
