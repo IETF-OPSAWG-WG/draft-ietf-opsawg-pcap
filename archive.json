@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-09T01:55:23.893864+00:00",
+  "timestamp": "2025-12-11T01:58:50.800050+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -11368,13 +11368,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-12-05T02:18:59Z",
-      "updatedAt": "2025-12-05T02:18:59Z",
+      "updatedAt": "2025-12-09T02:58:54Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "2a7cf43c29fb38de57dc4412664bba5cff986f02",
       "headRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "headRefName": "tweak-stanza-names",
-      "headRefOid": "71c9cd761b140fa538b96450cc475001dc0bc5a6",
+      "headRefOid": "2b9f5f37ba667a95e90c663d805026066926f115",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -11422,7 +11422,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-12-08T20:36:28Z",
-      "updatedAt": "2025-12-08T22:41:50Z",
+      "updatedAt": "2025-12-10T09:35:28Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "abedeb975119373666df3d81a57402142f7fcd77",
@@ -11454,8 +11454,41 @@
           "body": "> No reason to keep that file.\r\n\r\nShall we delete it from the repository?\r\n\r\n> I'm fixing the perl script.\r\n\r\nI've put your changes to the descriptions and references into linktypes.csv, so the Perl script will generate the right descriptions.",
           "createdAt": "2025-12-08T22:41:50Z",
           "updatedAt": "2025-12-08T22:41:50Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "--------\n\nGuy Harris ***@***.***> wrote:\n    > I've put your changes to the descriptions and references into\n    > linktypes.csv, so the Perl script will generate the right descriptions.\n\nokay, so I'll finish fixing that.\n",
+          "createdAt": "2025-12-09T03:28:45Z",
+          "updatedAt": "2025-12-09T03:28:45Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 198,
+      "id": "PR_kwDOAU54e864I6eh",
+      "title": "linktypes.xml: Fix a typo",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/198",
+      "state": "OPEN",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-12-10T13:20:13Z",
+      "updatedAt": "2025-12-10T13:20:13Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "302666ca6eb7f0ddf66c84ea91d800532c45e5a8",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "linktypes.xml",
+      "headRefOid": "d005efa4bdd6f7f4e5c73baf1e0d6c96f8d2870b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
