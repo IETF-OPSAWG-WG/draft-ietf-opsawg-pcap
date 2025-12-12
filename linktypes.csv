@@ -83,7 +83,7 @@
 |LINKTYPE_PPP_PPPD|166|PPP preceded by a direction octet and an HDLC-like control field|{{LINKTYPE_PPP_PPPD}}
 |LINKTYPE_JUNIPER_PPPOE|167|Juniper Networks|
 |LINKTYPE_JUNIPER_PPPOE_ATM|168|Juniper Networks|
-|LINKTYPE_GPRS_LLC|169|General Packet Radio Service Logical Link Control, as per 3GPP TS 04.64|{{_3GPP-TS-04.64}}
+|LINKTYPE_GPRS_LLC|169|General Packet Radio Service Logical Link Control, as per 3GPP TS 04.64|{{3GPP-TS-04.64}}
 |LINKTYPE_GPF_T|170|Transparent-mapped generic framing procedure|{{G.7041}}
 |LINKTYPE_GPF_F|171|Frame-mapped generic framing procedure|{{G.7041}}
 |LINKTYPE_GCOM_T1E1|172|Gcom T1/E1 line monitoring equipment|
@@ -201,7 +201,7 @@
 |LINKTYPE_DSA_TAG_DSA|284|Ethernet frames, with a Marvell DSA switch tag inserted|{{LINKTYPE_DSA_TAG_DSA}}
 |LINKTYPE_DSA_TAG_EDSA|285|Ethernet frames, with a Marvell EDSA switch tag inserted|{{LINKTYPE_DSA_TAG_EDSA}}
 |LINKTYPE_ELEE|286|ELEE lawful intercept protocol|
-|LINKTYPE_Z_WAVE_SERIAL|287|Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection|{{Z_WAVE_SERIAL}} section 5
+|LINKTYPE_Z_WAVE_SERIAL|287|Serial frames transmitted between a host and a Z-Wave chip over an RS-232 or USB serial connection|{{Z-WAVE-SERIAL}} section 5
 |LINKTYPE_USB_2_0|288|USB 2.0, 1.1, or 1.0 packets|{{LINKTYPE_USB_2_0}}
 |LINKTYPE_ATSC_ALP|289|ATSC Link-Layer Protocol frames|{{LINKTYPE_ATSC_ALP}}
 |LINKTYPE_ETW|290|Event Tracing for Windows messages|{{LINKTYPE_ETW}}

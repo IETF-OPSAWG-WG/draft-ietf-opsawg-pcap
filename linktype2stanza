@@ -25,7 +25,7 @@ while (my $row = $csv->getline ($fh)) {
         $ref =~ s/\s*$//;
         my $reflen = length($ref);
         if($reflen > 0) {
-            $ref =~ s/_/\\_/;
+            $ref =~ s/_/\\_/g;
             print "\nReference\n: ".$ref."\n";
         }
     }
