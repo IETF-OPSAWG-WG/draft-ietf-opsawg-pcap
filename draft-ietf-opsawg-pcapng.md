@@ -2244,12 +2244,13 @@ The following is a list of Secrets Types.
 
   * SPI: Security Parameter Index. String of a 32 bits integer in hexadecimal format (starting with 0x).
 
-  * Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC" {{RFC2451}}, "AES-CBC" {{RFC3602}},
-  "AES-CTR" {{RFC3686}}, "DES-CBC" {{RFC2405}}, "CAST5-CBC" {{RFC2144}}, "BLOWFISH-CBC" {{RFC2451}}, "TWOFISH-CBC",
-  "AES-GCM" {{RFC4106}}, "AES-GCM with 8 octet ICV" {{RFC4106}}, "AES-GCM with 12 octet ICV" {{RFC4106}},
-  "AES-GCM with 16 octet ICV" {{RFC4106}}, "AES-GCM with IIV and 16 octet ICV" {{RFC4106}} and {{RFC8750}},
-  "ChaCha20 with Poly1305" {{RFC7634}} or "ChaCha20 with Poly1305 and IIV" {{RFC7634}} and {{RFC8750}}.
-  New algorithms might be added in the future.
+  * Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC [RFC2451]", "AES-CBC [RFC3602]",
+  "AES-CTR [RFC3686]", "DES-CBC [RFC2405]", "CAST5-CBC [RFC2144]", "BLOWFISH-CBC [RFC2451]", "TWOFISH-CBC",
+  "AES-GCM [RFC4106]", "AES-GCM with 8 octet ICV [RFC4106]", "AES-GCM with 12 octet ICV [RFC4106]",
+  "AES-GCM with 16 octet ICV [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 & RFC8750]",
+  "ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20 with Poly1305 and IIV [RFC7634 & RFC8750]".
+  New algorithms might be added in the future. The algorithm names are
+  exactly as quoted.
 
   * Encryption Key: Encryption key. String containing the key in heaxadecimal format (starting with 0x).
 
@@ -2259,7 +2260,8 @@ The following is a list of Secrets Types.
   "MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication [no checking]",
   "ANY 96 bit authentication [no checking]", "ANY 128 bit authentication [no checking]",
   "ANY 192 bit authentication [no checking]" or "ANY 256 bit authentication [no checking]".
-  New algorithms might be added in the future.
+  New algorithms might be added in the future. The algorith names are
+  exactly as quote.
 
   * Authentication Key:  Authentication key. String containing the key in heaxadecimal format (starting with 0x).
 
