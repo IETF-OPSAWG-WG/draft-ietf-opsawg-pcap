@@ -128,112 +128,112 @@ informative:
     target: https://www.kaiser.cx/posts/pcap-iso14443/
 
   LINKTYPE\_APPLE\_IP\_OVER\_IEEE1394:
-    title: LINKTYPE\_APPLE\_IP\_OVER\_IEEE1394
+    title: LINKTYPE_APPLE_IP_OVER_IEEE1394
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_APPLE_IP_OVER_IEEE1394.html
 
   LINKTYPE\_ATM\_RFC1483:
-    title: LINKTYPE\_ATM\_RFC1483
+    title: LINKTYPE_ATM_RFC1483
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ATM_RFC1483.html
 
   LINKTYPE\_ATSC\_ALP:
-    title: LINKTYPE\_ATSC\_ALP
+    title: LINKTYPE_ATSC_ALP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ATSC_ALP.html
 
   LINKTYPE\_AX25:
-    title: LINKTYPE\_AX25
+    title: LINKTYPE_AX25
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_AX25.html
 
   LINKTYPE\_AX25\_KISS:
-    title: LINKTYPE\_AX25\_KISS
+    title: LINKTYPE_AX25_KISS
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_AX25_KISS.html
 
   LINKTYPE\_BACNET\_MS\_TP:
-    title: LINKTYPE\_BACNET\_MS\_TP
+    title: LINKTYPE_BACNET_MS_TP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BACNET_MS_TP.html
 
   LINKTYPE\_BLUETOOTH\_BREDR\_BB:
-    title: LINKTYPE\_BLUETOOTH\_BREDR\_BB
+    title: LINKTYPE_BLUETOOTH_BREDR_BB
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_BREDR_BB.html
 
   LINKTYPE\_BLUETOOTH\_HCI\_H4:
-    title: LINKTYPE\_BLUETOOTH\_HCI\_H4
+    title: LINKTYPE_BLUETOOTH_HCI_H4
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_HCI_H4.html
 
   LINKTYPE\_BLUETOOTH\_HCI\_H4\_WITH\_PHDR:
-    title: LINKTYPE\_BLUETOOTH\_HCI\_H4\_WITH\_PHDR
+    title: LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR.html
 
   LINKTYPE\_BLUETOOTH\_LE\_LL:
-    title: LINKTYPE\_BLUETOOTH\_LE\_LL
+    title: LINKTYPE_BLUETOOTH_LE_LL
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_LE_LL.html
 
   LINKTYPE\_BLUETOOTH\_LE\_LL\_WITH\_PHDR:
-    title: LINKTYPE\_BLUETOOTH\_LE\_LL\_WITH\_PHDR
+    title: LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR.html
 
   LINKTYPE\_BLUETOOTH\_LINUX\_MONITOR:
-    title: LINKTYPE\_BLUETOOTH\_LINUX\_MONITOR
+    title: LINKTYPE_BLUETOOTH_LINUX_MONITOR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_BLUETOOTH_LINUX_MONITOR.html
 
   LINKTYPE\_C\_HDLC:
-    title: LINKTYPE\_C\_HDLC
+    title: LINKTYPE_C_HDLC
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_C_HDLC.html
 
   LINKTYPE\_C\_HDLC\_WITH\_DIR:
-    title: LINKTYPE\_C\_HDLC\_WITH\_DIR
+    title: LINKTYPE_C_HDLC_WITH_DIR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_C_HDLC_WITH_DIR.html
 
   LINKTYPE\_CAN\_SOCKETCAN:
-    title: LINKTYPE\_CAN\_SOCKETCAN
+    title: LINKTYPE_CAN_SOCKETCAN
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_CAN_SOCKETCAN.html
 
   LINKTYPE\_DBUS:
-    title: LINKTYPE\_DBUS
+    title: LINKTYPE_DBUS
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DBUS.html
 
   LINKTYPE\_DECT\_NR:
-    title: LINKTYPE\_DECT\_NR
+    title: LINKTYPE_DECT_NR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DECT_NR.html
 
   LINKTYPE\_DISPLAYPORT\_AUX:
-    title: LINKTYPE\_DISPLAYPORT\_AUX
+    title: LINKTYPE_DISPLAYPORT_AUX
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DISPLAYPORT_AUX.html
 
   LINKTYPE\_DSA\_TAG\_BRCM:
-    title: LINKTYPE\_DSA\_TAG\_BRCM
+    title: LINKTYPE_DSA_TAG_BRCM
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_BRCM.html
 
   LINKTYPE\_DSA\_TAG\_BRCM\_PREPEND:
-    title: LINKTYPE\_DSA\_TAG\_BRCM\_PREPEND
+    title: LINKTYPE_DSA_TAG_BRCM_PREPEND
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_BRCM_PREPEND.html
 
   LINKTYPE\_DSA\_TAG\_DSA:
-    title: LINKTYPE\_DSA\_TAG\_DSA
+    title: LINKTYPE_DSA_TAG_DSA
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_DSA.html
 
   LINKTYPE\_DSA\_TAG\_EDSA:
-    title: LINKTYPE\_DSA\_TAG\_EDSA
+    title: LINKTYPE_DSA_TAG_EDSA
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_DSA_TAG_EDSA.html
 
@@ -243,382 +243,382 @@ informative:
     target: https://ieeexplore.ieee.org/document/9844436
 
   LINKTYPE\_EPON:
-    title: LINKTYPE\_EPON
+    title: LINKTYPE_EPON
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_EPON.html
 
   LINKTYPE\_ERF:
-    title: LINKTYPE\_ERF
+    title: LINKTYPE_ERF
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ERF.html
 
   LINKTYPE\_ETW:
-    title: LINKTYPE\_ETW
+    title: LINKTYPE_ETW
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html
 
   LINKTYPE\_ETHERNET\_MPACKET:
-    title: LINKTYPE\_ETHERNET\_MPACKET
+    title: LINKTYPE_ETHERNET_MPACKET
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ETHERNET_MPACKET.html
 
   LINKTYPE\_FC\_2:
-    title: LINKTYPE\_FC\_2
+    title: LINKTYPE_FC_2
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_FC_2.html
 
   LINKTYPE\_FC\_2\_WITH\_FRAME\_DELIMS:
-    title: LINKTYPE\_FC\_2\_WITH\_FRAME\_DELIMS
+    title: LINKTYPE_FC_2_WITH_FRAME_DELIMS
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_FC_2_WITH_FRAME_DELIMSa.html
 
   LINKTYPE\_FIRA\_UCI:
-    title: LINKTYPE\_FIRA\_UCI
+    title: LINKTYPE_FIRA_UCI
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_FIRA_UCI.html
 
   LINKTYPE\_FLEXRAY:
-    title: LINKTYPE\_FLEXRAY
+    title: LINKTYPE_FLEXRAY
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_FLEXRAY.html
 
   LINKTYPE\_FRELAY:
-    title: LINKTYPE\_FRELAY
+    title: LINKTYPE_FRELAY
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_FRELAY.html
 
   LINKTYPE\_FRELAY\_WITH\_DIR:
-    title: LINKTYPE\_FRELAY\_WITH\_DIR
+    title: LINKTYPE_FRELAY_WITH_DIR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_FRELAY_WITH_DIR.html
 
   LINKTYPE\_I2C\_LINUX:
-    title: LINKTYPE\_I2C\_LINUX
+    title: LINKTYPE_I2C_LINUX
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_I2C_LINUX.html
 
   LINKTYPE\_IEEE802\_11\_PRISM:
-    title: LINKTYPE\_IEEE802\_11\_PRISM
+    title: LINKTYPE_IEEE802_11_PRISM
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IEEE802_11_PRISM.html
 
   LINKTYPE\_IEEE802\_15\_4\_NOFCS:
-    title: LINKTYPE\_IEEE802\_15\_4\_NOFCS
+    title: LINKTYPE_IEEE802_15_4_NOFCS
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IEEE802_15_4_NOFCS.html
 
   LINKTYPE\_IEEE802\_15\_4\_NONASK\_PHY:
-    title: LINKTYPE\_IEEE802\_15\_4\_NONASK\_PHY
+    title: LINKTYPE_IEEE802_15_4_NONASK_PHY
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IEEE802_15_4_NONASK_PHY.html
 
   LINKTYPE\_IEEE802\_15\_4\_WITHFCS:
-    title: LINKTYPE\_IEEE802\_15\_4\_WITHFCS
+    title: LINKTYPE_IEEE802_15_4_WITHFCS
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IEEE802_15_4_WITHFCS.html
 
   LINKTYPE\_IPV4:
-    title: LINKTYPE\_IPV4
+    title: LINKTYPE_IPV4
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IPV4.html
 
   LINKTYPE\_IPV6:
-    title: LINKTYPE\_IPV6
+    title: LINKTYPE_IPV6
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IPV6.html
 
   LINKTYPE\_IPOIB:
-    title: LINKTYPE\_IPOIB
+    title: LINKTYPE_IPOIB
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IPOIB.html
 
   LINKTYPE\_IP\_OVER\_FC:
-    title: LINKTYPE\_IP\_OVER\_FC
+    title: LINKTYPE_IP_OVER_FC
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IP_OVER_FC.html
 
   LINKTYPE\_INFINIBAND:
-    title: LINKTYPE\_INFINIBAND
+    title: LINKTYPE_INFINIBAND
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_INFINIBAND.html
 
   LINKTYPE\_IPMI\_HPM\_2:
-    title: LINKTYPE\_IPMI\_HPM\_2
+    title: LINKTYPE_IPMI_HPM_2
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IPMI_HPM_2.html
 
   LINKTYPE\_IPNET:
-    title: LINKTYPE\_IPNET
+    title: LINKTYPE_IPNET
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_IPNET.html
 
   LINKTYPE\_LAPB\_WITH\_DIR:
-    title: LINKTYPE\_LAPB\_WITH\_DIR
+    title: LINKTYPE_LAPB_WITH_DIR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LAPB_WITH_DIR.html
 
   LINKTYPE\_LAPD:
-    title: LINKTYPE\_LAPD
+    title: LINKTYPE_LAPD
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LAPD.html
 
   LINKTYPE\_LIN:
-    title: LINKTYPE\_LIN
+    title: LINKTYPE_LIN
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LIN.html
 
   LINKTYPE\_LINUX\_IRDA:
-    title: LINKTYPE\_LINUX\_IRDA
+    title: LINKTYPE_LINUX_IRDA
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_IRDA.html
 
   LINKTYPE\_LINUX\_LAPD:
-    title: LINKTYPE\_LINUX\_LAPD
+    title: LINKTYPE_LINUX_LAPD
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_LAPD.html
 
   LINKTYPE\_LINUX\_SLL:
-    title: LINKTYPE\_LINUX\_SLL
+    title: LINKTYPE_LINUX_SLL
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_SLL.html
 
   LINKTYPE\_LINUX\_SLL2:
-    title: LINKTYPE\_LINUX\_SLL2
+    title: LINKTYPE_LINUX_SLL2
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LINUX_SLL2.html
 
   LINKTYPE\_LOOP:
-    title: LINKTYPE\_LOOP
+    title: LINKTYPE_LOOP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LOOP.html
 
   LINKTYPE\_LORATAP:
-    title: LINKTYPE\_LORATAP
+    title: LINKTYPE_LORATAP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LORATAP.html
 
   LINKTYPE\_LTALK:
-    title: LINKTYPE\_LTALK
+    title: LINKTYPE_LTALK
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_LTALK.html
 
   LINKTYPE\_MFR:
-    title: LINKTYPE\_MFR
+    title: LINKTYPE_MFR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_MFR.html
 
   LINKTYPE\_MPEG\_2\_TS:
-    title: LINKTYPE\_MPEG\_2\_TS
+    title: LINKTYPE_MPEG_2_TS
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_MPEG_2_TS.html
 
   LINKTYPE\_MTP2:
-    title: LINKTYPE\_MTP2
+    title: LINKTYPE_MTP2
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_MTP2.html
 
   LINKTYPE\_MTP2\_WITH\_PHDR:
-    title: LINKTYPE\_MTP2\_WITH\_PHDR
+    title: LINKTYPE_MTP2_WITH_PHDR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_MTP2_WITH_PHDR.html
 
   LINKTYPE\_MTP3:
-    title: LINKTYPE\_MTP3
+    title: LINKTYPE_MTP3
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_MTP3.html
 
   LINKTYPE\_SCCP:
-    title: LINKTYPE\_SCCP
+    title: LINKTYPE_SCCP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_SCCP.html
 
   LINKTYPE\_MUX27010:
-    title: LINKTYPE\_MUX27010
+    title: LINKTYPE_MUX27010
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_MUX27010.html
 
   LINKTYPE\_NETANALYZER:
-    title: LINKTYPE\_NETANALYZER
+    title: LINKTYPE_NETANALYZER
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NETANALYZER.html
 
   LINKTYPE\_NETANALYZER\_TRANSPARENT:
-    title: LINKTYPE\_NETANALYZER\_TRANSPARENT
+    title: LINKTYPE_NETANALYZER_TRANSPARENT
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NETANALYZER_TRANSPARENT.html
 
   LINKTYPE\_NETLINK:
-    title: LINKTYPE\_NETLINK
+    title: LINKTYPE_NETLINK
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NETLINK.html
 
   LINKTYPE\_NFC\_LLCP:
-    title: LINKTYPE\_NFC\_LLCP
+    title: LINKTYPE_NFC_LLCP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NFC_LLCP.html
 
   LINKTYPE\_NFLOG:
-    title: LINKTYPE\_NFLOG
+    title: LINKTYPE_NFLOG
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NFLOG.html
 
   LINKTYPE\_NG40:
-    title: LINKTYPE\_NG40
+    title: LINKTYPE_NG40
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NG40.html
 
   LINKTYPE\_NORDIC\_BLE:
-    title: LINKTYPE\_NORDIC\_BLE
+    title: LINKTYPE_NORDIC_BLE
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NORDIC_BLE.html
 
   LINKTYPE\_NULL:
-    title: LINKTYPE\_NULL
+    title: LINKTYPE_NULL
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_NULL.html
 
   LINKTYPE\_PKTAP:
-    title: LINKTYPE\_PKTAP
+    title: LINKTYPE_PKTAP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PKTAP.html
 
   LINKTYPE\_PPI:
-    title: LINKTYPE\_PPI
+    title: LINKTYPE_PPI
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PPI.html
 
   LINKTYPE\_PPP:
-    title: LINKTYPE\_PPP
+    title: LINKTYPE_PPP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PPP.html
 
   LINKTYPE\_PPP\_ETHER:
-    title: LINKTYPE\_PPP\_ETHER
+    title: LINKTYPE_PPP_ETHER
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PPP_ETHER.html
 
   LINKTYPE\_PPP\_HDLC:
-    title: LINKTYPE\_PPP\_HDLC
+    title: LINKTYPE_PPP_HDLC
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PPP_HDLC.html
 
   LINKTYPE\_PPP\_PPPD:
-    title: LINKTYPE\_PPP\_PPPD
+    title: LINKTYPE_PPP_PPPD
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PPP_PPPD.html
 
   LINKTYPE\_PPP\_WITH\_DIR:
-    title: LINKTYPE\_PPP\_WITH\_DIR
+    title: LINKTYPE_PPP_WITH_DIR
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PPP_WITH_DIR.html
 
   LINKTYPE\_PROFIBUS\_DL:
-    title: LINKTYPE\_PROFIBUS\_DL
+    title: LINKTYPE_PROFIBUS_DL
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_PROFIBUS_DL.html
 
   LINKTYPE\_RAW:
-    title: LINKTYPE\_RAW
+    title: LINKTYPE_RAW
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_RAW.html
 
   LINKTYPE\_RDS:
-    title: LINKTYPE\_RDS
+    title: LINKTYPE_RDS
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_RDS.html
 
   LINKTYPE\_RTAC\_SERIAL:
-    title: LINKTYPE\_RTAC\_SERIAL
+    title: LINKTYPE_RTAC_SERIAL
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_RTAC_SERIAL.html
 
   LINKTYPE\_SDLC:
-    title: LINKTYPE\_SDLC
+    title: LINKTYPE_SDLC
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_SDLC.html
 
   LINKTYPE\_SITA:
-    title: LINKTYPE\_SITA
+    title: LINKTYPE_SITA
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_SITA.html
 
   LINKTYPE\_SLIP:
-    title: LINKTYPE\_SLIP
+    title: LINKTYPE_SLIP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_SLIP.html
 
   LINKTYPE\_STANAG\_5066\_D\_PDU:
-    title: LINKTYPE\_STANAG\_5066\_D\_PDU
+    title: LINKTYPE_STANAG_5066_D_PDU
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_STANAG_5066_D_PDU.html
 
   LINKTYPE\_SUNATM:
-    title: LINKTYPE\_SUNATM
+    title: LINKTYPE_SUNATM
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_SUNATM.html
 
   LINKTYPE\_USB\_2\_0:
-    title: LINKTYPE\_USB\_2\_0
+    title: LINKTYPE_USB_2_0
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0.html
 
   LINKTYPE\_USB\_2\_0\_FULL\_SPEED:
-    title: LINKTYPE\_USB\_2\_0\_FULL\_SPEED
+    title: LINKTYPE_USB_2_0_FULL_SPEED
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0_FULL_SPEED.html
 
   LINKTYPE\_USB\_2\_0\_HIGH\_SPEED:
-    title: LINKTYPE\_USB\_2\_0\_HIGH\_SPEED
+    title: LINKTYPE_USB_2_0_HIGH_SPEED
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0_HIGH_SPEED.html
 
   LINKTYPE\_USB\_2\_0\_LOW\_SPEED:
-    title: LINKTYPE\_USB\_2\_0\_LOW\_SPEED
+    title: LINKTYPE_USB_2_0_LOW_SPEED
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0_LOW_SPEED.html
 
   LINKTYPE\_USB\_DARWIN:
-    title: LINKTYPE\_USB\_DARWIN
+    title: LINKTYPE_USB_DARWIN
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_DARWIN.html
 
   LINKTYPE\_USB\_LINUX:
-    title: LINKTYPE\_USB\_LINUX
+    title: LINKTYPE_USB_LINUX
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_LINUX.html
 
   LINKTYPE\_USB\_LINUX\_MMAPPED:
-    title: LINKTYPE\_USB\_LINUX\_MMAPPED
+    title: LINKTYPE_USB_LINUX_MMAPPED
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_USB_LINUX_MMAPPED.html
 
   LINKTYPE\_VSOCK:
-    title: LINKTYPE\_VSOCK
+    title: LINKTYPE_VSOCK
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_VSOCK.html
 
   LINKTYPE\_WATTSTOPPER\_DLM:
-    title: LINKTYPE\_WATTSTOPPER\_DLM
+    title: LINKTYPE_WATTSTOPPER_DLM
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_WATTSTOPPER_DLM.html
 
   LINKTYPE\_ZBOSS\_NCP:
-    title: LINKTYPE\_ZBOSS\_NCP
+    title: LINKTYPE_ZBOSS_NCP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ZBOSS_NCP.html
 
   LINKTYPE\_ZWAVE\_R1\_R2:
-    title: LINKTYPE\_ZWAVE\_R1\_R2
+    title: LINKTYPE_ZWAVE_R1_R2
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ZWAVE_R1_R2.html
 
   LINKTYPE\_ZWAVE\_R3:
-    title: LINKTYPE\_ZWAVE\_R3
+    title: LINKTYPE_ZWAVE_R3
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ZWAVE_R3.html
 
   LINKTYPE\_ZWAVE\_TAP:
-    title: LINKTYPE\_ZWAVE\_TAP
+    title: LINKTYPE_ZWAVE_TAP
     date: false
     target: https://www.tcpdump.org/linktypes/LINKTYPE_ZWAVE_TAP.html
 
