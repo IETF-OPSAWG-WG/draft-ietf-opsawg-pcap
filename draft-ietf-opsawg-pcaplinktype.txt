@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 11 June 2026                                          Sandelman
-                                                         8 December 2025
+Expires: 16 June 2026                                          Sandelman
+                                                        13 December 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 June 2026.
+   This Internet-Draft will expire on 16 June 2026.
 
 Copyright Notice
 
@@ -122,7 +122,7 @@ Table of Contents
    *  LinkType Name: Indicates the symbolic name for this LinkType.  The
       name is prefixed with "LINKTYPE_" (i.e., LINKTYPE_something).
 
-   *  Change Controller: who to accept changes from
+   *  Change Controller: as per [RFC8126], Section 2.3
 
    *  Description: Provides a very short description.
 
@@ -168,1017 +168,1017 @@ Table of Contents
 
    This is the initial table for the registry:
 
-   Name  LINKTYPE_NULL
-   Number  0
+   LinkType Value  0
+   LinkType Name  LINKTYPE_NULL
    Description  BSD loopback encapsulation
-   Reference  [LINKTYPE_NULL]
+   Reference  [LINKTYPE__NULL]
 
-   Name  LINKTYPE_ETHERNET
-   Number  1
+   LinkType Value  1
+   LinkType Name  LINKTYPE_ETHERNET
    Description  IEEE 802.3 Ethernet
-   Reference  [LINKTYPE_ETHERNET]
+   Reference  [LINKTYPE__ETHERNET]
 
-   Name  LINKTYPE_EXP_ETHERNET
-   Number  2
+   LinkType Value  2
+   LinkType Name  LINKTYPE_EXP_ETHERNET
    Description  Xerox experimental 3Mb Ethernet
    Reference  [PracConsEthDesign]
 
-   Name  LINKTYPE_AX25
-   Number  3
+   LinkType Value  3
+   LinkType Name  LINKTYPE_AX25
    Description  AX.25 layer 2 packets
-   Reference  [LINKTYPE_AX25]
+   Reference  [LINKTYPE__AX25]
 
-   Name  LINKTYPE_PRONET
-   Number  4
+   LinkType Value  4
+   LinkType Name  LINKTYPE_PRONET
    Description  Proteon PRONet Token Ring
 
-   Name  LINKTYPE_CHAOS
-   Number  5
+   LinkType Value  5
+   LinkType Name  LINKTYPE_CHAOS
    Description  MIT Chaosnet
    Reference  [AIM-628]
 
-   Name  LINKTYPE_IEEE802_5
-   Number  6
+   LinkType Value  6
+   LinkType Name  LINKTYPE_IEEE802_5
    Description  IEEE 802.5 Token Ring
 
-   Name  LINKTYPE_ARCNET_BSD
-   Number  7
+   LinkType Value  7
+   LinkType Name  LINKTYPE_ARCNET_BSD
    Description  ARCNET Data Packets with BSD encapsulation
 
-   Name  LINKTYPE_SLIP
-   Number  8
+   LinkType Value  8
+   LinkType Name  LINKTYPE_SLIP
    Description  SLIP, with a direction header
-   Reference  [LINKTYPE_SLIP]
+   Reference  [LINKTYPE__SLIP]
 
-   Name  LINKTYPE_PPP
-   Number  9
+   LinkType Value  9
+   LinkType Name  LINKTYPE_PPP
    Description  PPP
-   Reference  [LINKTYPE_PPP]
+   Reference  [LINKTYPE__PPP]
 
-   Name  LINKTYPE_FDDI
-   Number  10
+   LinkType Value  10
+   LinkType Name  LINKTYPE_FDDI
    Description  FDDI: per ANSI INCITS 239-1994
 
-   Name  Not available for assignment
-   Number  11-49
+   LinkType Value  11-49
+   LinkType Name  Not available for assignment
    Description  Do not use these values
 
-   Name  LINKTYPE_PPP_HDLC
-   Number  50
+   LinkType Value  50
+   LinkType Name  LINKTYPE_PPP_HDLC
    Description  PPP in HDLC-like framing
-   Reference  [LINKTYPE_PPP_HDLC]
+   Reference  [LINKTYPE__PPP__HDLC]
 
-   Name  LINKTYPE_PPP_ETHER
-   Number  51
+   LinkType Value  51
+   LinkType Name  LINKTYPE_PPP_ETHER
    Description  PPPoE session packets
-   Reference  [LINKTYPE_PPP_ETHER]
+   Reference  [LINKTYPE__PPP__ETHER]
 
-   Name  Not available for assignment
-   Number  52-98
+   LinkType Value  52-98
+   LinkType Name  Not available for assignment
    Description  Used historically by NetBSD
 
-   Name  LINKTYPE_SYMANTEC_FIREWALL
-   Number  99
+   LinkType Value  99
+   LinkType Name  LINKTYPE_SYMANTEC_FIREWALL
    Description  Symantec Enterprise Firewall
 
-   Name  LINKTYPE_ATM_RFC1483
-   Number  100
+   LinkType Value  100
+   LinkType Name  LINKTYPE_ATM_RFC1483
    Description  LLC/SNAP-encapsulated ATM
-   Reference  [LINKTYPE_ATM_RFC1483]
+   Reference  [LINKTYPE__ATM__RFC1483]
 
-   Name  LINKTYPE_RAW
-   Number  101
+   LinkType Value  101
+   LinkType Name  LINKTYPE_RAW
    Description  IP without link-layer headers
-   Reference  [LINKTYPE_RAW] [RFC791] [RFC8200]
+   Reference  [LINKTYPE__RAW] [RFC791] [RFC8200]
 
-   Name  LINKTYPE_SLIP_BSDOS
-   Number  102
+   LinkType Value  102
+   LinkType Name  LINKTYPE_SLIP_BSDOS
    Description  BSD/OS SLIP BPF header
 
-   Name  LINKTYPE_PPP_BSDOS
-   Number  103
+   LinkType Value  103
+   LinkType Name  LINKTYPE_PPP_BSDOS
    Description  BSD/OS PPP BPF header
 
-   Name  LINKTYPE_C_HDLC
-   Number  104
+   LinkType Value  104
+   LinkType Name  LINKTYPE_C_HDLC
    Description  Cisco PPP with HDLC framing
-   Reference  [LINKTYPE_C_HDLC]
+   Reference  [LINKTYPE__C__HDLC]
 
-   Name  LINKTYPE_IEEE802_11
-   Number  105
+   LinkType Value  105
+   LinkType Name  LINKTYPE_IEEE802_11
    Description  IEEE 802.11 wireless LAN
 
-   Name  LINKTYPE_ATM_CLIP
-   Number  106
+   LinkType Value  106
+   LinkType Name  LINKTYPE_ATM_CLIP
    Description  ATM Classical IP, with no header preceding IP
 
-   Name  LINKTYPE_FRELAY
-   Number  107
+   LinkType Value  107
+   LinkType Name  LINKTYPE_FRELAY
    Description  Frame Relay LAPF
-   Reference  [LINKTYPE_FRELAY]
+   Reference  [LINKTYPE__FRELAY]
 
-   Name  LINKTYPE_LOOP
-   Number  108
+   LinkType Value  108
+   LinkType Name  LINKTYPE_LOOP
    Description  OpenBSD loopback encapsulation
-   Reference  [LINKTYPE_LOOP]
+   Reference  [LINKTYPE__LOOP]
 
-   Name  LINKTYPE_ENC
-   Number  109
+   LinkType Value  109
+   LinkType Name  LINKTYPE_ENC
    Description  OpenBSD IPsec encapsulation
 
-   Name  LINKTYPE_LANE8023
-   Number  110
+   LinkType Value  110
+   LinkType Name  LINKTYPE_LANE8023
    Description  ATM LANE + 802.3
 
-   Name  LINKTYPE_HIPPI
-   Number  111
+   LinkType Value  111
+   LinkType Name  LINKTYPE_HIPPI
    Description  NetBSD HIPPI
 
-   Name  LINKTYPE_HDLC
-   Number  112
+   LinkType Value  112
+   LinkType Name  LINKTYPE_HDLC
    Description  NetBSD HDLC framing
 
-   Name  LINKTYPE_LINUX_SLL
-   Number  113
+   LinkType Value  113
+   LinkType Name  LINKTYPE_LINUX_SLL
    Description  Linux "cooked" capture encapsulation
-   Reference  [LINKTYPE_LINUX_SLL]
+   Reference  [LINKTYPE__LINUX__SLL]
 
-   Name  LINKTYPE_LTALK
-   Number  114
+   LinkType Value  114
+   LinkType Name  LINKTYPE_LTALK
    Description  Apple LocalTalk
-   Reference  [LINKTYPE_LTALK]
+   Reference  [LINKTYPE__LTALK]
 
-   Name  LINKTYPE_ECONET
-   Number  115
+   LinkType Value  115
+   LinkType Name  LINKTYPE_ECONET
    Description  Acorn Econet
 
-   Name  LINKTYPE_IPFILTER
-   Number  116
+   LinkType Value  116
+   LinkType Name  LINKTYPE_IPFILTER
    Description  OpenBSD ipfilter
 
-   Name  LINKTYPE_PFLOG
-   Number  117
+   LinkType Value  117
+   LinkType Name  LINKTYPE_PFLOG
    Description  PF packet filter logging
 
-   Name  LINKTYPE_CISCO_IOS
-   Number  118
+   LinkType Value  118
+   LinkType Name  LINKTYPE_CISCO_IOS
    Description  Cisco-internal use
 
-   Name  LINKTYPE_IEEE802_11_PRISM
-   Number  119
+   LinkType Value  119
+   LinkType Name  LINKTYPE_IEEE802_11_PRISM
    Description  IEEE 802.11 wireless LAN, preceded by a Prism monitor
       mode header
-   Reference  [LINKTYPE_IEEE802_11_PRISM]
+   Reference  [LINKTYPE__IEEE802__11__PRISM]
 
-   Name  LINKTYPE_IEEE802_11_AIRONET
-   Number  120
+   LinkType Value  120
+   LinkType Name  LINKTYPE_IEEE802_11_AIRONET
    Description  802.11 + FreeBSD Aironet radio metadata
 
-   Name  LINKTYPE_HHDLC
-   Number  121
+   LinkType Value  121
+   LinkType Name  LINKTYPE_HHDLC
    Description  Siemens HiPath HDLC
 
-   Name  LINKTYPE_IP_OVER_FC
-   Number  122
+   LinkType Value  122
+   LinkType Name  LINKTYPE_IP_OVER_FC
    Description  IP and ATM over Fibre Channel
-   Reference  [LINKTYPE_IP_OVER_FC]
+   Reference  [LINKTYPE__IP__OVER__FC]
 
-   Name  LINKTYPE_SUNATM
-   Number  123
+   LinkType Value  123
+   LinkType Name  LINKTYPE_SUNATM
    Description  ATM traffic captured from a SunATM device
-   Reference  [LINKTYPE_SUNATM]
+   Reference  [LINKTYPE__SUNATM]
 
-   Name  LINKTYPE_RIO
-   Number  124
+   LinkType Value  124
+   LinkType Name  LINKTYPE_RIO
    Description  RapidIO
 
-   Name  LINKTYPE_PCI_EXP
-   Number  125
+   LinkType Value  125
+   LinkType Name  LINKTYPE_PCI_EXP
    Description  PCI Express
 
-   Name  LINKTYPE_AURORA
-   Number  126
+   LinkType Value  126
+   LinkType Name  LINKTYPE_AURORA
    Description  Xilinx Aurora link layer
 
-   Name  LINKTYPE_IEEE802_11_RADIOTAP
-   Number  127
+   LinkType Value  127
+   LinkType Name  LINKTYPE_IEEE802_11_RADIOTAP
    Description  IEEE 802.11 wireless LAN, preceded by a Radiotap header
    Reference  [Radiotap]
 
-   Name  LINKTYPE_TZSP
-   Number  128
+   LinkType Value  128
+   LinkType Name  LINKTYPE_TZSP
    Description  Tazmen Sniffer Protocol
 
-   Name  LINKTYPE_ARCNET_LINUX
-   Number  129
+   LinkType Value  129
+   LinkType Name  LINKTYPE_ARCNET_LINUX
    Description  ARCNET Data Packets with Linux encapsulation
 
-   Name  LINKTYPE_JUNIPER_MLPPP
-   Number  130
+   LinkType Value  130
+   LinkType Name  LINKTYPE_JUNIPER_MLPPP
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_MLFR
-   Number  131
+   LinkType Value  131
+   LinkType Name  LINKTYPE_JUNIPER_MLFR
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_ES
-   Number  132
+   LinkType Value  132
+   LinkType Name  LINKTYPE_JUNIPER_ES
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_GGSN
-   Number  133
+   LinkType Value  133
+   LinkType Name  LINKTYPE_JUNIPER_GGSN
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_MFR
-   Number  134
+   LinkType Value  134
+   LinkType Name  LINKTYPE_JUNIPER_MFR
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_ATM2
-   Number  135
+   LinkType Value  135
+   LinkType Name  LINKTYPE_JUNIPER_ATM2
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_SERVICES
-   Number  136
+   LinkType Value  136
+   LinkType Name  LINKTYPE_JUNIPER_SERVICES
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_ATM1
-   Number  137
+   LinkType Value  137
+   LinkType Name  LINKTYPE_JUNIPER_ATM1
    Description  Juniper Networks
 
-   Name  LINKTYPE_APPLE_IP_OVER_IEEE1394
-   Number  138
+   LinkType Value  138
+   LinkType Name  LINKTYPE_APPLE_IP_OVER_IEEE1394
    Description  Apple IP-over-IEEE 1394 cooked header
-   Reference  [LINKTYPE_APPLE_IP_OVER_IEEE1394]
+   Reference  [LINKTYPE__APPLE__IP__OVER__IEEE1394]
 
-   Name  LINKTYPE_MTP2_WITH_PHDR
-   Number  139
+   LinkType Value  139
+   LinkType Name  LINKTYPE_MTP2_WITH_PHDR
    Description  SS7 MTP2 frames, with a pseudo-header
-   Reference  [LINKTYPE_MTP2_WITH_PHDR]
+   Reference  [LINKTYPE__MTP2__WITH__PHDR]
 
-   Name  LINKTYPE_MTP2
-   Number  140
+   LinkType Value  140
+   LinkType Name  LINKTYPE_MTP2
    Description  SS7 MTP2 packets
-   Reference  [LINKTYPE_MTP2]
+   Reference  [LINKTYPE__MTP2]
 
-   Name  LINKTYPE_MTP3
-   Number  141
+   LinkType Value  141
+   LinkType Name  LINKTYPE_MTP3
    Description  SS7 MTP3 packets
-   Reference  [LINKTYPE_MTP3]
+   Reference  [LINKTYPE__MTP3]
 
-   Name  LINKTYPE_SCCP
-   Number  142
+   LinkType Value  142
+   LinkType Name  LINKTYPE_SCCP
    Description  SS7 SCCP packets
-   Reference  [LINKTYPE_SCCP]
+   Reference  [LINKTYPE__SCCP]
 
-   Name  LINKTYPE_DOCSIS
-   Number  143
+   LinkType Value  143
+   LinkType Name  LINKTYPE_DOCSIS
    Description  DOCSIS MAC frames
    Reference  [DOCSIS-4.0-MULP]
 
-   Name  LINKTYPE_LINUX_IRDA
-   Number  144
+   LinkType Value  144
+   LinkType Name  LINKTYPE_LINUX_IRDA
    Description  Linux-IrDA packets
-   Reference  [LINKTYPE_LINUX_IRDA]
+   Reference  [LINKTYPE__LINUX__IRDA]
 
-   Name  LINKTYPE_IBM_SP
-   Number  145
+   LinkType Value  145
+   LinkType Name  LINKTYPE_IBM_SP
    Description  IBM SP switch
 
-   Name  LINKTYPE_IBM_SN
-   Number  146
+   LinkType Value  146
+   LinkType Name  LINKTYPE_IBM_SN
    Description  IBM Next Federation switch
 
-   Name  LINKTYPE_RESERVED_01
-   Number  147
+   LinkType Value  147
+   LinkType Name  LINKTYPE_RESERVED_01
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_02
-   Number  148
+   LinkType Value  148
+   LinkType Name  LINKTYPE_RESERVED_02
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_03
-   Number  149
+   LinkType Value  149
+   LinkType Name  LINKTYPE_RESERVED_03
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_04
-   Number  150
+   LinkType Value  150
+   LinkType Name  LINKTYPE_RESERVED_04
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_05
-   Number  151
+   LinkType Value  151
+   LinkType Name  LINKTYPE_RESERVED_05
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_06
-   Number  152
+   LinkType Value  152
+   LinkType Name  LINKTYPE_RESERVED_06
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_07
-   Number  153
+   LinkType Value  153
+   LinkType Name  LINKTYPE_RESERVED_07
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_08
-   Number  154
+   LinkType Value  154
+   LinkType Name  LINKTYPE_RESERVED_08
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_09
-   Number  155
+   LinkType Value  155
+   LinkType Name  LINKTYPE_RESERVED_09
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_10
-   Number  156
+   LinkType Value  156
+   LinkType Name  LINKTYPE_RESERVED_10
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_11
-   Number  157
+   LinkType Value  157
+   LinkType Name  LINKTYPE_RESERVED_11
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_12
-   Number  158
+   LinkType Value  158
+   LinkType Name  LINKTYPE_RESERVED_12
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_13
-   Number  159
+   LinkType Value  159
+   LinkType Name  LINKTYPE_RESERVED_13
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_14
-   Number  160
+   LinkType Value  160
+   LinkType Name  LINKTYPE_RESERVED_14
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_15
-   Number  161
+   LinkType Value  161
+   LinkType Name  LINKTYPE_RESERVED_15
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_RESERVED_16
-   Number  162
+   LinkType Value  162
+   LinkType Name  LINKTYPE_RESERVED_16
    Description  For private use (deprecated)
 
-   Name  LINKTYPE_IEEE802_11_AVS
-   Number  163
+   LinkType Value  163
+   LinkType Name  LINKTYPE_IEEE802_11_AVS
    Description  IEEE 802.11 wireless LAN, preceded by an AVS header
    Reference  [AVS]
 
-   Name  LINKTYPE_JUNIPER_MONITOR
-   Number  164
+   LinkType Value  164
+   LinkType Name  LINKTYPE_JUNIPER_MONITOR
    Description  Juniper Networks
 
-   Name  LINKTYPE_BACNET_MS_TP
-   Number  165
+   LinkType Value  165
+   LinkType Name  LINKTYPE_BACNET_MS_TP
    Description  BACnet MS/TP frames
-   Reference  [LINKTYPE_BACNET_MS_TP]
+   Reference  [LINKTYPE__BACNET__MS__TP]
 
-   Name  LINKTYPE_PPP_PPPD
-   Number  166
+   LinkType Value  166
+   LinkType Name  LINKTYPE_PPP_PPPD
    Description  PPP preceded by a direction octet and an HDLC-like
       control field
-   Reference  [LINKTYPE_PPP_PPPD]
+   Reference  [LINKTYPE__PPP__PPPD]
 
-   Name  LINKTYPE_JUNIPER_PPPOE
-   Number  167
+   LinkType Value  167
+   LinkType Name  LINKTYPE_JUNIPER_PPPOE
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_PPPOE_ATM
-   Number  168
+   LinkType Value  168
+   LinkType Name  LINKTYPE_JUNIPER_PPPOE_ATM
    Description  Juniper Networks
 
-   Name  LINKTYPE_GPRS_LLC
-   Number  169
+   LinkType Value  169
+   LinkType Name  LINKTYPE_GPRS_LLC
    Description  General Packet Radio Service Logical Link Control, as
       per 3GPP TS 04.64
    Reference  [_3GPP-TS-04.64]
 
-   Name  LINKTYPE_GPF_T
-   Number  170
+   LinkType Value  170
+   LinkType Name  LINKTYPE_GPF_T
    Description  Transparent-mapped generic framing procedure
    Reference  [G.7041]
 
-   Name  LINKTYPE_GPF_F
-   Number  171
+   LinkType Value  171
+   LinkType Name  LINKTYPE_GPF_F
    Description  Frame-mapped generic framing procedure
    Reference  [G.7041]
 
-   Name  LINKTYPE_GCOM_T1E1
-   Number  172
+   LinkType Value  172
+   LinkType Name  LINKTYPE_GCOM_T1E1
    Description  Gcom T1/E1 line monitoring equipment
 
-   Name  LINKTYPE_GCOM_SERIAL
-   Number  173
+   LinkType Value  173
+   LinkType Name  LINKTYPE_GCOM_SERIAL
    Description  Gcom T1/E1 line monitoring equipment
 
-   Name  LINKTYPE_JUNIPER_PIC_PEER
-   Number  174
+   LinkType Value  174
+   LinkType Name  LINKTYPE_JUNIPER_PIC_PEER
    Description  Juniper Networks
 
-   Name  LINKTYPE_ERF_ETH
-   Number  175
+   LinkType Value  175
+   LinkType Name  LINKTYPE_ERF_ETH
    Description  Endace TYPE_ETH ERF records
-   Reference  [LINKTYPE_ERF]
+   Reference  [LINKTYPE__ERF]
 
-   Name  LINKTYPE_ERF_POS
-   Number  176
+   LinkType Value  176
+   LinkType Name  LINKTYPE_ERF_POS
    Description  Endace TYPE_POS_HDLC ERF records
-   Reference  [LINKTYPE_ERF]
+   Reference  [LINKTYPE__ERF]
 
-   Name  LINKTYPE_LINUX_LAPD
-   Number  177
+   LinkType Value  177
+   LinkType Name  LINKTYPE_LINUX_LAPD
    Description  Linux vISDN LAPD frames
-   Reference  [LINKTYPE_LINUX_LAPD]
+   Reference  [LINKTYPE__LINUX__LAPD]
 
-   Name  LINKTYPE_JUNIPER_ETHER
-   Number  178
+   LinkType Value  178
+   LinkType Name  LINKTYPE_JUNIPER_ETHER
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_PPP
-   Number  179
+   LinkType Value  179
+   LinkType Name  LINKTYPE_JUNIPER_PPP
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_FRELAY
-   Number  180
+   LinkType Value  180
+   LinkType Name  LINKTYPE_JUNIPER_FRELAY
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_CHDLC
-   Number  181
+   LinkType Value  181
+   LinkType Name  LINKTYPE_JUNIPER_CHDLC
    Description  Juniper Networks
 
-   Name  LINKTYPE_MFR
-   Number  182
+   LinkType Value  182
+   LinkType Name  LINKTYPE_MFR
    Description  FRF.16.1 Multi-Link Frame Relay frames
-   Reference  [LINKTYPE_MFR]
+   Reference  [LINKTYPE__MFR]
 
-   Name  LINKTYPE_JUNIPER_VP
-   Number  183
+   LinkType Value  183
+   LinkType Name  LINKTYPE_JUNIPER_VP
    Description  Juniper Networks
 
-   Name  LINKTYPE_A429
-   Number  184
+   LinkType Value  184
+   LinkType Name  LINKTYPE_A429
    Description  ARINC 429 frames
 
-   Name  LINKTYPE_A653_ICM
-   Number  185
+   LinkType Value  185
+   LinkType Name  LINKTYPE_A653_ICM
    Description  Arinc 653 Interpartition Communication messages
 
-   Name  LINKTYPE_USB_FREEBSD
-   Number  186
+   LinkType Value  186
+   LinkType Name  LINKTYPE_USB_FREEBSD
    Description  USB traffic captured on FreeBSD
 
-   Name  LINKTYPE_BLUETOOTH_HCI_H4
-   Number  187
+   LinkType Value  187
+   LinkType Name  LINKTYPE_BLUETOOTH_HCI_H4
    Description  Bluetooth HCI UART Transport Layer packets
-   Reference  [LINKTYPE_BLUETOOTH_HCI_H4]
+   Reference  [LINKTYPE__BLUETOOTH__HCI__H4]
 
-   Name  LINKTYPE_IEEE802_16_MAC_CPS
-   Number  188
+   LinkType Value  188
+   LinkType Name  LINKTYPE_IEEE802_16_MAC_CPS
    Description  IEEE 802.16 MAC Common Part Sublayer
 
-   Name  LINKTYPE_USB_LINUX
-   Number  189
+   LinkType Value  189
+   LinkType Name  LINKTYPE_USB_LINUX
    Description  USB packets, beginning with a Linux USB header
-   Reference  [LINKTYPE_USB_LINUX]
+   Reference  [LINKTYPE__USB__LINUX]
 
-   Name  LINKTYPE_CAN20B
-   Number  190
+   LinkType Value  190
+   LinkType Name  LINKTYPE_CAN20B
    Description  Controller Area Network (CAN) v. 2.0B packets
 
-   Name  LINKTYPE_IEEE802_15_4_LINUX
-   Number  191
+   LinkType Value  191
+   LinkType Name  LINKTYPE_IEEE802_15_4_LINUX
    Description  IEEE 802.15.4 with address fields padded by Linux
 
-   Name  LINKTYPE_PPI
-   Number  192
+   LinkType Value  192
+   LinkType Name  LINKTYPE_PPI
    Description  Per-Packet Information header preceding packet data
-   Reference  [LINKTYPE_PPI]
+   Reference  [LINKTYPE__PPI]
 
-   Name  LINKTYPE_IEEE802_16_MAC_CPS_RADIO
-   Number  193
+   LinkType Value  193
+   LinkType Name  LINKTYPE_IEEE802_16_MAC_CPS_RADIO
    Description  802.16 MAC Common Part Sublayer plus radio header
 
-   Name  LINKTYPE_JUNIPER_ISM
-   Number  194
+   LinkType Value  194
+   LinkType Name  LINKTYPE_JUNIPER_ISM
    Description  Juniper Networks
 
-   Name  LINKTYPE_IEEE802_15_4_WITHFCS
-   Number  195
+   LinkType Value  195
+   LinkType Name  LINKTYPE_IEEE802_15_4_WITHFCS
    Description  IEEE 802.15.4 with FCS
-   Reference  [LINKTYPE_IEEE802_15_4_WITHFCS]
+   Reference  [LINKTYPE__IEEE802__15__4__WITHFCS]
 
-   Name  LINKTYPE_SITA
-   Number  196
+   LinkType Value  196
+   LinkType Name  LINKTYPE_SITA
    Description  Various link-layer types, with a pseudo-header
-   Reference  [LINKTYPE_SITA]
+   Reference  [LINKTYPE__SITA]
 
-   Name  LINKTYPE_ERF
-   Number  197
+   LinkType Value  197
+   LinkType Name  LINKTYPE_ERF
    Description  Endace ERF records
-   Reference  [LINKTYPE_ERF]
+   Reference  [LINKTYPE__ERF]
 
-   Name  LINKTYPE_RAIF1
-   Number  198
+   LinkType Value  198
+   LinkType Name  LINKTYPE_RAIF1
    Description  Ethernet packets captured from a u10 Networks board
 
-   Name  LINKTYPE_IPMB_KONTRON
-   Number  199
+   LinkType Value  199
+   LinkType Name  LINKTYPE_IPMB_KONTRON
    Description  IPMB packet for IPMI, with a 2-octet header
 
-   Name  LINKTYPE_JUNIPER_ST
-   Number  200
+   LinkType Value  200
+   LinkType Name  LINKTYPE_JUNIPER_ST
    Description  Juniper Networks
 
-   Name  LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR
-   Number  201
+   LinkType Value  201
+   LinkType Name  LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR
    Description  Bluetooth HCI UART Transport Layer packets with a
       direction pseudo-header
-   Reference  [LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR]
+   Reference  [LINKTYPE__BLUETOOTH__HCI__H4__WITH__PHDR]
 
-   Name  LINKTYPE_AX25_KISS
-   Number  202
+   LinkType Value  202
+   LinkType Name  LINKTYPE_AX25_KISS
    Description  KISS frames between a host and an AX.25 TNC
-   Reference  [LINKTYPE_AX25_KISS]
+   Reference  [LINKTYPE__AX25__KISS]
 
-   Name  LINKTYPE_LAPD
-   Number  203
+   LinkType Value  203
+   LinkType Name  LINKTYPE_LAPD
    Description  Q.921 LAPD frames
-   Reference  [LINKTYPE_LAPD]
+   Reference  [LINKTYPE__LAPD]
 
-   Name  LINKTYPE_PPP_WITH_DIR
-   Number  204
+   LinkType Value  204
+   LinkType Name  LINKTYPE_PPP_WITH_DIR
    Description  PPP, with a direction header
-   Reference  [LINKTYPE_PPP_WITH_DIR]
+   Reference  [LINKTYPE__PPP__WITH__DIR]
 
-   Name  LINKTYPE_C_HDLC_WITH_DIR
-   Number  205
+   LinkType Value  205
+   LinkType Name  LINKTYPE_C_HDLC_WITH_DIR
    Description  Cisco PPP with HDLC framing, with a direction header
-   Reference  [LINKTYPE_C_HDLC_WITH_DIR]
+   Reference  [LINKTYPE__C__HDLC__WITH__DIR]
 
-   Name  LINKTYPE_FRELAY_WITH_DIR
-   Number  206
+   LinkType Value  206
+   LinkType Name  LINKTYPE_FRELAY_WITH_DIR
    Description  Frame Relay LAPF, with a direction header
-   Reference  [LINKTYPE_FRELAY_WITH_DIR]
+   Reference  [LINKTYPE__FRELAY__WITH__DIR]
 
-   Name  LINKTYPE_LAPB_WITH_DIR
-   Number  207
+   LinkType Value  207
+   LinkType Name  LINKTYPE_LAPB_WITH_DIR
    Description  X.25 LAPB, with a direction header
-   Reference  [LINKTYPE_LAPB_WITH_DIR]
+   Reference  [LINKTYPE__LAPB__WITH__DIR]
 
-   Name  WillBarker-Proprietary
-   Number  208
+   LinkType Value  208
+   LinkType Name  WillBarker-Proprietary
    Description  Proprietary Link-Layer type
 
-   Name  LINKTYPE_I2C_LINUX
-   Number  209
+   LinkType Value  209
+   LinkType Name  LINKTYPE_I2C_LINUX
    Description  Linux I2C packets
-   Reference  [LINKTYPE_I2C_LINUX]
+   Reference  [LINKTYPE__I2C__LINUX]
 
-   Name  LINKTYPE_FLEXRAY
-   Number  210
+   LinkType Value  210
+   LinkType Name  LINKTYPE_FLEXRAY
    Description  FlexRay frames or symbols, with a pseudo-header
-   Reference  [LINKTYPE_FLEXRAY]
+   Reference  [LINKTYPE__FLEXRAY]
 
-   Name  LINKTYPE_MOST
-   Number  211
+   LinkType Value  211
+   LinkType Name  LINKTYPE_MOST
    Description  Media Oriented Systems Transport (MOST) bus
 
-   Name  LINKTYPE_LIN
-   Number  212
+   LinkType Value  212
+   LinkType Name  LINKTYPE_LIN
    Description  Local Interconnect Network (LIN) automotive bus, with a
       metadata header
-   Reference  [LINKTYPE_LIN]
+   Reference  [LINKTYPE__LIN]
 
-   Name  LINKTYPE_X2E_SERIAL
-   Number  213
+   LinkType Value  213
+   LinkType Name  LINKTYPE_X2E_SERIAL
    Description  X2E serial line captures
 
-   Name  LINKTYPE_X2E_XORAYA
-   Number  214
+   LinkType Value  214
+   LinkType Name  LINKTYPE_X2E_XORAYA
    Description  X2E Xoraya data loggers
 
-   Name  LINKTYPE_IEEE802_15_4_NONASK_PHY
-   Number  215
+   LinkType Value  215
+   LinkType Name  LINKTYPE_IEEE802_15_4_NONASK_PHY
    Description  IEEE 802.15.4 with PHY header
-   Reference  [LINKTYPE_IEEE802_15_4_NONASK_PHY]
+   Reference  [LINKTYPE__IEEE802__15__4__NONASK__PHY]
 
-   Name  LINKTYPE_LINUX_EVDEV
-   Number  216
+   LinkType Value  216
+   LinkType Name  LINKTYPE_LINUX_EVDEV
    Description  Linux evdev messages
 
-   Name  LINKTYPE_GSMTAP_UM
-   Number  217
+   LinkType Value  217
+   LinkType Name  LINKTYPE_GSMTAP_UM
    Description  GSM Um interface, with gsmtap header
 
-   Name  LINKTYPE_GSMTAP_ABIS
-   Number  218
+   LinkType Value  218
+   LinkType Name  LINKTYPE_GSMTAP_ABIS
    Description  GSM Abis interface, with gsmtap header
 
-   Name  LINKTYPE_MPLS
-   Number  219
+   LinkType Value  219
+   LinkType Name  LINKTYPE_MPLS
    Description  MPLS packets with MPLS label as the header
 
-   Name  LINKTYPE_USB_LINUX_MMAPPED
-   Number  220
+   LinkType Value  220
+   LinkType Name  LINKTYPE_USB_LINUX_MMAPPED
    Description  USB packets, beginning with an extended Linux USB header
-   Reference  [LINKTYPE_USB_LINUX_MMAPPED]
+   Reference  [LINKTYPE__USB__LINUX__MMAPPED]
 
-   Name  LINKTYPE_DECT
-   Number  221
+   LinkType Value  221
+   LinkType Name  LINKTYPE_DECT
    Description  DECT packets, with a pseudo-header
 
-   Name  LINKTYPE_AOS
-   Number  222
+   LinkType Value  222
+   LinkType Name  LINKTYPE_AOS
    Description  OS Space Data Link Protocol
 
-   Name  LINKTYPE_WIHART
-   Number  223
+   LinkType Value  223
+   LinkType Name  LINKTYPE_WIHART
    Description  Wireless HART (Highway Addressable Remote Transducer)
 
-   Name  LINKTYPE_FC_2
-   Number  224
+   LinkType Value  224
+   LinkType Name  LINKTYPE_FC_2
    Description  Fibre Channel FC-2 frames
-   Reference  [LINKTYPE_FC_2]
+   Reference  [LINKTYPE__FC__2]
 
-   Name  LINKTYPE_FC_2_WITH_FRAME_DELIMS
-   Number  225
+   LinkType Value  225
+   LinkType Name  LINKTYPE_FC_2_WITH_FRAME_DELIMS
    Description  Fibre Channel FC-2 frames with SOF and EOF
-   Reference  [LINKTYPE_FC_2_WITH_FRAME_DELIMS]
+   Reference  [LINKTYPE__FC__2__WITH__FRAME__DELIMS]
 
-   Name  LINKTYPE_IPNET
-   Number  226
+   LinkType Value  226
+   LinkType Name  LINKTYPE_IPNET
    Description  Solaris ipnet
-   Reference  [LINKTYPE_IPNET]
+   Reference  [LINKTYPE__IPNET]
 
-   Name  LINKTYPE_CAN_SOCKETCAN
-   Number  227
+   LinkType Value  227
+   LinkType Name  LINKTYPE_CAN_SOCKETCAN
    Description  Controller Area Network (CAN) frames, with a metadata
       header
-   Reference  [LINKTYPE_CAN_SOCKETCAN]
+   Reference  [LINKTYPE__CAN__SOCKETCAN]
 
-   Name  LINKTYPE_IPV4
-   Number  228
+   LinkType Value  228
+   LinkType Name  LINKTYPE_IPV4
    Description  IPv4 without link-layer headers
-   Reference  [LINKTYPE_IPV4] [RFC791]
+   Reference  [LINKTYPE__IPV4] [RFC791]
 
-   Name  LINKTYPE_IPV6
-   Number  229
+   LinkType Value  229
+   LinkType Name  LINKTYPE_IPV6
    Description  IPv6 without link-layer headers
-   Reference  [LINKTYPE_IPV6] [RFC8200]
+   Reference  [LINKTYPE__IPV6] [RFC8200]
 
-   Name  LINKTYPE_IEEE802_15_4_NOFCS
-   Number  230
+   LinkType Value  230
+   LinkType Name  LINKTYPE_IEEE802_15_4_NOFCS
    Description  IEEE 802.15.4 without FCS
-   Reference  [LINKTYPE_IEEE802_15_4_NOFCS]
+   Reference  [LINKTYPE__IEEE802__15__4__NOFCS]
 
-   Name  LINKTYPE_DBUS
-   Number  231
+   LinkType Value  231
+   LinkType Name  LINKTYPE_DBUS
    Description  D-Bus messages
-   Reference  [LINKTYPE_DBUS]
+   Reference  [LINKTYPE__DBUS]
 
-   Name  LINKTYPE_JUNIPER_VS
-   Number  232
+   LinkType Value  232
+   LinkType Name  LINKTYPE_JUNIPER_VS
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_SRX_E2E
-   Number  233
+   LinkType Value  233
+   LinkType Name  LINKTYPE_JUNIPER_SRX_E2E
    Description  Juniper Networks
 
-   Name  LINKTYPE_JUNIPER_FIBRECHANNEL
-   Number  234
+   LinkType Value  234
+   LinkType Name  LINKTYPE_JUNIPER_FIBRECHANNEL
    Description  Juniper Networks
 
-   Name  LINKTYPE_DVB_CI
-   Number  235
+   LinkType Value  235
+   LinkType Name  LINKTYPE_DVB_CI
    Description  DVB-CI messages, with a pseudo-header
    Reference  [DVB-CI-PCAP]
 
-   Name  LINKTYPE_MUX27010
-   Number  236
+   LinkType Value  236
+   LinkType Name  LINKTYPE_MUX27010
    Description  Variant of 3GPP TS 27.010 multiplexing protocol
-   Reference  [LINKTYPE_MUX27010]
+   Reference  [LINKTYPE__MUX27010]
 
-   Name  LINKTYPE_STANAG_5066_D_PDU
-   Number  237
+   LinkType Value  237
+   LinkType Name  LINKTYPE_STANAG_5066_D_PDU
    Description  STANAG 5066 D_PDUs
-   Reference  [LINKTYPE_STANAG_5066_D_PDU]
+   Reference  [LINKTYPE__STANAG__5066__D__PDU]
 
-   Name  LINKTYPE_JUNIPER_ATM_CEMIC
-   Number  238
+   LinkType Value  238
+   LinkType Name  LINKTYPE_JUNIPER_ATM_CEMIC
    Description  Juniper Networks
 
-   Name  LINKTYPE_NFLOG
-   Number  239
+   LinkType Value  239
+   LinkType Name  LINKTYPE_NFLOG
    Description  Linux netlink NETLINK NFLOG socket log messages
-   Reference  [LINKTYPE_NFLOG]
+   Reference  [LINKTYPE__NFLOG]
 
-   Name  LINKTYPE_NETANALYZER
-   Number  240
+   LinkType Value  240
+   LinkType Name  LINKTYPE_NETANALYZER
    Description  Ethernet frames with netANALYZER pseudo-header
-   Reference  [LINKTYPE_NETANALYZER]
+   Reference  [LINKTYPE__NETANALYZER]
 
-   Name  LINKTYPE_NETANALYZER_TRANSPARENT
-   Number  241
+   LinkType Value  241
+   LinkType Name  LINKTYPE_NETANALYZER_TRANSPARENT
    Description  Ethernet frames with netANALYZER pseudo-header,
       preamble, and SFD
-   Reference  [LINKTYPE_NETANALYZER_TRANSPARENT]
+   Reference  [LINKTYPE__NETANALYZER__TRANSPARENT]
 
-   Name  LINKTYPE_IPOIB
-   Number  242
+   LinkType Value  242
+   LinkType Name  LINKTYPE_IPOIB
    Description  IP-over-InfiniBand
-   Reference  [LINKTYPE_IPOIB]
+   Reference  [LINKTYPE__IPOIB]
 
-   Name  LINKTYPE_MPEG_2_TS
-   Number  243
+   LinkType Value  243
+   LinkType Name  LINKTYPE_MPEG_2_TS
    Description  MPEG-2 Transport Stream transport packets
-   Reference  [LINKTYPE_MPEG_2_TS]
+   Reference  [LINKTYPE__MPEG__2__TS]
 
-   Name  LINKTYPE_NG40
-   Number  244
+   LinkType Value  244
+   LinkType Name  LINKTYPE_NG40
    Description  Frames from ng4T GmbH's ng40 protocol tester
-   Reference  [LINKTYPE_NG40]
+   Reference  [LINKTYPE__NG40]
 
-   Name  LINKTYPE_NFC_LLCP
-   Number  245
+   LinkType Value  245
+   LinkType Name  LINKTYPE_NFC_LLCP
    Description  NFC Logical Link Control Protocol frames, with a pseudo-
       header
-   Reference  [LINKTYPE_NFC_LLCP]
+   Reference  [LINKTYPE__NFC__LLCP]
 
-   Name  LINKTYPE_PFSYNC
-   Number  246
+   LinkType Value  246
+   LinkType Name  LINKTYPE_PFSYNC
    Description  pfsync output
 
-   Name  LINKTYPE_INFINIBAND
-   Number  247
+   LinkType Value  247
+   LinkType Name  LINKTYPE_INFINIBAND
    Description  InfiniBand data packets
-   Reference  [LINKTYPE_INFINIBAND]
+   Reference  [LINKTYPE__INFINIBAND]
 
-   Name  LINKTYPE_SCTP
-   Number  248
+   LinkType Value  248
+   LinkType Name  LINKTYPE_SCTP
    Description  SCTP packets, with no lower-level protocols such as IPv4
       or IPv6
    Reference  [RFC9260]
 
-   Name  LINKTYPE_USBPCAP
-   Number  249
+   LinkType Value  249
+   LinkType Name  LINKTYPE_USBPCAP
    Description  USB packets, beginning with a USBPcap header
    Reference  [USBPcap]
 
-   Name  LINKTYPE_RTAC_SERIAL
-   Number  250
+   LinkType Value  250
+   LinkType Name  LINKTYPE_RTAC_SERIAL
    Description  Serial-line packet from the Schweitzer Engineering
       Laboratories RTAC product
-   Reference  [LINKTYPE_RTAC_SERIAL]
+   Reference  [LINKTYPE__RTAC__SERIAL]
 
-   Name  LINKTYPE_BLUETOOTH_LE_LL
-   Number  251
+   LinkType Value  251
+   LinkType Name  LINKTYPE_BLUETOOTH_LE_LL
    Description  Bluetooth Low Energy link-layer packets
-   Reference  [LINKTYPE_BLUETOOTH_LE_LL]
+   Reference  [LINKTYPE__BLUETOOTH__LE__LL]
 
-   Name  LINKTYPE_WIRESHARK_UPPER_PDU
-   Number  252
+   LinkType Value  252
+   LinkType Name  LINKTYPE_WIRESHARK_UPPER_PDU
    Description  Wireshark
 
-   Name  LINKTYPE_NETLINK
-   Number  253
+   LinkType Value  253
+   LinkType Name  LINKTYPE_NETLINK
    Description  Linux Netlink capture encapsulation
-   Reference  [LINKTYPE_NETLINK]
+   Reference  [LINKTYPE__NETLINK]
 
-   Name  LINKTYPE_BLUETOOTH_LINUX_MONITOR
-   Number  254
+   LinkType Value  254
+   LinkType Name  LINKTYPE_BLUETOOTH_LINUX_MONITOR
    Description  Bluetooth Linux Monitor
-   Reference  [LINKTYPE_BLUETOOTH_LINUX_MONITOR]
+   Reference  [LINKTYPE__BLUETOOTH__LINUX__MONITOR]
 
-   Name  LINKTYPE_BLUETOOTH_BREDR_BB
-   Number  255
+   LinkType Value  255
+   LinkType Name  LINKTYPE_BLUETOOTH_BREDR_BB
    Description  Bluetooth Basic Rate and Enhanced Data Rate baseband
       packets
-   Reference  [LINKTYPE_BLUETOOTH_BREDR_BB]
+   Reference  [LINKTYPE__BLUETOOTH__BREDR__BB]
 
-   Name  LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
-   Number  256
+   LinkType Value  256
+   LinkType Name  LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR
    Description  Bluetooth Low Energy link-layer packets
-   Reference  [LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR]
+   Reference  [LINKTYPE__BLUETOOTH__LE__LL__WITH__PHDR]
 
-   Name  LINKTYPE_PROFIBUS_DL
-   Number  257
+   LinkType Value  257
+   LinkType Name  LINKTYPE_PROFIBUS_DL
    Description  PROFIBUS data link layer packets
-   Reference  [LINKTYPE_PROFIBUS_DL]
+   Reference  [LINKTYPE__PROFIBUS__DL]
 
-   Name  LINKTYPE_PKTAP
-   Number  258
+   LinkType Value  258
+   LinkType Name  LINKTYPE_PKTAP
    Description  Apple PKTAP capture encapsulation
-   Reference  [LINKTYPE_PKTAP]
+   Reference  [LINKTYPE__PKTAP]
 
-   Name  LINKTYPE_EPON
-   Number  259
+   LinkType Value  259
+   LinkType Name  LINKTYPE_EPON
    Description  Ethernet-over-passive-optical-network packets, including
       preamble octets
-   Reference  [LINKTYPE_EPON]
+   Reference  [LINKTYPE__EPON]
 
-   Name  LINKTYPE_IPMI_HPM_2
-   Number  260
+   LinkType Value  260
+   LinkType Name  LINKTYPE_IPMI_HPM_2
    Description  IPMI HPM.2 trace packets
-   Reference  [LINKTYPE_IPMI_HPM_2]
+   Reference  [LINKTYPE__IPMI__HPM__2]
 
-   Name  LINKTYPE_ZWAVE_R1_R2
-   Number  261
+   LinkType Value  261
+   LinkType Name  LINKTYPE_ZWAVE_R1_R2
    Description  Z-Wave RF profile R1 and R2 packets
-   Reference  [LINKTYPE_ZWAVE_R1_R2]
+   Reference  [LINKTYPE__ZWAVE__R1__R2]
 
-   Name  LINKTYPE_ZWAVE_R3
-   Number  262
+   LinkType Value  262
+   LinkType Name  LINKTYPE_ZWAVE_R3
    Description  Z-Wave RF profile R3 packets
-   Reference  [LINKTYPE_ZWAVE_R3]
+   Reference  [LINKTYPE__ZWAVE__R3]
 
-   Name  LINKTYPE_WATTSTOPPER_DLM
-   Number  263
+   LinkType Value  263
+   LinkType Name  LINKTYPE_WATTSTOPPER_DLM
    Description  WattStopper Digital Lighting Management (DLM) and
       Legrand Nitoo Open protocol packets
-   Reference  [LINKTYPE_WATTSTOPPER_DLM]
+   Reference  [LINKTYPE__WATTSTOPPER__DLM]
 
-   Name  LINKTYPE_ISO_14443
-   Number  264
+   LinkType Value  264
+   LinkType Name  LINKTYPE_ISO_14443
    Description  ISO 14443 contactless smartcard messages
    Reference  [ISO-14443-PCAP]
 
-   Name  LINKTYPE_RDS
-   Number  265
+   LinkType Value  265
+   LinkType Name  LINKTYPE_RDS
    Description  IEC 62106 Radio data system (RDS) groups
-   Reference  [LINKTYPE_RDS]
+   Reference  [LINKTYPE__RDS]
 
-   Name  LINKTYPE_USB_DARWIN
-   Number  266
+   LinkType Value  266
+   LinkType Name  LINKTYPE_USB_DARWIN
    Description  USB packets captured on a Darwin-based operating system
       (macOS, etc.)
-   Reference  [LINKTYPE_USB_DARWIN]
+   Reference  [LINKTYPE__USB__DARWIN]
 
-   Name  LINKTYPE_OPENFLOW
-   Number  267
+   LinkType Value  267
+   LinkType Name  LINKTYPE_OPENFLOW
    Description  OpenBSD DLT_OPENFLOW
 
-   Name  LINKTYPE_SDLC
-   Number  268
+   LinkType Value  268
+   LinkType Name  LINKTYPE_SDLC
    Description  SNA SDLC packets
-   Reference  [LINKTYPE_SDLC]
+   Reference  [LINKTYPE__SDLC]
 
-   Name  LINKTYPE_TI_LLN_SNIFFER
-   Number  269
+   LinkType Value  269
+   LinkType Name  LINKTYPE_TI_LLN_SNIFFER
    Description  Texas Instruments protocol sniffer
 
-   Name  LINKTYPE_LORATAP
-   Number  270
+   LinkType Value  270
+   LinkType Name  LINKTYPE_LORATAP
    Description  LoRaWan packets with a LoRaTap pseudo-header
-   Reference  [LINKTYPE_LORATAP]
+   Reference  [LINKTYPE__LORATAP]
 
-   Name  LINKTYPE_VSOCK
-   Number  271
+   LinkType Value  271
+   LinkType Name  LINKTYPE_VSOCK
    Description  Protocol for communication between host and guest
       machines in VMware and KVM hypervisors
-   Reference  [LINKTYPE_VSOCK]
+   Reference  [LINKTYPE__VSOCK]
 
-   Name  LINKTYPE_NORDIC_BLE
-   Number  272
+   LinkType Value  272
+   LinkType Name  LINKTYPE_NORDIC_BLE
    Description  Messages to and from a Nordic Semiconductor nRF Sniffer
       for Bluetooth LE packets
-   Reference  [LINKTYPE_NORDIC_BLE]
+   Reference  [LINKTYPE__NORDIC__BLE]
 
-   Name  LINKTYPE_DOCSIS31_XRA31
-   Number  273
+   LinkType Value  273
+   LinkType Name  LINKTYPE_DOCSIS31_XRA31
    Description  DOCSIS packets and bursts, preceded by a pseudo-header
    Reference  [DOCSIS-XRA] [DOCSIS-4.0-MULP]
 
-   Name  LINKTYPE_ETHERNET_MPACKET
-   Number  274
+   LinkType Value  274
+   LinkType Name  LINKTYPE_ETHERNET_MPACKET
    Description  IEEE 802.3 mPackets
-   Reference  [LINKTYPE_ETHERNET_MPACKET]
+   Reference  [LINKTYPE__ETHERNET__MPACKET]
 
-   Name  LINKTYPE_DISPLAYPORT_AUX
-   Number  275
+   LinkType Value  275
+   LinkType Name  LINKTYPE_DISPLAYPORT_AUX
    Description  DisplayPort AUX channel monitoring messages
-   Reference  [LINKTYPE_DISPLAYPORT_AUX]
+   Reference  [LINKTYPE__DISPLAYPORT__AUX]
 
-   Name  LINKTYPE_LINUX_SLL2
-   Number  276
+   LinkType Value  276
+   LinkType Name  LINKTYPE_LINUX_SLL2
    Description  Linux cooked capture encapsulation v2
-   Reference  [LINKTYPE_LINUX_SLL2]
+   Reference  [LINKTYPE__LINUX__SLL2]
 
-   Name  LINKTYPE_SERCOS_MONITOR
-   Number  277
+   LinkType Value  277
+   LinkType Name  LINKTYPE_SERCOS_MONITOR
    Description  Sercos Monitor
 
-   Name  LINKTYPE_OPENVIZSLA
-   Number  278
+   LinkType Value  278
+   LinkType Name  LINKTYPE_OPENVIZSLA
    Description  OpenVizsla FPGA-based USB sniffer
    Reference  [OpenVizsla]
 
-   Name  LINKTYPE_EBHSCR
-   Number  279
+   LinkType Value  279
+   LinkType Name  LINKTYPE_EBHSCR
    Description  Elektrobit High Speed Capture and Replay (EBHSCR) format
    Reference  [EBHSCR]
 
-   Name  LINKTYPE_VPP_DISPATCH
-   Number  280
+   LinkType Value  280
+   LinkType Name  LINKTYPE_VPP_DISPATCH
    Description  fd.io VPP graph dispatcher trace records
    Reference  [FD.io-VPP]
 
-   Name  LINKTYPE_DSA_TAG_BRCM
-   Number  281
+   LinkType Value  281
+   LinkType Name  LINKTYPE_DSA_TAG_BRCM
    Description  Ethernet frames, with a Broadcom switch tag inserted
-   Reference  [LINKTYPE_DSA_TAG_BRCM]
+   Reference  [LINKTYPE__DSA__TAG__BRCM]
 
-   Name  LINKTYPE_DSA_TAG_BRCM_PREPEND
-   Number  282
+   LinkType Value  282
+   LinkType Name  LINKTYPE_DSA_TAG_BRCM_PREPEND
    Description  Ethernet frames, with a Broadcom switch tag prepended
-   Reference  [LINKTYPE_DSA_TAG_BRCM_PREPEND]
+   Reference  [LINKTYPE__DSA__TAG__BRCM__PREPEND]
 
-   Name  LINKTYPE_IEEE802_15_4_TAP
-   Number  283
+   LinkType Value  283
+   LinkType Name  LINKTYPE_IEEE802_15_4_TAP
    Description  IEEE 802.15.4 with a tap header preceding it
    Reference  [Exegin-802.15.4-TAP]
 
-   Name  LINKTYPE_DSA_TAG_DSA
-   Number  284
+   LinkType Value  284
+   LinkType Name  LINKTYPE_DSA_TAG_DSA
    Description  Ethernet frames, with a Marvell DSA switch tag inserted
-   Reference  [LINKTYPE_DSA_TAG_DSA]
+   Reference  [LINKTYPE__DSA__TAG__DSA]
 
-   Name  LINKTYPE_DSA_TAG_EDSA
-   Number  285
+   LinkType Value  285
+   LinkType Name  LINKTYPE_DSA_TAG_EDSA
    Description  Ethernet frames, with a Marvell EDSA switch tag inserted
-   Reference  [LINKTYPE_DSA_TAG_EDSA]
+   Reference  [LINKTYPE__DSA__TAG__EDSA]
 
-   Name  LINKTYPE_ELEE
-   Number  286
+   LinkType Value  286
+   LinkType Name  LINKTYPE_ELEE
    Description  ELEE lawful intercept protocol
 
-   Name  LINKTYPE_Z_WAVE_SERIAL
-   Number  287
+   LinkType Value  287
+   LinkType Name  LINKTYPE_Z_WAVE_SERIAL
    Description  Serial frames transmitted between a host and a Z-Wave
       chip over an RS-232 or USB serial connection
-   Reference  [Z_WAVE_SERIAL] section 5
+   Reference  [Z-WAVE-SERIAL] section 5
 
-   Name  LINKTYPE_USB_2_0
-   Number  288
+   LinkType Value  288
+   LinkType Name  LINKTYPE_USB_2_0
    Description  USB 2.0, 1.1, or 1.0 packets
-   Reference  [LINKTYPE_USB_2_0]
+   Reference  [LINKTYPE__USB__2__0]
 
-   Name  LINKTYPE_ATSC_ALP
-   Number  289
+   LinkType Value  289
+   LinkType Name  LINKTYPE_ATSC_ALP
    Description  ATSC Link-Layer Protocol frames
-   Reference  [LINKTYPE_ATSC_ALP]
+   Reference  [LINKTYPE__ATSC__ALP]
 
-   Name  LINKTYPE_ETW
-   Number  290
+   LinkType Value  290
+   LinkType Name  LINKTYPE_ETW
    Description  Event Tracing for Windows messages
-   Reference  [LINKTYPE_ETW]
+   Reference  [LINKTYPE__ETW]
 
-   Name  LINKTYPE_NETANALYZER_NG
-   Number  291
+   LinkType Value  291
+   LinkType Name  LINKTYPE_NETANALYZER_NG
    Description  Hilscher Gesellschaft fuer Systemautomation mbH
       netANALYZER NG hardware and software
 
-   Name  LINKTYPE_ZBOSS_NCP
-   Number  292
+   LinkType Value  292
+   LinkType Name  LINKTYPE_ZBOSS_NCP
    Description  ZBOSS NCP Serial Protocol, with a pseudo-header
-   Reference  [LINKTYPE_ZBOSS_NCP]
+   Reference  [LINKTYPE__ZBOSS__NCP]
 
-   Name  LINKTYPE_USB_2_0_LOW_SPEED
-   Number  293
+   LinkType Value  293
+   LinkType Name  LINKTYPE_USB_2_0_LOW_SPEED
    Description  Low-Speed USB 2.0, 1.1, or 1.0 packets
-   Reference  [LINKTYPE_USB_2_0_LOW_SPEED]
+   Reference  [LINKTYPE__USB__2__0__LOW__SPEED]
 
-   Name  LINKTYPE_USB_2_0_FULL_SPEED
-   Number  294
+   LinkType Value  294
+   LinkType Name  LINKTYPE_USB_2_0_FULL_SPEED
    Description  Full-Speed USB 2.0, 1.1, or 1.0 packets
-   Reference  [LINKTYPE_USB_2_0_FULL_SPEED]
+   Reference  [LINKTYPE__USB__2__0__FULL__SPEED]
 
-   Name  LINKTYPE_USB_2_0_HIGH_SPEED
-   Number  295
+   LinkType Value  295
+   LinkType Name  LINKTYPE_USB_2_0_HIGH_SPEED
    Description  High-Speed USB 2.0 packets
-   Reference  [LINKTYPE_USB_2_0_HIGH_SPEED]
+   Reference  [LINKTYPE__USB__2__0__HIGH__SPEED]
 
-   Name  LINKTYPE_AUERSWALD_LOG
-   Number  296
+   LinkType Value  296
+   LinkType Name  LINKTYPE_AUERSWALD_LOG
    Description  Auerswald Logger Protocol
    Reference  [Auerswald-Logger]
 
-   Name  LINKTYPE_ZWAVE_TAP
-   Number  297
+   LinkType Value  297
+   LinkType Name  LINKTYPE_ZWAVE_TAP
    Description  Z-Wave packets, with a metadata header
-   Reference  [LINKTYPE_ZWAVE_TAP]
+   Reference  [LINKTYPE__ZWAVE__TAP]
 
-   Name  LINKTYPE_SILABS_DEBUG_CHANNEL
-   Number  298
+   LinkType Value  298
+   LinkType Name  LINKTYPE_SILABS_DEBUG_CHANNEL
    Description  Silicon Labs debug channel protocol
    Reference  [Silabs-Debug-Channel]
 
-   Name  LINKTYPE_FIRA_UCI
-   Number  299
+   LinkType Value  299
+   LinkType Name  LINKTYPE_FIRA_UCI
    Description  Ultra-wideband (UWB) controller interface protocol (UCI)
-   Reference  [LINKTYPE_FIRA_UCI]
+   Reference  [LINKTYPE__FIRA__UCI]
 
-   Name  LINKTYPE_MDB
-   Number  300
+   LinkType Value  300
+   LinkType Name  LINKTYPE_MDB
    Description  MDB (Multi-Drop Bus) protocol
    Reference  [MDB-PCAP]
 
-   Name  LINKTYPE_DECT_NR
-   Number  301
+   LinkType Value  301
+   LinkType Name  LINKTYPE_DECT_NR
    Description  DECT-2020 New Radio (NR) MAC layer
-   Reference  [LINKTYPE_DECT_NR]
+   Reference  [LINKTYPE__DECT__NR]
 
 2.2.2.  Guidance for Designated Experts
 
@@ -1200,7 +1200,7 @@ Table of Contents
    be public eventually.  This includes specifications that might be
    subject to a security classification for which no public document
    will ever be made.  The minimal requirement is to provide a contact
-   person for that link type.
+   for that link type.
 
    For other documents, the Designated Expert will need use their
    judgement, or consult the OPSAWG or an Area Director.
@@ -1309,437 +1309,453 @@ Table of Contents
               Kaiser, M., "PCAP format for ISO14443", January 2021,
               <https://www.kaiser.cx/posts/pcap-iso14443/>.
 
-   [LINKTYPE_APPLE_IP_OVER_IEEE1394]
-              "LINKTYPE_APPLE_IP_OVER_IEEE1394",
+   [LINKTYPE__APPLE__IP__OVER__IEEE1394]
+              "LINKTYPE\_APPLE\_IP\_OVER\_IEEE1394",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_APPLE_IP_OVER_IEEE1394.html>.
 
-   [LINKTYPE_ATM_RFC1483]
-              "LINKTYPE_ATM_RFC1483",
+   [LINKTYPE__ATM__RFC1483]
+              "LINKTYPE\_ATM\_RFC1483",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_ATM_RFC1483.html>.
 
-   [LINKTYPE_ATSC_ALP]
-              "LINKTYPE_ATSC_ALP", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__ATSC__ALP]
+              "LINKTYPE\_ATSC\_ALP", <https://www.tcpdump.org/linktypes/
               LINKTYPE_ATSC_ALP.html>.
 
-   [LINKTYPE_AX25]
-              "LINKTYPE_AX25",
+   [LINKTYPE__AX25]
+              "LINKTYPE\_AX25",
               <https://www.tcpdump.org/linktypes/LINKTYPE_AX25.html>.
 
-   [LINKTYPE_AX25_KISS]
-              "LINKTYPE_AX25_KISS", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__AX25__KISS]
+              "LINKTYPE\_AX25\_KISS",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_AX25_KISS.html>.
 
-   [LINKTYPE_BACNET_MS_TP]
-              "LINKTYPE_BACNET_MS_TP",
+   [LINKTYPE__BACNET__MS__TP]
+              "LINKTYPE\_BACNET\_MS\_TP",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BACNET_MS_TP.html>.
 
-   [LINKTYPE_BLUETOOTH_BREDR_BB]
-              "LINKTYPE_BLUETOOTH_BREDR_BB",
+   [LINKTYPE__BLUETOOTH__BREDR__BB]
+              "LINKTYPE\_BLUETOOTH\_BREDR\_BB",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_BREDR_BB.html>.
 
-   [LINKTYPE_BLUETOOTH_HCI_H4]
-              "LINKTYPE_BLUETOOTH_HCI_H4",
+   [LINKTYPE__BLUETOOTH__HCI__H4]
+              "LINKTYPE\_BLUETOOTH\_HCI\_H4",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_HCI_H4.html>.
 
-   [LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR]
-              "LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR",
+   [LINKTYPE__BLUETOOTH__HCI__H4__WITH__PHDR]
+              "LINKTYPE\_BLUETOOTH\_HCI\_H4\_WITH\_PHDR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR.html>.
 
-   [LINKTYPE_BLUETOOTH_LE_LL]
-              "LINKTYPE_BLUETOOTH_LE_LL",
+   [LINKTYPE__BLUETOOTH__LE__LL]
+              "LINKTYPE\_BLUETOOTH\_LE\_LL",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_LE_LL.html>.
 
-   [LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR]
-              "LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR",
+   [LINKTYPE__BLUETOOTH__LE__LL__WITH__PHDR]
+              "LINKTYPE\_BLUETOOTH\_LE\_LL\_WITH\_PHDR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR.html>.
 
-   [LINKTYPE_BLUETOOTH_LINUX_MONITOR]
-              "LINKTYPE_BLUETOOTH_LINUX_MONITOR",
+   [LINKTYPE__BLUETOOTH__LINUX__MONITOR]
+              "LINKTYPE\_BLUETOOTH\_LINUX\_MONITOR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_LINUX_MONITOR.html>.
 
-   [LINKTYPE_C_HDLC]
-              "LINKTYPE_C_HDLC",
+   [LINKTYPE__C__HDLC]
+              "LINKTYPE\_C\_HDLC",
               <https://www.tcpdump.org/linktypes/LINKTYPE_C_HDLC.html>.
 
-   [LINKTYPE_C_HDLC_WITH_DIR]
-              "LINKTYPE_C_HDLC_WITH_DIR",
+   [LINKTYPE__C__HDLC__WITH__DIR]
+              "LINKTYPE\_C\_HDLC\_WITH\_DIR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_C_HDLC_WITH_DIR.html>.
 
-   [LINKTYPE_CAN_SOCKETCAN]
-              "LINKTYPE_CAN_SOCKETCAN",
+   [LINKTYPE__CAN__SOCKETCAN]
+              "LINKTYPE\_CAN\_SOCKETCAN",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_CAN_SOCKETCAN.html>.
 
-   [LINKTYPE_DBUS]
-              "LINKTYPE_DBUS",
+   [LINKTYPE__DBUS]
+              "LINKTYPE\_DBUS",
               <https://www.tcpdump.org/linktypes/LINKTYPE_DBUS.html>.
 
-   [LINKTYPE_DECT_NR]
-              "LINKTYPE_DECT_NR",
+   [LINKTYPE__DECT__NR]
+              "LINKTYPE\_DECT\_NR",
               <https://www.tcpdump.org/linktypes/LINKTYPE_DECT_NR.html>.
 
-   [LINKTYPE_DISPLAYPORT_AUX]
-              "LINKTYPE_DISPLAYPORT_AUX",
+   [LINKTYPE__DISPLAYPORT__AUX]
+              "LINKTYPE\_DISPLAYPORT\_AUX",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DISPLAYPORT_AUX.html>.
 
-   [LINKTYPE_DSA_TAG_BRCM]
-              "LINKTYPE_DSA_TAG_BRCM",
+   [LINKTYPE__DSA__TAG__BRCM]
+              "LINKTYPE\_DSA\_TAG\_BRCM",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_BRCM.html>.
 
-   [LINKTYPE_DSA_TAG_BRCM_PREPEND]
-              "LINKTYPE_DSA_TAG_BRCM_PREPEND",
+   [LINKTYPE__DSA__TAG__BRCM__PREPEND]
+              "LINKTYPE\_DSA\_TAG\_BRCM\_PREPEND",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_BRCM_PREPEND.html>.
 
-   [LINKTYPE_DSA_TAG_DSA]
-              "LINKTYPE_DSA_TAG_DSA",
+   [LINKTYPE__DSA__TAG__DSA]
+              "LINKTYPE\_DSA\_TAG\_DSA",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_DSA.html>.
 
-   [LINKTYPE_DSA_TAG_EDSA]
-              "LINKTYPE_DSA_TAG_EDSA",
+   [LINKTYPE__DSA__TAG__EDSA]
+              "LINKTYPE\_DSA\_TAG\_EDSA",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_EDSA.html>.
 
-   [LINKTYPE_ETHERNET]
+   [LINKTYPE__ETHERNET]
               "IEEE 802.3 Ethernet",
               <https://ieeexplore.ieee.org/document/9844436>.
 
-   [LINKTYPE_EPON]
-              "LINKTYPE_EPON",
+   [LINKTYPE__EPON]
+              "LINKTYPE\_EPON",
               <https://www.tcpdump.org/linktypes/LINKTYPE_EPON.html>.
 
-   [LINKTYPE_ERF]
-              "LINKTYPE_ERF",
+   [LINKTYPE__ERF]
+              "LINKTYPE\_ERF",
               <https://www.tcpdump.org/linktypes/LINKTYPE_ERF.html>.
 
-   [LINKTYPE_ETW]
-              "LINKTYPE_ETW",
+   [LINKTYPE__ETW]
+              "LINKTYPE\_ETW",
               <https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html>.
 
-   [LINKTYPE_ETHERNET_MPACKET]
-              "LINKTYPE_ETHERNET_MPACKET",
+   [LINKTYPE__ETHERNET__MPACKET]
+              "LINKTYPE\_ETHERNET\_MPACKET",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_ETHERNET_MPACKET.html>.
 
-   [LINKTYPE_FC_2]
-              "LINKTYPE_FC_2",
+   [LINKTYPE__FC__2]
+              "LINKTYPE\_FC\_2",
               <https://www.tcpdump.org/linktypes/LINKTYPE_FC_2.html>.
 
-   [LINKTYPE_FC_2_WITH_FRAME_DELIMS]
-              "LINKTYPE_FC_2_WITH_FRAME_DELIMS",
+   [LINKTYPE__FC__2__WITH__FRAME__DELIMS]
+              "LINKTYPE\_FC\_2\_WITH\_FRAME\_DELIMS",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_FC_2_WITH_FRAME_DELIMSa.html>.
 
-   [LINKTYPE_FIRA_UCI]
-              "LINKTYPE_FIRA_UCI", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__FIRA__UCI]
+              "LINKTYPE\_FIRA\_UCI", <https://www.tcpdump.org/linktypes/
               LINKTYPE_FIRA_UCI.html>.
 
-   [LINKTYPE_FLEXRAY]
-              "LINKTYPE_FLEXRAY",
+   [LINKTYPE__FLEXRAY]
+              "LINKTYPE\_FLEXRAY",
               <https://www.tcpdump.org/linktypes/LINKTYPE_FLEXRAY.html>.
 
-   [LINKTYPE_FRELAY]
-              "LINKTYPE_FRELAY",
+   [LINKTYPE__FRELAY]
+              "LINKTYPE\_FRELAY",
               <https://www.tcpdump.org/linktypes/LINKTYPE_FRELAY.html>.
 
-   [LINKTYPE_FRELAY_WITH_DIR]
-              "LINKTYPE_FRELAY_WITH_DIR",
+   [LINKTYPE__FRELAY__WITH__DIR]
+              "LINKTYPE\_FRELAY\_WITH\_DIR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_FRELAY_WITH_DIR.html>.
 
-   [LINKTYPE_I2C_LINUX]
-              "LINKTYPE_I2C_LINUX", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__I2C__LINUX]
+              "LINKTYPE\_I2C\_LINUX",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_I2C_LINUX.html>.
 
-   [LINKTYPE_IEEE802_11_PRISM]
-              "LINKTYPE_IEEE802_11_PRISM",
+   [LINKTYPE__IEEE802__11__PRISM]
+              "LINKTYPE\_IEEE802\_11\_PRISM",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_11_PRISM.html>.
 
-   [LINKTYPE_IEEE802_15_4_NOFCS]
-              "LINKTYPE_IEEE802_15_4_NOFCS",
+   [LINKTYPE__IEEE802__15__4__NOFCS]
+              "LINKTYPE\_IEEE802\_15\_4\_NOFCS",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_15_4_NOFCS.html>.
 
-   [LINKTYPE_IEEE802_15_4_NONASK_PHY]
-              "LINKTYPE_IEEE802_15_4_NONASK_PHY",
+   [LINKTYPE__IEEE802__15__4__NONASK__PHY]
+              "LINKTYPE\_IEEE802\_15\_4\_NONASK\_PHY",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_15_4_NONASK_PHY.html>.
 
-   [LINKTYPE_IEEE802_15_4_WITHFCS]
-              "LINKTYPE_IEEE802_15_4_WITHFCS",
+   [LINKTYPE__IEEE802__15__4__WITHFCS]
+              "LINKTYPE\_IEEE802\_15\_4\_WITHFCS",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_15_4_WITHFCS.html>.
 
-   [LINKTYPE_IPV4]
-              "LINKTYPE_IPV4",
+   [LINKTYPE__IPV4]
+              "LINKTYPE\_IPV4",
               <https://www.tcpdump.org/linktypes/LINKTYPE_IPV4.html>.
 
-   [LINKTYPE_IPV6]
-              "LINKTYPE_IPV6",
+   [LINKTYPE__IPV6]
+              "LINKTYPE\_IPV6",
               <https://www.tcpdump.org/linktypes/LINKTYPE_IPV6.html>.
 
-   [LINKTYPE_IPOIB]
-              "LINKTYPE_IPOIB",
+   [LINKTYPE__IPOIB]
+              "LINKTYPE\_IPOIB",
               <https://www.tcpdump.org/linktypes/LINKTYPE_IPOIB.html>.
 
-   [LINKTYPE_IP_OVER_FC]
-              "LINKTYPE_IP_OVER_FC", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__IP__OVER__FC]
+              "LINKTYPE\_IP\_OVER\_FC",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_IP_OVER_FC.html>.
 
-   [LINKTYPE_INFINIBAND]
-              "LINKTYPE_INFINIBAND", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__INFINIBAND]
+              "LINKTYPE\_INFINIBAND",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_INFINIBAND.html>.
 
-   [LINKTYPE_IPMI_HPM_2]
-              "LINKTYPE_IPMI_HPM_2", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__IPMI__HPM__2]
+              "LINKTYPE\_IPMI\_HPM\_2",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_IPMI_HPM_2.html>.
 
-   [LINKTYPE_IPNET]
-              "LINKTYPE_IPNET",
+   [LINKTYPE__IPNET]
+              "LINKTYPE\_IPNET",
               <https://www.tcpdump.org/linktypes/LINKTYPE_IPNET.html>.
 
-   [LINKTYPE_LAPB_WITH_DIR]
-              "LINKTYPE_LAPB_WITH_DIR",
+   [LINKTYPE__LAPB__WITH__DIR]
+              "LINKTYPE\_LAPB\_WITH\_DIR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_LAPB_WITH_DIR.html>.
 
-   [LINKTYPE_LAPD]
-              "LINKTYPE_LAPD",
+   [LINKTYPE__LAPD]
+              "LINKTYPE\_LAPD",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LAPD.html>.
 
-   [LINKTYPE_LIN]
-              "LINKTYPE_LIN",
+   [LINKTYPE__LIN]
+              "LINKTYPE\_LIN",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LIN.html>.
 
-   [LINKTYPE_LINUX_IRDA]
-              "LINKTYPE_LINUX_IRDA", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__LINUX__IRDA]
+              "LINKTYPE\_LINUX\_IRDA",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_IRDA.html>.
 
-   [LINKTYPE_LINUX_LAPD]
-              "LINKTYPE_LINUX_LAPD", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__LINUX__LAPD]
+              "LINKTYPE\_LINUX\_LAPD",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_LAPD.html>.
 
-   [LINKTYPE_LINUX_SLL]
-              "LINKTYPE_LINUX_SLL", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__LINUX__SLL]
+              "LINKTYPE\_LINUX\_SLL",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_SLL.html>.
 
-   [LINKTYPE_LINUX_SLL2]
-              "LINKTYPE_LINUX_SLL2", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__LINUX__SLL2]
+              "LINKTYPE\_LINUX\_SLL2",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_SLL2.html>.
 
-   [LINKTYPE_LOOP]
-              "LINKTYPE_LOOP",
+   [LINKTYPE__LOOP]
+              "LINKTYPE\_LOOP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LOOP.html>.
 
-   [LINKTYPE_LORATAP]
-              "LINKTYPE_LORATAP",
+   [LINKTYPE__LORATAP]
+              "LINKTYPE\_LORATAP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LORATAP.html>.
 
-   [LINKTYPE_LTALK]
-              "LINKTYPE_LTALK",
+   [LINKTYPE__LTALK]
+              "LINKTYPE\_LTALK",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LTALK.html>.
 
-   [LINKTYPE_MFR]
-              "LINKTYPE_MFR",
+   [LINKTYPE__MFR]
+              "LINKTYPE\_MFR",
               <https://www.tcpdump.org/linktypes/LINKTYPE_MFR.html>.
 
-   [LINKTYPE_MPEG_2_TS]
-              "LINKTYPE_MPEG_2_TS", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__MPEG__2__TS]
+              "LINKTYPE\_MPEG\_2\_TS",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_MPEG_2_TS.html>.
 
-   [LINKTYPE_MTP2]
-              "LINKTYPE_MTP2",
+   [LINKTYPE__MTP2]
+              "LINKTYPE\_MTP2",
               <https://www.tcpdump.org/linktypes/LINKTYPE_MTP2.html>.
 
-   [LINKTYPE_MTP2_WITH_PHDR]
-              "LINKTYPE_MTP2_WITH_PHDR",
+   [LINKTYPE__MTP2__WITH__PHDR]
+              "LINKTYPE\_MTP2\_WITH\_PHDR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_MTP2_WITH_PHDR.html>.
 
-   [LINKTYPE_MTP3]
-              "LINKTYPE_MTP3",
+   [LINKTYPE__MTP3]
+              "LINKTYPE\_MTP3",
               <https://www.tcpdump.org/linktypes/LINKTYPE_MTP3.html>.
 
-   [LINKTYPE_SCCP]
-              "LINKTYPE_SCCP",
+   [LINKTYPE__SCCP]
+              "LINKTYPE\_SCCP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SCCP.html>.
 
-   [LINKTYPE_MUX27010]
-              "LINKTYPE_MUX27010", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__MUX27010]
+              "LINKTYPE\_MUX27010", <https://www.tcpdump.org/linktypes/
               LINKTYPE_MUX27010.html>.
 
-   [LINKTYPE_NETANALYZER]
-              "LINKTYPE_NETANALYZER",
+   [LINKTYPE__NETANALYZER]
+              "LINKTYPE\_NETANALYZER",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_NETANALYZER.html>.
 
-   [LINKTYPE_NETANALYZER_TRANSPARENT]
-              "LINKTYPE_NETANALYZER_TRANSPARENT",
+   [LINKTYPE__NETANALYZER__TRANSPARENT]
+              "LINKTYPE\_NETANALYZER\_TRANSPARENT",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_NETANALYZER_TRANSPARENT.html>.
 
-   [LINKTYPE_NETLINK]
-              "LINKTYPE_NETLINK",
+   [LINKTYPE__NETLINK]
+              "LINKTYPE\_NETLINK",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NETLINK.html>.
 
-   [LINKTYPE_NFC_LLCP]
-              "LINKTYPE_NFC_LLCP", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__NFC__LLCP]
+              "LINKTYPE\_NFC\_LLCP", <https://www.tcpdump.org/linktypes/
               LINKTYPE_NFC_LLCP.html>.
 
-   [LINKTYPE_NFLOG]
-              "LINKTYPE_NFLOG",
+   [LINKTYPE__NFLOG]
+              "LINKTYPE\_NFLOG",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NFLOG.html>.
 
-   [LINKTYPE_NG40]
-              "LINKTYPE_NG40",
+   [LINKTYPE__NG40]
+              "LINKTYPE\_NG40",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NG40.html>.
 
-   [LINKTYPE_NORDIC_BLE]
-              "LINKTYPE_NORDIC_BLE", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__NORDIC__BLE]
+              "LINKTYPE\_NORDIC\_BLE",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_NORDIC_BLE.html>.
 
-   [LINKTYPE_NULL]
-              "LINKTYPE_NULL",
+   [LINKTYPE__NULL]
+              "LINKTYPE\_NULL",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NULL.html>.
 
-   [LINKTYPE_PKTAP]
-              "LINKTYPE_PKTAP",
+   [LINKTYPE__PKTAP]
+              "LINKTYPE\_PKTAP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_PKTAP.html>.
 
-   [LINKTYPE_PPI]
-              "LINKTYPE_PPI",
+   [LINKTYPE__PPI]
+              "LINKTYPE\_PPI",
               <https://www.tcpdump.org/linktypes/LINKTYPE_PPI.html>.
 
-   [LINKTYPE_PPP]
-              "LINKTYPE_PPP",
+   [LINKTYPE__PPP]
+              "LINKTYPE\_PPP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_PPP.html>.
 
-   [LINKTYPE_PPP_ETHER]
-              "LINKTYPE_PPP_ETHER", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__PPP__ETHER]
+              "LINKTYPE\_PPP\_ETHER",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_ETHER.html>.
 
-   [LINKTYPE_PPP_HDLC]
-              "LINKTYPE_PPP_HDLC", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__PPP__HDLC]
+              "LINKTYPE\_PPP\_HDLC", <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_HDLC.html>.
 
-   [LINKTYPE_PPP_PPPD]
-              "LINKTYPE_PPP_PPPD", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__PPP__PPPD]
+              "LINKTYPE\_PPP\_PPPD", <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_PPPD.html>.
 
-   [LINKTYPE_PPP_WITH_DIR]
-              "LINKTYPE_PPP_WITH_DIR",
+   [LINKTYPE__PPP__WITH__DIR]
+              "LINKTYPE\_PPP\_WITH\_DIR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_WITH_DIR.html>.
 
-   [LINKTYPE_PROFIBUS_DL]
-              "LINKTYPE_PROFIBUS_DL",
+   [LINKTYPE__PROFIBUS__DL]
+              "LINKTYPE\_PROFIBUS\_DL",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_PROFIBUS_DL.html>.
 
-   [LINKTYPE_RAW]
-              "LINKTYPE_RAW",
+   [LINKTYPE__RAW]
+              "LINKTYPE\_RAW",
               <https://www.tcpdump.org/linktypes/LINKTYPE_RAW.html>.
 
-   [LINKTYPE_RDS]
-              "LINKTYPE_RDS",
+   [LINKTYPE__RDS]
+              "LINKTYPE\_RDS",
               <https://www.tcpdump.org/linktypes/LINKTYPE_RDS.html>.
 
-   [LINKTYPE_RTAC_SERIAL]
-              "LINKTYPE_RTAC_SERIAL",
+   [LINKTYPE__RTAC__SERIAL]
+              "LINKTYPE\_RTAC\_SERIAL",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_RTAC_SERIAL.html>.
 
-   [LINKTYPE_SDLC]
-              "LINKTYPE_SDLC",
+   [LINKTYPE__SDLC]
+              "LINKTYPE\_SDLC",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SDLC.html>.
 
-   [LINKTYPE_SITA]
-              "LINKTYPE_SITA",
+   [LINKTYPE__SITA]
+              "LINKTYPE\_SITA",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SITA.html>.
 
-   [LINKTYPE_SLIP]
-              "LINKTYPE_SLIP",
+   [LINKTYPE__SLIP]
+              "LINKTYPE\_SLIP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SLIP.html>.
 
-   [LINKTYPE_STANAG_5066_D_PDU]
-              "LINKTYPE_STANAG_5066_D_PDU",
+   [LINKTYPE__STANAG__5066__D__PDU]
+              "LINKTYPE\_STANAG\_5066\_D\_PDU",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_STANAG_5066_D_PDU.html>.
 
-   [LINKTYPE_SUNATM]
-              "LINKTYPE_SUNATM",
+   [LINKTYPE__SUNATM]
+              "LINKTYPE\_SUNATM",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SUNATM.html>.
 
-   [LINKTYPE_USB_2_0]
-              "LINKTYPE_USB_2_0",
+   [LINKTYPE__USB__2__0]
+              "LINKTYPE\_USB\_2\_0",
               <https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0.html>.
 
-   [LINKTYPE_USB_2_0_FULL_SPEED]
-              "LINKTYPE_USB_2_0_FULL_SPEED",
+   [LINKTYPE__USB__2__0__FULL__SPEED]
+              "LINKTYPE\_USB\_2\_0\_FULL\_SPEED",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_2_0_FULL_SPEED.html>.
 
-   [LINKTYPE_USB_2_0_HIGH_SPEED]
-              "LINKTYPE_USB_2_0_HIGH_SPEED",
+   [LINKTYPE__USB__2__0__HIGH__SPEED]
+              "LINKTYPE\_USB\_2\_0\_HIGH\_SPEED",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_2_0_HIGH_SPEED.html>.
 
-   [LINKTYPE_USB_2_0_LOW_SPEED]
-              "LINKTYPE_USB_2_0_LOW_SPEED",
+   [LINKTYPE__USB__2__0__LOW__SPEED]
+              "LINKTYPE\_USB\_2\_0\_LOW\_SPEED",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_2_0_LOW_SPEED.html>.
 
-   [LINKTYPE_USB_DARWIN]
-              "LINKTYPE_USB_DARWIN", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__USB__DARWIN]
+              "LINKTYPE\_USB\_DARWIN",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_DARWIN.html>.
 
-   [LINKTYPE_USB_LINUX]
-              "LINKTYPE_USB_LINUX", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__USB__LINUX]
+              "LINKTYPE\_USB\_LINUX",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_LINUX.html>.
 
-   [LINKTYPE_USB_LINUX_MMAPPED]
-              "LINKTYPE_USB_LINUX_MMAPPED",
+   [LINKTYPE__USB__LINUX__MMAPPED]
+              "LINKTYPE\_USB\_LINUX\_MMAPPED",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_LINUX_MMAPPED.html>.
 
-   [LINKTYPE_VSOCK]
-              "LINKTYPE_VSOCK",
+   [LINKTYPE__VSOCK]
+              "LINKTYPE\_VSOCK",
               <https://www.tcpdump.org/linktypes/LINKTYPE_VSOCK.html>.
 
-   [LINKTYPE_WATTSTOPPER_DLM]
-              "LINKTYPE_WATTSTOPPER_DLM",
+   [LINKTYPE__WATTSTOPPER__DLM]
+              "LINKTYPE\_WATTSTOPPER\_DLM",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_WATTSTOPPER_DLM.html>.
 
-   [LINKTYPE_ZBOSS_NCP]
-              "LINKTYPE_ZBOSS_NCP", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__ZBOSS__NCP]
+              "LINKTYPE\_ZBOSS\_NCP",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZBOSS_NCP.html>.
 
-   [LINKTYPE_ZWAVE_R1_R2]
-              "LINKTYPE_ZWAVE_R1_R2",
+   [LINKTYPE__ZWAVE__R1__R2]
+              "LINKTYPE\_ZWAVE\_R1\_R2",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZWAVE_R1_R2.html>.
 
-   [LINKTYPE_ZWAVE_R3]
-              "LINKTYPE_ZWAVE_R3", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__ZWAVE__R3]
+              "LINKTYPE\_ZWAVE\_R3", <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZWAVE_R3.html>.
 
-   [LINKTYPE_ZWAVE_TAP]
-              "LINKTYPE_ZWAVE_TAP", <https://www.tcpdump.org/linktypes/
+   [LINKTYPE__ZWAVE__TAP]
+              "LINKTYPE\_ZWAVE\_TAP",
+              <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZWAVE_TAP.html>.
 
    [MDB-PCAP] Kaiser, M., "PCAP format for MDB", August 2023,
@@ -1767,7 +1783,7 @@ Table of Contents
    [USBPcap]  "USBPcap Capture format specification",
               <https://desowin.org/usbpcap/captureformat.html>.
 
-   [Z_WAVE_SERIAL]
+   [Z-WAVE-SERIAL]
               "Z-Wave Serial API Host Application Programming Guide",
               <https://www.silabs.com/documents/public/user-guides/
               INS12350-Serial-API-Host-Appl.-Prg.-Guide.pdf>.

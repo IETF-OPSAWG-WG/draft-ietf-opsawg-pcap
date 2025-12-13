@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 11 June 2026                              Politecnico di Torino
+Expires: 16 June 2026                              Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 11 June 2026                              Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                         8 December 2025
+                                                        13 December 2025
 
 
              PCAP Now Generic (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 June 2026.
+   This Internet-Draft will expire on 16 June 2026.
 
 Copyright Notice
 
@@ -2103,9 +2103,9 @@ Table of Contents
                    Figure 17: ZigBee APS Key Data Format
 
    0x45535053:
-           ESP Security Association keys.  This is in CSV format ([RFC
-           4180]), with each record containing fields that describe an
-           ESP security association.  Each line has the following
+           ESP Security Association keys.  This is in CSV format
+           [RFC4180], with each record containing fields that describe
+           an ESP security association.  Each line has the following
            columns: "Protocol","Src IP","Dest
            IP","SPI","Encryption","Encryption Key",
            "Authentication","Authentication Key","SN","ESN High Bits".
@@ -2139,7 +2139,8 @@ Table of Contents
               [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 &
               RFC8750]", "ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20
               with Poly1305 and IIV [RFC7634 & RFC8750]".  New
-              algorithms might be added in the future.
+              algorithms might be added in the future.  The algorithm
+              names are exactly as quoted.
 
            *  Encryption Key: Encryption key.  String containing the key
               in heaxadecimal format (starting with 0x).
@@ -2154,6 +2155,7 @@ Table of Contents
               authentication [no checking]", "ANY 192 bit authentication
               [no checking]" or "ANY 256 bit authentication [no
               checking]".  New algorithms might be added in the future.
+              The algorith names are exactly as quote.
 
            *  Authentication Key: Authentication key.  String containing
               the key in heaxadecimal format (starting with 0x).
@@ -2571,6 +2573,11 @@ Table of Contents
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC4180]  Shafranovich, Y., "Common Format and MIME Type for Comma-
+              Separated Values (CSV) Files", RFC 4180,
+              DOI 10.17487/RFC4180, October 2005,
+              <https://www.rfc-editor.org/rfc/rfc4180>.
 
 13.2.  Informative References
 

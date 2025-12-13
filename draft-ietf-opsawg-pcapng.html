@@ -1054,7 +1054,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Tuexen, et al.</td>
-<td class="center">Expires 11 June 2026</td>
+<td class="center">Expires 16 June 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1067,12 +1067,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-opsawg-pcapng-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-12-08" class="published">8 December 2025</time>
+<time datetime="2025-12-13" class="published">13 December 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-06-11">11 June 2026</time></dd>
+<dd class="expires"><time datetime="2026-06-16">16 June 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1147,7 +1147,7 @@ it, and libpcap can currently read some pcapng files.<a href="#section-abstract-
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 June 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 16 June 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -4018,7 +4018,7 @@ contained in a new DSB with the new APS Key.<a href="#section-4.7-13.2.1" class=
           <dt id="section-4.7-16.1">0x45535053:</dt>
           <dd style="margin-left: 4.0em" id="section-4.7-16.2">
             <p id="section-4.7-16.2.1">ESP Security Association keys.
-This is in CSV format ([RFC 4180]), with each record containing fields that
+This is in CSV format <span>[<a href="#RFC4180" class="cite xref">RFC4180</a>]</span>, with each record containing fields that
 describe an ESP security association. Each line has the following columns:
 "Protocol","Src IP","Dest IP","SPI","Encryption","Encryption Key",
 "Authentication","Authentication Key","SN","ESN High Bits".
@@ -4046,7 +4046,8 @@ value (if possible) or the line should be skipped.<a href="#section-4.7-16.2.1" 
 "AES-GCM [RFC4106]", "AES-GCM with 8 octet ICV [RFC4106]", "AES-GCM with 12 octet ICV [RFC4106]",
 "AES-GCM with 16 octet ICV [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 &amp; RFC8750]",
 "ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20 with Poly1305 and IIV [RFC7634 &amp; RFC8750]".
-New algorithms might be added in the future.<a href="#section-4.7-16.2.2.5.1" class="pilcrow">¶</a></p>
+New algorithms might be added in the future. The algorithm names are
+exactly as quoted.<a href="#section-4.7-16.2.2.5.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-4.7-16.2.2.6">
                 <p id="section-4.7-16.2.2.6.1">Encryption Key: Encryption key. String containing the key in heaxadecimal format (starting with 0x).<a href="#section-4.7-16.2.2.6.1" class="pilcrow">¶</a></p>
@@ -4058,7 +4059,8 @@ New algorithms might be added in the future.<a href="#section-4.7-16.2.2.5.1" cl
 "MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication [no checking]",
 "ANY 96 bit authentication [no checking]", "ANY 128 bit authentication [no checking]",
 "ANY 192 bit authentication [no checking]" or "ANY 256 bit authentication [no checking]".
-New algorithms might be added in the future.<a href="#section-4.7-16.2.2.7.1" class="pilcrow">¶</a></p>
+New algorithms might be added in the future. The algorith names are
+exactly as quote.<a href="#section-4.7-16.2.2.7.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-4.7-16.2.2.8">
                 <p id="section-4.7-16.2.2.8.1">Authentication Key:  Authentication key. String containing the key in heaxadecimal format (starting with 0x).<a href="#section-4.7-16.2.2.8.1" class="pilcrow">¶</a></p>
@@ -4611,8 +4613,12 @@ and many others for their invaluable comments.<a href="#section-12-1" class="pil
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4180">[RFC4180]</dt>
+      <dd>
+<span class="refAuthor">Shafranovich, Y.</span>, <span class="refTitle">"Common Format and MIME Type for Comma-Separated Values (CSV) Files"</span>, <span class="seriesInfo">RFC 4180</span>, <span class="seriesInfo">DOI 10.17487/RFC4180</span>, <time datetime="2005-10" class="refDate">October 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4180">https://www.rfc-editor.org/rfc/rfc4180</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
