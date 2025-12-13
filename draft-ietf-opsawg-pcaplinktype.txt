@@ -1310,107 +1310,106 @@ Table of Contents
               <https://www.kaiser.cx/posts/pcap-iso14443/>.
 
    [LINKTYPE__APPLE__IP__OVER__IEEE1394]
-              "LINKTYPE\_APPLE\_IP\_OVER\_IEEE1394",
+              "LINKTYPE_APPLE_IP_OVER_IEEE1394",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_APPLE_IP_OVER_IEEE1394.html>.
 
    [LINKTYPE__ATM__RFC1483]
-              "LINKTYPE\_ATM\_RFC1483",
+              "LINKTYPE_ATM_RFC1483",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_ATM_RFC1483.html>.
 
    [LINKTYPE__ATSC__ALP]
-              "LINKTYPE\_ATSC\_ALP", <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_ATSC_ALP", <https://www.tcpdump.org/linktypes/
               LINKTYPE_ATSC_ALP.html>.
 
    [LINKTYPE__AX25]
-              "LINKTYPE\_AX25",
+              "LINKTYPE_AX25",
               <https://www.tcpdump.org/linktypes/LINKTYPE_AX25.html>.
 
    [LINKTYPE__AX25__KISS]
-              "LINKTYPE\_AX25\_KISS",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_AX25_KISS", <https://www.tcpdump.org/linktypes/
               LINKTYPE_AX25_KISS.html>.
 
    [LINKTYPE__BACNET__MS__TP]
-              "LINKTYPE\_BACNET\_MS\_TP",
+              "LINKTYPE_BACNET_MS_TP",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BACNET_MS_TP.html>.
 
    [LINKTYPE__BLUETOOTH__BREDR__BB]
-              "LINKTYPE\_BLUETOOTH\_BREDR\_BB",
+              "LINKTYPE_BLUETOOTH_BREDR_BB",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_BREDR_BB.html>.
 
    [LINKTYPE__BLUETOOTH__HCI__H4]
-              "LINKTYPE\_BLUETOOTH\_HCI\_H4",
+              "LINKTYPE_BLUETOOTH_HCI_H4",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_HCI_H4.html>.
 
    [LINKTYPE__BLUETOOTH__HCI__H4__WITH__PHDR]
-              "LINKTYPE\_BLUETOOTH\_HCI\_H4\_WITH\_PHDR",
+              "LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_HCI_H4_WITH_PHDR.html>.
 
    [LINKTYPE__BLUETOOTH__LE__LL]
-              "LINKTYPE\_BLUETOOTH\_LE\_LL",
+              "LINKTYPE_BLUETOOTH_LE_LL",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_LE_LL.html>.
 
    [LINKTYPE__BLUETOOTH__LE__LL__WITH__PHDR]
-              "LINKTYPE\_BLUETOOTH\_LE\_LL\_WITH\_PHDR",
+              "LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_LE_LL_WITH_PHDR.html>.
 
    [LINKTYPE__BLUETOOTH__LINUX__MONITOR]
-              "LINKTYPE\_BLUETOOTH\_LINUX\_MONITOR",
+              "LINKTYPE_BLUETOOTH_LINUX_MONITOR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_BLUETOOTH_LINUX_MONITOR.html>.
 
    [LINKTYPE__C__HDLC]
-              "LINKTYPE\_C\_HDLC",
+              "LINKTYPE_C_HDLC",
               <https://www.tcpdump.org/linktypes/LINKTYPE_C_HDLC.html>.
 
    [LINKTYPE__C__HDLC__WITH__DIR]
-              "LINKTYPE\_C\_HDLC\_WITH\_DIR",
+              "LINKTYPE_C_HDLC_WITH_DIR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_C_HDLC_WITH_DIR.html>.
 
    [LINKTYPE__CAN__SOCKETCAN]
-              "LINKTYPE\_CAN\_SOCKETCAN",
+              "LINKTYPE_CAN_SOCKETCAN",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_CAN_SOCKETCAN.html>.
 
    [LINKTYPE__DBUS]
-              "LINKTYPE\_DBUS",
+              "LINKTYPE_DBUS",
               <https://www.tcpdump.org/linktypes/LINKTYPE_DBUS.html>.
 
    [LINKTYPE__DECT__NR]
-              "LINKTYPE\_DECT\_NR",
+              "LINKTYPE_DECT_NR",
               <https://www.tcpdump.org/linktypes/LINKTYPE_DECT_NR.html>.
 
    [LINKTYPE__DISPLAYPORT__AUX]
-              "LINKTYPE\_DISPLAYPORT\_AUX",
+              "LINKTYPE_DISPLAYPORT_AUX",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DISPLAYPORT_AUX.html>.
 
    [LINKTYPE__DSA__TAG__BRCM]
-              "LINKTYPE\_DSA\_TAG\_BRCM",
+              "LINKTYPE_DSA_TAG_BRCM",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_BRCM.html>.
 
    [LINKTYPE__DSA__TAG__BRCM__PREPEND]
-              "LINKTYPE\_DSA\_TAG\_BRCM\_PREPEND",
+              "LINKTYPE_DSA_TAG_BRCM_PREPEND",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_BRCM_PREPEND.html>.
 
    [LINKTYPE__DSA__TAG__DSA]
-              "LINKTYPE\_DSA\_TAG\_DSA",
+              "LINKTYPE_DSA_TAG_DSA",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_DSA.html>.
 
    [LINKTYPE__DSA__TAG__EDSA]
-              "LINKTYPE\_DSA\_TAG\_EDSA",
+              "LINKTYPE_DSA_TAG_EDSA",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_DSA_TAG_EDSA.html>.
 
@@ -1419,343 +1418,328 @@ Table of Contents
               <https://ieeexplore.ieee.org/document/9844436>.
 
    [LINKTYPE__EPON]
-              "LINKTYPE\_EPON",
+              "LINKTYPE_EPON",
               <https://www.tcpdump.org/linktypes/LINKTYPE_EPON.html>.
 
    [LINKTYPE__ERF]
-              "LINKTYPE\_ERF",
+              "LINKTYPE_ERF",
               <https://www.tcpdump.org/linktypes/LINKTYPE_ERF.html>.
 
    [LINKTYPE__ETW]
-              "LINKTYPE\_ETW",
+              "LINKTYPE_ETW",
               <https://www.tcpdump.org/linktypes/LINKTYPE_ETW.html>.
 
    [LINKTYPE__ETHERNET__MPACKET]
-              "LINKTYPE\_ETHERNET\_MPACKET",
+              "LINKTYPE_ETHERNET_MPACKET",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_ETHERNET_MPACKET.html>.
 
    [LINKTYPE__FC__2]
-              "LINKTYPE\_FC\_2",
+              "LINKTYPE_FC_2",
               <https://www.tcpdump.org/linktypes/LINKTYPE_FC_2.html>.
 
    [LINKTYPE__FC__2__WITH__FRAME__DELIMS]
-              "LINKTYPE\_FC\_2\_WITH\_FRAME\_DELIMS",
+              "LINKTYPE_FC_2_WITH_FRAME_DELIMS",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_FC_2_WITH_FRAME_DELIMSa.html>.
 
    [LINKTYPE__FIRA__UCI]
-              "LINKTYPE\_FIRA\_UCI", <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_FIRA_UCI", <https://www.tcpdump.org/linktypes/
               LINKTYPE_FIRA_UCI.html>.
 
    [LINKTYPE__FLEXRAY]
-              "LINKTYPE\_FLEXRAY",
+              "LINKTYPE_FLEXRAY",
               <https://www.tcpdump.org/linktypes/LINKTYPE_FLEXRAY.html>.
 
    [LINKTYPE__FRELAY]
-              "LINKTYPE\_FRELAY",
+              "LINKTYPE_FRELAY",
               <https://www.tcpdump.org/linktypes/LINKTYPE_FRELAY.html>.
 
    [LINKTYPE__FRELAY__WITH__DIR]
-              "LINKTYPE\_FRELAY\_WITH\_DIR",
+              "LINKTYPE_FRELAY_WITH_DIR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_FRELAY_WITH_DIR.html>.
 
    [LINKTYPE__I2C__LINUX]
-              "LINKTYPE\_I2C\_LINUX",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_I2C_LINUX", <https://www.tcpdump.org/linktypes/
               LINKTYPE_I2C_LINUX.html>.
 
    [LINKTYPE__IEEE802__11__PRISM]
-              "LINKTYPE\_IEEE802\_11\_PRISM",
+              "LINKTYPE_IEEE802_11_PRISM",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_11_PRISM.html>.
 
    [LINKTYPE__IEEE802__15__4__NOFCS]
-              "LINKTYPE\_IEEE802\_15\_4\_NOFCS",
+              "LINKTYPE_IEEE802_15_4_NOFCS",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_15_4_NOFCS.html>.
 
    [LINKTYPE__IEEE802__15__4__NONASK__PHY]
-              "LINKTYPE\_IEEE802\_15\_4\_NONASK\_PHY",
+              "LINKTYPE_IEEE802_15_4_NONASK_PHY",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_15_4_NONASK_PHY.html>.
 
    [LINKTYPE__IEEE802__15__4__WITHFCS]
-              "LINKTYPE\_IEEE802\_15\_4\_WITHFCS",
+              "LINKTYPE_IEEE802_15_4_WITHFCS",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_IEEE802_15_4_WITHFCS.html>.
 
    [LINKTYPE__IPV4]
-              "LINKTYPE\_IPV4",
+              "LINKTYPE_IPV4",
               <https://www.tcpdump.org/linktypes/LINKTYPE_IPV4.html>.
 
    [LINKTYPE__IPV6]
-              "LINKTYPE\_IPV6",
+              "LINKTYPE_IPV6",
               <https://www.tcpdump.org/linktypes/LINKTYPE_IPV6.html>.
 
    [LINKTYPE__IPOIB]
-              "LINKTYPE\_IPOIB",
+              "LINKTYPE_IPOIB",
               <https://www.tcpdump.org/linktypes/LINKTYPE_IPOIB.html>.
 
    [LINKTYPE__IP__OVER__FC]
-              "LINKTYPE\_IP\_OVER\_FC",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_IP_OVER_FC", <https://www.tcpdump.org/linktypes/
               LINKTYPE_IP_OVER_FC.html>.
 
    [LINKTYPE__INFINIBAND]
-              "LINKTYPE\_INFINIBAND",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_INFINIBAND", <https://www.tcpdump.org/linktypes/
               LINKTYPE_INFINIBAND.html>.
 
    [LINKTYPE__IPMI__HPM__2]
-              "LINKTYPE\_IPMI\_HPM\_2",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_IPMI_HPM_2", <https://www.tcpdump.org/linktypes/
               LINKTYPE_IPMI_HPM_2.html>.
 
    [LINKTYPE__IPNET]
-              "LINKTYPE\_IPNET",
+              "LINKTYPE_IPNET",
               <https://www.tcpdump.org/linktypes/LINKTYPE_IPNET.html>.
 
    [LINKTYPE__LAPB__WITH__DIR]
-              "LINKTYPE\_LAPB\_WITH\_DIR",
+              "LINKTYPE_LAPB_WITH_DIR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_LAPB_WITH_DIR.html>.
 
    [LINKTYPE__LAPD]
-              "LINKTYPE\_LAPD",
+              "LINKTYPE_LAPD",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LAPD.html>.
 
    [LINKTYPE__LIN]
-              "LINKTYPE\_LIN",
+              "LINKTYPE_LIN",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LIN.html>.
 
    [LINKTYPE__LINUX__IRDA]
-              "LINKTYPE\_LINUX\_IRDA",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_LINUX_IRDA", <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_IRDA.html>.
 
    [LINKTYPE__LINUX__LAPD]
-              "LINKTYPE\_LINUX\_LAPD",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_LINUX_LAPD", <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_LAPD.html>.
 
    [LINKTYPE__LINUX__SLL]
-              "LINKTYPE\_LINUX\_SLL",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_LINUX_SLL", <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_SLL.html>.
 
    [LINKTYPE__LINUX__SLL2]
-              "LINKTYPE\_LINUX\_SLL2",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_LINUX_SLL2", <https://www.tcpdump.org/linktypes/
               LINKTYPE_LINUX_SLL2.html>.
 
    [LINKTYPE__LOOP]
-              "LINKTYPE\_LOOP",
+              "LINKTYPE_LOOP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LOOP.html>.
 
    [LINKTYPE__LORATAP]
-              "LINKTYPE\_LORATAP",
+              "LINKTYPE_LORATAP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LORATAP.html>.
 
    [LINKTYPE__LTALK]
-              "LINKTYPE\_LTALK",
+              "LINKTYPE_LTALK",
               <https://www.tcpdump.org/linktypes/LINKTYPE_LTALK.html>.
 
    [LINKTYPE__MFR]
-              "LINKTYPE\_MFR",
+              "LINKTYPE_MFR",
               <https://www.tcpdump.org/linktypes/LINKTYPE_MFR.html>.
 
    [LINKTYPE__MPEG__2__TS]
-              "LINKTYPE\_MPEG\_2\_TS",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_MPEG_2_TS", <https://www.tcpdump.org/linktypes/
               LINKTYPE_MPEG_2_TS.html>.
 
    [LINKTYPE__MTP2]
-              "LINKTYPE\_MTP2",
+              "LINKTYPE_MTP2",
               <https://www.tcpdump.org/linktypes/LINKTYPE_MTP2.html>.
 
    [LINKTYPE__MTP2__WITH__PHDR]
-              "LINKTYPE\_MTP2\_WITH\_PHDR",
+              "LINKTYPE_MTP2_WITH_PHDR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_MTP2_WITH_PHDR.html>.
 
    [LINKTYPE__MTP3]
-              "LINKTYPE\_MTP3",
+              "LINKTYPE_MTP3",
               <https://www.tcpdump.org/linktypes/LINKTYPE_MTP3.html>.
 
    [LINKTYPE__SCCP]
-              "LINKTYPE\_SCCP",
+              "LINKTYPE_SCCP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SCCP.html>.
 
    [LINKTYPE__MUX27010]
-              "LINKTYPE\_MUX27010", <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_MUX27010", <https://www.tcpdump.org/linktypes/
               LINKTYPE_MUX27010.html>.
 
    [LINKTYPE__NETANALYZER]
-              "LINKTYPE\_NETANALYZER",
+              "LINKTYPE_NETANALYZER",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_NETANALYZER.html>.
 
    [LINKTYPE__NETANALYZER__TRANSPARENT]
-              "LINKTYPE\_NETANALYZER\_TRANSPARENT",
+              "LINKTYPE_NETANALYZER_TRANSPARENT",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_NETANALYZER_TRANSPARENT.html>.
 
    [LINKTYPE__NETLINK]
-              "LINKTYPE\_NETLINK",
+              "LINKTYPE_NETLINK",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NETLINK.html>.
 
    [LINKTYPE__NFC__LLCP]
-              "LINKTYPE\_NFC\_LLCP", <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_NFC_LLCP", <https://www.tcpdump.org/linktypes/
               LINKTYPE_NFC_LLCP.html>.
 
    [LINKTYPE__NFLOG]
-              "LINKTYPE\_NFLOG",
+              "LINKTYPE_NFLOG",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NFLOG.html>.
 
    [LINKTYPE__NG40]
-              "LINKTYPE\_NG40",
+              "LINKTYPE_NG40",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NG40.html>.
 
    [LINKTYPE__NORDIC__BLE]
-              "LINKTYPE\_NORDIC\_BLE",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_NORDIC_BLE", <https://www.tcpdump.org/linktypes/
               LINKTYPE_NORDIC_BLE.html>.
 
    [LINKTYPE__NULL]
-              "LINKTYPE\_NULL",
+              "LINKTYPE_NULL",
               <https://www.tcpdump.org/linktypes/LINKTYPE_NULL.html>.
 
    [LINKTYPE__PKTAP]
-              "LINKTYPE\_PKTAP",
+              "LINKTYPE_PKTAP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_PKTAP.html>.
 
    [LINKTYPE__PPI]
-              "LINKTYPE\_PPI",
+              "LINKTYPE_PPI",
               <https://www.tcpdump.org/linktypes/LINKTYPE_PPI.html>.
 
    [LINKTYPE__PPP]
-              "LINKTYPE\_PPP",
+              "LINKTYPE_PPP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_PPP.html>.
 
    [LINKTYPE__PPP__ETHER]
-              "LINKTYPE\_PPP\_ETHER",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_PPP_ETHER", <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_ETHER.html>.
 
    [LINKTYPE__PPP__HDLC]
-              "LINKTYPE\_PPP\_HDLC", <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_PPP_HDLC", <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_HDLC.html>.
 
    [LINKTYPE__PPP__PPPD]
-              "LINKTYPE\_PPP\_PPPD", <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_PPP_PPPD", <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_PPPD.html>.
 
    [LINKTYPE__PPP__WITH__DIR]
-              "LINKTYPE\_PPP\_WITH\_DIR",
+              "LINKTYPE_PPP_WITH_DIR",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_PPP_WITH_DIR.html>.
 
    [LINKTYPE__PROFIBUS__DL]
-              "LINKTYPE\_PROFIBUS\_DL",
+              "LINKTYPE_PROFIBUS_DL",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_PROFIBUS_DL.html>.
 
    [LINKTYPE__RAW]
-              "LINKTYPE\_RAW",
+              "LINKTYPE_RAW",
               <https://www.tcpdump.org/linktypes/LINKTYPE_RAW.html>.
 
    [LINKTYPE__RDS]
-              "LINKTYPE\_RDS",
+              "LINKTYPE_RDS",
               <https://www.tcpdump.org/linktypes/LINKTYPE_RDS.html>.
 
    [LINKTYPE__RTAC__SERIAL]
-              "LINKTYPE\_RTAC\_SERIAL",
+              "LINKTYPE_RTAC_SERIAL",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_RTAC_SERIAL.html>.
 
    [LINKTYPE__SDLC]
-              "LINKTYPE\_SDLC",
+              "LINKTYPE_SDLC",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SDLC.html>.
 
    [LINKTYPE__SITA]
-              "LINKTYPE\_SITA",
+              "LINKTYPE_SITA",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SITA.html>.
 
    [LINKTYPE__SLIP]
-              "LINKTYPE\_SLIP",
+              "LINKTYPE_SLIP",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SLIP.html>.
 
    [LINKTYPE__STANAG__5066__D__PDU]
-              "LINKTYPE\_STANAG\_5066\_D\_PDU",
+              "LINKTYPE_STANAG_5066_D_PDU",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_STANAG_5066_D_PDU.html>.
 
    [LINKTYPE__SUNATM]
-              "LINKTYPE\_SUNATM",
+              "LINKTYPE_SUNATM",
               <https://www.tcpdump.org/linktypes/LINKTYPE_SUNATM.html>.
 
    [LINKTYPE__USB__2__0]
-              "LINKTYPE\_USB\_2\_0",
+              "LINKTYPE_USB_2_0",
               <https://www.tcpdump.org/linktypes/LINKTYPE_USB_2_0.html>.
 
    [LINKTYPE__USB__2__0__FULL__SPEED]
-              "LINKTYPE\_USB\_2\_0\_FULL\_SPEED",
+              "LINKTYPE_USB_2_0_FULL_SPEED",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_2_0_FULL_SPEED.html>.
 
    [LINKTYPE__USB__2__0__HIGH__SPEED]
-              "LINKTYPE\_USB\_2\_0\_HIGH\_SPEED",
+              "LINKTYPE_USB_2_0_HIGH_SPEED",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_2_0_HIGH_SPEED.html>.
 
    [LINKTYPE__USB__2__0__LOW__SPEED]
-              "LINKTYPE\_USB\_2\_0\_LOW\_SPEED",
+              "LINKTYPE_USB_2_0_LOW_SPEED",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_2_0_LOW_SPEED.html>.
 
    [LINKTYPE__USB__DARWIN]
-              "LINKTYPE\_USB\_DARWIN",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_USB_DARWIN", <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_DARWIN.html>.
 
    [LINKTYPE__USB__LINUX]
-              "LINKTYPE\_USB\_LINUX",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_USB_LINUX", <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_LINUX.html>.
 
    [LINKTYPE__USB__LINUX__MMAPPED]
-              "LINKTYPE\_USB\_LINUX\_MMAPPED",
+              "LINKTYPE_USB_LINUX_MMAPPED",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_USB_LINUX_MMAPPED.html>.
 
    [LINKTYPE__VSOCK]
-              "LINKTYPE\_VSOCK",
+              "LINKTYPE_VSOCK",
               <https://www.tcpdump.org/linktypes/LINKTYPE_VSOCK.html>.
 
    [LINKTYPE__WATTSTOPPER__DLM]
-              "LINKTYPE\_WATTSTOPPER\_DLM",
+              "LINKTYPE_WATTSTOPPER_DLM",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_WATTSTOPPER_DLM.html>.
 
    [LINKTYPE__ZBOSS__NCP]
-              "LINKTYPE\_ZBOSS\_NCP",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_ZBOSS_NCP", <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZBOSS_NCP.html>.
 
    [LINKTYPE__ZWAVE__R1__R2]
-              "LINKTYPE\_ZWAVE\_R1\_R2",
+              "LINKTYPE_ZWAVE_R1_R2",
               <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZWAVE_R1_R2.html>.
 
    [LINKTYPE__ZWAVE__R3]
-              "LINKTYPE\_ZWAVE\_R3", <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_ZWAVE_R3", <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZWAVE_R3.html>.
 
    [LINKTYPE__ZWAVE__TAP]
-              "LINKTYPE\_ZWAVE\_TAP",
-              <https://www.tcpdump.org/linktypes/
+              "LINKTYPE_ZWAVE_TAP", <https://www.tcpdump.org/linktypes/
               LINKTYPE_ZWAVE_TAP.html>.
 
    [MDB-PCAP] Kaiser, M., "PCAP format for MDB", August 2023,
