@@ -2226,7 +2226,7 @@ The following is a list of Secrets Types.
 {: indent='8'}
 0x45535053:
 : ESP Security Association keys.
-  This is in CSV format ({{RFC4180}}), with each record containing fields that
+  This is in CSV format {{!RFC4180}}, with each record containing fields that
   describe an ESP security association. Each line has the following columns:
   "Protocol","Src IP","Dest IP","SPI","Encryption","Encryption Key",
   "Authentication","Authentication Key","SN","ESN High Bits".
