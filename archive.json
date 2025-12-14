@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-11T01:58:50.800050+00:00",
+  "timestamp": "2025-12-14T02:04:40.796369+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -3033,6 +3033,22 @@
           "updatedAt": "2025-10-24T18:38:57Z"
         }
       ]
+    },
+    {
+      "number": 199,
+      "id": "I_kwDOAU54e87eGwhF",
+      "title": "Pcapng Readers and Early end_of_opts",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/199",
+      "state": "OPEN",
+      "author": "dthelegend",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The specification says that readers SHOULD support blocks having no end of options, but does not clarify whether early ends to option fields is valid, for example I have a variable options block that has an end of options before the end of the block. MUST/SHOULD readers support this and do they still treat the block length as authoritative?\n\nObviously this kind of block would have to come from a pathological writer not following the spec, but I though it best to ask anyways.\n\nThanks for your time in advance.",
+      "createdAt": "2025-12-13T19:37:55Z",
+      "updatedAt": "2025-12-13T19:40:36Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -11477,7 +11493,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-12-10T13:20:13Z",
-      "updatedAt": "2025-12-10T13:20:13Z",
+      "updatedAt": "2025-12-11T07:58:28Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "302666ca6eb7f0ddf66c84ea91d800532c45e5a8",
@@ -11488,7 +11504,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I created this file in 9f3f359824a9dffcdd9d7cf92e82b6d246b6bce3:\r\n\r\n```\r\ncommit 9f3f359824a9dffcdd9d7cf92e82b6d246b6bce3\r\nAuthor: Guy Harris <gharris@sonic.net>\r\nDate:   Sun Nov 24 02:41:02 2024 -0800\r\n\r\n    Give up on building linktypes.xml.\r\n    \r\n    Check it into the repository, and remove the last of the attempts to\r\n    have it built by the CI process.\r\n    \r\n    If somebody figures out how to cause the build to automatically build\r\n    linktyeps.xml from linktypes.csv, including getting Perl, cpanm, and\r\n    Text::CSV installed at the right point on the right container, they're\r\n    more than welcome to do so and remove linktypes.xml from the build.  all\r\n    the shiny wonderful stuff in martinthomson/i-d-template does *NOT*\r\n    appear to be easily extensible to add additional steps to the build\r\n    process or to easily install the tools necessary for that process.\r\n```\r\n\r\nI renamed it to linktypes.md in e2530a7fb12bd8bf0e5b56e6108b8533dbf2e73e:\r\n\r\n```\r\ncommit e2530a7fb12bd8bf0e5b56e6108b8533dbf2e73e\r\nAuthor: Guy Harris <gharris@sonic.net>\r\nDate:   Mon Nov 25 16:51:03 2024 -0800\r\n\r\n    Renae the output of linktype2stanza to .md.\r\n    \r\n    linktype2stanza generates (RFC-style) Markdown, not XML.\r\n```\r\n\r\nbut it was added back in 68b39fd9f203758a1cb3f0e06fc5c5553e6672ed:\r\n\r\n```\r\ncommit 68b39fd9f203758a1cb3f0e06fc5c5553e6672ed\r\nAuthor: Michael Richardson <mcr+ietf@sandelman.ca>\r\nDate:   Wed Dec 3 20:10:06 2025 -0500\r\n\r\n    fix initial values to have consistent names to table, fixed underscores\r\n```\r\n\r\nHowever, it's a Markdown file, nto an XML file, and appears to have been generated from an older version of linktypes.csv.\r\n\r\nGiven that, is there any reason to keep it around?\r\n",
+          "createdAt": "2025-12-11T07:58:28Z",
+          "updatedAt": "2025-12-11T07:58:28Z"
+        }
+      ],
       "reviews": []
     }
   ]
