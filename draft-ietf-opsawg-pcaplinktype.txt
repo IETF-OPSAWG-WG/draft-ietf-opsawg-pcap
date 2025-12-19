@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 16 June 2026                                          Sandelman
-                                                        13 December 2025
+Expires: 22 June 2026                                          Sandelman
+                                                        19 December 2025
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 June 2026.
+   This Internet-Draft will expire on 22 June 2026.
 
 Copyright Notice
 
@@ -1254,7 +1254,7 @@ Table of Contents
    [TCPDUMP]  "LINK-LAYER HEADER TYPES",
               <https://www.tcpdump.org/linktypes.html>.
 
-   [LIBPCAP]  "libpcap", <https://github.com/the-tcpdump-group/libpcap>.
+   [LIBPCAP]  "libpcap", <https://www.tcpdump.org/#libpcap>.
 
    [Wireshark]
               "Homepage of Wireshark", <https://www.wireshark.org>.
