@@ -42,7 +42,7 @@ informative:
   LIBPCAP:
     title: libpcap
     date: false
-    target: https://github.com/the-tcpdump-group/libpcap
+    target: https://www.tcpdump.org/#libpcap
 
   Wireshark:
     title: Homepage of Wireshark
