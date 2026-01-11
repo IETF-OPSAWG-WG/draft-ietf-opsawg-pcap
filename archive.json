@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-21T02:04:39.094106+00:00",
+  "timestamp": "2026-01-11T02:11:49.405012+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -3047,6 +3047,22 @@
       "body": "The specification says that readers SHOULD support blocks having no end of options, but does not clarify whether early ends to option fields is valid, for example I have a variable options block that has an end of options before the end of the block. MUST/SHOULD readers support this and do they still treat the block length as authoritative?\n\nObviously this kind of block would have to come from a pathological writer not following the spec, but I though it best to ask anyways.\n\nThanks for your time in advance.",
       "createdAt": "2025-12-13T19:37:55Z",
       "updatedAt": "2025-12-13T19:40:36Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 201,
+      "id": "I_kwDOAU54e87idSid",
+      "title": "Missing contact email address in draft-ietf-opsawg-pcap.md",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/201",
+      "state": "OPEN",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "In draft-ietf-opsawg-pcap.md, there is :\nPerson & email address to contact for further information: The Tcpdump Group, www.tcpdump.org\n\nBut no email address.",
+      "createdAt": "2026-01-10T08:21:58Z",
+      "updatedAt": "2026-01-10T08:21:58Z",
       "closedAt": null,
       "comments": []
     }
