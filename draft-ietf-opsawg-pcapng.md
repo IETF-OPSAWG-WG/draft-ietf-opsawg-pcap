@@ -1666,7 +1666,7 @@ This is followed by zero or more Name Resolution Records (in the
 TLV format), each of which contains an association between a network
 address and a name. An nrb_record_end MUST be added after the last
 Record, and MUST exist even if there are no other Records in the NRB.
-There are currently three possible types of records:
+There are currently five possible types of records:
 
 | Name | Type | Length |
 | nrb_record_end | 0x0000 | 0 |
