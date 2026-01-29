@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-11T02:11:49.405012+00:00",
+  "timestamp": "2026-01-29T02:27:48.486626+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -11555,6 +11555,34 @@
       "mergedBy": "guyharris",
       "mergeCommit": {
         "oid": "27e9547d6004b332e26dd9e5e587c35353dcebc4"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 202,
+      "id": "PR_kwDOAU54e86_2ggr",
+      "title": "pcapng: fix Name Resolution Records types count",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/202",
+      "state": "MERGED",
+      "author": "ivq",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Currently there 5 different Name Resolution Records types.",
+      "createdAt": "2026-01-28T13:02:46Z",
+      "updatedAt": "2026-01-28T22:07:09Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "27e9547d6004b332e26dd9e5e587c35353dcebc4",
+      "headRepository": "ivq/draft-ietf-opsawg-pcap",
+      "headRefName": "master",
+      "headRefOid": "515d766c0061c5ddadc8157a79c85356b8a6425d",
+      "closedAt": "2026-01-28T22:07:09Z",
+      "mergedAt": "2026-01-28T22:07:09Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "db31d9bd47f67c57685377b60eda6ffc81651d99"
       },
       "comments": [],
       "reviews": []
