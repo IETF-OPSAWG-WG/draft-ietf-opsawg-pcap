@@ -589,7 +589,7 @@ The Custom Option has the following fields:
     identifies a Custom Option containing binary octets in the
     Custom Data portion. This Custom Option can be safely copied
     to a new file if the pcapng file is manipulated by an
-    application; otherwise 19372 should be used instead. See {{section_vendor_copy}} for details.
+    application; otherwise 19373 should be used instead. See {{section_vendor_copy}} for details.
   {: vspace='0'}
 
 
