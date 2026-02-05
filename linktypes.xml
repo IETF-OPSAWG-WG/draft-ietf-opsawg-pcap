@@ -2684,7 +2684,7 @@ LinkType Value
 : 288
 
 Description
-: USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the the Universal Serial Bus Specification Revision 2.0
+: USB 2.0, 1.1, or 1.0 packet, beginning with a PID, as described by Chapter 8 Protocol Layer of the Universal Serial Bus Specification Revision 2.0
 {: spacing="compact"}
 
 
