@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-29T02:27:48.486626+00:00",
+  "timestamp": "2026-02-08T02:53:14.626299+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -11585,6 +11585,42 @@
         "oid": "db31d9bd47f67c57685377b60eda6ffc81651d99"
       },
       "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 203,
+      "id": "PR_kwDOAU54e87Bx8Zl",
+      "title": "Fix typo in Custom Option type code reference",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/203",
+      "state": "MERGED",
+      "author": "robertkleffner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Currently the custom binary option (safe copy) mentions that if a binary option cannot be safely copied, the code 19372 should be used. However, this code is for custom UTF-8 string options (don't copy), a different interpretation of custom option data than generic binary data. It seems that what is meant here is 19373, the code for custom binary options (don't copy).",
+      "createdAt": "2026-02-05T16:59:00Z",
+      "updatedAt": "2026-02-05T18:56:00Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "db31d9bd47f67c57685377b60eda6ffc81651d99",
+      "headRepository": null,
+      "headRefName": "master",
+      "headRefOid": "53222d031e830555ec22d709182f213ec01b42ec",
+      "closedAt": "2026-02-05T18:55:59Z",
+      "mergedAt": "2026-02-05T18:55:59Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "7fffa92d97d4911a9ada771589e79a82277c2ffb"
+      },
+      "comments": [
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yeah, probably a copy-and-pasteo.",
+          "createdAt": "2026-02-05T18:55:50Z",
+          "updatedAt": "2026-02-05T18:55:50Z"
+        }
+      ],
       "reviews": []
     }
   ]
