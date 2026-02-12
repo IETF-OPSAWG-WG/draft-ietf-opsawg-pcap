@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-08T02:53:14.626299+00:00",
+  "timestamp": "2026-02-12T02:39:18.456551+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -2984,7 +2984,7 @@
       "labels": [],
       "body": "To troubleshoot WebRTC calls via WebSocket, we need to decrypt TLS connections from the start.\nFor long-running WebSocket connections on a server with a high volume of traffic, I need to filter numerous PCAP files to collect all packets for a single WebSocket connection from the time the connection was established. \nThis is not easy to do.\n\nIt will be fine to record in a PCAP file the `TLS nonce`. In this case, TLS messages will be possible to decrypt from the middle of the TLS connection.\nMore discussion you can find at\nhttps://gitlab.com/wireshark/wireshark/-/issues/20512\n\nCould you extend the pcapng format to add a field to store the TLS nonce? ",
       "createdAt": "2025-10-09T10:24:47Z",
-      "updatedAt": "2025-10-09T15:19:13Z",
+      "updatedAt": "2026-02-11T22:50:53Z",
       "closedAt": null,
       "comments": [
         {
@@ -3000,6 +3000,13 @@
           "body": "[The discussion in Wireshark issue #20512](https://gitlab.com/wireshark/wireshark/-/issues/20512) indicates that the nonce would be per-*frame*, so, instead of storing it in a Decryption Secrets Block, it would have to be stored as an [option](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng#name-options) for the [Enhanced Packet Block](https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcapng#name-enhanced-packet-block).\n\nGiven that, the pull request would have to add a new \"TLS nonce\" option for the Enhanced Packet Block.",
           "createdAt": "2025-10-09T15:19:13Z",
           "updatedAt": "2025-10-09T15:19:13Z"
+        },
+        {
+          "author": "sergey-safarov",
+          "authorAssociation": "NONE",
+          "body": "@guyharris could you check PR https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/204",
+          "createdAt": "2026-02-11T22:50:53Z",
+          "updatedAt": "2026-02-11T22:50:53Z"
         }
       ]
     },
@@ -9904,13 +9911,13 @@
       "labels": [],
       "body": "Following https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/51, this is simply a rebase of the original PR.",
       "createdAt": "2025-03-28T20:09:52Z",
-      "updatedAt": "2025-04-06T21:24:06Z",
+      "updatedAt": "2026-02-10T10:38:33Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
-      "baseRefOid": "6a672d043d8a63cbd188a349cd09a14a4f68f610",
+      "baseRefOid": "7fffa92d97d4911a9ada771589e79a82277c2ffb",
       "headRepository": "antoniovazquezblanco/draft-ietf-opsawg-pcap",
       "headRefName": "cib",
-      "headRefOid": "d1fd80626e71870866fb1fe3a0d1beb593c2d49f",
+      "headRefOid": "0a97aba68ee2ef62ef3b98295b2f59d6226f718f",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -9950,6 +9957,13 @@
           "body": "> Do we agree on keeping the existing mechanism and not changing it to a an \"add\", \"change\" or \"remove\" one?\r\n\r\nGiven that this was a doubt I raised myself and that you did not show support for it, I guess we have an agreement for the time being and I will keep on going with the next comments/questions. Thanks!",
           "createdAt": "2025-04-06T15:52:50Z",
           "updatedAt": "2025-04-06T15:52:50Z"
+        },
+        {
+          "author": "antoniovazquezblanco",
+          "authorAssociation": "NONE",
+          "body": "I have rebased the changes, however, given the amount of possibilities and changes that the CIB block may introduce, I was thinking on splitting this into many smaller PRs that may be easier to review so that we get some things done...\r\n\r\nWould it be OK to add the CIB definition without any options for the time being? @guyharris how do you feel about this?\r\n\r\nThanks!",
+          "createdAt": "2026-02-10T10:38:33Z",
+          "updatedAt": "2026-02-10T10:38:33Z"
         }
       ],
       "reviews": [
@@ -11621,6 +11635,32 @@
           "updatedAt": "2026-02-05T18:55:50Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 204,
+      "id": "PR_kwDOAU54e87DIo92",
+      "title": "Add epb_tls_nonce option to Enhanced Packet Block",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/204",
+      "state": "OPEN",
+      "author": "sergey-safarov",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This change introduces a new option for the Enhanced Packet Block (EPB) to store the TLS nonce (Initialization Vector) associated with the packet's encrypted payload.\r\n\r\nContext:\r\nIn many TLS 1.3 scenarios and AEAD cipher suites, the nonce is partially implicit. However, for forensic analysis, middlebox troubleshooting, and out-of-order processing, having the explicit nonce stored as metadata allows dissectors (like Wireshark) to decrypt individual records without maintaining a full session state machine or when the initial handshake is missing.\r\n\r\nReferences:\r\n- Wireshark Issue: https://gitlab.com/wireshark/wireshark/-/issues/20512\r\n- PCAPNG Issue: https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/issues/190",
+      "createdAt": "2026-02-11T22:50:03Z",
+      "updatedAt": "2026-02-11T22:50:03Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "7fffa92d97d4911a9ada771589e79a82277c2ffb",
+      "headRepository": "sergey-safarov/draft-ietf-opsawg-pcap",
+      "headRefName": "master",
+      "headRefOid": "15122bec29f1513ca543fcb97a5175209fd7de16",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
