@@ -15,7 +15,7 @@ open my $fh, "<:encoding(utf8)", "linktypes.csv" or die "linktypes.csv: $!";
 
 while (my $row = $csv->getline ($fh)) {
     my $name = $row->[1];
-    $name =~ s/_/\\_/;
+    $name =~ s/_/\\_/g;
 
     print "LinkType Value\n: ".$row->[2]."\n\n";
     print "LinkType Name\n: ".$name."\n\n";
@@ -25,7 +25,6 @@ while (my $row = $csv->getline ($fh)) {
         $ref =~ s/\s*$//;
         my $reflen = length($ref);
         if($reflen > 0) {
-            $ref =~ s/_/\\_/g;
             print "\nReference\n: ".$ref."\n";
         }
     }
