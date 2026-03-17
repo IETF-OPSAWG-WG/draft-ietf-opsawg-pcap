@@ -102,7 +102,7 @@ Table of Contents
    some time, an updated format called "pcapng", that replaces this file
    format.  See [I-D.ietf-opsawg-pcapng] No new extensions for this
    format are expected, although new LINKLAYER types that are registered
-   using [I-D.ietf.opsawg-pcaplinktype] can be included in pcap files.
+   using [I-D.ietf-opsawg-pcaplinktype] can be included in pcap files.
 
    A major limitation of the pcap v2 format described here is that files
    consist of a header which is different than the other blocks in the
@@ -456,9 +456,6 @@ Table of Contents
               Draft, draft-ietf-opsawg-pcaplinktype-17, 2 March 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
               pcaplinktype-17>.
-
-   [I-D.ietf.opsawg-pcaplinktype]
-              "*** BROKEN REFERENCE ***".
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
