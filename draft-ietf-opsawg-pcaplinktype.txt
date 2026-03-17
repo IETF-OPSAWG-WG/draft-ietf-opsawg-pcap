@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Informational                             M. Richardson
-Expires: 3 September 2026                                      Sandelman
-                                                            2 March 2026
+Expires: 18 September 2026                                     Sandelman
+                                                           17 March 2026
 
 
          Link-Layer Types for PCAP-related Capture File Formats
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 September 2026.
+   This Internet-Draft will expire on 18 September 2026.
 
 Copyright Notice
 
@@ -1754,16 +1754,16 @@ Table of Contents
    [PracConsEthDesign]
               Crane, R. C. and E. A. Taft, "Practical Considerations in
               Ethernet Local Network Design", February 1980,
-              <http://bitsavers.org/pdf/xerox/ethernet_3mb/Practical_Con
-              siderations_in_Ethernet_Local_Network_Design_Feb1980.pdf>.
+              <http://bitsavers.org/pdf/xerox/ethernet_3mb/
+              Practical_Considerations_in_Ethernet_Local_Network_Design_Feb1980.pdf>.
 
    [Radiotap] radiotap.org, "Radiotap Web site",
               <https://www.radiotap.org>.
 
    [Silabs-Debug-Channel]
-              "Silabs Debug Channel Format", n.d., <https://github.com/S
-              iliconLabs/java_packet_trace_library/blob/master/doc/
-              debug-channel.md>.
+              "Silabs Debug Channel Format", n.d.,
+              <https://github.com/SiliconLabs/java_packet_trace_library/blob/
+              master/doc/debug-channel.md>.
 
    [USBPcap]  "USBPcap Capture format specification",
               <https://desowin.org/usbpcap/captureformat.html>.

@@ -5,7 +5,7 @@
 Network Working Group                                     M. Tuexen, Ed.
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 3 September 2026                          Politecnico di Torino
+Expires: 18 September 2026                         Politecnico di Torino
                                                              J. Bongertz
                                                  Airbus DS CyberSecurity
                                                                 G. Combs
@@ -16,7 +16,7 @@ Expires: 3 September 2026                          Politecnico di Torino
                                                                  Red Hat
                                                            M. Richardson
                                                                Sandelman
-                                                            2 March 2026
+                                                           17 March 2026
 
 
              PCAP Now Generic (pcapng) Capture File Format
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 September 2026.
+   This Internet-Draft will expire on 18 September 2026.
 
 Copyright Notice
 
@@ -1350,12 +1350,13 @@ Table of Contents
            octet.  The verdict type can be: Hardware (type octet = 0,
            size = variable), Linux_eBPF_TC (type octet = 1, size = 8
            (64-bit unsigned integer), value = TC_ACT_* as defined in the
-           Linux pck_cls.h (https://git.kernel.org/pub/scm/linux/kernel/
-           git/torvalds/linux.git/tree/include/uapi/linux/pkt_cls.h)
-           include), Linux_eBPF_XDP (type octet = 2, size = 8 (64-bit
-           unsigned integer), value = xdp_action as defined in the Linux
-           pbf.h (https://git.kernel.org/pub/scm/linux/kernel/git/torval
-           ds/linux.git/tree/include/uapi/linux/bpf.h) include).
+           Linux pck_cls.h
+           (https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/
+           uapi/linux/pkt_cls.h) include), Linux_eBPF_XDP (type octet =
+           2, size = 8 (64-bit unsigned integer), value = xdp_action as
+           defined in the Linux pbf.h
+           (https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/
+           uapi/linux/bpf.h) include).
 
    Example: '02 00 00 00 00 00 00 00 02' for Linux_eBPF_XDP with verdict
    XDP_PASS.
@@ -2561,9 +2562,9 @@ Table of Contents
    [I-D.ietf-opsawg-pcaplinktype]
               Harris, G. and M. Richardson, "Link-Layer Types for PCAP-
               related Capture File Formats", Work in Progress, Internet-
-              Draft, draft-ietf-opsawg-pcaplinktype-16, 4 December 2025,
+              Draft, draft-ietf-opsawg-pcaplinktype-17, 2 March 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
-              pcaplinktype-16>.
+              pcaplinktype-17>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,

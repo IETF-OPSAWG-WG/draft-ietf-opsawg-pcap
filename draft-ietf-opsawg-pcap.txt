@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Historic                                  M. Richardson
-Expires: 3 September 2026                                      Sandelman
-                                                            2 March 2026
+Expires: 18 September 2026                                     Sandelman
+                                                           17 March 2026
 
 
                         PCAP Capture File Format
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 September 2026.
+   This Internet-Draft will expire on 18 September 2026.
 
 Copyright Notice
 
@@ -102,7 +102,7 @@ Table of Contents
    some time, an updated format called "pcapng", that replaces this file
    format.  See [I-D.ietf-opsawg-pcapng] No new extensions for this
    format are expected, although new LINKLAYER types that are registered
-   using [I-D.ietf.opsawg-pcaplinktype] can be included in pcap files.
+   using [I-D.ietf-opsawg-pcaplinktype] can be included in pcap files.
 
    A major limitation of the pcap v2 format described here is that files
    consist of a header which is different than the other blocks in the
@@ -312,8 +312,8 @@ Table of Contents
 
    The meaning of the fields in the Packet Record is:
 
-   Timestamp (Seconds) and Timestamp (Microseconds or nanoseconds):  sec
-      onds and fraction of a seconds values of a timestamp.
+   Timestamp (Seconds) and Timestamp (Microseconds or nanoseconds):  seconds
+      and fraction of a seconds values of a timestamp.
 
       The seconds value is a 32-bit unsigned integer that represents the
       number of seconds that have elapsed since 1970-01-01 00:00:00 UTC,
@@ -453,12 +453,9 @@ Table of Contents
    [I-D.ietf-opsawg-pcaplinktype]
               Harris, G. and M. Richardson, "Link-Layer Types for PCAP-
               related Capture File Formats", Work in Progress, Internet-
-              Draft, draft-ietf-opsawg-pcaplinktype-16, 4 December 2025,
+              Draft, draft-ietf-opsawg-pcaplinktype-17, 2 March 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
-              pcaplinktype-16>.
-
-   [I-D.ietf.opsawg-pcaplinktype]
-              "*** BROKEN REFERENCE ***".
+              pcaplinktype-17>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
