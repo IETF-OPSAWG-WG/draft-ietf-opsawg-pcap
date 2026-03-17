@@ -155,6 +155,10 @@ NRB:
 : Name Resolution Block
 
 
+CIB:
+: Capture Information Block
+
+
 CB:
 : Custom Block
 
@@ -258,6 +262,10 @@ following four categories:
   etc) which can be useful to understand the conditions in which the
   capture has been made. If this appears in a file, an Interface
   Description Block is also required, before this block.
+
+* [Capture Information Block](#section_cib): it
+  defines how to store some interface information such as location,
+  orientation, velocity, and associated errors.
 
 * [Custom Block](#section_custom_block): it
   contains vendor-specific data in a portable fashion.
@@ -2269,6 +2277,181 @@ The following is a list of Secrets Types.
 
   * ESN High Bits: Extended Sequence Number upper 32 bits. String of a 32 bits integer in hexadecimal
   format (starting with 0x).
+
+
+## Capture Information Block {#section_cib}
+
+The Capture Information Block (CIB) is used to support the addition
+of time-varying metadata associated with capture interfaces, including
+location, orientation, velocity, and related errors.
+Each CIB is associated with a specific interface and applied to all packets
+received on this interface following the CIB until superseded by a new CIB on
+the same interface.
+
+For example, a capture from a static interface may contain a single CIB at
+the start of the file to apply to all packets on this interface.
+A capture from a moving interface with GNSS will add a CIB each time updated
+positional information is available, and this information will apply to all
+packets received on this interface until the next CIB.
+
+Note that issuing a new CIB will clear all existing CIB options on an interface,
+for example, the CIBs for a non-moving but rotating interface with a known position
+must all contain both location and orientation data.
+
+The format of the Capture Information Block is shown in {{format_cib}}.
+
+
+~~~~
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +---------------------------------------------------------------+
+ 0 |                   Block Type = 0x0000000B                     |
+   +---------------------------------------------------------------+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                         Interface ID                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 /                                                               /
+   /                      Options (variable)                       /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                      Block Total Length                       |
+   +---------------------------------------------------------------+
+~~~~
+{: #format_cib title='Capture Information Block Format' artwork-align="center"}
+
+The fields have the following meaning:
+
+* Block Type: The block type of the Capture Information Block is 11.
+
+* Block Total Length: total size of this block, as described in
+  {{section_block}}.
+
+* Interface ID: specifies the interface for this CIB to be applied
+  to; the correct interface will be the one whose Interface
+  Description Block (within the current Section of the file) is
+  identified by the same number (see {{section_idb}}) of this field.
+  The interface ID MUST be valid, which means that an matching
+  interface description block MUST exist.
+
+* Options: optionally, a list of options (formatted according to
+  the rules defined in {{section_opt}}) can be present.
+
+
+Location information can be represented with in global (lat/lng/alt in degrees)
+or local (X/Y/Z in metres) form, only one of these forms may be used in a given PCAP file.
+Combining pcap files with different location formats should result in the
+removal of all position information.
+
+Velocity and Orientation are to be interpreted from the zero frame for either form.
+For the global form, X corresponds to latitude, Y to longitude, and Z to altitude.
+Yaw is about the X/Y or Lat/Lng plane with zero facing along Y or North,
+pitch is applied with this yaw offset, and roll is applied to the combination of both.
+
+Error options provide an optional mechanism for attaching error information to measurements,
+and are only valid where the corresponding measurement (location, velocity, or orientation)
+option is specified. Should an error option be present without the corresponding measurement,
+this option should be ignored.
+
+All the information fields are defined as options in order to support
+systems that do not have a complete set of information. Therefore,
+In addition to the options defined in {{section_opt}}, the following
+options are valid within this block:
+
+| Name | Code | Length | Multiple allowed? |
+| local_location | 2 | 12 | no |
+| local_location_error | 3 | 12 | no |
+| global_location | 4 | 12 | no |
+| global_location_error | 5 | 12 | no |
+| orientation | 6 | 12 | no |
+| orientation_error | 7 | 12 | no |
+| velocity | 8 | 12 | no |
+| velocity_error | 9 | 12 | no |
+{: #options_cib title='Capture Information Block Options'}
+
+
+{: indent='8'}
+cib_local_location:
+: The cib_local_location option specifies the local location of the packet
+  capture or interface in an arbitrary plane; location is stored as three
+  32-bit floats representing X, Y (in plane), and Z (altitude) offsets in
+  metres.
+
+  Example: '41 24 cc cd 41 73 33 33 3f cc cc cd' decodes to
+  x: 10.3m, y: 15.2m, z: 1.6m
+{: vspace='0'}
+
+{: indent='8'}
+cib_local_location_error:
+: The cib_local_location_error option specifies the error in local location
+  capture;  this is stored as three 32-bit floats in the same order and
+  representation as cib_local_location.
+
+  Example: '3f 80 00 00 3f 99 99 9a 3f cc cc cd' decodes to
+  x_error: 1.0m, y_error: 1.2m, z_error: 1.6m
+{: vspace='0'}
+
+{: indent='8'}
+cib_global_location:
+: The cib_global_location option specifies the global location of the
+  packet capture or interface; location is stored as three 32-bit floats
+  representing latitude and longitude in degrees, and altitude in
+  metres.
+
+  Example: 'c2 13 64 ce 43 2e c2 90 41 88 00 00' decodes to
+  lat: -36.8484437° lng: 174.7600023° alt: 17.0m
+{: vspace='0'}
+
+{: indent='8'}
+cib_global_location_error:
+: The cib_global_location_error option specifies the error in global location
+  capture; this is stored as three 32-bit floats in the same order and
+  representation as cib_global_location.
+
+  Example: '3f 80 00 00 3f 99 99 9a 3f cc cc cd' decodes to
+  lat_error: 0.1° lng_error: 0.2° alt_error: 1.6m
+{: vspace='0'}
+
+{: indent='8'}
+cib_orientation:
+: The cib_orientation option specifies the orientation of the packet
+  capturing antenna; orientation is stored as three 32-bit floats
+  representing yaw, pitch, and roll in radians.
+  This is relative to the zero frame for global or local location.
+
+  Example: '3f c9 0f db 3e 86 0a 92 00 00 00 00' decodes to
+  yaw: pi/2, pitch: -pi/12, roll: 0.0
+{: vspace='0'}
+
+{: indent='8'}
+cib_orientation_error:
+: The cib_orientation_error option specifies the error in orientation
+  capture; this is stored as three 32-bit floats in the same order and
+  representation as cib_orientation.
+
+  Example: '3c 23 d7 0a 3c a3 d7 0a 00 00 00 00' decodes to
+  yaw_error: 0.01, pitch_error: 0.02, roll_error: 0.0
+{: vspace='0'}
+
+{: indent='8'}
+cib_velocity:
+: The cib_velocity option specifies the velocity of the packet capture interface;
+  velocity is stored as three 32-bit floats representing the motion in the
+  X (lat), Y (lng), and Z (altitude) directions in metres per second.
+  This is relative to the zero frame for global or local location.
+
+  Example: '41 24 cc cd 41 73 33 33 00 00 00 00' decodes to
+  x: 10.3m/s, y: 15.2m/s, z: 0.0m/s
+{: vspace='0'}
+
+{: indent='8'}
+cib_velocity_error:
+: The cib_velocity_error option specifies the error in velocity capture;
+  this is stored as three 32-bit floats in the same order and
+  representation as cib_velocity.
+
+  Example: '3f 80 00 00 3f 99 99 9a 00 00 00 00' decodes to
+  x_error: 1.0m/s, y_error: 1.2m/s, z_error: 0.0m/s
 {: vspace='0'}
 
 
@@ -2547,6 +2730,7 @@ which the "XX" is from 00 to FF:
 | 0x00000008 |  <eref target="https://en.wikipedia.org/wiki/ARINC_429">ARINC 429</eref> in AFDX Encapsulation Information Block (requested by Gianluca Varenni \<gianluca.varenni@cacetech.com>, CACE Technologies LLC) |
 | 0x00000009 |  [systemd Journal Export Block]{{I-D.richardson-opsawg-pcapng-extras}}  |
 | 0x0000000A |  [Decryption Secrets Block](#section_dsb)  |
+| 0x0000000B |  [Capture Information Block](#section_cib) |
 | 0x00000101 |  <eref target="https://github.com/HoneProject">Hone Project</eref> <eref target="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Machine Info Block</eref> (see also <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google version</eref>)  |
 | 0x00000102 |  <eref target="https://github.com/HoneProject">Hone Project</eref> <eref target="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Connection Event Block</eref> (see also <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google version</eref>)  |
 | 0x00000201 |  <eref target="https://github.com/draios/sysdig">Sysdig</eref> Machine Info Block  |
