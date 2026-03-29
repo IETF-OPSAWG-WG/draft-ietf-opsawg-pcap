@@ -2272,6 +2272,54 @@ The following is a list of Secrets Types.
 {: vspace='0'}
 
 
+{: indent='8'}
+0x57694669:
+: IEEE 802.11 Key Log.
+  This format carries decryption keys for IEEE 802.11 wireless LAN
+  traffic using the same comma-separated quoted-string format as the
+  Wireshark `80211_keys` UAT (User Accessible Table) preference file.
+  Every line consists of two double-quoted fields separated by a comma
+  with no intervening whitespace: a key type and a key value.
+  Lines beginning with '#' are comments and MUST be ignored.
+  Every line MUST be properly terminated with
+  either carriage return and linefeed ('\r\n') or linefeed ('\n').
+  Tools MUST be able to handle both line endings.
+
+  The key type field is one of the following string values:
+
+  * `wep`: The key value is a hexadecimal WEP key
+    (10, 26, or 32 hex digits for 40-bit, 104-bit, or 128-bit WEP).
+
+  * `wpa-pwd`: The key value is a WPA passphrase, optionally followed
+    by a colon (':') and the SSID (e.g., `passphrase:MyNetwork`).
+    When the SSID is omitted, the passphrase will be tried against
+    SSIDs observed in the capture.
+
+  * `wpa-psk`: The key value is a hexadecimal WPA pre-shared key
+    (64 hex digits representing 32 octets).
+
+  * `tk`: The key value is a hexadecimal Temporal Key, optionally
+    followed by a colon (':'), the AP MLD MAC address, another colon,
+    and the STA MLD MAC address (e.g., `0102...0f10:aabbccddeeff:112233445566`).
+
+  * `msk`: The key value is a hexadecimal Master Session Key.
+
+  Example:
+
+  ~~~
+  "wep","1234567890"
+  "wpa-pwd","MyPassword:MySSID"
+  "wpa-psk","a5001e18e0b3f79227...64"
+  "tk","d0e57d224c1bb8806089d8c23154074c"
+  ~~~
+
+{: vspace='1'}
+
+  Warning: WEP keys, WPA passphrases, and pre-shared keys are
+  long-term secrets. Users SHOULD only store non-production keys,
+  or ensure proper protection of the pcapng file.
+
+
 ## Custom Block {#section_custom_block}
 
 A Custom Block (CB) is the container for storing custom data that
