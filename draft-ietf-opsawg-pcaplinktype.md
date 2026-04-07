@@ -724,9 +724,7 @@ The policy allocation for the LinkType values is as follows:
 
 * Values from 65001 to 65535 are reserved for Experimental Use ({{Section 4.2 of !RFC8126}}).
 
-The initial version of the registry is provided in {{sec-initial}}.  In each
-case here, the reference should be set to
-{{LINKTYPES}} and the RFC number to be assigned to this document, which is not repeated each time.
+The initial version of the registry is provided in {{sec-initial}}.
 
 The initial contents of the table are based upon the link-layer header
 type list maintained by libpcap, and published on {{LINKTYPES}}.
@@ -736,7 +734,7 @@ LinkType values 147 to 162 named LINKTYPE\_RESERVED\_xx were originally reserved
 However, new private use cases should use the values in the 65001-65535 range.
 
 In general, Experimental Use values should never leak out of the entity that uses it.
-As the FCFS range is large and easily obtained, official values are recommended.
+As the Expert Review range is large and easily obtained, official values are recommended.
 
 > There is often an associated Data Link Type (DLT) value which is often
 > identical in value, but not universally so.  DLT values are associated
