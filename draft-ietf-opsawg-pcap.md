@@ -73,7 +73,7 @@ More significantly, pcap v2 files can only contain packets in a single LINKTYPE 
 
 {::boilerplate bcp14}
 
-This document uses the term octet in a way consistent with the word "byte"
+This document uses the term octet in a way consistent with the word "byte".
 
 # General File Structure
 
