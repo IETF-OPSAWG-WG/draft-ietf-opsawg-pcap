@@ -124,7 +124,7 @@ Table of Contents
    capitals, as shown here.
 
    This document uses the term octet in a way consistent with the word
-   "byte"
+   "byte".
 
 3.  General File Structure
 
