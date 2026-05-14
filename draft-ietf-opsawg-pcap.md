@@ -59,7 +59,7 @@ This document describes the historical format used by tcpdump, and other
 programs using libpcap, to read and write network traces.
 This document describes version 2 of the pcap format.
 
-This document is published as historical, as there has existed for some time, an updated format called "pcapng", that replaces this file format.  See {{?I-D.ietf-opsawg-pcapng}}
+This document is published as historical, as there has existed for some time, an updated format called "pcapng", that replaces this file format.  See {{?I-D.ietf-opsawg-pcapng}}.
 No new extensions for this format are expected, although new LINKLAYER types that are registered using {{!I-D.ietf-opsawg-pcaplinktype}} can be included in pcap files.
 
 A major limitation of the pcap v2 format described here is that files consist of a header which is different than the other blocks in the file.
@@ -72,6 +72,8 @@ More significantly, pcap v2 files can only contain packets in a single LINKTYPE 
 # Terminology
 
 {::boilerplate bcp14}
+
+This document uses the term octet in a way consistent with the word "byte"
 
 # General File Structure
 
@@ -90,7 +92,7 @@ when writing the file or reading the file on the host that wrote the
 file, which is the most common case when generating or processing
 capture captures.
 
-When hosts with a different native endian format read a file, they must swap bytes as appropriate.
+When hosts with a different native endian format read a file, they must swap octets as appropriate.
 This is less efficient, but less common, and if repeated access to the files are important, then files can be translated and saved.
 
 # File Header
@@ -186,28 +188,9 @@ The LinkType and additional information field is in the form
 ~~~~
 {: #fig-linktype title='LinkType and additional information' align="left"}
 
-The field is shown as if it were in the byte order of the host reading
+The field is shown as if it were in the octet order of the host reading
 or writing the file, with bit 0 being the most-significant bit of the
 field and bit 31 being the least-significant bit of the field.
-
-LinkType (16 bits):
-: an unsigned integer that indicates the link layer type for packets in the file;
-it is a value as defined in the PCAP-related LinkType List registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
-
-Reserved3 (10 bits):
-: not used - MUST be set to zero by pcap writers, and MUST NOT be
-interpreted by pcap readers; a reader SHOULD treat a non-zero value as
-an error.
-
-P (1 bit):
-: a bit that, if set, indicates that the Frame Check Sequence (FCS)
-length value is present and, if not set, indicates that the FCS value is
-not present.
-
-R (1 bit):
-: not used - MUST be set to zero by pcap writers, and MUST NOT be
-interpreted by pcap readers; a reader SHOULD treat a non-zero value as
-an error.
 
 FCS len (4 bits):
 : an unsigned integer that indicates the number of 16-bit (2-octet) words
@@ -217,9 +200,28 @@ type value, the FCS length is unknown.  The valid values of the FCS len
 field are between 0 and 15; Ethernet, for example, would have an FCS
 length value of 2, corresponding to a 4-octet FCS.
 
+R (1 bit):
+: not used - MUST be set to zero by pcap writers, and MUST NOT be
+interpreted by pcap readers; a reader SHOULD treat a non-zero value as
+an error.
+
+P (1 bit):
+: a bit that, if set, indicates that the Frame Check Sequence (FCS)
+length value is present and, if not set, indicates that the FCS value is
+not present.
+
+Reserved3 (10 bits):
+: not used - MUST be set to zero by pcap writers, and MUST NOT be
+interpreted by pcap readers; a reader SHOULD treat a non-zero value as
+an error.
+
+LinkType (16 bits):
+: an unsigned integer that indicates the link layer type for packets in the file;
+it is a value as defined in the PCAP-related LinkType List registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
+
 ## File Endian Information
 
-The magic number is stored in native endian format, so all the byte sequences below are magic numbers.
+The magic number is stored in native endian format, so all the octet sequences below are magic numbers.
 
 * 0xA1,0xB2,0xC3,0xD4: little endian file, with timestamps in seconds/microseconds.
 * 0x1A,0x2B,0x3C,0x4D: little endian file, with timestamps in seconds/nanoseconds.
@@ -342,7 +344,7 @@ https://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap
 
 #  IANA Considerations
 
-This document requires the following IANA actions:
+This document requires one IANA action:
 
 ## Media-Type Registry
 
@@ -374,14 +376,13 @@ packet capture as described in this document.
     Provisional registration? (standards tree only):  NO
 ~~~~
 
-#  Contributors
-
-Insert pcap developers etc. here
-
 #  Acknowledgments
 
-The authors wish to thank (many reviewers) and many others for
-their invaluable comments.
+The authors wish to thank Michael Tuexen for document shepherding as well as being the original impetous for starting this work.
+
+Carsten Bormann, Joe Clarke, Mohamed Boucadair, and John Thacker provided review comments and suggested text and diagrams.
+
+The TCPDUMP Group team, led by Denis Ovsienko, and Francois-Xavier Le Bail contributed to this document and helped motivate its forward progress.
 
 <!--
 COMMENTS.
