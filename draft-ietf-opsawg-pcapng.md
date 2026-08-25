@@ -2260,7 +2260,7 @@ The following is a list of Secrets Types.
   "MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication [no checking]",
   "ANY 96 bit authentication [no checking]", "ANY 128 bit authentication [no checking]",
   "ANY 192 bit authentication [no checking]" or "ANY 256 bit authentication [no checking]".
-  New algorithms might be added in the future. The algorith names are
+  New algorithms might be added in the future. The algorithm names are
   exactly as quote.
 
   * Authentication Key:  Authentication key. String containing the key in heaxadecimal format (starting with 0x).
