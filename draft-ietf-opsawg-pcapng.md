@@ -983,6 +983,7 @@ the following options are valid within this block:
 | if_txspeed | 16 | 8 | no |
 | if_rxspeed | 17 | 8 | no |
 | if_iana_tzname | 18 | variable | no |
+| if_tsoffset_ns | 19 | 4 | no |
 {: #optionsifb title='Interface Description Block Options'}
 
 
@@ -1151,9 +1152,11 @@ if_tsoffset:
 : The
   if_tsoffset option is a 64-bit signed integer that
   specifies an offset (in seconds) that must be added to the
-  timestamp of each packet to obtain the absolute timestamp of
-  a packet. If the option is not present, an offset of 0 is assumed
-  (i.e., timestamps in blocks are absolute timestamps).
+  timestamp of each packet (in addition to 'if_tsoffset_ns')
+  to obtain the absolute timestamp of a packet.
+  If the option is not present, an offset of 0 is assumed.
+  If both this and 'if_tsoffset_ns' are not present, the
+  timestamps in blocks are assumed to be absolute timestamps.
 
   This offset is not intended to be used as an offset between local
   time and UTC; for this purpose, the if_iana_tzname option SHOULD be
@@ -1217,6 +1220,24 @@ if_iana_tzname:
 
 Examples: "Africa/Nairobi", "Asia/Kolkata", "America/Sao_Paulo",
 "Europe/Berlin".
+
+
+{: indent='8'}
+if_tsoffset_ns:
+: The
+  if_tsoffset_ns option is a 32-bit signed integer value that
+  specifies an offset (in nanoseconds) that must be added to the
+  timestamp of each packet (in addition to 'if_tsoffset')
+  to obtain the absolute timestamp of a packet.
+  If the option is not present, an offset of 0 is assumed.
+  If both this and 'if_tsoffset' are not present, the
+  timestamps in blocks are assumed to be absolute timestamps.
+  The value of this option MUST be greater than -1,000,000,000
+  and less than 1,000,000,000.
+  
+{: vspace='0'}
+
+Example: '1234'.
 
 
 ## Enhanced Packet Block {#section_epb}
