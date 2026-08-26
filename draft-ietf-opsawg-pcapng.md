@@ -1360,6 +1360,7 @@ the following options are valid within this block:
 | epb_queue | 6 | 4 | no |
 | epb_verdict | 7 | variable, minimum verdict type-dependent | yes |
 | epb_processid_threadid | 8 | 8 | no |
+| epb_tls_nonce | 9 | variable, length depends on the cipher suite | yes |
 {: #options_epb title='Enhanced Packet Block Options'}
 
 
@@ -1472,6 +1473,21 @@ epb_processid_threadid:
 
 Example: '00 00 04 D2 00 00 00 00' for process 1234 and an unknown
 thread.
+
+
+{: indent='8'}
+epb_tls_nonce:
+: The epb_tls_nonce
+  option contains the binary representation of the nonce
+  used to encrypt/decrypt the TLS record(s) within the packet.
+  If a packet contains multiple TLS records with different nonces, this
+  option SHOULD NOT be used, or multiple instances of the option MAY be
+  provided if the tool supports it.
+  The TLS nonce (Initialization Vector) used for the encryption of the
+  record(s) contained in this packet. This is particularly useful for
+  AEAD ciphers where the nonce is otherwise implicit or derived from
+  sequence numbers. The length depends on the cipher suite (e.g.,
+  12 bytes for AES-GCM).
 
 
 ### Enhanced Packet Block Flags Word {#section_epb_flags}
