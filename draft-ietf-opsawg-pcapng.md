@@ -1494,7 +1494,7 @@ following:
 | 10 | Checksum valid, the checksum has already been checked on the receive path before it was handed to the packet capture mechanism, so there's no need for the packet analyzer to check it. |
 | 11 | TCP segmentation offloaded, this is either a received packet corresponding to several received link-layer packets, with reassembly having been done before the packet was handed to the packet capture mechanism, or a transmitted packet that will correspond to several link-layer packets after being fragmented, but that was wrapped around to the packet capture mechanism before the fragmentation occurred. |
 | 12-15 | Reserved (MUST be set to zero). |
-| 16-31 | link-layer-dependent errors (Bit 31 = symbol error, Bit 30 = preamble error, Bit 29 = Start Frame Delimiter error, Bit 28 = unaligned frame error, Bit 27 = wrong Inter Frame Gap error, Bit 26 = packet too short error, Bit 25 = packet too long error, Bit 24 = CRC error, other?? are 16 bits enough?). |
+| 16-31 | link-layer-dependent errors (Bit 31 = symbol error, Bit 30 = preamble error, Bit 29 = Start Frame Delimiter error, Bit 28 = unaligned frame error, Bit 27 = wrong Inter Frame Gap error, Bit 26 = packet too short error, Bit 25 = packet too long error, Bit 24 = CRC error, Bit 23 = ACK error, other?? are 16 bits enough?). |
 {: title=''}
 
 NOTE: in earlier versions of this specification, the bits
