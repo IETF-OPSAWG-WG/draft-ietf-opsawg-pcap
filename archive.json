@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-24T04:01:15.358907+00:00",
+  "timestamp": "2026-08-27T08:24:26.490701+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -3022,7 +3022,7 @@
       "labels": [],
       "body": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/blob/46e94febf290b6d60a41ca4f12e57f6ae976c5c5/draft-ietf-opsawg-pcapng.md?plain=1#L2467\n\n> # Recommended File Name Extension: .pcapng\n\n> The recommended file name extension for the \"PCAP Now Generic Capture File Format\" specified in this document is \".pcapng\".\n\n> On Windows and macOS, files are distinguished by an extension to their filename.\n\nConsistent spelling to make searching easier - would not need to try both to look for results.",
       "createdAt": "2025-10-24T14:02:34Z",
-      "updatedAt": "2025-10-24T18:38:58Z",
+      "updatedAt": "2026-08-25T19:21:32Z",
       "closedAt": null,
       "comments": [
         {
@@ -3038,6 +3038,13 @@
           "body": "> I've seen it both ways.  \n\nIf reading documentation and RFCs for fun, following a style guide makes the text more enjoyable.  \nWhen trying to answer a question [(11316: Lua: should have a way to get current capture filename/path in Lua)](https://gitlab.com/wireshark/wireshark/-/issues/11316) being able to quickly search and see that the filename is not stored the pcapng file then moving on to another solution is quicker. ",
           "createdAt": "2025-10-24T18:38:57Z",
           "updatedAt": "2025-10-24T18:38:57Z"
+        },
+        {
+          "author": "fxlb",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "In RFCs 1160 'filename', 777 'file name'.",
+          "createdAt": "2026-08-25T19:21:32Z",
+          "updatedAt": "2026-08-25T19:21:32Z"
         }
       ]
     },
@@ -4068,7 +4075,7 @@
       "id": "MDExOlB1bGxSZXF1ZXN0MTk1MDM1NzMz",
       "title": "Capture Information Block (CIB) addition",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/51",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ryankurte",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -4077,14 +4084,14 @@
       ],
       "body": "Adds a Capture Information Block (CIB) with global location/orientation/velocity vectors. CIBs are associated with an IDB using the interface number. It is intended that this will be extended with other useful fields in the future.\r\n\r\nThis began in #48, which has now been split into two components. \r\n- The CIB (this PR) for appending information to a capture interface (that applies to all packets captured after the CIB, until the next CIB).\r\n- New EPB options (#56), for appending RSSI etc. to EPBs.\r\n\r\nThe proposal with changes is viewable [here](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/ryankurte/pcapng/proposed-wireless-fields/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii#rfc.section.4.7) (thanks @guyharris!). \r\n\r\n*Please read the RFC or check out the diff for an up to date view of the changes*",
       "createdAt": "2018-06-14T22:33:16Z",
-      "updatedAt": "2024-08-12T12:21:59Z",
+      "updatedAt": "2026-08-27T08:07:24Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "bf17d7fe42e9c2b4a695bf816cae27be4c9c978a",
       "headRepository": "ryankurte/pcapng",
       "headRefName": "proposed-wireless-fields",
       "headRefOid": "5df4b9d9f6b4d7e902517a6e2c917479e8b02556",
-      "closedAt": null,
+      "closedAt": "2026-08-27T08:07:24Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -5049,7 +5056,7 @@
       "id": "MDExOlB1bGxSZXF1ZXN0MjQyNDYzMTM2",
       "title": "Additional RF information options for EPBs",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/56",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ryankurte",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -5058,14 +5065,14 @@
       ],
       "body": "Following from #48, this PR is to add per-packet options for capture information to the EPB, alongside the per-interface options introduced in #51.\r\n\r\nThis PR is a work in progress and requires further discussion, opening now so there is a clear delineation between this and #51.\r\n\r\n**TODO:**\r\n- What RF options do we want?\r\n- How do we want to represent them?\r\n  - I am in favour of 32-bit IEEE-754 floats where sensible, rather than defining our own fixed-point approximations (and we have already accepted the inclusion of this for location information)\r\n\r\n**Options:**\r\n- [x] RSSI per antenna\r\n\r\nThe updated RFC can be viewed [here](http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/ryankurte/pcapng/proposed-epb-options/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii#section_epb)\r\n\r\n*Please read the RFC or check out the diff for an up to date view of the changes*",
       "createdAt": "2019-01-05T22:07:10Z",
-      "updatedAt": "2024-08-12T12:21:45Z",
+      "updatedAt": "2026-08-27T08:07:38Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "f25b23a97b5699ef12a81ddc84a0014cc4d0c4ed",
       "headRepository": "ryankurte/pcapng",
       "headRefName": "proposed-epb-options",
       "headRefOid": "c1add7d097ccfa8ff34665d531b1ec74a8946ca2",
-      "closedAt": null,
+      "closedAt": "2026-08-27T08:07:38Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -11516,21 +11523,21 @@
       "id": "PR_kwDOAU54e864I6eh",
       "title": "linktypes.xml: Fix a typo",
       "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/198",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "fxlb",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-12-10T13:20:13Z",
-      "updatedAt": "2025-12-11T07:58:28Z",
+      "updatedAt": "2026-08-25T18:36:41Z",
       "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
       "baseRefName": "master",
       "baseRefOid": "302666ca6eb7f0ddf66c84ea91d800532c45e5a8",
       "headRepository": "fxlb/pcapng",
       "headRefName": "linktypes.xml",
       "headRefOid": "d005efa4bdd6f7f4e5c73baf1e0d6c96f8d2870b",
-      "closedAt": null,
+      "closedAt": "2026-08-25T15:39:54Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -11538,9 +11545,16 @@
         {
           "author": "guyharris",
           "authorAssociation": "COLLABORATOR",
-          "body": "I created this file in 9f3f359824a9dffcdd9d7cf92e82b6d246b6bce3:\r\n\r\n```\r\ncommit 9f3f359824a9dffcdd9d7cf92e82b6d246b6bce3\r\nAuthor: Guy Harris <gharris@sonic.net>\r\nDate:   Sun Nov 24 02:41:02 2024 -0800\r\n\r\n    Give up on building linktypes.xml.\r\n    \r\n    Check it into the repository, and remove the last of the attempts to\r\n    have it built by the CI process.\r\n    \r\n    If somebody figures out how to cause the build to automatically build\r\n    linktyeps.xml from linktypes.csv, including getting Perl, cpanm, and\r\n    Text::CSV installed at the right point on the right container, they're\r\n    more than welcome to do so and remove linktypes.xml from the build.  all\r\n    the shiny wonderful stuff in martinthomson/i-d-template does *NOT*\r\n    appear to be easily extensible to add additional steps to the build\r\n    process or to easily install the tools necessary for that process.\r\n```\r\n\r\nI renamed it to linktypes.md in e2530a7fb12bd8bf0e5b56e6108b8533dbf2e73e:\r\n\r\n```\r\ncommit e2530a7fb12bd8bf0e5b56e6108b8533dbf2e73e\r\nAuthor: Guy Harris <gharris@sonic.net>\r\nDate:   Mon Nov 25 16:51:03 2024 -0800\r\n\r\n    Renae the output of linktype2stanza to .md.\r\n    \r\n    linktype2stanza generates (RFC-style) Markdown, not XML.\r\n```\r\n\r\nbut it was added back in 68b39fd9f203758a1cb3f0e06fc5c5553e6672ed:\r\n\r\n```\r\ncommit 68b39fd9f203758a1cb3f0e06fc5c5553e6672ed\r\nAuthor: Michael Richardson <mcr+ietf@sandelman.ca>\r\nDate:   Wed Dec 3 20:10:06 2025 -0500\r\n\r\n    fix initial values to have consistent names to table, fixed underscores\r\n```\r\n\r\nHowever, it's a Markdown file, nto an XML file, and appears to have been generated from an older version of linktypes.csv.\r\n\r\nGiven that, is there any reason to keep it around?\r\n",
+          "body": "I created this file in 9f3f359824a9dffcdd9d7cf92e82b6d246b6bce3:\r\n\r\n```\r\ncommit 9f3f359824a9dffcdd9d7cf92e82b6d246b6bce3\r\nAuthor: Guy Harris <gharris@sonic.net>\r\nDate:   Sun Nov 24 02:41:02 2024 -0800\r\n\r\n    Give up on building linktypes.xml.\r\n    \r\n    Check it into the repository, and remove the last of the attempts to\r\n    have it built by the CI process.\r\n    \r\n    If somebody figures out how to cause the build to automatically build\r\n    linktyeps.xml from linktypes.csv, including getting Perl, cpanm, and\r\n    Text::CSV installed at the right point on the right container, they're\r\n    more than welcome to do so and remove linktypes.xml from the build.  all\r\n    the shiny wonderful stuff in martinthomson/i-d-template does *NOT*\r\n    appear to be easily extensible to add additional steps to the build\r\n    process or to easily install the tools necessary for that process.\r\n```\r\n\r\nI renamed it to linktypes.md in e2530a7fb12bd8bf0e5b56e6108b8533dbf2e73e:\r\n\r\n```\r\ncommit e2530a7fb12bd8bf0e5b56e6108b8533dbf2e73e\r\nAuthor: Guy Harris <gharris@sonic.net>\r\nDate:   Mon Nov 25 16:51:03 2024 -0800\r\n\r\n    Renae the output of linktype2stanza to .md.\r\n    \r\n    linktype2stanza generates (RFC-style) Markdown, not XML.\r\n```\r\n\r\nbut it was added back in 68b39fd9f203758a1cb3f0e06fc5c5553e6672ed:\r\n\r\n```\r\ncommit 68b39fd9f203758a1cb3f0e06fc5c5553e6672ed\r\nAuthor: Michael Richardson <mcr+ietf@sandelman.ca>\r\nDate:   Wed Dec 3 20:10:06 2025 -0500\r\n\r\n    fix initial values to have consistent names to table, fixed underscores\r\n```\r\n\r\nHowever, it's a Markdown file, not an XML file, and appears to have been generated from an older version of linktypes.csv.\r\n\r\nGiven that, is there any reason to keep it around?\r\n",
           "createdAt": "2025-12-11T07:58:28Z",
-          "updatedAt": "2025-12-11T07:58:28Z"
+          "updatedAt": "2026-08-25T18:21:20Z"
+        },
+        {
+          "author": "guyharris",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Given that, is there any reason to keep it around?\r\n\r\nRemoved in 181ea4a6a88e5556bfcef59dbb091235601fcf85.",
+          "createdAt": "2026-08-25T18:33:04Z",
+          "updatedAt": "2026-08-25T18:33:04Z"
         }
       ],
       "reviews": []
@@ -11712,6 +11726,34 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 208,
+      "id": "PR_kwDOAU54e88AAAABA9GYFg",
+      "title": "pcapng: Fix a typo",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/208",
+      "state": "MERGED",
+      "author": "fxlb",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-08-25T15:07:59Z",
+      "updatedAt": "2026-08-25T18:36:16Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "3daadbf60f952cbfba03edb35277e937dbb51e7c",
+      "headRepository": "fxlb/pcapng",
+      "headRefName": "typo",
+      "headRefOid": "9c7fa52c6281f3ee09f1b4f2f510f0ffa0865e52",
+      "closedAt": "2026-08-25T18:34:13Z",
+      "mergedAt": "2026-08-25T18:34:13Z",
+      "mergedBy": "guyharris",
+      "mergeCommit": {
+        "oid": "348108562761f8e94123a54d7fbfd76ce81347a9"
+      },
       "comments": [],
       "reviews": []
     }
