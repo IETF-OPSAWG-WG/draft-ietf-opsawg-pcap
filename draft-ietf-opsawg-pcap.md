@@ -219,15 +219,17 @@ LinkType (16 bits):
 : an unsigned integer that indicates the link layer type for packets in the file;
 it is a value as defined in the PCAP-related LinkType List registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
 
-## File Endian Information
+## File Endianness Information
 
-The magic number is stored in native endian format, so all the octet sequences below are magic numbers.
+The magic number is stored in native endian format. The list below shows
+the octet sequences that correspond to the magic number values for
+big-endian and little-endian files with different time stamp
+resolutions.
 
-* 0xA1,0xB2,0xC3,0xD4: little endian file, with timestamps in seconds/microseconds.
-* 0x1A,0x2B,0x3C,0x4D: little endian file, with timestamps in seconds/nanoseconds.
-* 0xD4,0xC3,0xB2,0xA1: big endian file, with timestamps in seconds/microseconds.
-* 0x4D,0x3C,0x2B,0x1A: big endian file, with timestamps in seconds/nanoseconds.
-
+* 0xA1,0xB2,0xC3,0xD4: big-endian file, with timestamps in seconds/microseconds.
+* 0xA1,0xB2,0x3C,0x4D: big-endian file, with timestamps in seconds/nanoseconds.
+* 0xD4,0xC3,0xB2,0xA1: little-endian file, with timestamps in seconds/microseconds.
+* 0x4D,0x3C,0xB2,0xA1: little-endian file, with timestamps in seconds/nanoseconds.
 
 # Packet Record
 
