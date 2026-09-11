@@ -24,11 +24,11 @@ files in that format, include tcpdump.
     Jinja2 3.1.6
     lxml 6.1.1
     natsort 8.4.0
-    platformdirs 4.11.3
+    platformdirs 4.11.7
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.8.2
+    wcwidth 0.8.3
 -->
 <link href="draft-ietf-opsawg-pcap.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1044,11 +1044,11 @@ svg {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">pcap</td>
-<td class="right">August 2026</td>
+<td class="right">September 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Harris &amp; Richardson</td>
-<td class="center">Expires 26 February 2027</td>
+<td class="center">Expires 15 March 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1061,12 +1061,12 @@ svg {
 <dd class="internet-draft">draft-ietf-opsawg-pcap-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-08-25" class="published">25 August 2026</time>
+<time datetime="2026-09-11" class="published">11 September 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Historic</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-02-26">26 February 2027</time></dd>
+<dd class="expires"><time datetime="2027-03-15">15 March 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1122,7 +1122,7 @@ files in that format, include tcpdump.<a href="#section-abstract-1" class="pilcr
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 February 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 15 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1164,7 +1164,7 @@ files in that format, include tcpdump.<a href="#section-abstract-1" class="pilcr
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-file-header" class="internal xref">File Header</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-file-endian-information" class="internal xref">File Endian Information</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-file-endianness-information" class="internal xref">File Endianness Information</a></p>
 </li>
             </ul>
 </li>
@@ -1437,24 +1437,27 @@ it is a value as defined in the PCAP-related LinkType List registry, as defined 
 </dd>
       <dd class="break"></dd>
 </dl>
-<div id="file-endian-information">
+<div id="file-endianness-information">
 <section id="section-4.1">
-        <h3 id="name-file-endian-information">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-file-endian-information" class="section-name selfRef">File Endian Information</a>
+        <h3 id="name-file-endianness-information">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-file-endianness-information" class="section-name selfRef">File Endianness Information</a>
         </h3>
-<p id="section-4.1-1">The magic number is stored in native endian format, so all the octet sequences below are magic numbers.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">The magic number is stored in native endian format. The list below shows
+the octet sequences that correspond to the magic number values for
+big-endian and little-endian files with different time stamp
+resolutions.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.1-2.1">
-            <p id="section-4.1-2.1.1">0xA1,0xB2,0xC3,0xD4: little endian file, with timestamps in seconds/microseconds.<a href="#section-4.1-2.1.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.1.1">0xA1,0xB2,0xC3,0xD4: big-endian file, with timestamps in seconds/microseconds.<a href="#section-4.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.1-2.2">
-            <p id="section-4.1-2.2.1">0x1A,0x2B,0x3C,0x4D: little endian file, with timestamps in seconds/nanoseconds.<a href="#section-4.1-2.2.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.2.1">0xA1,0xB2,0x3C,0x4D: big-endian file, with timestamps in seconds/nanoseconds.<a href="#section-4.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.1-2.3">
-            <p id="section-4.1-2.3.1">0xD4,0xC3,0xB2,0xA1: big endian file, with timestamps in seconds/microseconds.<a href="#section-4.1-2.3.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.3.1">0xD4,0xC3,0xB2,0xA1: little-endian file, with timestamps in seconds/microseconds.<a href="#section-4.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.1-2.4">
-            <p id="section-4.1-2.4.1">0x4D,0x3C,0x2B,0x1A: big endian file, with timestamps in seconds/nanoseconds.<a href="#section-4.1-2.4.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.4.1">0x4D,0x3C,0xB2,0xA1: little-endian file, with timestamps in seconds/nanoseconds.<a href="#section-4.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>

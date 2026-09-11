@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Historic                                  M. Richardson
-Expires: 26 February 2027                                      Sandelman
-                                                          25 August 2026
+Expires: 15 March 2027                                         Sandelman
+                                                       11 September 2026
 
 
                         PCAP Capture File Format
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 February 2027.
+   This Internet-Draft will expire on 15 March 2027.
 
 Copyright Notice
 
@@ -71,7 +71,7 @@ Table of Contents
    2.  Terminology
    3.  General File Structure
    4.  File Header
-     4.1.  File Endian Information
+     4.1.  File Endianness Information
    5.  Packet Record
    6.  Recommended File Name Extension: .pcap
    7.  Security Considerations
@@ -271,22 +271,24 @@ Table of Contents
       the PCAP-related LinkType List registry, as defined in
       [I-D.ietf-opsawg-pcaplinktype].
 
-4.1.  File Endian Information
+4.1.  File Endianness Information
 
-   The magic number is stored in native endian format, so all the octet
-   sequences below are magic numbers.
+   The magic number is stored in native endian format.  The list below
+   shows the octet sequences that correspond to the magic number values
+   for big-endian and little-endian files with different time stamp
+   resolutions.
 
-   *  0xA1,0xB2,0xC3,0xD4: little endian file, with timestamps in
-      seconds/microseconds.
-
-   *  0x1A,0x2B,0x3C,0x4D: little endian file, with timestamps in
-      seconds/nanoseconds.
-
-   *  0xD4,0xC3,0xB2,0xA1: big endian file, with timestamps in seconds/
+   *  0xA1,0xB2,0xC3,0xD4: big-endian file, with timestamps in seconds/
       microseconds.
 
-   *  0x4D,0x3C,0x2B,0x1A: big endian file, with timestamps in seconds/
+   *  0xA1,0xB2,0x3C,0x4D: big-endian file, with timestamps in seconds/
       nanoseconds.
+
+   *  0xD4,0xC3,0xB2,0xA1: little-endian file, with timestamps in
+      seconds/microseconds.
+
+   *  0x4D,0x3C,0xB2,0xA1: little-endian file, with timestamps in
+      seconds/nanoseconds.
 
 5.  Packet Record
 
