@@ -90,7 +90,7 @@ The approach of having the file written in the native format of the host
 writing the file is more efficient because it avoids translation of data
 when writing the file or reading the file on the host that wrote the
 file, which is the most common case when generating or processing
-capture captures.
+packet captures.
 
 When hosts with a different native endian format read a file, they must swap octets as appropriate.
 This is less efficient, but less common, and if repeated access to the files are important, then files can be translated and saved.
@@ -364,7 +364,7 @@ packet capture as described in this document.
     Encoding considerations:  PCAP files contain network packets
     Security considerations:  See Security Considerations, Section
     Interoperability considerations:  The format is designed to be broadly interoperable.
-    Published specification:  THIS RFC.
+    Published specification:  [This RFC].
     Applications that use this media type: tcpdump, wireshark, others.
     Additional information:
       Magic number(s): 0xA1B2C3D4, and 0xA1B23C4D in both endian orders
@@ -380,7 +380,7 @@ packet capture as described in this document.
 
 #  Acknowledgments
 
-The authors wish to thank Michael Tuexen for document shepherding as well as being the original impetous for starting this work.
+The authors wish to thank Michael Tuexen for document shepherding as well as being the original impetus for starting this work.
 
 Carsten Bormann, Joe Clarke, Mohamed Boucadair, and John Thacker provided review comments and suggested text and diagrams.
 
