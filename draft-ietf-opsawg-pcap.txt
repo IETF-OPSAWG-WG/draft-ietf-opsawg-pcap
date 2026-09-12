@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Historic                                  M. Richardson
-Expires: 15 March 2027                                         Sandelman
-                                                       11 September 2026
+Expires: 16 March 2027                                         Sandelman
+                                                       12 September 2026
 
 
                         PCAP Capture File Format
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 March 2027.
+   This Internet-Draft will expire on 16 March 2027.
 
 Copyright Notice
 
@@ -141,7 +141,7 @@ Table of Contents
    host writing the file is more efficient because it avoids translation
    of data when writing the file or reading the file on the host that
    wrote the file, which is the most common case when generating or
-   processing capture captures.
+   processing packet captures.
 
    When hosts with a different native endian format read a file, they
    must swap octets as appropriate.  This is less efficient, but less
@@ -428,7 +428,7 @@ Table of Contents
     Encoding considerations:  PCAP files contain network packets
     Security considerations:  See Security Considerations, Section
     Interoperability considerations:  The format is designed to be broadly interoperable.
-    Published specification:  THIS RFC.
+    Published specification:  [This RFC].
     Applications that use this media type: tcpdump, wireshark, others.
     Additional information:
       Magic number(s): 0xA1B2C3D4, and 0xA1B23C4D in both endian orders
@@ -444,7 +444,7 @@ Table of Contents
 9.  Acknowledgments
 
    The authors wish to thank Michael Tuexen for document shepherding as
-   well as being the original impetous for starting this work.
+   well as being the original impetus for starting this work.
 
    Carsten Bormann, Joe Clarke, Mohamed Boucadair, and John Thacker
    provided review comments and suggested text and diagrams.
