@@ -259,6 +259,11 @@ following four categories:
   capture has been made. If this appears in a file, an Interface
   Description Block is also required, before this block.
 
+* [Process Information Block](#section_pib): it
+  describes a process on the capturing host that is associated with
+  one or more packets, so that per-process information can be stored
+  once and referenced from Enhanced Packet Blocks.
+
 * [Custom Block](#section_custom_block): it
   contains vendor-specific data in a portable fashion.
 
@@ -1360,6 +1365,7 @@ the following options are valid within this block:
 | epb_queue | 6 | 4 | no |
 | epb_verdict | 7 | variable, minimum verdict type-dependent | yes |
 | epb_processid_threadid | 8 | 8 | no |
+| epb_pib_index | 9 | 4 | yes |
 {: #options_epb title='Enhanced Packet Block Options'}
 
 
@@ -1468,10 +1474,31 @@ epb_processid_threadid:
   process or thread identifier does not make sense in context (e.g.
   for inbound packets) or if the operating system capturing the
   packets has no concept of processes or threads, respectively.
+  For an inbound packet, the option MAY instead identify the process
+  that received the packet, if known.
 {: vspace='0'}
 
 Example: '00 00 04 D2 00 00 00 00' for process 1234 and an unknown
 thread.
+
+
+{: indent='8'}
+epb_pib_index:
+: The epb_pib_index
+  option is a 32-bit unsigned integer that specifies the Process
+  Information Block (see {{section_pib}}), by its implicit number
+  within the current section, that describes a process associated
+  with this packet, e.g. the process owning the socket from which the
+  packet was sent or at which it was received. The referenced Process
+  Information Block MUST appear in the same section, before this
+  packet. The option can appear more than once if the packet is
+  associated with more than one process, e.g. when several processes
+  share a socket. If the epb_processid_threadid option is also
+  present, the process identifier it contains SHOULD be equal to the
+  Process ID field of one of the referenced blocks.
+{: vspace='0'}
+
+Example: '0' for the first Process Information Block in the section.
 
 
 ### Enhanced Packet Block Flags Word {#section_epb_flags}
@@ -2272,6 +2299,169 @@ The following is a list of Secrets Types.
 {: vspace='0'}
 
 
+## Process Information Block {#section_pib}
+
+A Process Information Block (PIB) describes a process, running on the
+capturing host, that is associated with one or more packets in the
+capture: typically the process that owns the socket from which a
+packet was sent or at which it was received. The block allows
+per-process information such as the executable name and path to be
+stored once and referenced from each packet, rather than being
+repeated in every Enhanced Packet Block.
+
+A PIB SHOULD be written before the first Enhanced Packet Block that
+refers to it. Multiple PIBs can exist in a section; they are
+implicitly numbered, starting from 0, in the order in which they
+appear in the section, in the same way as Interface Description
+Blocks. The epb_pib_index option (see {{section_epb}}) refers to a
+PIB by that number. The information in a PIB is a snapshot taken when
+the block was written; a process whose attributes change (e.g. after
+exec()) MAY be described by more than one PIB.
+
+The structure of a
+Process Information Block is shown in {{format_pib}}.
+
+
+~~~~
+                        1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                   Block Type = 0x0000000B                     |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |                      Block Total Length                       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                          Process ID                           |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+12 /                                                               /
+   /                       Options (variable)                      /
+   /                                                               /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   /                       Block Total Length                      /
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+~~~~
+{: #format_pib title='Process Information Block Format' artwork-align="center"}
+
+The Process Information Block has the following fields.
+
+* Block Type: The block type of the Process Information Block is
+  11.
+
+* Block Total Length: total size of this block, as described in {{section_block}}.
+
+* Process ID (32 bits): an unsigned integer containing the numeric
+  process identifier assigned to the process by the operating system
+  of the capturing host, in the same form as the process identifier
+  in the epb_processid_threadid option. The value 0 can be used if
+  the operating system has no concept of a process identifier.
+
+* Options: optionally, a list of options (formatted according to
+  the rules defined in {{section_opt}}) can be present.
+
+
+In addition to the options defined in {{section_opt}},
+the following options are valid within this block:
+
+| Name | Type | Length | Multiple allowed? |
+| pib_name | 2 | variable | no |
+| pib_path | 3 | variable | no |
+| pib_cmdline | 4 | variable | no |
+| pib_ppid | 5 | 4 | no |
+| pib_uid | 6 | 4 | no |
+| pib_user | 7 | variable | no |
+| pib_uuid | 8 | 16 | no |
+| pib_starttime | 9 | 8 | no |
+{: #options_pib title='Process Information Block Options'}
+
+
+{: indent='8'}
+pib_name:
+: The pib_name
+  option is a UTF-8 string containing the short name of the process
+  as reported by the operating system, typically the name of the
+  executable file without its directory. Some operating systems
+  truncate this name.
+{: vspace='0'}
+
+Example: "sshd".
+
+
+{: indent='8'}
+pib_path:
+: The pib_path
+  option is a UTF-8 string containing the full path of the executable
+  image of the process.
+{: vspace='0'}
+
+Example: "/usr/sbin/sshd".
+
+
+{: indent='8'}
+pib_cmdline:
+: The pib_cmdline
+  option is a UTF-8 string containing the command line of the
+  process. The individual arguments are separated by zero-value
+  octets; the first argument is the program name as it was invoked.
+  The last argument is not followed by a zero-value octet.
+{: vspace='0'}
+
+Example: "curl" 00 "https://example.com/".
+
+
+{: indent='8'}
+pib_ppid:
+: The pib_ppid
+  option is a 32-bit unsigned integer containing the process
+  identifier of the parent of the process.
+{: vspace='0'}
+
+Example: '1'.
+
+
+{: indent='8'}
+pib_uid:
+: The pib_uid
+  option is a 32-bit unsigned integer containing the numeric
+  identifier of the user account under which the process runs, on
+  operating systems that have numeric user identifiers.
+{: vspace='0'}
+
+Example: '1000'.
+
+
+{: indent='8'}
+pib_user:
+: The pib_user
+  option is a UTF-8 string containing the name of the user account
+  under which the process runs. On operating systems without numeric
+  user identifiers, a textual security identifier can be used.
+{: vspace='0'}
+
+Examples: "alice", "NT AUTHORITY\\SYSTEM".
+
+
+{: indent='8'}
+pib_uuid:
+: The pib_uuid
+  option is a 16-octet identifier that uniquely identifies the
+  executable image of the process, e.g. the value of the LC_UUID load
+  command of a Mach-O binary.
+{: vspace='0'}
+
+Example: '6B 8B 45 67 32 7B 23 C6 64 3C 98 69 66 33 48 73'.
+
+
+{: indent='8'}
+pib_starttime:
+: The pib_starttime
+  option is a 64-bit unsigned integer containing the time at which
+  the process started, in nanoseconds since 1970-01-01 00:00:00 UTC.
+  It allows a reader to distinguish processes that reused the same
+  process identifier within a section.
+{: vspace='0'}
+
+Example: '1767225600000000000' for 2026-01-01 00:00:00 UTC.
+
+
 ## Custom Block {#section_custom_block}
 
 A Custom Block (CB) is the container for storing custom data that
@@ -2547,6 +2737,7 @@ which the "XX" is from 00 to FF:
 | 0x00000008 |  <eref target="https://en.wikipedia.org/wiki/ARINC_429">ARINC 429</eref> in AFDX Encapsulation Information Block (requested by Gianluca Varenni \<gianluca.varenni@cacetech.com>, CACE Technologies LLC) |
 | 0x00000009 |  [systemd Journal Export Block]{{I-D.richardson-opsawg-pcapng-extras}}  |
 | 0x0000000A |  [Decryption Secrets Block](#section_dsb)  |
+| 0x0000000B |  [Process Information Block](#section_pib)  |
 | 0x00000101 |  <eref target="https://github.com/HoneProject">Hone Project</eref> <eref target="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Machine Info Block</eref> (see also <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google version</eref>)  |
 | 0x00000102 |  <eref target="https://github.com/HoneProject">Hone Project</eref> <eref target="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Connection Event Block</eref> (see also <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google version</eref>)  |
 | 0x00000201 |  <eref target="https://github.com/draios/sysdig">Sysdig</eref> Machine Info Block  |
