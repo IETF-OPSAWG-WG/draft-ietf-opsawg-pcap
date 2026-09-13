@@ -356,7 +356,7 @@ packet capture as described in this document.
 
 ### application/pcap
 
-{:spacing=bcompact"}
+{:spacing="compact"}
 
 Type name:
 : application
@@ -374,7 +374,7 @@ Encoding considerations:
 : binary
 
 Security considerations:
-: See Section {{security_considerations}}{: format="counter"}
+: See Section {{security_considerations}}{: format="counter"} of [RFCthis]
 
 Interoperability considerations:
 : The format is designed to be broadly interoperable.
@@ -386,8 +386,9 @@ Applications that use this media type:
 : tcpdump, wireshark, others
 
 Additional information:
-: 
+: <br>
 
+    {:spacing="compact"}
     Magic number(s):
     : 0xA1B2C3D4 and 0xA1B23C4D, in both big-endian and little-endian orders
 

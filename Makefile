@@ -1,11 +1,3 @@
-#
-# Doing nested definition lists, as we do for media type registration
-# sections, appears to require trailing spaces to force a line break.
-#
-# We suppress linting to avoid complaints about them.
-#
-NO_LINT=true
-
 LIBDIR := lib
 include $(LIBDIR)/main.mk
 
