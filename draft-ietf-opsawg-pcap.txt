@@ -449,8 +449,8 @@ Table of Contents
    The authors wish to thank Michael Tuexen for document shepherding as
    well as being the original impetus for starting this work.
 
-   Carsten Bormann, Joe Clarke, Mohamed Boucadair, and John Thacker
-   provided review comments and suggested text and diagrams.
+   Carsten Bormann, Joe Clarke, Mohamed Boucadair, John Thacker, and
+   Paul Aitken provided review comments and suggested text and diagrams.
 
    The TCPDUMP Group team, led by Denis Ovsienko, and Francois-Xavier Le
    Bail contributed to this document and helped motivate its forward
