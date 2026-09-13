@@ -356,7 +356,7 @@ packet capture as described in this document.
 
 ### application/pcap
 
-{:vspace}
+{:spacing=bcompact"}
 
 Type name:
 : application
