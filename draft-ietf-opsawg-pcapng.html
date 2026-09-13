@@ -2943,7 +2943,7 @@ the following options are valid within this block:<a href="#section-4.3-7" class
               <td class="text-left" rowspan="1" colspan="1">epb_processid_threadid</td>
               <td class="text-left" rowspan="1" colspan="1">8</td>
               <td class="text-left" rowspan="1" colspan="1">8</td>
-              <td class="text-left" rowspan="1" colspan="1">no</td>
+              <td class="text-left" rowspan="1" colspan="1">yes</td>
             </tr>
           </tbody>
         </table>
@@ -3047,12 +3047,14 @@ verdict XDP_PASS.<a href="#section-4.3-20" class="pilcrow">¶</a></p>
           <dt id="section-4.3-21.1">epb_processid_threadid:</dt>
           <dd style="margin-left: 4.0em" id="section-4.3-21.2">
             <p id="section-4.3-21.2.1">The epb_processid_threadid
-option stores the numeric process identifier and thread identifier
-of the process which originated the packet as unsigned 32-bit
-integers. The value 0 can be used for each if the concept of a
-process or thread identifier does not make sense in context (e.g.
-for inbound packets) or if the operating system capturing the
-packets has no concept of processes or threads, respectively.<a href="#section-4.3-21.2.1" class="pilcrow">¶</a></p>
+option stores a numeric process identifier and thread identifier,
+as 32-bit integers, of a process and thread that could have received
+or sent the packet. The value 0 can be used for each if it cannot be
+determined which process or thread received or sent the packet, or if
+the operating system capturing the packets has no concept of processes
+or threads, respectively. If more than one process or thread could
+have received or sent the packet, multiple epb_processid_threadid
+options SHOULD be provided, one for each process/thread combination.<a href="#section-4.3-21.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
