@@ -2259,9 +2259,9 @@ The following is a list of Secrets Types.
   * Authentication: Authentication algorithm. Can be "NULL", "HMAC-SHA-1-96 [RFC2404]",
   "HMAC-SHA-256-96 [draft-ietf-ipsec-ciph-sha-256-00]", "HMAC-SHA-256-128 [RFC4868]",
   "HMAC-SHA-384-192 [RFC4868]", "HMAC-SHA-512-256 [RFC4868]", "HMAC-MD5-96 [RFC2403]",
-  "MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication [no checking]",
-  "ANY 96 bit authentication [no checking]", "ANY 128 bit authentication [no checking]",
-  "ANY 192 bit authentication [no checking]" or "ANY 256 bit authentication [no checking]".
+  "MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication \[no checking]",
+  "ANY 96 bit authentication \[no checking]", "ANY 128 bit authentication \[no checking]",
+  "ANY 192 bit authentication \[no checking]" or "ANY 256 bit authentication \[no checking]".
   New algorithms might be added in the future. The algorithm names are
   exactly as quote.
 
