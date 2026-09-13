@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-27T08:24:26.490701+00:00",
+  "timestamp": "2026-09-13T04:01:30.680426+00:00",
   "repo": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
   "labels": [
     {
@@ -11754,6 +11754,32 @@
       "mergeCommit": {
         "oid": "348108562761f8e94123a54d7fbfd76ce81347a9"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 209,
+      "id": "PR_kwDOAU54e88AAAABDI_sVA",
+      "title": "pcapng: Add Process Information Block and epb_pib_index option",
+      "url": "https://github.com/IETF-OPSAWG-WG/draft-ietf-opsawg-pcap/pull/209",
+      "state": "OPEN",
+      "author": "fiddyschmitt",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR requests a new standardized Block Type code, **0x0000000B**, for a Process Information Block (PIB), and a new Enhanced Packet Block option code, **9**, `epb_pib_index`, that associates a packet with one or more PIBs. It also adds one sentence to `epb_processid_threadid` saying that for an inbound packet the option may identify the receiving process.\n\n**Motivation.** Several capture tools already record which process sent or received a packet, each in its own way: Apple's `tcpdump -k` writes a Darwin process block in the local-use range (0x80000001) plus local EPB options; the Hone project defined a Process Event Block (0x00000101) and an `epb_pid` option; Sysdig has versioned Process Info Blocks (0x00000202 and following). Issue #164 asked for a portable way to do this. This proposal follows the guidance given there: one block per process with the details as options, OS-neutral field definitions, and the ability to associate more than one process with a packet (the option is repeatable).\n\n**The block** is deliberately minimal: a 32-bit Process ID plus optional name, path, command line (arguments separated by zero octets), parent PID, uid, user name, executable UUID and start time. The start time lets a reader distinguish PID reuse within a section. PIBs are numbered implicitly in order of appearance, like Interface Description Blocks, and `epb_pib_index` refers to that number.\n\n**Implementation.** Wireshark 4.6 already reads and writes Apple's Darwin block through a generic per-file process table. I am working on having dumpcap record this information on Windows, Linux and macOS and on having wiretap read and write this block and option (Wireshark issue https://gitlab.com/wireshark/wireshark/-/issues/17525; design discussion on wireshark-dev: https://lists.wireshark.org/archives/wireshark-dev/202609/msg00002.html). Until codes are assigned, Wireshark will carry the same content in Custom Blocks and Custom Options under its PEN 32622.\n\nAddresses #164.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01QJ5bRfDkAqXsL7bdVNqXtm\n",
+      "createdAt": "2026-09-11T12:17:03Z",
+      "updatedAt": "2026-09-11T12:48:34Z",
+      "baseRepository": "IETF-OPSAWG-WG/draft-ietf-opsawg-pcap",
+      "baseRefName": "master",
+      "baseRefOid": "348108562761f8e94123a54d7fbfd76ce81347a9",
+      "headRepository": "fiddyschmitt/draft-ietf-opsawg-pcap",
+      "headRefName": "process-information-block",
+      "headRefOid": "033a6d052906744dcc977b6ef74854d2b6912fdb",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
