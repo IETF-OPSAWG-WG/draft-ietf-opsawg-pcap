@@ -333,7 +333,7 @@ which does not match any of the Magic Number values in a pcap File
 Header, allowing code that reads both file formats to determine the
 format of a file.
 
-#  Security Considerations
+#  Security Considerations {#security_considerations}
 
 A pcap file reader MUST validate the File Header and Packet Record headers.
 If it analyzes the Packet Data according to the LINKTYPE for the packets, it must also validate all of that data.
@@ -356,27 +356,64 @@ packet capture as described in this document.
 
 ### application/pcap
 
-~~~~
-    Type name:  application
-    Subtype name:  pcap
-    Required parameters:  none
-    Optional parameters:  none
-    Encoding considerations:  binary
-    Security considerations:  See Security Considerations, Section
-    Interoperability considerations:  The format is designed to be broadly interoperable.
-    Published specification:  [This RFC].
-    Applications that use this media type: tcpdump, wireshark, others.
-    Additional information:
-      Magic number(s): 0xA1B2C3D4 and 0xA1B23C4D, in both big-endian and little-endian orders
-      File extension(s):  .pcap
-      Macintosh file type code(s):  none
-    Person & email address to contact for further information: The Tcpdump Group, www.tcpdump.org
-    Intended usage:  LIMITED
-    Restrictions on usage:  NONE
-    Author:  Guy Harris and Michael Richardson
-    Change controller:  The Tcpdump Group
-    Provisional registration? (standards tree only):  NO
-~~~~
+{:vspace}
+
+Type name:
+: application
+
+Subtype name:
+: pcap
+
+Required parameters:
+: none
+
+Optional parameters:
+: none
+
+Encoding considerations:
+: binary
+
+Security considerations:
+: See Section {{security_considerations}}{: format="counter"}
+
+Interoperability considerations:
+: The format is designed to be broadly interoperable.
+
+Published specification:
+: [This RFC]
+
+Applications that use this media type:
+: tcpdump, wireshark, others
+
+Additional information:
+: 
+
+    Magic number(s):
+    : 0xA1B2C3D4 and 0xA1B23C4D, in both big-endian and little-endian orders
+
+    File extension(s):
+    : .pcap
+
+    Macintosh file type code(s):
+    : none
+
+    Person & email address to contact for further information:
+    : The Tcpdump Group, www.tcpdump.org
+
+    Intended usage:
+    : LIMITED
+
+    Restrictions on usage:
+    : NONE
+
+    Author:
+    : Guy Harris and Michael Richardson
+
+    Change controller:
+    : The Tcpdump Group
+
+    Provisional registration? (standards tree only):
+    : NO
 
 #  Acknowledgments
 
