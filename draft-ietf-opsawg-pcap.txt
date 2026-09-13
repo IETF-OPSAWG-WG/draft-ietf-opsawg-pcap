@@ -422,44 +422,27 @@ Table of Contents
 8.1.1.  application/pcap
 
    Type name:  application
-
    Subtype name:  pcap
-
    Required parameters:  none
-
    Optional parameters:  none
-
    Encoding considerations:  binary
-
-   Security considerations:  See Section 7
-
+   Security considerations:  See Section 7 of [RFCthis]
    Interoperability considerations:  The format is designed to be
       broadly interoperable.
-
    Published specification:  [This RFC]
-
    Applications that use this media type:  tcpdump, wireshark, others
-
-   Additional information:  Magic number(s):  0xA1B2C3D4 and 0xA1B23C4D,
-         in both big-endian and little-endian orders
-
-                            File extension(s):  .pcap
-
-                            Macintosh file type code(s):  none
-
-                            Person & email address to contact for
-      further information:  The Tcpdump Group, www.tcpdump.org
-
-                            Intended usage:  LIMITED
-
-                            Restrictions on usage:  NONE
-
-                            Author:  Guy Harris and Michael Richardson
-
-                            Change controller:  The Tcpdump Group
-
-                            Provisional registration? (standards tree
-      only):  NO
+   Additional information:
+      Magic number(s):  0xA1B2C3D4 and 0xA1B23C4D, in both big-endian
+         and little-endian orders
+      File extension(s):  .pcap
+      Macintosh file type code(s):  none
+      Person & email address to contact for further information:  The
+         Tcpdump Group, www.tcpdump.org
+      Intended usage:  LIMITED
+      Restrictions on usage:  NONE
+      Author:  Guy Harris and Michael Richardson
+      Change controller:  The Tcpdump Group
+      Provisional registration? (standards tree only):  NO
 
 9.  Acknowledgments
 
