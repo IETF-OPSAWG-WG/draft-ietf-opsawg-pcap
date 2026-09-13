@@ -421,53 +421,45 @@ Table of Contents
 
 8.1.1.  application/pcap
 
-   Type name:
-      application
+   Type name:  application
 
-   Subtype name:
-      pcap
+   Subtype name:  pcap
 
-   Required parameters:
-      none
+   Required parameters:  none
 
-   Optional parameters:
-      none
+   Optional parameters:  none
 
-   Encoding considerations:
-      binary
+   Encoding considerations:  binary
 
-   Security considerations:
-      See Section 7
+   Security considerations:  See Section 7
 
-   Interoperability considerations:
-      The format is designed to be broadly interoperable.
+   Interoperability considerations:  The format is designed to be
+      broadly interoperable.
 
-   Published specification:
-      [This RFC]
+   Published specification:  [This RFC]
 
-   Applications that use this media type:
-      tcpdump, wireshark, others
+   Applications that use this media type:  tcpdump, wireshark, others
 
-   Additional information:
-      Magic number(s):  0xA1B2C3D4 and 0xA1B23C4D, in both big-endian
-         and little-endian orders
+   Additional information:  Magic number(s):  0xA1B2C3D4 and 0xA1B23C4D,
+         in both big-endian and little-endian orders
 
-      File extension(s):  .pcap
+                            File extension(s):  .pcap
 
-      Macintosh file type code(s):  none
+                            Macintosh file type code(s):  none
 
-      Person & email address to contact for further information:  The
-         Tcpdump Group, www.tcpdump.org
+                            Person & email address to contact for
+      further information:  The Tcpdump Group, www.tcpdump.org
 
-      Intended usage:  LIMITED
+                            Intended usage:  LIMITED
 
-      Restrictions on usage:  NONE
+                            Restrictions on usage:  NONE
 
-      Author:  Guy Harris and Michael Richardson
+                            Author:  Guy Harris and Michael Richardson
 
-      Change controller:  The Tcpdump Group
+                            Change controller:  The Tcpdump Group
 
-      Provisional registration? (standards tree only):  NO
+                            Provisional registration? (standards tree
+      only):  NO
 
 9.  Acknowledgments
 
