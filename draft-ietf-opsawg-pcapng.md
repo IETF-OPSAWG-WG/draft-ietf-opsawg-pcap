@@ -14,8 +14,7 @@ pi:
 title: PCAP Now Generic (pcapng) Capture File Format
 abbrev: pcapng
 author:
-- role: editor
-  ins: M. Tuexen
+- ins: M. Tuexen
   name: Michael Tuexen
   org: Muenster University of Applied Sciences
   abbrev: Muenster Univ. of Appl. Sciences
@@ -32,6 +31,19 @@ author:
   code: '10129'
   country: IT
   email: fulvio.risso@polito.it
+- ins: G. Harris
+  name: Guy Harris
+  org: ''
+  email: gharris@sonic.net
+- role: editor
+  ins: M. Richardson
+  name: Michael C. Richardson
+  org: Sandelman Software Works
+  abbrev: Sandelman
+  email: mcr+ietf@sandelman.ca
+  uri: http://www.sandelman.ca/
+
+contributor:
 - ins: J. Bongertz
   name: Jasper Bongertz
   org: Airbus Defence and Space CyberSecurity
@@ -51,10 +63,6 @@ author:
   code: '95618'
   country: US
   email: gerald@wireshark.org
-- ins: G. Harris
-  name: Guy Harris
-  org: ''
-  email: gharris@sonic.net
 - ins: E. Chaudron
   name: Eelco Chaudron
   org: Red Hat
@@ -64,20 +72,12 @@ author:
   city: Amsterdam
   country: NL
   email: eelco@redhat.com
-- ins: M. Richardson
-  name: Michael C. Richardson
-  org: Sandelman Software Works
-  abbrev: Sandelman
-  email: mcr+ietf@sandelman.ca
-  uri: http://www.sandelman.ca/
+
 
 venue:
   group: opsawg
   mail: opsawg@ietf.org
   github: IETF-OPSAWG-WG/pcapng
-
-normative:
-  I-D.ietf-opsawg-pcaplinktype:
 
 informative:
   I-D.richardson-opsawg-pcapng-extras:
@@ -947,7 +947,7 @@ The meaning of the fields is:
 
 * LinkType (16 bits): an unsigned integer that indicates the link layer
   type of this interface; it is a value as defined in the PCAP-related
-  LinkType List registry, as defined in {{I-D.ietf-opsawg-pcaplinktype}}.
+  LinkType List registry, as defined in {{!I-D.ietf-opsawg-pcaplinktype}}.
 
 * Reserved (16 bits): not used - MUST be filled with 0 by
   pcapng file writers, and MUST be ignored by pcapng file
@@ -1343,7 +1343,7 @@ The Enhanced Packet Block has the following fields:
   boundary. The format of the link-layer headers depends on
   the LinkType field specified in the Interface Description
   Block (see {{section_idb}}) and it is specified
-  in the entry for that format in {{I-D.ietf-opsawg-pcaplinktype}}.
+  in the entry for that format in {{!I-D.ietf-opsawg-pcaplinktype}}.
 
 * Options: optionally, a list of options (formatted according to
   the rules defined in {{section_opt}}) can be present.
@@ -1580,7 +1580,7 @@ The Simple Packet Block has the following fields:
   of the data within this Packet Data field depends on the
   LinkType field specified in the Interface Description Block
   (see {{section_idb}}) and it is specified in
-  the entry for that format in {{I-D.ietf-opsawg-pcaplinktype}}.
+  the entry for that format in {{!I-D.ietf-opsawg-pcaplinktype}}.
 
 
 The Simple Packet Block does not contain the timestamp because this
@@ -2040,7 +2040,7 @@ The Decryption Secrets Block has the following fields.
   No DSB-specific options are currently defined.
 
 
-The following is a list of Secrets Types.
+The following is a list of Secret Types.
 
 {: indent='8'}
 0x5353484b:
@@ -2048,13 +2048,13 @@ The following is a list of Secrets Types.
   Every line consists of a cookie, key type, and key separated by one space.
   The cookie is the hex-encoded (client or server) 16 octets cookie
   (32 characters) found in the SSH\_MSG\_KEXINIT sent during
-  [algorithm negotiation](https://datatracker.ietf.org/doc/html/rfc4253#section-7.1)
+  algorithm negotiation {{?RFC4253, Section 7.1}}
   by the endpoint whose private random is disclosed.
   The key type is either SHARED\_SECRET or PRIVATE\_KEY.
   The key is hex-encoded and either the shared secret ('K' in
-  [RFC 4253](https://datatracker.ietf.org/doc/html/rfc4253#section-8)) or the
+  {{?RFC4253, Section 8}} or the
   private random number (referred to as 'x' for the client and 'y'
-  for the server in RFC 4253) used to generate the shared secret during DH
+  for the server in {{?RFC4253}}) used to generate the shared secret during DH
   key exchange; its length depends on the algorithm.
   Every line MUST be terminated with either a carriage return and linefeed
   ('\r\n') or a linefeed ('\n').
@@ -2246,20 +2246,20 @@ The following is a list of Secrets Types.
 
   * SPI: Security Parameter Index. String of a 32 bits integer in hexadecimal format (starting with 0x).
 
-  * Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC [RFC2451]", "AES-CBC [RFC3602]",
-  "AES-CTR [RFC3686]", "DES-CBC [RFC2405]", "CAST5-CBC [RFC2144]", "BLOWFISH-CBC [RFC2451]", "TWOFISH-CBC",
-  "AES-GCM [RFC4106]", "AES-GCM with 8 octet ICV [RFC4106]", "AES-GCM with 12 octet ICV [RFC4106]",
-  "AES-GCM with 16 octet ICV [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 & RFC8750]",
-  "ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20 with Poly1305 and IIV [RFC7634 & RFC8750]".
+  * Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC {{?RFC2451}}", "AES-CBC {{?RFC3602}}",
+  "AES-CTR {{?RFC3686}}", "DES-CBC {{?RFC2405}}", "CAST5-CBC {{?RFC2144}}", "BLOWFISH-CBC {{?RFC2451}}", "TWOFISH-CBC",
+  "AES-GCM {{?RFC4106}}", "AES-GCM with 8 octet ICV {{?RFC4106}}", "AES-GCM with 12 octet ICV {{?RFC4106}}",
+  "AES-GCM with 16 octet ICV {{?RFC4106}}", "AES-GCM with IIV and 16 octet ICV {{?RFC4106}}, & {{?RFC8750}}",
+  "ChaCha20 with Poly1305 {{?RFC7634}}" or "ChaCha20 with Poly1305 and IIV {{?RFC7634}}, & {{?RFC8750}}".
   New algorithms might be added in the future. The algorithm names are
   exactly as quoted.
 
   * Encryption Key: Encryption key. String containing the key in heaxadecimal format (starting with 0x).
 
-  * Authentication: Authentication algorithm. Can be "NULL", "HMAC-SHA-1-96 [RFC2404]",
-  "HMAC-SHA-256-96 [draft-ietf-ipsec-ciph-sha-256-00]", "HMAC-SHA-256-128 [RFC4868]",
-  "HMAC-SHA-384-192 [RFC4868]", "HMAC-SHA-512-256 [RFC4868]", "HMAC-MD5-96 [RFC2403]",
-  "MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication \[no checking]",
+  * Authentication: Authentication algorithm. Can be "NULL", "HMAC-SHA-1-96 {{?RFC2404}}",
+  "HMAC-SHA-256-128 {{?RFC4868}}",
+  "HMAC-SHA-384-192 {{?RFC4868}}", "HMAC-SHA-512-256 {{?RFC4868}}", "HMAC-MD5-96 {{?RFC2403}}",
+  "MAC-RIPEMD-160-96 {{?RFC2857}}", "ANY 64 bit authentication \[no checking]",
   "ANY 96 bit authentication \[no checking]", "ANY 128 bit authentication \[no checking]",
   "ANY 192 bit authentication \[no checking]" or "ANY 256 bit authentication \[no checking]".
   New algorithms might be added in the future. The algorithm names are
@@ -2513,7 +2513,7 @@ TBD.
 
 \[Open issue: decide whether the block types, option types, NRB Record
 types, etc. should be IANA registries. And if so, what the IANA policy
-for each should be (see RFC 5226)]
+for each should be (see {{?RFC5226}}]
 
 ## Standardized Block Type Codes {#section_block_code_registry}
 
@@ -2539,16 +2539,16 @@ which the "XX" is from 00 to FF:
 
 | Block Type Code | Description |
 | 0x00000000 | Reserved ??? |
-| 0x00000001 |  [Interface Description Block](#section_idb)  |
-| 0x00000002 |  [Packet Block](#appendix_pb)  |
-| 0x00000003 |  [Simple Packet Block](#section_spb)  |
-| 0x00000004 |  [Name Resolution Block](#section_nrb)  |
-| 0x00000005 |  [Interface Statistics Block](#section_isb)  |
-| 0x00000006 |  [Enhanced Packet Block](#section_epb)  |
+| 0x00000001 |  Interface Description Block {{section_idb}}  |
+| 0x00000002 |  Packet Block  {{appendix_pb}}  |
+| 0x00000003 |  Simple Packet Block {{section_spb}}  |
+| 0x00000004 |  Name Resolution Block {{section_nrb}}  |
+| 0x00000005 |  Interface Statistics Block {{section_isb}}  |
+| 0x00000006 |  Enhanced Packet Block {{section_epb}}  |
 | 0x00000007 |  IRIG Timestamp Block (requested by Gianluca Varenni \<gianluca.varenni@cacetech.com>, CACE Technologies LLC); code also used for <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Socket Aggregation Event Block</eref>  |
 | 0x00000008 |  <eref target="https://en.wikipedia.org/wiki/ARINC_429">ARINC 429</eref> in AFDX Encapsulation Information Block (requested by Gianluca Varenni \<gianluca.varenni@cacetech.com>, CACE Technologies LLC) |
-| 0x00000009 |  [systemd Journal Export Block]{{I-D.richardson-opsawg-pcapng-extras}}  |
-| 0x0000000A |  [Decryption Secrets Block](#section_dsb)  |
+| 0x00000009 |  systemd Journal Export Block {{I-D.richardson-opsawg-pcapng-extras}}  |
+| 0x0000000A |  Decryption Secrets Block {{section_dsb}}  |
 | 0x00000101 |  <eref target="https://github.com/HoneProject">Hone Project</eref> <eref target="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Machine Info Block</eref> (see also <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google version</eref>)  |
 | 0x00000102 |  <eref target="https://github.com/HoneProject">Hone Project</eref> <eref target="https://github.com/HoneProject/Linux-Sensor/wiki/Augmented-PCAP-Next-Generation-Dump-File-Format">Connection Event Block</eref> (see also <eref target="https://github.com/google/linux-sensor/blob/master/hone-pcapng.txt">Google version</eref>)  |
 | 0x00000201 |  <eref target="https://github.com/draios/sysdig">Sysdig</eref> Machine Info Block  |
@@ -2577,15 +2577,10 @@ which the "XX" is from 00 to FF:
 \[Open issue: reserve 0x40000000-0x7FFFFFFF for do-not-copy-bit
 range of base types?]
 
-
-
-# Contributors
+# Acknowledgments
 
 Loris Degioanni and Gianluca Varenni were coauthoring this document
 before it was submitted to the IETF.
-
-
-# Acknowledgments
 
 The authors wish to thank
 Anders Broman,
@@ -2680,7 +2675,7 @@ The Packet Block has the following fields:
   boundary. The format of the link-layer headers depends on
   the LinkType field specified in the Interface Description
   Block (see {{section_idb}}) and it is specified
-  in the entry for that format in {{I-D.ietf-opsawg-pcaplinktype}}.
+  in the entry for that format in {{!I-D.ietf-opsawg-pcaplinktype}}.
 
 * Options: optionally, a list of options (formatted according to
   the rules defined in {{section_opt}}) can be present.
