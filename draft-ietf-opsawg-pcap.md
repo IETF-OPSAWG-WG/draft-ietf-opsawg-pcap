@@ -374,13 +374,13 @@ Encoding considerations:
 : binary
 
 Security considerations:
-: See Section {{security_considerations}}{: format="counter"} of [RFCthis]
+: See {{security_considerations}}{: format="counter"} of THIS RFC.
 
 Interoperability considerations:
 : The format is designed to be broadly interoperable.
 
 Published specification:
-: [This RFC]
+: THIS RFC
 
 Applications that use this media type:
 : tcpdump, wireshark, others
