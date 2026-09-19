@@ -2,21 +2,15 @@
 
 
 
-Network Working Group                                     M. Tuexen, Ed.
+Network Working Group                                          M. Tuexen
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 17 March 2027                             Politecnico di Torino
-                                                             J. Bongertz
-                                                 Airbus DS CyberSecurity
-                                                                G. Combs
-                                                               Wireshark
+Expires: 23 March 2027                             Politecnico di Torino
                                                                G. Harris
                                                                         
-                                                             E. Chaudron
-                                                                 Red Hat
-                                                           M. Richardson
+                                                      M. Richardson, Ed.
                                                                Sandelman
-                                                       13 September 2026
+                                                       19 September 2026
 
 
              PCAP Now Generic (pcapng) Capture File Format
@@ -58,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 March 2027.
+   This Internet-Draft will expire on 23 March 2027.
 
 Copyright Notice
 
@@ -111,12 +105,12 @@ Table of Contents
    9.  Security Considerations
    10. IANA Considerations
      10.1.  Standardized Block Type Codes
-   11. Contributors
-   12. Acknowledgments
-   13. References
-     13.1.  Normative References
-     13.2.  Informative References
+   11. Acknowledgments
+   12. References
+     12.1.  Normative References
+     12.2.  Informative References
    Appendix A.  Packet Block (obsolete!)
+   Contributors
    Authors' Addresses
 
 1.  Introduction
@@ -1924,24 +1918,23 @@ Table of Contents
       rules defined in Section 3.5) can be present.  No DSB-specific
       options are currently defined.
 
-   The following is a list of Secrets Types.
+   The following is a list of Secret Types.
 
    0x5353484b:
            SSH Key Log. Every line consists of a cookie, key type, and
            key separated by one space.  The cookie is the hex-encoded
            (client or server) 16 octets cookie (32 characters) found in
            the SSH_MSG_KEXINIT sent during algorithm negotiation
-           (https://datatracker.ietf.org/doc/html/rfc4253#section-7.1)
-           by the endpoint whose private random is disclosed.  The key
-           type is either SHARED_SECRET or PRIVATE_KEY.  The key is hex-
-           encoded and either the shared secret ('K' in RFC 4253
-           (https://datatracker.ietf.org/doc/html/rfc4253#section-8)) or
-           the private random number (referred to as 'x' for the client
-           and 'y' for the server in RFC 4253) used to generate the
-           shared secret during DH key exchange; its length depends on
-           the algorithm.  Every line MUST be terminated with either a
-           carriage return and linefeed ('\r\n') or a linefeed ('\n').
-           Tools MUST be able to handle both line endings.
+           [RFC4253], Section 7.1 by the endpoint whose private random
+           is disclosed.  The key type is either SHARED_SECRET or
+           PRIVATE_KEY.  The key is hex-encoded and either the shared
+           secret ('K' in [RFC4253], Section 8 or the private random
+           number (referred to as 'x' for the client and 'y' for the
+           server in [RFC4253]) used to generate the shared secret
+           during DH key exchange; its length depends on the algorithm.
+           Every line MUST be terminated with either a carriage return
+           and linefeed ('\r\n') or a linefeed ('\n').  Tools MUST be
+           able to handle both line endings.
 
    0x544c534b:
            TLS Key Log. This format is described in
@@ -2140,18 +2133,17 @@ Table of Contents
               "BLOWFISH-CBC [RFC2451]", "TWOFISH-CBC", "AES-GCM
               [RFC4106]", "AES-GCM with 8 octet ICV [RFC4106]", "AES-GCM
               with 12 octet ICV [RFC4106]", "AES-GCM with 16 octet ICV
-              [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 &
-              RFC8750]", "ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20
-              with Poly1305 and IIV [RFC7634 & RFC8750]".  New
-              algorithms might be added in the future.  The algorithm
-              names are exactly as quoted.
+              [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106],
+              & [RFC8750]", "ChaCha20 with Poly1305 [RFC7634]" or
+              "ChaCha20 with Poly1305 and IIV [RFC7634], & [RFC8750]".
+              New algorithms might be added in the future.  The
+              algorithm names are exactly as quoted.
 
            *  Encryption Key: Encryption key.  String containing the key
               in heaxadecimal format (starting with 0x).
 
            *  Authentication: Authentication algorithm.  Can be "NULL",
-              "HMAC-SHA-1-96 [RFC2404]", "HMAC-SHA-256-96 [draft-ietf-
-              ipsec-ciph-sha-256-00]", "HMAC-SHA-256-128 [RFC4868]",
+              "HMAC-SHA-1-96 [RFC2404]", "HMAC-SHA-256-128 [RFC4868]",
               "HMAC-SHA-384-192 [RFC4868]", "HMAC-SHA-512-256
               [RFC4868]", "HMAC-MD5-96 [RFC2403]", "MAC-RIPEMD-160-96
               [RFC2857]", "ANY 64 bit authentication [no checking]",
@@ -2402,7 +2394,7 @@ Table of Contents
 
    [Open issue: decide whether the block types, option types, NRB Record
    types, etc. should be IANA registries.  And if so, what the IANA
-   policy for each should be (see RFC 5226)]
+   policy for each should be (see [RFC5226]]
 
 10.1.  Standardized Block Type Codes
 
@@ -2426,148 +2418,146 @@ Table of Contents
    an item in the list means that the item refers to all possible values
    in which the "XX" is from 00 to FF:
 
-    +=====================+===========================================+
-    |Block Type Code      |Description                                |
-    +=====================+===========================================+
-    |0x00000000           |Reserved ???                               |
-    +---------------------+-------------------------------------------+
-    |0x00000001           |Interface Description Block (Section 4.2)  |
-    +---------------------+-------------------------------------------+
-    |0x00000002           |Packet Block (Appendix A)                  |
-    +---------------------+-------------------------------------------+
-    |0x00000003           |Simple Packet Block (Section 4.4)          |
-    +---------------------+-------------------------------------------+
-    |0x00000004           |Name Resolution Block (Section 4.5)        |
-    +---------------------+-------------------------------------------+
-    |0x00000005           |Interface Statistics Block (Section 4.6)   |
-    +---------------------+-------------------------------------------+
-    |0x00000006           |Enhanced Packet Block (Section 4.3)        |
-    +---------------------+-------------------------------------------+
-    |0x00000007           |IRIG Timestamp Block (requested by Gianluca|
-    |                     |Varenni <gianluca.varenni@cacetech.com>,   |
-    |                     |CACE Technologies LLC); code also used for |
-    |                     |Socket Aggregation Event Block             |
-    |                     |(https://github.com/google/linux-          |
-    |                     |sensor/blob/master/hone-pcapng.txt)        |
-    +---------------------+-------------------------------------------+
-    |0x00000008           |ARINC 429 (https://en.wikipedia.org/wiki/  |
-    |                     |ARINC_429) in AFDX Encapsulation           |
-    |                     |Information Block (requested by Gianluca   |
-    |                     |Varenni <gianluca.varenni@cacetech.com>,   |
-    |                     |CACE Technologies LLC)                     |
-    +---------------------+-------------------------------------------+
-    |0x00000009           |[systemd Journal Export                    |
-    |                     |Block][I-D.richardson-opsawg-pcapng-extras]|
-    +---------------------+-------------------------------------------+
-    |0x0000000A           |Decryption Secrets Block (Section 4.7)     |
-    +---------------------+-------------------------------------------+
-    |0x00000101           |Hone Project (https://github.com/          |
-    |                     |HoneProject) Machine Info Block            |
-    |                     |(https://github.com/HoneProject/Linux-     |
-    |                     |Sensor/wiki/Augmented-PCAP-Next-Generation-|
-    |                     |Dump-File-Format) (see also Google version |
-    |                     |(https://github.com/google/linux-          |
-    |                     |sensor/blob/master/hone-pcapng.txt))       |
-    +---------------------+-------------------------------------------+
-    |0x00000102           |Hone Project (https://github.com/          |
-    |                     |HoneProject) Connection Event Block        |
-    |                     |(https://github.com/HoneProject/Linux-     |
-    |                     |Sensor/wiki/Augmented-PCAP-Next-Generation-|
-    |                     |Dump-File-Format) (see also Google version |
-    |                     |(https://github.com/google/linux-          |
-    |                     |sensor/blob/master/hone-pcapng.txt))       |
-    +---------------------+-------------------------------------------+
-    |0x00000201           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Machine Info Block                         |
-    +---------------------+-------------------------------------------+
-    |0x00000202           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Process Info Block, version 1              |
-    +---------------------+-------------------------------------------+
-    |0x00000203           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |FD List Block                              |
-    +---------------------+-------------------------------------------+
-    |0x00000204           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Event Block                                |
-    +---------------------+-------------------------------------------+
-    |0x00000205           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Interface List Block                       |
-    +---------------------+-------------------------------------------+
-    |0x00000206           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |User List Block                            |
-    +---------------------+-------------------------------------------+
-    |0x00000207           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Process Info Block, version 2              |
-    +---------------------+-------------------------------------------+
-    |0x00000208           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Event Block with flags                     |
-    +---------------------+-------------------------------------------+
-    |0x00000209           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Process Info Block, version 3              |
-    +---------------------+-------------------------------------------+
-    |0x00000210           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Process Info Block, version 4              |
-    +---------------------+-------------------------------------------+
-    |0x00000211           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Process Info Block, version 5              |
-    +---------------------+-------------------------------------------+
-    |0x00000212           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Process Info Block, version 6              |
-    +---------------------+-------------------------------------------+
-    |0x00000213           |Sysdig (https://github.com/draios/sysdig)  |
-    |                     |Process Info Block, version 7              |
-    +---------------------+-------------------------------------------+
-    |0x00000BAD           |Custom Block that rewriters can copy into  |
-    |                     |new files (Section 4.8)                    |
-    +---------------------+-------------------------------------------+
-    |0x40000BAD           |Custom Block that rewriters should not copy|
-    |                     |into new files (Section 4.8)               |
-    +---------------------+-------------------------------------------+
-    |0x0A0D0D0A           |Section Header Block (Section 4.1)         |
-    +---------------------+-------------------------------------------+
-    |0x0A0D0AXX           |Reserved.  Used to detect trace files      |
-    |                     |corrupted because of file transfers using  |
-    |                     |the HTTP protocol in text mode.            |
-    +---------------------+-------------------------------------------+
-    |0xXX0A0D0A           |Reserved.  Used to detect trace files      |
-    |                     |corrupted because of file transfers using  |
-    |                     |the HTTP protocol in text mode.            |
-    +---------------------+-------------------------------------------+
-    |0xXX0A0D0D           |Reserved.  Used to detect trace files      |
-    |                     |corrupted because of file transfers using  |
-    |                     |the HTTP protocol in text mode.            |
-    +---------------------+-------------------------------------------+
-    |0x0D0D0AXX           |Reserved.  Used to detect trace files      |
-    |                     |corrupted because of file transfers using  |
-    |                     |the FTP protocol in text mode.             |
-    +---------------------+-------------------------------------------+
-    |0x80000000-0xFFFFFFFF|Reserved for local use.                    |
-    +---------------------+-------------------------------------------+
+     +=======================+=======================================+
+     | Block Type Code       | Description                           |
+     +=======================+=======================================+
+     | 0x00000000            | Reserved ???                          |
+     +-----------------------+---------------------------------------+
+     | 0x00000001            | Interface Description Block           |
+     |                       | Section 4.2                           |
+     +-----------------------+---------------------------------------+
+     | 0x00000002            | Packet Block Appendix A               |
+     +-----------------------+---------------------------------------+
+     | 0x00000003            | Simple Packet Block Section 4.4       |
+     +-----------------------+---------------------------------------+
+     | 0x00000004            | Name Resolution Block Section 4.5     |
+     +-----------------------+---------------------------------------+
+     | 0x00000005            | Interface Statistics Block            |
+     |                       | Section 4.6                           |
+     +-----------------------+---------------------------------------+
+     | 0x00000006            | Enhanced Packet Block Section 4.3     |
+     +-----------------------+---------------------------------------+
+     | 0x00000007            | IRIG Timestamp Block (requested by    |
+     |                       | Gianluca Varenni                      |
+     |                       | <gianluca.varenni@cacetech.com>, CACE |
+     |                       | Technologies LLC); code also used for |
+     |                       | Socket Aggregation Event Block        |
+     |                       | (https://github.com/google/linux-     |
+     |                       | sensor/blob/master/hone-pcapng.txt)   |
+     +-----------------------+---------------------------------------+
+     | 0x00000008            | ARINC 429                             |
+     |                       | (https://en.wikipedia.org/wiki/       |
+     |                       | ARINC_429) in AFDX Encapsulation      |
+     |                       | Information Block (requested by       |
+     |                       | Gianluca Varenni                      |
+     |                       | <gianluca.varenni@cacetech.com>, CACE |
+     |                       | Technologies LLC)                     |
+     +-----------------------+---------------------------------------+
+     | 0x00000009            | systemd Journal Export Block          |
+     |                       | [I-D.richardson-opsawg-pcapng-extras] |
+     +-----------------------+---------------------------------------+
+     | 0x0000000A            | Decryption Secrets Block Section 4.7  |
+     +-----------------------+---------------------------------------+
+     | 0x00000101            | Hone Project (https://github.com/     |
+     |                       | HoneProject) Machine Info Block       |
+     |                       | (https://github.com/HoneProject/      |
+     |                       | Linux-Sensor/wiki/Augmented-PCAP-     |
+     |                       | Next-Generation-Dump-File-Format)     |
+     |                       | (see also Google version              |
+     |                       | (https://github.com/google/linux-     |
+     |                       | sensor/blob/master/hone-pcapng.txt))  |
+     +-----------------------+---------------------------------------+
+     | 0x00000102            | Hone Project (https://github.com/     |
+     |                       | HoneProject) Connection Event Block   |
+     |                       | (https://github.com/HoneProject/      |
+     |                       | Linux-Sensor/wiki/Augmented-PCAP-     |
+     |                       | Next-Generation-Dump-File-Format)     |
+     |                       | (see also Google version              |
+     |                       | (https://github.com/google/linux-     |
+     |                       | sensor/blob/master/hone-pcapng.txt))  |
+     +-----------------------+---------------------------------------+
+     | 0x00000201            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Machine Info Block            |
+     +-----------------------+---------------------------------------+
+     | 0x00000202            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Process Info Block, version 1 |
+     +-----------------------+---------------------------------------+
+     | 0x00000203            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) FD List Block                 |
+     +-----------------------+---------------------------------------+
+     | 0x00000204            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Event Block                   |
+     +-----------------------+---------------------------------------+
+     | 0x00000205            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Interface List Block          |
+     +-----------------------+---------------------------------------+
+     | 0x00000206            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) User List Block               |
+     +-----------------------+---------------------------------------+
+     | 0x00000207            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Process Info Block, version 2 |
+     +-----------------------+---------------------------------------+
+     | 0x00000208            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Event Block with flags        |
+     +-----------------------+---------------------------------------+
+     | 0x00000209            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Process Info Block, version 3 |
+     +-----------------------+---------------------------------------+
+     | 0x00000210            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Process Info Block, version 4 |
+     +-----------------------+---------------------------------------+
+     | 0x00000211            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Process Info Block, version 5 |
+     +-----------------------+---------------------------------------+
+     | 0x00000212            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Process Info Block, version 6 |
+     +-----------------------+---------------------------------------+
+     | 0x00000213            | Sysdig (https://github.com/draios/    |
+     |                       | sysdig) Process Info Block, version 7 |
+     +-----------------------+---------------------------------------+
+     | 0x00000BAD            | Custom Block that rewriters can copy  |
+     |                       | into new files (Section 4.8)          |
+     +-----------------------+---------------------------------------+
+     | 0x40000BAD            | Custom Block that rewriters should    |
+     |                       | not copy into new files (Section 4.8) |
+     +-----------------------+---------------------------------------+
+     | 0x0A0D0D0A            | Section Header Block (Section 4.1)    |
+     +-----------------------+---------------------------------------+
+     | 0x0A0D0AXX            | Reserved.  Used to detect trace files |
+     |                       | corrupted because of file transfers   |
+     |                       | using the HTTP protocol in text mode. |
+     +-----------------------+---------------------------------------+
+     | 0xXX0A0D0A            | Reserved.  Used to detect trace files |
+     |                       | corrupted because of file transfers   |
+     |                       | using the HTTP protocol in text mode. |
+     +-----------------------+---------------------------------------+
+     | 0xXX0A0D0D            | Reserved.  Used to detect trace files |
+     |                       | corrupted because of file transfers   |
+     |                       | using the HTTP protocol in text mode. |
+     +-----------------------+---------------------------------------+
+     | 0x0D0D0AXX            | Reserved.  Used to detect trace files |
+     |                       | corrupted because of file transfers   |
+     |                       | using the FTP protocol in text mode.  |
+     +-----------------------+---------------------------------------+
+     | 0x80000000-0xFFFFFFFF | Reserved for local use.               |
+     +-----------------------+---------------------------------------+
 
                    Table 9: Standardized Block Type Codes
 
    [Open issue: reserve 0x40000000-0x7FFFFFFF for do-not-copy-bit range
    of base types?]
 
-11.  Contributors
+11.  Acknowledgments
 
    Loris Degioanni and Gianluca Varenni were coauthoring this document
    before it was submitted to the IETF.
 
-12.  Acknowledgments
-
    The authors wish to thank Anders Broman, Ulf Lamping, Richard Sharpe
    and many others for their invaluable comments.
 
-13.  References
+12.  References
 
-13.1.  Normative References
-
-   [I-D.ietf-opsawg-pcaplinktype]
-              Harris, G. and M. Richardson, "Link-Layer Types for PCAP-
-              related Capture File Formats", Work in Progress, Internet-
-              Draft, draft-ietf-opsawg-pcaplinktype-18, 6 April 2026,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
-              pcaplinktype-18>.
+12.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -2578,12 +2568,19 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
+   [I-D.ietf-opsawg-pcaplinktype]
+              Harris, G. and M. Richardson, "Link-Layer Types for PCAP-
+              related Capture File Formats", Work in Progress, Internet-
+              Draft, draft-ietf-opsawg-pcaplinktype-18, 6 April 2026,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
+              pcaplinktype-18>.
+
    [RFC4180]  Shafranovich, Y., "Common Format and MIME Type for Comma-
               Separated Values (CSV) Files", RFC 4180,
               DOI 10.17487/RFC4180, October 2005,
               <https://www.rfc-editor.org/rfc/rfc4180>.
 
-13.2.  Informative References
+12.2.  Informative References
 
    [I-D.richardson-opsawg-pcapng-extras]
               Tüxen, M., Risso, F., Bongertz, J., Combs, G., Harris, G.,
@@ -2600,6 +2597,71 @@ Table of Contents
               Draft, draft-ietf-tls-keylogfile-05, 9 June 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
               keylogfile-05>.
+
+   [RFC4253]  Ylonen, T. and C. Lonvick, Ed., "The Secure Shell (SSH)
+              Transport Layer Protocol", RFC 4253, DOI 10.17487/RFC4253,
+              January 2006, <https://www.rfc-editor.org/rfc/rfc4253>.
+
+   [RFC2451]  Pereira, R. and R. Adams, "The ESP CBC-Mode Cipher
+              Algorithms", RFC 2451, DOI 10.17487/RFC2451, November
+              1998, <https://www.rfc-editor.org/rfc/rfc2451>.
+
+   [RFC3602]  Frankel, S., Glenn, R., and S. Kelly, "The AES-CBC Cipher
+              Algorithm and Its Use with IPsec", RFC 3602,
+              DOI 10.17487/RFC3602, September 2003,
+              <https://www.rfc-editor.org/rfc/rfc3602>.
+
+   [RFC3686]  Housley, R., "Using Advanced Encryption Standard (AES)
+              Counter Mode With IPsec Encapsulating Security Payload
+              (ESP)", RFC 3686, DOI 10.17487/RFC3686, January 2004,
+              <https://www.rfc-editor.org/rfc/rfc3686>.
+
+   [RFC2405]  Madson, C. and N. Doraswamy, "The ESP DES-CBC Cipher
+              Algorithm With Explicit IV", RFC 2405,
+              DOI 10.17487/RFC2405, November 1998,
+              <https://www.rfc-editor.org/rfc/rfc2405>.
+
+   [RFC2144]  Adams, C., "The CAST-128 Encryption Algorithm", RFC 2144,
+              DOI 10.17487/RFC2144, May 1997,
+              <https://www.rfc-editor.org/rfc/rfc2144>.
+
+   [RFC4106]  Viega, J. and D. McGrew, "The Use of Galois/Counter Mode
+              (GCM) in IPsec Encapsulating Security Payload (ESP)",
+              RFC 4106, DOI 10.17487/RFC4106, June 2005,
+              <https://www.rfc-editor.org/rfc/rfc4106>.
+
+   [RFC8750]  Migault, D., Guggemos, T., and Y. Nir, "Implicit
+              Initialization Vector (IV) for Counter-Based Ciphers in
+              Encapsulating Security Payload (ESP)", RFC 8750,
+              DOI 10.17487/RFC8750, March 2020,
+              <https://www.rfc-editor.org/rfc/rfc8750>.
+
+   [RFC7634]  Nir, Y., "ChaCha20, Poly1305, and Their Use in the
+              Internet Key Exchange Protocol (IKE) and IPsec", RFC 7634,
+              DOI 10.17487/RFC7634, August 2015,
+              <https://www.rfc-editor.org/rfc/rfc7634>.
+
+   [RFC2404]  Madson, C. and R. Glenn, "The Use of HMAC-SHA-1-96 within
+              ESP and AH", RFC 2404, DOI 10.17487/RFC2404, November
+              1998, <https://www.rfc-editor.org/rfc/rfc2404>.
+
+   [RFC4868]  Kelly, S. and S. Frankel, "Using HMAC-SHA-256, HMAC-SHA-
+              384, and HMAC-SHA-512 with IPsec", RFC 4868,
+              DOI 10.17487/RFC4868, May 2007,
+              <https://www.rfc-editor.org/rfc/rfc4868>.
+
+   [RFC2403]  Madson, C. and R. Glenn, "The Use of HMAC-MD5-96 within
+              ESP and AH", RFC 2403, DOI 10.17487/RFC2403, November
+              1998, <https://www.rfc-editor.org/rfc/rfc2403>.
+
+   [RFC2857]  Keromytis, A. and N. Provos, "The Use of HMAC-RIPEMD-
+              160-96 within ESP and AH", RFC 2857, DOI 10.17487/RFC2857,
+              June 2000, <https://www.rfc-editor.org/rfc/rfc2857>.
+
+   [RFC5226]  Narten, T. and H. Alvestrand, "Guidelines for Writing an
+              IANA Considerations Section in RFCs", RFC 5226,
+              DOI 10.17487/RFC5226, May 2008,
+              <https://www.rfc-editor.org/rfc/rfc5226>.
 
 Appendix A.  Packet Block (obsolete!)
 
@@ -2716,23 +2778,7 @@ Appendix A.  Packet Block (obsolete!)
    Examples: '02 EC 1D 87 97', '03 45 6E C2 17 7C 10 1E 3C 2E 99 6E C2
    9A 3D 50 8E'.
 
-Authors' Addresses
-
-   Michael Tuexen (editor)
-   Muenster University of Applied Sciences
-   Stegerwaldstrasse 39
-   48565 Steinfurt
-   Germany
-   Email: tuexen@fh-muenster.de
-
-
-   Fulvio Risso
-   Politecnico di Torino
-   Corso Duca degli Abruzzi, 24
-   10129 Torino
-   Italy
-   Email: fulvio.risso@polito.it
-
+Contributors
 
    Jasper Bongertz
    Airbus Defence and Space CyberSecurity
@@ -2750,10 +2796,6 @@ Authors' Addresses
    Email: gerald@wireshark.org
 
 
-   Guy Harris
-   Email: gharris@sonic.net
-
-
    Eelco Chaudron
    Red Hat
    De Entree 238
@@ -2762,7 +2804,29 @@ Authors' Addresses
    Email: eelco@redhat.com
 
 
-   Michael C. Richardson
+Authors' Addresses
+
+   Michael Tuexen
+   Muenster University of Applied Sciences
+   Stegerwaldstrasse 39
+   48565 Steinfurt
+   Germany
+   Email: tuexen@fh-muenster.de
+
+
+   Fulvio Risso
+   Politecnico di Torino
+   Corso Duca degli Abruzzi, 24
+   10129 Torino
+   Italy
+   Email: fulvio.risso@polito.it
+
+
+   Guy Harris
+   Email: gharris@sonic.net
+
+
+   Michael C. Richardson (editor)
    Sandelman Software Works
    Email: mcr+ietf@sandelman.ca
    URI:   http://www.sandelman.ca/

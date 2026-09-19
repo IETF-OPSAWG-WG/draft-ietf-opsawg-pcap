@@ -7,32 +7,29 @@
 <title>PCAP Now Generic (pcapng) Capture File Format</title>
 <meta content="Michael Tuexen" name="author">
 <meta content="Fulvio Risso" name="author">
-<meta content="Jasper Bongertz" name="author">
-<meta content="Gerald Combs" name="author">
 <meta content="Guy Harris" name="author">
-<meta content="Eelco Chaudron" name="author">
 <meta content="Michael C. Richardson" name="author">
 <meta content="
        This document describes a format to record captured packets to a
 file. This format is extensible; Wireshark can currently read and write
 it, and libpcap can currently read some pcapng files. 
     " name="description">
-<meta content="xml2rfc 3.34.0" name="generator">
+<meta content="xml2rfc 3.34.1" name="generator">
 <meta content="draft-ietf-opsawg-pcapng-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.34.0
+  xml2rfc 3.34.1
     Python 3.14.7
-    ConfigArgParse 1.7.5
+    ConfigArgParse 1.7.7
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.1.1
     natsort 8.4.0
-    platformdirs 4.11.7
+    platformdirs 4.11.10
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.8.3
+    wcwidth 0.8.4
 -->
 <link href="draft-ietf-opsawg-pcapng.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1052,7 +1049,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Tuexen, et al.</td>
-<td class="center">Expires 17 March 2027</td>
+<td class="center">Expires 23 March 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,17 +1062,16 @@ svg {
 <dd class="internet-draft">draft-ietf-opsawg-pcapng-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-09-13" class="published">13 September 2026</time>
+<time datetime="2026-09-19" class="published">19 September 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-03-17">17 March 2027</time></dd>
+<dd class="expires"><time datetime="2027-03-23">23 March 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">M. Tuexen, <span class="editor">Ed.</span>
-</div>
+      <div class="author-name">M. Tuexen</div>
 <div class="org">Muenster Univ. of Appl. Sciences</div>
 </div>
 <div class="author">
@@ -1083,22 +1079,11 @@ svg {
 <div class="org">Politecnico di Torino</div>
 </div>
 <div class="author">
-      <div class="author-name">J. Bongertz</div>
-<div class="org">Airbus DS CyberSecurity</div>
-</div>
-<div class="author">
-      <div class="author-name">G. Combs</div>
-<div class="org">Wireshark</div>
-</div>
-<div class="author">
       <div class="author-name">G. Harris</div>
 </div>
 <div class="author">
-      <div class="author-name">E. Chaudron</div>
-<div class="org">Red Hat</div>
+      <div class="author-name">M. Richardson, <span class="editor">Ed.</span>
 </div>
-<div class="author">
-      <div class="author-name">M. Richardson</div>
 <div class="org">Sandelman</div>
 </div>
 </dd>
@@ -1145,7 +1130,7 @@ it, and libpcap can currently read some pcapng files.<a href="#section-abstract-
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 17 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 23 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1296,27 +1281,27 @@ it, and libpcap can currently read some pcapng files.<a href="#section-abstract-
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-contributors" class="internal xref">Contributors</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#section-13" class="auto internal xref">13</a>. <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.1">
-                <p id="section-toc.1-1.13.2.1.1"><a href="#section-13.1" class="auto internal xref">13.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.1">
+                <p id="section-toc.1-1.12.2.1.1"><a href="#section-12.1" class="auto internal xref">12.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.2">
-                <p id="section-toc.1-1.13.2.2.1"><a href="#section-13.2" class="auto internal xref">13.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.2">
+                <p id="section-toc.1-1.12.2.2.1"><a href="#section-12.2" class="auto internal xref">12.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-packet-block-obsolete" class="internal xref">Packet Block (obsolete!)</a></p>
+</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
-            <p id="section-toc.1-1.14.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-packet-block-obsolete" class="internal xref">Packet Block (obsolete!)</a></p>
+            <p id="section-toc.1-1.14.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15">
-            <p id="section-toc.1-1.15.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.15.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -3792,7 +3777,7 @@ the rules defined in <a href="#section_opt" class="auto internal xref">Section 3
 No DSB-specific options are currently defined.<a href="#section-4.7-6.6.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.7-7">The following is a list of Secrets Types.<a href="#section-4.7-7" class="pilcrow">¶</a></p>
+<p id="section-4.7-7">The following is a list of Secret Types.<a href="#section-4.7-7" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlNewline" id="section-4.7-8">
           <dt id="section-4.7-8.1">0x5353484b:</dt>
           <dd style="margin-left: 4.0em" id="section-4.7-8.2">
@@ -3800,13 +3785,13 @@ No DSB-specific options are currently defined.<a href="#section-4.7-6.6.1" class
 Every line consists of a cookie, key type, and key separated by one space.
 The cookie is the hex-encoded (client or server) 16 octets cookie
 (32 characters) found in the SSH_MSG_KEXINIT sent during
-<a href="https://datatracker.ietf.org/doc/html/rfc4253#section-7.1">algorithm negotiation</a>
+algorithm negotiation <span>[<a href="#RFC4253" class="cite xref">RFC4253</a>], <a href="https://rfc-editor.org/rfc/rfc4253#section-7.1" class="relref">Section 7.1</a></span>
 by the endpoint whose private random is disclosed.
 The key type is either SHARED_SECRET or PRIVATE_KEY.
 The key is hex-encoded and either the shared secret ('K' in
-<a href="https://datatracker.ietf.org/doc/html/rfc4253#section-8">RFC 4253</a>) or the
+<span>[<a href="#RFC4253" class="cite xref">RFC4253</a>], <a href="https://rfc-editor.org/rfc/rfc4253#section-8" class="relref">Section 8</a></span> or the
 private random number (referred to as 'x' for the client and 'y'
-for the server in RFC 4253) used to generate the shared secret during DH
+for the server in <span>[<a href="#RFC4253" class="cite xref">RFC4253</a>]</span>) used to generate the shared secret during DH
 key exchange; its length depends on the algorithm.
 Every line MUST be terminated with either a carriage return and linefeed
 ('\r\n') or a linefeed ('\n').
@@ -4041,11 +4026,11 @@ value (if possible) or the line should be skipped.<a href="#section-4.7-16.2.1" 
                 <p id="section-4.7-16.2.2.4.1">SPI: Security Parameter Index. String of a 32 bits integer in hexadecimal format (starting with 0x).<a href="#section-4.7-16.2.2.4.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-4.7-16.2.2.5">
-                <p id="section-4.7-16.2.2.5.1">Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC [RFC2451]", "AES-CBC [RFC3602]",
-"AES-CTR [RFC3686]", "DES-CBC [RFC2405]", "CAST5-CBC [RFC2144]", "BLOWFISH-CBC [RFC2451]", "TWOFISH-CBC",
-"AES-GCM [RFC4106]", "AES-GCM with 8 octet ICV [RFC4106]", "AES-GCM with 12 octet ICV [RFC4106]",
-"AES-GCM with 16 octet ICV [RFC4106]", "AES-GCM with IIV and 16 octet ICV [RFC4106 &amp; RFC8750]",
-"ChaCha20 with Poly1305 [RFC7634]" or "ChaCha20 with Poly1305 and IIV [RFC7634 &amp; RFC8750]".
+                <p id="section-4.7-16.2.2.5.1">Encryption: Encryption algorithm. Can be "NULL", "TripleDES-CBC <span>[<a href="#RFC2451" class="cite xref">RFC2451</a>]</span>", "AES-CBC <span>[<a href="#RFC3602" class="cite xref">RFC3602</a>]</span>",
+"AES-CTR <span>[<a href="#RFC3686" class="cite xref">RFC3686</a>]</span>", "DES-CBC <span>[<a href="#RFC2405" class="cite xref">RFC2405</a>]</span>", "CAST5-CBC <span>[<a href="#RFC2144" class="cite xref">RFC2144</a>]</span>", "BLOWFISH-CBC <span>[<a href="#RFC2451" class="cite xref">RFC2451</a>]</span>", "TWOFISH-CBC",
+"AES-GCM <span>[<a href="#RFC4106" class="cite xref">RFC4106</a>]</span>", "AES-GCM with 8 octet ICV <span>[<a href="#RFC4106" class="cite xref">RFC4106</a>]</span>", "AES-GCM with 12 octet ICV <span>[<a href="#RFC4106" class="cite xref">RFC4106</a>]</span>",
+"AES-GCM with 16 octet ICV <span>[<a href="#RFC4106" class="cite xref">RFC4106</a>]</span>", "AES-GCM with IIV and 16 octet ICV <span>[<a href="#RFC4106" class="cite xref">RFC4106</a>]</span>, &amp; <span>[<a href="#RFC8750" class="cite xref">RFC8750</a>]</span>",
+"ChaCha20 with Poly1305 <span>[<a href="#RFC7634" class="cite xref">RFC7634</a>]</span>" or "ChaCha20 with Poly1305 and IIV <span>[<a href="#RFC7634" class="cite xref">RFC7634</a>]</span>, &amp; <span>[<a href="#RFC8750" class="cite xref">RFC8750</a>]</span>".
 New algorithms might be added in the future. The algorithm names are
 exactly as quoted.<a href="#section-4.7-16.2.2.5.1" class="pilcrow">¶</a></p>
 </li>
@@ -4053,10 +4038,10 @@ exactly as quoted.<a href="#section-4.7-16.2.2.5.1" class="pilcrow">¶</a></p>
                 <p id="section-4.7-16.2.2.6.1">Encryption Key: Encryption key. String containing the key in heaxadecimal format (starting with 0x).<a href="#section-4.7-16.2.2.6.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-4.7-16.2.2.7">
-                <p id="section-4.7-16.2.2.7.1">Authentication: Authentication algorithm. Can be "NULL", "HMAC-SHA-1-96 [RFC2404]",
-"HMAC-SHA-256-96 [draft-ietf-ipsec-ciph-sha-256-00]", "HMAC-SHA-256-128 [RFC4868]",
-"HMAC-SHA-384-192 [RFC4868]", "HMAC-SHA-512-256 [RFC4868]", "HMAC-MD5-96 [RFC2403]",
-"MAC-RIPEMD-160-96 [RFC2857]", "ANY 64 bit authentication [no checking]",
+                <p id="section-4.7-16.2.2.7.1">Authentication: Authentication algorithm. Can be "NULL", "HMAC-SHA-1-96 <span>[<a href="#RFC2404" class="cite xref">RFC2404</a>]</span>",
+"HMAC-SHA-256-128 <span>[<a href="#RFC4868" class="cite xref">RFC4868</a>]</span>",
+"HMAC-SHA-384-192 <span>[<a href="#RFC4868" class="cite xref">RFC4868</a>]</span>", "HMAC-SHA-512-256 <span>[<a href="#RFC4868" class="cite xref">RFC4868</a>]</span>", "HMAC-MD5-96 <span>[<a href="#RFC2403" class="cite xref">RFC2403</a>]</span>",
+"MAC-RIPEMD-160-96 <span>[<a href="#RFC2857" class="cite xref">RFC2857</a>]</span>", "ANY 64 bit authentication [no checking]",
 "ANY 96 bit authentication [no checking]", "ANY 128 bit authentication [no checking]",
 "ANY 192 bit authentication [no checking]" or "ANY 256 bit authentication [no checking]".
 New algorithms might be added in the future. The algorithm names are
@@ -4354,7 +4339,7 @@ are listed on the <a href="https://github.com/IETF-OPSAWG-WG/pcapng/wiki/Impleme
 <p id="section-10-1">TBD.<a href="#section-10-1" class="pilcrow">¶</a></p>
 <p id="section-10-2">[Open issue: decide whether the block types, option types, NRB Record
 types, etc. should be IANA registries. And if so, what the IANA policy
-for each should be (see RFC 5226)]<a href="#section-10-2" class="pilcrow">¶</a></p>
+for each should be (see <span>[<a href="#RFC5226" class="cite xref">RFC5226</a>]</span>]<a href="#section-10-2" class="pilcrow">¶</a></p>
 <div id="section_block_code_registry">
 <section id="section-10.1">
         <h3 id="name-standardized-block-type-cod">
@@ -4395,38 +4380,32 @@ which the "XX" is from 00 to FF:<a href="#section-10.1-4" class="pilcrow">¶</a>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x00000001</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span><a href="#section_idb" class="internal xref">Interface Description Block</a> (<a href="#section_idb" class="auto internal xref">Section 4.2</a>)</span>
+              <td class="text-left" rowspan="1" colspan="1">Interface Description Block <a href="#section_idb" class="auto internal xref">Section 4.2</a>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x00000002</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span><a href="#appendix_pb" class="internal xref">Packet Block</a> (<a href="#appendix_pb" class="auto internal xref">Appendix A</a>)</span>
+              <td class="text-left" rowspan="1" colspan="1">Packet Block  <a href="#appendix_pb" class="auto internal xref">Appendix A</a>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x00000003</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span><a href="#section_spb" class="internal xref">Simple Packet Block</a> (<a href="#section_spb" class="auto internal xref">Section 4.4</a>)</span>
+              <td class="text-left" rowspan="1" colspan="1">Simple Packet Block <a href="#section_spb" class="auto internal xref">Section 4.4</a>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x00000004</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span><a href="#section_nrb" class="internal xref">Name Resolution Block</a> (<a href="#section_nrb" class="auto internal xref">Section 4.5</a>)</span>
+              <td class="text-left" rowspan="1" colspan="1">Name Resolution Block <a href="#section_nrb" class="auto internal xref">Section 4.5</a>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x00000005</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span><a href="#section_isb" class="internal xref">Interface Statistics Block</a> (<a href="#section_isb" class="auto internal xref">Section 4.6</a>)</span>
+              <td class="text-left" rowspan="1" colspan="1">Interface Statistics Block <a href="#section_isb" class="auto internal xref">Section 4.6</a>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x00000006</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span><a href="#section_epb" class="internal xref">Enhanced Packet Block</a> (<a href="#section_epb" class="auto internal xref">Section 4.3</a>)</span>
+              <td class="text-left" rowspan="1" colspan="1">Enhanced Packet Block <a href="#section_epb" class="auto internal xref">Section 4.3</a>
 </td>
             </tr>
             <tr>
@@ -4441,13 +4420,12 @@ which the "XX" is from 00 to FF:<a href="#section-10.1-4" class="pilcrow">¶</a>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x00000009</td>
-              <td class="text-left" rowspan="1" colspan="1">[systemd Journal Export Block]<span>[<a href="#I-D.richardson-opsawg-pcapng-extras" class="cite xref">I-D.richardson-opsawg-pcapng-extras</a>]</span>
+              <td class="text-left" rowspan="1" colspan="1">systemd Journal Export Block <span>[<a href="#I-D.richardson-opsawg-pcapng-extras" class="cite xref">I-D.richardson-opsawg-pcapng-extras</a>]</span>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">0x0000000A</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span><a href="#section_dsb" class="internal xref">Decryption Secrets Block</a> (<a href="#section_dsb" class="auto internal xref">Section 4.7</a>)</span>
+              <td class="text-left" rowspan="1" colspan="1">Decryption Secrets Block <a href="#section_dsb" class="auto internal xref">Section 4.7</a>
 </td>
             </tr>
             <tr>
@@ -4572,42 +4550,31 @@ range of base types?]<a href="#section-10.1-6" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
-<div id="contributors">
+<div id="acknowledgments">
 <section id="section-11">
-      <h2 id="name-contributors">
-<a href="#section-11" class="section-number selfRef">11. </a><a href="#name-contributors" class="section-name selfRef">Contributors</a>
+      <h2 id="name-acknowledgments">
+<a href="#section-11" class="section-number selfRef">11. </a><a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
 <p id="section-11-1">Loris Degioanni and Gianluca Varenni were coauthoring this document
 before it was submitted to the IETF.<a href="#section-11-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="acknowledgments">
-<section id="section-12">
-      <h2 id="name-acknowledgments">
-<a href="#section-12" class="section-number selfRef">12. </a><a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
-      </h2>
-<p id="section-12-1">The authors wish to thank
+<p id="section-11-2">The authors wish to thank
 Anders Broman,
 Ulf Lamping,
 Richard Sharpe
-and many others for their invaluable comments.<a href="#section-12-1" class="pilcrow">¶</a></p>
+and many others for their invaluable comments.<a href="#section-11-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
-<section id="section-13">
+<section id="section-12">
       <h2 id="name-references">
-<a href="#section-13" class="section-number selfRef">13. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-12" class="section-number selfRef">12. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-13.1">
+<section id="section-12.1">
         <h3 id="name-normative-references">
-<a href="#section-13.1" class="section-number selfRef">13.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-12.1" class="section-number selfRef">12.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
-<dt id="I-D.ietf-opsawg-pcaplinktype">[I-D.ietf-opsawg-pcaplinktype]</dt>
-        <dd>
-<span class="refAuthor">Harris, G.</span> and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"Link-Layer Types for PCAP-related Capture File Formats"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-opsawg-pcaplinktype-18</span>, <time datetime="2026-04-06" class="refDate">6 April 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcaplinktype-18">https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcaplinktype-18</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
@@ -4615,6 +4582,10 @@ and many others for their invaluable comments.<a href="#section-12-1" class="pil
 <dt id="RFC8174">[RFC8174]</dt>
         <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-opsawg-pcaplinktype">[I-D.ietf-opsawg-pcaplinktype]</dt>
+        <dd>
+<span class="refAuthor">Harris, G.</span> and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"Link-Layer Types for PCAP-related Capture File Formats"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-opsawg-pcaplinktype-18</span>, <time datetime="2026-04-06" class="refDate">6 April 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcaplinktype-18">https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-pcaplinktype-18</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC4180">[RFC4180]</dt>
       <dd>
@@ -4624,9 +4595,9 @@ and many others for their invaluable comments.<a href="#section-12-1" class="pil
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-13.2">
+<section id="section-12.2">
         <h3 id="name-informative-references">
-<a href="#section-13.2" class="section-number selfRef">13.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-12.2" class="section-number selfRef">12.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="I-D.richardson-opsawg-pcapng-extras">[I-D.richardson-opsawg-pcapng-extras]</dt>
@@ -4634,8 +4605,64 @@ and many others for their invaluable comments.<a href="#section-12-1" class="pil
 <span class="refAuthor">Tüxen, M.</span>, <span class="refAuthor">Risso, F.</span>, <span class="refAuthor">Bongertz, J.</span>, <span class="refAuthor">Combs, G.</span>, <span class="refAuthor">Harris, G.</span>, <span class="refAuthor">Chaudron, E.</span>, and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"Additional block types for PCAP Next Generation (pcapng) Capture File Format"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-richardson-opsawg-pcapng-extras-01</span>, <time datetime="2022-07-29" class="refDate">29 July 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-richardson-opsawg-pcapng-extras-01">https://datatracker.ietf.org/doc/html/draft-richardson-opsawg-pcapng-extras-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-keylogfile">[I-D.ietf-tls-keylogfile]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Thomson, M.</span>, <span class="refAuthor">Rosomakho, Y.</span>, and <span class="refAuthor">H. Tschofenig</span>, <span class="refTitle">"The SSLKEYLOGFILE Format for TLS"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-keylogfile-05</span>, <time datetime="2025-06-09" class="refDate">9 June 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-keylogfile-05">https://datatracker.ietf.org/doc/html/draft-ietf-tls-keylogfile-05</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4253">[RFC4253]</dt>
+        <dd>
+<span class="refAuthor">Ylonen, T.</span> and <span class="refAuthor">C. Lonvick, Ed.</span>, <span class="refTitle">"The Secure Shell (SSH) Transport Layer Protocol"</span>, <span class="seriesInfo">RFC 4253</span>, <span class="seriesInfo">DOI 10.17487/RFC4253</span>, <time datetime="2006-01" class="refDate">January 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4253">https://www.rfc-editor.org/rfc/rfc4253</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2451">[RFC2451]</dt>
+        <dd>
+<span class="refAuthor">Pereira, R.</span> and <span class="refAuthor">R. Adams</span>, <span class="refTitle">"The ESP CBC-Mode Cipher Algorithms"</span>, <span class="seriesInfo">RFC 2451</span>, <span class="seriesInfo">DOI 10.17487/RFC2451</span>, <time datetime="1998-11" class="refDate">November 1998</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2451">https://www.rfc-editor.org/rfc/rfc2451</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3602">[RFC3602]</dt>
+        <dd>
+<span class="refAuthor">Frankel, S.</span>, <span class="refAuthor">Glenn, R.</span>, and <span class="refAuthor">S. Kelly</span>, <span class="refTitle">"The AES-CBC Cipher Algorithm and Its Use with IPsec"</span>, <span class="seriesInfo">RFC 3602</span>, <span class="seriesInfo">DOI 10.17487/RFC3602</span>, <time datetime="2003-09" class="refDate">September 2003</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3602">https://www.rfc-editor.org/rfc/rfc3602</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3686">[RFC3686]</dt>
+        <dd>
+<span class="refAuthor">Housley, R.</span>, <span class="refTitle">"Using Advanced Encryption Standard (AES) Counter Mode With IPsec Encapsulating Security Payload (ESP)"</span>, <span class="seriesInfo">RFC 3686</span>, <span class="seriesInfo">DOI 10.17487/RFC3686</span>, <time datetime="2004-01" class="refDate">January 2004</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3686">https://www.rfc-editor.org/rfc/rfc3686</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2405">[RFC2405]</dt>
+        <dd>
+<span class="refAuthor">Madson, C.</span> and <span class="refAuthor">N. Doraswamy</span>, <span class="refTitle">"The ESP DES-CBC Cipher Algorithm With Explicit IV"</span>, <span class="seriesInfo">RFC 2405</span>, <span class="seriesInfo">DOI 10.17487/RFC2405</span>, <time datetime="1998-11" class="refDate">November 1998</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2405">https://www.rfc-editor.org/rfc/rfc2405</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2144">[RFC2144]</dt>
+        <dd>
+<span class="refAuthor">Adams, C.</span>, <span class="refTitle">"The CAST-128 Encryption Algorithm"</span>, <span class="seriesInfo">RFC 2144</span>, <span class="seriesInfo">DOI 10.17487/RFC2144</span>, <time datetime="1997-05" class="refDate">May 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2144">https://www.rfc-editor.org/rfc/rfc2144</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4106">[RFC4106]</dt>
+        <dd>
+<span class="refAuthor">Viega, J.</span> and <span class="refAuthor">D. McGrew</span>, <span class="refTitle">"The Use of Galois/Counter Mode (GCM) in IPsec Encapsulating Security Payload (ESP)"</span>, <span class="seriesInfo">RFC 4106</span>, <span class="seriesInfo">DOI 10.17487/RFC4106</span>, <time datetime="2005-06" class="refDate">June 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4106">https://www.rfc-editor.org/rfc/rfc4106</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8750">[RFC8750]</dt>
+        <dd>
+<span class="refAuthor">Migault, D.</span>, <span class="refAuthor">Guggemos, T.</span>, and <span class="refAuthor">Y. Nir</span>, <span class="refTitle">"Implicit Initialization Vector (IV) for Counter-Based Ciphers in Encapsulating Security Payload (ESP)"</span>, <span class="seriesInfo">RFC 8750</span>, <span class="seriesInfo">DOI 10.17487/RFC8750</span>, <time datetime="2020-03" class="refDate">March 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8750">https://www.rfc-editor.org/rfc/rfc8750</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7634">[RFC7634]</dt>
+        <dd>
+<span class="refAuthor">Nir, Y.</span>, <span class="refTitle">"ChaCha20, Poly1305, and Their Use in the Internet Key Exchange Protocol (IKE) and IPsec"</span>, <span class="seriesInfo">RFC 7634</span>, <span class="seriesInfo">DOI 10.17487/RFC7634</span>, <time datetime="2015-08" class="refDate">August 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7634">https://www.rfc-editor.org/rfc/rfc7634</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2404">[RFC2404]</dt>
+        <dd>
+<span class="refAuthor">Madson, C.</span> and <span class="refAuthor">R. Glenn</span>, <span class="refTitle">"The Use of HMAC-SHA-1-96 within ESP and AH"</span>, <span class="seriesInfo">RFC 2404</span>, <span class="seriesInfo">DOI 10.17487/RFC2404</span>, <time datetime="1998-11" class="refDate">November 1998</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2404">https://www.rfc-editor.org/rfc/rfc2404</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4868">[RFC4868]</dt>
+        <dd>
+<span class="refAuthor">Kelly, S.</span> and <span class="refAuthor">S. Frankel</span>, <span class="refTitle">"Using HMAC-SHA-256, HMAC-SHA-384, and HMAC-SHA-512 with IPsec"</span>, <span class="seriesInfo">RFC 4868</span>, <span class="seriesInfo">DOI 10.17487/RFC4868</span>, <time datetime="2007-05" class="refDate">May 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4868">https://www.rfc-editor.org/rfc/rfc4868</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2403">[RFC2403]</dt>
+        <dd>
+<span class="refAuthor">Madson, C.</span> and <span class="refAuthor">R. Glenn</span>, <span class="refTitle">"The Use of HMAC-MD5-96 within ESP and AH"</span>, <span class="seriesInfo">RFC 2403</span>, <span class="seriesInfo">DOI 10.17487/RFC2403</span>, <time datetime="1998-11" class="refDate">November 1998</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2403">https://www.rfc-editor.org/rfc/rfc2403</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2857">[RFC2857]</dt>
+        <dd>
+<span class="refAuthor">Keromytis, A.</span> and <span class="refAuthor">N. Provos</span>, <span class="refTitle">"The Use of HMAC-RIPEMD-160-96 within ESP and AH"</span>, <span class="seriesInfo">RFC 2857</span>, <span class="seriesInfo">DOI 10.17487/RFC2857</span>, <time datetime="2000-06" class="refDate">June 2000</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2857">https://www.rfc-editor.org/rfc/rfc2857</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5226">[RFC5226]</dt>
+      <dd>
+<span class="refAuthor">Narten, T.</span> and <span class="refAuthor">H. Alvestrand</span>, <span class="refTitle">"Guidelines for Writing an IANA Considerations Section in RFCs"</span>, <span class="seriesInfo">RFC 5226</span>, <span class="seriesInfo">DOI 10.17487/RFC5226</span>, <time datetime="2008-05" class="refDate">May 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5226">https://www.rfc-editor.org/rfc/rfc5226</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -4801,36 +4828,11 @@ option is the same as the epb_hash of the enhanced packet block.<a href="#append
 C2 9A 3D 50 8E'.<a href="#appendix-A-11" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="authors-addresses">
+<div id="contributors">
 <section id="appendix-B">
-      <h2 id="name-authors-addresses">
-<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      <h2 id="name-contributors">
+<a href="#name-contributors" class="section-name selfRef">Contributors</a>
       </h2>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Michael Tuexen (<span class="role">editor</span>)</span></div>
-<div dir="auto" class="left"><span class="org">Muenster University of Applied Sciences</span></div>
-<div dir="auto" class="left"><span class="street-address">Stegerwaldstrasse 39</span></div>
-<div dir="auto" class="left">
-<span class="postal-code">48565</span> <span class="locality">Steinfurt</span>
-</div>
-<div dir="auto" class="left"><span class="country-name">Germany</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:tuexen@fh-muenster.de" class="email">tuexen@fh-muenster.de</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Fulvio Risso</span></div>
-<div dir="auto" class="left"><span class="org">Politecnico di Torino</span></div>
-<div dir="auto" class="left"><span class="street-address">Corso Duca degli Abruzzi, 24</span></div>
-<div dir="auto" class="left">
-<span class="postal-code">10129</span> <span class="locality">Torino</span> </div>
-<div dir="auto" class="left"><span class="country-name">Italy</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:fulvio.risso@polito.it" class="email">fulvio.risso@polito.it</a>
-</div>
-</address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Jasper Bongertz</span></div>
 <div dir="auto" class="left"><span class="org">Airbus Defence and Space CyberSecurity</span></div>
@@ -4858,13 +4860,6 @@ C2 9A 3D 50 8E'.<a href="#appendix-A-11" class="pilcrow">¶</a></p>
 </div>
 </address>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Guy Harris</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:gharris@sonic.net" class="email">gharris@sonic.net</a>
-</div>
-</address>
-<address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Eelco Chaudron</span></div>
 <div dir="auto" class="left"><span class="org">Red Hat</span></div>
 <div dir="auto" class="left"><span class="street-address">De Entree 238</span></div>
@@ -4877,8 +4872,47 @@ C2 9A 3D 50 8E'.<a href="#appendix-A-11" class="pilcrow">¶</a></p>
 <a href="mailto:eelco@redhat.com" class="email">eelco@redhat.com</a>
 </div>
 </address>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-C">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Michael C. Richardson</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Michael Tuexen</span></div>
+<div dir="auto" class="left"><span class="org">Muenster University of Applied Sciences</span></div>
+<div dir="auto" class="left"><span class="street-address">Stegerwaldstrasse 39</span></div>
+<div dir="auto" class="left">
+<span class="postal-code">48565</span> <span class="locality">Steinfurt</span>
+</div>
+<div dir="auto" class="left"><span class="country-name">Germany</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:tuexen@fh-muenster.de" class="email">tuexen@fh-muenster.de</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Fulvio Risso</span></div>
+<div dir="auto" class="left"><span class="org">Politecnico di Torino</span></div>
+<div dir="auto" class="left"><span class="street-address">Corso Duca degli Abruzzi, 24</span></div>
+<div dir="auto" class="left">
+<span class="postal-code">10129</span> <span class="locality">Torino</span> </div>
+<div dir="auto" class="left"><span class="country-name">Italy</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:fulvio.risso@polito.it" class="email">fulvio.risso@polito.it</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Guy Harris</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:gharris@sonic.net" class="email">gharris@sonic.net</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Michael C. Richardson (<span class="role">editor</span>)</span></div>
 <div dir="auto" class="left"><span class="org">Sandelman Software Works</span></div>
 <div class="email">
 <span>Email:</span>
