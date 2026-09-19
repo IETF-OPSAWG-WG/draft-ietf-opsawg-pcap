@@ -426,10 +426,10 @@ Table of Contents
    Required parameters:  none
    Optional parameters:  none
    Encoding considerations:  binary
-   Security considerations:  See Section 7 of [RFCthis]
+   Security considerations:  See 7 of THIS RFC.
    Interoperability considerations:  The format is designed to be
       broadly interoperable.
-   Published specification:  [This RFC]
+   Published specification:  THIS RFC
    Applications that use this media type:  tcpdump, wireshark, others
    Additional information:
       Magic number(s):  0xA1B2C3D4 and 0xA1B23C4D, in both big-endian
@@ -479,12 +479,11 @@ Table of Contents
 10.2.  Informative References
 
    [I-D.ietf-opsawg-pcapng]
-              Tüxen, M., Risso, F., Bongertz, J., Combs, G., Harris, G.,
-              Chaudron, E., and M. Richardson, "PCAP Now Generic
-              (pcapng) Capture File Format", Work in Progress, Internet-
-              Draft, draft-ietf-opsawg-pcapng-05, 16 March 2026,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-
-              pcapng-05>.
+              Tüxen, M., Risso, F., Harris, G., and M. Richardson, "PCAP
+              Now Generic (pcapng) Capture File Format", Work in
+              Progress, Internet-Draft, draft-ietf-opsawg-pcapng-06, 19
+              September 2026, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-opsawg-pcapng-06>.
 
 Authors' Addresses
 
