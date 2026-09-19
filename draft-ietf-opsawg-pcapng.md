@@ -2525,13 +2525,9 @@ codes whose Most Significant Bit (bit 31) is set to 1 are reserved for
 local use by the application.
 
 All the remaining Block Type codes (0x00000000 to 0x7FFFFFFF) are
-standardized by this document. Requests for new Block Type codes,
-Option Type codes, and Secrets Type codes should be made by creating
-a pull request to update this document at [github.com/IETF-OPSAWG-WG/pcapng](https://github.com/IETF-OPSAWG-WG/pcapng).
-The pull request should add a description of the new block, option,
-or secret type to {{section_block_definition}}. The pull request
-description should contain a clear request for a new type code
-assignment.
+standardized by this document.
+
+Requests for new Block Type codes, Option Type codes, and Secrets Type codes should be  made through the IANA process described here.
 
 The following is a list of the Standardized Block Type Codes; XX, in an
 item in the list means that the item refers to all possible values in
