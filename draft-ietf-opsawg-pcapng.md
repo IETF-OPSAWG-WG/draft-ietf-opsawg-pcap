@@ -67,8 +67,8 @@ contributor:
   name: Eelco Chaudron
   org: Red Hat
   abbrev: Red Hat
-  street: De Entree 238
-  code: 1101 EE
+  street: Fred Roeskestraat 100
+  code: 1076 ED
   city: Amsterdam
   country: NL
   email: eelco@redhat.com
