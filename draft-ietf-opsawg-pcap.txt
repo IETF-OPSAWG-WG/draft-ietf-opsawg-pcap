@@ -5,8 +5,8 @@
 Network Working Group                                     G. Harris, Ed.
 Internet-Draft                                                          
 Intended status: Historic                                  M. Richardson
-Expires: 23 March 2027                                         Sandelman
-                                                       19 September 2026
+Expires: 25 March 2027                                         Sandelman
+                                                       21 September 2026
 
 
                         PCAP Capture File Format
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 March 2027.
+   This Internet-Draft will expire on 25 March 2027.
 
 Copyright Notice
 

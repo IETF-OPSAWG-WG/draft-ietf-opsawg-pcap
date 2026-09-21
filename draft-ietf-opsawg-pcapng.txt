@@ -5,12 +5,12 @@
 Network Working Group                                          M. Tuexen
 Internet-Draft                          Muenster Univ. of Appl. Sciences
 Intended status: Informational                                  F. Risso
-Expires: 23 March 2027                             Politecnico di Torino
+Expires: 25 March 2027                             Politecnico di Torino
                                                                G. Harris
                                                                         
                                                       M. Richardson, Ed.
                                                                Sandelman
-                                                       19 September 2026
+                                                       21 September 2026
 
 
              PCAP Now Generic (pcapng) Capture File Format
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 March 2027.
+   This Internet-Draft will expire on 25 March 2027.
 
 Copyright Notice
 
@@ -2795,8 +2795,8 @@ Contributors
 
    Eelco Chaudron
    Red Hat
-   De Entree 238
-   1101 EE Amsterdam
+   Fred Roeskestraat 100
+   1076 ED Amsterdam
    Netherlands
    Email: eelco@redhat.com
 
